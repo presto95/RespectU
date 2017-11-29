@@ -1095,7 +1095,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RespectU 1.11" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-P7-dhd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RespectU 1.12" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-P7-dhd">
                                                     <rect key="frame" x="16" y="27" width="181" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>

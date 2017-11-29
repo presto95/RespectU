@@ -47,6 +47,7 @@ class SongTableViewController: UITableViewController {
     var wordsDict=[String:[String]]()
     var wordsIndexTitles: [String]=[]
     let achievementResults = try! Realm().objects(AchievementInfo.self).filter("type = 'MUSIC'")
+    let missionResults = try! Realm().objects(MissionInfo.self).filter("reward LIKE 'Music*'")
 
     func generateWordsDict(){
         for word in self.temp{
@@ -551,7 +552,14 @@ class SongTableViewController: UITableViewController {
         for i in achievementResults{
             if(i.item == cell.title.text!){
                 unlockString += "\n\n" + "Unlock (ACHIEVEMENT)".localized + "\n"
-                unlockString += i.title + " Stage \(i.level)"
+                unlockString += i.title.localized + " Stage \(i.level)"
+                break
+            }
+        }
+        for i in missionResults{
+            if(i.reward.localized.split(separator: ":")[1].trimmingCharacters(in: .whitespaces) == results![rowIndex].title){
+                unlockString += "\n\n" + "Unlock (MISSION)".localized + "\n"
+                unlockString += i.section + " - " + i.title
                 break
             }
         }

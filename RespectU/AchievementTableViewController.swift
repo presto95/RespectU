@@ -66,7 +66,7 @@ class AchievementTableViewController: UITableViewController {
         for i in 0...section{
             index += stageCount[i]
         }
-        return results![index - 1].title
+        return results![index - 1].title.localized
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

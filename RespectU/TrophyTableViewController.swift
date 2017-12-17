@@ -107,6 +107,13 @@ class TrophyTableViewController: UITableViewController {
         cell.contentKor.textColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         cell.backgroundColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         // Configure the cell...
+        let string = object.titleKor
+        if(string == "내 마음속에 저장" || string == "고고학자" || string == "럭키 해피 데이" || string == "나올수도 있고 안나올수도 있습니다" || string == "언제나 감사합니다"){
+            cell.accessoryType = .detailButton
+        }
+        else{
+            cell.accessoryType = .none
+        }
         return cell
     }
     
@@ -121,7 +128,7 @@ class TrophyTableViewController: UITableViewController {
             self.present(alert, animated: true)
         }
         if(string == "럭키 해피 데이"){
-            let alert=UIAlertController(title: "777 Combos".localized, message: "4B NORMAL [Bright Dream]\n94 Combos -> BREAK -> Full Combo = 99 Combos\n\n4B NORMAL [Seeker]\nMAX COMBO -> Trophy Earned".localized, preferredStyle: .alert)
+            let alert=UIAlertController(title: "777 Combos".localized, message: "5B NORMAL [Seeker]\n47 Combos -> BREAK -> Full Combo -> Trophy Earned".localized, preferredStyle: .alert)
             let action=UIAlertAction(title: "OK".localized, style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true)

@@ -9,9 +9,12 @@
 import UIKit
 import ActionSheetPicker_3_0
 import NotificationBannerSwift
+import RealmSwift
 
 class SongDetailViewController: UIViewController {
 
+    let realm = try! Realm()
+    var key: String=""
     var detailBpm: String=""
     var detailTitle: String=""
     var detailSeries: String=""
@@ -40,6 +43,8 @@ class SongDetailViewController: UIViewController {
     var mx6: Int=0
     var mx8: Int=0
     let BPM=UserDefaults.standard.double(forKey: "bpm")
+    var query: NSPredicate? = nil
+    var record: RecordInfo? = nil
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var labelTitle: UILabel!
@@ -75,7 +80,20 @@ class SongDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rateApp(self, immediatly: false)
+        switch(key){
+        case "4B":
+            segmentedControl.selectedSegmentIndex = 0
+        case "5B":
+            segmentedControl.selectedSegmentIndex = 1
+        case "6B":
+            segmentedControl.selectedSegmentIndex = 2
+        case "8B":
+            segmentedControl.selectedSegmentIndex = 3
+        default:
+            break
+        }
+        query = NSPredicate(format: "title = %@",self.detailTitle)
+        record = try! Realm().objects(RecordInfo.self).filter(query!).first!
         self.navigationItem.title = "Performance Record".localized
         labelRank.text = "RANK".localized
         labelAccuracy.text = "ACCURACY".localized
@@ -263,13 +281,57 @@ class SongDetailViewController: UIViewController {
     func setRank(rank: String?, difficulty: String){
         switch(self.segmentedControl.selectedSegmentIndex){
         case 0:
-            UserDefaults.standard.set(rank, forKey: self.detailTitle+"4B"+difficulty+"Rank")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm4Rank=rank ?? "-"
+                case "hard":
+                    record!.hd4Rank=rank ?? "-"
+                case "maximum":
+                    record!.mx4Rank=rank ?? "-"
+                default:
+                    break
+                }
+            }
         case 1:
-            UserDefaults.standard.set(rank, forKey: self.detailTitle+"5B"+difficulty+"Rank")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm5Rank=rank ?? "-"
+                case "hard":
+                    record!.hd5Rank=rank ?? "-"
+                case "maximum":
+                    record!.mx5Rank=rank ?? "-"
+                default:
+                    break
+                }
+            }
         case 2:
-            UserDefaults.standard.set(rank, forKey: self.detailTitle+"6B"+difficulty+"Rank")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm6Rank=rank ?? "-"
+                case "hard":
+                    record!.hd6Rank=rank ?? "-"
+                case "maximum":
+                    record!.mx6Rank=rank ?? "-"
+                default:
+                    break
+                }
+            }
         case 3:
-            UserDefaults.standard.set(rank, forKey: self.detailTitle+"8B"+difficulty+"Rank")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm8Rank=rank ?? "-"
+                case "hard":
+                    record!.hd8Rank=rank ?? "-"
+                case "maximum":
+                    record!.mx8Rank=rank ?? "-"
+                default:
+                    break
+                }
+            }
         default:
             break
         }
@@ -283,13 +345,57 @@ class SongDetailViewController: UIViewController {
         }
         switch(self.segmentedControl.selectedSegmentIndex){
         case 0:
-            UserDefaults.standard.set(value, forKey: self.detailTitle+"4B"+difficulty+"Accuracy")
+        try! realm.write{
+            switch(difficulty){
+            case "normal":
+                record!.nm4Rate=value ?? "-"
+            case "hard":
+                record!.hd4Rate=value ?? "-"
+            case "maximum":
+                record!.mx4Rate=value ?? "-"
+            default:
+                break
+            }
+        }
         case 1:
-            UserDefaults.standard.set(value, forKey: self.detailTitle+"5B"+difficulty+"Accuracy")
+        try! realm.write{
+            switch(difficulty){
+            case "normal":
+                record!.nm5Rate=value ?? "-"
+            case "hard":
+                record!.hd5Rate=value ?? "-"
+            case "maximum":
+                record!.mx5Rate=value ?? "-"
+            default:
+                break
+            }
+        }
         case 2:
-            UserDefaults.standard.set(value, forKey: self.detailTitle+"6B"+difficulty+"Accuracy")
+        try! realm.write{
+            switch(difficulty){
+            case "normal":
+                record!.nm6Rate=value ?? "-"
+            case "hard":
+                record!.hd6Rate=value ?? "-"
+            case "maximum":
+                record!.mx6Rate=value ?? "-"
+            default:
+                break
+            }
+        }
         case 3:
-            UserDefaults.standard.set(value, forKey: self.detailTitle+"8B"+difficulty+"Accuracy")
+        try! realm.write{
+            switch(difficulty){
+            case "normal":
+                record!.nm8Rate=value ?? "-"
+            case "hard":
+                record!.hd8Rate=value ?? "-"
+            case "maximum":
+                record!.mx8Rate=value ?? "-"
+            default:
+                break
+            }
+        }
         default:
             break
         }
@@ -299,13 +405,57 @@ class SongDetailViewController: UIViewController {
     func setNote(note: String?, difficulty: String){
         switch(self.segmentedControl.selectedSegmentIndex){
         case 0:
-            UserDefaults.standard.set(note, forKey: self.detailTitle+"4B"+difficulty+"Note")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm4Note=note ?? "-"
+                case "hard":
+                    record!.hd4Note=note ?? "-"
+                case "maximum":
+                    record!.mx4Note=note ?? "-"
+                default:
+                    break
+                }
+            }
         case 1:
-            UserDefaults.standard.set(note, forKey: self.detailTitle+"5B"+difficulty+"Note")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm5Note=note ?? "-"
+                case "hard":
+                    record!.hd5Note=note ?? "-"
+                case "maximum":
+                    record!.mx5Note=note ?? "-"
+                default:
+                    break
+                }
+            }
         case 2:
-            UserDefaults.standard.set(note, forKey: self.detailTitle+"6B"+difficulty+"Note")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm6Note=note ?? "-"
+                case "hard":
+                    record!.hd6Note=note ?? "-"
+                case "maximum":
+                    record!.mx6Note=note ?? "-"
+                default:
+                    break
+                }
+            }
         case 3:
-            UserDefaults.standard.set(note, forKey: self.detailTitle+"8B"+difficulty+"Note")
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm8Note=note ?? "-"
+                case "hard":
+                    record!.hd8Note=note ?? "-"
+                case "maximum":
+                    record!.mx8Note=note ?? "-"
+                default:
+                    break
+                }
+            }
         default:
             break
         }
@@ -314,15 +464,50 @@ class SongDetailViewController: UIViewController {
     
     func buttonSetting(key: String){
         setButtonEnaled()
-        buttonNormalRank.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"normalRank") ?? "-", for: .normal)
-        buttonNormalAccuracy.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"normalAccuracy") ?? "-", for: .normal)
-        buttonNormalNote.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"normalNote") ?? "-", for: .normal)
-        buttonHardRank.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"hardRank") ?? "-", for: .normal)
-        buttonHardAccuracy.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"hardAccuracy") ?? "-", for: .normal)
-        buttonHardNote.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"hardNote") ?? "-", for: .normal)
-        buttonMaximumRank.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"maximumRank") ?? "-", for: .normal)
-        buttonMaximumAccuracy.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"maximumAccuracy") ?? "-", for: .normal)
-        buttonMaximumNote.setTitle(UserDefaults.standard.string(forKey: detailTitle+key+"maximumNote") ?? "-", for: .normal)
+        switch(key){
+        case "4B":
+            buttonNormalRank.setTitle(record?.nm4Rank, for: .normal)
+            buttonNormalAccuracy.setTitle(record?.nm4Rate, for: .normal)
+            buttonNormalNote.setTitle(record?.nm4Note, for: .normal)
+            buttonHardRank.setTitle(record?.hd4Rank, for: .normal)
+            buttonHardAccuracy.setTitle(record?.hd4Rate, for: .normal)
+            buttonHardNote.setTitle(record?.hd4Note, for: .normal)
+            buttonMaximumRank.setTitle(record?.mx4Rank, for: .normal)
+            buttonMaximumAccuracy.setTitle(record?.mx4Rate, for: .normal)
+            buttonMaximumNote.setTitle(record?.mx4Note, for: .normal)
+        case "5B":
+            buttonNormalRank.setTitle(record?.nm5Rank, for: .normal)
+            buttonNormalAccuracy.setTitle(record?.nm5Rate, for: .normal)
+            buttonNormalNote.setTitle(record?.nm5Note, for: .normal)
+            buttonHardRank.setTitle(record?.hd5Rank, for: .normal)
+            buttonHardAccuracy.setTitle(record?.hd5Rate, for: .normal)
+            buttonHardNote.setTitle(record?.hd5Note, for: .normal)
+            buttonMaximumRank.setTitle(record?.mx5Rank, for: .normal)
+            buttonMaximumAccuracy.setTitle(record?.mx5Rate, for: .normal)
+            buttonMaximumNote.setTitle(record?.mx5Note, for: .normal)
+        case "6B":
+            buttonNormalRank.setTitle(record?.nm6Rank, for: .normal)
+            buttonNormalAccuracy.setTitle(record?.nm6Rate, for: .normal)
+            buttonNormalNote.setTitle(record?.nm6Note, for: .normal)
+            buttonHardRank.setTitle(record?.hd6Rank, for: .normal)
+            buttonHardAccuracy.setTitle(record?.hd6Rate, for: .normal)
+            buttonHardNote.setTitle(record?.hd6Note, for: .normal)
+            buttonMaximumRank.setTitle(record?.mx6Rank, for: .normal)
+            buttonMaximumAccuracy.setTitle(record?.mx6Rate, for: .normal)
+            buttonMaximumNote.setTitle(record?.mx6Note, for: .normal)
+        case "8B":
+            buttonNormalRank.setTitle(record?.nm8Rank, for: .normal)
+            buttonNormalAccuracy.setTitle(record?.nm8Rate, for: .normal)
+            buttonNormalNote.setTitle(record?.nm8Note, for: .normal)
+            buttonHardRank.setTitle(record?.hd8Rank, for: .normal)
+            buttonHardAccuracy.setTitle(record?.hd8Rate, for: .normal)
+            buttonHardNote.setTitle(record?.hd8Note, for: .normal)
+            buttonMaximumRank.setTitle(record?.mx8Rank, for: .normal)
+            buttonMaximumAccuracy.setTitle(record?.mx8Rate, for: .normal)
+            buttonMaximumNote.setTitle(record?.mx8Note, for: .normal)
+        default:
+            break
+        }
     }
     
     func initializing(){

@@ -11,6 +11,8 @@ import RealmSwift
 import MessageUI
 import NotificationBannerSwift
 
+
+
 class MoreTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var cell1: UITableViewCell!
@@ -22,6 +24,9 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     @IBOutlet weak var cell7: UITableViewCell!
     @IBOutlet weak var nightSwitch: UISwitch!
     @IBOutlet weak var cellAchievement: UITableViewCell!
+    @IBOutlet weak var cellRateCalculator: UITableViewCell!
+    @IBOutlet weak var cellFavoriteButton: UITableViewCell!
+    @IBOutlet weak var cellSynchronization: UITableViewCell!
     
     @IBOutlet weak var labelS: UILabel!
     @IBOutlet weak var labelA: UILabel!
@@ -39,16 +44,19 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     @IBOutlet weak var labelPerfectPlayCount: UILabel!
     
     var realm: Realm? = nil
-    var results: Results<SongInfo>? = nil
+    var results: Results<RecordInfo>? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
         cellAchievement.textLabel?.text = "ACHIEVEMENT".localized
+        cellRateCalculator.textLabel?.text = "RATE Calculator".localized
+        cellFavoriteButton.textLabel?.text = "My Favorite Button".localized
         cell5.textLabel?.text="Night Mode".localized
         cell5.textLabel?.font = UIFont(name: "NanumBarunGothicOTFLight", size: 15)
         cell2.detailTextLabel?.text="\(Int(UserDefaults.standard.double(forKey: "bpm"))) BPM"
+        cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,41 +68,47 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         if(UserDefaults.standard.bool(forKey: "night")){
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell1.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell2.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell3.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell4.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell5.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell6.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell7.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell2.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell3.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell4.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell5.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelS.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelA.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelB.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelC.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelScount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelAcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelBcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelCcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelClearedPatterns.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelClearedPatternsCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelMaxCombo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelMaxComboCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelPerfectPlay.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelPerfectPlayCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.tabBarController?.tabBar.barStyle = .black
-            self.navigationController?.navigationBar.barStyle = .black
+            cellFavoriteButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellRateCalculator.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell1.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell2.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell3.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell4.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell5.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell6.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell7.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellRateCalculator.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellFavoriteButton.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell2.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell3.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell4.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell5.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelS.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelA.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelB.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelC.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelScount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelAcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelBcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelCcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelClearedPatterns.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelClearedPatternsCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelMaxCombo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelMaxComboCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelPerfectPlay.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelPerfectPlayCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            tabBarController?.tabBar.barStyle = .black
+            navigationController?.navigationBar.barStyle = .black
         }
         else{
             nightSwitch.setOn(false, animated: false)
             view.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.navigationController?.navigationBar.barStyle = .default
-            self.tabBarController?.tabBar.barStyle = .default
+            navigationController?.navigationBar.barStyle = .default
+            tabBarController?.tabBar.barStyle = .default
+            cellFavoriteButton.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellRateCalculator.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell1.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell2.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -103,24 +117,26 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cell5.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell6.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell7.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellRateCalculator.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellFavoriteButton.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell2.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell3.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell4.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelS.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelA.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelB.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelC.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelScount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelAcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelBcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelCcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelClearedPatterns.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelClearedPatternsCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelMaxCombo.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelMaxComboCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelPerfectPlay.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelPerfectPlayCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelS.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelA.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelB.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelC.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelScount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelAcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelBcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelCcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelClearedPatterns.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelClearedPatternsCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelMaxCombo.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelMaxComboCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelPerfectPlay.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelPerfectPlayCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         }
     }
 
@@ -133,7 +149,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 10
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -170,13 +186,40 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             alert.addAction(yesAction)
             self.present(alert, animated: true, completion: nil)
         case 3:
+            let view=UIImageView(image: #imageLiteral(resourceName: "success"))
+            let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
+            let alert = UIAlertController(title: "My Favorite Button".localized, message: "Current".localized+" : \(favorite ?? "None".localized)\n\n"+"The information displayed on the first run screen depends on the setting value.".localized, preferredStyle: .alert)
+            let button4 = UIAlertAction(title: "4B", style: .default){(alert) in
+                UserDefaults.standard.set("4B", forKey: "favoriteButton")
+                self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
+                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
+            }
+            let button5 = UIAlertAction(title: "5B", style: .default){ (alert) in
+                UserDefaults.standard.set("5B", forKey: "favoriteButton")
+                self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
+                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
+            }
+            let button6 = UIAlertAction(title: "6B", style: .default){ (alert) in
+                UserDefaults.standard.set("6B", forKey: "favoriteButton")
+                self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
+                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
+            }
+            let button8 = UIAlertAction(title: "8B", style: .default){ (alert) in
+                UserDefaults.standard.set("8B", forKey: "favoriteButton")
+                self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
+                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
+            }
+            let buttonCancel = UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
+            alert.addAction(button4); alert.addAction(button5); alert.addAction(button6); alert.addAction(button8); alert.addAction(buttonCancel)
+            self.present(alert, animated: true, completion: nil)
+        case 5:
             sendEmail()
-        case 4:
+        case 6:
             let alert=UIAlertController(title: "Notification".localized, message: "Recommended to restart for correct operation.".localized, preferredStyle: .alert)
             let action=UIAlertAction(title: "OK".localized,style: .default, handler: nil)
             alert.addAction(action)
             present(alert,animated: true)
-        case 6:
+        case 8:
             let tipCount: UInt32 = 6
             let rand=arc4random() % tipCount
             switch(rand){
@@ -209,33 +252,37 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         if(UserDefaults.standard.bool(forKey: "night")){
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell1.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell2.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell3.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell4.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell5.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell6.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cell7.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell2.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell3.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell4.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.cell5.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelS.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelA.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelB.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelC.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelScount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelAcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelBcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelCcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelClearedPatterns.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelClearedPatternsCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelMaxCombo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelMaxComboCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelPerfectPlay.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.labelPerfectPlayCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellFavoriteButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellRateCalculator.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell1.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell2.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell3.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell4.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell5.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell6.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cell7.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellRateCalculator.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellFavoriteButton.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell2.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell3.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell4.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cell5.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelS.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelA.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelB.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelC.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelScount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelAcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelBcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelCcount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelClearedPatterns.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelClearedPatternsCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelMaxCombo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelMaxComboCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelPerfectPlay.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            labelPerfectPlayCount.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             tabBarController?.tabBar.barStyle = .black
             navigationController?.navigationBar.barStyle = .black
         }
@@ -244,6 +291,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             view.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             navigationController?.navigationBar.barStyle = .default
             tabBarController?.tabBar.barStyle = .default
+            cellFavoriteButton.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellRateCalculator.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell1.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell2.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -252,25 +301,27 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cell5.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell6.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell7.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellRateCalculator.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellFavoriteButton.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell2.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell3.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell4.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell5.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelS.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelA.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelB.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelC.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelScount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelAcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelBcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelCcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelClearedPatterns.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelClearedPatternsCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelMaxCombo.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelMaxComboCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelPerfectPlay.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-            self.labelPerfectPlayCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelS.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelA.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelB.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelC.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelScount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelAcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelBcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelCcount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelClearedPatterns.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelClearedPatternsCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelMaxCombo.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelMaxComboCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelPerfectPlay.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            labelPerfectPlayCount.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         }
         reloadInputViews()
     }
@@ -317,9 +368,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     
     func showRecords(){
         realm = try! Realm()
-        results = try! Realm().objects(SongInfo.self)
-        let keyArray = ["4B", "5B", "6B", "8B"]
-        let difficultyArray = ["normal", "hard", "maximum"]
+        results = try! Realm().objects(RecordInfo.self)
         var countS=0
         var countA=0
         var countB=0
@@ -327,36 +376,14 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         var countClearedPatterns=0
         var countMaxCombo=0
         var countPerfectPlay=0
-        for object in results!{
-            let title=object.title
-            for key in keyArray{
-                for difficulty in difficultyArray{
-                    switch(UserDefaults.standard.string(forKey: title+key+difficulty+"Rank")){
-                    case "S"?:
-                        countS+=1
-                        countClearedPatterns+=1
-                    case "A"?:
-                        countA+=1
-                        countClearedPatterns+=1
-                    case "B"?:
-                        countB+=1
-                        countClearedPatterns+=1
-                    case "C"?:
-                        countC+=1
-                        countClearedPatterns+=1
-                    default:
-                        break
-                    }
-                    switch(UserDefaults.standard.string(forKey: title+key+difficulty+"Note")){
-                    case "MAX COMBO"?:
-                        countMaxCombo+=1
-                    case "PERFECT PLAY"?:
-                        countPerfectPlay+=1
-                    default:
-                        break
-                    }
-                }
-            }
+        for i in results!{
+            if(i.nm4Rank == "S") { countS+=1 }; if(i.nm5Rank == "S") { countS+=1 }; if(i.nm6Rank == "S") { countS+=1 }; if(i.nm8Rank == "S") { countS+=1 }; if(i.hd4Rank == "S") { countS+=1 }; if(i.hd5Rank == "S") { countS+=1 }; if(i.hd6Rank == "S") { countS+=1 }; if(i.hd8Rank == "S") { countS+=1 }; if(i.mx4Rank == "S") { countS+=1 }; if(i.mx5Rank == "S") { countS+=1 }; if(i.mx6Rank == "S") { countS+=1 }; if(i.mx8Rank == "S") { countS+=1 }
+            if(i.nm4Rank == "A") { countA+=1 }; if(i.nm5Rank == "A") { countA+=1 }; if(i.nm6Rank == "A") { countA+=1 }; if(i.nm8Rank == "A") { countA+=1 }; if(i.hd4Rank == "A") { countA+=1 }; if(i.hd5Rank == "A") { countA+=1 }; if(i.hd6Rank == "A") { countA+=1 }; if(i.hd8Rank == "A") { countA+=1 }; if(i.mx4Rank == "A") { countA+=1 }; if(i.mx5Rank == "A") { countA+=1 }; if(i.mx6Rank == "A") { countA+=1 }; if(i.mx8Rank == "A") { countA+=1 }
+            if(i.nm4Rank == "B") { countB+=1 }; if(i.nm5Rank == "B") { countB+=1 }; if(i.nm6Rank == "B") { countB+=1 }; if(i.nm8Rank == "B") { countB+=1 }; if(i.hd4Rank == "B") { countB+=1 }; if(i.hd5Rank == "B") { countB+=1 }; if(i.hd6Rank == "B") { countB+=1 }; if(i.hd8Rank == "B") { countB+=1 }; if(i.mx4Rank == "B") { countB+=1 }; if(i.mx5Rank == "B") { countB+=1 }; if(i.mx6Rank == "B") { countB+=1 }; if(i.mx8Rank == "B") { countB+=1 };
+            if(i.nm4Rank == "C") { countC+=1 }; if(i.nm5Rank == "C") { countC+=1 }; if(i.nm6Rank == "C") { countC+=1 }; if(i.nm8Rank == "C") { countC+=1 }; if(i.hd4Rank == "C") { countC+=1 }; if(i.hd5Rank == "C") { countC+=1 }; if(i.hd6Rank == "C") { countC+=1 }; if(i.hd8Rank == "C") { countC+=1 }; if(i.mx4Rank == "C") { countC+=1 }; if(i.mx5Rank == "C") { countC+=1 }; if(i.mx6Rank == "C") { countC+=1 }; if(i.mx8Rank == "C") { countC+=1 };
+            countClearedPatterns = countS + countA + countB + countC
+            if(i.nm4Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.nm5Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.nm6Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.nm8Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.hd4Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.hd5Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.hd6Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.hd8Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.mx4Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.mx5Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.mx6Note == "MAX COMBO") { countMaxCombo+=1 }; if(i.mx8Note == "MAX COMBO") { countMaxCombo+=1 };
+            if(i.nm4Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.nm5Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.nm6Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.nm8Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.hd4Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.hd5Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.hd6Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.hd8Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.mx4Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.mx5Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.mx6Note == "PERFECT PLAY") { countPerfectPlay+=1 }; if(i.mx8Note == "PERFECT PLAY") { countPerfectPlay+=1 };
         }
         labelScount.text = String(countS)
         labelAcount.text = String(countA)
@@ -366,5 +393,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         labelMaxComboCount.text = String(countMaxCombo)
         labelPerfectPlayCount.text = String(countPerfectPlay)
     }
+    
+    
 }
 

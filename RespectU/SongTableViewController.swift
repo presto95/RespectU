@@ -13,6 +13,7 @@ import ActionSheetPicker_3_0
 import NotificationBannerSwift
 
 class PlaylistInfo: Object{
+    @objc dynamic var id: Int = 0
     @objc dynamic var series: String=""
     @objc dynamic var title: String=""
     @objc dynamic var composer: String=""
@@ -37,8 +38,9 @@ class SongTableViewController: UITableViewController {
     var BPM: Double=0.0
     var realm: Realm? = nil
     var results: Results<SongInfo>? = nil
+    var record: Results<RecordInfo>? = nil
     var series: String="All"
-    var key: String="4B"
+    var key: String = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     var indexSearch1=0
     var indexSearch2=0
     var indexSort1=0
@@ -46,8 +48,8 @@ class SongTableViewController: UITableViewController {
     var wordsSection=[String]()
     var wordsDict=[String:[String]]()
     var wordsIndexTitles: [String]=[]
-    let achievementResults = try! Realm().objects(AchievementInfo.self).filter("type = 'MUSIC'")
-    let missionResults = try! Realm().objects(MissionInfo.self).filter("reward LIKE 'Music*'")
+    var achievementResults: Results<AchievementInfo>? = nil
+    var missionResults: Results<MissionInfo>? = nil
 
     func generateWordsDict(){
         for word in self.temp{
@@ -67,8 +69,24 @@ class SongTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        switch(key){
+        case "4B":
+            indexSearch2=0
+        case "5B":
+            indexSearch2=1
+        case "6B":
+            indexSearch2=2
+        case "8B":
+            indexSearch2=3
+        default:
+            break
+        }
+        rateApp(self, immediatly: false)
         realm = try! Realm()
         results = try! Realm().objects(SongInfo.self).sorted(byKeyPath: "title")
+        record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "title")
+        achievementResults = try! Realm().objects(AchievementInfo.self).filter("type = 'MUSIC'")
+        missionResults = try! Realm().objects(MissionInfo.self).filter("reward LIKE 'Music*'")
         for i in 0..<self.results!.count{
             temp.append(self.results![i].title)
         }
@@ -99,6 +117,7 @@ class SongTableViewController: UITableViewController {
         }
         UserDefaults.standard.set(true, forKey: "first")
         BPM=UserDefaults.standard.double(forKey: "bpm")
+        tableView.reloadData()
         tableView.reloadInputViews()
     }
 
@@ -144,9 +163,11 @@ class SongTableViewController: UITableViewController {
                 }
                 if(self.series=="All"){
                     self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "title")
+                    self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "title")
                 }
                 else{
                     self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "title")
+                    self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "title")
                 }
                 for i in 0..<self.results!.count{
                     self.temp.append(self.results![i].title)
@@ -196,17 +217,21 @@ class SongTableViewController: UITableViewController {
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm4", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm4", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: true)
                             }
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm4", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm4", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: false)
                             }
                         }
                     }
@@ -214,17 +239,21 @@ class SongTableViewController: UITableViewController {
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm5", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm5", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: true)
                             }
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm5", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm5", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: false)
+                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: false)
                             }
                         }
                     }
@@ -232,17 +261,21 @@ class SongTableViewController: UITableViewController {
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm6", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm6", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
                             }
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm6", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm6", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
                             }
                         }
                     }
@@ -250,17 +283,21 @@ class SongTableViewController: UITableViewController {
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm8", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm8", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
                             }
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm8", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm8", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
                             }
                         }
                     }
@@ -421,6 +458,35 @@ class SongTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
 
+    @IBAction func random(_ sender: UIBarButtonItem) {
+        let songObject = realm!.objects(SongInfo.self)
+        let rand = arc4random_uniform(UInt32(songObject.count))
+        let object = songObject[Int(rand)]
+        let next=self.storyboard?.instantiateViewController(withIdentifier: "SongDetailViewController") as! SongDetailViewController
+        next.key = self.key
+        next.detailBpm=object.bpm
+        next.detailTitle = object.title
+        next.detailSeries = object.series
+        next.is4BNormalExist = object.nm4 == 0 ? false : true
+        next.is4BHardExist = object.hd4 == 0 ? false : true
+        next.is4BMaximumExist = object.mx4 == 0 ? false : true
+        next.is5BNormalExist = object.nm5 == 0 ? false : true
+        next.is5BHardExist = object.hd5 == 0 ? false : true
+        next.is5BMaximumExist = object.mx5 == 0 ? false : true
+        next.is6BNormalExist = object.nm6 == 0 ? false : true
+        next.is6BHardExist = object.hd6 == 0 ? false : true
+        next.is6BMaximumExist = object.mx6 == 0 ? false : true
+        next.is8BNormalExist = object.nm8 == 0 ? false : true
+        next.is8BHardExist = object.hd8 == 0 ? false : true
+        next.is8BMaximumExist = object.mx8 == 0 ? false : true
+        next.nm4 = object.nm4; next.nm5=object.nm5; next.nm6=object.nm6; next.nm8=object.nm8
+        next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
+        next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
+        self.navigationController?.pushViewController(next, animated: true)
+        
+        
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return wordsSection.count
@@ -446,6 +512,13 @@ class SongTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell", for: indexPath) as! SongTableViewCell
+        let isNight=UserDefaults.standard.bool(forKey: "night")
+        cell.title.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.bpm.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.nm.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.hd.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.mx.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        cell.backgroundColor = isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         var rowIndex=0
         if(indexPath.section > 0){
             for i in 0..<indexPath.section{
@@ -455,6 +528,7 @@ class SongTableViewController: UITableViewController {
         }
         rowIndex=rowIndex+indexPath.row
         let object=results![rowIndex]
+        let recordObject = record![rowIndex]
         cell.title.text=object.title
         cell.composer.text=object.composer
         cell.bpm.text="BPM " + object.bpm
@@ -463,18 +537,126 @@ class SongTableViewController: UITableViewController {
             cell.nm.text=object.nm4 == 0 ? "-" : String(object.nm4)
             cell.hd.text=object.hd4 == 0 ? "-" : String(object.hd4)
             cell.mx.text=object.mx4 == 0 ? "-" : String(object.mx4)
+            if(recordObject.nm4Note == "MAX COMBO"){
+                cell.nmNote.text = "MC"
+            }
+            else if(recordObject.nm4Note == "PERFECT PLAY"){
+                cell.nmNote.text = "PP"
+            }
+            else{
+                cell.nmNote.text=cell.nm.text != "-" ? recordObject.nm4Rank : ""
+            }
+            if(recordObject.hd4Note == "MAX COMBO"){
+                cell.hdNote.text = "MC"
+            }
+            else if(recordObject.hd4Note == "PERFECT PLAY"){
+                cell.hdNote.text = "PP"
+            }
+            else{
+                cell.hdNote.text=cell.hd.text != "-" ? recordObject.hd4Rank : ""
+            }
+            if(recordObject.mx4Note == "MAX COMBO"){
+                cell.mxNote.text = "MC"
+            }
+            else if(recordObject.mx4Note == "PERFECT PLAY"){
+                cell.mxNote.text = "PP"
+            }
+            else{
+                cell.mxNote.text=cell.mx.text != "-" ? recordObject.mx4Rank : ""
+            }
         case "5B":
             cell.nm.text=object.nm5 == 0 ? "-" : String(object.nm5)
             cell.hd.text=object.hd5 == 0 ? "-" : String(object.hd5)
             cell.mx.text=object.mx5 == 0 ? "-" : String(object.mx5)
+            if(recordObject.nm5Note == "MAX COMBO"){
+                cell.nmNote.text = "MC"
+            }
+            else if(recordObject.nm5Note == "PERFECT PLAY"){
+                cell.nmNote.text = "PP"
+            }
+            else{
+                cell.nmNote.text=cell.nm.text != "-" ? recordObject.nm5Rank : ""
+            }
+            if(recordObject.hd5Note == "MAX COMBO"){
+                cell.hdNote.text = "MC"
+            }
+            else if(recordObject.hd5Note == "PERFECT PLAY"){
+                cell.hdNote.text = "PP"
+            }
+            else{
+                cell.hdNote.text=cell.hd.text != "-" ? recordObject.hd5Rank : ""
+            }
+            if(recordObject.mx5Note == "MAX COMBO"){
+                cell.mxNote.text = "MC"
+            }
+            else if(recordObject.mx5Note == "PERFECT PLAY"){
+                cell.mxNote.text = "PP"
+            }
+            else{
+                cell.mxNote.text=cell.mx.text != "-" ? recordObject.mx5Rank : ""
+        }
         case "6B":
             cell.nm.text=object.nm6 == 0 ? "-" : String(object.nm6)
             cell.hd.text=object.hd6 == 0 ? "-" : String(object.hd6)
             cell.mx.text=object.mx6 == 0 ? "-" : String(object.mx6)
+            if(recordObject.nm6Note == "MAX COMBO"){
+                cell.nmNote.text = "MC"
+            }
+            else if(recordObject.nm6Note == "PERFECT PLAY"){
+                cell.nmNote.text = "PP"
+            }
+            else{
+                cell.nmNote.text=cell.nm.text != "-" ? recordObject.nm6Rank : ""
+            }
+            if(recordObject.hd6Note == "MAX COMBO"){
+                cell.hdNote.text = "MC"
+            }
+            else if(recordObject.hd6Note == "PERFECT PLAY"){
+                cell.hdNote.text = "PP"
+            }
+            else{
+                cell.hdNote.text=cell.hd.text != "-" ? recordObject.hd6Rank : ""
+            }
+            if(recordObject.mx6Note == "MAX COMBO"){
+                cell.mxNote.text = "MC"
+            }
+            else if(recordObject.mx6Note == "PERFECT PLAY"){
+                cell.mxNote.text = "PP"
+            }
+            else{
+                cell.mxNote.text=cell.mx.text != "-" ? recordObject.mx6Rank : ""
+            }
         case "8B":
             cell.nm.text=object.nm8 == 0 ? "-" : String(object.nm8)
             cell.hd.text=object.hd8 == 0 ? "-" : String(object.hd8)
             cell.mx.text=object.mx8 == 0 ? "-" : String(object.mx8)
+            if(recordObject.nm8Note == "MAX COMBO"){
+                cell.nmNote.text = "MC"
+            }
+            else if(recordObject.nm8Note == "PERFECT PLAY"){
+                cell.nmNote.text = "PP"
+            }
+            else{
+                cell.nmNote.text=cell.nm.text != "-" ? recordObject.nm8Rank : ""
+            }
+            if(recordObject.hd8Note == "MAX COMBO"){
+                cell.hdNote.text = "MC"
+            }
+            else if(recordObject.hd8Note == "PERFECT PLAY"){
+                cell.hdNote.text = "PP"
+            }
+            else{
+                cell.hdNote.text=cell.hd.text != "-" ? recordObject.hd8Rank : ""
+            }
+            if(recordObject.mx8Note == "MAX COMBO"){
+                cell.mxNote.text = "MC"
+            }
+            else if(recordObject.mx8Note == "PERFECT PLAY"){
+                cell.mxNote.text = "PP"
+            }
+            else{
+                cell.mxNote.text=cell.mx.text != "-" ? recordObject.mx8Rank : ""
+            }
         default:
             break
         }
@@ -490,14 +672,7 @@ class SongTableViewController: UITableViewController {
         default:
             break
         }
-        let isNight=UserDefaults.standard.bool(forKey: "night")
-        cell.title.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.bpm.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.nm.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.hd.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        cell.mx.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        // Configure the cell...
-        cell.backgroundColor = isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        
         return cell
     }
     
@@ -549,14 +724,14 @@ class SongTableViewController: UITableViewController {
         }
         rowIndex=rowIndex+indexPath.row
         var unlockString = ""
-        for i in achievementResults{
+        for i in achievementResults!{
             if(i.item == cell.title.text!){
                 unlockString += "\n\n" + "Unlock (ACHIEVEMENT)".localized + "\n"
                 unlockString += i.title.localized + " Stage \(i.level)"
                 break
             }
         }
-        for i in missionResults{
+        for i in missionResults!{
             if(i.reward.localized.split(separator: ":")[1].trimmingCharacters(in: .whitespaces) == results![rowIndex].title){
                 unlockString += "\n\n" + "Unlock (MISSION)".localized + "\n"
                 unlockString += i.section + " - " + i.title
@@ -598,6 +773,7 @@ class SongTableViewController: UITableViewController {
         let object=results![rowIndex]
         let buttonPerformance=UITableViewRowAction(style: .normal, title: "Performance".localized){action, index in
             let next=self.storyboard?.instantiateViewController(withIdentifier: "SongDetailViewController") as! SongDetailViewController
+            next.key = self.key
             next.detailBpm=object.bpm
             next.detailTitle = object.title
             next.detailSeries = object.series
@@ -654,8 +830,9 @@ class SongTableViewController: UITableViewController {
         playlist.nm4=nm4; playlist.nm5=nm5; playlist.nm6=nm6; playlist.nm8=nm8
         playlist.hd4=hd4; playlist.hd5=hd5; playlist.hd6=hd6; playlist.hd8=hd8
         playlist.mx4=mx4; playlist.mx5=mx5; playlist.mx6=mx6; playlist.mx8=mx8
-        
+    
         let realm=try! Realm()
+        playlist.id = (realm.objects(PlaylistInfo.self).max(ofProperty: "id") as Int? ?? 0) + 1
         try! realm.write{
             realm.add(playlist)
         }

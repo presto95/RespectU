@@ -86,6 +86,7 @@ class MissionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath) as! MissionTableViewCell
         let object=results![indexPath.row+(indexPath.section*6)]
         cell.title.text=object.title
+        cell.reward.text = object.reward == "" ? "None".localized : object.reward
         if(type == "Respect"){
             switch(indexPath.section){
             case 0:

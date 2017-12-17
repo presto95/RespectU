@@ -12,6 +12,7 @@ class MissionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var color: UILabel!
+    @IBOutlet weak var reward: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

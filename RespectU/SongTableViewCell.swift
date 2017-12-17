@@ -16,6 +16,9 @@ class SongTableViewCell: UITableViewCell {
     @IBOutlet weak var nm: UILabel!
     @IBOutlet weak var hd: UILabel!
     @IBOutlet weak var mx: UILabel!
+    @IBOutlet weak var nmNote: UILabel!
+    @IBOutlet weak var hdNote: UILabel!
+    @IBOutlet weak var mxNote: UILabel!
     @IBOutlet weak var series: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,6 +13,7 @@ class RecordViewController: UIViewController {
 
     var realm: Realm? = nil
     var results: Results<SongInfo>? = nil
+    var record: Results<RecordInfo>? = nil
     var count4B: [Int]=[0,0,0,0,0,0,0,0,0,0,0]
     var count5B: [Int]=[0,0,0,0,0,0,0,0,0,0,0]
     var count6B: [Int]=[0,0,0,0,0,0,0,0,0,0,0]
@@ -93,7 +94,7 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        results = realm?.objects(SongInfo.self)
+        record = realm?.objects(RecordInfo.self)
         self.navigationItem.title = "My Record".localized
         labelPatterns.text = "PATTERNS".localized
         labelAverage.text = "AVERAGE".localized
@@ -102,7 +103,371 @@ class RecordViewController: UIViewController {
         //9인덱스 : 퍼펙트플레이
         //10인덱스 : 클리어한 패턴 수
         //키값 규칙 : [곡명][키][난이도][항목]
-        for object in results!{
+        var accuracy: Double = 0.0
+        var rate: String = ""
+        for i in record!{
+            accuracy=Double(i.nm4Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+                case 99.80...100.00:
+                    setAccuracyIndex(index: 0, key: "4B", accuracy: accuracy)
+                case 99.50..<99.80:
+                    setAccuracyIndex(index: 1, key: "4B", accuracy: accuracy)
+                case 99.00..<99.49:
+                    setAccuracyIndex(index: 2, key: "4B", accuracy: accuracy)
+                case 98.50..<99.00:
+                    setAccuracyIndex(index: 3, key: "4B", accuracy: accuracy)
+                case 98.00..<98.50:
+                    setAccuracyIndex(index: 4, key: "4B", accuracy: accuracy)
+                case 95.00..<98.00:
+                    setAccuracyIndex(index: 5, key: "4B", accuracy: accuracy)
+                case 90.00..<95.00:
+                    setAccuracyIndex(index: 6, key: "4B", accuracy: accuracy)
+                case 0.00..<90.00:
+                    setAccuracyIndex(index: 7, key: "4B", accuracy: accuracy)
+                default:
+                    break
+            }
+            accuracy=Double(i.hd4Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "4B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "4B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "4B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "4B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "4B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "4B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "4B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "4B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.mx4Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "4B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "4B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "4B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "4B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "4B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "4B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "4B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "4B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.nm5Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "5B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "5B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "5B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "5B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "5B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "5B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "5B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "5B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.hd5Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "5B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "5B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "5B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "5B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "5B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "5B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "5B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "5B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.mx5Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "5B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "5B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "5B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "5B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "5B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "5B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "5B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "5B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.nm6Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "6B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "6B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "6B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "6B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "6B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "6B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "6B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "6B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.hd6Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "6B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "6B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "6B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "6B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "6B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "6B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "6B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "6B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.mx6Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "6B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "6B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "6B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "6B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "6B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "6B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "6B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "6B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.nm8Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "8B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "8B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "8B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "8B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "8B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "8B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "8B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "8B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.hd8Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "8B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "8B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "8B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "8B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "8B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "8B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "8B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "8B", accuracy: accuracy)
+            default:
+                break
+            }
+            accuracy=Double(i.mx8Rate.split(separator: "%")[0]) ?? -1
+            switch(accuracy){
+            case 99.80...100.00:
+                setAccuracyIndex(index: 0, key: "8B", accuracy: accuracy)
+            case 99.50..<99.80:
+                setAccuracyIndex(index: 1, key: "8B", accuracy: accuracy)
+            case 99.00..<99.49:
+                setAccuracyIndex(index: 2, key: "8B", accuracy: accuracy)
+            case 98.50..<99.00:
+                setAccuracyIndex(index: 3, key: "8B", accuracy: accuracy)
+            case 98.00..<98.50:
+                setAccuracyIndex(index: 4, key: "8B", accuracy: accuracy)
+            case 95.00..<98.00:
+                setAccuracyIndex(index: 5, key: "8B", accuracy: accuracy)
+            case 90.00..<95.00:
+                setAccuracyIndex(index: 6, key: "8B", accuracy: accuracy)
+            case 0.00..<90.00:
+                setAccuracyIndex(index: 7, key: "8B", accuracy: accuracy)
+            default:
+                break
+            }
+            rate = i.nm4Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "4B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "4B")
+            default:
+                break
+            }
+            rate = i.hd4Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "4B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "4B")
+            default:
+                break
+            }
+            rate = i.mx4Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "4B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "4B")
+            default:
+                break
+            }
+            rate = i.nm5Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "5B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "5B")
+            default:
+                break
+            }
+            rate = i.hd5Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "5B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "5B")
+            default:
+                break
+            }
+            rate = i.mx5Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "5B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "5B")
+            default:
+                break
+            }
+            rate = i.nm6Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "6B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "6B")
+            default:
+                break
+            }
+            rate = i.hd6Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "6B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "6B")
+            default:
+                break
+            }
+            rate = i.mx6Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "6B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "6B")
+            default:
+                break
+            }
+            rate = i.nm8Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "8B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "8B")
+            default:
+                break
+            }
+            rate = i.hd8Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "8B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "8B")
+            default:
+                break
+            }
+            rate = i.mx8Note
+            switch(rate){
+            case "MAX COMBO":
+                setNoteIndex(index: 8, key: "8B")
+            case "PERFECT PLAY":
+                setNoteIndex(index: 9, key: "8B")
+            default:
+                break
+            }
+        }
+        /*for object in results!{
             let title=object.title
             for key in keyArray{
                 for difficulty in difficultyArray{
@@ -138,7 +503,7 @@ class RecordViewController: UIViewController {
                     }
                 }
             }
-        }
+        }*/
         //평균정확도 계산, 총계
         for i in 0...10{
             countAll[i]=count4B[i]+count5B[i]+count6B[i]+count8B[i]

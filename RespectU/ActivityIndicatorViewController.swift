@@ -17,7 +17,7 @@ class ActivityIndicatorViewController: UIViewController {
         super.viewDidLoad()
         let ypos=respectu.frame.origin.y
         UIView.animate(withDuration: 0.7, animations: {
-            self.respectu.frame.origin.y = ypos - 100
+            self.respectu.frame.origin.y = ypos - 80
         }) { (_) in
             UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseIn, animations: {
                 self.unofficial.alpha = 1
@@ -25,11 +25,12 @@ class ActivityIndicatorViewController: UIViewController {
             })
         }
         _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+            
             let storyboard = self.storyboard
             let ivc = storyboard?.instantiateViewController(withIdentifier: "TabBarController")
             ivc?.modalTransitionStyle = .crossDissolve
             self.present(ivc!, animated: true, completion: nil)
-            
+ 
             // do stuff 42 seconds later
         }
         // Do any additional setup after loading the view.

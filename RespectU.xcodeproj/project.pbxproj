@@ -10,7 +10,6 @@
 		1905F3501F7F83B400699B4B /* MissionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F34F1F7F83B400699B4B /* MissionTableViewController.swift */; };
 		1905F3521F7FCD0600699B4B /* MissionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1905F3511F7FCD0600699B4B /* MissionTableViewCell.swift */; };
 		191F47411F93590700C6F401 /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F47401F93590700C6F401 /* ActivityIndicatorViewController.swift */; };
-		192940C61FA7596300626523 /* respectU.png in Resources */ = {isa = PBXBuildFile; fileRef = 192940C51FA7596300626523 /* respectU.png */; };
 		19544A981FB4B79A00AA8E22 /* AchievementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */; };
 		19544A9A1FB4B9AD00AA8E22 /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */; };
 		1957070A1F849519009E98D3 /* TrophyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195707091F849519009E98D3 /* TrophyTableViewController.swift */; };
@@ -25,6 +24,7 @@
 		198391F71F7E2665009C7B5D /* SongTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198391F61F7E2665009C7B5D /* SongTableViewController.swift */; };
 		198391F91F7E2792009C7B5D /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198391F81F7E2792009C7B5D /* SongTableViewCell.swift */; };
 		1994258C1FA5EF2300B553E1 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994258B1FA5EF2300B553E1 /* SongDetailViewController.swift */; };
+		19A4FAD01FDE7605003FFFE6 /* RateCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */; };
 		19B660261F960E5800CCEFB5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* StringExtension.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
 		19B6CFEC1F7953640097B86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6CFEB1F7953640097B86B /* AppDelegate.swift */; };
@@ -59,7 +59,6 @@
 		1905F34F1F7F83B400699B4B /* MissionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTableViewController.swift; sourceTree = "<group>"; };
 		1905F3511F7FCD0600699B4B /* MissionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTableViewCell.swift; sourceTree = "<group>"; };
 		191F47401F93590700C6F401 /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
-		192940C51FA7596300626523 /* respectU.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = respectU.png; sourceTree = "<group>"; };
 		19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTableViewController.swift; sourceTree = "<group>"; };
 		19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
 		195707091F849519009E98D3 /* TrophyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTableViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +73,8 @@
 		198391F61F7E2665009C7B5D /* SongTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewController.swift; sourceTree = "<group>"; };
 		198391F81F7E2792009C7B5D /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		1994258B1FA5EF2300B553E1 /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
+		19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCalculatorViewController.swift; sourceTree = "<group>"; };
+		19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RespectU-Bridging-Header.h"; sourceTree = "<group>"; };
 		19B660101F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660121F960A3D00CCEFB5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -160,8 +161,8 @@
 		19B6CFEA1F7953640097B86B /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
+				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19137A0B1FAB51420097B11C /* Fonts */,
-				192940C51FA7596300626523 /* respectU.png */,
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
 				19B6CFED1F7953640097B86B /* Database.swift */,
 				19B6CFEF1F7953640097B86B /* Main.storyboard */,
@@ -182,6 +183,7 @@
 				19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */,
 				19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */,
 				19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */,
+				19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */,
 				19774C441FA855F500729250 /* RecordViewController.swift */,
 				1957070D1F84A957009E98D3 /* RateApp.swift */,
 				19B660251F960E5800CCEFB5 /* StringExtension.swift */,
@@ -235,6 +237,7 @@
 				TargetAttributes = {
 					19B6CFE71F7953640097B86B = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -272,7 +275,6 @@
 				1967A5401FA74FFC003C9305 /* NanumBarunpenRegular.otf in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
 				19B6CFF11F7953640097B86B /* Main.storyboard in Resources */,
-				192940C61FA7596300626523 /* respectU.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +351,7 @@
 			files = (
 				19B6CFEE1F7953640097B86B /* Database.swift in Sources */,
 				19544A9A1FB4B9AD00AA8E22 /* AchievementTableViewCell.swift in Sources */,
+				19A4FAD01FDE7605003FFFE6 /* RateCalculatorViewController.swift in Sources */,
 				198391F71F7E2665009C7B5D /* SongTableViewController.swift in Sources */,
 				19D4E4A51F80DFC800F0BF2B /* MoreTableViewController.swift in Sources */,
 				19774C451FA855F500729250 /* RecordViewController.swift in Sources */,
@@ -521,12 +524,15 @@
 			baseConfigurationReference = 9DE06FAE360980CDEF666B35 /* Pods-RespectU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H79MF628K3;
 				INFOPLIST_FILE = RespectU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RespectU/RespectU-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,12 +544,14 @@
 			baseConfigurationReference = 056B27DE5EBED4F1C464E4E1 /* Pods-RespectU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H79MF628K3;
 				INFOPLIST_FILE = RespectU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RespectU/RespectU-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

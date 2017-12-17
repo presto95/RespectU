@@ -10,7 +10,7 @@ import UIKit
 // ----APP RATE SETTINGS ---
 let APP_ID = "1291664067"
 
-let showRateTimes = 5 //Times rateApp() called before alert shows
+let showRateTimes = 3 //Times rateApp() called before alert shows
 // -------------------------
 let RATED_DEFAULT_KEY = "RATEDAPPKEY"
 let RATE_CNT_KEY = "RATECNTKEY"

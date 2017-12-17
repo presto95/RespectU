@@ -17,16 +17,14 @@ class PlaylistTableViewController: UITableViewController {
     var realm: Realm?=nil
     var results: Results<PlaylistInfo>?=nil
     var index=0
+    var indexSort=0
+    @IBOutlet weak var buttonSort: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         realm=try! Realm()
-        results=realm?.objects(PlaylistInfo.self).sorted(byKeyPath: "series")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        results = realm?.objects(PlaylistInfo.self).sorted(byKeyPath: "id", ascending: false)
+        buttonSort.title = "Sort".localized
     }
 
     override func didReceiveMemoryWarning() {
@@ -124,6 +122,7 @@ class PlaylistTableViewController: UITableViewController {
         let object=results![indexPath.row]
         let buttonPerformance=UITableViewRowAction(style: .normal, title: "Performance".localized){action, index in
             let next=self.storyboard?.instantiateViewController(withIdentifier: "SongDetailViewController") as! SongDetailViewController
+            next.key = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
             next.detailBpm=object.bpm
             next.detailTitle = object.title
             next.detailSeries = object.series
@@ -171,15 +170,27 @@ class PlaylistTableViewController: UITableViewController {
         return [buttonPerformance, buttonRemovePlaylist]
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func sort(_ sender: UIBarButtonItem) {
+        ActionSheetMultipleStringPicker.show(withTitle: "Sort".localized, rows: [
+            ["Recently Added".localized, "Series".localized, "Alphabetical".localized]
+            ], initialSelection: [indexSort], doneBlock: {
+                picker, indexes, values in
+                self.indexSort = indexes![0] as! Int
+                switch(self.indexSort){
+                case 0:
+                    self.results = try! Realm().objects(PlaylistInfo.self).sorted(byKeyPath: "id", ascending: false)
+                case 1:
+                    self.results = try! Realm().objects(PlaylistInfo.self).sorted(byKeyPath: "series")
+                case 2:
+                    self.results = try! Realm().objects(PlaylistInfo.self).sorted(byKeyPath: "title")
+                default:
+                    break
+                }
+                self.tableView.reloadData()
+                return
+        }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
     }
-    */
+    
     func decideSpeed(speed: Double)->String{
         var recommend: String=""
         switch(speed){

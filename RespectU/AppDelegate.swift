@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //realm 마이그레이션
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let config = Realm.Configuration(
-            schemaVersion: 7,  //Increment this each time your schema changes
+            schemaVersion: 10,  //Increment this each time your schema changes
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {
                     //If you need to transfer any data

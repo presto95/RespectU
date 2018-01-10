@@ -34,6 +34,7 @@ class PlaylistInfo: Object{
 
 class SongTableViewController: UITableViewController {
     
+    
     var temp:[String] = []
     var BPM: Double=0.0
     var realm: Realm? = nil
@@ -51,24 +52,11 @@ class SongTableViewController: UITableViewController {
     var achievementResults: Results<AchievementInfo>? = nil
     var missionResults: Results<MissionInfo>? = nil
 
-    func generateWordsDict(){
-        for word in self.temp{
-            let key="\(word[word.startIndex])"
-            let upper=key.uppercased()
-            if var wordValues=wordsDict[upper]{
-                wordValues.append(word)
-                wordsDict[upper]=wordValues
-            }
-            else{
-                wordsDict[upper]=[word]
-            }
-        }
-        wordsSection=[String](wordsDict.keys)
-        wordsSection=wordsSection.sorted()
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         switch(key){
         case "4B":
             indexSearch2=0
@@ -83,23 +71,15 @@ class SongTableViewController: UITableViewController {
         }
         rateApp(self, immediatly: false)
         realm = try! Realm()
-        results = try! Realm().objects(SongInfo.self).sorted(byKeyPath: "title")
-        record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "title")
+        results = try! Realm().objects(SongInfo.self).sorted(byKeyPath: "lowercase")
+        record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
         achievementResults = try! Realm().objects(AchievementInfo.self).filter("type = 'MUSIC'")
         missionResults = try! Realm().objects(MissionInfo.self).filter("reward LIKE 'Music*'")
-        for i in 0..<self.results!.count{
-            temp.append(self.results![i].title)
+        for i in results!{
+            temp.append(i.title)
         }
         generateWordsDict()
-        let locale = Locale.current
-        switch(locale.regionCode!){
-        case "KR":
-            wordsIndexTitles = ["2","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","한"]
-        case "JP":
-            wordsIndexTitles = ["2","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "あ"]
-        default:
-            wordsIndexTitles = ["2","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-        }
+        generateWordsIndexTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,7 +109,7 @@ class SongTableViewController: UITableViewController {
     @IBAction func search(_ sender: UIBarButtonItem) {
         self.temp.removeAll()
         ActionSheetMultipleStringPicker.show(withTitle: "Search".localized, rows: [
-            ["All", "Portable 1", "Portable 2", "Respect", "Trilogy"],
+            ["All", "Portable 1", "Portable 2", "Respect", "Trilogy", "Clazziquai"],
             ["4B", "5B", "6B", "8B"]
             ], initialSelection: [indexSearch1, indexSearch2], doneBlock: {
                 picker, indexes, values in
@@ -146,6 +126,8 @@ class SongTableViewController: UITableViewController {
                     self.series="Respect"
                 case 4:
                     self.series="Trilogy"
+                case 5:
+                    self.series="CE"
                 default:
                     break
                 }
@@ -162,21 +144,22 @@ class SongTableViewController: UITableViewController {
                     break
                 }
                 if(self.series=="All"){
-                    self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "title")
-                    self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "title")
+                    self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "lowercase")
+                    self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
                 }
                 else{
-                    self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "title")
-                    self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "title")
+                    self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "lowercase")
+                    self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "lowercase")
                 }
                 for i in 0..<self.results!.count{
                     self.temp.append(self.results![i].title)
                 }
+                self.wordsIndexTitles.removeAll()
                 self.wordsSection.removeAll()
                 self.wordsDict.removeAll()
                 //섹션별 딕셔너리
                 self.generateWordsDict()
-                self.wordsIndexTitles=["2","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","한"]
+                self.generateWordsIndexTitle()
                 self.tableView.reloadData()
                 self.showSearchNotification(series: self.series)
                 return
@@ -184,6 +167,10 @@ class SongTableViewController: UITableViewController {
     }
     
     @IBAction func sort(_ sender: UIBarButtonItem) {
+        self.temp.removeAll()
+        self.wordsIndexTitles.removeAll()
+        self.wordsSection.removeAll()
+        self.wordsDict.removeAll()
         var level: String=""
         var sort: String=""
         ActionSheetMultipleStringPicker.show(withTitle: "Sort".localized, rows: [
@@ -211,18 +198,22 @@ class SongTableViewController: UITableViewController {
                 default:
                     break
                 }
-                
                 if(level=="NORMAL"){
                     if(self.key=="4B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm4", ascending: true)
+                                self.results = try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm4", ascending: true)
                                 self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm4", ascending: true)
+                                
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: true)
                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm4))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
@@ -233,6 +224,10 @@ class SongTableViewController: UITableViewController {
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: false)
                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm4))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="5B"){
@@ -245,6 +240,10 @@ class SongTableViewController: UITableViewController {
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: true)
                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm5))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
@@ -255,6 +254,10 @@ class SongTableViewController: UITableViewController {
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: false)
                                  self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm5))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="6B"){
@@ -267,6 +270,10 @@ class SongTableViewController: UITableViewController {
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm6))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
@@ -277,6 +284,10 @@ class SongTableViewController: UITableViewController {
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm6))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="8B"){
@@ -286,9 +297,13 @@ class SongTableViewController: UITableViewController {
                                 self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm8", ascending: true)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm8))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
@@ -296,9 +311,13 @@ class SongTableViewController: UITableViewController {
                                 self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm8", ascending: false)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: false)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.nm8))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                 }
@@ -307,72 +326,123 @@ class SongTableViewController: UITableViewController {
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd4", ascending: true)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd4", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd4))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd4", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd4", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd4))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
+                       
+                        
                     }
                     else if(self.key=="5B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd5", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd5", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd5))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd5", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd5", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: 
+                                    false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd5))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="6B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd6", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd6", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd6))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd6", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd6", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd6))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="8B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd8", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd8", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd8))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd8", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd8", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.hd8))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                 }
@@ -381,76 +451,124 @@ class SongTableViewController: UITableViewController {
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx4", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx4", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx4))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx4", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx4", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx4))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="5B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx5", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx5", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx5))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx5", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx5", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx5))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="6B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx6", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx6", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx6))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx6", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx6", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx6))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                     else if(self.key=="8B"){
                         if(sort=="Asc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx8", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx8", ascending: true)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: true)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: true)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx8))
+                            }
+                            self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
                             if(self.series=="All"){
                                 self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx8", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx8", ascending: false)
                             }
                             else{
                                 self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: false)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: false)
                             }
+                            for i in self.results!{
+                                self.temp.append(String(i.mx8))
+                            }
+                            self.generateWordsDictInSort(ascending: false)
                         }
                     }
                 }
-                self.wordsIndexTitles.removeAll()
+                self.generateWordsIndexTitleInSort()
                 self.tableView.reloadData()
                 self.showSortNotification(series: self.series, level: level, sort: sort)
                 return
@@ -467,18 +585,18 @@ class SongTableViewController: UITableViewController {
         next.detailBpm=object.bpm
         next.detailTitle = object.title
         next.detailSeries = object.series
-        next.is4BNormalExist = object.nm4 == 0 ? false : true
-        next.is4BHardExist = object.hd4 == 0 ? false : true
-        next.is4BMaximumExist = object.mx4 == 0 ? false : true
-        next.is5BNormalExist = object.nm5 == 0 ? false : true
-        next.is5BHardExist = object.hd5 == 0 ? false : true
-        next.is5BMaximumExist = object.mx5 == 0 ? false : true
-        next.is6BNormalExist = object.nm6 == 0 ? false : true
-        next.is6BHardExist = object.hd6 == 0 ? false : true
-        next.is6BMaximumExist = object.mx6 == 0 ? false : true
-        next.is8BNormalExist = object.nm8 == 0 ? false : true
-        next.is8BHardExist = object.hd8 == 0 ? false : true
-        next.is8BMaximumExist = object.mx8 == 0 ? false : true
+        next.is4BNormalExist = object.nm4 != 0
+        next.is4BHardExist = object.hd4 != 0
+        next.is4BMaximumExist = object.mx4 != 0
+        next.is5BNormalExist = object.nm5 != 0
+        next.is5BHardExist = object.hd5 != 0
+        next.is5BMaximumExist = object.mx5 != 0
+        next.is6BNormalExist = object.nm6 != 0
+        next.is6BHardExist = object.hd6 != 0
+        next.is6BMaximumExist = object.mx6 != 0
+        next.is8BNormalExist = object.nm8 != 0
+        next.is8BHardExist = object.hd8 != 0
+        next.is8BMaximumExist = object.mx8 != 0
         next.nm4 = object.nm4; next.nm5=object.nm5; next.nm6=object.nm6; next.nm8=object.nm8
         next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
         next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
@@ -669,6 +787,8 @@ class SongTableViewController: UITableViewController {
             cell.series.backgroundColor=UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
         case "Portable1":
             cell.series.backgroundColor=UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
+        case "CE":
+            cell.series.backgroundColor=UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
         default:
             break
         }
@@ -777,18 +897,18 @@ class SongTableViewController: UITableViewController {
             next.detailBpm=object.bpm
             next.detailTitle = object.title
             next.detailSeries = object.series
-            next.is4BNormalExist = object.nm4 == 0 ? false : true
-            next.is4BHardExist = object.hd4 == 0 ? false : true
-            next.is4BMaximumExist = object.mx4 == 0 ? false : true
-            next.is5BNormalExist = object.nm5 == 0 ? false : true
-            next.is5BHardExist = object.hd5 == 0 ? false : true
-            next.is5BMaximumExist = object.mx5 == 0 ? false : true
-            next.is6BNormalExist = object.nm6 == 0 ? false : true
-            next.is6BHardExist = object.hd6 == 0 ? false : true
-            next.is6BMaximumExist = object.mx6 == 0 ? false : true
-            next.is8BNormalExist = object.nm8 == 0 ? false : true
-            next.is8BHardExist = object.hd8 == 0 ? false : true
-            next.is8BMaximumExist = object.mx8 == 0 ? false : true
+            next.is4BNormalExist = object.nm4 != 0
+            next.is4BHardExist = object.hd4 != 0
+            next.is4BMaximumExist = object.mx4 != 0
+            next.is5BNormalExist = object.nm5 != 0
+            next.is5BHardExist = object.hd5 != 0
+            next.is5BMaximumExist = object.mx5 != 0
+            next.is6BNormalExist = object.nm6 != 0
+            next.is6BHardExist = object.hd6 != 0
+            next.is6BMaximumExist = object.mx6 != 0
+            next.is8BNormalExist = object.nm8 != 0
+            next.is8BHardExist = object.hd8 != 0
+            next.is8BMaximumExist = object.mx8 != 0
             next.nm4 = object.nm4; next.nm5=object.nm5; next.nm6=object.nm6; next.nm8=object.nm8
             next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
             next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
@@ -819,9 +939,12 @@ class SongTableViewController: UITableViewController {
             buttonPerformance.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
         case "Portable2":
             buttonPerformance.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
+        case "CE":
+            buttonPerformance.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
         default:
             break
         }
+        
         return [buttonPerformance, buttonAddPlaylist]
     }
     func addPlaylist(series: String, title: String, composer: String, bpm: String, nm4: Int, hd4: Int, mx4: Int, nm5: Int, hd5: Int, mx5: Int, nm6: Int, hd6: Int, mx6: Int, nm8: Int, hd8: Int, mx8: Int){
@@ -854,6 +977,8 @@ class SongTableViewController: UITableViewController {
             NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .respect).show()
         case "Trilogy":
             NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .trilogy).show()
+        case "CE":
+            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .ce).show()
         default:
             break
         }
@@ -875,9 +1000,123 @@ class SongTableViewController: UITableViewController {
             NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .respect).show()
         case "Trilogy":
             NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .trilogy).show()
+        case "CE":
+            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .ce).show()
+            break
         default:
             break
             
         }
     }
+    
+    func generateWordsDict(){
+        for word in self.temp{
+            let key = "\(word[word.startIndex])"
+            let upper=key.uppercased()
+            if var wordValues=wordsDict[upper]{
+                wordValues.append(word)
+                wordsDict[upper]=wordValues
+            }
+            else{
+                wordsDict[upper]=[word]
+            }
+        }
+        wordsSection=[String](wordsDict.keys)
+        wordsSection=wordsSection.sorted()
+        if(Locale.current.regionCode! == "KR"){
+            var tempWordsSection = [String]()
+            var count = 0
+            for i in wordsSection{
+                if(!(isAlpha(char: i) || isDigit(char: i))){
+                    count = count + 1
+                }
+            }
+            for i in wordsSection.count - count ..< wordsSection.count{
+                tempWordsSection.append(wordsSection[i])
+            }
+            for _ in 1...count{
+                wordsSection.removeLast()
+            }
+            for i in wordsSection{
+                tempWordsSection.append(i)
+            }
+            wordsSection = tempWordsSection
+        }
+    }
+    
+    func generateWordsDictInSort(ascending: Bool){
+        for word in self.temp{
+            if var wordValues = wordsDict[word]{
+                wordValues.append(word)
+                wordsDict[word] = wordValues
+            }
+            else{
+                wordsDict[word] = [word]
+            }
+        }
+        wordsSection = [String](wordsDict.keys)
+        var tempWordsSection = [Int]()
+        for i in wordsSection{
+            tempWordsSection.append(Int(i)!)
+        }
+        if(ascending){
+            tempWordsSection = tempWordsSection.sorted()
+        }
+        else{
+            tempWordsSection = tempWordsSection.sorted{ $0 > $1 }
+        }
+        wordsSection.removeAll()
+        for i in tempWordsSection{
+            wordsSection.append(String(i))
+        }
+    }
+    
+    func generateWordsIndexTitle(){
+        let locale = Locale.current
+        switch(locale.regionCode!){
+        case "KR":
+            wordsIndexTitles = wordsSection
+            for _ in 0 ..< wordsIndexTitles.count{
+                let str = wordsIndexTitles[1]
+                if(!(isAlpha(char: str) || isDigit(char: str))){
+                    wordsIndexTitles.remove(at: 1)
+                }
+                else{
+                    break
+                }
+            }
+        case "JP":
+            wordsIndexTitles = ["2","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "あ"]
+        default:
+            wordsIndexTitles = ["2","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+        }
+    }
+    
+    func generateWordsIndexTitleInSort(){
+        wordsIndexTitles = wordsSection
+    }
+    
+    func isAlpha(char: String) -> Bool {
+        switch char {
+        case "a"..."z":
+            return true
+        case "A"..."Z":
+            return true
+        default:
+            return false
+        }
+    }
+    
+    func isDigit(char: String) -> Bool{
+        if(char == "2"){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    
+    
+    
 }

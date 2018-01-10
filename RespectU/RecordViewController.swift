@@ -93,6 +93,11 @@ class RecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var button4Patterns: Int = 0
+        var button5Patterns: Int = 0
+        var button6Patterns: Int = 0
+        var button8Patterns: Int = 0
+        var allPatterns: Int = 0
         realm = try! Realm()
         record = realm?.objects(RecordInfo.self)
         self.navigationItem.title = "My Record".localized
@@ -106,6 +111,44 @@ class RecordViewController: UIViewController {
         var accuracy: Double = 0.0
         var rate: String = ""
         for i in record!{
+            //패턴 수 계산
+            if(i.nm4 != 0){
+                button4Patterns += 1
+            }
+            if(i.nm5 != 0){
+                button5Patterns += 1
+            }
+            if(i.nm6 != 0){
+                button6Patterns += 1
+            }
+            if(i.nm8 != 0){
+                button8Patterns += 1
+            }
+            if(i.hd4 != 0){
+                button4Patterns += 1
+            }
+            if(i.hd5 != 0){
+                button5Patterns += 1
+            }
+            if(i.hd6 != 0){
+                button6Patterns += 1
+            }
+            if(i.hd8 != 0){
+                button8Patterns += 1
+            }
+            if(i.mx4 != 0){
+                button4Patterns += 1
+            }
+            if(i.mx5 != 0){
+                button5Patterns += 1
+            }
+            if(i.mx6 != 0){
+                button6Patterns += 1
+            }
+            if(i.mx8 != 0){
+                button8Patterns += 1
+            }
+            
             accuracy=Double(i.nm4Rate.split(separator: "%")[0]) ?? -1
             switch(accuracy){
                 case 99.80...100.00:
@@ -467,43 +510,7 @@ class RecordViewController: UIViewController {
                 break
             }
         }
-        /*for object in results!{
-            let title=object.title
-            for key in keyArray{
-                for difficulty in difficultyArray{
-                    guard let accuracyTemp = UserDefaults.standard.string(forKey: title+key+difficulty+"Accuracy") else { continue }
-                    let accuracy=Double(accuracyTemp.split(separator: "%")[0].description)!
-                    switch(accuracy){
-                    case 99.80...100.00:
-                        setAccuracyIndex(index: 0, key: key, accuracy: accuracy)
-                    case 99.50..<99.80:
-                        setAccuracyIndex(index: 1, key: key, accuracy: accuracy)
-                    case 99.00..<99.49:
-                        setAccuracyIndex(index: 2, key: key, accuracy: accuracy)
-                    case 98.50..<99.00:
-                        setAccuracyIndex(index: 3, key: key, accuracy: accuracy)
-                    case 98.00..<98.50:
-                        setAccuracyIndex(index: 4, key: key, accuracy: accuracy)
-                    case 95.00..<98.00:
-                        setAccuracyIndex(index: 5, key: key, accuracy: accuracy)
-                    case 90.00..<95.00:
-                        setAccuracyIndex(index: 6, key: key, accuracy: accuracy)
-                    case ..<90.00:
-                        setAccuracyIndex(index: 7, key: key, accuracy: accuracy)
-                    default:
-                        break
-                    }
-                    switch(UserDefaults.standard.string(forKey: title+key+difficulty+"Note")){
-                    case "MAX COMBO"?:
-                        setNoteIndex(index: 8, key: key)
-                    case "PERFECT PLAY"?:
-                        setNoteIndex(index: 9, key: key)
-                    default:
-                        break
-                    }
-                }
-            }
-        }*/
+        allPatterns = button4Patterns+button5Patterns+button6Patterns+button8Patterns
         //평균정확도 계산, 총계
         for i in 0...10{
             countAll[i]=count4B[i]+count5B[i]+count6B[i]+count8B[i]
@@ -514,6 +521,11 @@ class RecordViewController: UIViewController {
         accuracyArray[3]=accuracyArray[3]/Double(count8B[10])
         accuracyArray[4]=(accuracyArray[0]+accuracyArray[1]+accuracyArray[2]+accuracyArray[3])/4.0
         //바인딩
+        label4BPatterns.text = String(button4Patterns)
+        label5BPatterns.text = String(button5Patterns)
+        label6BPatterns.text = String(button6Patterns)
+        label8BPatterns.text = String(button8Patterns)
+        labelAllPatterns.text = String(allPatterns)
         label4BIndex0.text=String(count4B[0]); label4BIndex1.text=String(count4B[1]); label4BIndex2.text=String(count4B[2]); label4BIndex3.text=String(count4B[3]); label4BIndex4.text=String(count4B[4]); label4BIndex5.text=String(count4B[5]); label4BIndex6.text=String(count4B[6]); label4BIndex7.text=String(count4B[7]); label4BIndex8.text=String(count4B[8]); label4BIndex9.text=String(count4B[9]); label4BAverage.text = count4B[10] != 0 ? String(format: "%.2f%%", accuracyArray[0]) : "-"
         label5BIndex0.text=String(count5B[0]); label5BIndex1.text=String(count5B[1]); label5BIndex2.text=String(count5B[2]); label5BIndex3.text=String(count5B[3]); label5BIndex4.text=String(count5B[4]); label5BIndex5.text=String(count5B[5]); label5BIndex6.text=String(count5B[6]); label5BIndex7.text=String(count5B[7]); label5BIndex8.text=String(count5B[8]); label5BIndex9.text=String(count5B[9]); label5BAverage.text = count5B[10] != 0 ? String(format: "%.2f%%", accuracyArray[1]) : "-"
         label6BIndex0.text=String(count6B[0]); label6BIndex1.text=String(count6B[1]); label6BIndex2.text=String(count6B[2]); label6BIndex3.text=String(count6B[3]); label6BIndex4.text=String(count6B[4]); label6BIndex5.text=String(count6B[5]); label6BIndex6.text=String(count6B[6]); label6BIndex7.text=String(count6B[7]); label6BIndex8.text=String(count6B[8]); label6BIndex9.text=String(count6B[9]); label6BAverage.text = count6B[10] != 0 ? String(format: "%.2f%%", accuracyArray[2]) : "-"

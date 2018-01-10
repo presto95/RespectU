@@ -51,7 +51,7 @@ class TrophyTableViewController: UITableViewController {
 
     @IBAction func search(_ sender: UIBarButtonItem) {
         ActionSheetMultipleStringPicker.show(withTitle: "Search".localized, rows: [
-            ["Respect", "Trilogy"]], initialSelection: [index], doneBlock: {
+            ["Respect", "Trilogy", "Clazziquai Edition"]], initialSelection: [index], doneBlock: {
                 picker, indexes, values in
                 self.index=indexes![0] as! Int
                 switch(indexes![0] as! Int){
@@ -59,6 +59,8 @@ class TrophyTableViewController: UITableViewController {
                     self.series="Respect"
                 case 1:
                     self.series="Trilogy"
+                case 2:
+                    self.series="CE"
                 default:
                     break
                 }
@@ -108,7 +110,7 @@ class TrophyTableViewController: UITableViewController {
         cell.backgroundColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         // Configure the cell...
         let string = object.titleKor
-        if(string == "내 마음속에 저장" || string == "고고학자" || string == "럭키 해피 데이" || string == "나올수도 있고 안나올수도 있습니다" || string == "언제나 감사합니다"){
+        if(string == "내 마음속에 저장" || string == "고고학자" || string == "럭키 해피 데이" || string == "나올수도 있고 안나올수도 있습니다" || string == "언제나 감사합니다" || string == "Go Back From the Top"){
             cell.accessoryType = .detailButton
         }
         else{
@@ -141,6 +143,12 @@ class TrophyTableViewController: UITableViewController {
         }
         if(string == "언제나 감사합니다"){
             let alert=UIAlertController(title: "CREDITS".localized, message: "CREDITS will appear when the average accuracy of three stages are greater than 98%.".localized, preferredStyle: .alert)
+            let action=UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
+        if(string == "Go Back From the Top"){
+            let alert=UIAlertController(title: "Hidden BGA".localized.localized, message: "First Kiss", preferredStyle: .alert)
             let action=UIAlertAction(title: "OK".localized, style: .default, handler: nil)
             alert.addAction(action)
             self.present(alert, animated: true)

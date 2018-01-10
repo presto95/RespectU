@@ -65,17 +65,20 @@ class PlaylistTableViewController: UITableViewController {
         cell.title.text=object.title
         cell.composer.text=object.composer
         cell.bpm.text="BPM " + object.bpm
-        if(object.series == "Respect"){
+        switch(object.series){
+        case "Respect":
             cell.series.backgroundColor=UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
-        }
-        else if(object.series == "Trilogy"){
+        case "Trilogy":
             cell.series.backgroundColor=UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
-        }
-        else if(object.series == "Portable2"){
+        case "Portable2":
             cell.series.backgroundColor=UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
-        }
-        else if(object.series == "Portable1"){
+        case "Portable1":
             cell.series.backgroundColor=UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
+        case "CE":
+            cell.series.backgroundColor=UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+        default:
+            break
+            
         }
         cell.backgroundColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         cell.title.textColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -164,6 +167,8 @@ class PlaylistTableViewController: UITableViewController {
             buttonPerformance.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
         case "Portable2":
             buttonPerformance.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
+        case "CE":
+            buttonPerformance.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
         default:
             break
         }

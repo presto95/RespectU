@@ -50,6 +50,7 @@ class SongDetailViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelBpm: UILabel!
     @IBOutlet weak var labelSeries: UILabel!
+    @IBOutlet weak var labelSkillPoint: UILabel!
     @IBOutlet weak var buttonNormalRank: UIButton!
     @IBOutlet weak var buttonNormalAccuracy: UIButton!
     @IBOutlet weak var buttonNormalNote: UIButton!
@@ -152,6 +153,7 @@ class SongDetailViewController: UIViewController {
         labelMaximum.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         labelTitle.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         labelBpm.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelSkillPoint.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         buttonNormalRank.setTitleColor(UIColor(red: 145/255.0, green: 145/255.0, blue: 145/255.0, alpha: 1), for: .disabled)
         buttonNormalAccuracy.setTitleColor(UIColor(red: 145/255.0, green: 145/255.0, blue: 145/255.0, alpha: 1), for: .disabled)
         buttonNormalNote.setTitleColor(UIColor(red: 145/255.0, green: 145/255.0, blue: 145/255.0, alpha: 1), for: .disabled)
@@ -183,6 +185,11 @@ class SongDetailViewController: UIViewController {
             labelNormalColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
             labelHardColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
             labelMaximumColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
+        case "CE":
+            labelSeries.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+            labelNormalColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+            labelHardColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+            labelMaximumColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
         default:
             break
         }
@@ -227,11 +234,30 @@ class SongDetailViewController: UIViewController {
     
     func showRankAlert(difficulty: String){
         let alert=UIAlertController(title: "Rank".localized, message: "Select your rank.".localized, preferredStyle: .alert)
-        let initializeAction=UIAlertAction(title: "-", style: .default){(action: UIAlertAction)->Void in self.setRank(rank: nil, difficulty: difficulty); self.initializing()}
-        let sAction=UIAlertAction(title: "S", style: .default){(action: UIAlertAction)->Void in self.setRank(rank: "S", difficulty: difficulty); self.initializing() }
-        let aAction=UIAlertAction(title: "A", style: .default){(action: UIAlertAction)->Void in self.setRank(rank: "A", difficulty: difficulty); self.initializing() }
-        let bAction=UIAlertAction(title: "B", style: .default){(action: UIAlertAction)->Void in self.setRank(rank: "B", difficulty: difficulty); self.initializing() }
-        let cAction=UIAlertAction(title: "C", style: .default){(action: UIAlertAction)->Void in self.setRank(rank: "C", difficulty: difficulty); self.initializing() }
+        let initializeAction=UIAlertAction(title: "-", style: .default){(action: UIAlertAction)->Void in
+            self.setRank(rank: nil, difficulty: difficulty)
+            self.initializing()
+        }
+        let sAction=UIAlertAction(title: "S", style: .default){(action: UIAlertAction)->Void in
+            self.setRank(rank: "S", difficulty: difficulty)
+            self.initializing()
+            self.showAccuracyAlert(difficulty: difficulty)
+        }
+        let aAction=UIAlertAction(title: "A", style: .default){(action: UIAlertAction)->Void in
+            self.setRank(rank: "A", difficulty: difficulty)
+            self.initializing()
+            self.showAccuracyAlert(difficulty: difficulty)
+        }
+        let bAction=UIAlertAction(title: "B", style: .default){(action: UIAlertAction)->Void in
+            self.setRank(rank: "B", difficulty: difficulty)
+            self.initializing()
+            self.showAccuracyAlert(difficulty: difficulty)
+        }
+        let cAction=UIAlertAction(title: "C", style: .default){(action: UIAlertAction)->Void in
+            self.setRank(rank: "C", difficulty: difficulty)
+            self.initializing()
+            self.showAccuracyAlert(difficulty: difficulty)
+        }
         let noAction=UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
         alert.addAction(initializeAction)
         alert.addAction(sAction)
@@ -257,7 +283,20 @@ class SongDetailViewController: UIViewController {
             }
             accuracy = input >= 100.00 ? String(100.00) : String(input)
             self.setAccuracy(accuracy: accuracy, difficulty: difficulty)
+            switch(input){
+            case 98...100:
+                self.setRank(rank: "S", difficulty: difficulty)
+            case 95..<98:
+                self.setRank(rank: "A", difficulty: difficulty)
+            case 90..<95:
+                self.setRank(rank: "B", difficulty: difficulty)
+            case 0..<90:
+                self.setRank(rank: "C", difficulty: difficulty)
+            default:
+                break
+            }
             self.initializing()
+            self.showNoteAlert(difficulty: difficulty)
         }
         let noAction=UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
         alert.addAction(noAction)
@@ -267,9 +306,20 @@ class SongDetailViewController: UIViewController {
     
     func showNoteAlert(difficulty: String){
         let alert=UIAlertController(title: "Note".localized, message: "Select your note.".localized, preferredStyle: .alert)
-        let initializeAction=UIAlertAction(title: "-", style: .default){(action: UIAlertAction)->Void in self.setNote(note: nil, difficulty: difficulty); self.initializing()}
-        let maxcomboAction=UIAlertAction(title: "MAX COMBO", style: .default){(action: UIAlertAction)->Void in self.setNote(note: "MAX COMBO", difficulty: difficulty); self.initializing() }
-        let perfectplayAction=UIAlertAction(title: "PERFECT PLAY", style: .default){(action: UIAlertAction)->Void in self.setNote(note: "PERFECT PLAY", difficulty: difficulty); self.initializing() }
+        let initializeAction=UIAlertAction(title: "-", style: .default){(action: UIAlertAction)->Void in
+            self.setNote(note: nil, difficulty: difficulty)
+            self.initializing()
+        }
+        let maxcomboAction=UIAlertAction(title: "MAX COMBO", style: .default){(action: UIAlertAction)->Void in
+            self.setNote(note: "MAX COMBO", difficulty: difficulty)
+            self.initializing()
+        }
+        let perfectplayAction=UIAlertAction(title: "PERFECT PLAY", style: .default){(action: UIAlertAction)->Void in
+            self.setAccuracy(accuracy: "100", difficulty: difficulty)
+            self.setRank(rank: "S", difficulty: difficulty)
+            self.setNote(note: "PERFECT PLAY", difficulty: difficulty)
+            self.initializing()
+        }
         let noAction=UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
         alert.addAction(initializeAction)
         alert.addAction(maxcomboAction)
@@ -345,57 +395,89 @@ class SongDetailViewController: UIViewController {
         }
         switch(self.segmentedControl.selectedSegmentIndex){
         case 0:
-        try! realm.write{
-            switch(difficulty){
-            case "normal":
-                record!.nm4Rate=value ?? "-"
-            case "hard":
-                record!.hd4Rate=value ?? "-"
-            case "maximum":
-                record!.mx4Rate=value ?? "-"
-            default:
-                break
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm4Rate=value ?? "-"
+                case "hard":
+                    record!.hd4Rate=value ?? "-"
+                case "maximum":
+                    record!.mx4Rate=value ?? "-"
+                default:
+                    break
+                }
             }
-        }
+            let nm4Point = getSkillPoint(difficulty: record!.nm4, rate: record!.nm4Rate, note: record!.nm4Note)
+            let hd4Point = getSkillPoint(difficulty: record!.hd4, rate: record!.hd4Rate, note: record!.hd4Note)
+            let mx4Point = getSkillPoint(difficulty: record!.mx4, rate: record!.mx4Rate, note: record!.mx4Note)
+            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
+            try! realm.write{
+                record!.button4SkillPoint = max4Point
+            }
+            showSkillPoint(sender: 0)
         case 1:
-        try! realm.write{
-            switch(difficulty){
-            case "normal":
-                record!.nm5Rate=value ?? "-"
-            case "hard":
-                record!.hd5Rate=value ?? "-"
-            case "maximum":
-                record!.mx5Rate=value ?? "-"
-            default:
-                break
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm5Rate=value ?? "-"
+                case "hard":
+                    record!.hd5Rate=value ?? "-"
+                case "maximum":
+                    record!.mx5Rate=value ?? "-"
+                default:
+                    break
+                }
             }
-        }
+            let nm5Point = getSkillPoint(difficulty: record!.nm5, rate: record!.nm5Rate, note: record!.nm5Note)
+            let hd5Point = getSkillPoint(difficulty: record!.hd5, rate: record!.hd5Rate, note: record!.hd5Note)
+            let mx5Point = getSkillPoint(difficulty: record!.mx5, rate: record!.mx5Rate, note: record!.mx5Note)
+            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
+            try! realm.write{
+                record!.button5SkillPoint = max5Point
+            }
+            showSkillPoint(sender: 1)
         case 2:
-        try! realm.write{
-            switch(difficulty){
-            case "normal":
-                record!.nm6Rate=value ?? "-"
-            case "hard":
-                record!.hd6Rate=value ?? "-"
-            case "maximum":
-                record!.mx6Rate=value ?? "-"
-            default:
-                break
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm6Rate=value ?? "-"
+                case "hard":
+                    record!.hd6Rate=value ?? "-"
+                case "maximum":
+                    record!.mx6Rate=value ?? "-"
+                default:
+                    break
+                }
             }
-        }
+            let nm6Point = getSkillPoint(difficulty: record!.nm6, rate: record!.nm6Rate, note: record!.nm6Note)
+            let hd6Point = getSkillPoint(difficulty: record!.hd6, rate: record!.hd6Rate, note: record!.hd6Note)
+            let mx6Point = getSkillPoint(difficulty: record!.mx6, rate: record!.mx6Rate, note: record!.mx6Note)
+            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
+            try! realm.write{
+                record!.button6SkillPoint = max6Point
+            }
+            showSkillPoint(sender: 2)
         case 3:
-        try! realm.write{
-            switch(difficulty){
-            case "normal":
-                record!.nm8Rate=value ?? "-"
-            case "hard":
-                record!.hd8Rate=value ?? "-"
-            case "maximum":
-                record!.mx8Rate=value ?? "-"
-            default:
-                break
+            try! realm.write{
+                switch(difficulty){
+                case "normal":
+                    record!.nm8Rate=value ?? "-"
+                case "hard":
+                    record!.hd8Rate=value ?? "-"
+                case "maximum":
+                    record!.mx8Rate=value ?? "-"
+                default:
+                    break
+                }
             }
-        }
+            let nm8Point = getSkillPoint(difficulty: record!.nm8, rate: record!.nm8Rate, note: record!.nm8Note)
+            let hd8Point = getSkillPoint(difficulty: record!.hd8, rate: record!.hd8Rate, note: record!.hd8Note)
+            let mx8Point = getSkillPoint(difficulty: record!.mx8, rate: record!.mx8Rate, note: record!.mx8Note)
+            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
+            try! realm.write{
+                record!.button8SkillPoint = max8Point
+            }
+            showSkillPoint(sender: 3)
         default:
             break
         }
@@ -417,6 +499,14 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
+            let nm4Point = getSkillPoint(difficulty: record!.nm4, rate: record!.nm4Rate, note: record!.nm4Note)
+            let hd4Point = getSkillPoint(difficulty: record!.hd4, rate: record!.hd4Rate, note: record!.hd4Note)
+            let mx4Point = getSkillPoint(difficulty: record!.mx4, rate: record!.mx4Rate, note: record!.mx4Note)
+            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
+            try! realm.write{
+                record!.button4SkillPoint = max4Point
+            }
+            showSkillPoint(sender: 0)
         case 1:
             try! realm.write{
                 switch(difficulty){
@@ -430,6 +520,14 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
+            let nm5Point = getSkillPoint(difficulty: record!.nm5, rate: record!.nm5Rate, note: record!.nm5Note)
+            let hd5Point = getSkillPoint(difficulty: record!.hd5, rate: record!.hd5Rate, note: record!.hd5Note)
+            let mx5Point = getSkillPoint(difficulty: record!.mx5, rate: record!.mx5Rate, note: record!.mx5Note)
+            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
+            try! realm.write{
+                record!.button5SkillPoint = max5Point
+            }
+            showSkillPoint(sender: 1)
         case 2:
             try! realm.write{
                 switch(difficulty){
@@ -443,6 +541,14 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
+            let nm6Point = getSkillPoint(difficulty: record!.nm6, rate: record!.nm6Rate, note: record!.nm6Note)
+            let hd6Point = getSkillPoint(difficulty: record!.hd6, rate: record!.hd6Rate, note: record!.hd6Note)
+            let mx6Point = getSkillPoint(difficulty: record!.mx6, rate: record!.mx6Rate, note: record!.mx6Note)
+            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
+            try! realm.write{
+                record!.button6SkillPoint = max6Point
+            }
+            showSkillPoint(sender: 2)
         case 3:
             try! realm.write{
                 switch(difficulty){
@@ -456,6 +562,14 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
+            let nm8Point = getSkillPoint(difficulty: record!.nm8, rate: record!.nm8Rate, note: record!.nm8Note)
+            let hd8Point = getSkillPoint(difficulty: record!.hd8, rate: record!.hd8Rate, note: record!.hd8Note)
+            let mx8Point = getSkillPoint(difficulty: record!.mx8, rate: record!.mx8Rate, note: record!.mx8Note)
+            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
+            try! realm.write{
+                record!.button8SkillPoint = max8Point
+            }
+            showSkillPoint(sender: 3)
         default:
             break
         }
@@ -511,6 +625,7 @@ class SongDetailViewController: UIViewController {
     }
     
     func initializing(){
+        showSkillPoint(sender: segmentedControl.selectedSegmentIndex)
         switch(segmentedControl.selectedSegmentIndex){
         case 0:
             buttonSetting(key: "4B")
@@ -677,6 +792,86 @@ class SongDetailViewController: UIViewController {
         buttonMaximumRank.isEnabled = true
         buttonMaximumAccuracy.isEnabled = true
         buttonMaximumNote.isEnabled = true
+    }
+    
+    func showSkillPoint(sender: Int){
+        switch(sender){
+        case 0:
+            labelSkillPoint.text = "Skill Point".localized + " : \(record?.button4SkillPoint ?? 0)"
+        case 1:
+            labelSkillPoint.text = "Skill Point".localized + " : \(record?.button5SkillPoint ?? 0)"
+        case 2:
+            labelSkillPoint.text = "Skill Point".localized + " : \(record?.button6SkillPoint ?? 0)"
+        case 3:
+            labelSkillPoint.text = "Skill Point".localized + " : \(record?.button8SkillPoint ?? 0)"
+        default:
+            break
+        }
+    }
+    
+    func getSkillPoint(difficulty: Int, rate: String, note: String) -> Double{
+        if(difficulty == 0){
+            return 0
+        }
+        var skillPoint: Double
+        let e = 2.71828
+        let rateString = rate.split(separator: "%")[0].description
+        let accuracy = Double(rateString) ?? 0
+        let weight = getWeight(value: difficulty)
+        if(accuracy >= 80){
+            let temp = pow((accuracy - 80) / 20.0, e) + 1
+            skillPoint = weight * 50 * temp
+        }
+        else{
+            skillPoint = Double(weight * accuracy * 5) / 8.0
+        }
+        if(note == "-"){
+            skillPoint = skillPoint * 0.98
+        }
+        else if(note == "PERFECT PLAY"){
+            skillPoint = skillPoint * 1.05
+        }
+        skillPoint = (skillPoint * 100).rounded() / 100
+        return skillPoint
+    }
+    
+    func getWeight(value: Int) -> Double{
+        var result: Double = 0.0
+        switch(value){
+        case 1:
+            result = 0.4
+        case 2:
+            result = 0.6
+        case 3:
+            result = 0.8
+        case 4:
+            result = 1
+        case 5:
+            result = 1.14
+        case 6:
+            result = 1.24
+        case 7:
+            result = 1.33
+        case 8:
+            result = 1.42
+        case 9:
+            result = 1.53
+        case 10:
+            result = 1.6
+        case 11:
+            result = 1.68
+        case 12:
+            result = 1.77
+        case 13:
+            result = 1.85
+        case 14:
+            result = 1.94
+        case 15:
+            result = 2
+        default:
+            break
+        }
+        return result
     }
     
     func showNotification(){

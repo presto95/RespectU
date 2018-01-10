@@ -53,7 +53,7 @@ class MissionTableViewController: UITableViewController {
 
     @IBAction func search(_ sender: UIBarButtonItem) {
         ActionSheetMultipleStringPicker.show(withTitle: "Search".localized, rows: [
-            ["Respect", "Trilogy"]], initialSelection: [index], doneBlock: {
+            ["Respect", "Trilogy", "Clazziquai Edition"]], initialSelection: [index], doneBlock: {
                 picker, indexes, values in
                 self.index=indexes![0] as! Int
                 switch(indexes![0] as! Int){
@@ -61,6 +61,8 @@ class MissionTableViewController: UITableViewController {
                     self.type="Respect"
                 case 1:
                     self.type="Trilogy"
+                case 2:
+                    self.type="CE"
                 default:
                     break
                 }
@@ -119,6 +121,16 @@ class MissionTableViewController: UITableViewController {
                 cell.color.backgroundColor=UIColor(red: 143/255.0, green: 173/255.0, blue: 212/255.0, alpha: 1)
             case 1:
                 cell.color.backgroundColor=UIColor(red: 169/255.0, green: 148/255.0, blue: 222/255.0, alpha: 1)
+            default:
+                break
+            }
+        }
+        else if(type == "CE"){
+            switch(indexPath.section){
+            case 0:
+                cell.color.backgroundColor=UIColor(red: 226/255.0, green: 223/255.0, blue: 113/255.0, alpha: 1)
+            case 1:
+                cell.color.backgroundColor=UIColor(red: 182/255.0, green: 161/255.0, blue: 205/255.0, alpha: 1)
             default:
                 break
             }

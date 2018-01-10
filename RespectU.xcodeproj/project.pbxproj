@@ -16,6 +16,7 @@
 		1957070C1F849549009E98D3 /* TrophyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957070B1F849549009E98D3 /* TrophyTableViewCell.swift */; };
 		1957070E1F84A957009E98D3 /* RateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957070D1F84A957009E98D3 /* RateApp.swift */; };
 		1967A5401FA74FFC003C9305 /* NanumBarunpenRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1967A53F1FA74FEE003C9305 /* NanumBarunpenRegular.otf */; };
+		196F03A11FFF37E50028A9B8 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F03A01FFF37E50028A9B8 /* GradeViewController.swift */; };
 		19774C451FA855F500729250 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19774C441FA855F500729250 /* RecordViewController.swift */; };
 		1978E95A1F94269500FCD3DD /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
@@ -37,6 +38,7 @@
 		19D47FEA1FA88E8500F78127 /* NanumBarunGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 19D47FE91FA88E7F00F78127 /* NanumBarunGothicLight.otf */; };
 		19D47FEC1FA893F300F78127 /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 19D47FEB1FA893EE00F78127 /* NanumBarunGothic.otf */; };
 		19D4E4A51F80DFC800F0BF2B /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */; };
+		19D86C1D1FFC7FCE00DFF602 /* TipTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */; };
 		19E5CFBE1F9389C5000AFB0A /* PlaylistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */; };
 		19F3A8B91F8DBB6100B020B7 /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F3A8B81F8DBB6100B020B7 /* MissionDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,7 @@
 		1957070B1F849549009E98D3 /* TrophyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTableViewCell.swift; sourceTree = "<group>"; };
 		1957070D1F84A957009E98D3 /* RateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateApp.swift; sourceTree = "<group>"; };
 		1967A53F1FA74FEE003C9305 /* NanumBarunpenRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenRegular.otf; sourceTree = "<group>"; };
+		196F03A01FFF37E50028A9B8 /* GradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
 		19774C441FA855F500729250 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +100,7 @@
 		19D47FE91FA88E7F00F78127 /* NanumBarunGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.otf; sourceTree = "<group>"; };
 		19D47FEB1FA893EE00F78127 /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
 		19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewController.swift; sourceTree = "<group>"; };
 		19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewController.swift; sourceTree = "<group>"; };
 		19F3A8B81F8DBB6100B020B7 /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
 		9DE06FAE360980CDEF666B35 /* Pods-RespectU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,9 +185,11 @@
 				19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */,
 				1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */,
 				19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */,
+				196F03A01FFF37E50028A9B8 /* GradeViewController.swift */,
 				19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */,
 				19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */,
 				19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */,
+				19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */,
 				19774C441FA855F500729250 /* RecordViewController.swift */,
 				1957070D1F84A957009E98D3 /* RateApp.swift */,
 				19B660251F960E5800CCEFB5 /* StringExtension.swift */,
@@ -307,6 +313,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -316,6 +323,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -349,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196F03A11FFF37E50028A9B8 /* GradeViewController.swift in Sources */,
 				19B6CFEE1F7953640097B86B /* Database.swift in Sources */,
 				19544A9A1FB4B9AD00AA8E22 /* AchievementTableViewCell.swift in Sources */,
 				19A4FAD01FDE7605003FFFE6 /* RateCalculatorViewController.swift in Sources */,
@@ -360,6 +369,7 @@
 				1905F3521F7FCD0600699B4B /* MissionTableViewCell.swift in Sources */,
 				1978E95A1F94269500FCD3DD /* PlaylistTableViewCell.swift in Sources */,
 				191F47411F93590700C6F401 /* ActivityIndicatorViewController.swift in Sources */,
+				19D86C1D1FFC7FCE00DFF602 /* TipTableViewController.swift in Sources */,
 				1957070C1F849549009E98D3 /* TrophyTableViewCell.swift in Sources */,
 				1957070A1F849519009E98D3 /* TrophyTableViewController.swift in Sources */,
 				19E5CFBE1F9389C5000AFB0A /* PlaylistTableViewController.swift in Sources */,

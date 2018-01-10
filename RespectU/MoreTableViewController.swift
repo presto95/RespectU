@@ -26,7 +26,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     @IBOutlet weak var cellAchievement: UITableViewCell!
     @IBOutlet weak var cellRateCalculator: UITableViewCell!
     @IBOutlet weak var cellFavoriteButton: UITableViewCell!
-    @IBOutlet weak var cellSynchronization: UITableViewCell!
+    @IBOutlet weak var cellTip: UITableViewCell!
+    @IBOutlet weak var cellGrade: UITableViewCell!
     
     @IBOutlet weak var labelS: UILabel!
     @IBOutlet weak var labelA: UILabel!
@@ -50,6 +51,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         super.viewDidLoad()
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
+        cellGrade.textLabel?.text = "Skill Level".localized
         cellAchievement.textLabel?.text = "ACHIEVEMENT".localized
         cellRateCalculator.textLabel?.text = "RATE Calculator".localized
         cellFavoriteButton.textLabel?.text = "My Favorite Button".localized
@@ -65,12 +67,32 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     }
     override func viewWillAppear(_ animated: Bool) {
         showRecords()
+        let button4Grade = getButton4Grade().0
+        let button5Grade = getButton5Grade().0
+        let button6Grade = getButton6Grade().0
+        let button8Grade = getButton8Grade().0
+        let gradeArray = [button4Grade, button5Grade, button6Grade, button8Grade]
+        let grade = gradeArray.sorted()[3]
+        switch(grade){
+        case button4Grade:
+            cellGrade.detailTextLabel?.text = getGradeButton4(value: grade) + "(\(grade))"
+        case button5Grade:
+            cellGrade.detailTextLabel?.text = getGradeButton5(value: grade) + "(\(grade))"
+        case button6Grade:
+            cellGrade.detailTextLabel?.text = getGradeButton6And8(value: grade) + "(\(grade))"
+        case button8Grade:
+            cellGrade.detailTextLabel?.text = getGradeButton6And8(value: grade) + "(\(grade))"
+        default:
+            break
+        }
         if(UserDefaults.standard.bool(forKey: "night")){
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellTip.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellGrade.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell1.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell2.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell3.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -81,6 +103,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cellRateCalculator.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellTip.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellGrade.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell2.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell3.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell4.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -110,6 +134,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cellFavoriteButton.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellTip.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellGrade.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell1.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell2.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell3.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -120,6 +146,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cellRateCalculator.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellTip.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellGrade.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell2.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell3.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell4.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -149,13 +177,36 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 12
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch(indexPath.row){
-        case 2:
+        case 1:
+            let next=self.storyboard?.instantiateViewController(withIdentifier: "GradeViewController") as! GradeViewController
+            let button4 = getButton4Grade()
+            let button5 = getButton5Grade()
+            let button6 = getButton6Grade()
+            let button8 = getButton8Grade()
+            next.button4SkillLevel = getGradeButton4(value: button4.0)
+            next.button4SkillPoint = button4.0
+            next.button5SkillLevel = getGradeButton5(value: button5.0)
+            next.button5SkillPoint = button5.0
+            next.button6SkillLevel = getGradeButton6And8(value: button6.0)
+            next.button6SkillPoint = button6.0
+            next.button8SkillLevel = getGradeButton6And8(value: button8.0)
+            next.button8SkillPoint = button8.0
+            next.button4HighestSkillPoint = button4.1
+            next.button5HighestSkillPoint = button5.1
+            next.button6HighestSkillPoint = button6.1
+            next.button8HighestSkillPoint = button8.1
+            next.button4HighestSong = button4.2
+            next.button5HighestSong = button5.2
+            next.button6HighestSong = button6.2
+            next.button8HighestSong = button8.2
+            self.navigationController?.pushViewController(next, animated: true)
+        case 3:
             let alert=UIAlertController(title: "Change BPM Default".localized, message: "Current".localized+" : \(Int(UserDefaults.standard.double(forKey: "bpm"))) BPM\n\n"+"You can get SPEED Recommendation by touching Song list.".localized, preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
             let yesAction=UIAlertAction(title: "OK".localized, style: .default)
@@ -185,7 +236,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             alert.addAction(noAction)
             alert.addAction(yesAction)
             self.present(alert, animated: true, completion: nil)
-        case 3:
+        case 4:
             let view=UIImageView(image: #imageLiteral(resourceName: "success"))
             let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
             let alert = UIAlertController(title: "My Favorite Button".localized, message: "Current".localized+" : \(favorite ?? "None".localized)\n\n"+"The information displayed on the first run screen depends on the setting value.".localized, preferredStyle: .alert)
@@ -212,32 +263,13 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             let buttonCancel = UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
             alert.addAction(button4); alert.addAction(button5); alert.addAction(button6); alert.addAction(button8); alert.addAction(buttonCancel)
             self.present(alert, animated: true, completion: nil)
-        case 5:
+        case 7:
             sendEmail()
-        case 6:
+        case 8:
             let alert=UIAlertController(title: "Notification".localized, message: "Recommended to restart for correct operation.".localized, preferredStyle: .alert)
             let action=UIAlertAction(title: "OK".localized,style: .default, handler: nil)
             alert.addAction(action)
             present(alert,animated: true)
-        case 8:
-            let tipCount: UInt32 = 6
-            let rand=arc4random() % tipCount
-            switch(rand){
-            case 0:
-                self.alertTip(message: "Why don't you choose 'Good Bye' on the final stage of online match?".localized)
-            case 1:
-                self.alertTip(message: "You do not need to turn the stick when you enter an analog note.".localized)
-            case 2:
-                self.alertTip(message: "If you play with your face oil on your thumb, you can handle the cascading notes well :)".localized)
-            case 3:
-                self.alertTip(message: "You can change the keys by pressing the touch pad on the menu selection screen.".localized)
-            case 4:
-                self.alertTip(message: "In freestyle mode, you can keep your combos by restarting it during playback and then returning to the music selection screen.".localized)
-            case 5:
-                self.alertTip(message: "You can darken the BGA by pressing the touch pad during play.".localized)
-            default:
-                break
-            }
         default:
             break
         }
@@ -253,6 +285,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellTip.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellGrade.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell1.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -265,6 +299,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellTip.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellGrade.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell2.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell3.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell4.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -294,6 +330,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cellFavoriteButton.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellTip.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellGrade.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell1.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell2.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell3.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -304,6 +342,8 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cellRateCalculator.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellTip.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellGrade.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell2.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell3.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell4.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -392,6 +432,272 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         labelClearedPatternsCount.text = String(countClearedPatterns)
         labelMaxComboCount.text = String(countMaxCombo)
         labelPerfectPlayCount.text = String(countPerfectPlay)
+    }
+    
+    func getButton4Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button4SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getButton5Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button5SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getButton6Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button6SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getButton8Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button8SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    
+    func getGradeButton4(value: Double) -> String{
+        var returnString = ""
+        switch(value){
+        case 0..<1000:
+            returnString = "BEGINNER 1"
+        case 1000..<1500:
+            returnString = "BEGINNER 2"
+        case 1500..<2000:
+            returnString = "BEGINNER 3"
+        case 2000..<2300:
+            returnString = "BEGINNER 4"
+        case 2300..<2600:
+            returnString = "TRAINEE 1"
+        case 2600..<3000:
+            returnString = "TRAINEE 2"
+        case 3000..<3300:
+            returnString = "TRAINEE 3"
+        case 3300..<3600:
+            returnString = "AMATEUR 1"
+        case 3600..<4000:
+            returnString = "AMATEUR 2"
+        case 4000..<4300:
+            returnString = "AMATEUR 3"
+        case 4300..<4600:
+            returnString = "ROOKIE 1"
+        case 4600..<5000:
+            returnString = "ROOKIE 2"
+        case 5000..<5300:
+            returnString = "SUB DJ"
+        case 5300..<5600:
+            returnString = "MIDDLEMAN"
+        case 5600..<6000:
+            returnString = "MAIN DJ"
+        case 6000..<6300:
+            returnString = "POP DJ"
+        case 6300..<6600:
+            returnString = "HIGH CLASS"
+        case 6600..<7000:
+            returnString = "PROFESSIONAL"
+        case 7000..<7200:
+            returnString = "MIX MASTER"
+        case 7200..<7400:
+            returnString = "TREND SETTER"
+        case 7400..<7600:
+            returnString = "HIT MAKER"
+        case 7600..<7800:
+            returnString = "SHOW STOPPER"
+        case 7800..<8000:
+            returnString = "SUPERSTAR"
+        case 8000..<8200:
+            returnString = "WORLD FAMOUS"
+        case 8200..<8400:
+            returnString = "DJMAX GRAND MASTER"
+        case 8400..<8600:
+            returnString = "VANQUISHER"
+        case 8600..<8800:
+            returnString = "BEAT MAESTRO"
+        case 8800...:
+            returnString = "THE DJMAX"
+        default:
+            break
+        }
+        return returnString
+    }
+    
+    func getGradeButton5(value: Double) -> String{
+        var returnString = ""
+        switch(value){
+        case 0..<1000:
+            returnString = "BEGINNER 1"
+        case 1000..<1500:
+            returnString = "BEGINNER 2"
+        case 1500..<2000:
+            returnString = "BEGINNER 3"
+        case 2000..<2300:
+            returnString = "BEGINNER 4"
+        case 2300..<2600:
+            returnString = "TRAINEE 1"
+        case 2600..<3000:
+            returnString = "TRAINEE 2"
+        case 3000..<3300:
+            returnString = "TRAINEE 3"
+        case 3300..<3600:
+            returnString = "TRAINEE 4"
+        case 3600..<4000:
+            returnString = "AMATEUR 1"
+        case 4000..<4300:
+            returnString = "AMATEUR 2"
+        case 4300..<4600:
+            returnString = "AMATEUR 3"
+        case 4600..<5000:
+            returnString = "ROOKIE 1"
+        case 5000..<5300:
+            returnString = "ROOKIE 2"
+        case 5300..<5600:
+            returnString = "SUB DJ"
+        case 5600..<6000:
+            returnString = "MIDDLEMAN"
+        case 6000..<6300:
+            returnString = "MAIN DJ"
+        case 6300..<6600:
+            returnString = "POP DJ"
+        case 6600..<7000:
+            returnString = "HIGH CLASS"
+        case 7000..<7200:
+            returnString = "PROFESIONAL"
+        case 7200..<7400:
+            returnString = "MIX MASTER"
+        case 7400..<7600:
+            returnString = "TREND SETTER"
+        case 7600..<7800:
+            returnString = "HIT MAKER"
+        case 7800..<8000:
+            returnString = "SHOW STOPPER"
+        case 8000..<8200:
+            returnString = "SUPERSTAR"
+        case 8200..<8400:
+            returnString = "WORLD FAMOUS"
+        case 8400..<8600:
+            returnString = "DJMAX GRAND MASTER"
+        case 8600..<8800:
+            returnString = "VANQUISHER"
+        case 8800..<9000:
+            returnString = "BEAT MAESTRO"
+        case 9000...:
+            returnString = "THE DJMAX"
+        default:
+            break
+        }
+        return returnString
+    }
+    
+    func getGradeButton6And8(value: Double) -> String{
+        var returnString = ""
+        switch(value){
+        case 0..<1000:
+            returnString = "BEGINNER 1"
+        case 1000..<1500:
+            returnString = "BEGINNER 2"
+        case 1500..<2000:
+            returnString = "BEGINNER 3"
+        case 2000..<2300:
+            returnString = "BEGINNER 4"
+        case 2300..<2600:
+            returnString = "TRAINEE 1"
+        case 2600..<3000:
+            returnString = "TRAINEE 2"
+        case 3000..<3300:
+            returnString = "TRAINEE 3"
+        case 3300..<3600:
+            returnString = "TRAINEE 4"
+        case 3600..<4000:
+            returnString = "AMATEUR 1"
+        case 4000..<4300:
+            returnString = "AMATEUR 2"
+        case 4300..<4600:
+            returnString = "AMATEUR 3"
+        case 4600..<5000:
+            returnString = "AMATEUR 4"
+        case 5000..<5300:
+            returnString = "ROOKIE 1"
+        case 5300..<5600:
+            returnString = "ROOKIE 2"
+        case 5600..<6000:
+            returnString = "SUB DJ"
+        case 6000..<6300:
+            returnString = "MIDDLEMAN"
+        case 6300..<6600:
+            returnString = "MAIN DJ"
+        case 6600..<7000:
+            returnString = "POP DJ"
+        case 7000..<7200:
+            returnString = "HIGH CLASS"
+        case 7200..<7400:
+            returnString = "PROFESSIONAL"
+        case 7400..<7600:
+            returnString = "MIX MASTER"
+        case 7600..<7800:
+            returnString = "TREND SETTER"
+        case 7800..<8000:
+            returnString = "HIT MAKER"
+        case 8000..<8200:
+            returnString = "SHOW STOPPER"
+        case 8200..<8400:
+            returnString = "SUPERSTAR"
+        case 8400..<8600:
+            returnString = "WORLD FAMOUS"
+        case 8600..<8800:
+            returnString = "DJMAX GRAND MASTER"
+        case 8800..<9000:
+            returnString = "VANQUISHER"
+        case 9000..<9200:
+            returnString = "BEAT MAESTRO"
+        case 9200...:
+            returnString = "THE DJMAX"
+        default:
+            break
+        }
+        return returnString
     }
     
     

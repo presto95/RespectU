@@ -12,7 +12,9 @@ import RealmSwift
 
 class GradeViewController: UIViewController {
 
-    let gradeArray = ["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "TRAINEE 4", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "AMATEUR 4", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
+    let button4GradeArray = ["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
+    let button5GradeArray=["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "TRAINEE 4", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
+    let button6And8GradeArray=["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "TRAINEE 4", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "AMATEUR 4", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
     var button4SkillLevel: String=""
     var button4SkillPoint: Double=0.0
     var button4HighestSkillPoint: Double=0.0
@@ -105,7 +107,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button4SkillPoint)
             labelHighestSkillPointValue.text = String(button4HighestSkillPoint)
             labelSong.text = button4HighestSong
-            labelNext.text = getNextString(string: button4SkillLevel)
+            labelNext.text = getNextString(string: button4SkillLevel, sender: 0)
             labelPercent.text = "\(((button4SkillPoint / button4Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button4HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -121,7 +123,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button5SkillPoint)
             labelHighestSkillPointValue.text = String(button5HighestSkillPoint)
             labelSong.text = button5HighestSong
-            labelNext.text = getNextString(string: button5SkillLevel)
+            labelNext.text = getNextString(string: button5SkillLevel, sender: 1)
             labelPercent.text = "\(((button5SkillPoint / button5Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button5HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -136,7 +138,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button6SkillPoint)
             labelHighestSkillPointValue.text = String(button6HighestSkillPoint)
             labelSong.text = button6HighestSong
-            labelNext.text = getNextString(string: button6SkillLevel)
+            labelNext.text = getNextString(string: button6SkillLevel, sender: 2)
             labelPercent.text = "\(((button6SkillPoint / button6Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button6HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -151,7 +153,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button8SkillPoint)
             labelHighestSkillPointValue.text = String(button8HighestSkillPoint)
             labelSong.text = button8HighestSong
-            labelNext.text = getNextString(string: button8SkillLevel)
+            labelNext.text = getNextString(string: button8SkillLevel, sender: 3)
             labelPercent.text = "\(((button8SkillPoint / button8Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button8HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -220,7 +222,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button4SkillPoint)
             labelHighestSkillPointValue.text = String(button4HighestSkillPoint)
             labelSong.text = button4HighestSong
-            labelNext.text = getNextString(string: button4SkillLevel)
+            labelNext.text = getNextString(string: button4SkillLevel, sender: 0)
             labelPercent.text = "\(((button4SkillPoint / button4Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button4HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -235,7 +237,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button5SkillPoint)
             labelHighestSkillPointValue.text = String(button5HighestSkillPoint)
             labelSong.text = button5HighestSong
-            labelNext.text = getNextString(string: button5SkillLevel)
+            labelNext.text = getNextString(string: button5SkillLevel, sender: 1)
             labelPercent.text = "\(((button5SkillPoint / button5Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button5HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -250,7 +252,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button6SkillPoint)
             labelHighestSkillPointValue.text = String(button6HighestSkillPoint)
             labelSong.text = button6HighestSong
-            labelNext.text = getNextString(string: button6SkillLevel)
+            labelNext.text = getNextString(string: button6SkillLevel, sender: 2)
             labelPercent.text = "\(((button6SkillPoint / button6Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button6HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -265,7 +267,7 @@ class GradeViewController: UIViewController {
             labelSkillPoint.text = "Skill Point".localized + " : " + String(button8SkillPoint)
             labelHighestSkillPointValue.text = String(button8HighestSkillPoint)
             labelSong.text = button8HighestSong
-            labelNext.text = getNextString(string: button8SkillLevel)
+            labelNext.text = getNextString(string: button8SkillLevel, sender: 3)
             labelPercent.text = "\(((button8SkillPoint / button8Max) * 10000.0).rounded() / 100.0)%"
             query = NSPredicate(format: "title = %@", button8HighestSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
@@ -279,20 +281,51 @@ class GradeViewController: UIViewController {
         }
     }
     
-    func getNextString(string: String) -> String{
+    func getNextString(string: String, sender: Int) -> String{
         var index: Int=0
         var nextString = "Next".localized + " : "
-        for i in gradeArray{
-            if(i == string){
-                break
+        switch(sender){
+        case 0:
+            for i in button4GradeArray{
+                if(i == string){
+                    break
+                }
+                index = index + 1
             }
-            index = index + 1
-        }
-        if(index == gradeArray.count){
-            nextString = nextString + "None".localized
-        }
-        else{
-            nextString = nextString + gradeArray[index+1]
+            if(index == button4GradeArray.count){
+                nextString = nextString + "None".localized
+            }
+            else{
+                nextString = nextString + button4GradeArray[index+1]
+            }
+        case 1:
+            for i in button5GradeArray{
+                if(i == string){
+                    break
+                }
+                index = index + 1
+            }
+            if(index == button5GradeArray.count){
+                nextString = nextString + "None".localized
+            }
+            else{
+                nextString = nextString + button5GradeArray[index+1]
+            }
+        case 2...3:
+            for i in button6And8GradeArray{
+                if(i == string){
+                    break
+                }
+                index = index + 1
+            }
+            if(index == button6And8GradeArray.count){
+                nextString = nextString + "None".localized
+            }
+            else{
+                nextString = nextString + button6And8GradeArray[index+1]
+            }
+        default:
+            break
         }
         return nextString
     }

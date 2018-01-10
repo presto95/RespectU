@@ -95,6 +95,7 @@ class SongDetailViewController: UIViewController {
         }
         query = NSPredicate(format: "title = %@",self.detailTitle)
         record = try! Realm().objects(RecordInfo.self).filter(query!).first!
+        print(record)
         self.navigationItem.title = "Performance Record".localized
         labelRank.text = "RANK".localized
         labelAccuracy.text = "ACCURACY".localized

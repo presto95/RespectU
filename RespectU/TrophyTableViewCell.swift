@@ -9,12 +9,15 @@
 import UIKit
 
 class TrophyTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var trophyImage: UIImageView!
     @IBOutlet weak var titleKor: UILabel!
     @IBOutlet weak var contentKor: UILabel!
     @IBOutlet weak var ratingColor: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 

@@ -51,7 +51,7 @@ class SongTableViewController: UITableViewController {
     var wordsIndexTitles: [String]=[]
     var achievementResults: Results<AchievementInfo>? = nil
     var missionResults: Results<MissionInfo>? = nil
-
+    var isNight=UserDefaults.standard.bool(forKey: "night")
     
     
     override func viewDidLoad() {
@@ -84,11 +84,12 @@ class SongTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let isNight=UserDefaults.standard.bool(forKey: "night")
+        isNight=UserDefaults.standard.bool(forKey: "night")
         view.backgroundColor=isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         tableView.sectionIndexBackgroundColor=isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         tabBarController?.tabBar.barStyle=isNight ? .black : .default
         navigationController?.navigationBar.barStyle=isNight ? .black : .default
+        navigationItem.titleView = setTitle(title: "Music".localized, subtitle: series + " / " + key)
         if(NotificationBannerQueue.default.numberOfBanners > 0){
             NotificationBannerQueue.default.removeAll()
         }
@@ -160,8 +161,24 @@ class SongTableViewController: UITableViewController {
                 //섹션별 딕셔너리
                 self.generateWordsDict()
                 self.generateWordsIndexTitle()
+                let tempSeries: String
+                switch(self.series){
+                case "Respect":
+                    tempSeries = "Respect"
+                case "Trilogy":
+                    tempSeries = "Trilogy"
+                case "CE":
+                    tempSeries = "CE"
+                case "Portable1":
+                    tempSeries = "Portable 1"
+                case "Portable2":
+                    tempSeries = "Portable 2"
+                default:
+                    tempSeries = "All"
+                }
+                self.navigationItem.titleView = self.setTitle(title: "Music".localized, subtitle: tempSeries + " / " + self.key)
                 self.tableView.reloadData()
-                self.showSearchNotification(series: self.series)
+                self.showSearchNotification(series: tempSeries)
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
     }
@@ -201,14 +218,15 @@ class SongTableViewController: UITableViewController {
                 if(level=="NORMAL"){
                     if(self.key=="4B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm4", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results = try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm4", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm4", ascending: true)
+                                self.results = try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                                 
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm4))
@@ -216,13 +234,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm4", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm4", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm4", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm4", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm4))
@@ -232,13 +251,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="5B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm5", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm5", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm5", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm5))
@@ -246,13 +266,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm5", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm5", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm5", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: false)
-                                 self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm5", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm5))
@@ -262,13 +283,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="6B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm6", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm6", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm6))
@@ -276,13 +298,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm6", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm6", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm6))
@@ -292,13 +315,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="8B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm8", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm8", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm8", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm8))
@@ -306,13 +330,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "nm8", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "nm8", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "nm8", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: false)
-                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "nm8", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.nm8))
@@ -324,13 +349,14 @@ class SongTableViewController: UITableViewController {
                 else if(level=="HARD"){
                     if(self.key=="4B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd4", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd4", ascending: true)
-                                self.record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd4", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record = try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd4))
@@ -338,13 +364,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd4", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd4", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd4", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd4", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd4))
@@ -356,13 +383,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="5B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd5", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd5", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd5", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd5))
@@ -370,14 +398,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd5", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd5", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd5", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd5", ascending: 
-                                    false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd5))
@@ -387,13 +415,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="6B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd6", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd6", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd6))
@@ -401,13 +430,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd6", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd6", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd6))
@@ -417,13 +447,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="8B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd8", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd8", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd8", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd8))
@@ -431,13 +462,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "hd8", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "hd8", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "hd8", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "hd8", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.hd8))
@@ -449,13 +481,14 @@ class SongTableViewController: UITableViewController {
                 else if(level=="MAXIMUM"){
                     if(self.key=="4B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx4", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx4", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx4", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx4))
@@ -463,13 +496,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx4", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx4", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx4", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx4", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx4))
@@ -479,13 +513,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="5B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx5", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx5", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx5", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx5))
@@ -493,13 +528,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx5", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx5", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx5", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx5", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx5))
@@ -509,13 +545,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="6B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx6", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx6", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx6))
@@ -523,13 +560,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx6", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx6", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx6", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx6))
@@ -539,13 +577,14 @@ class SongTableViewController: UITableViewController {
                     }
                     else if(self.key=="8B"){
                         if(sort=="Asc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx8", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx8", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx8", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: true)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: true)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx8))
@@ -553,13 +592,14 @@ class SongTableViewController: UITableViewController {
                             self.generateWordsDictInSort(ascending: true)
                         }
                         else if(sort=="Desc"){
+                            let sortProperties = [SortDescriptor(keyPath: "mx8", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                             if(self.series=="All"){
-                                self.results=try! Realm().objects(SongInfo.self).sorted(byKeyPath: "mx8", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "mx8", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).sorted(by: sortProperties)
                             }
                             else{
-                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: false)
-                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(byKeyPath: "mx8", ascending: false)
+                                self.results=try! Realm().objects(SongInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
+                                self.record=try! Realm().objects(RecordInfo.self).filter("series = '"+self.series+"'").sorted(by: sortProperties)
                             }
                             for i in self.results!{
                                 self.temp.append(String(i.mx8))
@@ -568,9 +608,24 @@ class SongTableViewController: UITableViewController {
                         }
                     }
                 }
+                let tempSeries: String
+                switch(self.series){
+                case "Respect":
+                    tempSeries = "Respect"
+                case "Trilogy":
+                    tempSeries = "Trilogy"
+                case "CE":
+                    tempSeries = "CE"
+                case "Portable1":
+                    tempSeries = "Portable 1"
+                case "Portable2":
+                    tempSeries = "Portable 2"
+                default:
+                    tempSeries = "All"
+                }
                 self.generateWordsIndexTitleInSort()
                 self.tableView.reloadData()
-                self.showSortNotification(series: self.series, level: level, sort: sort)
+                self.showSortNotification(series: tempSeries, level: level, sort: sort)
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
     }
@@ -601,8 +656,6 @@ class SongTableViewController: UITableViewController {
         next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
         next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
         self.navigationController?.pushViewController(next, animated: true)
-        
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -969,9 +1022,9 @@ class SongTableViewController: UITableViewController {
         switch(series){
         case "All":
             NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .info).show()
-        case "Portable1":
+        case "Portable 1":
             NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .portable1).show()
-        case "Portable2":
+        case "Portable 2":
             NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .portable2).show()
         case "Respect":
             NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .respect).show()
@@ -992,9 +1045,9 @@ class SongTableViewController: UITableViewController {
         switch(series){
         case "All":
             NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .info).show()
-        case "Portable1":
+        case "Portable 1":
             NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .portable1).show()
-        case "Portable2":
+        case "Portable 2":
             NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .portable2).show()
         case "Respect":
             NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .respect).show()
@@ -1114,6 +1167,39 @@ class SongTableViewController: UITableViewController {
         else{
             return false
         }
+    }
+    
+    func setTitle(title:String, subtitle:String) -> UIView {
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: -2, width: 0, height: 0))
+        
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
+        titleLabel.text = title
+        titleLabel.sizeToFit()
+        
+        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
+        subtitleLabel.backgroundColor = UIColor.clear
+        subtitleLabel.textColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
+        subtitleLabel.text = subtitle
+        subtitleLabel.sizeToFit()
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(subtitleLabel)
+        
+        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
+        
+        if widthDiff < 0 {
+            let newX = widthDiff / 2
+            subtitleLabel.frame.origin.x = abs(newX)
+        } else {
+            let newX = widthDiff / 2
+            titleLabel.frame.origin.x = newX
+        }
+        
+        return titleView
     }
     
     

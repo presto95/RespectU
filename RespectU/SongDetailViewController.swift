@@ -95,7 +95,6 @@ class SongDetailViewController: UIViewController {
         }
         query = NSPredicate(format: "title = %@",self.detailTitle)
         record = try! Realm().objects(RecordInfo.self).filter(query!).first!
-        print(record)
         self.navigationItem.title = "Performance Record".localized
         labelRank.text = "RANK".localized
         labelAccuracy.text = "ACCURACY".localized
@@ -297,7 +296,79 @@ class SongDetailViewController: UIViewController {
                 break
             }
             self.initializing()
-            self.showNoteAlert(difficulty: difficulty)
+            switch(self.segmentedControl.selectedSegmentIndex){
+            case 0:
+                switch(difficulty){
+                case "normal":
+                    if(!(self.record?.nm4Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "hard":
+                    if(!(self.record?.hd4Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "maximum":
+                    if(!(self.record?.mx4Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                default:
+                    break
+                }
+            case 1:
+                switch(difficulty){
+                case "normal":
+                    if(!(self.record?.nm5Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "hard":
+                    if(!(self.record?.hd5Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "maximum":
+                    if(!(self.record?.mx5Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                default:
+                    break
+                }
+            case 2:
+                switch(difficulty){
+                case "normal":
+                    if(!(self.record?.nm6Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "hard":
+                    if(!(self.record?.hd6Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "maximum":
+                    if(!(self.record?.mx6Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                default:
+                    break
+                }
+            case 3:
+                switch(difficulty){
+                case "normal":
+                    if(!(self.record?.nm8Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "hard":
+                    if(!(self.record?.hd8Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                case "maximum":
+                    if(!(self.record?.mx8Note == "MAX COMBO")){
+                        self.showNoteAlert(difficulty: difficulty)
+                    }
+                default:
+                    break
+                }
+            default:
+                break
+            }
+            
         }
         let noAction=UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
         alert.addAction(noAction)
@@ -408,13 +479,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm4Point = getSkillPoint(difficulty: record!.nm4, rate: record!.nm4Rate, note: record!.nm4Note)
-            let hd4Point = getSkillPoint(difficulty: record!.hd4, rate: record!.hd4Rate, note: record!.hd4Note)
-            let mx4Point = getSkillPoint(difficulty: record!.mx4, rate: record!.mx4Rate, note: record!.mx4Note)
-            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
-            try! realm.write{
-                record!.button4SkillPoint = max4Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 0)
         case 1:
             try! realm.write{
@@ -429,13 +494,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm5Point = getSkillPoint(difficulty: record!.nm5, rate: record!.nm5Rate, note: record!.nm5Note)
-            let hd5Point = getSkillPoint(difficulty: record!.hd5, rate: record!.hd5Rate, note: record!.hd5Note)
-            let mx5Point = getSkillPoint(difficulty: record!.mx5, rate: record!.mx5Rate, note: record!.mx5Note)
-            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
-            try! realm.write{
-                record!.button5SkillPoint = max5Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 1)
         case 2:
             try! realm.write{
@@ -450,13 +509,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm6Point = getSkillPoint(difficulty: record!.nm6, rate: record!.nm6Rate, note: record!.nm6Note)
-            let hd6Point = getSkillPoint(difficulty: record!.hd6, rate: record!.hd6Rate, note: record!.hd6Note)
-            let mx6Point = getSkillPoint(difficulty: record!.mx6, rate: record!.mx6Rate, note: record!.mx6Note)
-            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
-            try! realm.write{
-                record!.button6SkillPoint = max6Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 2)
         case 3:
             try! realm.write{
@@ -471,13 +524,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm8Point = getSkillPoint(difficulty: record!.nm8, rate: record!.nm8Rate, note: record!.nm8Note)
-            let hd8Point = getSkillPoint(difficulty: record!.hd8, rate: record!.hd8Rate, note: record!.hd8Note)
-            let mx8Point = getSkillPoint(difficulty: record!.mx8, rate: record!.mx8Rate, note: record!.mx8Note)
-            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
-            try! realm.write{
-                record!.button8SkillPoint = max8Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 3)
         default:
             break
@@ -500,13 +547,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm4Point = getSkillPoint(difficulty: record!.nm4, rate: record!.nm4Rate, note: record!.nm4Note)
-            let hd4Point = getSkillPoint(difficulty: record!.hd4, rate: record!.hd4Rate, note: record!.hd4Note)
-            let mx4Point = getSkillPoint(difficulty: record!.mx4, rate: record!.mx4Rate, note: record!.mx4Note)
-            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
-            try! realm.write{
-                record!.button4SkillPoint = max4Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 0)
         case 1:
             try! realm.write{
@@ -521,13 +562,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm5Point = getSkillPoint(difficulty: record!.nm5, rate: record!.nm5Rate, note: record!.nm5Note)
-            let hd5Point = getSkillPoint(difficulty: record!.hd5, rate: record!.hd5Rate, note: record!.hd5Note)
-            let mx5Point = getSkillPoint(difficulty: record!.mx5, rate: record!.mx5Rate, note: record!.mx5Note)
-            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
-            try! realm.write{
-                record!.button5SkillPoint = max5Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 1)
         case 2:
             try! realm.write{
@@ -542,13 +577,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm6Point = getSkillPoint(difficulty: record!.nm6, rate: record!.nm6Rate, note: record!.nm6Note)
-            let hd6Point = getSkillPoint(difficulty: record!.hd6, rate: record!.hd6Rate, note: record!.hd6Note)
-            let mx6Point = getSkillPoint(difficulty: record!.mx6, rate: record!.mx6Rate, note: record!.mx6Note)
-            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
-            try! realm.write{
-                record!.button6SkillPoint = max6Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 2)
         case 3:
             try! realm.write{
@@ -563,13 +592,7 @@ class SongDetailViewController: UIViewController {
                     break
                 }
             }
-            let nm8Point = getSkillPoint(difficulty: record!.nm8, rate: record!.nm8Rate, note: record!.nm8Note)
-            let hd8Point = getSkillPoint(difficulty: record!.hd8, rate: record!.hd8Rate, note: record!.hd8Note)
-            let mx8Point = getSkillPoint(difficulty: record!.mx8, rate: record!.mx8Rate, note: record!.mx8Note)
-            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
-            try! realm.write{
-                record!.button8SkillPoint = max8Point
-            }
+            setSkillPoint()
             showSkillPoint(sender: 3)
         default:
             break
@@ -834,6 +857,109 @@ class SongDetailViewController: UIViewController {
         }
         skillPoint = (skillPoint * 100).rounded() / 100
         return skillPoint
+    }
+    
+    func setSkillPoint(){
+        switch(segmentedControl.selectedSegmentIndex){
+        case 0:
+            let nm4Point = getSkillPoint(difficulty: record!.nm4, rate: record!.nm4Rate, note: record!.nm4Note)
+            let hd4Point = getSkillPoint(difficulty: record!.hd4, rate: record!.hd4Rate, note: record!.hd4Note)
+            let mx4Point = getSkillPoint(difficulty: record!.mx4, rate: record!.mx4Rate, note: record!.mx4Note)
+            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
+            try! realm.write{
+                record?.button4SkillPoint = max4Point
+                switch(max4Point){
+                case nm4Point:
+                    record?.button4HighestSkillPointDifficulty = "NORMAL"
+                    record?.button4HighestSkillPointRate = (record?.nm4Rate)!
+                    record?.button4HighestSkillPointNote = (record?.nm4Note)!
+                case hd4Point:
+                    record?.button4HighestSkillPointDifficulty = "HARD"
+                    record?.button4HighestSkillPointRate = (record?.hd4Rate)!
+                    record?.button4HighestSkillPointNote = (record?.hd4Note)!
+                case mx4Point:
+                    record?.button4HighestSkillPointDifficulty = "MAXIMUM"
+                    record?.button4HighestSkillPointRate = (record?.mx4Rate)!
+                    record?.button4HighestSkillPointNote = (record?.mx4Note)!
+                default:
+                    break
+                }
+            }
+        case 1:
+            let nm5Point = getSkillPoint(difficulty: record!.nm5, rate: record!.nm5Rate, note: record!.nm5Note)
+            let hd5Point = getSkillPoint(difficulty: record!.hd5, rate: record!.hd5Rate, note: record!.hd5Note)
+            let mx5Point = getSkillPoint(difficulty: record!.mx5, rate: record!.mx5Rate, note: record!.mx5Note)
+            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
+            try! realm.write{
+                record?.button5SkillPoint = max5Point
+                switch(max5Point){
+                case nm5Point:
+                    record?.button5HighestSkillPointDifficulty = "NORMAL"
+                    record?.button5HighestSkillPointRate = (record?.nm5Rate)!
+                    record?.button5HighestSkillPointNote = (record?.nm5Note)!
+                case hd5Point:
+                    record?.button5HighestSkillPointDifficulty = "HARD"
+                    record?.button5HighestSkillPointRate = (record?.hd5Rate)!
+                    record?.button5HighestSkillPointNote = (record?.hd5Note)!
+                case mx5Point:
+                    record?.button5HighestSkillPointDifficulty = "MAXIMUM"
+                    record?.button5HighestSkillPointRate = (record?.mx5Rate)!
+                    record?.button5HighestSkillPointNote = (record?.mx5Note)!
+                default:
+                    break
+                }
+            }
+        case 2:
+            let nm6Point = getSkillPoint(difficulty: record!.nm6, rate: record!.nm6Rate, note: record!.nm6Note)
+            let hd6Point = getSkillPoint(difficulty: record!.hd6, rate: record!.hd6Rate, note: record!.hd6Note)
+            let mx6Point = getSkillPoint(difficulty: record!.mx6, rate: record!.mx6Rate, note: record!.mx6Note)
+            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
+            try! realm.write{
+                record?.button6SkillPoint = max6Point
+                switch(max6Point){
+                case nm6Point:
+                    record?.button6HighestSkillPointDifficulty = "NORMAL"
+                    record?.button6HighestSkillPointRate = (record?.nm6Rate)!
+                    record?.button6HighestSkillPointNote = (record?.nm6Note)!
+                case hd6Point:
+                    record?.button6HighestSkillPointDifficulty = "HARD"
+                    record?.button6HighestSkillPointRate = (record?.hd6Rate)!
+                    record?.button6HighestSkillPointNote = (record?.hd6Note)!
+                case mx6Point:
+                    record?.button6HighestSkillPointDifficulty = "MAXIMUM"
+                    record?.button6HighestSkillPointRate = (record?.mx6Rate)!
+                    record?.button6HighestSkillPointNote = (record?.mx6Note)!
+                default:
+                    break
+                }
+            }
+        case 3:
+            let nm8Point = getSkillPoint(difficulty: record!.nm8, rate: record!.nm8Rate, note: record!.nm8Note)
+            let hd8Point = getSkillPoint(difficulty: record!.hd8, rate: record!.hd8Rate, note: record!.hd8Note)
+            let mx8Point = getSkillPoint(difficulty: record!.mx8, rate: record!.mx8Rate, note: record!.mx8Note)
+            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
+            try! realm.write{
+                record?.button8SkillPoint = max8Point
+                switch(max8Point){
+                case nm8Point:
+                    record?.button8HighestSkillPointDifficulty = "NORMAL"
+                    record?.button8HighestSkillPointRate = (record?.nm8Rate)!
+                    record?.button8HighestSkillPointNote = (record?.nm8Note)!
+                case hd8Point:
+                    record?.button8HighestSkillPointDifficulty = "HARD"
+                    record?.button8HighestSkillPointRate = (record?.hd8Rate)!
+                    record?.button8HighestSkillPointNote = (record?.hd8Note)!
+                case mx8Point:
+                    record?.button8HighestSkillPointDifficulty = "MAXIMUM"
+                    record?.button8HighestSkillPointRate = (record?.mx8Rate)!
+                    record?.button8HighestSkillPointNote = (record?.mx8Note)!
+                default:
+                    break
+                }
+            }
+        default:
+            break
+        }
     }
     
     func getWeight(value: Int) -> Double{

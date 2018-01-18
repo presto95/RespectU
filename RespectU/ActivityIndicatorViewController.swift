@@ -15,7 +15,7 @@ class ActivityIndicatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ypos=respectu.frame.origin.y
+        /*let ypos=respectu.frame.origin.y
         UIView.animate(withDuration: 0.7, animations: {
             self.respectu.frame.origin.y = ypos - 80
         }) { (_) in
@@ -23,7 +23,7 @@ class ActivityIndicatorViewController: UIViewController {
                 self.unofficial.alpha = 1
                 self.indicator.alpha = 1
             })
-        }
+        }*/
         _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
             
             let storyboard = self.storyboard
@@ -40,16 +40,5 @@ class ActivityIndicatorViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

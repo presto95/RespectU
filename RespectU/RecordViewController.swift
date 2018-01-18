@@ -155,7 +155,7 @@ class RecordViewController: UIViewController {
                     setAccuracyIndex(index: 0, key: "4B", accuracy: accuracy)
                 case 99.50..<99.80:
                     setAccuracyIndex(index: 1, key: "4B", accuracy: accuracy)
-                case 99.00..<99.49:
+                case 99.00..<99.50:
                     setAccuracyIndex(index: 2, key: "4B", accuracy: accuracy)
                 case 98.50..<99.00:
                     setAccuracyIndex(index: 3, key: "4B", accuracy: accuracy)
@@ -176,7 +176,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "4B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "4B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "4B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "4B", accuracy: accuracy)
@@ -197,7 +197,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "4B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "4B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "4B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "4B", accuracy: accuracy)
@@ -218,7 +218,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "5B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "5B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "5B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "5B", accuracy: accuracy)
@@ -239,7 +239,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "5B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "5B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "5B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "5B", accuracy: accuracy)
@@ -260,7 +260,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "5B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "5B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "5B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "5B", accuracy: accuracy)
@@ -281,7 +281,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "6B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "6B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "6B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "6B", accuracy: accuracy)
@@ -302,7 +302,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "6B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "6B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "6B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "6B", accuracy: accuracy)
@@ -323,7 +323,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "6B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "6B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "6B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "6B", accuracy: accuracy)
@@ -344,7 +344,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "8B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "8B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "8B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "8B", accuracy: accuracy)
@@ -365,7 +365,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "8B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "8B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "8B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "8B", accuracy: accuracy)
@@ -386,7 +386,7 @@ class RecordViewController: UIViewController {
                 setAccuracyIndex(index: 0, key: "8B", accuracy: accuracy)
             case 99.50..<99.80:
                 setAccuracyIndex(index: 1, key: "8B", accuracy: accuracy)
-            case 99.00..<99.49:
+            case 99.00..<99.50:
                 setAccuracyIndex(index: 2, key: "8B", accuracy: accuracy)
             case 98.50..<99.00:
                 setAccuracyIndex(index: 3, key: "8B", accuracy: accuracy)

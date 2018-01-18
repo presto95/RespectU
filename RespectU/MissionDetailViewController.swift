@@ -96,7 +96,6 @@ class MissionDetailViewController: UIViewController {
         super.viewDidLoad()
         
         realm = try! Realm()
-        //results = try! Realm().objects(SongInfo.self)
         
         self.navigationItem.title = section
         labelTitle.text=titleDetail
@@ -685,15 +684,5 @@ class MissionDetailViewController: UIViewController {
         }
         return char
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

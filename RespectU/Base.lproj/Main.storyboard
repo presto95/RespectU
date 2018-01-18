@@ -17,9 +17,6 @@
         <array key="NanumBarunGothicLight.otf">
             <string>NanumBarunGothicOTFLight</string>
         </array>
-        <array key="NanumBarunpenRegular.otf">
-            <string>NanumBarunpen</string>
-        </array>
     </customFonts>
     <scenes>
         <!--Activity Indicator View Controller-->
@@ -30,18 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iX8-yT-OO6">
-                                <rect key="frame" x="142" y="382" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GUIDE FOR DJMAX RESPECT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwx-D6-0RT">
-                                <rect key="frame" x="14" y="302" width="292" height="78"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="NanumBarunpen" family="NanumBarunpen" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="wFV-ZW-mtb">
                                 <rect key="frame" x="33" y="262" width="255" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -51,9 +36,7 @@
                         <viewLayoutGuide key="safeArea" id="eiZ-Wg-9CS"/>
                     </view>
                     <connections>
-                        <outlet property="indicator" destination="iX8-yT-OO6" id="oOu-fM-42L"/>
                         <outlet property="respectu" destination="wFV-ZW-mtb" id="D1H-vd-UAz"/>
-                        <outlet property="unofficial" destination="Mwx-D6-0RT" id="yW8-eU-AnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SGb-Vg-h7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1259,7 +1242,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RespectU 1.19" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-P7-dhd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RespectU 1.22" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdc-P7-dhd">
                                                     <rect key="frame" x="16" y="27" width="181" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>
@@ -1543,7 +1526,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SkillLevel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-r4-dF8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DJMAX GRAND MASTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bij-r4-dF8">
                                 <rect key="frame" x="16" y="133" width="288" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NanumBarunGothicOTF" family="NanumBarunGothicOTF" pointSize="20"/>
@@ -1621,14 +1604,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfs-kp-dyB">
+                                <rect key="frame" x="252" y="137" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NanumBarunGothicOTF" family="NanumBarunGothicOTF" pointSize="15"/>
+                                <state key="normal" title="TOP 50"/>
+                                <connections>
+                                    <action selector="showTop50:" destination="gtd-Th-J4A" eventType="touchUpInside" id="dcQ-91-Evu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vTT-rB-Ioe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Skill Level" id="rEm-k6-ybL">
-                        <barButtonItem key="rightBarButtonItem" image="question" id="ox8-y4-hWV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ox8-y4-hWV">
                             <connections>
-                                <action selector="pressButton:" destination="gtd-Th-J4A" id="Q6x-kv-nPG"/>
+                                <action selector="refresh:" destination="gtd-Th-J4A" id="sWs-4P-SaS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1648,6 +1640,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4r-0K-Zup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1751.25" y="2886.9718309859154"/>
+        </scene>
+        <!--Top50 Table View Controller-->
+        <scene sceneID="sEh-EC-7SM">
+            <objects>
+                <tableViewController storyboardIdentifier="Top50TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hhL-Pa-oQO" customClass="Top50TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="s3S-8M-oOa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="gradeCell" rowHeight="60" id="LdR-cH-BBp" customClass="Top50TableViewCell" customModule="RespectU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LdR-cH-BBp" id="ezY-Q0-Ll4">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Od7-t5-462">
+                                            <rect key="frame" x="8" y="8" width="9" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJ4-9s-0c4">
+                                            <rect key="frame" x="248" y="19" width="56" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sa0-DA-fkS" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                            <rect key="frame" x="25" y="8" width="239" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leadingBuffer">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MAXIMUM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W9-bn-upZ">
+                                            <rect key="frame" x="25" y="32" width="62" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>
+                                            <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PERFECT PLAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-gD-dyF">
+                                            <rect key="frame" x="95" y="32" width="81" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>
+                                            <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100.00%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNY-yk-yCg">
+                                            <rect key="frame" x="184" y="32" width="56" height="17"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>
+                                            <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="color" destination="Od7-t5-462" id="TuR-16-0zR"/>
+                                    <outlet property="difficulty" destination="4W9-bn-upZ" id="KrA-aw-6oa"/>
+                                    <outlet property="note" destination="VRi-gD-dyF" id="cSU-Zy-RpN"/>
+                                    <outlet property="rate" destination="mNY-yk-yCg" id="yJY-Mf-u4N"/>
+                                    <outlet property="skillPoint" destination="CJ4-9s-0c4" id="rMZ-jY-8bf"/>
+                                    <outlet property="title" destination="Sa0-DA-fkS" id="37S-OB-27x"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hhL-Pa-oQO" id="Ewz-96-44L"/>
+                            <outlet property="delegate" destination="hhL-Pa-oQO" id="MeZ-Fb-cS2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GSf-Pa-lH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1751.25" y="3592.605633802817"/>
         </scene>
         <!--Achievement-->
         <scene sceneID="boX-Wm-bzy">
@@ -1687,6 +1774,9 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
                                                     <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fadeLength">
+                                                    <real key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
@@ -2749,10 +2839,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="contentKor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmJ-I5-Q7G" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="25" y="34" width="290" height="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-tZ-dfg">
+                                            <rect key="frame" x="50" y="8" width="9" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="titleKor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiw-IB-DZt" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                            <rect key="frame" x="67" y="8" width="237" height="18"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
@@ -2770,17 +2868,14 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-tZ-dfg">
-                                            <rect key="frame" x="8" y="8" width="9" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="titleKor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiw-IB-DZt" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                            <rect key="frame" x="25" y="8" width="290" height="18"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="respect42.png" translatesAutoresizingMaskIntoConstraints="NO" id="x0K-Uy-0cw">
+                                            <rect key="frame" x="8" y="8" width="42" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="contentKor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmJ-I5-Q7G" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                                            <rect key="frame" x="67" y="34" width="237" height="15"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="NanumBarunGothicOTFLight" family="NanumBarunGothicOTF" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
@@ -2804,6 +2899,7 @@
                                     <outlet property="contentKor" destination="hmJ-I5-Q7G" id="kBl-Ks-DPk"/>
                                     <outlet property="ratingColor" destination="fjn-tZ-dfg" id="YLh-nz-uJw"/>
                                     <outlet property="titleKor" destination="uiw-IB-DZt" id="Pm1-xB-uYk"/>
+                                    <outlet property="trophyImage" destination="x0K-Uy-0cw" id="cvD-vn-9fh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -2813,6 +2909,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trophy" id="6IS-L9-CnI">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="question" id="X8G-Bj-eB6">
+                            <connections>
+                                <action selector="question:" destination="NTa-pI-68d" id="pB4-RC-2de"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Esi-pK-coo">
                             <connections>
                                 <action selector="search:" destination="NTa-pI-68d" id="2q8-nE-6ei"/>
@@ -2886,6 +2987,7 @@
         <image name="playlist" width="25" height="25"/>
         <image name="question" width="25" height="25"/>
         <image name="random" width="25" height="25"/>
+        <image name="respect42.png" width="112" height="112"/>
         <image name="song" width="25" height="25"/>
         <image name="sort" width="25" height="25"/>
         <image name="trophy" width="25" height="25"/>

@@ -208,7 +208,10 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             self.navigationController?.pushViewController(next, animated: true)
         case 3:
             let alert=UIAlertController(title: "Change BPM Default".localized, message: "Current".localized+" : \(Int(UserDefaults.standard.double(forKey: "bpm"))) BPM\n\n"+"You can get SPEED Recommendation by touching Song list.".localized, preferredStyle: .alert)
-            alert.addTextField(configurationHandler: nil)
+            alert.addTextField{ (textField) -> Void in
+                textField.keyboardType = UIKeyboardType.numberPad
+                textField.placeholder = "BPM"
+            }
             let yesAction=UIAlertAction(title: "OK".localized, style: .default)
             {(action: UIAlertAction)->Void in
                 let tempBpm=UserDefaults.standard.double(forKey: "bpm")
@@ -503,59 +506,59 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         var returnString = ""
         switch(value){
         case 0..<1000:
-            returnString = "BEGINNER 1"
+            returnString = "BEGINNER"
         case 1000..<1500:
-            returnString = "BEGINNER 2"
+            returnString = "AMATEUR 4"
         case 1500..<2000:
-            returnString = "BEGINNER 3"
-        case 2000..<2300:
-            returnString = "BEGINNER 4"
-        case 2300..<2600:
-            returnString = "TRAINEE 1"
-        case 2600..<3000:
-            returnString = "TRAINEE 2"
-        case 3000..<3300:
-            returnString = "TRAINEE 3"
-        case 3300..<3600:
-            returnString = "AMATEUR 1"
-        case 3600..<4000:
-            returnString = "AMATEUR 2"
-        case 4000..<4300:
             returnString = "AMATEUR 3"
+        case 2000..<2300:
+            returnString = "AMATEUR 2"
+        case 2300..<2600:
+            returnString = "AMATEUR 1"
+        case 2600..<3000:
+            returnString = "SUB DJ 4"
+        case 3000..<3300:
+            returnString = "SUB DJ 3"
+        case 3300..<3600:
+            returnString = "SUB DJ 2"
+        case 3600..<4000:
+            returnString = "SUB DJ 1"
+        case 4000..<4300:
+            returnString = "MAIN DJ 4"
         case 4300..<4600:
-            returnString = "ROOKIE 1"
+            returnString = "MAIN DJ 3"
         case 4600..<5000:
-            returnString = "ROOKIE 2"
+            returnString = "MAIN DJ 2"
         case 5000..<5300:
-            returnString = "SUB DJ"
+            returnString = "MAIN DJ 1"
         case 5300..<5600:
-            returnString = "MIDDLEMAN"
+            returnString = "POP DJ 4"
         case 5600..<6000:
-            returnString = "MAIN DJ"
+            returnString = "POP DJ 3"
         case 6000..<6300:
-            returnString = "POP DJ"
+            returnString = "POP DJ 2"
         case 6300..<6600:
-            returnString = "HIGH CLASS"
+            returnString = "POP DJ 1"
         case 6600..<7000:
-            returnString = "PROFESSIONAL"
+            returnString = "PROFESSIONAL 3"
         case 7000..<7200:
-            returnString = "MIX MASTER"
+            returnString = "PROFESSIONAL 2"
         case 7200..<7400:
-            returnString = "TREND SETTER"
+            returnString = "PROFESSIONAL 1"
         case 7400..<7600:
-            returnString = "HIT MAKER"
+            returnString = "MIX MASTER 3"
         case 7600..<7800:
-            returnString = "SHOW STOPPER"
+            returnString = "MIX MASTER 2"
         case 7800..<8000:
-            returnString = "SUPERSTAR"
+            returnString = "MIX MASTER 1"
         case 8000..<8200:
-            returnString = "WORLD FAMOUS"
+            returnString = "SUPERSTAR 3"
         case 8200..<8400:
-            returnString = "DJMAX GRAND MASTER"
+            returnString = "SUPERSTAR 2"
         case 8400..<8600:
-            returnString = "VANQUISHER"
+            returnString = "SUPERSTAR 1"
         case 8600..<8800:
-            returnString = "BEAT MAESTRO"
+            returnString = "DJMAX GRAND MASTER"
         case 8800...:
             returnString = "THE DJMAX"
         default:
@@ -568,61 +571,61 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         var returnString = ""
         switch(value){
         case 0..<1000:
-            returnString = "BEGINNER 1"
+            returnString = "BEGINNER"
         case 1000..<1500:
-            returnString = "BEGINNER 2"
+            returnString = "AMATEUR 4"
         case 1500..<2000:
-            returnString = "BEGINNER 3"
-        case 2000..<2300:
-            returnString = "BEGINNER 4"
-        case 2300..<2600:
-            returnString = "TRAINEE 1"
-        case 2600..<3000:
-            returnString = "TRAINEE 2"
-        case 3000..<3300:
-            returnString = "TRAINEE 3"
-        case 3300..<3600:
-            returnString = "TRAINEE 4"
-        case 3600..<4000:
-            returnString = "AMATEUR 1"
-        case 4000..<4300:
-            returnString = "AMATEUR 2"
-        case 4300..<4600:
             returnString = "AMATEUR 3"
+        case 2000..<2300:
+            returnString = "AMATEUR 2"
+        case 2300..<2600:
+            returnString = "AMATEUR 1"
+        case 2600..<3000:
+            returnString = "SUB DJ 4"
+        case 3000..<3300:
+            returnString = "SUB DJ 3"
+        case 3300..<3600:
+            returnString = "SUB DJ 2"
+        case 3600..<4000:
+            returnString = "SUB DJ 1"
+        case 4000..<4300:
+            returnString = "MAIN DJ 4"
+        case 4300..<4600:
+            returnString = "MAIN DJ 3"
         case 4600..<5000:
-            returnString = "ROOKIE 1"
+            returnString = "MAIN DJ 2"
         case 5000..<5300:
-            returnString = "ROOKIE 2"
+            returnString = "MAIN DJ 1"
         case 5300..<5600:
-            returnString = "SUB DJ"
+            returnString = "POP DJ 4"
         case 5600..<6000:
-            returnString = "MIDDLEMAN"
+            returnString = "POP DJ 3"
         case 6000..<6300:
-            returnString = "MAIN DJ"
+            returnString = "POP DJ 2"
         case 6300..<6600:
-            returnString = "POP DJ"
+            returnString = "POP DJ 1"
         case 6600..<7000:
-            returnString = "HIGH CLASS"
+            returnString = "PROFESSIONAL 4"
         case 7000..<7200:
-            returnString = "PROFESIONAL"
+            returnString = "PROFESSIONAL 3"
         case 7200..<7400:
-            returnString = "MIX MASTER"
+            returnString = "PROFESSIONAL 2"
         case 7400..<7600:
-            returnString = "TREND SETTER"
+            returnString = "PROFESSIONAL 1"
         case 7600..<7800:
-            returnString = "HIT MAKER"
+            returnString = "MIX MASTER 3"
         case 7800..<8000:
-            returnString = "SHOW STOPPER"
+            returnString = "MIX MASTER 2"
         case 8000..<8200:
-            returnString = "SUPERSTAR"
+            returnString = "MIX MASTER 1"
         case 8200..<8400:
-            returnString = "WORLD FAMOUS"
+            returnString = "SUPERSTAR 3"
         case 8400..<8600:
-            returnString = "DJMAX GRAND MASTER"
+            returnString = "SUPERSTAR 2"
         case 8600..<8800:
-            returnString = "VANQUISHER"
+            returnString = "SUPERSTAR 1"
         case 8800..<9000:
-            returnString = "BEAT MAESTRO"
+            returnString = "DJMAX GRAND MASTER"
         case 9000...:
             returnString = "THE DJMAX"
         default:
@@ -634,64 +637,62 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     func getGradeButton6And8(value: Double) -> String{
         var returnString = ""
         switch(value){
-        case 0..<1000:
-            returnString = "BEGINNER 1"
-        case 1000..<1500:
-            returnString = "BEGINNER 2"
+        case 0..<1500:
+            returnString = "BEGINNER"
         case 1500..<2000:
-            returnString = "BEGINNER 3"
-        case 2000..<2300:
-            returnString = "BEGINNER 4"
-        case 2300..<2600:
-            returnString = "TRAINEE 1"
-        case 2600..<3000:
-            returnString = "TRAINEE 2"
-        case 3000..<3300:
-            returnString = "TRAINEE 3"
-        case 3300..<3600:
-            returnString = "TRAINEE 4"
-        case 3600..<4000:
-            returnString = "AMATEUR 1"
-        case 4000..<4300:
-            returnString = "AMATEUR 2"
-        case 4300..<4600:
-            returnString = "AMATEUR 3"
-        case 4600..<5000:
             returnString = "AMATEUR 4"
+        case 2000..<2300:
+            returnString = "AMATEUR 3"
+        case 2300..<2600:
+            returnString = "AMATEUR 2"
+        case 2600..<3000:
+            returnString = "AMATEUR 1"
+        case 3000..<3300:
+            returnString = "SUB DJ 4"
+        case 3300..<3600:
+            returnString = "SUB DJ 3"
+        case 3600..<4000:
+            returnString = "SUB DJ 2"
+        case 4000..<4300:
+            returnString = "SUB DJ 1"
+        case 4300..<4600:
+            returnString = "MAIN DJ 4"
+        case 4600..<5000:
+            returnString = "MAIN DJ 3"
         case 5000..<5300:
-            returnString = "ROOKIE 1"
+            returnString = "MAIN DJ 2"
         case 5300..<5600:
-            returnString = "ROOKIE 2"
+            returnString = "MAIN DJ 1"
         case 5600..<6000:
-            returnString = "SUB DJ"
+            returnString = "POP DJ 4"
         case 6000..<6300:
-            returnString = "MIDDLEMAN"
+            returnString = "POP DJ 3"
         case 6300..<6600:
-            returnString = "MAIN DJ"
+            returnString = "POP DJ 2"
         case 6600..<7000:
-            returnString = "POP DJ"
+            returnString = "POP DJ 1"
         case 7000..<7200:
-            returnString = "HIGH CLASS"
+            returnString = "PROFESSIONAL 4"
         case 7200..<7400:
-            returnString = "PROFESSIONAL"
+            returnString = "PROFESSIONAL 3"
         case 7400..<7600:
-            returnString = "MIX MASTER"
+            returnString = "PROFESSIONAL 2"
         case 7600..<7800:
-            returnString = "TREND SETTER"
+            returnString = "PROFESSIONAL 1"
         case 7800..<8000:
-            returnString = "HIT MAKER"
+            returnString = "MIX MASTER 3"
         case 8000..<8200:
-            returnString = "SHOW STOPPER"
+            returnString = "MIX MASTER 2"
         case 8200..<8400:
-            returnString = "SUPERSTAR"
+            returnString = "MIX MASTER 1"
         case 8400..<8600:
-            returnString = "WORLD FAMOUS"
+            returnString = "SUPERSTAR 3"
         case 8600..<8800:
-            returnString = "DJMAX GRAND MASTER"
+            returnString = "SUPERSTAR 2"
         case 8800..<9000:
-            returnString = "VANQUISHER"
+            returnString = "SUPERSTAR 1"
         case 9000..<9200:
-            returnString = "BEAT MAESTRO"
+            returnString = "DJMAX GRAND MASTER"
         case 9200...:
             returnString = "THE DJMAX"
         default:

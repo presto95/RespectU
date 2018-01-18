@@ -22,12 +22,6 @@ class TrophyTableViewController: UITableViewController {
         super.viewDidLoad()
         realm=try! Realm()
         results=try! Realm().objects(TrophyInfo.self).filter("series = 'Respect'")
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,13 +103,25 @@ class TrophyTableViewController: UITableViewController {
         cell.contentKor.textColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         cell.backgroundColor = UserDefaults.standard.bool(forKey: "night") ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         // Configure the cell...
-        let string = object.titleKor
+        var imageName = ""
+        switch(object.series){
+        case "Respect":
+            imageName = "respect\(indexPath.row + 1).png"
+        case "Trilogy":
+            imageName = "trilogy\(indexPath.row + 1).png"
+        case "CE":
+            imageName = "ce\(indexPath.row + 1).png"
+        default:
+            break
+        }
+        cell.trophyImage.image = UIImage(named: imageName)
+        /*let string = object.titleKor
         if(string == "내 마음속에 저장" || string == "고고학자" || string == "럭키 해피 데이" || string == "나올수도 있고 안나올수도 있습니다" || string == "언제나 감사합니다" || string == "Go Back From the Top"){
             cell.accessoryType = .detailButton
         }
         else{
             cell.accessoryType = .none
-        }
+        }*/
         return cell
     }
     
@@ -153,5 +159,11 @@ class TrophyTableViewController: UITableViewController {
             alert.addAction(action)
             self.present(alert, animated: true)
         }
+    }
+    @IBAction func question(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "", message: "Tap the list to see information that will help you win trophies.".localized, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true)
     }
 }

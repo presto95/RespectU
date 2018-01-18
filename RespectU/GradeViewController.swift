@@ -12,9 +12,9 @@ import RealmSwift
 
 class GradeViewController: UIViewController {
 
-    let button4GradeArray = ["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
-    let button5GradeArray=["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "TRAINEE 4", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
-    let button6And8GradeArray=["BEGINNER 1", "BEGINNER 2", "BEGINNER 3", "BEGINNER 4", "TRAINEE 1", "TRAINEE 2", "TRAINEE 3", "TRAINEE 4", "AMATEUR 1", "AMATEUR 2", "AMATEUR 3", "AMATEUR 4", "ROOKIE 1", "ROOKIE 2", "SUB DJ", "MIDDLEMAN", "MAIN DJ", "POP DJ", "HIGH CLASS", "PROFESSIONAL", "MIX MASTER", "TREND SETTER", "HIT MAKER", "SHOW STOPPER", "SUPERSTAR", "WORLD FAMOUS", "DJMAX GRAND MASTER", "VANQUISHER", "BEAT MAESTRO", "THE DJMAX"]
+    let button4GradeArray = ["BEGINNER", "AMATEUR 4", "AMATEUR 3", "AMATEUR 2", "AMATEUR 1", "SUB DJ 4", "SUB DJ 3", "SUB DJ 2", "SUB DJ 1", "MAIN DJ 4", "MAIN DJ 3", "MAIN DJ 2", "MAIN DJ 1", "POP DJ 4", "POP DJ 3", "POP DJ 2", "POP DJ 1", "PROFESSIONAL 3", "PROFESSIONAL 2", "PROFESSIONAL 1", "MIX MASTER 3", "MIX MASTER 2", "MIX MASTER 1", "SUPERSTAR 3", "SUPERSTAR 2", "SUPERSTAR 1", "DJMAX GRAND MASTER", "THE DJMAX"]
+    let button5GradeArray=["BEGINNER", "AMATEUR 4", "AMATEUR 3", "AMATEUR 2", "AMATEUR 1", "SUB DJ 4", "SUB DJ 3", "SUB DJ 2", "SUB DJ 1", "MAIN DJ 4", "MAIN DJ 3", "MAIN DJ 2", "MAIN DJ 1", "POP DJ 4", "POP DJ 3", "POP DJ 2", "POP DJ 1", "PROFESSIONAL 4", "PROFESSIONAL 3", "PROFESSIONAL 2", "PROFESSIONAL 1", "MIX MASTER 3", "MIX MASTER 2", "MIX MASTER 1", "SUPERSTAR 3", "SUPERSTAR 2", "SUPERSTAR 1", "DJMAX GRAND MASTER", "THE DJMAX"]
+    let button6And8GradeArray=["BEGINNER", "AMATEUR 4", "AMATEUR 3", "AMATEUR 2", "AMATEUR 1", "SUB DJ 4", "SUB DJ 3", "SUB DJ 2", "SUB DJ 1", "MAIN DJ 4", "MAIN DJ 3", "MAIN DJ 2", "MAIN DJ 1", "POP DJ 4", "POP DJ 3", "POP DJ 2", "POP DJ 1", "PROFESSIONAL 4", "PROFESSIONAL 3", "PROFESSIONAL 2", "PROFESSIONAL 1", "MIX MASTER 3", "MIX MASTER 2", "MIX MASTER 1", "SUPERSTAR 3", "SUPERSTAR 2", "SUPERSTAR 1", "DJMAX GRAND MASTER", "THE DJMAX"]
     var button4SkillLevel: String=""
     var button4SkillPoint: Double=0.0
     var button4HighestSkillPoint: Double=0.0
@@ -99,69 +99,15 @@ class GradeViewController: UIViewController {
             button6Max = button6Max + getWeight(value: button6Top50[i]) * 105
             button8Max = button8Max + getWeight(value: button8Top50[i]) * 105
         }
-        
         switch(key){
         case "4B":
-            segmentedControl.selectedSegmentIndex = 0
-            labelSkillLevel.text = button4SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button4SkillPoint)
-            labelHighestSkillPointValue.text = String(button4HighestSkillPoint)
-            labelSong.text = button4HighestSong
-            labelNext.text = getNextString(string: button4SkillLevel, sender: 0)
-            labelPercent.text = "\(((button4SkillPoint / button4Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button4HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.endColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            viewGauge.maxValue = CGFloat(button4Max)
-            viewGauge.rate = CGFloat(button4SkillPoint)
+            showInfo(sender: 0)
         case "5B":
-            segmentedControl.selectedSegmentIndex = 1
-            labelSkillLevel.text = button5SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button5SkillPoint)
-            labelHighestSkillPointValue.text = String(button5HighestSkillPoint)
-            labelSong.text = button5HighestSong
-            labelNext.text = getNextString(string: button5SkillLevel, sender: 1)
-            labelPercent.text = "\(((button5SkillPoint / button5Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button5HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button5Max)
-            viewGauge.rate = CGFloat(button5SkillPoint)
+            showInfo(sender: 1)
         case "6B":
-            segmentedControl.selectedSegmentIndex = 2
-            labelSkillLevel.text = button6SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button6SkillPoint)
-            labelHighestSkillPointValue.text = String(button6HighestSkillPoint)
-            labelSong.text = button6HighestSong
-            labelNext.text = getNextString(string: button6SkillLevel, sender: 2)
-            labelPercent.text = "\(((button6SkillPoint / button6Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button6HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button6Max)
-            viewGauge.rate = CGFloat(button6SkillPoint)
+            showInfo(sender: 2)
         case "8B":
-            segmentedControl.selectedSegmentIndex = 3
-            labelSkillLevel.text = button8SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button8SkillPoint)
-            labelHighestSkillPointValue.text = String(button8HighestSkillPoint)
-            labelSong.text = button8HighestSong
-            labelNext.text = getNextString(string: button8SkillLevel, sender: 3)
-            labelPercent.text = "\(((button8SkillPoint / button8Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button8HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button8Max)
-            viewGauge.rate = CGFloat(button8SkillPoint)
+            showInfo(sender: 3)
         default:
             break
         }
@@ -207,78 +153,72 @@ class GradeViewController: UIViewController {
         return UIColor()
     }
     
-    @IBAction func pressButton(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Skill Level".localized, message: "We provide a rough measure of performance by calculating the performance you have entered.".localized, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true)
+    @IBAction func refresh(_ sender: UIBarButtonItem) {
+        switch(segmentedControl.selectedSegmentIndex){
+        case 0:
+            let result = getButton4Grade()
+            button4SkillLevel = getGradeButton4(value: result.0)
+            button4SkillPoint = result.0
+            button4HighestSkillPoint = result.1
+            button4HighestSong = result.2
+            showInfo(sender: 0)
+        case 1:
+            let result = getButton5Grade()
+            button5SkillLevel = getGradeButton5(value: result.0)
+            button5SkillPoint = result.0
+            button5HighestSkillPoint = result.1
+            button5HighestSong = result.2
+            showInfo(sender: 1)
+        case 2:
+            let result = getButton6Grade()
+            button6SkillLevel = getGradeButton6And8(value: result.0)
+            button6SkillPoint = result.0
+            button6HighestSkillPoint = result.1
+            button6HighestSong = result.2
+            showInfo(sender: 2)
+        case 3:
+            let result = getButton8Grade()
+            button8SkillLevel = getGradeButton6And8(value: result.0)
+            button8SkillPoint = result.0
+            button8HighestSkillPoint = result.1
+            button8HighestSong = result.2
+            showInfo(sender: 3)
+        default:
+            break
+        }
     }
+    
     
     @IBAction func pressSegmentedControl(_ sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex){
         case 0:
-            segmentedControl.selectedSegmentIndex = 0
-            labelSkillLevel.text = button4SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button4SkillPoint)
-            labelHighestSkillPointValue.text = String(button4HighestSkillPoint)
-            labelSong.text = button4HighestSong
-            labelNext.text = getNextString(string: button4SkillLevel, sender: 0)
-            labelPercent.text = "\(((button4SkillPoint / button4Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button4HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button4Max)
-            viewGauge.rate = CGFloat(button4SkillPoint)
+            showInfo(sender: 0)
         case 1:
-            segmentedControl.selectedSegmentIndex = 1
-            labelSkillLevel.text = button5SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button5SkillPoint)
-            labelHighestSkillPointValue.text = String(button5HighestSkillPoint)
-            labelSong.text = button5HighestSong
-            labelNext.text = getNextString(string: button5SkillLevel, sender: 1)
-            labelPercent.text = "\(((button5SkillPoint / button5Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button5HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button5Max)
-            viewGauge.rate = CGFloat(button5SkillPoint)
+            showInfo(sender: 1)
         case 2:
-            segmentedControl.selectedSegmentIndex = 2
-            labelSkillLevel.text = button6SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button6SkillPoint)
-            labelHighestSkillPointValue.text = String(button6HighestSkillPoint)
-            labelSong.text = button6HighestSong
-            labelNext.text = getNextString(string: button6SkillLevel, sender: 2)
-            labelPercent.text = "\(((button6SkillPoint / button6Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button6HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button6Max)
-            viewGauge.rate = CGFloat(button6SkillPoint)
+            showInfo(sender: 2)
         case 3:
-            segmentedControl.selectedSegmentIndex = 3
-            labelSkillLevel.text = button8SkillLevel
-            labelSkillPoint.text = "Skill Point".localized + " : " + String(button8SkillPoint)
-            labelHighestSkillPointValue.text = String(button8HighestSkillPoint)
-            labelSong.text = button8HighestSong
-            labelNext.text = getNextString(string: button8SkillLevel, sender: 3)
-            labelPercent.text = "\(((button8SkillPoint / button8Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button8HighestSong)
-            results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.maxValue = CGFloat(button8Max)
-            viewGauge.rate = CGFloat(button8SkillPoint)
+            showInfo(sender: 3)
         default:
             break
         }
+    }
+    
+    @IBAction func showTop50(_ sender: UIButton) {
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "Top50TableViewController") as! Top50TableViewController
+        switch(segmentedControl.selectedSegmentIndex){
+        case 0:
+            next.sender = 0
+        case 1:
+            next.sender = 1
+        case 2:
+            next.sender = 2
+        case 3:
+            next.sender = 3
+        default:
+            break
+        }
+        self.navigationController?.pushViewController(next, animated: true)
     }
     
     func getNextString(string: String, sender: Int) -> String{
@@ -292,7 +232,7 @@ class GradeViewController: UIViewController {
                 }
                 index = index + 1
             }
-            if(index == button4GradeArray.count){
+            if(index + 1 == button4GradeArray.count){
                 nextString = nextString + "None".localized
             }
             else{
@@ -305,7 +245,7 @@ class GradeViewController: UIViewController {
                 }
                 index = index + 1
             }
-            if(index == button5GradeArray.count){
+            if(index + 1 == button5GradeArray.count){
                 nextString = nextString + "None".localized
             }
             else{
@@ -318,7 +258,7 @@ class GradeViewController: UIViewController {
                 }
                 index = index + 1
             }
-            if(index == button6And8GradeArray.count){
+            if(index + 1 == button6And8GradeArray.count){
                 nextString = nextString + "None".localized
             }
             else{
@@ -328,6 +268,85 @@ class GradeViewController: UIViewController {
             break
         }
         return nextString
+    }
+    
+    func showInfo(sender: Int){
+        switch(sender){
+        case 0:
+            segmentedControl.selectedSegmentIndex = 0
+            labelSkillLevel.text = button4SkillLevel
+            labelSkillPoint.text = "Skill Point".localized + " : " + String((button4SkillPoint * 100.0).rounded() / 100.0)
+            labelHighestSkillPointValue.text = String(button4HighestSkillPoint)
+            labelSong.text = button4HighestSong
+            labelNext.text = getNextString(string: button4SkillLevel, sender: 0)
+            labelPercent.text = "\(((button4SkillPoint / button4Max) * 10000.0).rounded() / 100.0)%"
+            query = NSPredicate(format: "title = %@", button4HighestSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let series = (results?.series)!
+            setColor(series: series)
+            viewGauge.startColor = getColor(series: series)
+            viewGauge.bgColor = getColor(series: series)
+            viewGauge.bgAlpha = 0.5
+            viewGauge.maxValue = CGFloat(button4Max)
+            //viewGauge.rate = CGFloat(button4SkillPoint)
+            viewGauge.animateRate(1, newValue: CGFloat(button4SkillPoint)){_ in }
+        case 1:
+            segmentedControl.selectedSegmentIndex = 1
+            labelSkillLevel.text = button5SkillLevel
+            labelSkillPoint.text = "Skill Point".localized + " : " + String((button5SkillPoint * 100.0).rounded() / 100.0)
+            labelHighestSkillPointValue.text = String(button5HighestSkillPoint)
+            labelSong.text = button5HighestSong
+            labelNext.text = getNextString(string: button5SkillLevel, sender: 1)
+            labelPercent.text = "\(((button5SkillPoint / button5Max) * 10000.0).rounded() / 100.0)%"
+            query = NSPredicate(format: "title = %@", button5HighestSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let series = (results?.series)!
+            setColor(series: series)
+            viewGauge.startColor = getColor(series: series)
+            viewGauge.bgColor = getColor(series: series)
+            viewGauge.bgAlpha = 0.5
+            viewGauge.maxValue = CGFloat(button5Max)
+            //viewGauge.rate = CGFloat(button5SkillPoint)
+            viewGauge.animateRate(1, newValue: CGFloat(button5SkillPoint)){_ in }
+        case 2:
+            segmentedControl.selectedSegmentIndex = 2
+            labelSkillLevel.text = button6SkillLevel
+            labelSkillPoint.text = "Skill Point".localized + " : " + String((button6SkillPoint * 100.0).rounded() / 100.0)
+            labelHighestSkillPointValue.text = String(button6HighestSkillPoint)
+            labelSong.text = button6HighestSong
+            labelNext.text = getNextString(string: button6SkillLevel, sender: 2)
+            labelPercent.text = "\(((button6SkillPoint / button6Max) * 10000.0).rounded() / 100.0)%"
+            query = NSPredicate(format: "title = %@", button6HighestSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let series = (results?.series)!
+            setColor(series: series)
+            viewGauge.startColor = getColor(series: series)
+            viewGauge.bgColor = getColor(series: series)
+            viewGauge.bgAlpha = 0.5
+            viewGauge.maxValue = CGFloat(button6Max)
+            //viewGauge.rate = CGFloat(button6SkillPoint)
+            viewGauge.animateRate(1, newValue: CGFloat(button6SkillPoint)){_ in }
+        case 3:
+            segmentedControl.selectedSegmentIndex = 3
+            labelSkillLevel.text = button8SkillLevel
+            labelSkillPoint.text = "Skill Point".localized + " : " + String((button8SkillPoint * 100.0).rounded() / 100.0)
+            labelHighestSkillPointValue.text = String(button8HighestSkillPoint)
+            labelSong.text = button8HighestSong
+            labelNext.text = getNextString(string: button8SkillLevel, sender: 3)
+            labelPercent.text = "\(((button8SkillPoint / button8Max) * 10000.0).rounded() / 100.0)%"
+            query = NSPredicate(format: "title = %@", button8HighestSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let series = (results?.series)!
+            setColor(series: series)
+            viewGauge.startColor = getColor(series: series)
+            viewGauge.bgColor = getColor(series: series)
+            viewGauge.bgAlpha = 0.5
+            viewGauge.maxValue = CGFloat(button8Max)
+            //viewGauge.rate = CGFloat(button8SkillPoint)
+            viewGauge.animateRate(1, newValue: CGFloat(button8SkillPoint)){_ in }
+        default:
+            break
+        }
     }
     
     func getWeight(value: Int) -> Double{
@@ -367,5 +386,268 @@ class GradeViewController: UIViewController {
             break
         }
         return result
+    }
+    
+    func getButton4Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button4SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getButton5Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button5SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getButton6Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button6SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getButton8Grade() -> (Double, Double, String){
+        let record = try! Realm().objects(RecordInfo.self)
+        var tempDic = [String: Double]()
+        var upto50 = [Double]()
+        for i in record{
+            tempDic[i.title] = i.button8SkillPoint
+        }
+        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
+        for i in 0...49{
+            upto50.append(sortedTempDic[i].1)
+        }
+        let sum = upto50.reduce(0) { $0 + $1 }
+        
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+    }
+    
+    func getGradeButton4(value: Double) -> String{
+        var returnString = ""
+        switch(value){
+        case 0..<1000:
+            returnString = "BEGINNER"
+        case 1000..<1500:
+            returnString = "AMATEUR 4"
+        case 1500..<2000:
+            returnString = "AMATEUR 3"
+        case 2000..<2300:
+            returnString = "AMATEUR 2"
+        case 2300..<2600:
+            returnString = "AMATEUR 1"
+        case 2600..<3000:
+            returnString = "SUB DJ 4"
+        case 3000..<3300:
+            returnString = "SUB DJ 3"
+        case 3300..<3600:
+            returnString = "SUB DJ 2"
+        case 3600..<4000:
+            returnString = "SUB DJ 1"
+        case 4000..<4300:
+            returnString = "MAIN DJ 4"
+        case 4300..<4600:
+            returnString = "MAIN DJ 3"
+        case 4600..<5000:
+            returnString = "MAIN DJ 2"
+        case 5000..<5300:
+            returnString = "MAIN DJ 1"
+        case 5300..<5600:
+            returnString = "POP DJ 4"
+        case 5600..<6000:
+            returnString = "POP DJ 3"
+        case 6000..<6300:
+            returnString = "POP DJ 2"
+        case 6300..<6600:
+            returnString = "POP DJ 1"
+        case 6600..<7000:
+            returnString = "PROFESSIONAL 3"
+        case 7000..<7200:
+            returnString = "PROFESSIONAL 2"
+        case 7200..<7400:
+            returnString = "PROFESSIONAL 1"
+        case 7400..<7600:
+            returnString = "MIX MASTER 3"
+        case 7600..<7800:
+            returnString = "MIX MASTER 2"
+        case 7800..<8000:
+            returnString = "MIX MASTER 1"
+        case 8000..<8200:
+            returnString = "SUPERSTAR 3"
+        case 8200..<8400:
+            returnString = "SUPERSTAR 2"
+        case 8400..<8600:
+            returnString = "SUPERSTAR 1"
+        case 8600..<8800:
+            returnString = "DJMAX GRAND MASTER"
+        case 8800...:
+            returnString = "THE DJMAX"
+        default:
+            break
+        }
+        return returnString
+    }
+    
+    func getGradeButton5(value: Double) -> String{
+        var returnString = ""
+        switch(value){
+        case 0..<1000:
+            returnString = "BEGINNER"
+        case 1000..<1500:
+            returnString = "AMATEUR 4"
+        case 1500..<2000:
+            returnString = "AMATEUR 3"
+        case 2000..<2300:
+            returnString = "AMATEUR 2"
+        case 2300..<2600:
+            returnString = "AMATEUR 1"
+        case 2600..<3000:
+            returnString = "SUB DJ 4"
+        case 3000..<3300:
+            returnString = "SUB DJ 3"
+        case 3300..<3600:
+            returnString = "SUB DJ 2"
+        case 3600..<4000:
+            returnString = "SUB DJ 1"
+        case 4000..<4300:
+            returnString = "MAIN DJ 4"
+        case 4300..<4600:
+            returnString = "MAIN DJ 3"
+        case 4600..<5000:
+            returnString = "MAIN DJ 2"
+        case 5000..<5300:
+            returnString = "MAIN DJ 1"
+        case 5300..<5600:
+            returnString = "POP DJ 4"
+        case 5600..<6000:
+            returnString = "POP DJ 3"
+        case 6000..<6300:
+            returnString = "POP DJ 2"
+        case 6300..<6600:
+            returnString = "POP DJ 1"
+        case 6600..<7000:
+            returnString = "PROFESSIONAL 4"
+        case 7000..<7200:
+            returnString = "PROFESSIONAL 3"
+        case 7200..<7400:
+            returnString = "PROFESSIONAL 2"
+        case 7400..<7600:
+            returnString = "PROFESSIONAL 1"
+        case 7600..<7800:
+            returnString = "MIX MASTER 3"
+        case 7800..<8000:
+            returnString = "MIX MASTER 2"
+        case 8000..<8200:
+            returnString = "MIX MASTER 1"
+        case 8200..<8400:
+            returnString = "SUPERSTAR 3"
+        case 8400..<8600:
+            returnString = "SUPERSTAR 2"
+        case 8600..<8800:
+            returnString = "SUPERSTAR 1"
+        case 8800..<9000:
+            returnString = "DJMAX GRAND MASTER"
+        case 9000...:
+            returnString = "THE DJMAX"
+        default:
+            break
+        }
+        return returnString
+    }
+    
+    func getGradeButton6And8(value: Double) -> String{
+        var returnString = ""
+        switch(value){
+        case 0..<1500:
+            returnString = "BEGINNER"
+        case 1500..<2000:
+            returnString = "AMATEUR 4"
+        case 2000..<2300:
+            returnString = "AMATEUR 3"
+        case 2300..<2600:
+            returnString = "AMATEUR 2"
+        case 2600..<3000:
+            returnString = "AMATEUR 1"
+        case 3000..<3300:
+            returnString = "SUB DJ 4"
+        case 3300..<3600:
+            returnString = "SUB DJ 3"
+        case 3600..<4000:
+            returnString = "SUB DJ 2"
+        case 4000..<4300:
+            returnString = "SUB DJ 1"
+        case 4300..<4600:
+            returnString = "MAIN DJ 4"
+        case 4600..<5000:
+            returnString = "MAIN DJ 3"
+        case 5000..<5300:
+            returnString = "MAIN DJ 2"
+        case 5300..<5600:
+            returnString = "MAIN DJ 1"
+        case 5600..<6000:
+            returnString = "POP DJ 4"
+        case 6000..<6300:
+            returnString = "POP DJ 3"
+        case 6300..<6600:
+            returnString = "POP DJ 2"
+        case 6600..<7000:
+            returnString = "POP DJ 1"
+        case 7000..<7200:
+            returnString = "PROFESSIONAL 4"
+        case 7200..<7400:
+            returnString = "PROFESSIONAL 3"
+        case 7400..<7600:
+            returnString = "PROFESSIONAL 2"
+        case 7600..<7800:
+            returnString = "PROFESSIONAL 1"
+        case 7800..<8000:
+            returnString = "MIX MASTER 3"
+        case 8000..<8200:
+            returnString = "MIX MASTER 2"
+        case 8200..<8400:
+            returnString = "MIX MASTER 1"
+        case 8400..<8600:
+            returnString = "SUPERSTAR 3"
+        case 8600..<8800:
+            returnString = "SUPERSTAR 2"
+        case 8800..<9000:
+            returnString = "SUPERSTAR 1"
+        case 9000..<9200:
+            returnString = "DJMAX GRAND MASTER"
+        case 9200...:
+            returnString = "THE DJMAX"
+        default:
+            break
+        }
+        return returnString
     }
 }

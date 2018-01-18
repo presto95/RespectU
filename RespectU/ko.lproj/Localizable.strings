@@ -1,0 +1,226 @@
+/* 
+  Localizable.strings
+  RespectU
+
+  Created by Presto on 2017. 10. 17..
+  Copyright © 2017년 Presto. All rights reserved.
+*/
+//영어 -> 한국어
+
+"Music" = "음악";
+"OK" = "확인";
+"Cancel" = "취소";
+"Add to Playlist" = "즐겨찾기에 추가";
+"SPEED Recommendation" = "추천 배속";
+"Search" = "검색";
+"Sort" = "정렬";
+"Asc" = "오름차순";
+"Desc" = "내림차순";
+"Remove" = "제거";
+"Current" = "현재";
+"Change BPM Default" = "BPM 기본값 변경";
+"(SPEED Variation)" = "(변속)";
+"Difficulty" = "난이도";
+"You can get SPEED Recommendation by touching Song list." = "곡 리스트를 클릭하여 배속 추천을 받을 수 있습니다.";
+"Added to Playlist" = "즐겨찾기에 추가됨";
+"Not Added to Playlist" = "즐겨찾기에 추가되지 않음";
+"Check for duplication." = "중복 여부를 확인하세요.";
+"Changed" = "변경됨";
+"Not Changed" = "변경되지 않음";
+"Please enter a valid value." = "올바른 값을 입력하세요.";
+"Removed" = "제거됨";
+"Please Rate RespectU!" = "RespectU를 평가해 주세요!";
+"Thanks for your support!" = "후원에 감사드립니다.";
+"Go to rate" = "평가하러 가기";
+"Not now" = "나중에 다시 알려주세요.";
+"Don't Ask Again" = "다시 묻지 마세요.";
+"Night Mode" = "야간 모드";
+"Notification" = "알림";
+"Recommended to restart for correct operation." = "올바른 적용을 위해 재시작할 것을 권장합니다.";
+"Email has been sent." = "이메일을 전송하였습니다.";
+"Thank you for your feedback!" = "당신의 의견에 감사드립니다!";
+"Email has not been sent." = "이메일을 전송하지 않았습니다.";
+"Feel free to give feedback!" = "언제든지 의견을 보내주세요!";
+"Email has been saved." = "이메일을 저장하였습니다.";
+"Unable to write email." = "이메일을 보낼 수 없습니다.";
+"Please check the relevant settings." = "관련 설정을 확인해 주세요.";
+"Why don't you choose 'Good Bye' on the final stage of online match?" = "온라인 마지막 스테이지에서 'Good Bye'를 고르는 건 어때요?";
+"You do not need to turn the stick when you enter an analog note." = "아날로그 노트를 처리할 때 스틱을 돌릴 필요는 없습니다.";
+"If you play with your face oil on your thumb, you can handle the cascading notes well :)" = "콧기름을 손가락에 바르고 플레이하면 계단식 노트를 잘 처리할 수 있을지도 모릅니다!";
+"You can change the keys by pressing the touch pad on the menu selection screen." = "메뉴 선택 화면에서 터치패드를 눌러 조작키를 변경할 수 있습니다.";
+"In freestyle mode, you can keep your combos by restarting it during playback and then returning to the music selection screen." = "프리스타일 모드에서 플레이 중에 재시작 후 곡 선택 화면으로 나가면 콤보를 유지할 수 있습니다.";
+"You can darken the BGA by pressing the touch pad during play." = "플레이 도중에 터치패드를 눌러 BGA를 어둡게 할 수 있습니다.";
+"Performance" = "성과";
+"Performance Record" = "성과 기록";
+"RANK" = "랭크";
+"Rank" = "랭크";
+"ACCURACY" = "정확도";
+"Accuracy" = "정확도";
+"NOTE" = "비고";
+"Note" = "비고";
+"No Pattern" = "패턴 없음";
+"My Record" = "내 기록";
+"PATTERNS" = "패턴";
+"AVERAGE" = "평균 정확도";
+"Input your accuracy.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.";
+"Select your rank." = "랭크를 선택하세요.";
+"Select your note." = "비고를 선택하세요.";
+
+
+"Ask to Wind" = "바람에게 부탁해";
+"Memory of Wind" = "바람의 기억";
+"HeartBeat" = "설레임";
+"Piano Concerto No.1" = "피아노 협주곡 1번";
+"Soar ~Stay With Me~" = "비상 ~Stay With Me~";
+"Eternal Memory" = "Eternal Memory ~소녀의 꿈~";
+"Taekwonburi" = "태권부리";
+"Every Morning" = "아침형 인간";
+"Proposed, Flower, Wolf" = "고백, 꽃, 늑대";
+"Come to me" = "내게로 와";
+"To You" = "너에게";
+"Forever" = "영원";
+"Lee Geol" = "이궐";
+
+"Super Rookie" = "슈퍼 루키";
+"Entertainer" ="엔터테이너";
+"Night Owl" ="야행성 인간";
+"Don't Be Careless!" ="이보세요";
+"I Hate Fast Songs!" ="빠른 곡 싫어!";
+"Diet Starts Tomorrow" ="내일부터 다이어트";
+"New Type" ="뉴타입";
+"Versatile" ="다재다능";
+"Guru" = "고렙 유저";
+"Grandpa Gamer" ="게임하는 아저씨";
+"Left Hand Only" ="오른손은 거들 뿐";
+"Classic Game Fanatic" ="고전게임 매니아";
+"Doting Father" ="딸바보";
+"Genius" ="천재 플레이어";
+"Super Master" ="초고수";
+
+"Hidden BGAs" = "히든 BGA";
+"Hidden BGA" = "히든 BGA";
+"CREDITS" = "크레딧";
+"CREDITS will appear when the average accuracy of three stages are greater than 98%." = "크레딧은 세 스테이지의 평균 정확도가 98% 이상일 때 출현합니다.";
+"777 Combos" = "777콤보 달성하기";
+"5B NORMAL [Seeker]\n47 Combos -> BREAK -> Full Combo -> Trophy Earned" = "5B NORMAL [Seeker]\n47콤보 -> BREAK -> 풀 콤보 -> 트로피 획득";
+
+
+"None" = "없음";
+
+"Unlock (ACHIEVEMENT)" = "해금 (도전과제)";
+"Unlock (MISSION)" = "해금 (미션)";
+"ACHIEVEMENT" = "도전과제";
+
+"GLHF" = "즐겜해요";
+"Rhythm Game Maniac" = "리듬게임 매니아";
+"Eager Beaver" = "들어올 땐 마음대로";
+"Always On Duty" = "평생 현역";
+"4B TUNES Love" = "4버튼이 좋아요";
+"5B TUNES Love" = "5버튼이 좋아요";
+"6B TUNES Love" = "6버튼이 좋아요";
+"8B TUNES Love" = "8버튼이 좋아요";
+"I Love Dogs!" = "강아지 좋아요!";
+"Waiting for Weekend" = "주말반 모집 중";
+"Stud" = "미소년";
+"NB RANGER" = "엔비 레인져";
+"Sheepish" = "굽신굽신";
+"FEVER Free Zone" = "피버 안써욧";
+"Can't Focus" = "집중력 부족";
+"Lefty" = "왼손잡이";
+"Novice Here" = "초보입니다";
+"High Class" = "오늘따라 잘 안되네";
+"Hawk Eye" = "엄청난 동체시력";
+"HAXXOR" = "킹갓엠페러제네럴";
+"Jack of All Trades" = "올라운더";
+"Come at Me" = "도전하시겠습니까?";
+"Unforgettable" = "늘 기억되고 싶은 사람";
+"Most Popular" = "인기만점";
+"I Love Cats!" = "고양이 좋아요!";
+"Clear All Songs!" = "목표는 전곡 클리어!";
+"I Want You." = "친추 환영";
+"Holy Land" = "성지순례";
+"Only Study" = "이젠 정말 공부뿐이야";
+"Every Morning (3)" = "아침형 인간 (3)";
+"Most Improved" = "일취월장";
+"Sprint" = "전력질주";
+"Rhythm Power" = "리듬! 파워! 집중력!";
+"Shut In" = "은둔형 외톨이";
+"I'm the Boss" = "대장님";
+"DMP Lover" = "포터블 경험자";
+"What a Bookworm" = "문과생이 또";
+"DMO Lover" = "온라인 경험자";
+"Go Easy On Me." = "제발 살살 좀";
+"Condition Disorder" = "컨디션 난조";
+"Cute" = "귀여워";
+"You See That?" = "그게 보여요?";
+"Craving Technika" = "테크니카 하고싶다";
+"Yes Sir!" = "충성충성";
+"Hard Worker" = "노력형 플레이어";
+"Let's Be Friends" = "친해지고 싶어요";
+"Lurker" = "온라인 서식중";
+"DJMAX Missionary" = "디맥 전도사";
+"Test your Might" = "누구든지 덤벼";
+"Born to Jam" = "타고난 플레이어";
+
+"Don't Miss Out On Upcoming Events!" = "다음 이벤트도 기대해주세요";
+
+"Play Count" = "플레이 카운트";
+"Player Level" = "플레이어 레벨";
+"ARCADE Mode Cleared" = "아케이드 클리어";
+"4B TUNES Cleared" = "4버튼 모드 클리어";
+"5B TUNES Cleared" = "5버튼 모드 클리어";
+"6B TUNES Cleared" = "6버튼 모드 클리어";
+"8B TUNES Cleared" = "8버튼 모드 클리어";
+"FREE STYLE Combo" = "프리스타일 콤보";
+"MISSION Cleared" = "미션 클리어";
+"Total Break" = "브레이크 누적";
+"Maximum MAX COMBO" = "최대 맥스 콤보";
+"MAX COMBO Cleared" = "맥스 콤보 클리어";
+"S RANK Cleared" = "S랭크 클리어";
+"A RANK Cleared" = "A랭크 클리어";
+"NORMAL Difficulty Mode Cleared" = "노멀 난이도 클리어";
+"HARD Difficulty Mode Cleared" = "하드 난이도 클리어";
+"MAXIMUM Difficulty Mode Cleared" = "맥시멈 난이도 클리어";
+"X2 FEVER Activated" = "X2 피버 발동";
+"X3 FEVER Activated" = "X3 피버 발동";
+"X4 FEVER Activated" = "X4 피버 발동";
+"X5 FEVER Activated" = "X5 피버 발동";
+"Effector" = "이펙터";
+"Total Score" = "누적 점수";
+"ONLINE Mode Playcount" = "온라인 플레이 횟수";
+
+"Recently Added" = "최근 추가";
+"Series" = "시리즈";
+"Alphabetical" = "알파벳순";
+
+"RATE Calculator" = "정확도 계산기";
+"Calculate" = "계산";
+"Next" = "다음";
+"Prev" = "이전";
+"My Favorite Button" = "주 버튼 설정";
+"The information displayed on the first run screen depends on the setting value." = "설정값에 따라 첫 실행 화면에 표시되는 정보가 달라집니다.";
+
+"Do you have any other useful information to help you play?\nPlease let me know by using 'Send Email to Developer'.\nWe will add it for the next update."
+= "플레이에 도움이 되는 유용한 정보가 더 있나요?\n'개발자에게 이메일 보내기'로 알려주세요.\n다음 업데이트 때 추가하겠습니다.";
+"In the song selection screen, you can press R3 to specify / deselect a favorite song." = "곡 선택 화면에서 R3을 눌러 선호곡을 지정 / 해제할 수 있습니다.";
+"On the menu selection screen, press the touchpad to set whether to keep the combo in freestyle mode." = "메뉴 선택 화면에서 터치패드를 눌러 프리스타일 모드에서의 콤보 유지 여부를 설정할 수 있습니다.";
+"If the accuracy is not good, adjust the sync." = "정확도가 잘 나오지 않는다면 싱크를 조절해 보세요.";
+"The 100% judgment occurs when the line above the judgment line and the bottom line of the notebook touch each other." = "100% 판정은 판정선 윗선과 노트 아랫선이 맞닿을 때 발생합니다.";
+"Most collections, except for some songs, can be deducted from play counts." = "일부 곡을 제외한 대부분의 컬렉션은 플레이카운트로 해금할 수 있습니다.";
+"When processing analog notes, you can just push the stick without turning it." = "아날로그 노트를 처리할 때 스틱을 돌리지 않고 밀고만 있어도 됩니다.";
+"You can darken the BGA by pressing the touch pad during play." = "플레이 도중 터치패드를 눌러 BGA를 어둡게 할 수 있습니다.";
+"You can change the operation keys by pressing the touch pad on the menu selection screen." = "메뉴 선택 화면에서 터치패드를 눌러 조작키를 변경할 수 있습니다.";
+"In freestyle mode, if you exit the song selection screen after restarting while playing, the combo will not be initialized." = "프리스타일 모드에서 플레이 중에 재시작 후 곡 선택화면으로 나가면 콤보가 초기화되지 않습니다.";
+"If you use the custom key setting, the L1 / R1 characters of the 8 keys disappear." = "커스텀 키 설정을 사용하면 8키의 L1 / R1 글자가 사라집니다.";
+"Select a song online If the focus is 2Nite, it is a foreign user or a Korean user." = "온라인에서 곡 선택 포커스가 2Nite면 외국 유저, 그렇지 않으면 한국 유저입니다.";
+"If you have an urgent problem during online song selection, please focus on Waiting for me." = "온라인 곡 선택 도중에 급한 일이 생겼다면 Waiting for me에 포커스를 두세요.";
+"If you play with your hands in a slippery state, you can do better." = "손이 미끄러운 상태에서 플레이하면 더 잘 비빌 수 있습니다.";
+"The music video is ripped when MAX COMBO is cleared for any pattern of the song." = "뮤직비디오는 해당 곡의 임의의 패턴을 MAX COMBO 클리어 했을 때 해금됩니다.";
+
+"Skill Point" = "스킬 포인트";
+"Skill Level" = "스킬 레벨";
+"Highest Skill Point" = "최고 스킬 포인트";
+"We provide a rough measure of performance by calculating the performance you have entered." = "입력한 성과를 계산하여 대략적인 실력 측정 기준을 제공합니다.";
+
+"Tap the list to see information that will help you win trophies." = "목록을 눌러 트로피 획득에 도움이 되는 정보를 확인할 수 있습니다.";
+

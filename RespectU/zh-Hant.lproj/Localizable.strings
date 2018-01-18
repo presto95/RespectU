@@ -1,0 +1,143 @@
+/* 
+  Localizable.strings
+  RespectU
+
+  Created by Presto on 2017. 10. 17..
+  Copyright © 2017년 Presto. All rights reserved.
+*/
+//영어 -> 중국어
+
+"OK" = "確認";
+"Cancel" = "取消";
+"Add to Playlist" = "添加至播放列表";
+"SPEED Recommendation" = "推薦 倍速";
+"Search" = "搜索";
+"Sort" = "整隊";
+"Asc" = "升序";
+"Desc" = "降序";
+"Remove" = "除去";
+"Current" = "現如今";
+"Change BPM Default" = "BPM基本價格變更";
+"(SPEED Variation)" = "(變速)";
+"Difficulty" = "難易度";
+"You can get SPEED Recommendation by touching Song list." = "點擊音樂目錄,即可獲得推薦品。";
+"Added to Playlist" = "添加到播放列表";
+"Not Added to Playlist" = "不是添加到播放列表";
+"Check for duplication." = "請確認是否重複。";
+"Changed" = "變更";
+"Not Changed" = "未變更";
+"Please enter a valid value." = "請輸入正確的價格。";
+"Removed" = "清除";
+"Please Rate RespectU!" = "請評價一下RespectU!";
+"Thanks for your support!" = "謝謝你的支持!";
+"Go to rate" = "對去";
+"Not now" = "以後再告訴我。";
+"Don't Ask Again" = "不要再問了。";
+"Night Mode" = "夜間模式";
+"Notification" = "通知";
+"Recommended to restart for correct operation." = "推薦的重新正確操作。";
+"Email has been sent." = "電傳一下電子郵箱。";
+"Thank you for your feedback!" = "謝謝你的反饋!";
+"Email has not been sent." = "沒有發送電子郵件。";
+"Feel free to give feedback!" = "感受反饋給自由!";
+"Email has been saved." = "電子郵件已經救了。";
+"Unable to write email." = "他寫電子郵件。";
+"Please check the relevant settings." = "請確認相關設置。";
+"Why don't you choose 'Good Bye' on the final stage of online match?" = "為什麼在網絡比賽的最後階段你不選擇“再見”？";
+"You do not need to turn the stick when you enter an analog note." = "輸入模擬音符時，不需要轉動棒。";
+"If you play with your face oil on your thumb, you can handle the cascading notes well :)" = "如果你在拇指上玩你的臉油，你可以很好地處理級聯注意事項:)";
+"You can change the keys by pressing the touch pad on the menu selection screen." = "您可以通過按菜單選擇屏幕上的觸摸板來更改鍵。";
+"In freestyle mode, you can keep your combos by restarting it during playback and then returning to the music selection screen." = "在自由式模式中，您可以在播放過程中重新啟動組合，然後返回到音樂選擇屏幕。";
+"You can darken the BGA by pressing the touch pad during play." = "您可以在播放過程中按觸摸板使BGA變暗。";
+"Performance" = "績效";
+"Performance Record" = "績效記錄";
+"RANK" = "秩";
+"Rank" = "秩";
+"ACCURACY" = "準確性";
+"Accuracy" = "準確性";
+"NOTE" = "備註";
+"Note" = "備註";
+"No Pattern" = "沒有模式";
+"My Record" = "我的記錄";
+"PATTERNS" = "模式";
+"AVERAGE" = "平均準確度";
+"Input your accuracy.\nTo reset the value, do not enter any values." = "輸入您的準確性。\n要重置該值，請勿輸入任何值。";
+"Select your rank." = "選擇你的等級。";
+"Select your note." = "選擇你的筆記。";
+
+"Super Rookie" = "超級新人";
+"Entertainer" ="表演者";
+"Night Owl" ="貓頭鷹族";
+"Don't Be Careless!" ="切忌松懈";
+"I Hate Fast Songs!" ="快歌討厭！";
+"Diet Starts Tomorrow" ="從明天開始減肥";
+"New Type" ="NEW TYPE";
+"Versatile" ="才華橫溢";
+"Guru" = "專家";
+"Grandpa Gamer" ="大叔玩家";
+"Left Hand Only" ="右手只是用來輔助";
+"Classic Game Fanatic" ="經典游戲愛好者";
+"Doting Father" ="女兒控";
+"Genius" ="天才";
+"Super Master" ="超級高手";
+
+"GLHF" = "祝你好運！";
+"Rhythm Game Maniac" = "音樂游戲愛好者";
+"Eager Beaver" = "已經上癮了吧？";
+"Always On Duty" = "終身值班";
+"4B TUNES Love" = "贊美4鍵模式";
+"5B TUNES Love" = "贊美5鍵模式";
+"6B TUNES Love" = "贊美6鍵模式";
+"8B TUNES Love" = "贊美8鍵模式";
+"I Love Dogs!" = "我愛狗！";
+"Waiting for Weekend" = "注意力不夠";
+"Stud" = "美少年";
+"NB RANGER" = "NB RANGER";
+"Sheepish" = "卑躬屈膝";
+"FEVER Free Zone" = "FEVER FREE ZONE";
+"Can't Focus" = "注意力不夠";
+"Lefty" = "左撇子";
+"Novice Here" = "新手來了";
+"High Class" = "不可忽視的才能";
+"Hawk Eye" = "鷹眼";
+"HAXXOR" = "超越者";
+"Jack of All Trades" = "靈丹妙藥";
+"Come at Me" = "想挑戰嗎？";
+"Unforgettable" = "勿忘我";
+"Most Popular" = "超級紅人";
+"I Love Cats!" = "我愛貓！";
+"Clear All Songs!" = "目標是全曲闖闗";
+"I Want You." = "添加好友大歡迎";
+"Holy Land" = "聖地巡禮";
+"Only Study" = "學習第一！";
+"Every Morning (3)" = "Every Morning (3)";
+"Most Improved" = "日新月異";
+"Sprint" = "全力奔跑";
+"Rhythm Power" = "節奏！力量！集中！";
+"Shut In" = "隱蔽青年";
+"I'm the Boss" = "我就是老大";
+"DMP Lover" = "DMP經曆者";
+"What a Bookworm" = "文科小子！";
+"DMO Lover" = "DMO經曆者";
+"Go Easy On Me." = "請手下留情";
+"Condition Disorder" = "狀態不佳";
+"Cute" = "可愛";
+"You See That?" = "那也能看得到嗎？";
+"Craving Technika" = "TECHNIKA渴望中";
+"Yes Sir!" = "絕對忠誠";
+"Hard Worker" = "努力家";
+"Let's Be Friends" = "想親近";
+"Lurker" = "網絡潛伏者";
+"DJMAX Missionary" = "DJMAX 傳教士";
+"Test your Might" = "放馬過來吧";
+"Born to Jam" = "生來就是玩家";
+
+"Unlock (ACHIEVEMENT)" = "解鎖（挑戰）";
+"Unlock (MISSION)" = "解鎖 (任務)";
+"ACHIEVEMENT" = "挑戰";
+
+"Recently Added" = "最近添加";
+"Series" = "系列";
+"Alphabetical" = "按字母順序";
+
+

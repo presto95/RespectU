@@ -8,14 +8,25 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    //realm 마이그레이션
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let config = Realm.Configuration(
+            schemaVersion: 12,  //Increment this each time your schema changes
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 1) {
+                    //If you need to transfer any data
+                    //(in your case you don't right now) you will transfer here
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
+        let _=try! Realm()
         // Override point for customization after application launch.
         return true
     }

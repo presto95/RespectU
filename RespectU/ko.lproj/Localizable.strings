@@ -224,3 +224,16 @@
 
 "Tap the list to see information that will help you win trophies." = "목록을 눌러 트로피 획득에 도움이 되는 정보를 확인할 수 있습니다.";
 
+"Login" = "로그인";
+"Logout" = "로그아웃";
+"Email" = "이메일";
+"Password" = "비밀번호";
+"Upload" = "업로드";
+"Ranking" = "랭킹";
+"Nickname Setting" = "닉네임 설정";
+"Error" = "오류";
+"Please login first." = "먼저 로그인 해주세요.";
+"Please enter your nickname." = "닉네임을 입력해 주세요.";
+"Nickname" = "닉네임";
+"Success" = "성공";
+"Fail" = "실패";

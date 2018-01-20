@@ -14,6 +14,7 @@ class Top50TableViewController: UITableViewController {
     var results: Results<RecordInfo>? = nil
     var sender: Int = 0
     let isNight = UserDefaults.standard.bool(forKey: "night")
+    let key = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,6 @@ class Top50TableViewController: UITableViewController {
         switch(sender){
         case 0:
             results = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button4SkillPoint", ascending: false)
-            
         case 1:
             results = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button5SkillPoint", ascending: false)
         case 2:
@@ -120,6 +120,30 @@ class Top50TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let cell=tableView.cellForRow(at: indexPath) as! Top50TableViewCell
+        let next=self.storyboard?.instantiateViewController(withIdentifier: "SongDetailViewController") as! SongDetailViewController
+        let query=NSPredicate(format: "title = %@",cell.title.text!)
+        let object = try! Realm().objects(SongInfo.self).filter(query).first!
+        next.key = self.key
+        next.detailBpm=object.bpm
+        next.detailTitle = object.title
+        next.detailSeries = object.series
+        next.is4BNormalExist = object.nm4 != 0
+        next.is4BHardExist = object.hd4 != 0
+        next.is4BMaximumExist = object.mx4 != 0
+        next.is5BNormalExist = object.nm5 != 0
+        next.is5BHardExist = object.hd5 != 0
+        next.is5BMaximumExist = object.mx5 != 0
+        next.is6BNormalExist = object.nm6 != 0
+        next.is6BHardExist = object.hd6 != 0
+        next.is6BMaximumExist = object.mx6 != 0
+        next.is8BNormalExist = object.nm8 != 0
+        next.is8BHardExist = object.hd8 != 0
+        next.is8BMaximumExist = object.mx8 != 0
+        next.nm4 = object.nm4; next.nm5=object.nm5; next.nm6=object.nm6; next.nm8=object.nm8
+        next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
+        next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
+        self.navigationController?.pushViewController(next, animated: true)
     }
     
     @objc func refresh(_ sender: UIBarButtonItem) {

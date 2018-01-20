@@ -152,7 +152,7 @@ class TipInfo: Object{
 }
 
 
-class Database : UITabBarController {
+class TabBarController : UITabBarController {
     
     let realm = try! Realm()
     //var banner: GADBannerView!
@@ -1269,8 +1269,8 @@ class Database : UITabBarController {
         }
         
 
-        if(version <= 20){
-            UserDefaults.standard.set(21, forKey: "version")
+        if(version <= 21){
+            UserDefaults.standard.set(22, forKey: "version")
         }
     }
     

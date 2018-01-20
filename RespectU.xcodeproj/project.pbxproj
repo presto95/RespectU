@@ -82,12 +82,17 @@
 		198391F91F7E2792009C7B5D /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198391F81F7E2792009C7B5D /* SongTableViewCell.swift */; };
 		198C72A22008CF0F00F612F9 /* Top50TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198C72A12008CF0F00F612F9 /* Top50TableViewController.swift */; };
 		198C72A42008D07900F612F9 /* Top50TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198C72A32008D07900F612F9 /* Top50TableViewCell.swift */; };
+		198CB54C2013603600646D55 /* respectu-3d-color-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198CB54B2013603600646D55 /* respectu-3d-color-background.png */; };
+		198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198CB54D2013603D00646D55 /* respectu-flat-background.png */; };
 		1994258C1FA5EF2300B553E1 /* SongDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1994258B1FA5EF2300B553E1 /* SongDetailViewController.swift */; };
+		1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1997B0992012551E0072EED9 /* GoogleService-Info.plist */; };
 		19A4FAD01FDE7605003FFFE6 /* RateCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */; };
+		19B20C6D20134EEF0070FCD6 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B20C6C20134EEF0070FCD6 /* RankingViewController.swift */; };
+		19B20C6F20134F360070FCD6 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B20C6E20134F360070FCD6 /* RankingTableViewCell.swift */; };
 		19B660261F960E5800CCEFB5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* StringExtension.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
 		19B6CFEC1F7953640097B86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6CFEB1F7953640097B86B /* AppDelegate.swift */; };
-		19B6CFEE1F7953640097B86B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6CFED1F7953640097B86B /* Database.swift */; };
+		19B6CFEE1F7953640097B86B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6CFED1F7953640097B86B /* TabBarController.swift */; };
 		19B6CFF11F7953640097B86B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFEF1F7953640097B86B /* Main.storyboard */; };
 		19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF51F7953640097B86B /* Assets.xcassets */; };
 		19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */; };
@@ -191,9 +196,14 @@
 		198391F81F7E2792009C7B5D /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		198C72A12008CF0F00F612F9 /* Top50TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50TableViewController.swift; sourceTree = "<group>"; };
 		198C72A32008D07900F612F9 /* Top50TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50TableViewCell.swift; sourceTree = "<group>"; };
+		198CB54B2013603600646D55 /* respectu-3d-color-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "respectu-3d-color-background.png"; sourceTree = "<group>"; };
+		198CB54D2013603D00646D55 /* respectu-flat-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "respectu-flat-background.png"; sourceTree = "<group>"; };
 		1994258B1FA5EF2300B553E1 /* SongDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailViewController.swift; sourceTree = "<group>"; };
+		1997B0992012551E0072EED9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCalculatorViewController.swift; sourceTree = "<group>"; };
 		19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RespectU-Bridging-Header.h"; sourceTree = "<group>"; };
+		19B20C6C20134EEF0070FCD6 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		19B20C6E20134F360070FCD6 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		19B660101F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660121F960A3D00CCEFB5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -206,7 +216,7 @@
 		19B6602D1F960FB100CCEFB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		19B6CFE81F7953640097B86B /* RespectU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RespectU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B6CFEB1F7953640097B86B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		19B6CFED1F7953640097B86B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		19B6CFED1F7953640097B86B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		19B6CFF01F7953640097B86B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19B6CFF51F7953640097B86B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B6CFF81F7953640097B86B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -252,6 +262,8 @@
 		1919A3A02008F6DB00D51A2A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				198CB54B2013603600646D55 /* respectu-3d-color-background.png */,
+				198CB54D2013603D00646D55 /* respectu-flat-background.png */,
 				1919A4062008F7C700D51A2A /* trilogy1.png */,
 				1919A4042008F7C700D51A2A /* trilogy2.png */,
 				1919A4072008F7C800D51A2A /* trilogy3.png */,
@@ -348,10 +360,11 @@
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19137A0B1FAB51420097B11C /* Fonts */,
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
-				19B6CFED1F7953640097B86B /* Database.swift */,
+				19B6CFED1F7953640097B86B /* TabBarController.swift */,
 				19B6CFEF1F7953640097B86B /* Main.storyboard */,
 				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
+				1997B0992012551E0072EED9 /* GoogleService-Info.plist */,
 				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
 				191F47401F93590700C6F401 /* ActivityIndicatorViewController.swift */,
 				198391F61F7E2665009C7B5D /* SongTableViewController.swift */,
@@ -368,6 +381,8 @@
 				196F03A01FFF37E50028A9B8 /* GradeViewController.swift */,
 				198C72A12008CF0F00F612F9 /* Top50TableViewController.swift */,
 				198C72A32008D07900F612F9 /* Top50TableViewCell.swift */,
+				19B20C6C20134EEF0070FCD6 /* RankingViewController.swift */,
+				19B20C6E20134F360070FCD6 /* RankingTableViewCell.swift */,
 				19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */,
 				19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */,
 				19A4FACF1FDE7605003FFFE6 /* RateCalculatorViewController.swift */,
@@ -459,6 +474,7 @@
 				1919A3E02008F7C100D51A2A /* respect22.png in Resources */,
 				1919A3EA2008F7C100D51A2A /* respect36.png in Resources */,
 				1919A3DF2008F7C100D51A2A /* respect42.png in Resources */,
+				198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */,
 				1919A3EE2008F7C100D51A2A /* respect31.png in Resources */,
 				19D47FEC1FA893F300F78127 /* NanumBarunGothic.otf in Resources */,
 				19D47FEA1FA88E8500F78127 /* NanumBarunGothicLight.otf in Resources */,
@@ -469,6 +485,7 @@
 				1919A3FF2008F7C100D51A2A /* respect39.png in Resources */,
 				1919A3E82008F7C100D51A2A /* respect19.png in Resources */,
 				1919A3F42008F7C100D51A2A /* respect27.png in Resources */,
+				198CB54C2013603600646D55 /* respectu-3d-color-background.png in Resources */,
 				1919A3FD2008F7C100D51A2A /* respect24.png in Resources */,
 				1919A3DC2008F7C100D51A2A /* respect23.png in Resources */,
 				1919A40A2008F7C800D51A2A /* trilogy5.png in Resources */,
@@ -507,6 +524,7 @@
 				1919A3ED2008F7C100D51A2A /* respect20.png in Resources */,
 				1919A3AE2008F7AD00D51A2A /* ce3.png in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
+				1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */,
 				1919A3F12008F7C100D51A2A /* respect13.png in Resources */,
 				1919A40F2008F7C800D51A2A /* trilogy4.png in Resources */,
 				1919A3F52008F7C100D51A2A /* respect30.png in Resources */,
@@ -551,22 +569,32 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -579,9 +607,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -596,10 +627,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				196F03A11FFF37E50028A9B8 /* GradeViewController.swift in Sources */,
-				19B6CFEE1F7953640097B86B /* Database.swift in Sources */,
+				19B6CFEE1F7953640097B86B /* TabBarController.swift in Sources */,
 				19544A9A1FB4B9AD00AA8E22 /* AchievementTableViewCell.swift in Sources */,
 				19A4FAD01FDE7605003FFFE6 /* RateCalculatorViewController.swift in Sources */,
 				198391F71F7E2665009C7B5D /* SongTableViewController.swift in Sources */,
+				19B20C6D20134EEF0070FCD6 /* RankingViewController.swift in Sources */,
+				19B20C6F20134F360070FCD6 /* RankingTableViewCell.swift in Sources */,
 				19D4E4A51F80DFC800F0BF2B /* MoreTableViewController.swift in Sources */,
 				19774C451FA855F500729250 /* RecordViewController.swift in Sources */,
 				198391F91F7E2792009C7B5D /* SongTableViewCell.swift in Sources */,

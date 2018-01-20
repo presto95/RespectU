@@ -115,13 +115,6 @@ class TrophyTableViewController: UITableViewController {
             break
         }
         cell.trophyImage.image = UIImage(named: imageName)
-        /*let string = object.titleKor
-        if(string == "내 마음속에 저장" || string == "고고학자" || string == "럭키 해피 데이" || string == "나올수도 있고 안나올수도 있습니다" || string == "언제나 감사합니다" || string == "Go Back From the Top"){
-            cell.accessoryType = .detailButton
-        }
-        else{
-            cell.accessoryType = .none
-        }*/
         return cell
     }
     

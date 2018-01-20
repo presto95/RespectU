@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Firebase
 import RealmSwift
 import MessageUI
 import NotificationBannerSwift
+import GoogleSignIn
 
 
 
-class MoreTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+class MoreTableViewController: UITableViewController, MFMailComposeViewControllerDelegate, GIDSignInUIDelegate {
+    
 
+    @IBOutlet weak var cellLogin: UITableViewCell!
     @IBOutlet weak var cell1: UITableViewCell!
     @IBOutlet weak var cell2: UITableViewCell!
     @IBOutlet weak var cell3: UITableViewCell!
@@ -49,6 +53,20 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if(user != nil){
+                self.cellLogin.textLabel?.text = "Logout".localized
+                self.cellLogin.detailTextLabel?.text = Auth.auth().currentUser?.email
+                self.tableView.reloadData()
+            }
+            else{
+                self.cellLogin.textLabel?.text = "Login".localized
+                self.cellLogin.detailTextLabel?.text = ""
+                self.tableView.reloadData()
+            }
+        }
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
         cellGrade.textLabel?.text = "Skill Level".localized
@@ -88,6 +106,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         if(UserDefaults.standard.bool(forKey: "night")){
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellLogin.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -100,6 +119,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cell5.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell6.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell7.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellLogin.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -131,6 +151,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             view.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             navigationController?.navigationBar.barStyle = .default
             tabBarController?.tabBar.barStyle = .default
+            cellLogin.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellFavoriteButton.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -143,6 +164,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cell5.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell6.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell7.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellLogin.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellRateCalculator.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -177,13 +199,40 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 12
+        return 13
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch(indexPath.row){
         case 1:
+            if(cellLogin.textLabel?.text == "Login".localized){
+                //로그인
+                let alert = UIAlertController(title: "Login".localized, message: "", preferredStyle: .alert)
+                let actionGoogle = UIAlertAction(title: "Google 로그인", style: .default){_ in
+                    self.googleLogin()
+                }
+                let actionCancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+                alert.addAction(actionCancel)
+                alert.addAction(actionGoogle)
+                self.present(alert, animated: true)
+            }
+            else if(cellLogin.textLabel?.text == "Logout".localized){
+                //로그아웃
+                let alert = UIAlertController(title: "Logout".localized, message: "", preferredStyle: .alert)
+                let actionLogout = UIAlertAction(title: "Logout".localized, style: .destructive){_ in
+                    do {
+                        try Auth.auth().signOut()
+                    } catch { }
+                    NotificationBanner(title: "Logout".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "success")), style: .success).show()
+                }
+                let actionCancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+                alert.addAction(actionCancel)
+                alert.addAction(actionLogout)
+                self.present(alert, animated: true)
+            }
+            
+        case 2:
             let next=self.storyboard?.instantiateViewController(withIdentifier: "GradeViewController") as! GradeViewController
             let button4 = getButton4Grade()
             let button5 = getButton5Grade()
@@ -206,7 +255,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             next.button6HighestSong = button6.2
             next.button8HighestSong = button8.2
             self.navigationController?.pushViewController(next, animated: true)
-        case 3:
+        case 4:
             let alert=UIAlertController(title: "Change BPM Default".localized, message: "Current".localized+" : \(Int(UserDefaults.standard.double(forKey: "bpm"))) BPM\n\n"+"You can get SPEED Recommendation by touching Song list.".localized, preferredStyle: .alert)
             alert.addTextField{ (textField) -> Void in
                 textField.keyboardType = UIKeyboardType.numberPad
@@ -239,7 +288,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             alert.addAction(noAction)
             alert.addAction(yesAction)
             self.present(alert, animated: true, completion: nil)
-        case 4:
+        case 5:
             let view=UIImageView(image: #imageLiteral(resourceName: "success"))
             let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
             let alert = UIAlertController(title: "My Favorite Button".localized, message: "Current".localized+" : \(favorite ?? "None".localized)\n\n"+"The information displayed on the first run screen depends on the setting value.".localized, preferredStyle: .alert)
@@ -266,9 +315,9 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             let buttonCancel = UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
             alert.addAction(button4); alert.addAction(button5); alert.addAction(button6); alert.addAction(button8); alert.addAction(buttonCancel)
             self.present(alert, animated: true, completion: nil)
-        case 7:
-            sendEmail()
         case 8:
+            sendEmail()
+        case 9:
             let alert=UIAlertController(title: "Notification".localized, message: "Recommended to restart for correct operation.".localized, preferredStyle: .alert)
             let action=UIAlertAction(title: "OK".localized,style: .default, handler: nil)
             alert.addAction(action)
@@ -287,6 +336,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         if(UserDefaults.standard.bool(forKey: "night")){
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellLogin.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellTip.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellGrade.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -299,6 +349,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cell5.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell6.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cell7.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+            cellLogin.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -330,6 +381,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             view.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             navigationController?.navigationBar.barStyle = .default
             tabBarController?.tabBar.barStyle = .default
+            cellLogin.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellFavoriteButton.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellRateCalculator.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cellAchievement.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -342,6 +394,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             cell5.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell6.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             cell7.backgroundColor=UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            cellLogin.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellRateCalculator.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellAchievement.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
             cellFavoriteButton.textLabel?.textColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -435,6 +488,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         labelClearedPatternsCount.text = String(countClearedPatterns)
         labelMaxComboCount.text = String(countMaxCombo)
         labelPerfectPlayCount.text = String(countPerfectPlay)
+        UserDefaults.standard.set(countPerfectPlay, forKey: "countPerfectPlay")
     }
     
     func getButton4Grade() -> (Double, Double, String){
@@ -449,7 +503,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             upto50.append(sortedTempDic[i].1)
         }
         let sum = upto50.reduce(0) { $0 + $1 }
-        
+        UserDefaults.standard.set(sum, forKey: "button4SkillPoint")
         return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
     }
     
@@ -465,7 +519,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             upto50.append(sortedTempDic[i].1)
         }
         let sum = upto50.reduce(0) { $0 + $1 }
-        
+        UserDefaults.standard.set(sum, forKey: "button5SkillPoint")
         return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
     }
     
@@ -481,7 +535,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             upto50.append(sortedTempDic[i].1)
         }
         let sum = upto50.reduce(0) { $0 + $1 }
-        
+        UserDefaults.standard.set(sum, forKey: "button6SkillPoint")
         return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
     }
     
@@ -497,7 +551,7 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             upto50.append(sortedTempDic[i].1)
         }
         let sum = upto50.reduce(0) { $0 + $1 }
-        
+        UserDefaults.standard.set(sum, forKey: "button8SkillPoint")
         return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
     }
     
@@ -701,6 +755,9 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         return returnString
     }
     
-    
+    func googleLogin(){
+        GIDSignIn.sharedInstance().signIn()
+        NotificationBanner(title: "Login".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "success")), style: .success).show()
+    }
 }
 

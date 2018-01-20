@@ -10,20 +10,16 @@ import UIKit
 
 class ActivityIndicatorViewController: UIViewController {
     @IBOutlet weak var respectu: UIImageView!
-    @IBOutlet weak var unofficial: UILabel!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*let ypos=respectu.frame.origin.y
-        UIView.animate(withDuration: 0.7, animations: {
-            self.respectu.frame.origin.y = ypos - 80
+        self.respectu.alpha = 0
+        UIView.animate(withDuration: 0.5, animations: {
         }) { (_) in
-            UIView.animate(withDuration: 0.3, delay: 0.05, options: .curveEaseIn, animations: {
-                self.unofficial.alpha = 1
-                self.indicator.alpha = 1
+            UIView.animate(withDuration: 0.5, delay: 0.05, options: .curveEaseIn, animations: {
+                self.respectu.alpha = 1
             })
-        }*/
+        }
         _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
             
             let storyboard = self.storyboard

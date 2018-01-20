@@ -9,6 +9,10 @@ target 'RespectU' do
   pod 'ActionSheetPicker-3.0'
   pod 'NotificationBannerSwift'
   pod 'GaugeKit'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
   # Pods for RespectU
 
 end

@@ -57,12 +57,12 @@ class GradeViewController: UIViewController {
     @IBOutlet weak var labelSkillLevel: UILabel!
     @IBOutlet weak var labelSkillPoint: UILabel!
     @IBOutlet var viewGauge: Gauge!
+    @IBOutlet var gaugeFirst: Gauge!
+    @IBOutlet var gaugeLast: Gauge!
     @IBOutlet weak var labelFirstSkillPoint: UILabel!
     @IBOutlet weak var labelFirstSkillPointValue: UILabel!
     @IBOutlet weak var labelLastSkillPoint: UILabel!
     @IBOutlet weak var labelLastSkillPointValue: UILabel!
-    @IBOutlet weak var labelFirstColor: UILabel!
-    @IBOutlet weak var labelLastColor: UILabel!
     @IBOutlet weak var labelFirstSong: UILabel!
     @IBOutlet weak var labelLastSong: UILabel!
     @IBOutlet weak var labelNext: UILabel!
@@ -141,37 +141,6 @@ class GradeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func setColor(firstSeries: String, lastSeries: String){
-        switch(firstSeries){
-        case "Trilogy":
-            labelFirstColor.backgroundColor = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
-        case "Respect":
-            labelFirstColor.backgroundColor = UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
-        case "Portable1":
-            labelFirstColor.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
-        case "Portable2":
-            labelFirstColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
-        case "CE":
-            labelFirstColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
-        default:
-            break
-        }
-        switch(lastSeries){
-        case "Trilogy":
-            labelLastColor.backgroundColor = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
-        case "Respect":
-            labelLastColor.backgroundColor = UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
-        case "Portable1":
-            labelLastColor.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
-        case "Portable2":
-            labelLastColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
-        case "CE":
-            labelLastColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
-        default:
-            break
-        }
     }
     
     func getColor(series: String) -> UIColor{
@@ -508,13 +477,18 @@ class GradeViewController: UIViewController {
             query = NSPredicate(format: "title = %@", button4LastSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
             let lastSeries = (results?.series)!
-            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
             viewGauge.startColor = getColor(series: firstSeries)
             viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button4Max)
             //viewGauge.rate = CGFloat(button4SkillPoint)
             viewGauge.animateRate(1, newValue: CGFloat(button4SkillPoint)){_ in }
+            gaugeFirst.startColor = getColor(series: firstSeries)
+            gaugeFirst.endColor = getColor(series: lastSeries)
+            gaugeLast.startColor = getColor(series: lastSeries)
+            gaugeLast.endColor = getColor(series: firstSeries)
+            gaugeFirst.animateRate(1, newValue: CGFloat(button4FirstSkillPoint)){_ in }
+            gaugeLast.animateRate(1, newValue: CGFloat(button4LastSkillPoint)){_ in }
         case 1:
             segmentedControl.selectedSegmentIndex = 1
             labelSkillLevel.text = button5SkillLevel
@@ -531,13 +505,18 @@ class GradeViewController: UIViewController {
             query = NSPredicate(format: "title = %@", button5LastSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
             let lastSeries = (results?.series)!
-            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
             viewGauge.startColor = getColor(series: firstSeries)
             viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button5Max)
             //viewGauge.rate = CGFloat(button5SkillPoint)
             viewGauge.animateRate(1, newValue: CGFloat(button5SkillPoint)){_ in }
+            gaugeFirst.startColor = getColor(series: firstSeries)
+            gaugeFirst.endColor = getColor(series: lastSeries)
+            gaugeLast.startColor = getColor(series: lastSeries)
+            gaugeLast.endColor = getColor(series: firstSeries)
+            gaugeFirst.animateRate(1, newValue: CGFloat(button5FirstSkillPoint)){_ in }
+            gaugeLast.animateRate(1, newValue: CGFloat(button5LastSkillPoint)){_ in }
         case 2:
             segmentedControl.selectedSegmentIndex = 2
             labelSkillLevel.text = button6SkillLevel
@@ -554,13 +533,18 @@ class GradeViewController: UIViewController {
             query = NSPredicate(format: "title = %@", button6LastSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
             let lastSeries = (results?.series)!
-            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
             viewGauge.startColor = getColor(series: firstSeries)
             viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button6Max)
             //viewGauge.rate = CGFloat(button6SkillPoint)
             viewGauge.animateRate(1, newValue: CGFloat(button6SkillPoint)){_ in }
+            gaugeFirst.startColor = getColor(series: firstSeries)
+            gaugeFirst.endColor = getColor(series: lastSeries)
+            gaugeLast.startColor = getColor(series: lastSeries)
+            gaugeLast.endColor = getColor(series: firstSeries)
+            gaugeFirst.animateRate(1, newValue: CGFloat(button6FirstSkillPoint)){_ in }
+            gaugeLast.animateRate(1, newValue: CGFloat(button6LastSkillPoint)){_ in }
         case 3:
             segmentedControl.selectedSegmentIndex = 3
             labelSkillLevel.text = button8SkillLevel
@@ -577,13 +561,18 @@ class GradeViewController: UIViewController {
             query = NSPredicate(format: "title = %@", button8LastSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
             let lastSeries = (results?.series)!
-            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
             viewGauge.startColor = getColor(series: firstSeries)
             viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button8Max)
             //viewGauge.rate = CGFloat(button8SkillPoint)
             viewGauge.animateRate(1, newValue: CGFloat(button8SkillPoint)){_ in }
+            gaugeFirst.startColor = getColor(series: firstSeries)
+            gaugeFirst.endColor = getColor(series: lastSeries)
+            gaugeLast.startColor = getColor(series: lastSeries)
+            gaugeLast.endColor = getColor(series: firstSeries)
+            gaugeFirst.animateRate(1, newValue: CGFloat(button8FirstSkillPoint)){_ in }
+            gaugeLast.animateRate(1, newValue: CGFloat(button8LastSkillPoint)){_ in }
         default:
             break
         }

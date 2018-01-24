@@ -20,20 +20,28 @@ class GradeViewController: UIViewController {
     let button6And8GradeArray=["BEGINNER", "AMATEUR 4", "AMATEUR 3", "AMATEUR 2", "AMATEUR 1", "SUB DJ 4", "SUB DJ 3", "SUB DJ 2", "SUB DJ 1", "MAIN DJ 4", "MAIN DJ 3", "MAIN DJ 2", "MAIN DJ 1", "POP DJ 4", "POP DJ 3", "POP DJ 2", "POP DJ 1", "PROFESSIONAL 4", "PROFESSIONAL 3", "PROFESSIONAL 2", "PROFESSIONAL 1", "MIX MASTER 3", "MIX MASTER 2", "MIX MASTER 1", "SUPERSTAR 3", "SUPERSTAR 2", "SUPERSTAR 1", "DJMAX GRAND MASTER", "THE DJMAX"]
     var button4SkillLevel: String=""
     var button4SkillPoint: Double=0.0
-    var button4HighestSkillPoint: Double=0.0
-    var button4HighestSong: String=""
+    var button4FirstSkillPoint: Double=0.0
+    var button4FirstSong: String=""
+    var button4LastSkillPoint: Double=0.0
+    var button4LastSong: String=""
     var button5SkillLevel: String=""
     var button5SkillPoint: Double=0.0
-    var button5HighestSkillPoint: Double=0.0
-    var button5HighestSong: String=""
+    var button5FirstSkillPoint: Double=0.0
+    var button5FirstSong: String=""
+    var button5LastSkillPoint: Double=0.0
+    var button5LastSong: String=""
     var button6SkillLevel: String=""
     var button6SkillPoint: Double=0.0
-    var button6HighestSkillPoint: Double=0.0
-    var button6HighestSong: String=""
+    var button6FirstSkillPoint: Double=0.0
+    var button6FirstSong: String=""
+    var button6LastSkillPoint: Double=0.0
+    var button6LastSong: String=""
     var button8SkillLevel: String=""
     var button8SkillPoint: Double=0.0
-    var button8HighestSkillPoint: Double=0.0
-    var button8HighestSong: String=""
+    var button8FirstSkillPoint: Double=0.0
+    var button8FirstSong: String=""
+    var button8LastSkillPoint: Double=0.0
+    var button8LastSong: String=""
     var button4Max: Double=0.0
     var button5Max: Double=0.0
     var button6Max: Double=0.0
@@ -49,10 +57,14 @@ class GradeViewController: UIViewController {
     @IBOutlet weak var labelSkillLevel: UILabel!
     @IBOutlet weak var labelSkillPoint: UILabel!
     @IBOutlet var viewGauge: Gauge!
-    @IBOutlet weak var labelHighestSkillPoint: UILabel!
-    @IBOutlet weak var labelHighestSkillPointValue: UILabel!
-    @IBOutlet weak var labelColor: UILabel!
-    @IBOutlet weak var labelSong: UILabel!
+    @IBOutlet weak var labelFirstSkillPoint: UILabel!
+    @IBOutlet weak var labelFirstSkillPointValue: UILabel!
+    @IBOutlet weak var labelLastSkillPoint: UILabel!
+    @IBOutlet weak var labelLastSkillPointValue: UILabel!
+    @IBOutlet weak var labelFirstColor: UILabel!
+    @IBOutlet weak var labelLastColor: UILabel!
+    @IBOutlet weak var labelFirstSong: UILabel!
+    @IBOutlet weak var labelLastSong: UILabel!
     @IBOutlet weak var labelNext: UILabel!
     @IBOutlet weak var labelPercent: UILabel!
     @IBOutlet weak var buttonUpload: UIButton!
@@ -64,21 +76,25 @@ class GradeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Skill Level".localized
-        labelHighestSkillPoint.text = "Highest Skill Point".localized
+        labelFirstSkillPoint.text = "1st".localized
+        labelLastSkillPoint.text = "50th".localized
         tabBarController?.tabBar.barStyle = isNight ? .black: .default
         navigationController?.navigationBar.barStyle = isNight ? .black : .default
         view.backgroundColor=isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         labelSkillLevel.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         labelSkillPoint.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        labelHighestSkillPoint.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        labelHighestSkillPointValue.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        labelSong.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelFirstSkillPoint.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelFirstSkillPointValue.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelFirstSong.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelLastSkillPoint.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelLastSkillPointValue.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        labelLastSong.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         labelNext.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         labelPercent.textColor=isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         labelPercent.layer.zPosition = 1
-        buttonUpload.setTitle("Upload".localized, for: .normal)
-        buttonRanking.setTitle("Ranking".localized, for: .normal)
-        buttonNickname.setTitle("Nickname Setting".localized, for: .normal)
+        buttonUpload.setTitle("Upload β".localized, for: .normal)
+        buttonRanking.setTitle("Ranking β".localized, for: .normal)
+        buttonNickname.setTitle("Nickname Setting β".localized, for: .normal)
         let songInfo = try! Realm().objects(SongInfo.self)
         var button4Top50 = [Int]()
         var button5Top50 = [Int]()
@@ -127,18 +143,32 @@ class GradeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setColor(series: String){
-        switch(series){
+    func setColor(firstSeries: String, lastSeries: String){
+        switch(firstSeries){
         case "Trilogy":
-            labelColor.backgroundColor = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
+            labelFirstColor.backgroundColor = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
         case "Respect":
-            labelColor.backgroundColor = UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
+            labelFirstColor.backgroundColor = UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
         case "Portable1":
-            labelColor.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
+            labelFirstColor.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
         case "Portable2":
-            labelColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
+            labelFirstColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
         case "CE":
-            labelColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+            labelFirstColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+        default:
+            break
+        }
+        switch(lastSeries){
+        case "Trilogy":
+            labelLastColor.backgroundColor = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
+        case "Respect":
+            labelLastColor.backgroundColor = UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
+        case "Portable1":
+            labelLastColor.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
+        case "Portable2":
+            labelLastColor.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
+        case "CE":
+            labelLastColor.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
         default:
             break
         }
@@ -168,35 +198,48 @@ class GradeViewController: UIViewController {
             let result = getButton4Grade()
             button4SkillLevel = getGradeButton4(value: result.0)
             button4SkillPoint = result.0
-            button4HighestSkillPoint = result.1
-            button4HighestSong = result.2
+            button4FirstSkillPoint = result.1
+            button4FirstSong = result.2
+            button4LastSkillPoint = result.3
+            button4LastSong = result.4
             showInfo(sender: 0)
         case 1:
             let result = getButton5Grade()
             button5SkillLevel = getGradeButton5(value: result.0)
             button5SkillPoint = result.0
-            button5HighestSkillPoint = result.1
-            button5HighestSong = result.2
+            button5FirstSkillPoint = result.1
+            button5FirstSong = result.2
+            button5LastSkillPoint = result.3
+            button5LastSong = result.4
             showInfo(sender: 1)
         case 2:
             let result = getButton6Grade()
             button6SkillLevel = getGradeButton6And8(value: result.0)
             button6SkillPoint = result.0
-            button6HighestSkillPoint = result.1
-            button6HighestSong = result.2
+            button6FirstSkillPoint = result.1
+            button6FirstSong = result.2
+            button6LastSkillPoint = result.3
+            button6LastSong = result.4
             showInfo(sender: 2)
         case 3:
             let result = getButton8Grade()
             button8SkillLevel = getGradeButton6And8(value: result.0)
             button8SkillPoint = result.0
-            button8HighestSkillPoint = result.1
-            button8HighestSong = result.2
+            button8FirstSkillPoint = result.1
+            button8FirstSong = result.2
+            button8LastSkillPoint = result.3
+            button8LastSong = result.4
             showInfo(sender: 3)
         default:
             break
         }
     }
     
+    @IBAction func calculate(_ sender: UIBarButtonItem) {
+        let next = self.storyboard?.instantiateViewController(withIdentifier: "SkillPointCalculatorViewController") as! SkillPointCalculatorViewController
+        self.navigationController?.pushViewController(next, animated: true)
+        
+    }
     
     @IBAction func pressSegmentedControl(_ sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex){
@@ -231,129 +274,171 @@ class GradeViewController: UIViewController {
     }
     
     @IBAction func upload(_ sender: UIButton) {
-        if(Auth.auth().currentUser == nil){
-            let alert = UIAlertController(title: "Error".localized, message: "Please login first.".localized, preferredStyle: .alert)
+        if(!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "Error".localized, message: "Please check the network status.".localized, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
             alert.addAction(action)
-            present(alert, animated: true)
+            self.present(alert, animated: true)
         }
         else{
-            Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).setValue([
-                "userId": UserDefaults.standard.string(forKey: "nickname") ?? Auth.auth().currentUser?.email,
-                "button4SkillPoint": (UserDefaults.standard.double(forKey: "button4SkillPoint") * 100).rounded() / 100,
-                "button5SkillPoint": (UserDefaults.standard.double(forKey: "button5SkillPoint") * 100).rounded() / 100,
-                "button6SkillPoint": (UserDefaults.standard.double(forKey: "button6SkillPoint") * 100).rounded() / 100,
-                "button8SkillPoint": (UserDefaults.standard.double(forKey: "button8SkillPoint") * 100).rounded() / 100,
-                "countPerfectPlay": UserDefaults.standard.integer(forKey: "countPerfectPlay"),
-                "uid": Auth.auth().currentUser?.uid
-                
-                ])
+            if(Auth.auth().currentUser == nil){
+                let alert = UIAlertController(title: "Error".localized, message: "Please login first.".localized, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true)
+            }
+            else{
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                ERProgressHud.show()
+                Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).setValue([
+                    "userId": UserDefaults.standard.string(forKey: "nickname") ?? Auth.auth().currentUser?.email,
+                    "button4SkillPoint": (UserDefaults.standard.double(forKey: "button4SkillPoint") * 100).rounded() / 100,
+                    "button5SkillPoint": (UserDefaults.standard.double(forKey: "button5SkillPoint") * 100).rounded() / 100,
+                    "button6SkillPoint": (UserDefaults.standard.double(forKey: "button6SkillPoint") * 100).rounded() / 100,
+                    "button8SkillPoint": (UserDefaults.standard.double(forKey: "button8SkillPoint") * 100).rounded() / 100,
+                    "countPerfectPlay": UserDefaults.standard.integer(forKey: "countPerfectPlay"),
+                    "uid": Auth.auth().currentUser?.uid
+                    
+                    ])
+                ERProgressHud.hide()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
         }
-        
     }
     
     @IBAction func ranking(_ sender: UIButton) {
-        if(Auth.auth().currentUser == nil){
-            let alert = UIAlertController(title: "Error".localized, message: "Please login first.".localized, preferredStyle: .alert)
+        if(!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "Error".localized, message: "Please check the network status.".localized, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
             alert.addAction(action)
-            present(alert, animated: true)
+            self.present(alert, animated: true)
         }
         else{
-            var arrayUserId: [String] = []
-            var arrayButton4SkillPoint: [Double] = []
-            var arrayButton5SkillPoint: [Double] = []
-            var arrayButton6SkillPoint: [Double] = []
-            var arrayButton8SkillPoint: [Double] = []
-            var arrayPerfectPlay: [Int] = []
-            let ref = Database.database().reference()
-            ref.child("users").observeSingleEvent(of: .value) { (snapshot) in
-                for child in snapshot.children{
-                    let snap = child as! DataSnapshot
-                    for i in snap.children{
-                        let a = i as! DataSnapshot
-                        if(a.key == "button4SkillPoint"){
-                            arrayButton4SkillPoint.append(a.value! as! Double)
-                        }
-                        if(a.key == "button5SkillPoint"){
-                            arrayButton5SkillPoint.append(a.value! as! Double)
-                        }
-                        if(a.key == "button6SkillPoint"){
-                            arrayButton6SkillPoint.append(a.value! as! Double)
-                        }
-                        if(a.key == "button8SkillPoint"){
-                            arrayButton8SkillPoint.append(a.value! as! Double)
-                        }
-                        if(a.key == "countPerfectPlay"){
-                            arrayPerfectPlay.append(a.value! as! Int)
-                        }
-                        if(a.key == "userId"){
-                            arrayUserId.append(a.value! as! String)
+            if(Auth.auth().currentUser == nil){
+                let alert = UIAlertController(title: "Error".localized, message: "Please login first.".localized, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true)
+            }
+            else{
+                var arrayUserId: [String] = []
+                var arrayButton4SkillPoint: [Double] = []
+                var arrayButton5SkillPoint: [Double] = []
+                var arrayButton6SkillPoint: [Double] = []
+                var arrayButton8SkillPoint: [Double] = []
+                var arrayPerfectPlay: [Int] = []
+                ERProgressHud.show()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                let ref = Database.database().reference()
+                ref.child("users").observeSingleEvent(of: .value) { (snapshot) in
+                    for child in snapshot.children{
+                        let snap = child as! DataSnapshot
+                        for i in snap.children{
+                            let a = i as! DataSnapshot
+                            if(a.key == "button4SkillPoint"){
+                                arrayButton4SkillPoint.append(a.value! as! Double)
+                            }
+                            if(a.key == "button5SkillPoint"){
+                                arrayButton5SkillPoint.append(a.value! as! Double)
+                            }
+                            if(a.key == "button6SkillPoint"){
+                                arrayButton6SkillPoint.append(a.value! as! Double)
+                            }
+                            if(a.key == "button8SkillPoint"){
+                                arrayButton8SkillPoint.append(a.value! as! Double)
+                            }
+                            if(a.key == "countPerfectPlay"){
+                                arrayPerfectPlay.append(a.value! as! Int)
+                            }
+                            if(a.key == "userId"){
+                                arrayUserId.append(a.value! as! String)
+                            }
                         }
                     }
+                    var button4Dic: [String: Double] = [:]
+                    var button5Dic: [String: Double] = [:]
+                    var button6Dic: [String: Double] = [:]
+                    var button8Dic: [String: Double] = [:]
+                    var perfectPlayDic: [String: Int] = [:]
+                    for i in 0..<arrayUserId.count{
+                        button4Dic[arrayUserId[i]] = arrayButton4SkillPoint[i]
+                        button5Dic[arrayUserId[i]] = arrayButton5SkillPoint[i]
+                        button6Dic[arrayUserId[i]] = arrayButton6SkillPoint[i]
+                        button8Dic[arrayUserId[i]] = arrayButton8SkillPoint[i]
+                        perfectPlayDic[arrayUserId[i]] = arrayPerfectPlay[i]
+                    }
+                    let next=self.storyboard?.instantiateViewController(withIdentifier: "RankingViewController") as! RankingViewController
+                    next.resultButton4 = button4Dic
+                    next.resultButton5 = button5Dic
+                    next.resultButton6 = button6Dic
+                    next.resultButton8 = button8Dic
+                    next.resultPerfectPlay = perfectPlayDic
+                    next.nickname = UserDefaults.standard.string(forKey: "nickname") ?? (Auth.auth().currentUser?.email)!
+                    self.navigationController?.pushViewController(next, animated: true)
+                    ERProgressHud.hide()
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
-                var button4Dic: [String: Double] = [:]
-                var button5Dic: [String: Double] = [:]
-                var button6Dic: [String: Double] = [:]
-                var button8Dic: [String: Double] = [:]
-                var perfectPlayDic: [String: Int] = [:]
-                for i in 0..<arrayUserId.count{
-                    button4Dic[arrayUserId[i]] = arrayButton4SkillPoint[i]
-                    button5Dic[arrayUserId[i]] = arrayButton5SkillPoint[i]
-                    button6Dic[arrayUserId[i]] = arrayButton6SkillPoint[i]
-                    button8Dic[arrayUserId[i]] = arrayButton8SkillPoint[i]
-                    perfectPlayDic[arrayUserId[i]] = arrayPerfectPlay[i]
-                }
-                let next=self.storyboard?.instantiateViewController(withIdentifier: "RankingViewController") as! RankingViewController
-                next.resultButton4 = button4Dic
-                next.resultButton5 = button5Dic
-                next.resultButton6 = button6Dic
-                next.resultButton8 = button8Dic
-                next.resultPerfectPlay = perfectPlayDic
-                self.navigationController?.pushViewController(next, animated: true)
             }
         }
+        
     }
 
     @IBAction func clickNicknameSetting(_ sender: UIButton) {
-        if(Auth.auth().currentUser == nil){
-            let alert = UIAlertController(title: "Error".localized, message: "Please login first.".localized, preferredStyle: .alert)
+        if(!Reachability.isConnectedToNetwork()){
+            let alert = UIAlertController(title: "Error".localized, message: "Please check the network status.".localized, preferredStyle: .alert)
             let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
             alert.addAction(action)
-            present(alert, animated: true)
+            self.present(alert, animated: true)
         }
         else{
-            let alert = UIAlertController(title: "Nickname Setting".localized, message: "Please enter your nickname.".localized, preferredStyle: .alert)
-            alert.addTextField(configurationHandler: { (textField) in
-                textField.placeholder = "Nickname".localized
-            })
-            let yesAction = UIAlertAction(title: "OK".localized, style: .default) { (action) -> Void in
-                if let input = alert.textFields![0].text{
-                    if(input.count == 0){
-                        NotificationBanner(title: "Fail".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
-                        return
-                    }
-                    UserDefaults.standard.set(input, forKey: "nickname")
-                    Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).setValue([
-                        "userId": input,
-                        "button4SkillPoint": (UserDefaults.standard.double(forKey: "button4SkillPoint") * 100).rounded() / 100,
-                        "button5SkillPoint": (UserDefaults.standard.double(forKey: "button5SkillPoint") * 100).rounded() / 100,
-                        "button6SkillPoint": (UserDefaults.standard.double(forKey: "button6SkillPoint") * 100).rounded() / 100,
-                        "button8SkillPoint": (UserDefaults.standard.double(forKey: "button8SkillPoint") * 100).rounded() / 100,
-                        "countPerfectPlay": UserDefaults.standard.integer(forKey: "countPerfectPlay"),
-                        "uid": Auth.auth().currentUser?.uid
-                        ])
-                    NotificationBanner(title: "Success".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "success")), style: .success).show()
-                }
-                else{
-                    NotificationBanner(title: "Fail".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
-                }
+            if(Auth.auth().currentUser == nil){
+                let alert = UIAlertController(title: "Error".localized, message: "Please login first.".localized, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK".localized, style: .default, handler: nil)
+                alert.addAction(action)
+                present(alert, animated: true)
             }
-            let noAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
-            alert.addAction(yesAction)
-            alert.addAction(noAction)
-            present(alert, animated: true)
+            else{
+                let alert = UIAlertController(title: "Nickname Setting β".localized, message: "Please enter your nickname.".localized, preferredStyle: .alert)
+                alert.addTextField(configurationHandler: { (textField) in
+                    textField.placeholder = "Nickname".localized
+                })
+                let yesAction = UIAlertAction(title: "OK".localized, style: .default) { (action) -> Void in
+                    if let input = alert.textFields![0].text{
+                        /*Database.database().reference().child("users").observeSingleEvent(of: .value){ (snapshot) in
+                            for child in snapshot.children{
+                                let snap = child as! DataSnapshot
+                                if(snap.key == input){
+                                    NotificationBanner(title: "Fail".localized, subtitle: "Duplicate nickname".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
+                                }
+                            }
+                        }*/
+                        if(input.count == 0){
+                            NotificationBanner(title: "Fail".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
+                            return
+                        }
+                        UserDefaults.standard.set(input, forKey: "nickname")
+                        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).setValue([
+                            "userId": input,
+                            "button4SkillPoint": (UserDefaults.standard.double(forKey: "button4SkillPoint") * 100).rounded() / 100,
+                            "button5SkillPoint": (UserDefaults.standard.double(forKey: "button5SkillPoint") * 100).rounded() / 100,
+                            "button6SkillPoint": (UserDefaults.standard.double(forKey: "button6SkillPoint") * 100).rounded() / 100,
+                            "button8SkillPoint": (UserDefaults.standard.double(forKey: "button8SkillPoint") * 100).rounded() / 100,
+                            "countPerfectPlay": UserDefaults.standard.integer(forKey: "countPerfectPlay"),
+                            "uid": Auth.auth().currentUser?.uid
+                            ])
+                        NotificationBanner(title: "Success".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "success")), style: .success).show()
+                    }
+                    else{
+                        NotificationBanner(title: "Fail".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
+                    }
+                }
+                let noAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
+                alert.addAction(yesAction)
+                alert.addAction(noAction)
+                present(alert, animated: true)
+            }
         }
+        
     }
     
     func getNextString(string: String, sender: Int) -> String{
@@ -411,16 +496,21 @@ class GradeViewController: UIViewController {
             segmentedControl.selectedSegmentIndex = 0
             labelSkillLevel.text = button4SkillLevel
             labelSkillPoint.text = "Skill Point".localized + " : " + String((button4SkillPoint * 100.0).rounded() / 100.0)
-            labelHighestSkillPointValue.text = String(button4HighestSkillPoint)
-            labelSong.text = button4HighestSong
+            labelFirstSkillPointValue.text = String(button4FirstSkillPoint)
+            labelFirstSong.text = button4FirstSong
+            labelLastSkillPointValue.text = String(button4LastSkillPoint)
+            labelLastSong.text = button4LastSong
             labelNext.text = getNextString(string: button4SkillLevel, sender: 0)
             labelPercent.text = "\(((button4SkillPoint / button4Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button4HighestSong)
+            query = NSPredicate(format: "title = %@", button4FirstSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.bgColor = getColor(series: series)
+            let firstSeries = (results?.series)!
+            query = NSPredicate(format: "title = %@", button4LastSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let lastSeries = (results?.series)!
+            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
+            viewGauge.startColor = getColor(series: firstSeries)
+            viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button4Max)
             //viewGauge.rate = CGFloat(button4SkillPoint)
@@ -429,16 +519,21 @@ class GradeViewController: UIViewController {
             segmentedControl.selectedSegmentIndex = 1
             labelSkillLevel.text = button5SkillLevel
             labelSkillPoint.text = "Skill Point".localized + " : " + String((button5SkillPoint * 100.0).rounded() / 100.0)
-            labelHighestSkillPointValue.text = String(button5HighestSkillPoint)
-            labelSong.text = button5HighestSong
+            labelFirstSkillPointValue.text = String(button5FirstSkillPoint)
+            labelFirstSong.text = button5FirstSong
+            labelLastSkillPointValue.text = String(button5LastSkillPoint)
+            labelLastSong.text = button5LastSong
             labelNext.text = getNextString(string: button5SkillLevel, sender: 1)
             labelPercent.text = "\(((button5SkillPoint / button5Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button5HighestSong)
+            query = NSPredicate(format: "title = %@", button5FirstSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.bgColor = getColor(series: series)
+            let firstSeries = (results?.series)!
+            query = NSPredicate(format: "title = %@", button5LastSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let lastSeries = (results?.series)!
+            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
+            viewGauge.startColor = getColor(series: firstSeries)
+            viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button5Max)
             //viewGauge.rate = CGFloat(button5SkillPoint)
@@ -447,16 +542,21 @@ class GradeViewController: UIViewController {
             segmentedControl.selectedSegmentIndex = 2
             labelSkillLevel.text = button6SkillLevel
             labelSkillPoint.text = "Skill Point".localized + " : " + String((button6SkillPoint * 100.0).rounded() / 100.0)
-            labelHighestSkillPointValue.text = String(button6HighestSkillPoint)
-            labelSong.text = button6HighestSong
+            labelFirstSkillPointValue.text = String(button6FirstSkillPoint)
+            labelFirstSong.text = button6FirstSong
+            labelLastSkillPointValue.text = String(button6LastSkillPoint)
+            labelLastSong.text = button6LastSong
             labelNext.text = getNextString(string: button6SkillLevel, sender: 2)
             labelPercent.text = "\(((button6SkillPoint / button6Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button6HighestSong)
+            query = NSPredicate(format: "title = %@", button6FirstSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.bgColor = getColor(series: series)
+            let firstSeries = (results?.series)!
+            query = NSPredicate(format: "title = %@", button6LastSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let lastSeries = (results?.series)!
+            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
+            viewGauge.startColor = getColor(series: firstSeries)
+            viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button6Max)
             //viewGauge.rate = CGFloat(button6SkillPoint)
@@ -465,16 +565,21 @@ class GradeViewController: UIViewController {
             segmentedControl.selectedSegmentIndex = 3
             labelSkillLevel.text = button8SkillLevel
             labelSkillPoint.text = "Skill Point".localized + " : " + String((button8SkillPoint * 100.0).rounded() / 100.0)
-            labelHighestSkillPointValue.text = String(button8HighestSkillPoint)
-            labelSong.text = button8HighestSong
+            labelFirstSkillPointValue.text = String(button8FirstSkillPoint)
+            labelFirstSong.text = button8FirstSong
+            labelLastSkillPointValue.text = String(button8LastSkillPoint)
+            labelLastSong.text = button8LastSong
             labelNext.text = getNextString(string: button8SkillLevel, sender: 3)
             labelPercent.text = "\(((button8SkillPoint / button8Max) * 10000.0).rounded() / 100.0)%"
-            query = NSPredicate(format: "title = %@", button8HighestSong)
+            query = NSPredicate(format: "title = %@", button8FirstSong)
             results = try! Realm().objects(SongInfo.self).filter(query!).first!
-            let series = (results?.series)!
-            setColor(series: series)
-            viewGauge.startColor = getColor(series: series)
-            viewGauge.bgColor = getColor(series: series)
+            let firstSeries = (results?.series)!
+            query = NSPredicate(format: "title = %@", button8LastSong)
+            results = try! Realm().objects(SongInfo.self).filter(query!).first!
+            let lastSeries = (results?.series)!
+            setColor(firstSeries: firstSeries, lastSeries: lastSeries)
+            viewGauge.startColor = getColor(series: firstSeries)
+            viewGauge.bgColor = getColor(series: firstSeries)
             viewGauge.bgAlpha = 0.5
             viewGauge.maxValue = CGFloat(button8Max)
             //viewGauge.rate = CGFloat(button8SkillPoint)
@@ -523,7 +628,7 @@ class GradeViewController: UIViewController {
         return result
     }
     
-    func getButton4Grade() -> (Double, Double, String){
+    func getButton4Grade() -> (Double, Double, String, Double, String){
         let record = try! Realm().objects(RecordInfo.self)
         var tempDic = [String: Double]()
         var upto50 = [Double]()
@@ -536,10 +641,10 @@ class GradeViewController: UIViewController {
         }
         let sum = upto50.reduce(0) { $0 + $1 }
         UserDefaults.standard.set(sum, forKey: "button4SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
     }
     
-    func getButton5Grade() -> (Double, Double, String){
+    func getButton5Grade() -> (Double, Double, String, Double, String){
         let record = try! Realm().objects(RecordInfo.self)
         var tempDic = [String: Double]()
         var upto50 = [Double]()
@@ -552,10 +657,10 @@ class GradeViewController: UIViewController {
         }
         let sum = upto50.reduce(0) { $0 + $1 }
         UserDefaults.standard.set(sum, forKey: "button5SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
     }
     
-    func getButton6Grade() -> (Double, Double, String){
+    func getButton6Grade() -> (Double, Double, String, Double, String){
         let record = try! Realm().objects(RecordInfo.self)
         var tempDic = [String: Double]()
         var upto50 = [Double]()
@@ -568,10 +673,10 @@ class GradeViewController: UIViewController {
         }
         let sum = upto50.reduce(0) { $0 + $1 }
         UserDefaults.standard.set(sum, forKey: "button6SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
     }
     
-    func getButton8Grade() -> (Double, Double, String){
+    func getButton8Grade() -> (Double, Double, String, Double, String){
         let record = try! Realm().objects(RecordInfo.self)
         var tempDic = [String: Double]()
         var upto50 = [Double]()
@@ -584,7 +689,7 @@ class GradeViewController: UIViewController {
         }
         let sum = upto50.reduce(0) { $0 + $1 }
         UserDefaults.standard.set(sum, forKey: "button8SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "")
+        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
     }
     
     func getGradeButton4(value: Double) -> String{

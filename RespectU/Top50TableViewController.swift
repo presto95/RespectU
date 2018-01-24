@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import NotificationBannerSwift
+
 class Top50TableViewController: UITableViewController {
 
     let realm = try! Realm()
@@ -120,30 +122,69 @@ class Top50TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell=tableView.cellForRow(at: indexPath) as! Top50TableViewCell
-        let next=self.storyboard?.instantiateViewController(withIdentifier: "SongDetailViewController") as! SongDetailViewController
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.cellForRow(at: indexPath) as! Top50TableViewCell
         let query=NSPredicate(format: "title = %@",cell.title.text!)
         let object = try! Realm().objects(SongInfo.self).filter(query).first!
-        next.key = self.key
-        next.detailBpm=object.bpm
-        next.detailTitle = object.title
-        next.detailSeries = object.series
-        next.is4BNormalExist = object.nm4 != 0
-        next.is4BHardExist = object.hd4 != 0
-        next.is4BMaximumExist = object.mx4 != 0
-        next.is5BNormalExist = object.nm5 != 0
-        next.is5BHardExist = object.hd5 != 0
-        next.is5BMaximumExist = object.mx5 != 0
-        next.is6BNormalExist = object.nm6 != 0
-        next.is6BHardExist = object.hd6 != 0
-        next.is6BMaximumExist = object.mx6 != 0
-        next.is8BNormalExist = object.nm8 != 0
-        next.is8BHardExist = object.hd8 != 0
-        next.is8BMaximumExist = object.mx8 != 0
-        next.nm4 = object.nm4; next.nm5=object.nm5; next.nm6=object.nm6; next.nm8=object.nm8
-        next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
-        next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
-        self.navigationController?.pushViewController(next, animated: true)
+        let buttonPerformance = UITableViewRowAction(style: .normal, title: "Performance".localized) { (action, index) in
+            let next=self.storyboard?.instantiateViewController(withIdentifier: "SongDetailViewController") as! SongDetailViewController
+            next.key = self.key
+            next.detailBpm=object.bpm
+            next.detailTitle = object.title
+            next.detailSeries = object.series
+            next.is4BNormalExist = object.nm4 != 0
+            next.is4BHardExist = object.hd4 != 0
+            next.is4BMaximumExist = object.mx4 != 0
+            next.is5BNormalExist = object.nm5 != 0
+            next.is5BHardExist = object.hd5 != 0
+            next.is5BMaximumExist = object.mx5 != 0
+            next.is6BNormalExist = object.nm6 != 0
+            next.is6BHardExist = object.hd6 != 0
+            next.is6BMaximumExist = object.mx6 != 0
+            next.is8BNormalExist = object.nm8 != 0
+            next.is8BHardExist = object.hd8 != 0
+            next.is8BMaximumExist = object.mx8 != 0
+            next.nm4 = object.nm4; next.nm5=object.nm5; next.nm6=object.nm6; next.nm8=object.nm8
+            next.hd4=object.hd4; next.hd5=object.hd5; next.hd6=object.hd6; next.hd8=object.hd8
+            next.mx4=object.mx4; next.mx5=object.mx5; next.mx6=object.mx6; next.mx8=object.mx8
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+        let buttonAddPlaylist=UITableViewRowAction(style: .normal, title: "Add to Playlist".localized){action, index in
+            if(NotificationBannerQueue.default.numberOfBanners > 0){
+                NotificationBannerQueue.default.removeAll()
+            }
+            let query=NSPredicate(format: "title = %@",object.title)
+            if(try! Realm().objects(PlaylistInfo.self).filter(query).count == 0){
+                let view=UIImageView(image: #imageLiteral(resourceName: "success"))
+                self.addPlaylist(series: object.series, title: object.title, composer: object.composer, bpm: object.bpm, nm4: object.nm4, hd4: object.hd4, mx4: object.mx4, nm5: object.nm5, hd5: object.hd5, mx5: object.mx5, nm6: object.nm6, hd6: object.hd6, mx6: object.mx6, nm8: object.nm8, hd8: object.hd8, mx8: object.mx8)
+                NotificationBanner(title: "Added to Playlist".localized, subtitle: object.title, leftView: view, style: .success).show()
+            }
+            else{
+                let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
+                NotificationBanner(title: "Not Added to Playlist".localized, subtitle: "Check for duplication.".localized, leftView: view, style: .danger).show()
+            }
+        }
+        switch(object.series){
+        case "Trilogy":
+            buttonPerformance.backgroundColor = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
+        case "Respect":
+            buttonPerformance.backgroundColor = UIColor(red: 240/255.0, green: 179/255.0, blue: 44/255.0, alpha: 1)
+        case "Portable1":
+            buttonPerformance.backgroundColor = UIColor(red: 29/255.0, green: 180/255.0, blue: 210/255.0, alpha: 1)
+        case "Portable2":
+            buttonPerformance.backgroundColor = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
+        case "CE":
+            buttonPerformance.backgroundColor = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
+        default:
+            break
+        }
+        return [buttonPerformance, buttonAddPlaylist]
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     @objc func refresh(_ sender: UIBarButtonItem) {
@@ -195,4 +236,18 @@ class Top50TableViewController: UITableViewController {
         return titleView
     }
 
+    func addPlaylist(series: String, title: String, composer: String, bpm: String, nm4: Int, hd4: Int, mx4: Int, nm5: Int, hd5: Int, mx5: Int, nm6: Int, hd6: Int, mx6: Int, nm8: Int, hd8: Int, mx8: Int){
+        let playlist=PlaylistInfo()
+        playlist.series=series; playlist.title=title; playlist.composer=composer; playlist.bpm=bpm
+        playlist.nm4=nm4; playlist.nm5=nm5; playlist.nm6=nm6; playlist.nm8=nm8
+        playlist.hd4=hd4; playlist.hd5=hd5; playlist.hd6=hd6; playlist.hd8=hd8
+        playlist.mx4=mx4; playlist.mx5=mx5; playlist.mx6=mx6; playlist.mx8=mx8
+        
+        let realm=try! Realm()
+        playlist.id = (realm.objects(PlaylistInfo.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        try! realm.write{
+            realm.add(playlist)
+        }
+    }
+    
 }

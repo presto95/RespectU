@@ -219,7 +219,8 @@
 
 "Skill Point" = "스킬 포인트";
 "Skill Level" = "스킬 레벨";
-"Highest Skill Point" = "최고 스킬 포인트";
+"1st" = "1위";
+"50th" = "50위";
 "We provide a rough measure of performance by calculating the performance you have entered." = "입력한 성과를 계산하여 대략적인 실력 측정 기준을 제공합니다.";
 
 "Tap the list to see information that will help you win trophies." = "목록을 눌러 트로피 획득에 도움이 되는 정보를 확인할 수 있습니다.";
@@ -228,12 +229,22 @@
 "Logout" = "로그아웃";
 "Email" = "이메일";
 "Password" = "비밀번호";
-"Upload" = "업로드";
-"Ranking" = "랭킹";
-"Nickname Setting" = "닉네임 설정";
+"Upload β" = "업로드 β";
+"Ranking β" = "랭킹 β";
+"Nickname Setting β" = "닉네임 설정 β";
 "Error" = "오류";
 "Please login first." = "먼저 로그인 해주세요.";
 "Please enter your nickname." = "닉네임을 입력해 주세요.";
 "Nickname" = "닉네임";
 "Success" = "성공";
 "Fail" = "실패";
+"Please check the network status." = "네트워크 상태를 확인해 주세요.";
+"No Record" = "기록 없음";
+"Duplicate nickname" = "닉네임 중복";
+"Skill Point Calculator" = "스킬 포인트 계산기";
+"Skill Point Calculation Method" = "스킬 포인트 산출법";
+"Accuracy >= 80" = "정확도 >= 80";
+"Accuracy < 80" = "정확도 < 80";
+"w : weight / r : accuracy" = "w : 가중치 / r : 정확도";
+"No MAX COMBO : 2% Penalty" = "MAX COMBO 실패 : 2% 패널티";
+"PERFECT PLAY : 5% Bonus" = "PERFECT PLAY : 5% 추가 점수";

@@ -26,7 +26,6 @@ class ActivityIndicatorViewController: UIViewController {
             let ivc = storyboard?.instantiateViewController(withIdentifier: "TabBarController")
             ivc?.modalTransitionStyle = .crossDissolve
             self.present(ivc!, animated: true, completion: nil)
- 
             // do stuff 42 seconds later
         }
         // Do any additional setup after loading the view.

@@ -1269,8 +1269,8 @@ class TabBarController : UITabBarController {
         }
         
 
-        if(version <= 21){
-            UserDefaults.standard.set(22, forKey: "version")
+        if(version <= 22){
+            UserDefaults.standard.set(23, forKey: "version")
         }
     }
     

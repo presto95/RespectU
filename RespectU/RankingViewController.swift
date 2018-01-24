@@ -24,10 +24,12 @@ class RankingViewController: UIViewController, UITableViewDataSource, UITableVie
     var button6: [(String, Double)] = []
     var button8: [(String, Double)] = []
     var perfectPlay: [(String, Int)] = []
+    var nickname: String = ""
+    //let toolBar = UIToolbar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Ranking".localized
+        navigationItem.title = "Ranking β".localized
         tabBarController?.tabBar.barStyle = isNight ? .black: .default
         navigationController?.navigationBar.barStyle = isNight ? .black : .default
         tableView.backgroundColor = isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -37,19 +39,40 @@ class RankingViewController: UIViewController, UITableViewDataSource, UITableVie
         button6 = resultButton6.sorted { $0.value > $1.value }
         button8 = resultButton8.sorted { $0.value > $1.value }
         perfectPlay = resultPerfectPlay.sorted { $0.value > $1.value }
+        
+        self.navigationController?.isToolbarHidden = false
+        self.navigationController?.toolbar.barTintColor = isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.navigationController?.toolbar.tintColor = isNight ? UIColor(red: 1, green: 1, blue: 1, alpha: 1) : UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        var items = [UIBarButtonItem]()
+        let rankingButton = UIBarButtonItem(title: "1", style: .plain, target: self, action: nil)
+        let nicknameButton = UIBarButtonItem(title: "Nickname", style: .plain, target: self, action: nil)
+        let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let pointButton = UIBarButtonItem(title: "1244.23", style: .plain, target: self, action: nil)
+        items.append(rankingButton)
+        items.append(nicknameButton)
+        items.append(flexButton)
+        items.append(pointButton)
+        self.toolbarItems = items
         switch(key){
         case "4B":
             segmentedControl.selectedSegmentIndex = 0
+            clickSegmentedControl(segmentedControl)
         case "5B":
             segmentedControl.selectedSegmentIndex = 1
+            clickSegmentedControl(segmentedControl)
         case "6B":
             segmentedControl.selectedSegmentIndex = 2
+            clickSegmentedControl(segmentedControl)
         case "8B":
             segmentedControl.selectedSegmentIndex = 3
+            clickSegmentedControl(segmentedControl)
         default:
             break
         }
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isToolbarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,6 +134,109 @@ class RankingViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
     }
     @IBAction func clickSegmentedControl(_ sender: UISegmentedControl) {
+        let rankingButton = self.toolbarItems![0]
+        let nicknameButton = self.toolbarItems![1]
+        let pointButton = self.toolbarItems![3]
+        var count = 0
+        switch(segmentedControl.selectedSegmentIndex){
+        case 0:
+            for i in button4{
+                if(i.0 != nickname){
+                    count += 1
+                }
+                else{
+                    break
+                }
+            }
+            if(count == button4.count){
+                rankingButton.title = ""
+                nicknameButton.title = "No Record".localized
+                pointButton.title = ""
+            }
+            else{
+                rankingButton.title = "\(count+1)"
+                nicknameButton.title = nickname
+                pointButton.title = "\(button4[count].1)"
+            }
+        case 1:
+            for i in button5{
+                if(i.0 != nickname){
+                    count += 1
+                }
+                else{
+                    break
+                }
+            }
+            if(count == button5.count){
+                rankingButton.title = ""
+                nicknameButton.title = "No Record".localized
+                pointButton.title = ""
+            }
+            else{
+                rankingButton.title = "\(count+1)"
+                nicknameButton.title = nickname
+                pointButton.title = "\(button5[count].1)"
+            }
+        case 2:
+            for i in button6{
+                if(i.0 != nickname){
+                    count += 1
+                }
+                else{
+                    break
+                }
+            }
+            if(count == button6.count){
+                rankingButton.title = ""
+                nicknameButton.title = "No Record".localized
+                pointButton.title = ""
+            }
+            else{
+                rankingButton.title = "\(count+1)"
+                nicknameButton.title = nickname
+                pointButton.title = "\(button6[count].1)"
+            }
+        case 3:
+            for i in button8{
+                if(i.0 != nickname){
+                    count += 1
+                }
+                else{
+                    break
+                }
+            }
+            if(count == button8.count){
+                rankingButton.title = ""
+                nicknameButton.title = "No Record".localized
+                pointButton.title = ""
+            }
+            else{
+                rankingButton.title = "\(count+1)"
+                nicknameButton.title = nickname
+                pointButton.title = "\(button8[count].1)"
+            }
+        case 4:
+            for i in perfectPlay{
+                if(i.0 != nickname){
+                    count += 1
+                }
+                else{
+                    break
+                }
+            }
+            if(count == perfectPlay.count){
+                rankingButton.title = ""
+                nicknameButton.title = "No Record".localized
+                pointButton.title = ""
+            }
+            else{
+                rankingButton.title = "\(count+1)"
+                nicknameButton.title = nickname
+                pointButton.title = "\(perfectPlay[count].1)"
+            }
+        default:
+            break
+        }
         tableView.reloadData()
     }
 }

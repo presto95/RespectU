@@ -70,15 +70,32 @@ class SkillPointCalculatorViewController: UIViewController {
     
     @objc func doneClicked(){
         self.view.endEditing(true)
+        if let temp = Int(difficulty.text!){
+            if(temp > 15){
+                difficulty.text = "1"
+            }
+            else{
+                difficulty.text = String(temp)
+            }
+        }
+        else{
+            difficulty.text = "0"
+        }
         if(accuracy.text == ""){
             accuracy.text = "0"
         }
         if(Double(accuracy.text!) ?? 0 >= 100){
-            accuracy.text = "100.00"
+            accuracy.text = "100.00%"
             switchMaxCombo.isOn = true
         }
         else{
-            accuracy.text = String(format: "%05.2f%%", Double(accuracy.text!.split(separator: "%")[0].description)!)
+            if let rate =  Double(accuracy.text!.split(separator: "%")[0].description){
+                accuracy.text = String(format: "%05.2f%%", rate)
+            }
+            else{
+                accuracy.text = "00.00%"
+            }
+            //accuracy.text = String(format: "%05.2f%%", Double(accuracy.text!.split(separator: "%")[0].description)!)
         }
         let valSkillPoint = getSkillPoint(difficulty: Int(difficulty.text!) ?? 0, rate: accuracy.text!)
         skillPoint.text = String(valSkillPoint)
@@ -86,6 +103,17 @@ class SkillPointCalculatorViewController: UIViewController {
     
     @objc func nextClicked(){
         if(difficulty.isFirstResponder){
+            if let temp = Int(difficulty.text!){
+                if(temp > 15){
+                    difficulty.text = "1"
+                }
+                else{
+                    difficulty.text = String(temp)
+                }
+            }
+            else{
+                difficulty.text = "0"
+            }
             accuracy.becomeFirstResponder()
             accuracy.text = ""
         }
@@ -108,9 +136,16 @@ class SkillPointCalculatorViewController: UIViewController {
         if(difficulty == 0){
             return 0
         }
+        var tempRate = ""
+        if(rate.isEmpty){
+            tempRate = "0%"
+        }
+        else{
+            tempRate = rate
+        }
         var skillPoint: Double
         let e = 2.71828
-        let rateString = rate.split(separator: "%")[0].description
+        let rateString = tempRate.split(separator: "%")[0].description
         let accuracy = Double(rateString) ?? 0
         let weight = getWeight(value: difficulty)
         if(accuracy >= 80){

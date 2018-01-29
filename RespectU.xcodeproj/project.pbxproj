@@ -66,6 +66,10 @@
 		1919A40F2008F7C800D51A2A /* trilogy4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1919A4082008F7C800D51A2A /* trilogy4.png */; };
 		1919A4102008F7C800D51A2A /* trilogy6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1919A4092008F7C800D51A2A /* trilogy6.png */; };
 		191F47411F93590700C6F401 /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F47401F93590700C6F401 /* ActivityIndicatorViewController.swift */; };
+		1927DA48201E1F88003D1752 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */; };
+		1927DA49201E1F88003D1752 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */; };
+		1927DA4C201E2113003D1752 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */; };
+		1927DA4E201E217F003D1752 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA4D201E217B003D1752 /* NotoSansCJKkr-Medium.otf */; };
 		19544A981FB4B79A00AA8E22 /* AchievementTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */; };
 		19544A9A1FB4B9AD00AA8E22 /* AchievementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */; };
 		1957070A1F849519009E98D3 /* TrophyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195707091F849519009E98D3 /* TrophyTableViewController.swift */; };
@@ -186,6 +190,10 @@
 		1919A4082008F7C800D51A2A /* trilogy4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trilogy4.png; sourceTree = "<group>"; };
 		1919A4092008F7C800D51A2A /* trilogy6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trilogy6.png; sourceTree = "<group>"; };
 		191F47401F93590700C6F401 /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
+		1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
+		1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		1927DA4D201E217B003D1752 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
 		19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTableViewController.swift; sourceTree = "<group>"; };
 		19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTableViewCell.swift; sourceTree = "<group>"; };
 		195707091F849519009E98D3 /* TrophyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTableViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				19CEF6B11FAD33F6005AFA8F /* icon.png */,
+				1927DA4D201E217B003D1752 /* NotoSansCJKkr-Medium.otf */,
+				1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */,
+				1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */,
+				1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */,
 				1967A53F1FA74FEE003C9305 /* NanumBarunpenRegular.otf */,
 				19D47FE91FA88E7F00F78127 /* NanumBarunGothicLight.otf */,
 				19D47FEB1FA893EE00F78127 /* NanumBarunGothic.otf */,
@@ -340,6 +352,82 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		19289B14201E133E00723531 /* etc */ = {
+			isa = PBXGroup;
+			children = (
+				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
+				19B6CFED1F7953640097B86B /* TabBarController.swift */,
+				1957070D1F84A957009E98D3 /* RateApp.swift */,
+				19B660251F960E5800CCEFB5 /* StringExtension.swift */,
+				19F2312C2015663900ADF825 /* ERProgressHud.swift */,
+				19F2312E20156BBC00ADF825 /* Reachability.swift */,
+			);
+			path = etc;
+			sourceTree = "<group>";
+		};
+		19289B16201E138300723531 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				198391F81F7E2792009C7B5D /* SongTableViewCell.swift */,
+				1905F3511F7FCD0600699B4B /* MissionTableViewCell.swift */,
+				1957070B1F849549009E98D3 /* TrophyTableViewCell.swift */,
+				1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */,
+				198C72A32008D07900F612F9 /* Top50TableViewCell.swift */,
+				19B20C6E20134F360070FCD6 /* RankingTableViewCell.swift */,
+				19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		19289B17201E13B000723531 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				198391F61F7E2665009C7B5D /* SongTableViewController.swift */,
+				1994258B1FA5EF2300B553E1 /* SongDetailViewController.swift */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		19289B18201E13B400723531 /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				1905F34F1F7F83B400699B4B /* MissionTableViewController.swift */,
+				19F3A8B81F8DBB6100B020B7 /* MissionDetailViewController.swift */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		19289B19201E13B700723531 /* Trophy */ = {
+			isa = PBXGroup;
+			children = (
+				195707091F849519009E98D3 /* TrophyTableViewController.swift */,
+			);
+			path = Trophy;
+			sourceTree = "<group>";
+		};
+		19289B1A201E13BB00723531 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		19289B1B201E13C800723531 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */,
+				196F03A01FFF37E50028A9B8 /* GradeViewController.swift */,
+				198C72A12008CF0F00F612F9 /* Top50TableViewController.swift */,
+				19B20C6C20134EEF0070FCD6 /* RankingViewController.swift */,
+				19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */,
+				19A4FACF1FDE7605003FFFE6 /* SkillPointCalculatorViewController.swift */,
+				19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */,
+				19774C441FA855F500729250 /* RecordViewController.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,42 +460,22 @@
 		19B6CFEA1F7953640097B86B /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
+				19289B17201E13B000723531 /* Song */,
+				19289B18201E13B400723531 /* Mission */,
+				19289B19201E13B700723531 /* Trophy */,
+				19289B1A201E13BB00723531 /* Favorite */,
+				19289B1B201E13C800723531 /* More */,
+				19289B16201E138300723531 /* Cell */,
+				19289B14201E133E00723531 /* etc */,
 				1919A3A02008F6DB00D51A2A /* images */,
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19137A0B1FAB51420097B11C /* Fonts */,
-				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
-				19B6CFED1F7953640097B86B /* TabBarController.swift */,
 				19B6CFEF1F7953640097B86B /* Main.storyboard */,
 				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
 				1997B0992012551E0072EED9 /* GoogleService-Info.plist */,
 				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
 				191F47401F93590700C6F401 /* ActivityIndicatorViewController.swift */,
-				198391F61F7E2665009C7B5D /* SongTableViewController.swift */,
-				198391F81F7E2792009C7B5D /* SongTableViewCell.swift */,
-				1994258B1FA5EF2300B553E1 /* SongDetailViewController.swift */,
-				1905F34F1F7F83B400699B4B /* MissionTableViewController.swift */,
-				1905F3511F7FCD0600699B4B /* MissionTableViewCell.swift */,
-				19F3A8B81F8DBB6100B020B7 /* MissionDetailViewController.swift */,
-				195707091F849519009E98D3 /* TrophyTableViewController.swift */,
-				1957070B1F849549009E98D3 /* TrophyTableViewCell.swift */,
-				19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */,
-				1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */,
-				19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */,
-				196F03A01FFF37E50028A9B8 /* GradeViewController.swift */,
-				198C72A12008CF0F00F612F9 /* Top50TableViewController.swift */,
-				198C72A32008D07900F612F9 /* Top50TableViewCell.swift */,
-				19B20C6C20134EEF0070FCD6 /* RankingViewController.swift */,
-				19B20C6E20134F360070FCD6 /* RankingTableViewCell.swift */,
-				19544A971FB4B79A00AA8E22 /* AchievementTableViewController.swift */,
-				19544A991FB4B9AD00AA8E22 /* AchievementTableViewCell.swift */,
-				19A4FACF1FDE7605003FFFE6 /* SkillPointCalculatorViewController.swift */,
-				19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */,
-				19774C441FA855F500729250 /* RecordViewController.swift */,
-				1957070D1F84A957009E98D3 /* RateApp.swift */,
-				19B660251F960E5800CCEFB5 /* StringExtension.swift */,
-				19F2312C2015663900ADF825 /* ERProgressHud.swift */,
-				19F2312E20156BBC00ADF825 /* Reachability.swift */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
 			);
 			path = RespectU;
@@ -491,6 +559,7 @@
 				1919A4012008F7C100D51A2A /* respect3.png in Resources */,
 				1919A3E02008F7C100D51A2A /* respect22.png in Resources */,
 				1919A3EA2008F7C100D51A2A /* respect36.png in Resources */,
+				1927DA4C201E2113003D1752 /* NotoSansCJKkr-Regular.otf in Resources */,
 				1919A3DF2008F7C100D51A2A /* respect42.png in Resources */,
 				198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */,
 				1919A3EE2008F7C100D51A2A /* respect31.png in Resources */,
@@ -501,12 +570,14 @@
 				1919A3FC2008F7C100D51A2A /* respect14.png in Resources */,
 				1919A3E52008F7C100D51A2A /* respect21.png in Resources */,
 				1919A3F22008F7C100D51A2A /* respect38.png in Resources */,
+				1927DA4E201E217F003D1752 /* NotoSansCJKkr-Medium.otf in Resources */,
 				1919A3FF2008F7C100D51A2A /* respect39.png in Resources */,
 				1919A3E82008F7C100D51A2A /* respect19.png in Resources */,
 				1919A3F42008F7C100D51A2A /* respect27.png in Resources */,
 				198CB54C2013603600646D55 /* respectu-3d-color-background.png in Resources */,
 				1919A3FD2008F7C100D51A2A /* respect24.png in Resources */,
 				19FF80702018A1AC00ECC666 /* accuracyBelow80Black.png in Resources */,
+				1927DA49201E1F88003D1752 /* NotoSansCJKkr-Bold.otf in Resources */,
 				1919A3DC2008F7C100D51A2A /* respect23.png in Resources */,
 				1919A40A2008F7C800D51A2A /* trilogy5.png in Resources */,
 				1919A3E32008F7C100D51A2A /* respect12.png in Resources */,
@@ -549,6 +620,7 @@
 				1919A40F2008F7C800D51A2A /* trilogy4.png in Resources */,
 				1919A3F52008F7C100D51A2A /* respect30.png in Resources */,
 				19B6CFF11F7953640097B86B /* Main.storyboard in Resources */,
+				1927DA48201E1F88003D1752 /* NotoSansCJKkr-Light.otf in Resources */,
 				1919A3E22008F7C100D51A2A /* respect34.png in Resources */,
 				1919A3E92008F7C100D51A2A /* respect25.png in Resources */,
 				19FF806F2018A1AC00ECC666 /* accuracyBelow80White.png in Resources */,

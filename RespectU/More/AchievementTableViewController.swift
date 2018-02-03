@@ -99,7 +99,7 @@ class AchievementTableViewController: UITableViewController {
     }
     @IBAction func search(_ sender: UIBarButtonItem) {
         ActionSheetMultipleStringPicker.show(withTitle: "Search".localized, rows: [
-            ["All", "MUSIC", "GEAR SKIN", "NOTE SKIN", "PLATE", "GALLERY", "COMMENT"]], initialSelection: [index], doneBlock: {
+            ["All", "MUSIC", "GEAR SKIN", "NOTE SKIN", "GALLERY", "COMMENT"]], initialSelection: [index], doneBlock: {
                 picker, indexes, values in
                 self.index=indexes![0] as! Int
                 var filterString = ""
@@ -113,10 +113,8 @@ class AchievementTableViewController: UITableViewController {
                 case 3:
                     filterString = "type = 'NOTE SKIN'"
                 case 4:
-                    filterString = "type = 'PLATE'"
-                case 5:
                     filterString = "type = 'GALLERY'"
-                case 6:
+                case 5:
                     filterString = "type = 'COMMENT'"
                 default:
                     break

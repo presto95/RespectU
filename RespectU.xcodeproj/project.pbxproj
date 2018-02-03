@@ -75,7 +75,6 @@
 		1957070A1F849519009E98D3 /* TrophyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195707091F849519009E98D3 /* TrophyTableViewController.swift */; };
 		1957070C1F849549009E98D3 /* TrophyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957070B1F849549009E98D3 /* TrophyTableViewCell.swift */; };
 		1957070E1F84A957009E98D3 /* RateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1957070D1F84A957009E98D3 /* RateApp.swift */; };
-		1967A5401FA74FFC003C9305 /* NanumBarunpenRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1967A53F1FA74FEE003C9305 /* NanumBarunpenRegular.otf */; };
 		196F03A11FFF37E50028A9B8 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F03A01FFF37E50028A9B8 /* GradeViewController.swift */; };
 		19774C451FA855F500729250 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19774C441FA855F500729250 /* RecordViewController.swift */; };
 		1978E95A1F94269500FCD3DD /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */; };
@@ -102,8 +101,6 @@
 		19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */; };
 		19C9216B1F810DE600774E3E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9216A1F810DE600774E3E /* MessageUI.framework */; };
 		19CEF6B21FAD33F6005AFA8F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CEF6B11FAD33F6005AFA8F /* icon.png */; };
-		19D47FEA1FA88E8500F78127 /* NanumBarunGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 19D47FE91FA88E7F00F78127 /* NanumBarunGothicLight.otf */; };
-		19D47FEC1FA893F300F78127 /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 19D47FEB1FA893EE00F78127 /* NanumBarunGothic.otf */; };
 		19D4E4A51F80DFC800F0BF2B /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */; };
 		19D86C1D1FFC7FCE00DFF602 /* TipTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */; };
 		19E5CFBE1F9389C5000AFB0A /* PlaylistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */; };
@@ -199,7 +196,6 @@
 		195707091F849519009E98D3 /* TrophyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTableViewController.swift; sourceTree = "<group>"; };
 		1957070B1F849549009E98D3 /* TrophyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTableViewCell.swift; sourceTree = "<group>"; };
 		1957070D1F84A957009E98D3 /* RateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateApp.swift; sourceTree = "<group>"; };
-		1967A53F1FA74FEE003C9305 /* NanumBarunpenRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunpenRegular.otf; sourceTree = "<group>"; };
 		196F03A01FFF37E50028A9B8 /* GradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
 		19774C441FA855F500729250 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		1978E9591F94269500FCD3DD /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
@@ -237,8 +233,6 @@
 		19B6CFFA1F7953640097B86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9216A1F810DE600774E3E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		19CEF6B11FAD33F6005AFA8F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		19D47FE91FA88E7F00F78127 /* NanumBarunGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.otf; sourceTree = "<group>"; };
-		19D47FEB1FA893EE00F78127 /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
 		19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		19D86C1C1FFC7FCE00DFF602 /* TipTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewController.swift; sourceTree = "<group>"; };
 		19E5CFBD1F9389C5000AFB0A /* PlaylistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewController.swift; sourceTree = "<group>"; };
@@ -275,9 +269,6 @@
 				1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */,
 				1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */,
 				1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */,
-				1967A53F1FA74FEE003C9305 /* NanumBarunpenRegular.otf */,
-				19D47FE91FA88E7F00F78127 /* NanumBarunGothicLight.otf */,
-				19D47FEB1FA893EE00F78127 /* NanumBarunGothic.otf */,
 			);
 			name = Fonts;
 			path = ..;
@@ -563,9 +554,7 @@
 				1919A3DF2008F7C100D51A2A /* respect42.png in Resources */,
 				198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */,
 				1919A3EE2008F7C100D51A2A /* respect31.png in Resources */,
-				19D47FEC1FA893F300F78127 /* NanumBarunGothic.otf in Resources */,
 				19FF806D2018A1AC00ECC666 /* accuracyUpper80White.png in Resources */,
-				19D47FEA1FA88E8500F78127 /* NanumBarunGothicLight.otf in Resources */,
 				1919A3E42008F7C100D51A2A /* respect11.png in Resources */,
 				1919A3FC2008F7C100D51A2A /* respect14.png in Resources */,
 				1919A3E52008F7C100D51A2A /* respect21.png in Resources */,
@@ -600,7 +589,6 @@
 				19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */,
 				1919A3EB2008F7C100D51A2A /* respect37.png in Resources */,
 				1919A3DB2008F7C100D51A2A /* respect33.png in Resources */,
-				1967A5401FA74FFC003C9305 /* NanumBarunpenRegular.otf in Resources */,
 				1919A3E72008F7C100D51A2A /* respect7.png in Resources */,
 				1919A3A92008F7AD00D51A2A /* ce4.png in Resources */,
 				1919A3EC2008F7C100D51A2A /* respect6.png in Resources */,

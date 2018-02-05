@@ -25,7 +25,6 @@ class RankingViewController: UIViewController, UITableViewDataSource, UITableVie
     var button8: [(String, Double)] = []
     var perfectPlay: [(String, Int)] = []
     var nickname: String = ""
-    //let toolBar = UIToolbar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +47,9 @@ class RankingViewController: UIViewController, UITableViewDataSource, UITableVie
         let nicknameButton = UIBarButtonItem(title: "Nickname", style: .plain, target: self, action: nil)
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let pointButton = UIBarButtonItem(title: "1244.23", style: .plain, target: self, action: nil)
+        rankingButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "NotoSansCJKkr-Bold", size: 15)], for: .normal)
+        nicknameButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "NotoSansCJKkr-Medium", size: 15)], for: .normal)
+        pointButton.setTitleTextAttributes([NSAttributedStringKey.font : UIFont(name: "NotoSansCJKkr-Bold", size: 15)], for: .normal)
         items.append(rankingButton)
         items.append(nicknameButton)
         items.append(flexButton)

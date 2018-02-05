@@ -86,10 +86,10 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
     }
     override func viewWillAppear(_ animated: Bool) {
         showRecords()
-        let button4Grade = getButton4Grade().0
-        let button5Grade = getButton5Grade().0
-        let button6Grade = getButton6Grade().0
-        let button8Grade = getButton8Grade().0
+        let button4Grade = getGrade(sender: .button4).0
+        let button5Grade = getGrade(sender: .button5).0
+        let button6Grade = getGrade(sender: .button6).0
+        let button8Grade = getGrade(sender: .button8).0
         let gradeArray = [button4Grade, button5Grade, button6Grade, button8Grade]
         let grade = gradeArray.sorted()[3]
         switch(grade){
@@ -239,10 +239,10 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             }
         case 2:
             let next=self.storyboard?.instantiateViewController(withIdentifier: "GradeViewController") as! GradeViewController
-            let button4 = getButton4Grade()
-            let button5 = getButton5Grade()
-            let button6 = getButton6Grade()
-            let button8 = getButton8Grade()
+            let button4 = getGrade(sender: .button4)
+            let button5 = getGrade(sender: .button5)
+            let button6 = getGrade(sender: .button6)
+            let button8 = getGrade(sender: .button8)
             next.button4SkillLevel = getGradeButton4(value: button4.0)
             next.button4SkillPoint = button4.0
             next.button5SkillLevel = getGradeButton5(value: button5.0)
@@ -500,268 +500,246 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         UserDefaults.standard.set(countPerfectPlay, forKey: "countPerfectPlay")
     }
     
-    func getButton4Grade() -> (Double, Double, String, Double, String){
-        let record = try! Realm().objects(RecordInfo.self)
-        var tempDic = [String: Double]()
-        var upto50 = [Double]()
-        for i in record{
-            tempDic[i.title] = i.button4SkillPoint
+    func getGrade(sender: Button) -> (sum: Double, firstSongSkillPoint: Double, firstSong: String, lastSongSkillPoint: Double, lastSong: String){
+        var record: Results<RecordInfo>
+        switch(sender){
+        case .button4:
+            record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button4SkillPoint", ascending: false)
+        case .button5:
+            record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button5SkillPoint", ascending: false)
+        case .button6:
+            record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button6SkillPoint", ascending: false)
+        case .button8:
+            record = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button8SkillPoint", ascending: false)
         }
-        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
-        for i in 0...49{
-            upto50.append(sortedTempDic[i].1)
+        let firstRecord = record.first!
+        let lastRecord = record[49]
+        var sum: Double = 0
+        switch(sender){
+        case .button4:
+            for i in 0..<50{
+                sum += record[i].button4SkillPoint
+            }
+            UserDefaults.standard.set(sum, forKey: "button4SkillPoint")
+            return (sum, firstRecord.button4SkillPoint, firstRecord.title, lastRecord.button4SkillPoint, lastRecord.title)
+        case .button5:
+            for i in 0..<50{
+                sum += record[i].button5SkillPoint
+            }
+            UserDefaults.standard.set(sum, forKey: "button5SkillPoint")
+            return (sum, firstRecord.button5SkillPoint, firstRecord.title, lastRecord.button5SkillPoint, lastRecord.title)
+        case .button6:
+            for i in 0..<50{
+                sum += record[i].button6SkillPoint
+            }
+            UserDefaults.standard.set(sum, forKey: "button6SkillPoint")
+            return (sum, firstRecord.button6SkillPoint, firstRecord.title, lastRecord.button6SkillPoint, lastRecord.title)
+        case .button8:
+            for i in 0..<50{
+                sum += record[i].button8SkillPoint
+            }
+            UserDefaults.standard.set(sum, forKey: "button8SkillPoint")
+            return (sum, firstRecord.button8SkillPoint, firstRecord.title, lastRecord.button8SkillPoint, lastRecord.title)
         }
-        let sum = upto50.reduce(0) { $0 + $1 }
-        UserDefaults.standard.set(sum, forKey: "button4SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
     }
-    
-    func getButton5Grade() -> (Double, Double, String, Double, String){
-        let record = try! Realm().objects(RecordInfo.self)
-        var tempDic = [String: Double]()
-        var upto50 = [Double]()
-        for i in record{
-            tempDic[i.title] = i.button5SkillPoint
-        }
-        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
-        for i in 0...49{
-            upto50.append(sortedTempDic[i].1)
-        }
-        let sum = upto50.reduce(0) { $0 + $1 }
-        UserDefaults.standard.set(sum, forKey: "button5SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
+}
+
+func getGradeButton4(value: Double) -> String{
+    var returnString = ""
+    switch(value){
+    case 0..<1000:
+        returnString = "BEGINNER"
+    case 1000..<1500:
+        returnString = "AMATEUR 4"
+    case 1500..<2000:
+        returnString = "AMATEUR 3"
+    case 2000..<2300:
+        returnString = "AMATEUR 2"
+    case 2300..<2600:
+        returnString = "AMATEUR 1"
+    case 2600..<3000:
+        returnString = "SUB DJ 4"
+    case 3000..<3300:
+        returnString = "SUB DJ 3"
+    case 3300..<3600:
+        returnString = "SUB DJ 2"
+    case 3600..<4000:
+        returnString = "SUB DJ 1"
+    case 4000..<4300:
+        returnString = "MAIN DJ 4"
+    case 4300..<4600:
+        returnString = "MAIN DJ 3"
+    case 4600..<5000:
+        returnString = "MAIN DJ 2"
+    case 5000..<5300:
+        returnString = "MAIN DJ 1"
+    case 5300..<5600:
+        returnString = "POP DJ 4"
+    case 5600..<6000:
+        returnString = "POP DJ 3"
+    case 6000..<6300:
+        returnString = "POP DJ 2"
+    case 6300..<6600:
+        returnString = "POP DJ 1"
+    case 6600..<7000:
+        returnString = "PROFESSIONAL 3"
+    case 7000..<7200:
+        returnString = "PROFESSIONAL 2"
+    case 7200..<7400:
+        returnString = "PROFESSIONAL 1"
+    case 7400..<7600:
+        returnString = "MIX MASTER 3"
+    case 7600..<7800:
+        returnString = "MIX MASTER 2"
+    case 7800..<8000:
+        returnString = "MIX MASTER 1"
+    case 8000..<8200:
+        returnString = "SUPERSTAR 3"
+    case 8200..<8400:
+        returnString = "SUPERSTAR 2"
+    case 8400..<8600:
+        returnString = "SUPERSTAR 1"
+    case 8600..<8800:
+        returnString = "DJMAX GRAND MASTER"
+    case 8800...:
+        returnString = "THE DJMAX"
+    default:
+        break
     }
-    
-    func getButton6Grade() -> (Double, Double, String, Double, String){
-        let record = try! Realm().objects(RecordInfo.self)
-        var tempDic = [String: Double]()
-        var upto50 = [Double]()
-        for i in record{
-            tempDic[i.title] = i.button6SkillPoint
-        }
-        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
-        for i in 0...49{
-            upto50.append(sortedTempDic[i].1)
-        }
-        let sum = upto50.reduce(0) { $0 + $1 }
-        UserDefaults.standard.set(sum, forKey: "button6SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
+    return returnString
+}
+
+func getGradeButton5(value: Double) -> String{
+    var returnString = ""
+    switch(value){
+    case 0..<1000:
+        returnString = "BEGINNER"
+    case 1000..<1500:
+        returnString = "AMATEUR 4"
+    case 1500..<2000:
+        returnString = "AMATEUR 3"
+    case 2000..<2300:
+        returnString = "AMATEUR 2"
+    case 2300..<2600:
+        returnString = "AMATEUR 1"
+    case 2600..<3000:
+        returnString = "SUB DJ 4"
+    case 3000..<3300:
+        returnString = "SUB DJ 3"
+    case 3300..<3600:
+        returnString = "SUB DJ 2"
+    case 3600..<4000:
+        returnString = "SUB DJ 1"
+    case 4000..<4300:
+        returnString = "MAIN DJ 4"
+    case 4300..<4600:
+        returnString = "MAIN DJ 3"
+    case 4600..<5000:
+        returnString = "MAIN DJ 2"
+    case 5000..<5300:
+        returnString = "MAIN DJ 1"
+    case 5300..<5600:
+        returnString = "POP DJ 4"
+    case 5600..<6000:
+        returnString = "POP DJ 3"
+    case 6000..<6300:
+        returnString = "POP DJ 2"
+    case 6300..<6600:
+        returnString = "POP DJ 1"
+    case 6600..<7000:
+        returnString = "PROFESSIONAL 4"
+    case 7000..<7200:
+        returnString = "PROFESSIONAL 3"
+    case 7200..<7400:
+        returnString = "PROFESSIONAL 2"
+    case 7400..<7600:
+        returnString = "PROFESSIONAL 1"
+    case 7600..<7800:
+        returnString = "MIX MASTER 3"
+    case 7800..<8000:
+        returnString = "MIX MASTER 2"
+    case 8000..<8200:
+        returnString = "MIX MASTER 1"
+    case 8200..<8400:
+        returnString = "SUPERSTAR 3"
+    case 8400..<8600:
+        returnString = "SUPERSTAR 2"
+    case 8600..<8800:
+        returnString = "SUPERSTAR 1"
+    case 8800..<9000:
+        returnString = "DJMAX GRAND MASTER"
+    case 9000...:
+        returnString = "THE DJMAX"
+    default:
+        break
     }
-    
-    func getButton8Grade() -> (Double, Double, String, Double, String){
-        let record = try! Realm().objects(RecordInfo.self)
-        var tempDic = [String: Double]()
-        var upto50 = [Double]()
-        for i in record{
-            tempDic[i.title] = i.button8SkillPoint
-        }
-        let sortedTempDic = tempDic.sorted { $0.value > $1.value }
-        for i in 0...49{
-            upto50.append(sortedTempDic[i].1)
-        }
-        let sum = upto50.reduce(0) { $0 + $1 }
-        UserDefaults.standard.set(sum, forKey: "button8SkillPoint")
-        return (sum, upto50[0], sortedTempDic.first?.0 ?? "", upto50[49], sortedTempDic[49].0)
+    return returnString
+}
+
+func getGradeButton6And8(value: Double) -> String{
+    var returnString = ""
+    switch(value){
+    case 0..<1500:
+        returnString = "BEGINNER"
+    case 1500..<2000:
+        returnString = "AMATEUR 4"
+    case 2000..<2300:
+        returnString = "AMATEUR 3"
+    case 2300..<2600:
+        returnString = "AMATEUR 2"
+    case 2600..<3000:
+        returnString = "AMATEUR 1"
+    case 3000..<3300:
+        returnString = "SUB DJ 4"
+    case 3300..<3600:
+        returnString = "SUB DJ 3"
+    case 3600..<4000:
+        returnString = "SUB DJ 2"
+    case 4000..<4300:
+        returnString = "SUB DJ 1"
+    case 4300..<4600:
+        returnString = "MAIN DJ 4"
+    case 4600..<5000:
+        returnString = "MAIN DJ 3"
+    case 5000..<5300:
+        returnString = "MAIN DJ 2"
+    case 5300..<5600:
+        returnString = "MAIN DJ 1"
+    case 5600..<6000:
+        returnString = "POP DJ 4"
+    case 6000..<6300:
+        returnString = "POP DJ 3"
+    case 6300..<6600:
+        returnString = "POP DJ 2"
+    case 6600..<7000:
+        returnString = "POP DJ 1"
+    case 7000..<7200:
+        returnString = "PROFESSIONAL 4"
+    case 7200..<7400:
+        returnString = "PROFESSIONAL 3"
+    case 7400..<7600:
+        returnString = "PROFESSIONAL 2"
+    case 7600..<7800:
+        returnString = "PROFESSIONAL 1"
+    case 7800..<8000:
+        returnString = "MIX MASTER 3"
+    case 8000..<8200:
+        returnString = "MIX MASTER 2"
+    case 8200..<8400:
+        returnString = "MIX MASTER 1"
+    case 8400..<8600:
+        returnString = "SUPERSTAR 3"
+    case 8600..<8800:
+        returnString = "SUPERSTAR 2"
+    case 8800..<9000:
+        returnString = "SUPERSTAR 1"
+    case 9000..<9200:
+        returnString = "DJMAX GRAND MASTER"
+    case 9200...:
+        returnString = "THE DJMAX"
+    default:
+        break
     }
-    
-    
-    func getGradeButton4(value: Double) -> String{
-        var returnString = ""
-        switch(value){
-        case 0..<1000:
-            returnString = "BEGINNER"
-        case 1000..<1500:
-            returnString = "AMATEUR 4"
-        case 1500..<2000:
-            returnString = "AMATEUR 3"
-        case 2000..<2300:
-            returnString = "AMATEUR 2"
-        case 2300..<2600:
-            returnString = "AMATEUR 1"
-        case 2600..<3000:
-            returnString = "SUB DJ 4"
-        case 3000..<3300:
-            returnString = "SUB DJ 3"
-        case 3300..<3600:
-            returnString = "SUB DJ 2"
-        case 3600..<4000:
-            returnString = "SUB DJ 1"
-        case 4000..<4300:
-            returnString = "MAIN DJ 4"
-        case 4300..<4600:
-            returnString = "MAIN DJ 3"
-        case 4600..<5000:
-            returnString = "MAIN DJ 2"
-        case 5000..<5300:
-            returnString = "MAIN DJ 1"
-        case 5300..<5600:
-            returnString = "POP DJ 4"
-        case 5600..<6000:
-            returnString = "POP DJ 3"
-        case 6000..<6300:
-            returnString = "POP DJ 2"
-        case 6300..<6600:
-            returnString = "POP DJ 1"
-        case 6600..<7000:
-            returnString = "PROFESSIONAL 3"
-        case 7000..<7200:
-            returnString = "PROFESSIONAL 2"
-        case 7200..<7400:
-            returnString = "PROFESSIONAL 1"
-        case 7400..<7600:
-            returnString = "MIX MASTER 3"
-        case 7600..<7800:
-            returnString = "MIX MASTER 2"
-        case 7800..<8000:
-            returnString = "MIX MASTER 1"
-        case 8000..<8200:
-            returnString = "SUPERSTAR 3"
-        case 8200..<8400:
-            returnString = "SUPERSTAR 2"
-        case 8400..<8600:
-            returnString = "SUPERSTAR 1"
-        case 8600..<8800:
-            returnString = "DJMAX GRAND MASTER"
-        case 8800...:
-            returnString = "THE DJMAX"
-        default:
-            break
-        }
-        return returnString
-    }
-    
-    func getGradeButton5(value: Double) -> String{
-        var returnString = ""
-        switch(value){
-        case 0..<1000:
-            returnString = "BEGINNER"
-        case 1000..<1500:
-            returnString = "AMATEUR 4"
-        case 1500..<2000:
-            returnString = "AMATEUR 3"
-        case 2000..<2300:
-            returnString = "AMATEUR 2"
-        case 2300..<2600:
-            returnString = "AMATEUR 1"
-        case 2600..<3000:
-            returnString = "SUB DJ 4"
-        case 3000..<3300:
-            returnString = "SUB DJ 3"
-        case 3300..<3600:
-            returnString = "SUB DJ 2"
-        case 3600..<4000:
-            returnString = "SUB DJ 1"
-        case 4000..<4300:
-            returnString = "MAIN DJ 4"
-        case 4300..<4600:
-            returnString = "MAIN DJ 3"
-        case 4600..<5000:
-            returnString = "MAIN DJ 2"
-        case 5000..<5300:
-            returnString = "MAIN DJ 1"
-        case 5300..<5600:
-            returnString = "POP DJ 4"
-        case 5600..<6000:
-            returnString = "POP DJ 3"
-        case 6000..<6300:
-            returnString = "POP DJ 2"
-        case 6300..<6600:
-            returnString = "POP DJ 1"
-        case 6600..<7000:
-            returnString = "PROFESSIONAL 4"
-        case 7000..<7200:
-            returnString = "PROFESSIONAL 3"
-        case 7200..<7400:
-            returnString = "PROFESSIONAL 2"
-        case 7400..<7600:
-            returnString = "PROFESSIONAL 1"
-        case 7600..<7800:
-            returnString = "MIX MASTER 3"
-        case 7800..<8000:
-            returnString = "MIX MASTER 2"
-        case 8000..<8200:
-            returnString = "MIX MASTER 1"
-        case 8200..<8400:
-            returnString = "SUPERSTAR 3"
-        case 8400..<8600:
-            returnString = "SUPERSTAR 2"
-        case 8600..<8800:
-            returnString = "SUPERSTAR 1"
-        case 8800..<9000:
-            returnString = "DJMAX GRAND MASTER"
-        case 9000...:
-            returnString = "THE DJMAX"
-        default:
-            break
-        }
-        return returnString
-    }
-    
-    func getGradeButton6And8(value: Double) -> String{
-        var returnString = ""
-        switch(value){
-        case 0..<1500:
-            returnString = "BEGINNER"
-        case 1500..<2000:
-            returnString = "AMATEUR 4"
-        case 2000..<2300:
-            returnString = "AMATEUR 3"
-        case 2300..<2600:
-            returnString = "AMATEUR 2"
-        case 2600..<3000:
-            returnString = "AMATEUR 1"
-        case 3000..<3300:
-            returnString = "SUB DJ 4"
-        case 3300..<3600:
-            returnString = "SUB DJ 3"
-        case 3600..<4000:
-            returnString = "SUB DJ 2"
-        case 4000..<4300:
-            returnString = "SUB DJ 1"
-        case 4300..<4600:
-            returnString = "MAIN DJ 4"
-        case 4600..<5000:
-            returnString = "MAIN DJ 3"
-        case 5000..<5300:
-            returnString = "MAIN DJ 2"
-        case 5300..<5600:
-            returnString = "MAIN DJ 1"
-        case 5600..<6000:
-            returnString = "POP DJ 4"
-        case 6000..<6300:
-            returnString = "POP DJ 3"
-        case 6300..<6600:
-            returnString = "POP DJ 2"
-        case 6600..<7000:
-            returnString = "POP DJ 1"
-        case 7000..<7200:
-            returnString = "PROFESSIONAL 4"
-        case 7200..<7400:
-            returnString = "PROFESSIONAL 3"
-        case 7400..<7600:
-            returnString = "PROFESSIONAL 2"
-        case 7600..<7800:
-            returnString = "PROFESSIONAL 1"
-        case 7800..<8000:
-            returnString = "MIX MASTER 3"
-        case 8000..<8200:
-            returnString = "MIX MASTER 2"
-        case 8200..<8400:
-            returnString = "MIX MASTER 1"
-        case 8400..<8600:
-            returnString = "SUPERSTAR 3"
-        case 8600..<8800:
-            returnString = "SUPERSTAR 2"
-        case 8800..<9000:
-            returnString = "SUPERSTAR 1"
-        case 9000..<9200:
-            returnString = "DJMAX GRAND MASTER"
-        case 9200...:
-            returnString = "THE DJMAX"
-        default:
-            break
-        }
-        return returnString
-    }
+    return returnString
 }
 

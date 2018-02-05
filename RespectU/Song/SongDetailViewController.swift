@@ -193,6 +193,18 @@ class SongDetailViewController: UIViewController {
         default:
             break
         }
+        
+        labelNormal.layer.borderWidth = 3.5
+        labelNormal.layer.borderColor = labelNormalColor.backgroundColor?.cgColor
+        labelHard.layer.borderWidth = 3.5
+        labelHard.layer.borderColor = labelHardColor.backgroundColor?.cgColor
+        labelMaximum.layer.borderWidth = 3.5
+        labelMaximum.layer.borderColor = labelMaximumColor.backgroundColor?.cgColor
+        labelNormalColor.isHidden = true
+        labelHardColor.isHidden = true
+        labelMaximumColor.isHidden = true
+        
+        
         initializing()
     }
 
@@ -962,7 +974,7 @@ class SongDetailViewController: UIViewController {
         }
     }
     
-    func getWeight(value: Int) -> Double{
+    /*func getWeight(value: Int) -> Double{
         var result: Double = 0.0
         switch(value){
         case 1:
@@ -999,7 +1011,7 @@ class SongDetailViewController: UIViewController {
             break
         }
         return result
-    }
+    }*/
     
     func showNotification(){
         if(NotificationBannerQueue.default.numberOfBanners > 0){

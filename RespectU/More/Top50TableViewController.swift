@@ -39,8 +39,9 @@ class Top50TableViewController: UITableViewController {
         tableView.backgroundColor = isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         view.backgroundColor=isNight ? UIColor(red: 0, green: 0, blue: 0, alpha: 1) : UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         let rightButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh(_:)))
+        let right2Button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share(_:)))
+        self.navigationItem.rightBarButtonItems = [rightButton, right2Button]
     
-        self.navigationItem.rightBarButtonItem = rightButton
         switch(sender){
         case 0:
             results = try! Realm().objects(RecordInfo.self).sorted(byKeyPath: "button4SkillPoint", ascending: false)
@@ -201,6 +202,54 @@ class Top50TableViewController: UITableViewController {
             break
         }
         tableView.reloadData()
+    }
+    
+    @objc func share(_ sender: UIBarButtonItem){
+        var image = UIImage();
+        UIGraphicsBeginImageContextWithOptions(self.tableView.contentSize, false, UIScreen.main.scale)
+        
+        // save initial values
+        let savedContentOffset = self.tableView.contentOffset
+        let savedFrame = self.tableView.frame
+        let savedBackgroundColor = self.tableView.backgroundColor
+        
+        // reset offset to top left point
+        self.tableView.contentOffset = CGPoint(x: 0, y: 0)
+        // set frame to content size
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height)
+        // remove background
+        self.tableView.backgroundColor = UIColor.clear
+        
+        // make temp view with scroll view content size
+        // a workaround for issue when image on ipad was drawn incorrectly
+        let tempView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.contentSize.width, height: self.tableView.contentSize.height))
+        
+        // save superview
+        let tempSuperView = self.tableView.superview
+        // remove scrollView from old superview
+        self.tableView.removeFromSuperview()
+        // and add to tempView
+        tempView.addSubview(self.tableView)
+        
+        // render view
+        // drawViewHierarchyInRect not working correctly
+        tempView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        // and get image
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        // and return everything back
+        tempView.subviews[0].removeFromSuperview()
+        tempSuperView?.addSubview(self.tableView)
+        
+        // restore saved settings
+        self.tableView.contentOffset = savedContentOffset
+        self.tableView.frame = savedFrame
+        self.tableView.backgroundColor = savedBackgroundColor
+        
+        UIGraphicsEndImageContext()
+        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     func setTitle(title:String, subtitle:String) -> UIView {

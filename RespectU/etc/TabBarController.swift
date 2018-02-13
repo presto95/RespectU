@@ -749,7 +749,7 @@ class TabBarController : UITabBarController {
             addAchievement("X5 FEVER Activated", 5, "MUSIC", "v o l d e n u i t")
             addAchievement("X5 FEVER Activated", 6, "GALLERY", "BlackCat (2)")
             addAchievement("X5 FEVER Activated", 7, "GALLERY", "Save My Dream (2)")
-            addAchievement("X5 FEVER Activated", 8, "MUSIC", "Triple Joe")
+            addAchievement("X5 FEVER Activated", 8, "MUSIC", "Triple Zoe")
             addAchievement("X5 FEVER Activated", 9, "COMMENT", "No Comment")
             addAchievement("X5 FEVER Activated", 10, "PLATE", "Sunset Rider")
             addAchievement("Effector", 1, "MUSIC", "Para-Q")
@@ -1267,10 +1267,15 @@ class TabBarController : UITabBarController {
                 }
             }
         }
-        
+        if(version <= 24){
+            let object = try! Realm().objects(AchievementInfo.self).filter("type = 'MUSIC'").filter("item = 'Triple Joe'").first!
+            try! realm.write{
+                object.item = "Triple Zoe"
+            }
+        }
 
-        if(version <= 23){
-            UserDefaults.standard.set(24, forKey: "version")
+        if(version <= 24){
+            UserDefaults.standard.set(25, forKey: "version")
         }
     }
     

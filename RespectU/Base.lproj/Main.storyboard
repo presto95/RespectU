@@ -204,7 +204,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Music" id="3uS-iK-Qk3">
-                        <barButtonItem key="leftBarButtonItem" title="Random" image="random" id="IrG-qS-bfd">
+                        <barButtonItem key="leftBarButtonItem" image="random" id="IrG-qS-bfd">
                             <connections>
                                 <action selector="random:" destination="Lhd-2T-pd2" id="ekS-P2-ye0"/>
                             </connections>
@@ -215,7 +215,7 @@
                                     <action selector="search:" destination="Lhd-2T-pd2" id="blk-tT-h2L"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Sort" image="sort" id="ycR-PC-lyP">
+                            <barButtonItem image="sort" id="ycR-PC-lyP">
                                 <connections>
                                     <action selector="sort:" destination="Lhd-2T-pd2" id="m19-SY-dWN"/>
                                 </connections>
@@ -584,7 +584,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mX-lB-hKC">
-                                <rect key="frame" x="16" y="386" width="288" height="15"/>
+                                <rect key="frame" x="16" y="386" width="288" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -967,7 +967,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="contents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-Yp-avR" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                                <rect key="frame" x="16" y="436" width="288" height="15"/>
+                                <rect key="frame" x="16" y="436" width="288" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="13"/>
                                 <nil key="textColor"/>
@@ -1259,7 +1259,7 @@
                                                     <color key="textColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DJMAX RESPECT 1.10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-WE-84K">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DJMAX RESPECT 1.11" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-WE-84K">
                                                     <rect key="frame" x="16" y="6" width="181" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="12"/>
@@ -3023,7 +3023,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trophy" id="6IS-L9-CnI">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="question" id="X8G-Bj-eB6">
+                        <barButtonItem key="leftBarButtonItem" image="question" id="X8G-Bj-eB6">
                             <connections>
                                 <action selector="question:" destination="NTa-pI-68d" id="pB4-RC-2de"/>
                             </connections>

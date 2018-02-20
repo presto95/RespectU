@@ -167,8 +167,9 @@ class TabBarController : UITabBarController {
         //1.21업데이트 이후 위 코드 삭제하고 주석처리 잘 하자
         //1.22 준비때 21로 version에 들어가있음
         
+        //UserDefaults.standard.set(24, forKey: "version")
+        
         let version = UserDefaults.standard.integer(forKey: "version")
-        //print(version)
        
         //맨 아래 부분 신경써야 함 (버전 업)
         //버전 올라갈 때마다 1씩 올려주기.
@@ -218,6 +219,7 @@ class TabBarController : UITabBarController {
             addSong("CE", "The Night Stage", "CLAZZIQUAI", "120", 3,6,0,3,7,0,3,8,0,3,7,10)
             addSong("CE", "Urban Night", "hYO", "93", 4,8,0,5,8,0,3,8,0,3,0,8)
             addSong("CE", "Y (CE Style)", "ND Lee", "130", 5,8,11,5,10,0,5,8,11,5,9,13)
+            addSong("CE", "DARK ENVY", "Sugardonut", "195", 6, 11, 14, 6, 10, 14, 7, 10, 13, 6, 9, 14)
             
             //Trilogy
             addSong("Trilogy", "Memory of Wind".localized, "Forte Escape", "110", 3, 8, 0, 3, 6, 0, 3, 7, 0, 4, 9, 0)
@@ -434,7 +436,7 @@ class TabBarController : UITabBarController {
             addMission("Respect", "MAX Theater", "Emotion Pulse", "DIVINE SERVICE", "NORMAL", "6B", "Stay with me", "HARD", "6B", "Brandnew Days", "NORMAL", "6B", "waiting for me", "HARD", "6B", 0, 0, 0, 93, 0, "Fever OFF", "Plate : Brandnew Days")
             addMission("Respect", "MAX Theater", "The Decisive Moment", "MASAI", "HARD", "4B", "OBLIVION", "HARD", "4B", "Minus 3", "NORMAL", "4B", "The Obliterator", "HARD", "4B", 0, 0, 1200, 0, 0, "Speed : 1.00 / Fever-Manual / FADE IN", "Music : The Obliterator")
             addMission("Respect", "MAX Theater", "Virtual Reality", "Lost n' found", "NORMAL", "6B", "Beyond Yourself", "NORMAL", "6B", "FEAR", "NORMAL", "6B", "U.A.D", "NORMAL", "6B", 0, 0, 0, 0, 30, "Fever OFF / CHAOS W", "Plate : MAX Theater")
-            addMission("Respect", "MAX Theater", "NB is an Open Door", "NB RANGER", "NORMAL", "5B", "NB Rangers -Returns-", "NORMAL", "5B", "NB POWER", "HARD", "5B", "NB RANGER - Virgin Force", "NORMAL", "5B", 0, 0, 3000, 0, 0, "Fever-Manual / Gear&Note : NB RANGER", "Music : NB Ranger - Virgin Force")
+            addMission("Respect", "MAX Theater", "NB is an Open Door", "NB RANGER", "NORMAL", "5B", "NB Rangers -Returns-", "NORMAL", "5B", "NB POWER", "HARD", "5B", "NB RANGER - Virgin Force", "NORMAL", "5B", 0, 0, 3000, 0, 0, "Fever-Manual / Gear&Note : NB RANGER", "Music : NB RANGER - Virgin Force")
             addMission("Respect", "Another WORLD", "Girl Crush", "StarFish", "NORMAL", "6B", "Out Law", "NORMAL", "6B", "GET OUT", "HARD", "6B", "Runaway", "NORMAL", "6B", 1150000, 0, 0, 0, 0, "Fever-Manual", "Gallery : Runaway (2)")
             addMission("Respect", "Another WORLD", "Resurrection", "Fallen Angel", "HARD", "6B", "Seeker", "HARD", "6B", "SIN", "NORMAL", "6B", "Don't Die", "NORMAL", "6B", 0, 3, 0, 0, 0, "Fever-Manual / Gear&Note : SIN", "Comment : "+"Night Owl".localized)
             addMission("Respect", "Another WORLD", "Deadly Poison", "The Feelings", "NORMAL", "5B", "Piano Concerto No.1".localized, "NORMAL", "5B", "Midnight Blood", "NORMAL", "5B", "Funky Chups", "NORMAL", "5B", 1050000, 0, 0, 0, 10, "Fever OFF", "Gear : NB Ranger")
@@ -846,9 +848,9 @@ class TabBarController : UITabBarController {
                 initRecordDifficulty(i.title, i.nm4, i.nm5, i.nm6, i.nm8, i.hd4, i.hd5, i.hd6, i.hd8, i.mx4, i.mx5, i.mx6, i.mx8)
             }
             initRecord("Portable1", "Dreadnought")
-            initRecordDifficulty("Dreadnought", 6,9,12,8,11,0,8,0,13,8,13,0)
+            initRecordDifficulty("Dreadnought", 6, 8, 8, 8, 9, 11, 0, 13, 12, 0, 13, 0)
             initRecord("Respect", "Rising The Sonic")
-            initRecordDifficulty("Rising The Sonic", 4,8,12,5,10,13,5,9,13,5,10,14)
+            initRecordDifficulty("Rising The Sonic", 4, 5, 5, 5, 8, 10, 9, 10, 12, 13, 13, 14)
          }
         
         if(version <= 15){
@@ -867,30 +869,10 @@ class TabBarController : UITabBarController {
                     initRecordDifficulty(i.title, i.nm4, i.nm5, i.nm6, i.nm8, i.hd4, i.hd5, i.hd6, i.hd8, i.mx4, i.mx5, i.mx6, i.mx8)
                 }
                 initRecord("Portable1", "Dreadnought")
-                initRecordDifficulty("Dreadnought", 6,9,12,8,11,0,8,0,13,8,13,0)
+                initRecordDifficulty("Dreadnought", 6, 8, 8, 8, 9, 11, 0, 13, 12, 0, 13, 0)
                 initRecord("Respect", "Rising The Sonic")
-                initRecordDifficulty("Rising The Sonic", 4,8,12,5,10,13,5,9,13,5,10,14)
+                initRecordDifficulty("Rising The Sonic", 4, 5, 5, 5, 8, 10, 9, 10, 12, 13, 13, 14)
             }
-        }
-        
-        if(version <= 16){
-            try! realm.write{
-                realm.delete(realm.objects(TipInfo.self))
-            }
-            addTip("In the song selection screen, you can press R3 to specify / deselect a favorite song.")
-            addTip("On the menu selection screen, press the touchpad to set whether to keep the combo in freestyle mode.")
-            addTip("If the accuracy is not good, adjust the sync.")
-            addTip("The 100% judgment occurs when the line above the judgment line and the bottom line of the notebook touch each other.")
-            addTip("Most collections, except for some songs, can be deducted from play counts.")
-            addTip("When processing analog notes, you can just push the stick without turning it.")
-            addTip("You can darken the BGA by pressing the touch pad during play.")
-            addTip("You can change the operation keys by pressing the touch pad on the menu selection screen.")
-            addTip("In freestyle mode, if you exit the song selection screen after restarting while playing, the combo will not be initialized.")
-            addTip("If you use the custom key setting, the L1 / R1 characters of the 8 keys disappear.")
-            addTip("Select a song online If the focus is 2Nite, it is a foreign user or a Korean user.")
-            addTip("If you have an urgent problem during online song selection, please focus on Waiting for me.")
-            addTip("If you play with your hands in a slippery state, you can do better.")
-            addTip("The music video is ripped when MAX COMBO is cleared for any pattern of the song.")
         }
         
         if(version <= 17){
@@ -1063,8 +1045,6 @@ class TabBarController : UITabBarController {
                 break
             }
         }
-        
-        
         
         if(version <= 20){
             var song = try! Realm().objects(SongInfo.self).filter("title = 'Ventilator'").first
@@ -1268,10 +1248,72 @@ class TabBarController : UITabBarController {
             }
         }
         if(version <= 24){
-            let object = try! Realm().objects(AchievementInfo.self).filter("type = 'MUSIC'").filter("item = 'Triple Joe'").first!
-            try! realm.write{
-                object.item = "Triple Zoe"
+            if let object = realm.objects(AchievementInfo.self).filter("type = 'MUSIC'").filter("item = 'Triple Joe'").first{
+                try! realm.write{
+                    object.item = "Triple Zoe"
+                }
             }
+            //NB is an Open Door 미션 보상 대소문자 변경 코드
+            if let nb = realm.objects(MissionInfo.self).filter("title = 'NB is an Open Door'").first{
+                try! realm.write{
+                    nb.reward = "Music : NB RANGER - Virgin Force"
+                }
+            }
+            //다크엔비 추가 코드
+            if(realm.objects(SongInfo.self).filter("title = 'DARK ENVY'").count == 0){
+                addSong("CE", "DARK ENVY", "Sugardonut", "195", 6, 11, 14, 6, 10, 14, 7, 10, 13, 6, 9, 14)
+                initRecord("CE", "DARK ENVY")
+                initRecordDifficulty("DARK ENVY", 6, 6, 7, 6, 11, 10, 10, 9, 14, 14, 13, 14)
+            }
+            let darkenvySong = realm.objects(SongInfo.self).filter("title = 'DARK ENVY'").first!
+            try! realm.write{
+                darkenvySong.lowercase = "DARK ENVY".lowercased()
+            }
+            let darkenvyRecord = realm.objects(RecordInfo.self).filter("title = 'DARK ENVY'").first!
+            try! realm.write{
+                darkenvyRecord.lowercase = "DARK ENVY".lowercased()
+            }
+            //드레드노트 라이징더소닉 RecordInfo 난이도 수정
+            let dreadnought = realm.objects(RecordInfo.self).filter("title = 'Dreadnought'").first!
+            try! realm.write{
+                dreadnought.nm4 = 6; dreadnought.nm5 = 8; dreadnought.nm6 = 8; dreadnought.nm8 = 8
+                dreadnought.hd4 = 9; dreadnought.hd5 = 11; dreadnought.hd6 = 0; dreadnought.hd8 = 13;
+                dreadnought.mx4 = 12; dreadnought.mx5 = 0; dreadnought.mx6 = 13; dreadnought.mx8 = 0;
+            }
+            let rising = realm.objects(RecordInfo.self).filter("title = 'Rising The Sonic'").first!
+            try! realm.write{
+                rising.nm4 = 4; rising.nm5 = 5; rising.nm6 = 5; rising.nm8 = 5
+                rising.hd4 = 8; rising.hd5 = 10; rising.hd6 = 9; rising.hd8 = 10
+                rising.mx4 = 12; rising.mx5 = 13; rising.mx6 = 13; rising.mx8 = 14
+            }
+            let dark = realm.objects(RecordInfo.self).filter("title = 'DARK ENVY'").first!
+            try! realm.write{
+                dark.nm4 = 6; dark.nm5 = 6; dark.nm6 = 7; dark.nm8 = 6
+                dark.hd4 = 11; dark.hd5 = 10; dark.hd6 = 10; dark.hd8 = 9;
+                dark.mx4 = 14; dark.mx5 = 14; dark.mx6 = 13; dark.mx8 = 14
+            }
+            try! realm.write{
+                realm.delete(realm.objects(TipInfo.self))
+            }
+            addTip("Each music's speed settings are saved separately.")
+            addTip("ANALOG NOTE can be played by rotating the stick or holding it to one side.")
+            addTip("System Settings can be changed from the main menu by pressing the touch pad button.")
+            addTip("In FREESTYLE mode, press the R3 button to add a music to your favorites.")
+            addTip("In FREESTYLE mode, combos are cumulative.")
+            addTip("Some music have hidden BGAs.")
+            addTip("When you achieve MAX COMBO, you can receive the music video for the current music.")
+            addTip("While performing, press the touch pad to adjust the BGA brightness.")
+            addTip("In FREESTYLE mode, 2 players local play is possible, and each player can play a different mode.")
+            addTip("The button used to play can be changed in System Settings.")
+            addTip("FREESTYLE mode's combo accumulation can be changed in System Settings.")
+            addTip("ARCADE mode's music are chosen randomly according to the set difficulty.")
+            addTip("The FEVER gauge increases according to note play accuracy.")
+            addTip("You can change the System Settings UI skin.")
+            addTip("If the game screen doesn't display completely, check your \"PS4\" Display Area settings.")
+            addTip("In FREESTYLE mode, use the L1 button and R1 button to change the category.")
+            addTip("In ONLINE mode, you can play music you have not yet acquired.")
+            addTip("While FEVER is active, you can receive more points and larger combos.")
+            addTip("You can use the L2 button and R2 button to change the speed during play, or from the music selection screen.")
         }
 
         if(version <= 24){

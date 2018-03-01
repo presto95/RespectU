@@ -1316,8 +1316,8 @@ class TabBarController : UITabBarController {
             addTip("You can use the L2 button and R2 button to change the speed during play, or from the music selection screen.")
         }
 
-        if(version <= 24){
-            UserDefaults.standard.set(25, forKey: "version")
+        if(version <= 25){
+            UserDefaults.standard.set(26, forKey: "version")
         }
     }
     

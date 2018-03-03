@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import RealmSwift
 import MessageUI
-import NotificationBannerSwift
 import GoogleSignIn
 
 
@@ -281,19 +280,13 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
                     if let _ = Int(input){
                         UserDefaults.standard.set(input, forKey: "bpm")
                         self.cell2.detailTextLabel?.text="\(Int(UserDefaults.standard.double(forKey: "bpm"))) BPM"
-                        let view=UIImageView(image: #imageLiteral(resourceName: "success"))
-                        NotificationBanner(title: "Changed".localized, subtitle: "BPM "+input, leftView: view, style: .success).show()
                         return
                     }
                     else{
-                        let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
                         UserDefaults.standard.set(tempBpm, forKey: "bpm")
-                        NotificationBanner(title: "Not Changed".localized, subtitle: "Please enter a valid value.".localized, leftView: view, style: .danger).show()
                     }
                 }
                 else{
-                    let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
-                    NotificationBanner(title: "Not Changed".localized, subtitle: "Please enter a valid value.".localized, leftView: view, style: .danger).show()
                     return
                 }
             }
@@ -302,28 +295,23 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             alert.addAction(yesAction)
             self.present(alert, animated: true, completion: nil)
         case 5:
-            let view=UIImageView(image: #imageLiteral(resourceName: "success"))
             let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
             let alert = UIAlertController(title: "My Favorite Button".localized, message: "Current".localized+" : \(favorite ?? "None".localized)\n\n"+"The information displayed on the first run screen depends on the setting value.".localized, preferredStyle: .alert)
             let button4 = UIAlertAction(title: "4B", style: .default){(alert) in
                 UserDefaults.standard.set("4B", forKey: "favoriteButton")
                 self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
-                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
             }
             let button5 = UIAlertAction(title: "5B", style: .default){ (alert) in
                 UserDefaults.standard.set("5B", forKey: "favoriteButton")
                 self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
-                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
             }
             let button6 = UIAlertAction(title: "6B", style: .default){ (alert) in
                 UserDefaults.standard.set("6B", forKey: "favoriteButton")
                 self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
-                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
             }
             let button8 = UIAlertAction(title: "8B", style: .default){ (alert) in
                 UserDefaults.standard.set("8B", forKey: "favoriteButton")
                 self.cellFavoriteButton.detailTextLabel?.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "None".localized
-                NotificationBanner(title: "Changed".localized, subtitle: UserDefaults.standard.string(forKey: "favoriteButton"), leftView: view, style: .success).show()
             }
             let buttonCancel = UIAlertAction(title: "Cancel".localized, style: .default, handler: nil)
             alert.addAction(button4); alert.addAction(button5); alert.addAction(button6); alert.addAction(button8); alert.addAction(buttonCancel)
@@ -436,39 +424,11 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
             mail.mailComposeDelegate = self
             mail.setToRecipients(["yoohan95@gmail.com"])
             present(mail, animated: true)
-        } else {
-            showSendEmailErrorAlert()
         }
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        switch result{
-        case .cancelled:
-            let view=UIImageView(image: #imageLiteral(resourceName: "info"))
-            NotificationBanner(title: "Email has not been sent.".localized, subtitle: "Feel free to give feedback!".localized, leftView: view, style: .info).show()
-        case .sent:
-            let view=UIImageView(image: #imageLiteral(resourceName: "success"))
-            NotificationBanner(title: "Email has been sent.".localized, subtitle: "Thank you for your feedback!".localized, leftView: view, style: .success).show()
-        case .saved:
-            let view=UIImageView(image: #imageLiteral(resourceName: "info"))
-            NotificationBanner(title: "Email has been saved.".localized, subtitle: "Feel free to give feedback!".localized, leftView: view, style: .info).show()
-        default:
-            let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
-            NotificationBanner(title: "Email has not been sent.".localized, subtitle: "".localized, leftView: view, style: .danger).show()
-        }
         controller.dismiss(animated: true)
-    }
-    func showSendEmailErrorAlert(){
-        let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
-        NotificationBanner(title: "Unable to write email.".localized, subtitle: "Please check the relevant settings.".localized, leftView: view, style: .danger).show()
-    }
-
-    
-    func alertTip(message: String){
-        let alert=UIAlertController(title: "TIP".localized, message: message.localized, preferredStyle: .alert)
-        let action=UIAlertAction(title: "OK".localized, style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true)
     }
     
     func showRecords(){

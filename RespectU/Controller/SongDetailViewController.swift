@@ -8,7 +8,6 @@
 
 import UIKit
 import ActionSheetPicker_3_0
-import NotificationBannerSwift
 import RealmSwift
 
 class SongDetailViewController: UIViewController {
@@ -469,7 +468,6 @@ class SongDetailViewController: UIViewController {
         default:
             break
         }
-        showNotification()
     }
     
     func setAccuracy(accuracy: String?, difficulty: String){
@@ -541,7 +539,6 @@ class SongDetailViewController: UIViewController {
         default:
             break
         }
-        showNotification()
     }
     
     func setNote(note: String?, difficulty: String){
@@ -609,7 +606,6 @@ class SongDetailViewController: UIViewController {
         default:
             break
         }
-        showNotification()
     }
     
     func buttonSetting(key: String){
@@ -972,53 +968,5 @@ class SongDetailViewController: UIViewController {
         default:
             break
         }
-    }
-    
-    /*func getWeight(value: Int) -> Double{
-        var result: Double = 0.0
-        switch(value){
-        case 1:
-            result = 0.4
-        case 2:
-            result = 0.6
-        case 3:
-            result = 0.8
-        case 4:
-            result = 1
-        case 5:
-            result = 1.14
-        case 6:
-            result = 1.24
-        case 7:
-            result = 1.33
-        case 8:
-            result = 1.42
-        case 9:
-            result = 1.53
-        case 10:
-            result = 1.6
-        case 11:
-            result = 1.68
-        case 12:
-            result = 1.77
-        case 13:
-            result = 1.85
-        case 14:
-            result = 1.94
-        case 15:
-            result = 2
-        default:
-            break
-        }
-        return result
-    }*/
-    
-    func showNotification(){
-        if(NotificationBannerQueue.default.numberOfBanners > 0){
-            NotificationBannerQueue.default.removeAll()
-        }
-        let view=UIImageView(image: #imageLiteral(resourceName: "success"))
-        NotificationBanner(title: "Changed".localized, subtitle: "", leftView: view, style: .success).show()
-        
     }
 }

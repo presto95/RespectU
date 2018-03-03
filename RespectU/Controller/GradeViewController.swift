@@ -11,7 +11,6 @@ import GaugeKit
 import RealmSwift
 import Firebase
 import GoogleSignIn
-import NotificationBannerSwift
 
 enum Button{
     case button4
@@ -394,7 +393,6 @@ class GradeViewController: UIViewController {
                             }
                         }*/
                         if(input.count == 0){
-                            NotificationBanner(title: "Fail".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
                             return
                         }
                         UserDefaults.standard.set(input, forKey: "nickname")
@@ -407,10 +405,6 @@ class GradeViewController: UIViewController {
                             "countPerfectPlay": UserDefaults.standard.integer(forKey: "countPerfectPlay"),
                             "uid": Auth.auth().currentUser?.uid
                             ])
-                        NotificationBanner(title: "Success".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "success")), style: .success).show()
-                    }
-                    else{
-                        NotificationBanner(title: "Fail".localized, leftView: UIImageView(image: #imageLiteral(resourceName: "fail")), style: .danger).show()
                     }
                 }
                 let noAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)

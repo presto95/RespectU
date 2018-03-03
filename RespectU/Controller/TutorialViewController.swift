@@ -12,12 +12,12 @@ class TutorialViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 1, green: 214/255, blue: 158/255, alpha: 1)
+        view.backgroundColor = UIColor.subColor
         dataSource = self
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = .white
-        appearance.currentPageIndicatorTintColor = UIColor(red: 232/255, green: 162/255, blue: 53/255, alpha: 1)
-        appearance.backgroundColor = UIColor(red: 1, green: 214/255, blue: 158/255, alpha: 1)
+        appearance.currentPageIndicatorTintColor = UIColor.mainColor
+        appearance.backgroundColor = UIColor.subColor
         
         if let firstViewController = orderedViewControllers.first{
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)

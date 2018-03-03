@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+enum Trophy: String{
+    case platinum = "PLATINUM"
+    case gold = "GOLD"
+    case silver = "SILVER"
+    case bronze = "BRONZE"
+}

@@ -13,6 +13,7 @@ import GoogleSignIn
 class PerformanceViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var labelNickname: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,11 @@ class PerformanceViewController: UIViewController {
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             present(controller, animated: true)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        labelNickname.text = UserDefaults.standard.string(forKey: "nickname") ?? "닉네임을 설정해 주세요.".localized
     }
 
     override func didReceiveMemoryWarning() {

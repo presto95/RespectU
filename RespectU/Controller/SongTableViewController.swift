@@ -11,7 +11,6 @@ import UIKit
 import Realm
 import RealmSwift
 import ActionSheetPicker_3_0
-import NotificationBannerSwift
 
 class PlaylistInfo: Object{
     @objc dynamic var id: Int = 0
@@ -89,9 +88,6 @@ class SongTableViewController: UITableViewController {
         tabBarController?.tabBar.barStyle=isNight ? .black : .default
         navigationController?.navigationBar.barStyle=isNight ? .black : .default
         navigationItem.titleView = setTitle(title: "Music".localized, subtitle: series + " / " + key)
-        if(NotificationBannerQueue.default.numberOfBanners > 0){
-            NotificationBannerQueue.default.removeAll()
-        }
         if(UserDefaults.standard.bool(forKey: "first") != true){
             UserDefaults.standard.set(450.0, forKey: "bpm")
         }
@@ -177,7 +173,6 @@ class SongTableViewController: UITableViewController {
                 }
                 self.navigationItem.titleView = self.setTitle(title: "Music".localized, subtitle: tempSeries + " / " + self.key)
                 self.tableView.reloadData()
-                self.showSearchNotification(series: tempSeries)
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
     }
@@ -607,24 +602,8 @@ class SongTableViewController: UITableViewController {
                         }
                     }
                 }
-                let tempSeries: String
-                switch(self.series){
-                case "Respect":
-                    tempSeries = "Respect"
-                case "Trilogy":
-                    tempSeries = "Trilogy"
-                case "CE":
-                    tempSeries = "CE"
-                case "Portable1":
-                    tempSeries = "Portable 1"
-                case "Portable2":
-                    tempSeries = "Portable 2"
-                default:
-                    tempSeries = "All"
-                }
                 self.generateWordsIndexTitleInSort()
                 self.tableView.reloadData()
-                self.showSortNotification(series: tempSeries, level: level, sort: sort)
                 return
         }, cancel: { ActionMultipleStringCancelBlock in return }, origin: sender)
     }
@@ -967,18 +946,9 @@ class SongTableViewController: UITableViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
         let buttonAddPlaylist=UITableViewRowAction(style: .normal, title: "Add to Playlist".localized){action, index in
-            if(NotificationBannerQueue.default.numberOfBanners > 0){
-                NotificationBannerQueue.default.removeAll()
-            }
             let query=NSPredicate(format: "title = %@",object.title)
             if(self.realm?.objects(PlaylistInfo.self).filter(query).count == 0){
-                let view=UIImageView(image: #imageLiteral(resourceName: "success"))
                 self.addPlaylist(series: object.series, title: object.title, composer: object.composer, bpm: object.bpm, nm4: object.nm4, hd4: object.hd4, mx4: object.mx4, nm5: object.nm5, hd5: object.hd5, mx5: object.mx5, nm6: object.nm6, hd6: object.hd6, mx6: object.mx6, nm8: object.nm8, hd8: object.hd8, mx8: object.mx8)
-                NotificationBanner(title: "Added to Playlist".localized, subtitle: object.title, leftView: view, style: .success).show()
-            }
-            else{
-                let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
-                NotificationBanner(title: "Not Added to Playlist".localized, subtitle: "Check for duplication.".localized, leftView: view, style: .danger).show()
             }
         }
         
@@ -1010,54 +980,6 @@ class SongTableViewController: UITableViewController {
         playlist.id = (realm.objects(PlaylistInfo.self).max(ofProperty: "id") as Int? ?? 0) + 1
         try! realm.write{
             realm.add(playlist)
-        }
-    }
-    
-    func showSearchNotification(series: String){
-        if(NotificationBannerQueue.default.numberOfBanners > 0){
-            NotificationBannerQueue.default.removeAll()
-        }
-        let view=UIImageView(image: #imageLiteral(resourceName: "info"))
-        switch(series){
-        case "All":
-            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .info).show()
-        case "Portable 1":
-            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .portable1).show()
-        case "Portable 2":
-            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .portable2).show()
-        case "Respect":
-            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .respect).show()
-        case "Trilogy":
-            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .trilogy).show()
-        case "CE":
-            NotificationBanner(title: "Search".localized, subtitle: series+"\t"+self.key, leftView: view, style: .ce).show()
-        default:
-            break
-        }
-    }
-    
-    func showSortNotification(series: String, level: String, sort: String){
-        if(NotificationBannerQueue.default.numberOfBanners > 0){
-            NotificationBannerQueue.default.removeAll()
-        }
-        let view=UIImageView(image: #imageLiteral(resourceName: "info"))
-        switch(series){
-        case "All":
-            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .info).show()
-        case "Portable 1":
-            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .portable1).show()
-        case "Portable 2":
-            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .portable2).show()
-        case "Respect":
-            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .respect).show()
-        case "Trilogy":
-            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .trilogy).show()
-        case "CE":
-            NotificationBanner(title: "Sort".localized, subtitle: series+"\t"+self.key+"\t"+level+"\t"+sort.localized, leftView: view, style: .ce).show()
-            break
-        default:
-            break
-            
         }
     }
     

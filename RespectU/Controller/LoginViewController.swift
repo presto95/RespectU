@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if(user != nil){
-                self.dismiss(animated: true, completion: nil)
+                self.goToTutorialOrDismiss()
             }
         }
         // Do any additional setup after loading the view.
@@ -37,15 +37,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     @IBAction func login(_ sender: GIDSignInButton) {
         GIDSignIn.sharedInstance().signIn()
-        goToTutorial()
     }
     @IBAction func skip(_ sender: UIButton) {
-        goToTutorial()
+        goToTutorialOrDismiss()
     }
-    func goToTutorial(){
-        let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialViewController
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true, completion: nil)
+    func goToTutorialOrDismiss(){
+        if(!UserDefaults.standard.bool(forKey: "firstExecution")){
+            UserDefaults.standard.set(true, forKey: "firstExecution")
+            let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialViewController
+            controller.modalTransitionStyle = .crossDissolve
+            present(controller, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+        
     }
 }

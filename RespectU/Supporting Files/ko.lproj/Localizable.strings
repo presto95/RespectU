@@ -258,12 +258,32 @@
 
 "You must be logged in to use the ranking system." = "랭킹 시스템을 사용하려면 로그인 해야 합니다.";
 "SKIP" = "건너뛰기";
-
-
-
-
-
-
+"Mission" = "미션";
+"Trophy" = "트로피";
+"Achievement" = "도전과제";
+"BPM Default Setting" = "BPM 기본값 설정";
+"Send Email to Developer" = "개발자에게 이메일 보내기";
+"Credit" = "크레딧";
+"Guide for DJMAX RESPECT" = "DJMAX RESPECT 가이드";
+"Personal Setting" = "개인 설정";
+"More" = "더보기";
+"Login / Logout" = "로그인 / 로그아웃";
+"The information related to the set value is displayed first." = "설정된 값과 관련된 정보가 먼저 표시됩니다.";
+"It becomes standard of Speed Recommendation." = "추천 배속의 기준값이 됩니다.";
+"Select the button type." = "버튼 종류를 선택하세요.";
+"Notice" = "알림";
+"You have been logged in." = "로그인 되었습니다.";
+"You have been logged out." = "로그아웃 되었습니다.";
+"Add to Favorite" = "즐겨찾기에 추가";
+"No Favorites" = "즐겨찾기된 곡이 없습니다.";
+"Add songs to your favorites." = "즐겨찾기에 곡을 추가하세요.";
+"Select the sort method" = "정렬 방법을 선택하세요.";
+"NORMAL / ASC" = "NORMAL / 오름차순";
+"NORMAL / DESC" = "NORMAL / 내림차순";
+"HARD / ASC" = "HARD / 오름차순";
+"HARD / DESC" = "HARD / 내림차순";
+"MAXIMUM / ASC" = "MAXIMUM / 오름차순";
+"MAXIMUM / DESC" = "MAXIMUM / 내림차순";
 
 
 

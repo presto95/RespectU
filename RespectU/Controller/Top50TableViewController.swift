@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import NotificationBannerSwift
 
 class Top50TableViewController: UITableViewController {
 
@@ -153,18 +152,9 @@ class Top50TableViewController: UITableViewController {
             self.navigationController?.pushViewController(next, animated: true)
         }
         let buttonAddPlaylist=UITableViewRowAction(style: .normal, title: "Add to Playlist".localized){action, index in
-            if(NotificationBannerQueue.default.numberOfBanners > 0){
-                NotificationBannerQueue.default.removeAll()
-            }
             let query=NSPredicate(format: "title = %@",object.title)
             if(try! Realm().objects(PlaylistInfo.self).filter(query).count == 0){
-                let view=UIImageView(image: #imageLiteral(resourceName: "success"))
                 self.addPlaylist(series: object.series, title: object.title, composer: object.composer, bpm: object.bpm, nm4: object.nm4, hd4: object.hd4, mx4: object.mx4, nm5: object.nm5, hd5: object.hd5, mx5: object.mx5, nm6: object.nm6, hd6: object.hd6, mx6: object.mx6, nm8: object.nm8, hd8: object.hd8, mx8: object.mx8)
-                NotificationBanner(title: "Added to Playlist".localized, subtitle: object.title, leftView: view, style: .success).show()
-            }
-            else{
-                let view=UIImageView(image: #imageLiteral(resourceName: "fail"))
-                NotificationBanner(title: "Not Added to Playlist".localized, subtitle: "Check for duplication.".localized, leftView: view, style: .danger).show()
             }
         }
         switch(object.series){

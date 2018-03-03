@@ -1,5 +1,9 @@
 PODS:
   - ActionSheetPicker-3.0 (2.2.0)
+  - BRYXBanner (0.8.0)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
   - DZNEmptyDataSet (1.8.1)
   - Firebase/Auth (4.8.0):
     - Firebase/Core
@@ -59,19 +63,18 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NotificationBannerSwift (1.5.1):
-    - MarqueeLabel/Swift
-    - SnapKit (~> 4.0)
+  - PMAlertController (3.2.0)
   - Realm (2.10.1):
     - Realm/Headers (= 2.10.1)
   - Realm/Headers (2.10.1)
   - RealmSwift (2.10.1):
     - Realm (= 2.10.1)
-  - SnapKit (4.0.0)
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
+  - BRYXBanner
+  - Charts
   - DZNEmptyDataSet
   - Firebase/Auth
   - Firebase/Core
@@ -81,12 +84,14 @@ DEPENDENCIES:
   - GoogleSignIn
   - MarqueeLabel/Swift
   - MGSwipeTableCell
-  - NotificationBannerSwift
+  - PMAlertController
   - RealmSwift
   - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  BRYXBanner: 406c3775789136531da6f3c98058be2f16e08a34
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
   FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
@@ -104,12 +109,11 @@ SPEC CHECKSUMS:
   MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
   MGSwipeTableCell: c3bc6e261e7bc06c112909fe3fb8205de286082c
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NotificationBannerSwift: 666e6c392238561c17a52db4c50e6f00d9942e0d
+  PMAlertController: 46047b840f6e1833c2a5395c91ccad29e72ae2c0
   Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
   RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 9705883f0b24480b7686a5294c95f87b1691e4f3
+PODFILE CHECKSUM: b7b9ea908240a6e4aa7225f65a3d38f64e04b6d2
 
 COCOAPODS: 1.3.1

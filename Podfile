@@ -7,7 +7,7 @@ target 'RespectU' do
 	pod 'RealmSwift'
   pod 'MarqueeLabel/Swift'
   pod 'ActionSheetPicker-3.0'
-  pod 'NotificationBannerSwift'
+  pod 'BRYXBanner'
   pod 'GaugeKit'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
@@ -17,6 +17,8 @@ target 'RespectU' do
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'MGSwipeTableCell'
   pod 'DZNEmptyDataSet'
+  pod 'Charts'
+  pod 'PMAlertController'
   # Pods for RespectU
 
 end

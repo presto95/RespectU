@@ -54,6 +54,8 @@
 "Performance Record" = "성과 기록";
 "RANK" = "랭크";
 "Rank" = "랭크";
+"Rate" = "정확도";
+"Input your rate.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.";
 "ACCURACY" = "정확도";
 "Accuracy" = "정확도";
 "NOTE" = "비고";
@@ -220,12 +222,12 @@
 "Ranking β" = "랭킹 β";
 "Nickname Setting β" = "닉네임 설정 β";
 "Error" = "오류";
-"Please login first." = "먼저 로그인 해주세요.";
+"Login first." = "먼저 로그인하세요.";
 "Please enter your nickname." = "닉네임을 입력해 주세요.";
 "Nickname" = "닉네임";
 "Success" = "성공";
 "Fail" = "실패";
-"Please check the network status." = "네트워크 상태를 확인해 주세요.";
+"Check your network status." = "네트워크 상태를 확인하세요.";
 "No Record" = "기록 없음";
 "Duplicate nickname" = "닉네임 중복";
 "Skill Point Calculator" = "스킬 포인트 계산기";
@@ -284,8 +286,13 @@
 "HARD / DESC" = "HARD / 내림차순";
 "MAXIMUM / ASC" = "MAXIMUM / 오름차순";
 "MAXIMUM / DESC" = "MAXIMUM / 내림차순";
-
-
-
-
+"No Results" = "검색 결과 없음";
+"Song" = "음악";
+"Nickname Setting" = "닉네임 설정";
+"Enter your nickname." = "닉네임을 입력해 주세요.";
+"Point" = "점";
+"Coming soon" = "준비중";
+"Summary" = "요약";
+"Graph" = "그래프";
+"MAX COMBO Failure" = "MAX COMBO 실패";
 

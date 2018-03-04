@@ -75,7 +75,7 @@ class MissionRespectTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
+        header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
         header.backgroundView?.backgroundColor = UIColor.mainColor
     }
@@ -83,7 +83,7 @@ class MissionRespectTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! MissionCell
         let storyboard = UIStoryboard(name: "Mission", bundle: nil)
-        if let next = storyboard.instantiateViewController(withIdentifier: "MissionDetail2ViewController") as? MissionDetail2ViewController {
+        if let next = storyboard.instantiateViewController(withIdentifier: "MissionDetailViewController") as? MissionDetailViewController {
             next.missionTitle = cell.title.text!
             present(next, animated: true, completion: nil)
         } else{

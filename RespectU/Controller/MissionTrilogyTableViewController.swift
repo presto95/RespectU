@@ -59,7 +59,7 @@ class MissionTrilogyTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
+        header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
         header.backgroundView?.backgroundColor = UIColor.mainColor
     }
@@ -67,7 +67,7 @@ class MissionTrilogyTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! MissionCell
         let storyboard = UIStoryboard(name: "Mission", bundle: nil)
-        let next = storyboard.instantiateViewController(withIdentifier: "MissionDetail2ViewController") as! MissionDetail2ViewController
+        let next = storyboard.instantiateViewController(withIdentifier: "MissionDetailViewController") as! MissionDetailViewController
         next.missionTitle = cell.title.text!
         present(next, animated: true, completion: nil)
     }

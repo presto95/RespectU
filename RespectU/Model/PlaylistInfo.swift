@@ -10,6 +10,26 @@ import RealmSwift
 import UIKit
 
 
+class PlaylistInfo: Object{
+    @objc dynamic var id: Int = 0
+    @objc dynamic var series: String=""
+    @objc dynamic var title: String=""
+    @objc dynamic var composer: String=""
+    @objc dynamic var bpm: String=""
+    @objc dynamic var nm4: Int=0
+    @objc dynamic var nm5: Int=0
+    @objc dynamic var nm6: Int=0
+    @objc dynamic var nm8: Int=0
+    @objc dynamic var hd4: Int=0
+    @objc dynamic var hd5: Int=0
+    @objc dynamic var hd6: Int=0
+    @objc dynamic var hd8: Int=0
+    @objc dynamic var mx4: Int=0
+    @objc dynamic var mx5: Int=0
+    @objc dynamic var mx6: Int=0
+    @objc dynamic var mx8: Int=0
+}
+
 func addPlaylist(series: String, title: String, composer: String, bpm: String, nm4: Int, hd4: Int, mx4: Int, nm5: Int, hd5: Int, mx5: Int, nm6: Int, hd6: Int, mx6: Int, nm8: Int, hd8: Int, mx8: Int){
     let playlist=PlaylistInfo()
     playlist.series=series; playlist.title=title; playlist.composer=composer; playlist.bpm=bpm

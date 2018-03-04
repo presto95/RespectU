@@ -81,7 +81,7 @@ class AchievementGearTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
+        header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
         header.backgroundView?.backgroundColor = UIColor.mainColor
     }
@@ -92,6 +92,6 @@ class AchievementGearTableViewController: UITableViewController {
 
 extension AchievementGearTableViewController: IndicatorInfoProvider{
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "GEAR")
+        return IndicatorInfo(title: "GEAR SKIN")
     }
 }

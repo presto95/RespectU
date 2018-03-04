@@ -81,7 +81,7 @@ class AchievementNoteTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
+        header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
         header.backgroundView?.backgroundColor = UIColor.mainColor
     }
@@ -92,7 +92,7 @@ class AchievementNoteTableViewController: UITableViewController {
 
 extension AchievementNoteTableViewController: IndicatorInfoProvider{
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "NOTE")
+        return IndicatorInfo(title: "NOTE SKIN")
     }
 }
 

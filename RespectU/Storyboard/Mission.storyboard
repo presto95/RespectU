@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="-238" y="41"/>
         </scene>
-        <!--Mission Detail2 View Controller-->
+        <!--Mission Detail View Controller-->
         <scene sceneID="esy-9Z-3qw">
             <objects>
-                <viewController storyboardIdentifier="MissionDetail2ViewController" id="16X-16-0Xg" customClass="MissionDetail2ViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MissionDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="16X-16-0Xg" customClass="MissionDetailViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bcf-On-qty">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

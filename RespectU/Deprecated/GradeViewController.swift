@@ -140,7 +140,7 @@ class GradeViewController: UIViewController {
         case 0:
             //let result = getButton4Grade()
             let result = getGrade(sender: .button4)
-            button4SkillLevel = getGradeButton4(value: result.0)
+//            button4SkillLevel = getGradeButton4(value: result.0)
             button4SkillPoint = result.0
             button4FirstSkillPoint = result.1
             button4FirstSong = result.2
@@ -150,7 +150,7 @@ class GradeViewController: UIViewController {
         case 1:
             let result = getGrade(sender: .button5)
             //let result = getButton5Grade()
-            button5SkillLevel = getGradeButton5(value: result.0)
+//            button5SkillLevel = getGradeButton5(value: result.0)
             button5SkillPoint = result.0
             button5FirstSkillPoint = result.1
             button5FirstSong = result.2
@@ -160,7 +160,7 @@ class GradeViewController: UIViewController {
         case 2:
             let result = getGrade(sender: .button6)
             //let result = getButton6Grade()
-            button6SkillLevel = getGradeButton6And8(value: result.0)
+//            button6SkillLevel = getGradeButton6And8(value: result.0)
             button6SkillPoint = result.0
             button6FirstSkillPoint = result.1
             button6FirstSong = result.2
@@ -170,7 +170,7 @@ class GradeViewController: UIViewController {
         case 3:
             let result = getGrade(sender: .button8)
             //let result = getButton8Grade()
-            button8SkillLevel = getGradeButton6And8(value: result.0)
+//            button8SkillLevel = getGradeButton6And8(value: result.0)
             button8SkillPoint = result.0
             button8FirstSkillPoint = result.1
             button8FirstSong = result.2
@@ -183,8 +183,8 @@ class GradeViewController: UIViewController {
     }
     
     @IBAction func calculate(_ sender: UIBarButtonItem) {
-        let next = self.storyboard?.instantiateViewController(withIdentifier: "SkillPointCalculatorViewController") as! SkillPointCalculatorViewController
-        self.navigationController?.pushViewController(next, animated: true)
+//        let next = self.storyboard?.instantiateViewController(withIdentifier: "SkillPointCalculatorViewController") as! SkillPointCalculatorViewController
+//        self.navigationController?.pushViewController(next, animated: true)
         
     }
     

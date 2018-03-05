@@ -6,7 +6,6 @@ target 'RespectU' do
   use_frameworks!
 	pod 'RealmSwift'
   pod 'MarqueeLabel/Swift'
-  pod 'ActionSheetPicker-3.0'
   pod 'BRYXBanner'
   pod 'GaugeKit'
   pod 'Firebase/Core'
@@ -15,7 +14,6 @@ target 'RespectU' do
   pod 'GoogleSignIn'
   pod 'FSPagerView'
   pod 'XLPagerTabStrip', '~>8.0'
-  pod 'MGSwipeTableCell'
   pod 'DZNEmptyDataSet'
   pod 'Charts'
   pod 'PMAlertController'

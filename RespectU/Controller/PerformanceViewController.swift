@@ -108,7 +108,7 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getGradeButton4(value: mySkillPointSum)
+                cell.skillLevel.text = getSkillLevelButton4(value: mySkillPointSum)
                 cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "4B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
@@ -136,7 +136,7 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getGradeButton5(value: mySkillPointSum)
+                cell.skillLevel.text = getSkillLevelButton5(value: mySkillPointSum)
                 cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "5B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
@@ -164,7 +164,7 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getGradeButton6And8(value: mySkillPointSum)
+                cell.skillLevel.text = getSkillLevelButton6And8(value: mySkillPointSum)
                 cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "6B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
@@ -192,7 +192,7 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getGradeButton6And8(value: mySkillPointSum)
+                cell.skillLevel.text = getSkillLevelButton6And8(value: mySkillPointSum)
                 cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "8B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
@@ -251,6 +251,18 @@ extension PerformanceViewController: UITableViewDataSource{
 extension PerformanceViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        switch(indexPath.section){
+        case 0:
+            let storyboard = UIStoryboard(name: "Performance", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "SkillLevelDetailViewController")
+            present(controller, animated: true, completion: nil)
+        case 1:
+            break
+        case 2:
+            break
+        default:
+            break
+        }
     }
 }
 
@@ -332,10 +344,11 @@ func getMySkillPoint(button: String) -> (sum: Double, highestSeries: String){
     default:
         break
     }
-    return (sum, (record.first?.series)!)
+    let highestSeries = (record.first?.series)!
+    return (sum, highestSeries)
 }
 
-func getGradeButton4(value: Double) -> String{
+func getSkillLevelButton4(value: Double) -> String{
     switch(value){
     case 0..<1000:
         return"BEGINNER"
@@ -398,7 +411,7 @@ func getGradeButton4(value: Double) -> String{
     }
 }
 
-func getGradeButton5(value: Double) -> String{
+func getSkillLevelButton5(value: Double) -> String{
     switch(value){
     case 0..<1000:
         return "BEGINNER"
@@ -463,7 +476,7 @@ func getGradeButton5(value: Double) -> String{
     }
 }
 
-func getGradeButton6And8(value: Double) -> String{
+func getSkillLevelButton6And8(value: Double) -> String{
     switch(value){
     case 0..<1500:
         return "BEGINNER"

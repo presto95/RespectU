@@ -160,7 +160,12 @@ extension GuideViewController: UICollectionViewDelegate{
         case 2:
             switch(indexPath.row){
             case 0:
-                goToAnotherView(storyboard: "Radio", identifier: "RadioViewController")
+                if(!Reachability.isConnectedToNetwork()){
+                    let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
+                    present(alert, animated: true)
+                } else {
+                    goToAnotherView(storyboard: "Radio", identifier: "RadioViewController")
+                }
             case 1:
                 sendEmail()
             case 2:

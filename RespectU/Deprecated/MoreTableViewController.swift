@@ -91,18 +91,18 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
         let button8Grade = getGrade(sender: .button8).0
         let gradeArray = [button4Grade, button5Grade, button6Grade, button8Grade]
         let grade = gradeArray.sorted()[3]
-        switch(grade){
-        case button4Grade:
-            cellGrade.detailTextLabel?.text = getGradeButton4(value: grade) + "(\(grade))"
-        case button5Grade:
-            cellGrade.detailTextLabel?.text = getGradeButton5(value: grade) + "(\(grade))"
-        case button6Grade:
-            cellGrade.detailTextLabel?.text = getGradeButton6And8(value: grade) + "(\(grade))"
-        case button8Grade:
-            cellGrade.detailTextLabel?.text = getGradeButton6And8(value: grade) + "(\(grade))"
-        default:
-            break
-        }
+//        switch(grade){
+//        case button4Grade:
+//            cellGrade.detailTextLabel?.text = getGradeButton4(value: grade) + "(\(grade))"
+//        case button5Grade:
+//            cellGrade.detailTextLabel?.text = getGradeButton5(value: grade) + "(\(grade))"
+//        case button6Grade:
+//            cellGrade.detailTextLabel?.text = getGradeButton6And8(value: grade) + "(\(grade))"
+//        case button8Grade:
+//            cellGrade.detailTextLabel?.text = getGradeButton6And8(value: grade) + "(\(grade))"
+//        default:
+//            break
+//        }
         if(UserDefaults.standard.bool(forKey: "night")){
             nightSwitch.setOn(true, animated: false)
             view.backgroundColor=UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -237,36 +237,37 @@ class MoreTableViewController: UITableViewController, MFMailComposeViewControlle
                 }
             }
         case 2:
-            let next=self.storyboard?.instantiateViewController(withIdentifier: "GradeViewController") as! GradeViewController
-            let button4 = getGrade(sender: .button4)
-            let button5 = getGrade(sender: .button5)
-            let button6 = getGrade(sender: .button6)
-            let button8 = getGrade(sender: .button8)
-            next.button4SkillLevel = getGradeButton4(value: button4.0)
-            next.button4SkillPoint = button4.0
-            next.button5SkillLevel = getGradeButton5(value: button5.0)
-            next.button5SkillPoint = button5.0
-            next.button6SkillLevel = getGradeButton6And8(value: button6.0)
-            next.button6SkillPoint = button6.0
-            next.button8SkillLevel = getGradeButton6And8(value: button8.0)
-            next.button8SkillPoint = button8.0
-            next.button4FirstSkillPoint = button4.1
-            next.button5FirstSkillPoint = button5.1
-            next.button6FirstSkillPoint = button6.1
-            next.button8FirstSkillPoint = button8.1
-            next.button4FirstSong = button4.2
-            next.button5FirstSong = button5.2
-            next.button6FirstSong = button6.2
-            next.button8FirstSong = button8.2
-            next.button4LastSkillPoint = button4.3
-            next.button5LastSkillPoint = button5.3
-            next.button6LastSkillPoint = button6.3
-            next.button8LastSkillPoint = button8.3
-            next.button4LastSong = button4.4
-            next.button5LastSong = button5.4
-            next.button6LastSong = button6.4
-            next.button8LastSong = button8.4
-            self.navigationController?.pushViewController(next, animated: true)
+            break
+//            let next=self.storyboard?.instantiateViewController(withIdentifier: "GradeViewController") as! GradeViewController
+//            let button4 = getGrade(sender: .button4)
+//            let button5 = getGrade(sender: .button5)
+//            let button6 = getGrade(sender: .button6)
+//            let button8 = getGrade(sender: .button8)
+//            next.button4SkillLevel = getGradeButton4(value: button4.0)
+//            next.button4SkillPoint = button4.0
+//            next.button5SkillLevel = getGradeButton5(value: button5.0)
+//            next.button5SkillPoint = button5.0
+//            next.button6SkillLevel = getGradeButton6And8(value: button6.0)
+//            next.button6SkillPoint = button6.0
+//            next.button8SkillLevel = getGradeButton6And8(value: button8.0)
+//            next.button8SkillPoint = button8.0
+//            next.button4FirstSkillPoint = button4.1
+//            next.button5FirstSkillPoint = button5.1
+//            next.button6FirstSkillPoint = button6.1
+//            next.button8FirstSkillPoint = button8.1
+//            next.button4FirstSong = button4.2
+//            next.button5FirstSong = button5.2
+//            next.button6FirstSong = button6.2
+//            next.button8FirstSong = button8.2
+//            next.button4LastSkillPoint = button4.3
+//            next.button5LastSkillPoint = button5.3
+//            next.button6LastSkillPoint = button6.3
+//            next.button8LastSkillPoint = button8.3
+//            next.button4LastSong = button4.4
+//            next.button5LastSong = button5.4
+//            next.button6LastSong = button6.4
+//            next.button8LastSong = button8.4
+//            self.navigationController?.pushViewController(next, animated: true)
         case 4:
             let alert=UIAlertController(title: "Change BPM Default".localized, message: "Current".localized+" : \(Int(UserDefaults.standard.double(forKey: "bpm"))) BPM\n\n"+"You can get SPEED Recommendation by touching Song list.".localized, preferredStyle: .alert)
             alert.addTextField{ (textField) -> Void in

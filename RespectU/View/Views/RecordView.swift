@@ -67,7 +67,6 @@ class RecordView: UIView {
         default:
             break
         }
-        
     }
     
     @IBAction func clickButtons(_ sender: UIButton) {
@@ -430,43 +429,17 @@ class RecordView: UIView {
     func showSkillPoint(sender: Int){
         switch(sender){
         case 0:
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button4SkillPoint)"
+            labelSkillPoint.text = "\(object.button4SkillPoint) " + "Point".localized
         case 1:
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button5SkillPoint)"
+            labelSkillPoint.text = "\(object.button5SkillPoint) " + "Point".localized
         case 2:
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button6SkillPoint)"
+            labelSkillPoint.text = "\(object.button6SkillPoint) " + "Point".localized
         case 3:
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button8SkillPoint)"
+            labelSkillPoint.text = "\(object.button8SkillPoint) " + "Point".localized
         default:
             break
         }
     }
-    
-//    func getSkillPoint(difficulty: Int, rate: String, note: String) -> Double{
-//        if(difficulty == 0){
-//            return 0
-//        }
-//        var skillPoint: Double
-//        let e = 2.71828
-//        let rateString = rate.split(separator: "%")[0].description
-//        let accuracy = Double(rateString) ?? 0
-//        let weight = getWeight(value: difficulty)
-//        if(accuracy >= 80){
-//            let temp = pow((accuracy - 80) / 20.0, e) + 1
-//            skillPoint = weight * 50 * temp
-//        }
-//        else{
-//            skillPoint = Double(weight * accuracy * 5) / 8.0
-//        }
-//        if(note == "-"){
-//            skillPoint = skillPoint * 0.98
-//        }
-//        else if(note == "PERFECT PLAY"){
-//            skillPoint = skillPoint * 1.05
-//        }
-//        skillPoint = (skillPoint * 100).rounded() / 100
-//        return skillPoint
-//    }
     
     func setSkillPoint(button: String){
         switch(button){
@@ -598,7 +571,7 @@ class RecordView: UIView {
         let object = results.filter(query).first!
         switch(button){
         case "4B":
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button4SkillPoint)"
+            labelSkillPoint.text = "\(object.button4SkillPoint) " + "Point".localized
             if(object.nm4 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
@@ -636,7 +609,7 @@ class RecordView: UIView {
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx4Note), for: .normal)
             }
         case "5B":
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button5SkillPoint)"
+            labelSkillPoint.text = "\(object.button5SkillPoint) " + "Point".localized
             if(object.nm5 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
@@ -674,7 +647,7 @@ class RecordView: UIView {
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx5Note), for: .normal)
             }
         case "6B":
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button6SkillPoint)"
+            labelSkillPoint.text = "\(object.button6SkillPoint) " + "Point".localized
             if(object.nm6 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
@@ -712,7 +685,7 @@ class RecordView: UIView {
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx6Note), for: .normal)
             }
         case "8B":
-            labelSkillPoint.text = "Skill Point".localized + " : \(object.button8SkillPoint)"
+            labelSkillPoint.text = "\(object.button8SkillPoint) " + "Point".localized
             if(object.nm8 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false

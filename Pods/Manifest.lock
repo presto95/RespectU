@@ -1,5 +1,4 @@
 PODS:
-  - ActionSheetPicker-3.0 (2.2.0)
   - BRYXBanner (0.8.0)
   - Charts (3.0.5):
     - Charts/Core (= 3.0.5)
@@ -57,7 +56,6 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.12)
   - leveldb-library (1.20)
   - MarqueeLabel/Swift (3.1.3)
-  - MGSwipeTableCell (1.6.6)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -72,7 +70,6 @@ PODS:
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
-  - ActionSheetPicker-3.0
   - BRYXBanner
   - Charts
   - DZNEmptyDataSet
@@ -83,13 +80,11 @@ DEPENDENCIES:
   - GaugeKit
   - GoogleSignIn
   - MarqueeLabel/Swift
-  - MGSwipeTableCell
   - PMAlertController
   - RealmSwift
   - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
-  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   BRYXBanner: 406c3775789136531da6f3c98058be2f16e08a34
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
@@ -107,13 +102,12 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
-  MGSwipeTableCell: c3bc6e261e7bc06c112909fe3fb8205de286082c
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PMAlertController: 46047b840f6e1833c2a5395c91ccad29e72ae2c0
   Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
   RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: b7b9ea908240a6e4aa7225f65a3d38f64e04b6d2
+PODFILE CHECKSUM: 4ef10ea595bcd8265f68e96e3209c50ea785f5b8
 
 COCOAPODS: 1.3.1

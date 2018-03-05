@@ -53,9 +53,21 @@ class SkillLevelCell: UITableViewCell {
                 let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Log in First.".localized)
                 self.parentViewController()?.present(alert, animated: true)
             } else {
-                let storyboard = UIStoryboard(name: "Ranking", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "RankingViewController")
-                self.parentViewController()?.present(controller, animated: true, completion: nil)
+                let alert = PMAlertController(title: "", description: "", image: nil, style: .alert)
+                let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
+                let ranking = PMAlertAction(title: "Ranking".localized, style: .default, action: {
+                    let storyboard = UIStoryboard(name: "Ranking", bundle: nil)
+                    let controller = storyboard.instantiateViewController(withIdentifier: "RankingViewController")
+                    self.parentViewController()?.present(controller, animated: true, completion: nil)
+                })
+                let upload = PMAlertAction(title: "Upload".localized, style: .default, action: {
+                    self.upload()
+                })
+                designAlertController(alert: alert, actions: ranking, upload, cancel)
+                alert.addAction(cancel)
+                alert.addAction(upload)
+                alert.addAction(ranking)
+                self.parentViewController()?.present(alert, animated: true)
             }
         }
     }
@@ -101,5 +113,61 @@ class SkillLevelCell: UITableViewCell {
         alert.addAction(noMaxCombo)
         alert.addAction(maxComboOrPerfectPlay)
         self.parentViewController()?.present(alert, animated: true)
+    }
+    
+    func upload(){
+        let button4SkillPoint = getMySkillPoint(button: "4B").sum
+        let button5SkillPoint = getMySkillPoint(button: "5B").sum
+        let button6SkillPoint = getMySkillPoint(button: "6B").sum
+        let button8SkillPoint = getMySkillPoint(button: "8B").sum
+        var countPerfect = 0
+        let record = try! Realm().objects(RecordInfo.self)
+        for i in record{
+            if i.nm4Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.hd4Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.mx4Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.nm5Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.hd5Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.mx5Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.nm6Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.hd6Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.mx6Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.nm8Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.hd8Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+            if i.mx8Note == "PERFECT PLAY"{
+                countPerfect += 1
+            }
+        }
+        Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).setValue([
+            "userId": UserDefaults.standard.string(forKey: "nickname") ?? Auth.auth().currentUser?.email,
+            "button4SkillPoint": (button4SkillPoint * 100).rounded() / 100,
+            "button5SkillPoint": (button5SkillPoint * 100).rounded() / 100,
+            "button6SkillPoint": (button6SkillPoint * 100).rounded() / 100,
+            "button8SkillPoint": (button8SkillPoint * 100).rounded() / 100,
+            "countPerfectPlay": countPerfect,
+            "uid": Auth.auth().currentUser?.uid
+            ])
     }
 }

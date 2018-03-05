@@ -72,9 +72,8 @@ extension RecordViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell")!
         let object = searchedResults[indexPath.row]
-        
         cell.textLabel?.text = object.title
-        cell.textLabel?.font = UIFont(name: "NotoSansCJKkr-Medium", size: 14)
+//        cell.textLabel?.font = UIFont(name: "NotoSansCJKkr-Medium", size: 14)
         return cell
     }
 }

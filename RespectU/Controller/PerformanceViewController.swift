@@ -13,9 +13,8 @@ import PMAlertController
 import RealmSwift
 
 class PerformanceViewController: UIViewController {
-
-    
   
+    @IBOutlet weak var buttonRecord: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nickname: UIButton!
     var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
@@ -23,10 +22,11 @@ class PerformanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = Init()
-        tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
+        tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         tableView.register(UINib(nibName: "GraphCell", bundle: nil), forCellReuseIdentifier: "graphCell")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        buttonRecord.setTitle("Performance Record".localized, for: .normal)
         if(Auth.auth().currentUser == nil){
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -36,10 +36,10 @@ class PerformanceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        //뷰 업데이트는 didload 말고 여기에
         favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
         tableView.reloadData()
-        //뷰 업데이트는 didload 말고 여기에
-        nickname.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "닉네임을 설정해 주세요.".localized, for: .normal)
+        nickname.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: .normal)
         
     }
 
@@ -199,7 +199,6 @@ extension PerformanceViewController: UITableViewDataSource{
             default:
                 break
             }
-            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as! SummaryCell
@@ -234,7 +233,7 @@ extension PerformanceViewController: UITableViewDataSource{
         case 0:
             return 150
         case 1:
-            return 40
+            return 130
         case 2:
             return 40
         default:

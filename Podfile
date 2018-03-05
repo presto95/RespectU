@@ -12,11 +12,11 @@ target 'RespectU' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
-  pod 'FSPagerView'
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'
   pod 'Charts'
   pod 'PMAlertController'
+  pod 'SwiftGifOrigin', '~> 1.6.1'
   # Pods for RespectU
 
 end

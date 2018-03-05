@@ -31,6 +31,8 @@ class SkillLevelCell: UITableViewCell {
         ranking.layer.borderWidth = 2
         calculator.layer.borderColor = UIColor.mainColor.cgColor
         calculator.layer.borderWidth = 2
+        ranking.setTitle("Ranking".localized, for: .normal)
+        calculator.setTitle("Calculator".localized, for: .normal)
         // Initialization code
     }
 
@@ -53,7 +55,7 @@ class SkillLevelCell: UITableViewCell {
                 let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Log in First.".localized)
                 self.parentViewController()?.present(alert, animated: true)
             } else {
-                let alert = PMAlertController(title: "", description: "", image: nil, style: .alert)
+                let alert = PMAlertController(title: "Ranking".localized, description: "", image: nil, style: .alert)
                 let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
                 let ranking = PMAlertAction(title: "Ranking".localized, style: .default, action: {
                     let storyboard = UIStoryboard(name: "Ranking", bundle: nil)

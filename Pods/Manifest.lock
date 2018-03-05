@@ -30,7 +30,6 @@ PODS:
     - leveldb-library (~> 1.18)
   - FirebaseInstanceID (2.0.8):
     - FirebaseCore (~> 4.0)
-  - FSPagerView (0.7.1)
   - GaugeKit (0.4.5)
   - GoogleSignIn (4.1.1):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
@@ -67,6 +66,7 @@ PODS:
   - Realm/Headers (2.10.1)
   - RealmSwift (2.10.1):
     - Realm (= 2.10.1)
+  - SwiftGifOrigin (1.6.1)
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
@@ -76,12 +76,12 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
-  - FSPagerView
   - GaugeKit
   - GoogleSignIn
   - MarqueeLabel/Swift
   - PMAlertController
   - RealmSwift
+  - SwiftGifOrigin (~> 1.6.1)
   - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
@@ -94,7 +94,6 @@ SPEC CHECKSUMS:
   FirebaseCore: 3c02ec652db3d03fdc8bc6d9154af3e20d64b6f5
   FirebaseDatabase: 7088bfc4af2cc00231bb36e1404fc2d7509eb4dc
   FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
-  FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   GaugeKit: 7872069a8aed2d26b17fca110fe1ab59722f8a33
   GoogleSignIn: 3fdaa34a2ba04dbd7a25d7db39aecb0da98d5bdc
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
@@ -106,8 +105,9 @@ SPEC CHECKSUMS:
   PMAlertController: 46047b840f6e1833c2a5395c91ccad29e72ae2c0
   Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
   RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 4ef10ea595bcd8265f68e96e3209c50ea785f5b8
+PODFILE CHECKSUM: 72dd42a8374e5f7c757f4e4f2a1d5ebf80ee0030
 
 COCOAPODS: 1.3.1

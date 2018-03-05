@@ -20,6 +20,7 @@ class Init{
             UserDefaults.standard.set(true, forKey: "error1")
         }
         let version = UserDefaults.standard.integer(forKey: "version")
+        print(version)
         
         if(version <= 15){
             try! realm.write{
@@ -1148,6 +1149,12 @@ class Init{
             addTip("In ONLINE mode, you can play music you have not yet acquired.")
             addTip("While FEVER is active, you can receive more points and larger combos.")
             addTip("You can use the L2 button and R2 button to change the speed during play, or from the music selection screen.")
+        }
+        
+        if(version <= 25){
+            if(UserDefaults.standard.integer(forKey: "bpm") == 0){
+                UserDefaults.standard.set(450, forKey: "bpm")
+            }
         }
         
         if(version <= 25){

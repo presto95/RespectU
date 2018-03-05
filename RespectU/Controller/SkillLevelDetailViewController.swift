@@ -21,6 +21,10 @@ class SkillLevelDetailViewController: UIViewController {
         let button5View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
         let button6View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
         let button8View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
+        button4View.frame.size = view1.frame.size
+        button5View.frame.size = view2.frame.size
+        button6View.frame.size = view3.frame.size
+        button8View.frame.size = view4.frame.size
         view1.addSubview(button4View)
         view2.addSubview(button5View)
         view3.addSubview(button6View)

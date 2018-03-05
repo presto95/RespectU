@@ -10,9 +10,12 @@ import UIKit
 
 class Tutorial3ViewController: UIViewController {
 
+    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var buttonStart: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        content.text = "Enjoy DJMAX RESPECT with RespectU!".localized
+        buttonStart.setTitle("We Respect You", for: .normal)
         // Do any additional setup after loading the view.
     }
 

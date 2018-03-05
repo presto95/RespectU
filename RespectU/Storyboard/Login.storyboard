@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zz9-md-jml" customClass="GIDSignInButton">
-                                <rect key="frame" x="16" y="365" width="288" height="48"/>
+                                <rect key="frame" x="14" y="365" width="292" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -36,7 +36,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2O-z4-mTP">
                                 <rect key="frame" x="244" y="435" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="skip:" destination="y09-pX-rxO" eventType="touchUpInside" id="lYZ-jT-R8t"/>
                                 </connections>
@@ -57,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Lg-8C-nLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-324.375" y="110.91549295774648"/>
+            <point key="canvasLocation" x="-325.60000000000002" y="110.19490254872565"/>
         </scene>
     </scenes>
     <resources>

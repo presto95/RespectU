@@ -19,6 +19,8 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
     let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["DJMAX Radio Station", "Send Email to Developer", "Credit"]]
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonPerformance: UIButton!
+    @IBOutlet weak var buttonRecord: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
         layout.minimumLineSpacing = 5
         layout.headerReferenceSize = CGSize(width: 50, height: 30)
         collectionView.collectionViewLayout = layout
+        buttonRecord.setTitle("Performance Record".localized, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {

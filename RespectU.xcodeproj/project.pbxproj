@@ -115,7 +115,6 @@
 		193E4017204C03C50063A440 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4016204C03C50063A440 /* UIView+.swift */; };
 		193E401A204C05A00063A440 /* Top50Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4018204C05A00063A440 /* Top50Cell.swift */; };
 		193E401B204C05A00063A440 /* Top50Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193E4019204C05A00063A440 /* Top50Cell.xib */; };
-		193E401D204C06AA0063A440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193E401C204C06AA0063A440 /* Main.storyboard */; };
 		193E401F204C07F40063A440 /* Top50.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193E401E204C07F40063A440 /* Top50.storyboard */; };
 		193E4021204C09DB0063A440 /* Top504BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4020204C09DB0063A440 /* Top504BTableViewController.swift */; };
 		193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4022204C09E70063A440 /* Top505BTableViewController.swift */; };
@@ -154,12 +153,13 @@
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
 		1968185120490C730007F4D7 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185020490C730007F4D7 /* TipViewController.swift */; };
 		1968185320490D300007F4D7 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185220490D300007F4D7 /* UIColor+.swift */; };
-		196F03A11FFF37E50028A9B8 /* GradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F03A01FFF37E50028A9B8 /* GradeViewController.swift */; };
-		19774C451FA855F500729250 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19774C441FA855F500729250 /* SummaryViewController.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
 		198CB54C2013603600646D55 /* respectu-3d-color-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198CB54B2013603600646D55 /* respectu-3d-color-background.png */; };
 		198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198CB54D2013603D00646D55 /* respectu-flat-background.png */; };
+		198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */; };
+		198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */; };
+		198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */; };
 		1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1997B0992012551E0072EED9 /* GoogleService-Info.plist */; };
 		1999920E2049641A00C74697 /* MissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1999920C2049641A00C74697 /* MissionCell.swift */; };
 		1999920F2049641A00C74697 /* MissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1999920D2049641A00C74697 /* MissionCell.xib */; };
@@ -175,7 +175,6 @@
 		19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */; };
 		19C9216B1F810DE600774E3E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9216A1F810DE600774E3E /* MessageUI.framework */; };
 		19CEF6B21FAD33F6005AFA8F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CEF6B11FAD33F6005AFA8F /* icon.png */; };
-		19D4E4A51F80DFC800F0BF2B /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */; };
 		19E02ACA204919830070D72B /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E02AC9204919830070D72B /* Achievement.storyboard */; };
 		19E02ACC2049199C0070D72B /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E02ACB2049199C0070D72B /* AchievementViewController.swift */; };
 		19F2312F20156BBC00ADF825 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F2312E20156BBC00ADF825 /* Reachability.swift */; };
@@ -187,6 +186,10 @@
 		19FF806E2018A1AC00ECC666 /* accuracyUpper80Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF806A2018A1A700ECC666 /* accuracyUpper80Black.png */; };
 		19FF806F2018A1AC00ECC666 /* accuracyBelow80White.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF806B2018A1A900ECC666 /* accuracyBelow80White.png */; };
 		19FF80702018A1AC00ECC666 /* accuracyBelow80Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF806C2018A1AA00ECC666 /* accuracyBelow80Black.png */; };
+		19FFA724204D5623006F2535 /* tutorial2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 19FFA722204D5622006F2535 /* tutorial2.gif */; };
+		19FFA725204D5623006F2535 /* tutorial1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 19FFA723204D5622006F2535 /* tutorial1.gif */; };
+		19FFA727204D5632006F2535 /* Tutorial1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFA726204D5632006F2535 /* Tutorial1ViewController.swift */; };
+		19FFA729204D563B006F2535 /* Tutorial2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FFA728204D563B006F2535 /* Tutorial2ViewController.swift */; };
 		1C0E1D5872206B8A4DABA752 /* Pods_RespectU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C82758ABE7A6568499A7F2 /* Pods_RespectU.framework */; };
 /* End PBXBuildFile section */
 
@@ -312,7 +315,6 @@
 		193E4016204C03C50063A440 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		193E4018204C05A00063A440 /* Top50Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50Cell.swift; sourceTree = "<group>"; };
 		193E4019204C05A00063A440 /* Top50Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Top50Cell.xib; sourceTree = "<group>"; };
-		193E401C204C06AA0063A440 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		193E401E204C07F40063A440 /* Top50.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top50.storyboard; sourceTree = "<group>"; };
 		193E4020204C09DB0063A440 /* Top504BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top504BTableViewController.swift; sourceTree = "<group>"; };
 		193E4022204C09E70063A440 /* Top505BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top505BTableViewController.swift; sourceTree = "<group>"; };
@@ -351,12 +353,13 @@
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
 		1968185020490C730007F4D7 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		1968185220490D300007F4D7 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		196F03A01FFF37E50028A9B8 /* GradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeViewController.swift; sourceTree = "<group>"; };
-		19774C441FA855F500729250 /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198CB54B2013603600646D55 /* respectu-3d-color-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "respectu-3d-color-background.png"; sourceTree = "<group>"; };
 		198CB54D2013603D00646D55 /* respectu-flat-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "respectu-flat-background.png"; sourceTree = "<group>"; };
+		198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
+		198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
+		198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
 		1997B0992012551E0072EED9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1999920C2049641A00C74697 /* MissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCell.swift; sourceTree = "<group>"; };
 		1999920D2049641A00C74697 /* MissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionCell.xib; sourceTree = "<group>"; };
@@ -380,7 +383,6 @@
 		19B6CFFA1F7953640097B86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9216A1F810DE600774E3E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		19CEF6B11FAD33F6005AFA8F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		19E02AC9204919830070D72B /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
 		19E02ACB2049199C0070D72B /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		19F2312E20156BBC00ADF825 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -392,6 +394,10 @@
 		19FF806A2018A1A700ECC666 /* accuracyUpper80Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accuracyUpper80Black.png; sourceTree = "<group>"; };
 		19FF806B2018A1A900ECC666 /* accuracyBelow80White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accuracyBelow80White.png; sourceTree = "<group>"; };
 		19FF806C2018A1AA00ECC666 /* accuracyBelow80Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accuracyBelow80Black.png; sourceTree = "<group>"; };
+		19FFA722204D5622006F2535 /* tutorial2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial2.gif; sourceTree = "<group>"; };
+		19FFA723204D5622006F2535 /* tutorial1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tutorial1.gif; sourceTree = "<group>"; };
+		19FFA726204D5632006F2535 /* Tutorial1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1ViewController.swift; sourceTree = "<group>"; };
+		19FFA728204D563B006F2535 /* Tutorial2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2ViewController.swift; sourceTree = "<group>"; };
 		35C82758ABE7A6568499A7F2 /* Pods_RespectU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RespectU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A314C0291FA5F61AAC482F05 /* Pods-RespectU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.release.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B1689F63785D34949E1A9 /* Pods-RespectU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.debug.xcconfig"; sourceTree = "<group>"; };
@@ -444,6 +450,8 @@
 				19012FBB204837040061EF21 /* PerformanceViewController.swift */,
 				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
 				19012FD2204855760061EF21 /* TutorialViewController.swift */,
+				19FFA726204D5632006F2535 /* Tutorial1ViewController.swift */,
+				19FFA728204D563B006F2535 /* Tutorial2ViewController.swift */,
 				19012FD420485C740061EF21 /* Tutorial3ViewController.swift */,
 				1968184A2048F70D0007F4D7 /* RadioViewController.swift */,
 				1968185020490C730007F4D7 /* TipViewController.swift */,
@@ -484,6 +492,7 @@
 				193E4030204C24060063A440 /* Ranking8BTableViewController.swift */,
 				193E4032204C240F0063A440 /* RankingPPTableViewController.swift */,
 				19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */,
+				198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -502,9 +511,9 @@
 			children = (
 				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
 				19012FB32048342F0061EF21 /* Login.storyboard */,
+				19012FD0204854F40061EF21 /* Tutorial.storyboard */,
 				19012FB52048344F0061EF21 /* Performance.storyboard */,
 				19012FB72048345B0061EF21 /* Guide.storyboard */,
-				19012FD0204854F40061EF21 /* Tutorial.storyboard */,
 				196818482048F6820007F4D7 /* Radio.storyboard */,
 				1968184E20490ADA0007F4D7 /* Tip.storyboard */,
 				19E02AC9204919830070D72B /* Achievement.storyboard */,
@@ -521,9 +530,9 @@
 		19012FAE204808120061EF21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
 				19137A0B1FAB51420097B11C /* Fonts */,
-				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				1919A3A02008F6DB00D51A2A /* images */,
 			);
 			path = "Supporting Files";
@@ -533,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				19012FB2204808AE0061EF21 /* Extension */,
+				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
 			);
@@ -543,7 +553,6 @@
 		19012FB0204808390061EF21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
 				196818442048E34D0007F4D7 /* GuideReusableView.swift */,
 				193E3FF4204BB0D80063A440 /* RecordView.xib */,
 				193E3FF6204BB1060063A440 /* RecordView.swift */,
@@ -568,6 +577,8 @@
 				194E52B6204AC55900B84AFA /* SongCell.xib */,
 				193E4006204BF37E0063A440 /* SummaryCell.swift */,
 				193E4007204BF37E0063A440 /* SummaryCell.xib */,
+				198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */,
+				198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */,
 				193E400A204BF5D60063A440 /* SkillLevelCell.swift */,
 				193E400B204BF5D60063A440 /* SkillLevelCell.xib */,
 				193E400E204BF5E20063A440 /* GraphCell.swift */,
@@ -596,7 +607,6 @@
 		19137A0B1FAB51420097B11C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				19CEF6B11FAD33F6005AFA8F /* icon.png */,
 				1927DA4D201E217B003D1752 /* NotoSansCJKkr-Medium.otf */,
 				1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */,
 				1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */,
@@ -609,6 +619,9 @@
 		1919A3A02008F6DB00D51A2A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				19FFA723204D5622006F2535 /* tutorial1.gif */,
+				19FFA722204D5622006F2535 /* tutorial2.gif */,
+				19CEF6B11FAD33F6005AFA8F /* icon.png */,
 				194E52BB204B0B2800B84AFA /* iconInfo.png */,
 				19FF806C2018A1AA00ECC666 /* accuracyBelow80Black.png */,
 				19FF806B2018A1A900ECC666 /* accuracyBelow80White.png */,
@@ -688,17 +701,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		19B5F9B7204A47A600E12EC1 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				19D4E4A41F80DFC800F0BF2B /* MoreTableViewController.swift */,
-				196F03A01FFF37E50028A9B8 /* GradeViewController.swift */,
-				19774C441FA855F500729250 /* SummaryViewController.swift */,
-				193E401C204C06AA0063A440 /* Main.storyboard */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		19B6CFDF1F7953640097B86B = {
 			isa = PBXGroup;
 			children = (
@@ -720,7 +722,6 @@
 		19B6CFEA1F7953640097B86B /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
-				19B5F9B7204A47A600E12EC1 /* Deprecated */,
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
 				1997B0992012551E0072EED9 /* GoogleService-Info.plist */,
@@ -837,7 +838,6 @@
 				19012FB62048344F0061EF21 /* Performance.storyboard in Resources */,
 				1919A3AD2008F7AD00D51A2A /* ce2.png in Resources */,
 				1919A3EF2008F7C100D51A2A /* respect15.png in Resources */,
-				193E401D204C06AA0063A440 /* Main.storyboard in Resources */,
 				1919A3DE2008F7C100D51A2A /* respect29.png in Resources */,
 				1919A3DA2008F7C100D51A2A /* respect10.png in Resources */,
 				19320FD6204959BE0075BD86 /* TrophyCell.xib in Resources */,
@@ -845,6 +845,7 @@
 				19E02ACA204919830070D72B /* Achievement.storyboard in Resources */,
 				1919A3F62008F7C100D51A2A /* respect9.png in Resources */,
 				19012FD1204854F40061EF21 /* Tutorial.storyboard in Resources */,
+				19FFA725204D5623006F2535 /* tutorial1.gif in Resources */,
 				193E3FF1204B9C240063A440 /* Record.storyboard in Resources */,
 				1919A3AC2008F7AD00D51A2A /* ce1.png in Resources */,
 				19320FCA204955DC0075BD86 /* Song.storyboard in Resources */,
@@ -864,10 +865,12 @@
 				193E400D204BF5D60063A440 /* SkillLevelCell.xib in Resources */,
 				1919A3A92008F7AD00D51A2A /* ce4.png in Resources */,
 				1919A3EC2008F7C100D51A2A /* respect6.png in Resources */,
+				19FFA724204D5623006F2535 /* tutorial2.gif in Resources */,
 				1919A3E62008F7C100D51A2A /* respect1.png in Resources */,
 				1919A3A82008F7AD00D51A2A /* ce5.png in Resources */,
 				1919A3AA2008F7AD00D51A2A /* ce6.png in Resources */,
 				1919A40B2008F7C800D51A2A /* trilogy2.png in Resources */,
+				198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */,
 				1919A3F82008F7C100D51A2A /* respect17.png in Resources */,
 				1919A3AB2008F7AD00D51A2A /* ce7.png in Resources */,
 				1999920F2049641A00C74697 /* MissionCell.xib in Resources */,
@@ -951,7 +954,6 @@
 				"${BUILT_PRODUCTS_DIR}/BRYXBanner/BRYXBanner.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
@@ -960,6 +962,7 @@
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -969,7 +972,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BRYXBanner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
@@ -978,6 +980,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -995,9 +998,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19012FBA204835180061EF21 /* LoginViewController.swift in Sources */,
-				196F03A11FFF37E50028A9B8 /* GradeViewController.swift in Sources */,
 				194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */,
 				19012FCD20484C260061EF21 /* TrophyInfo.swift in Sources */,
+				198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */,
 				194E52A6204A8F7B00B84AFA /* SongAllTableViewController.swift in Sources */,
 				193E4029204C237B0063A440 /* RankingViewController.swift in Sources */,
 				193E4033204C240F0063A440 /* RankingPPTableViewController.swift in Sources */,
@@ -1007,6 +1010,8 @@
 				193E3FF7204BB1060063A440 /* RecordView.swift in Sources */,
 				199992172049654E00C74697 /* MissionCETableViewController.swift in Sources */,
 				19320FC02049424D0075BD86 /* AchievementNoteTableViewController.swift in Sources */,
+				198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */,
+				19FFA729204D563B006F2535 /* Tutorial2ViewController.swift in Sources */,
 				19320FC4204942640075BD86 /* AchievementCommentTableViewController.swift in Sources */,
 				1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */,
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
@@ -1020,9 +1025,7 @@
 				19320FBC204942390075BD86 /* AchievementMusicTableViewController.swift in Sources */,
 				194E52AA204A900D00B84AFA /* SongPortable2TableViewController.swift in Sources */,
 				199992112049652700C74697 /* MissionViewController.swift in Sources */,
-				19D4E4A51F80DFC800F0BF2B /* MoreTableViewController.swift in Sources */,
 				196818422048D32A0007F4D7 /* GuideCell.swift in Sources */,
-				19774C451FA855F500729250 /* SummaryViewController.swift in Sources */,
 				1968185320490D300007F4D7 /* UIColor+.swift in Sources */,
 				193E4008204BF37E0063A440 /* SummaryCell.swift in Sources */,
 				19B660261F960E5800CCEFB5 /* String+.swift in Sources */,
@@ -1035,6 +1038,7 @@
 				19012FD3204855760061EF21 /* TutorialViewController.swift in Sources */,
 				19F2312F20156BBC00ADF825 /* Reachability.swift in Sources */,
 				19012FD520485C740061EF21 /* Tutorial3ViewController.swift in Sources */,
+				19FFA727204D5632006F2535 /* Tutorial1ViewController.swift in Sources */,
 				193E402D204C23F40063A440 /* Ranking5BTableViewController.swift in Sources */,
 				193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */,
 				199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */,

@@ -79,6 +79,8 @@
 		1919A40E2008F7C800D51A2A /* trilogy3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1919A4072008F7C800D51A2A /* trilogy3.png */; };
 		1919A40F2008F7C800D51A2A /* trilogy4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1919A4082008F7C800D51A2A /* trilogy4.png */; };
 		1919A4102008F7C800D51A2A /* trilogy6.png in Resources */ = {isa = PBXBuildFile; fileRef = 1919A4092008F7C800D51A2A /* trilogy6.png */; };
+		191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191DFEBA204E98360095E9C1 /* ManualViewController.swift */; };
+		191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 191DFEBC204E98850095E9C1 /* Manual.storyboard */; };
 		1927DA48201E1F88003D1752 /* NotoSansCJKkr-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */; };
 		1927DA49201E1F88003D1752 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */; };
 		1927DA4C201E2113003D1752 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */; };
@@ -279,6 +281,8 @@
 		1919A4072008F7C800D51A2A /* trilogy3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trilogy3.png; sourceTree = "<group>"; };
 		1919A4082008F7C800D51A2A /* trilogy4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trilogy4.png; sourceTree = "<group>"; };
 		1919A4092008F7C800D51A2A /* trilogy6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trilogy6.png; sourceTree = "<group>"; };
+		191DFEBA204E98360095E9C1 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		191DFEBC204E98850095E9C1 /* Manual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Manual.storyboard; sourceTree = "<group>"; };
 		1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Light.otf"; sourceTree = "<group>"; };
 		1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
 		1927DA4B201E210F003D1752 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
@@ -430,12 +434,12 @@
 		19012FAA204808010061EF21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
-				19012FC320484C020061EF21 /* TipInfo.swift */,
 				19012FC520484C080061EF21 /* SongInfo.swift */,
 				19012FC720484C0F0061EF21 /* MissionInfo.swift */,
-				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
 				19012FCC20484C260061EF21 /* TrophyInfo.swift */,
+				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
+				19012FC320484C020061EF21 /* TipInfo.swift */,
+				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
 				19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */,
 				19B5F9B8204A489800E12EC1 /* Init.swift */,
 				193E3FF8204BCFB20063A440 /* Difficulty.swift */,
@@ -446,53 +450,9 @@
 		19012FAB204808070061EF21 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				19012FB9204835180061EF21 /* LoginViewController.swift */,
-				19012FBB204837040061EF21 /* PerformanceViewController.swift */,
-				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
-				19012FD2204855760061EF21 /* TutorialViewController.swift */,
-				19FFA726204D5632006F2535 /* Tutorial1ViewController.swift */,
-				19FFA728204D563B006F2535 /* Tutorial2ViewController.swift */,
-				19012FD420485C740061EF21 /* Tutorial3ViewController.swift */,
-				1968184A2048F70D0007F4D7 /* RadioViewController.swift */,
-				1968185020490C730007F4D7 /* TipViewController.swift */,
-				19E02ACB2049199C0070D72B /* AchievementViewController.swift */,
-				193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */,
-				19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */,
-				19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */,
-				19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */,
-				19320FC1204942590075BD86 /* AchievementGalleryTableViewController.swift */,
-				19320FC3204942640075BD86 /* AchievementCommentTableViewController.swift */,
-				19320FCB2049566A0075BD86 /* TrophyViewController.swift */,
-				19320FCD2049568B0075BD86 /* TrophyRespectTableViewController.swift */,
-				19320FCF204956940075BD86 /* TrophyTrilogyTableViewController.swift */,
-				19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */,
-				199992102049652700C74697 /* MissionViewController.swift */,
-				199992122049653900C74697 /* MissionRespectTableViewController.swift */,
-				199992142049654500C74697 /* MissionTrilogyTableViewController.swift */,
-				199992162049654E00C74697 /* MissionCETableViewController.swift */,
-				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
-				19535F09204A8E74008C9A45 /* SongViewController.swift */,
-				194E52A5204A8F7B00B84AFA /* SongAllTableViewController.swift */,
-				194E52A7204A8F9900B84AFA /* SongPortable1TableViewController.swift */,
-				194E52A9204A900D00B84AFA /* SongPortable2TableViewController.swift */,
-				194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */,
-				194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */,
-				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
-				194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */,
-				193E3FF2204B9EB80063A440 /* RecordViewController.swift */,
-				193E4012204C02A30063A440 /* Top50ViewController.swift */,
-				193E4020204C09DB0063A440 /* Top504BTableViewController.swift */,
-				193E4022204C09E70063A440 /* Top505BTableViewController.swift */,
-				193E4024204C09F20063A440 /* Top506BTableViewController.swift */,
-				193E4026204C09FA0063A440 /* Top508BTableViewController.swift */,
-				193E4028204C237A0063A440 /* RankingViewController.swift */,
-				193E402A204C23E90063A440 /* Ranking4BTableViewController.swift */,
-				193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */,
-				193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */,
-				193E4030204C24060063A440 /* Ranking8BTableViewController.swift */,
-				193E4032204C240F0063A440 /* RankingPPTableViewController.swift */,
-				19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */,
-				198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */,
+				199B3BB4204E7C6100F2C47B /* Start */,
+				199B3BB2204E7C4F00F2C47B /* Performance */,
+				199B3BB3204E7C5C00F2C47B /* Guide */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -513,16 +473,17 @@
 				19012FB32048342F0061EF21 /* Login.storyboard */,
 				19012FD0204854F40061EF21 /* Tutorial.storyboard */,
 				19012FB52048344F0061EF21 /* Performance.storyboard */,
-				19012FB72048345B0061EF21 /* Guide.storyboard */,
-				196818482048F6820007F4D7 /* Radio.storyboard */,
-				1968184E20490ADA0007F4D7 /* Tip.storyboard */,
-				19E02AC9204919830070D72B /* Achievement.storyboard */,
-				19320FC5204955CC0075BD86 /* Trophy.storyboard */,
-				19320FC7204955D50075BD86 /* Mission.storyboard */,
-				19320FC9204955DC0075BD86 /* Song.storyboard */,
 				193E3FF0204B9C240063A440 /* Record.storyboard */,
 				193E401E204C07F40063A440 /* Top50.storyboard */,
 				193E4034204C24180063A440 /* Ranking.storyboard */,
+				19012FB72048345B0061EF21 /* Guide.storyboard */,
+				19320FC9204955DC0075BD86 /* Song.storyboard */,
+				19320FC7204955D50075BD86 /* Mission.storyboard */,
+				19320FC5204955CC0075BD86 /* Trophy.storyboard */,
+				19E02AC9204919830070D72B /* Achievement.storyboard */,
+				1968184E20490ADA0007F4D7 /* Tip.storyboard */,
+				196818482048F6820007F4D7 /* Radio.storyboard */,
+				191DFEBC204E98850095E9C1 /* Manual.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -701,6 +662,123 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		199B3BB2204E7C4F00F2C47B /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				19012FBB204837040061EF21 /* PerformanceViewController.swift */,
+				193E3FF2204B9EB80063A440 /* RecordViewController.swift */,
+				19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */,
+				198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */,
+				199B3BBA204E7CD500F2C47B /* Top50 */,
+				199B3BBB204E7CDC00F2C47B /* Ranking */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
+		199B3BB3204E7C5C00F2C47B /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
+				199B3BB6204E7C9700F2C47B /* Song */,
+				199B3BB7204E7C9B00F2C47B /* Mission */,
+				199B3BB8204E7C9F00F2C47B /* Trophy */,
+				199B3BB9204E7CA400F2C47B /* Achievement */,
+				1968185020490C730007F4D7 /* TipViewController.swift */,
+				1968184A2048F70D0007F4D7 /* RadioViewController.swift */,
+				191DFEBA204E98360095E9C1 /* ManualViewController.swift */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		199B3BB4204E7C6100F2C47B /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				19012FB9204835180061EF21 /* LoginViewController.swift */,
+				19012FD2204855760061EF21 /* TutorialViewController.swift */,
+				19FFA726204D5632006F2535 /* Tutorial1ViewController.swift */,
+				19FFA728204D563B006F2535 /* Tutorial2ViewController.swift */,
+				19012FD420485C740061EF21 /* Tutorial3ViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		199B3BB6204E7C9700F2C47B /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				19535F09204A8E74008C9A45 /* SongViewController.swift */,
+				194E52A5204A8F7B00B84AFA /* SongAllTableViewController.swift */,
+				194E52A7204A8F9900B84AFA /* SongPortable1TableViewController.swift */,
+				194E52A9204A900D00B84AFA /* SongPortable2TableViewController.swift */,
+				194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */,
+				194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */,
+				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
+				194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		199B3BB7204E7C9B00F2C47B /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				199992102049652700C74697 /* MissionViewController.swift */,
+				199992122049653900C74697 /* MissionRespectTableViewController.swift */,
+				199992142049654500C74697 /* MissionTrilogyTableViewController.swift */,
+				199992162049654E00C74697 /* MissionCETableViewController.swift */,
+				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		199B3BB8204E7C9F00F2C47B /* Trophy */ = {
+			isa = PBXGroup;
+			children = (
+				19320FCB2049566A0075BD86 /* TrophyViewController.swift */,
+				19320FCD2049568B0075BD86 /* TrophyRespectTableViewController.swift */,
+				19320FCF204956940075BD86 /* TrophyTrilogyTableViewController.swift */,
+				19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */,
+			);
+			path = Trophy;
+			sourceTree = "<group>";
+		};
+		199B3BB9204E7CA400F2C47B /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				19E02ACB2049199C0070D72B /* AchievementViewController.swift */,
+				193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */,
+				19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */,
+				19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */,
+				19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */,
+				19320FC1204942590075BD86 /* AchievementGalleryTableViewController.swift */,
+				19320FC3204942640075BD86 /* AchievementCommentTableViewController.swift */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		199B3BBA204E7CD500F2C47B /* Top50 */ = {
+			isa = PBXGroup;
+			children = (
+				193E4012204C02A30063A440 /* Top50ViewController.swift */,
+				193E4020204C09DB0063A440 /* Top504BTableViewController.swift */,
+				193E4022204C09E70063A440 /* Top505BTableViewController.swift */,
+				193E4024204C09F20063A440 /* Top506BTableViewController.swift */,
+				193E4026204C09FA0063A440 /* Top508BTableViewController.swift */,
+			);
+			path = Top50;
+			sourceTree = "<group>";
+		};
+		199B3BBB204E7CDC00F2C47B /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				193E4028204C237A0063A440 /* RankingViewController.swift */,
+				193E402A204C23E90063A440 /* Ranking4BTableViewController.swift */,
+				193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */,
+				193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */,
+				193E4030204C24060063A440 /* Ranking8BTableViewController.swift */,
+				193E4032204C240F0063A440 /* RankingPPTableViewController.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
 		19B6CFDF1F7953640097B86B = {
 			isa = PBXGroup;
 			children = (
@@ -877,6 +955,7 @@
 				1919A3F72008F7C100D51A2A /* respect16.png in Resources */,
 				1919A3F02008F7C100D51A2A /* respect8.png in Resources */,
 				1919A3ED2008F7C100D51A2A /* respect20.png in Resources */,
+				191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */,
 				1919A3AE2008F7AD00D51A2A /* ce3.png in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
 				1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */,
@@ -1015,6 +1094,7 @@
 				19320FC4204942640075BD86 /* AchievementCommentTableViewController.swift in Sources */,
 				1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */,
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
+				191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */,
 				193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */,
 				194E52BA204AD3BF00B84AFA /* Double+.swift in Sources */,
 				19B5F9B9204A489800E12EC1 /* Init.swift in Sources */,

@@ -16,6 +16,8 @@ class SummaryCell: UITableViewCell {
     @IBOutlet weak var detailButton: UIButton!
     var realm: Realm! = nil
     var results: Results<RecordInfo>! = nil
+    var maxCombo = 0
+    var perfectPlay = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +49,7 @@ extension SummaryCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath) as! SummaryCollectionCell
         var count = 0
+        
         cell.layer.borderColor = UIColor.mainColor.cgColor
         cell.layer.borderWidth = 3
         cell.layer.cornerRadius = 10
@@ -89,6 +92,7 @@ extension SummaryCell: UICollectionViewDataSource{
                 for i in results{
                     if(i.nm4Note == "MAX COMBO") { count+=1 }; if(i.nm5Note == "MAX COMBO") { count+=1 }; if(i.nm6Note == "MAX COMBO") { count+=1 }; if(i.nm8Note == "MAX COMBO") { count+=1 }; if(i.hd4Note == "MAX COMBO") { count+=1 }; if(i.hd5Note == "MAX COMBO") { count+=1 }; if(i.hd6Note == "MAX COMBO") { count+=1 }; if(i.hd8Note == "MAX COMBO") { count+=1 }; if(i.mx4Note == "MAX COMBO") { count+=1 }; if(i.mx5Note == "MAX COMBO") { count+=1 }; if(i.mx6Note == "MAX COMBO") { count+=1 }; if(i.mx8Note == "MAX COMBO") { count+=1 };
                 }
+                maxCombo = count
                 return String(count)
             }()
         case 5:
@@ -97,8 +101,12 @@ extension SummaryCell: UICollectionViewDataSource{
                 for i in results{
                     if(i.nm4Note == "PERFECT PLAY") { count+=1 }; if(i.nm5Note == "PERFECT PLAY") { count+=1 }; if(i.nm6Note == "PERFECT PLAY") { count+=1 }; if(i.nm8Note == "PERFECT PLAY") { count+=1 }; if(i.hd4Note == "PERFECT PLAY") { count+=1 }; if(i.hd5Note == "PERFECT PLAY") { count+=1 }; if(i.hd6Note == "PERFECT PLAY") { count+=1 }; if(i.hd8Note == "PERFECT PLAY") { count+=1 }; if(i.mx4Note == "PERFECT PLAY") { count+=1 }; if(i.mx5Note == "PERFECT PLAY") { count+=1 }; if(i.mx6Note == "PERFECT PLAY") { count+=1 }; if(i.mx8Note == "PERFECT PLAY") { count+=1 };
                 }
+                perfectPlay = count
                 return String(count)
             }()
+        case 6:
+            cell.content.text = "MC + PP"
+            cell.value.text = String(maxCombo + perfectPlay)
         default:
             break
         }
@@ -108,6 +116,6 @@ extension SummaryCell: UICollectionViewDataSource{
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
 }

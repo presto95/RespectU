@@ -1160,6 +1160,10 @@ class Init{
         if(version <= 25){
             UserDefaults.standard.set(200, forKey: "version")
         }
+        
+        if(version <= 200){
+            UserDefaults.standard.set(201, forKey: "version")
+        }
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

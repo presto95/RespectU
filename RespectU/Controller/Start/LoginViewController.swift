@@ -42,8 +42,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         goToTutorialOrDismiss()
     }
     func goToTutorialOrDismiss(){
-        if(!UserDefaults.standard.bool(forKey: "firstExecution")){
-            UserDefaults.standard.set(true, forKey: "firstExecution")
+        UserDefaults.standard.set(false, forKey: "firstExecution2")
+        if(!UserDefaults.standard.bool(forKey: "firstExecution2")){
+            UserDefaults.standard.set(true, forKey: "firstExecution2")
             let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialViewController
             controller.modalTransitionStyle = .crossDissolve

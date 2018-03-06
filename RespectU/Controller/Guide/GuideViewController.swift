@@ -14,9 +14,9 @@ import GoogleSignIn
 
 class GuideViewController: UIViewController, GIDSignInUIDelegate {
 
-    let imageNames = [["song", "mission", "trophy", "achievement", "tip"], ["log", "bpmDefault", "favoriteButton"], ["radio", "email", "credit"]]
+    let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favoriteButton"], ["radio", "email", "credit"]]
     let sectionHeaderTitles = ["Guide for DJMAX RESPECT", "Personal Setting", "More"]
-    let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["DJMAX Radio Station", "Send Email to Developer", "Credit"]]
+    let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["DJMAX Radio Station", "Send Email to Developer", "Credit"]]
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var buttonPerformance: UIButton!
     @IBOutlet weak var buttonRecord: UIButton!
@@ -84,7 +84,7 @@ extension GuideViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(section){
         case 0:
-            return 5
+            return 6
         case 1:
             return 3
         case 2:
@@ -134,6 +134,8 @@ extension GuideViewController: UICollectionViewDelegate{
                 goToAnotherView(storyboard: "Achievement", identifier: "AchievementViewController")
             case 4:
                 goToAnotherView(storyboard: "Tip", identifier: "TipViewController")
+            case 5:
+                goToAnotherView(storyboard: "Manual", identifier: "ManualViewController")
             default:
                 break
             }
@@ -172,7 +174,11 @@ extension GuideViewController: UICollectionViewDelegate{
             case 1:
                 sendEmail()
             case 2:
-                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.11\nRespectU 2.00\n\nApp icon by icons8"
+                let version = String(UserDefaults.standard.integer(forKey: "version"))
+                let major = version.first!.description
+                let minor = version[version.index(version.startIndex, offsetBy: 1)...version.index(version.startIndex, offsetBy: 2)].description
+                let stringVersion = major + "." + minor
+                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.11\nRespectU " + stringVersion + "\n\nApp icon by icons8"
                 let alert = PMAlertController.showOKButton(title: "CREDITS".localized, message: message)
                 present(alert, animated: true)
             default:

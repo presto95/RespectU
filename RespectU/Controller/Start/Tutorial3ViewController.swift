@@ -12,6 +12,7 @@ class Tutorial3ViewController: UIViewController {
 
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var buttonStart: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         content.text = "Enjoy DJMAX RESPECT with RespectU!".localized

@@ -135,7 +135,13 @@ extension GuideViewController: UICollectionViewDelegate{
             case 4:
                 goToAnotherView(storyboard: "Tip", identifier: "TipViewController")
             case 5:
-                goToAnotherView(storyboard: "Manual", identifier: "ManualViewController")
+                if(!Reachability.isConnectedToNetwork()){
+                    let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
+                    present(alert, animated: true)
+                } else {
+                    goToAnotherView(storyboard: "Manual", identifier: "ManualViewController")
+                }
+                
             default:
                 break
             }

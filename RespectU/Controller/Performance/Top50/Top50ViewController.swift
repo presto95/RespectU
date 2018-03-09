@@ -11,8 +11,6 @@ import XLPagerTabStrip
 
 class Top50ViewController: ButtonBarPagerTabStripViewController {
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         settings.style.buttonBarBackgroundColor = UIColor.subColor

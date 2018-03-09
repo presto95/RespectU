@@ -19,7 +19,6 @@ class RecordViewController: UIViewController {
     var results: Results<RecordInfo>! = nil
     var searchedResults: Results<RecordInfo>! = nil
     var isFirstInitialize = true
-    var isFirstClick = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,18 +44,11 @@ class RecordViewController: UIViewController {
     @IBAction func cancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
-    func removeRecordView(){
-        if(view.subviews.filter { $0 is RecordView }.count != 0) {
-            view.subviews.last?.removeFromSuperview()
-        }
-    }
-
 }
 
 extension RecordViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedResults = results.filter("title CONTAINS '" + searchText + "'")
+        searchedResults = results.filter("title CONTAINS[c] '" + searchText + "'")
         tableView.reloadData()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -73,18 +65,21 @@ extension RecordViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell")!
         let object = searchedResults[indexPath.row]
         cell.textLabel?.text = object.title
-//        cell.textLabel?.font = UIFont(name: "NotoSansCJKkr-Medium", size: 14)
         return cell
     }
 }
 extension RecordViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(searchBar.isFirstResponder){
+            searchBar.resignFirstResponder()
+        }
         let cell = tableView.cellForRow(at: indexPath)
-        removeRecordView()
-        if(isFirstClick){
+        if(view.subviews.last is RecordView) {
+            view.subviews.last?.removeFromSuperview()
+        } else {
             tableView.frame.size = CGSize(width: tableView.frame.width, height: tableView.frame.height - 200)
         }
-        isFirstClick = false
+        
         let recordView = RecordView.instanceFromXib(title: (cell?.textLabel?.text!)!, controller: self) as! RecordView
         recordView.layer.borderWidth = 3
         recordView.layer.cornerRadius = 10

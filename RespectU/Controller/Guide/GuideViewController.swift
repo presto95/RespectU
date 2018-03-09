@@ -63,6 +63,17 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
             present(mail, animated: true)
         }
     }
+    func rateApp(appId: String, completion: @escaping ((_ success: Bool) -> ())){
+        guard let url = URL(string: "itms-apps://itunes.apple.com/app/" + appId) else {
+            completion(false)
+            return
+        }
+        guard #available(iOS 10, *) else {
+            completion(UIApplication.shared.openURL(url))
+            return
+        }
+        UIApplication.shared.open(url, options: [ : ], completionHandler: completion)
+    }
 }
 
 extension GuideViewController: MFMailComposeViewControllerDelegate{
@@ -141,7 +152,6 @@ extension GuideViewController: UICollectionViewDelegate{
                 } else {
                     goToAnotherView(storyboard: "Manual", identifier: "ManualViewController")
                 }
-                
             default:
                 break
             }
@@ -185,7 +195,16 @@ extension GuideViewController: UICollectionViewDelegate{
                 let minor = version[version.index(version.startIndex, offsetBy: 1)...version.index(version.startIndex, offsetBy: 2)].description
                 let stringVersion = major + "." + minor
                 let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.11\nRespectU " + stringVersion + "\n\nApp icon by icons8"
-                let alert = PMAlertController.showOKButton(title: "CREDITS".localized, message: message)
+                let alert = PMAlertController(title: "CREDITS".localized, description: message, image: nil, style: .alert)
+                let rate = PMAlertAction(title: "Rate this app".localized, style: .default, action: {
+                    self.rateApp(appId: "id1291664067", completion: { (bool) in
+                        print("RateApp \(bool)")
+                    })
+                })
+                let ok = PMAlertAction(title: "OK".localized, style: .default)
+                designAlertController(alert: alert, actions: rate, ok)
+                alert.addAction(rate)
+                alert.addAction(ok)
                 present(alert, animated: true)
             default:
                 break

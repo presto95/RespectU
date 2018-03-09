@@ -434,6 +434,7 @@
 		19012FAA204808010061EF21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				19B5F9B8204A489800E12EC1 /* Init.swift */,
 				19012FC520484C080061EF21 /* SongInfo.swift */,
 				19012FC720484C0F0061EF21 /* MissionInfo.swift */,
 				19012FCC20484C260061EF21 /* TrophyInfo.swift */,
@@ -441,7 +442,6 @@
 				19012FC320484C020061EF21 /* TipInfo.swift */,
 				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
 				19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */,
-				19B5F9B8204A489800E12EC1 /* Init.swift */,
 				193E3FF8204BCFB20063A440 /* Difficulty.swift */,
 			);
 			path = Model;

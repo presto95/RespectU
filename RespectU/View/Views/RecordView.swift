@@ -16,6 +16,7 @@ class RecordView: UIView {
     var results: Results<RecordInfo>! = nil
     var query: NSPredicate! = nil
     var object: RecordInfo! = nil
+    var top50Results: Results<RecordInfo>! = nil
     
     static var viewController: RecordViewController! = nil
     static var title: String = ""
@@ -31,17 +32,23 @@ class RecordView: UIView {
     @IBOutlet weak var buttonMaximumRank: UIButton!
     @IBOutlet weak var buttonMaximumRate: UIButton!
     @IBOutlet weak var buttonMaximumNote: UIButton!
+    @IBOutlet weak var buttonCancel: UIButton!
+    @IBOutlet weak var labelNm: UILabel!
+    @IBOutlet weak var labelHd: UILabel!
+    @IBOutlet weak var labelMx: UILabel!
+    @IBOutlet weak var labelRank: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         realm = try! Realm()
         results = realm.objects(RecordInfo.self)
         let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+        buttonCancel.setTitle("Cancel".localized, for: .normal)
         buttonType.setTitle(favoriteButton, for: .normal)
         labelTitle.text = RecordView.title
         query = NSPredicate(format: "title = %@", RecordView.title)
         object = results.filter(query).first!
-        reloadButtons(button: favoriteButton)
+        reloadButtonsAndLabels(button: favoriteButton)
     }
     
     class func instanceFromXib(title: String, controller: RecordViewController) -> UIView{
@@ -54,16 +61,16 @@ class RecordView: UIView {
         switch((sender.titleLabel?.text)!){
         case "4B":
             buttonType.setTitle("5B", for: .normal)
-            reloadButtons(button: "5B")
+            reloadButtonsAndLabels(button: "5B")
         case "5B":
             buttonType.setTitle("6B", for: .normal)
-            reloadButtons(button: "6B")
+            reloadButtonsAndLabels(button: "6B")
         case "6B":
             buttonType.setTitle("8B", for: .normal)
-            reloadButtons(button: "8B")
+            reloadButtonsAndLabels(button: "8B")
         case "8B":
             buttonType.setTitle("4B", for: .normal)
-            reloadButtons(button: "4B")
+            reloadButtonsAndLabels(button: "4B")
         default:
             break
         }
@@ -95,28 +102,37 @@ class RecordView: UIView {
         }
     }
     
+    @IBAction func clickCancel(_ sender: UIButton) {
+        let parentViewController = self.parentViewController() as! RecordViewController
+        if(parentViewController.view.subviews.last is RecordView) {
+            parentViewController.tableView.frame.size.height += 200
+            self.removeFromSuperview()
+        }
+        parentViewController.tableView.deselectRow(at: parentViewController.tableView.indexPathForSelectedRow!, animated: false)
+    }
+    
     func showRankAlert(difficulty: Difficulty, button: String){
         let alert = PMAlertController(title: "Rank".localized, description: "Select your rank.".localized, image: nil, style: .alert)
         let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
         let initialize = PMAlertAction(title: "-", style: .default) {
             self.setRank(rank: nil, difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         let s = PMAlertAction(title: "S", style: .default) {
             self.setRank(rank: "S", difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         let a = PMAlertAction(title: "A", style: .default) {
             self.setRank(rank: "A", difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         let b = PMAlertAction(title: "B", style: .default) {
             self.setRank(rank: "B", difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         let c = PMAlertAction(title: "C", style: .default) {
             self.setRank(rank: "C", difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         designAlertController(alert: alert, actions: cancel, initialize, s, a, b, c)
         alert.addAction(cancel)
@@ -138,7 +154,7 @@ class RecordView: UIView {
             if let input = alert.textFields.first?.text{
                 if(input.isEmpty){
                     self.setRate(rate: nil, difficulty: difficulty, button: button)
-                    self.reloadButtons(button: button)
+                    self.reloadButtonsAndLabels(button: button)
                 } else {
                     let inputDouble = Double(input)!
                     let rate: String = inputDouble >= 100 ? String(100.00) : input
@@ -155,7 +171,7 @@ class RecordView: UIView {
                     default:
                         break
                     }
-                    self.reloadButtons(button: button)
+                    self.reloadButtonsAndLabels(button: button)
                     switch(button){
                     case "4B":
                         switch(difficulty){
@@ -233,17 +249,17 @@ class RecordView: UIView {
         let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
         let initialize = PMAlertAction(title: "-", style: .default) {
             self.setNote(note: nil, difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         let maxCombo = PMAlertAction(title: "MAX COMBO", style: .default) {
             self.setNote(note: "MAX COMBO", difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         let perfectPlay = PMAlertAction(title: "PERFECT PLAY", style: .default) {
             self.setRate(rate: "100", difficulty: difficulty, button: button)
             self.setRank(rank: "S", difficulty: difficulty, button: button)
             self.setNote(note: "PERFECT PLAY", difficulty: difficulty, button: button)
-            self.reloadButtons(button: button)
+            self.reloadButtonsAndLabels(button: button)
         }
         designAlertController(alert: alert, actions: cancel, initialize, maxCombo, perfectPlay)
         alert.addAction(cancel)
@@ -430,12 +446,40 @@ class RecordView: UIView {
         switch(sender){
         case 0:
             labelSkillPoint.text = "\(object.button4SkillPoint) " + "Point".localized
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button4SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
         case 1:
             labelSkillPoint.text = "\(object.button5SkillPoint) " + "Point".localized
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button5SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
         case 2:
             labelSkillPoint.text = "\(object.button6SkillPoint) " + "Point".localized
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button6SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
         case 3:
             labelSkillPoint.text = "\(object.button8SkillPoint) " + "Point".localized
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button8SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
         default:
             break
         }
@@ -556,7 +600,7 @@ class RecordView: UIView {
         }
     }
     
-    func reloadButtons(button: String){
+    func reloadButtonsAndLabels(button: String){
         buttonNormalRank.isEnabled = true
         buttonNormalRate.isEnabled = true
         buttonNormalNote.isEnabled = true
@@ -571,156 +615,208 @@ class RecordView: UIView {
         let object = results.filter(query).first!
         switch(button){
         case "4B":
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button4SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
             labelSkillPoint.text = "\(object.button4SkillPoint) " + "Point".localized
             if(object.nm4 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
                 buttonNormalNote.isEnabled = false
-                buttonNormalRank.setTitle("-", for: .normal)
-                buttonNormalRate.setTitle("-", for: .normal)
-                buttonNormalNote.setTitle("-", for: .normal)
+                buttonNormalRank.setTitle("None".localized, for: .normal)
+                buttonNormalRate.setTitle("None".localized, for: .normal)
+                buttonNormalNote.setTitle("None".localized, for: .normal)
+                labelNm.text = nil
             } else {
                 buttonNormalRank.setTitle(object.nm4Rank, for: .normal)
                 buttonNormalRate.setTitle(object.nm4Rate, for: .normal)
                 buttonNormalNote.setTitle(makeNoteText(note: object.nm4Note), for: .normal)
+                labelNm.text = String(object.nm4)
             }
             if(object.hd4 == 0){
                 buttonHardRank.isEnabled = false
                 buttonHardRate.isEnabled = false
                 buttonHardNote.isEnabled = false
-                buttonHardRank.setTitle("-", for: .normal)
-                buttonHardRate.setTitle("-", for: .normal)
-                buttonHardNote.setTitle("-", for: .normal)
+                buttonHardRank.setTitle("None".localized, for: .normal)
+                buttonHardRate.setTitle("None".localized, for: .normal)
+                buttonHardNote.setTitle("None".localized, for: .normal)
+                labelHd.text = nil
             } else {
                 buttonHardRank.setTitle(object.hd4Rank, for: .normal)
                 buttonHardRate.setTitle(object.hd4Rate, for: .normal)
                 buttonHardNote.setTitle(makeNoteText(note: object.hd4Note), for: .normal)
+                labelHd.text = String(object.hd4)
             }
             if(object.mx4 == 0){
                 buttonMaximumRank.isEnabled = false
                 buttonMaximumRate.isEnabled = false
                 buttonMaximumNote.isEnabled = false
-                buttonMaximumRank.setTitle("-", for: .normal)
-                buttonMaximumRate.setTitle("-", for: .normal)
-                buttonMaximumNote.setTitle("-", for: .normal)
+                buttonMaximumRank.setTitle("None".localized, for: .normal)
+                buttonMaximumRate.setTitle("None".localized, for: .normal)
+                buttonMaximumNote.setTitle("None".localized, for: .normal)
+                labelMx.text = nil
             } else {
                 buttonMaximumRank.setTitle(object.mx4Rank, for: .normal)
                 buttonMaximumRate.setTitle(object.mx4Rate, for: .normal)
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx4Note), for: .normal)
+                labelMx.text = String(object.mx4)
             }
         case "5B":
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button5SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
             labelSkillPoint.text = "\(object.button5SkillPoint) " + "Point".localized
             if(object.nm5 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
                 buttonNormalNote.isEnabled = false
-                buttonNormalRank.setTitle("-", for: .normal)
-                buttonNormalRate.setTitle("-", for: .normal)
-                buttonNormalNote.setTitle("-", for: .normal)
+                buttonNormalRank.setTitle("None".localized, for: .normal)
+                buttonNormalRate.setTitle("None".localized, for: .normal)
+                buttonNormalNote.setTitle("None".localized, for: .normal)
+                labelNm.text = nil
             } else {
                 buttonNormalRank.setTitle(object.nm5Rank, for: .normal)
                 buttonNormalRate.setTitle(object.nm5Rate, for: .normal)
                 buttonNormalNote.setTitle(makeNoteText(note: object.nm5Note), for: .normal)
+                labelNm.text = String(object.nm5)
             }
             if(object.hd5 == 0){
                 buttonHardRank.isEnabled = false
                 buttonHardRate.isEnabled = false
                 buttonHardNote.isEnabled = false
-                buttonHardRank.setTitle("-", for: .normal)
-                buttonHardRate.setTitle("-", for: .normal)
-                buttonHardNote.setTitle("-", for: .normal)
+                buttonHardRank.setTitle("None".localized, for: .normal)
+                buttonHardRate.setTitle("None".localized, for: .normal)
+                buttonHardNote.setTitle("None".localized, for: .normal)
+                labelHd.text = nil
             } else {
                 buttonHardRank.setTitle(object.hd5Rank, for: .normal)
                 buttonHardRate.setTitle(object.hd5Rate, for: .normal)
                 buttonHardNote.setTitle(makeNoteText(note: object.hd5Note), for: .normal)
+                labelHd.text = String(object.hd5)
             }
             if(object.mx5 == 0){
                 buttonMaximumRank.isEnabled = false
                 buttonMaximumRate.isEnabled = false
                 buttonMaximumNote.isEnabled = false
-                buttonMaximumRank.setTitle("-", for: .normal)
-                buttonMaximumRate.setTitle("-", for: .normal)
-                buttonMaximumNote.setTitle("-", for: .normal)
+                buttonMaximumRank.setTitle("None".localized, for: .normal)
+                buttonMaximumRate.setTitle("None".localized, for: .normal)
+                buttonMaximumNote.setTitle("None".localized, for: .normal)
+                labelMx.text = nil
             } else {
                 buttonMaximumRank.setTitle(object.mx5Rank, for: .normal)
                 buttonMaximumRate.setTitle(object.mx5Rate, for: .normal)
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx5Note), for: .normal)
+                labelMx.text = String(object.mx5)
             }
         case "6B":
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button6SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
             labelSkillPoint.text = "\(object.button6SkillPoint) " + "Point".localized
             if(object.nm6 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
                 buttonNormalNote.isEnabled = false
-                buttonNormalRank.setTitle("-", for: .normal)
-                buttonNormalRate.setTitle("-", for: .normal)
-                buttonNormalNote.setTitle("-", for: .normal)
+                buttonNormalRank.setTitle("None".localized, for: .normal)
+                buttonNormalRate.setTitle("None".localized, for: .normal)
+                buttonNormalNote.setTitle("None".localized, for: .normal)
+                labelNm.text = nil
             } else {
                 buttonNormalRank.setTitle(object.nm6Rank, for: .normal)
                 buttonNormalRate.setTitle(object.nm6Rate, for: .normal)
                 buttonNormalNote.setTitle(makeNoteText(note: object.nm6Note), for: .normal)
+                labelNm.text = String(object.nm6)
             }
             if(object.hd6 == 0){
                 buttonHardRank.isEnabled = false
                 buttonHardRate.isEnabled = false
                 buttonHardNote.isEnabled = false
-                buttonHardRank.setTitle("-", for: .normal)
-                buttonHardRate.setTitle("-", for: .normal)
-                buttonHardNote.setTitle("-", for: .normal)
+                buttonHardRank.setTitle("None".localized, for: .normal)
+                buttonHardRate.setTitle("None".localized, for: .normal)
+                buttonHardNote.setTitle("None".localized, for: .normal)
+                labelHd.text = nil
             } else {
                 buttonHardRank.setTitle(object.hd6Rank, for: .normal)
                 buttonHardRate.setTitle(object.hd6Rate, for: .normal)
                 buttonHardNote.setTitle(makeNoteText(note: object.hd6Note), for: .normal)
+                labelHd.text = String(object.hd6)
             }
             if(object.mx6 == 0){
                 buttonMaximumRank.isEnabled = false
                 buttonMaximumRate.isEnabled = false
                 buttonMaximumNote.isEnabled = false
-                buttonMaximumRank.setTitle("-", for: .normal)
-                buttonMaximumRate.setTitle("-", for: .normal)
-                buttonMaximumNote.setTitle("-", for: .normal)
+                buttonMaximumRank.setTitle("None".localized, for: .normal)
+                buttonMaximumRate.setTitle("None".localized, for: .normal)
+                buttonMaximumNote.setTitle("None".localized, for: .normal)
+                labelMx.text = nil
             } else {
                 buttonMaximumRank.setTitle(object.mx6Rank, for: .normal)
                 buttonMaximumRate.setTitle(object.mx6Rate, for: .normal)
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx6Note), for: .normal)
+                labelMx.text = String(object.mx6)
             }
         case "8B":
+            top50Results = realm.objects(RecordInfo.self).sorted(byKeyPath: "button8SkillPoint", ascending: false)
+            let index: Int = top50Results.index(of: top50Results.filter(query).first!)!
+            if(index < 50){
+                labelRank.text = "#\(index + 1)"
+            } else {
+                labelRank.text = "Out of Rank".localized
+            }
             labelSkillPoint.text = "\(object.button8SkillPoint) " + "Point".localized
             if(object.nm8 == 0){
                 buttonNormalRank.isEnabled = false
                 buttonNormalRate.isEnabled = false
                 buttonNormalNote.isEnabled = false
-                buttonNormalRank.setTitle("-", for: .normal)
-                buttonNormalRate.setTitle("-", for: .normal)
-                buttonNormalNote.setTitle("-", for: .normal)
+                buttonNormalRank.setTitle("None".localized, for: .normal)
+                buttonNormalRate.setTitle("None".localized, for: .normal)
+                buttonNormalNote.setTitle("None".localized, for: .normal)
+                labelNm.text = nil
             } else {
                 buttonNormalRank.setTitle(object.nm8Rank, for: .normal)
                 buttonNormalRate.setTitle(object.nm8Rate, for: .normal)
                 buttonNormalNote.setTitle(makeNoteText(note: object.nm8Note), for: .normal)
+                labelNm.text = String(object.nm8)
             }
             if(object.hd8 == 0){
                 buttonHardRank.isEnabled = false
                 buttonHardRate.isEnabled = false
                 buttonHardNote.isEnabled = false
-                buttonHardRank.setTitle("-", for: .normal)
-                buttonHardRate.setTitle("-", for: .normal)
-                buttonHardNote.setTitle("-", for: .normal)
+                buttonHardRank.setTitle("None".localized, for: .normal)
+                buttonHardRate.setTitle("None".localized, for: .normal)
+                buttonHardNote.setTitle("None".localized, for: .normal)
+                labelHd.text = nil
             } else {
                 buttonHardRank.setTitle(object.hd8Rank, for: .normal)
                 buttonHardRate.setTitle(object.hd8Rate, for: .normal)
                 buttonHardNote.setTitle(makeNoteText(note: object.hd8Note), for: .normal)
+                labelHd.text = String(object.hd8)
             }
             if(object.mx8 == 0){
                 buttonMaximumRank.isEnabled = false
                 buttonMaximumRate.isEnabled = false
                 buttonMaximumNote.isEnabled = false
-                buttonMaximumRank.setTitle("-", for: .normal)
-                buttonMaximumRate.setTitle("-", for: .normal)
-                buttonMaximumNote.setTitle("-", for: .normal)
+                buttonMaximumRank.setTitle("None".localized, for: .normal)
+                buttonMaximumRate.setTitle("None".localized, for: .normal)
+                buttonMaximumNote.setTitle("None".localized, for: .normal)
+                labelMx.text = nil
             } else {
                 buttonMaximumRank.setTitle(object.mx8Rank, for: .normal)
                 buttonMaximumRate.setTitle(object.mx8Rate, for: .normal)
                 buttonMaximumNote.setTitle(makeNoteText(note: object.mx8Note), for: .normal)
+                labelMx.text = String(object.mx8)
             }
         default:
             break

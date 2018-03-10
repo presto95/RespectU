@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SkillLevelDetailViewController: UIViewController {
 
@@ -17,6 +18,7 @@ class SkillLevelDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let performanceRecordRate = getPerformanceRecordRate()
         let button4View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
         let button5View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
         let button6View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
@@ -133,6 +135,10 @@ class SkillLevelDetailViewController: UIViewController {
                 return UIColor()
             }
         }()
+        button4View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button4PerformanceRecordRate * 100) + " Recorded".localized
+        button5View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button5PerformanceRecordRate * 100) + " Recorded".localized
+        button6View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button6PerformanceRecordRate * 100) + " Recorded".localized
+        button8View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button8PerformanceRecordRate * 100) + " Recorded".localized
         button4View.gauge.bgColor = button4View.gauge.startColor
         button5View.gauge.bgColor = button5View.gauge.startColor
         button6View.gauge.bgColor = button6View.gauge.startColor
@@ -155,4 +161,91 @@ class SkillLevelDetailViewController: UIViewController {
     @IBAction func cancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+func getPerformanceRecordRate() -> (button4PerformanceRecordRate: Double, button5PerformanceRecordRate: Double, button6PerformanceRecordRate: Double, button8PerformanceRecordRate: Double){
+    var count4B = [0,0]
+    var count5B = [0,0]
+    var count6B = [0,0]
+    var count8B = [0,0]
+    let results = try! Realm().objects(RecordInfo.self)
+    for result in results{
+        if(result.nm4 != 0){
+            count4B[0] += 1
+        }
+        if(result.hd4 != 0){
+            count4B[0] += 1
+        }
+        if(result.mx4 != 0){
+            count4B[0] += 1
+        }
+        if(result.nm5 != 0){
+            count5B[0] += 1
+        }
+        if(result.hd5 != 0){
+            count5B[0] += 1
+        }
+        if(result.mx5 != 0){
+            count5B[0] += 1
+        }
+        if(result.nm6 != 0){
+            count6B[0] += 1
+        }
+        if(result.hd6 != 0){
+            count6B[0] += 1
+        }
+        if(result.mx6 != 0){
+            count6B[0] += 1
+        }
+        if(result.nm8 != 0){
+            count8B[0] += 1
+        }
+        if(result.hd8 != 0){
+            count8B[0] += 1
+        }
+        if(result.mx8 != 0){
+            count8B[0] += 1
+        }
+        if let _ = Double(result.nm4Rate.split(separator: "%")[0]){
+            count4B[1] += 1
+        }
+        if let _ = Double(result.hd4Rate.split(separator: "%")[0]){
+            count4B[1] += 1
+        }
+        if let _ = Double(result.mx4Rate.split(separator: "%")[0]){
+            count4B[1] += 1
+        }
+        if let _ = Double(result.nm5Rate.split(separator: "%")[0]){
+            count5B[1] += 1
+        }
+        if let _ = Double(result.hd5Rate.split(separator: "%")[0]){
+            count5B[1] += 1
+        }
+        if let _ = Double(result.mx5Rate.split(separator: "%")[0]){
+            count5B[1] += 1
+        }
+        if let _ = Double(result.nm6Rate.split(separator: "%")[0]){
+            count6B[1] += 1
+        }
+        if let _ = Double(result.hd6Rate.split(separator: "%")[0]){
+            count6B[1] += 1
+        }
+        if let _ = Double(result.mx6Rate.split(separator: "%")[0]){
+            count6B[1] += 1
+        }
+        if let _ = Double(result.nm8Rate.split(separator: "%")[0]){
+            count8B[1] += 1
+        }
+        if let _ = Double(result.hd8Rate.split(separator: "%")[0]){
+            count8B[1] += 1
+        }
+        if let _ = Double(result.mx8Rate.split(separator: "%")[0]){
+            count8B[1] += 1
+        }
+    }
+    let rate4B = Double(count4B[1]) / Double(count4B[0])
+    let rate5B = Double(count5B[1]) / Double(count5B[0])
+    let rate6B = Double(count6B[1]) / Double(count6B[0])
+    let rate8B = Double(count8B[1]) / Double(count8B[0])
+    return (rate4B, rate5B, rate6B, rate8B)
 }

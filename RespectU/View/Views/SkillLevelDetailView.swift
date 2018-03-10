@@ -16,6 +16,7 @@ class SkillLevelDetailView: UIView {
     @IBOutlet weak var skillLevel: UILabel!
     @IBOutlet weak var skillPoint: UILabel!
     @IBOutlet weak var percent: UILabel!
+    @IBOutlet weak var performanceRecordRate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

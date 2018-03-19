@@ -107,9 +107,10 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor()
                     }
                 }()
+//                \((skillPoint * 100).rounded() / 100)
                 cell.gauge.bgColor = cell.gauge.startColor
                 cell.skillLevel.text = getSkillLevelButton4(value: mySkillPointSum)
-                cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
+                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "4B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             case "5B":
@@ -137,7 +138,7 @@ extension PerformanceViewController: UITableViewDataSource{
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
                 cell.skillLevel.text = getSkillLevelButton5(value: mySkillPointSum)
-                cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
+                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "5B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             case "6B":
@@ -165,7 +166,7 @@ extension PerformanceViewController: UITableViewDataSource{
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
                 cell.skillLevel.text = getSkillLevelButton6And8(value: mySkillPointSum)
-                cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
+                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "6B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             case "8B":
@@ -193,7 +194,7 @@ extension PerformanceViewController: UITableViewDataSource{
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
                 cell.skillLevel.text = getSkillLevelButton6And8(value: mySkillPointSum)
-                cell.skillPoint.text = "\(mySkillPointSum) " + "Point".localized
+                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
                 cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "8B")
                 cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             default:

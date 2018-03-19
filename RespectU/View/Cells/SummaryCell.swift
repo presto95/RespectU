@@ -14,6 +14,7 @@ class SummaryCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     var realm: Realm! = nil
     var results: Results<RecordInfo>! = nil
     var maxCombo = 0
@@ -27,6 +28,9 @@ class SummaryCell: UITableViewCell {
         detailButton.setTitle("Detail".localized, for: .normal)
         detailButton.layer.borderWidth = 2
         detailButton.layer.borderColor = UIColor.mainColor.cgColor
+        searchButton.setTitle("Search by Condition".localized, for: .normal)
+        searchButton.layer.borderWidth = 2
+        searchButton.layer.borderColor = UIColor.mainColor.cgColor
         // Initialization code
     }
 
@@ -38,6 +42,11 @@ class SummaryCell: UITableViewCell {
     @IBAction func clickDetail(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Performance", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SummaryDetailViewController")
+        self.parentViewController()?.present(controller, animated: true, completion: nil)
+    }
+    @IBAction func clickSearch(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Performance", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SearchRecordViewController")
         self.parentViewController()?.present(controller, animated: true, completion: nil)
     }
 }

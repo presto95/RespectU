@@ -63,10 +63,10 @@ class SkillLevelDetailViewController: UIViewController {
         button5View.skillLevel.text = button5SkillLevel
         button6View.skillLevel.text = button6SkillLevel
         button8View.skillLevel.text = button8SkillLevel
-        button4View.skillPoint.text = "\(myButton4.sum) " + "Point".localized
-        button5View.skillPoint.text = "\(myButton5.sum) " + "Point".localized
-        button6View.skillPoint.text = "\(myButton6.sum) " + "Point".localized
-        button8View.skillPoint.text = "\(myButton8.sum) " + "Point".localized
+        button4View.skillPoint.text = "\((myButton4.sum * 100).rounded() / 100) " + "Point".localized
+        button5View.skillPoint.text = "\((myButton5.sum * 100).rounded() / 100) " + "Point".localized
+        button6View.skillPoint.text = "\((myButton6.sum * 100).rounded() / 100) " + "Point".localized
+        button8View.skillPoint.text = "\((myButton8.sum * 100).rounded() / 100) " + "Point".localized
         button4View.gauge.maxValue = CGFloat(button4Max)
         button5View.gauge.maxValue = CGFloat(button5Max)
         button6View.gauge.maxValue = CGFloat(button6Max)

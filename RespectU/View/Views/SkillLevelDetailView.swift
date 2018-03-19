@@ -25,6 +25,4 @@ class SkillLevelDetailView: UIView {
     class func instanceFromXib() -> UIView{
         return UINib(nibName: "SkillLevelDetailView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! UIView
     }
-    
-
 }

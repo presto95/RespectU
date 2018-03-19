@@ -188,7 +188,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPe-ao-XSP">
-                                <rect key="frame" x="16" y="30" width="40" height="40"/>
+                                <rect key="frame" x="16" y="35" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="search"/>
                                 <connections>
@@ -196,11 +196,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDl-lD-MyO">
-                                <rect key="frame" x="64" y="30" width="40" height="40"/>
+                                <rect key="frame" x="54" y="35" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="sort"/>
                                 <connections>
                                     <action selector="sortButton:" destination="c78-Vu-UQE" eventType="touchUpInside" id="KAL-2B-W0x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRS-Id-a9s">
+                                <rect key="frame" x="92" y="35" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="random"/>
+                                <connections>
+                                    <action selector="randomButton:" destination="c78-Vu-UQE" eventType="touchUpInside" id="Gkj-Go-dlj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -219,6 +227,7 @@
     </scenes>
     <resources>
         <image name="cancelButton" width="25" height="25"/>
+        <image name="random" width="25" height="25"/>
         <image name="respectu-flat.png" width="5452" height="5452"/>
         <image name="search" width="25" height="25"/>
         <image name="sort" width="25" height="25"/>

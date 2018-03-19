@@ -157,6 +157,14 @@
 		1968185320490D300007F4D7 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185220490D300007F4D7 /* UIColor+.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
+		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
+		1986CA2F205F543500CA43EA /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA2E205F543500CA43EA /* SearchByRateView.swift */; };
+		1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA30205F543F00CA43EA /* SearchByNoteView.xib */; };
+		1986CA33205F544900CA43EA /* SearchByNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA32205F544900CA43EA /* SearchByNoteView.swift */; };
+		1986CA35205F574100CA43EA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA34205F574100CA43EA /* UITextField+.swift */; };
+		1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */; };
+		1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */; };
+		1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */; };
 		198CB54C2013603600646D55 /* respectu-3d-color-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198CB54B2013603600646D55 /* respectu-3d-color-background.png */; };
 		198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 198CB54D2013603D00646D55 /* respectu-flat-background.png */; };
 		198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */; };
@@ -179,6 +187,7 @@
 		19CEF6B21FAD33F6005AFA8F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CEF6B11FAD33F6005AFA8F /* icon.png */; };
 		19E02ACA204919830070D72B /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E02AC9204919830070D72B /* Achievement.storyboard */; };
 		19E02ACC2049199C0070D72B /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E02ACB2049199C0070D72B /* AchievementViewController.swift */; };
+		19ECEE68205EBBA3000D742E /* SearchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */; };
 		19F2312F20156BBC00ADF825 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F2312E20156BBC00ADF825 /* Reachability.swift */; };
 		19F24BB42049A62D0034D624 /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */; };
 		19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */; };
@@ -359,6 +368,14 @@
 		1968185220490D300007F4D7 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
+		1986CA2E205F543500CA43EA /* SearchByRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchByRateView.swift; path = /Users/presto/XCode/RespectU/RespectU/View/Views/SearchByRateView.swift; sourceTree = "<absolute>"; };
+		1986CA30205F543F00CA43EA /* SearchByNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByNoteView.xib; sourceTree = "<group>"; };
+		1986CA32205F544900CA43EA /* SearchByNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNoteView.swift; sourceTree = "<group>"; };
+		1986CA34205F574100CA43EA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailViewController.swift; sourceTree = "<group>"; };
+		1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailCell.swift; sourceTree = "<group>"; };
+		1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecordDetailCell.xib; sourceTree = "<group>"; };
 		198CB54B2013603600646D55 /* respectu-3d-color-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "respectu-3d-color-background.png"; sourceTree = "<group>"; };
 		198CB54D2013603D00646D55 /* respectu-flat-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "respectu-flat-background.png"; sourceTree = "<group>"; };
 		198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
@@ -389,6 +406,7 @@
 		19CEF6B11FAD33F6005AFA8F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		19E02AC9204919830070D72B /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
 		19E02ACB2049199C0070D72B /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
+		19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordViewController.swift; sourceTree = "<group>"; };
 		19F2312E20156BBC00ADF825 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
 		19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelDetailViewController.swift; sourceTree = "<group>"; };
@@ -519,6 +537,10 @@
 				193E3FF6204BB1060063A440 /* RecordView.swift */,
 				19F38C94204CC957006BB72B /* SkillLevelDetailView.xib */,
 				19F38C96204CC962006BB72B /* SkillLevelDetailView.swift */,
+				1986CA2C205F542100CA43EA /* SearchByRateView.xib */,
+				1986CA2E205F543500CA43EA /* SearchByRateView.swift */,
+				1986CA30205F543F00CA43EA /* SearchByNoteView.xib */,
+				1986CA32205F544900CA43EA /* SearchByNoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -548,6 +570,8 @@
 				193E4019204C05A00063A440 /* Top50Cell.xib */,
 				193E4036204C27220063A440 /* RankingCell.swift */,
 				193E403A204C2EB60063A440 /* RankingCell.xib */,
+				1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */,
+				1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -561,6 +585,7 @@
 				19535F07204A5D16008C9A45 /* PMAlertController+.swift */,
 				194E52B9204AD3BF00B84AFA /* Double+.swift */,
 				193E4016204C03C50063A440 /* UIView+.swift */,
+				1986CA34205F574100CA43EA /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -669,6 +694,8 @@
 				193E3FF2204B9EB80063A440 /* RecordViewController.swift */,
 				19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */,
 				198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */,
+				19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */,
+				1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */,
 				199B3BBA204E7CD500F2C47B /* Top50 */,
 				199B3BBB204E7CDC00F2C47B /* Ranking */,
 			);
@@ -883,9 +910,11 @@
 				193E4009204BF37E0063A440 /* SummaryCell.xib in Resources */,
 				1919A3E02008F7C100D51A2A /* respect22.png in Resources */,
 				1919A3EA2008F7C100D51A2A /* respect36.png in Resources */,
+				1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */,
 				1927DA4C201E2113003D1752 /* NotoSansCJKkr-Regular.otf in Resources */,
 				1919A3DF2008F7C100D51A2A /* respect42.png in Resources */,
 				193E401B204C05A00063A440 /* Top50Cell.xib in Resources */,
+				1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */,
 				198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */,
 				1919A3EE2008F7C100D51A2A /* respect31.png in Resources */,
 				19FF806D2018A1AC00ECC666 /* accuracyUpper80White.png in Resources */,
@@ -945,6 +974,7 @@
 				1919A3EC2008F7C100D51A2A /* respect6.png in Resources */,
 				19FFA724204D5623006F2535 /* tutorial2.gif in Resources */,
 				1919A3E62008F7C100D51A2A /* respect1.png in Resources */,
+				1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */,
 				1919A3A82008F7AD00D51A2A /* ce5.png in Resources */,
 				1919A3AA2008F7AD00D51A2A /* ce6.png in Resources */,
 				1919A40B2008F7C800D51A2A /* trilogy2.png in Resources */,
@@ -1104,6 +1134,8 @@
 				193E403D204C2FB90063A440 /* ERProgressHud.swift in Sources */,
 				19320FBC204942390075BD86 /* AchievementMusicTableViewController.swift in Sources */,
 				194E52AA204A900D00B84AFA /* SongPortable2TableViewController.swift in Sources */,
+				19ECEE68205EBBA3000D742E /* SearchRecordViewController.swift in Sources */,
+				1986CA33205F544900CA43EA /* SearchByNoteView.swift in Sources */,
 				199992112049652700C74697 /* MissionViewController.swift in Sources */,
 				196818422048D32A0007F4D7 /* GuideCell.swift in Sources */,
 				1968185320490D300007F4D7 /* UIColor+.swift in Sources */,
@@ -1123,8 +1155,10 @@
 				193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */,
 				199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */,
 				196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */,
+				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
+				1986CA35205F574100CA43EA /* UITextField+.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,
 				193E4027204C09FA0063A440 /* Top508BTableViewController.swift in Sources */,
 				19012FC420484C020061EF21 /* TipInfo.swift in Sources */,
@@ -1134,6 +1168,7 @@
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
 				19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */,
+				1986CA2F205F543500CA43EA /* SearchByRateView.swift in Sources */,
 				194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,
@@ -1156,6 +1191,7 @@
 				199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */,
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
 				194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */,
+				1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

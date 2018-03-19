@@ -9,6 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 import PMAlertController
+import RealmSwift
 
 class SongViewController: ButtonBarPagerTabStripViewController {
     
@@ -47,6 +48,19 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     @IBAction func sortButton(_ sender: UIButton) {
         let alert = PMAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce)
         present(alert, animated: true)
+    }
+    
+    @IBAction func randomButton(_ sender: UIButton) {
+        let realm = try! Realm()
+        let results = realm.objects(SongInfo.self)
+        let myBpm = UserDefaults.standard.double(forKey: "bpm")
+        let random = Int(arc4random_uniform(UInt32(results.count - 1)))
+        let object = results[random]
+        let recommendedSpeed = String.decideSpeed(speed: myBpm / Double.convertBpmToDouble(string: object.bpm))
+        let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
+        let alert = PMAlertController.showOKButton(title: object.title, message: message)
+        present(alert, animated: true)
+        
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {

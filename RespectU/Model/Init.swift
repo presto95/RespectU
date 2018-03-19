@@ -617,63 +617,6 @@ class Init{
             addAchievement("ONLINE Mode Playcount", 10, "PLATE", "KILLER BEE")
         }
         
-        
-        
-        //1.13 이하의 UserDefaults에 기록된 성과 정보 Realm으로 옮김
-        //삭제하지 말고 그냥 두기
-//        if(version <= 13){
-//            try! realm.write{
-//                realm.delete(realm.objects(RecordInfo.self))
-//            }
-//            let songResults = try! Realm().objects(SongInfo.self)
-//            let userDefaults = UserDefaults.standard
-//            for i in songResults{
-//                let title = i.title
-//                initRecord(i.series, title)
-//                initRecordDifficulty(title, i.nm4, i.nm5, i.nm6, i.nm8, i.hd4, i.hd5, i.hd6, i.hd8, i.mx4, i.mx5, i.mx6, i.mx8)
-//                addRecord(title, userDefaults.string(forKey: title+"4BnormalRank") ?? "-", userDefaults.string(forKey: title+"4BnormalAccuracy") ?? "-", userDefaults.string(forKey: title+"4BnormalNote") ?? "-", userDefaults.string(forKey: title+"5BnormalRank") ?? "-",userDefaults.string(forKey: title+"5BnormalAccuracy") ?? "-",userDefaults.string(forKey: title+"5BnormalNote") ?? "-",userDefaults.string(forKey: title+"6BnormalRank") ?? "-",userDefaults.string(forKey: title+"6BnormalAccuracy") ?? "-",userDefaults.string(forKey: title+"6BnormalNote") ?? "-",userDefaults.string(forKey: title+"8BnormalRank") ?? "-",userDefaults.string(forKey: title+"8BnormalAccuracy") ?? "-",userDefaults.string(forKey: title+"8BnormalNote") ?? "-",userDefaults.string(forKey: title+"4BhardRank") ?? "-",userDefaults.string(forKey: title+"4BhardAccuracy") ?? "-",userDefaults.string(forKey: title+"4BhardNote") ?? "-",userDefaults.string(forKey: title+"5BhardRank") ?? "-",userDefaults.string(forKey: title+"5BhardAccuracy") ?? "-",userDefaults.string(forKey: title+"5BhardNote") ?? "-",userDefaults.string(forKey: title+"6BhardRank") ?? "-",userDefaults.string(forKey: title+"6BhardAccuracy") ?? "-",userDefaults.string(forKey: title+"6BhardNote") ?? "-",userDefaults.string(forKey: title+"8BhardRank") ?? "-",userDefaults.string(forKey: title+"8BhardAccuracy") ?? "-",userDefaults.string(forKey: title+"8BhardNote") ?? "-", userDefaults.string(forKey: title+"4BmaximumRank") ?? "-",userDefaults.string(forKey: title+"4BmaximumAccuracy") ?? "-",userDefaults.string(forKey: title+"4BmaximumNote") ?? "-",userDefaults.string(forKey: title+"5BmaximumRank") ?? "-",userDefaults.string(forKey: title+"5BmaximumAccuracy") ?? "-",userDefaults.string(forKey: title+"5BmaximumNote") ?? "-",userDefaults.string(forKey: title+"6BmaximumRank") ?? "-",userDefaults.string(forKey: title+"6BmaximumAccuracy") ?? "-",userDefaults.string(forKey: title+"6BmaximumNote") ?? "-",userDefaults.string(forKey: title+"8BmaximumRank") ?? "-",userDefaults.string(forKey: title+"8BmaximumAccuracy") ?? "-",userDefaults.string(forKey: title+"8BmaximumNote") ?? "-")
-//                if(i.nm4 == 0 && userDefaults.string(forKey: title+"4BnormalRank") != nil){
-//                    removeRecord(title, "nm4")
-//                }
-//                if(i.nm5 == 0 && userDefaults.string(forKey: title+"5BnormalRank") != nil){
-//                    removeRecord(title, "nm5")
-//                }
-//                if(i.nm6 == 0 && userDefaults.string(forKey: title+"6BnormalRank") != nil){
-//                    removeRecord(title, "nm6")
-//                }
-//                if(i.nm8 == 0 && userDefaults.string(forKey: title+"8BnormalRank") != nil){
-//                    removeRecord(title, "nm8")
-//                }
-//                if(i.hd4 == 0 && userDefaults.string(forKey: title+"4BhardRank") != nil){
-//                    removeRecord(title, "hd4")
-//                }
-//                if(i.hd5 == 0 && userDefaults.string(forKey: title+"5BhardRank") != nil){
-//                    removeRecord(title, "hd5")
-//                }
-//                if(i.hd6 == 0 && userDefaults.string(forKey: title+"6BhardRank") != nil){
-//                    removeRecord(title, "hd6")
-//                }
-//                if(i.hd8 == 0 && userDefaults.string(forKey: title+"8BhardRank") != nil){
-//                    removeRecord(title, "hd8")
-//                }
-//                if(i.mx4 == 0 && userDefaults.string(forKey: title+"4BmaximumRank") != nil){
-//                    removeRecord(title, "mx4")
-//                }
-//                if(i.mx5 == 0 && userDefaults.string(forKey: title+"5BmaximumRank") != nil){
-//                    removeRecord(title, "mx5")
-//                }
-//                if(i.mx6 == 0 && userDefaults.string(forKey: title+"6BmaximumRank") != nil){
-//                    removeRecord(title, "mx6")
-//                }
-//                if(i.mx8 == 0 && userDefaults.string(forKey: title+"8BmaximumRank") != nil){
-//                    removeRecord(title, "mx8")
-//                }
-//            }
-//        }
-        
-        
-        
-        
         //클래지콰이 에디션 성과 기록을 위한 공간 만드는 코드
         //드레드노트, 리스펙트 신곡도 추가
         if(version <= 14){
@@ -1166,12 +1109,15 @@ class Init{
             //2.01
             UserDefaults.standard.set(201, forKey: "version")
         }
-        
+        //테크니카 대응하려면 Lowercase 부분도 싹다 바꿔줘야함
 //        if(version <= 201){
 //            //2.02
 //            UserDefaults.standard.set(202, forKey: "version")
 //        }
         print("DATABASE INITIALIZE FINISHED!!")
+    }
+    deinit {
+        print("Deinit Init")
     }
 }
 

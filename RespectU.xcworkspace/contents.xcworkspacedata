@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/presto/XCode/RespectU/RespectU/View/Views/SearchByRateView.swift">
+   </FileRef>
+   <FileRef
       location = "group:RespectU.xcodeproj">
    </FileRef>
    <FileRef

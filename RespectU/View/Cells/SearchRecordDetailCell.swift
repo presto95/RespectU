@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SearchRecordDetailCell: UITableViewCell {
 
@@ -14,6 +15,10 @@ class SearchRecordDetailCell: UITableViewCell {
     @IBOutlet weak var nm: UILabel!
     @IBOutlet weak var hd: UILabel!
     @IBOutlet weak var mx: UILabel!
+    @IBOutlet weak var color: UILabel!
+    @IBOutlet weak var labelNm: UILabel!
+    @IBOutlet weak var labelHd: UILabel!
+    @IBOutlet weak var labelMx: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

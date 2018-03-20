@@ -186,10 +186,25 @@ class SearchRecordDetailViewController: UIViewController {
 extension SearchRecordDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchRecordDetailCell") as! SearchRecordDetailCell
-        
         if(searchType == 0){
             let object = rateResults[indexPath.row]
             cell.title.text = object.title
+            let query = NSPredicate(format: "title = %@", object.title)
+            let songInfo = realm.objects(SongInfo.self).filter(query).first!
+            switch(songInfo.series){
+            case "Portable1":
+                cell.color.backgroundColor = UIColor.portable1
+            case "Portable2":
+                cell.color.backgroundColor = UIColor.portable2
+            case "Respect":
+                cell.color.backgroundColor = UIColor.respect
+            case "Trilogy":
+                cell.color.backgroundColor = UIColor.trilogy
+            case "CE":
+                cell.color.backgroundColor = UIColor.ce
+            default:
+                break
+            }
             switch(button){
             case 0:
                 let nm4Text = object.nm4Rate.split(separator: "%")[0].description
@@ -198,18 +213,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 if let nm4 = Double(nm4Text) {
                     if(nm4 >= lowerRange && nm4 <= upperRange){
                         cell.nm.text = nm4Text+"%"
-                    } else { cell.nm.text = nil }
-                } else { cell.nm.text = nil }
+                        cell.labelNm.isHidden = false
+                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
                 if let hd4 = Double(hd4Text) {
                     if(hd4 >= lowerRange && hd4 <= upperRange){
                         cell.hd.text = hd4Text+"%"
-                    } else { cell.hd.text = nil }
-                } else { cell.hd.text = nil }
+                        cell.labelHd.isHidden = false
+                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
                 if let mx4 = Double(mx4Text) {
                     if(mx4 >= lowerRange && mx4 <= upperRange){
                         cell.mx.text = mx4Text+"%"
-                    } else { cell.mx.text = nil }
-                } else { cell.mx.text = nil }
+                        cell.labelMx.isHidden = false
+                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
             case 1:
                 let nm5Text = object.nm5Rate.split(separator: "%")[0].description
                 let hd5Text = object.hd5Rate.split(separator: "%")[0].description
@@ -217,18 +235,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 if let nm5 = Double(nm5Text) {
                     if(nm5 >= lowerRange && nm5 <= upperRange){
                         cell.nm.text = nm5Text+"%"
-                    } else { cell.nm.text = nil }
-                } else { cell.nm.text = nil }
+                        cell.labelNm.isHidden = false
+                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
                 if let hd5 = Double(hd5Text) {
                     if(hd5 >= lowerRange && hd5 <= upperRange){
                         cell.hd.text = hd5Text+"%"
-                    } else { cell.hd.text = nil }
-                } else { cell.hd.text = nil }
+                        cell.labelHd.isHidden = false
+                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
                 if let mx5 = Double(mx5Text) {
                     if(mx5 >= lowerRange && mx5 <= upperRange){
                         cell.mx.text = mx5Text+"%"
-                    } else { cell.mx.text = nil }
-                } else { cell.mx.text = nil }
+                        cell.labelMx.isHidden = false
+                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
             case 2:
                 let nm6Text = object.nm6Rate.split(separator: "%")[0].description
                 let hd6Text = object.hd6Rate.split(separator: "%")[0].description
@@ -236,18 +257,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 if let nm6 = Double(nm6Text) {
                     if(nm6 >= lowerRange && nm6 <= upperRange){
                         cell.nm.text = nm6Text+"%"
-                    } else { cell.nm.text = nil }
-                } else { cell.nm.text = nil }
+                        cell.labelNm.isHidden = false
+                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
                 if let hd6 = Double(hd6Text) {
                     if(hd6 >= lowerRange && hd6 <= upperRange){
                         cell.hd.text = hd6Text+"%"
-                    } else { cell.hd.text = nil }
-                } else { cell.hd.text = nil }
+                        cell.labelHd.isHidden = false
+                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
                 if let mx6 = Double(mx6Text) {
                     if(mx6 >= lowerRange && mx6 <= upperRange){
                         cell.mx.text = mx6Text+"%"
-                    } else { cell.mx.text = nil }
-                } else { cell.mx.text = nil }
+                        cell.labelMx.isHidden = false
+                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
             case 3:
                 let nm8Text = object.nm8Rate.split(separator: "%")[0].description
                 let hd8Text = object.hd8Rate.split(separator: "%")[0].description
@@ -255,89 +279,132 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 if let nm8 = Double(nm8Text) {
                     if(nm8 >= lowerRange && nm8 <= upperRange){
                         cell.nm.text = nm8Text+"%"
-                    } else { cell.nm.text = nil }
-                } else { cell.nm.text = nil }
+                        cell.labelNm.isHidden = false
+                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
                 if let hd8 = Double(hd8Text) {
                     if(hd8 >= lowerRange && hd8 <= upperRange){
                         cell.hd.text = hd8Text+"%"
-                    } else { cell.hd.text = nil }
-                } else { cell.hd.text = nil }
+                        cell.labelHd.isHidden = false
+                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
                 if let mx8 = Double(mx8Text) {
                     if(mx8 >= lowerRange && mx8 <= upperRange){
                         cell.mx.text = mx8Text+"%"
-                    } else { cell.mx.text = nil }
-                } else { cell.mx.text = nil }
+                        cell.labelMx.isHidden = false
+                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
             default:
                 break
             }
         } else {
             let object = noteResults[indexPath.row]
             cell.title.text = object.title
+            let query = NSPredicate(format: "title = %@", object.title)
+            let songInfo = realm.objects(SongInfo.self).filter(query).first!
+            switch(songInfo.series){
+            case "Portable1":
+                cell.color.backgroundColor = UIColor.portable1
+            case "Portable2":
+                cell.color.backgroundColor = UIColor.portable2
+            case "Respect":
+                cell.color.backgroundColor = UIColor.respect
+            case "Trilogy":
+                cell.color.backgroundColor = UIColor.trilogy
+            case "CE":
+                cell.color.backgroundColor = UIColor.ce
+            default:
+                break
+            }
             if(detailType == 0){
                 switch(button){
                 case 0:
                     if(object.nm4 != 0 && object.nm4Note == "-"){
                         cell.nm.text = "No MC"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd4 != 0 && object.hd4Note == "-"){
                         cell.hd.text = "No MC"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx4 != 0 && object.mx4Note == "-"){
                         cell.mx.text = "No MC"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 case 1:
                     if(object.nm5 != 0 && object.nm5Note == "-"){
                         cell.nm.text = "No MC"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd5 != 0 && object.hd5Note == "-"){
                         cell.hd.text = "No MC"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx5 != 0 && object.mx5Note == "-"){
                         cell.mx.text = "No MC"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 case 2:
                     if(object.nm6 != 0 && object.nm6Note == "-"){
                         cell.nm.text = "No MC"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd6 != 0 && object.hd6Note == "-"){
                         cell.hd.text = "No MC"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx6 != 0 && object.mx6Note == "-"){
                         cell.mx.text = "No MC"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 case 3:
                     if(object.nm8 != 0 && object.nm8Note == "-"){
                         cell.nm.text = "No MC"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd8 != 0 && object.hd8Note == "-"){
                         cell.hd.text = "No MC"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx8 != 0 && object.mx8Note == "-"){
                         cell.mx.text = "No MC"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 default:
                     break
@@ -347,66 +414,90 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 case 0:
                     if(object.nm4Note == "PERFECT PLAY"){
                         cell.nm.text = "PP"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd4Note == "PERFECT PLAY"){
                         cell.hd.text = "PP"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx4Note == "PERFECT PLAY"){
                         cell.mx.text = "PP"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 case 1:
                     if(object.nm5Note == "PERFECT PLAY"){
                         cell.nm.text = "PP"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd5Note == "PERFECT PLAY"){
                         cell.hd.text = "PP"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx5Note == "PERFECT PLAY"){
                         cell.mx.text = "PP"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 case 2:
                     if(object.nm6Note == "PERFECT PLAY"){
                         cell.nm.text = "PP"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd6Note == "PERFECT PLAY"){
                         cell.hd.text = "PP"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx6Note == "PERFECT PLAY"){
                         cell.mx.text = "PP"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 case 3:
                     if(object.nm8Note == "PERFECT PLAY"){
                         cell.nm.text = "PP"
+                        cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
+                        cell.labelNm.isHidden = true
                     }
                     if(object.hd8Note == "PERFECT PLAY"){
                         cell.hd.text = "PP"
+                        cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
+                        cell.labelHd.isHidden = true
                     }
                     if(object.mx8Note == "PERFECT PLAY"){
                         cell.mx.text = "PP"
+                        cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
+                        cell.labelMx.isHidden = true
                     }
                 default:
                     break

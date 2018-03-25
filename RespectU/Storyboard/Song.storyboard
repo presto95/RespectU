@@ -130,6 +130,26 @@
             </objects>
             <point key="canvasLocation" x="3470" y="-756"/>
         </scene>
+        <!--Song Technika Table View Controller-->
+        <scene sceneID="beI-wE-laj">
+            <objects>
+                <tableViewController storyboardIdentifier="SongTechnikaTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tTg-5d-pD0" customClass="SongTechnikaTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1VL-pa-JoJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="tTg-5d-pD0" id="vaQ-RV-UB2"/>
+                            <outlet property="delegate" destination="tTg-5d-pD0" id="drI-ZC-i6v"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ezy-3o-NRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4185" y="-743"/>
+        </scene>
         <!--Song Favorite Table View Controller-->
         <scene sceneID="zNr-mW-mNA">
             <objects>
@@ -148,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWL-ey-sSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4129" y="-750"/>
+            <point key="canvasLocation" x="4865" y="-743"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="k7y-9L-JNl">

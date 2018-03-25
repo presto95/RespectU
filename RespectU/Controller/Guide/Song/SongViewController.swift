@@ -19,6 +19,7 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     let respect = SongRespectTableViewController()
     let trilogy = SongTrilogyTableViewController()
     let ce = SongCETableViewController()
+    let technika = SongTechnikaTableViewController()
     let favorite = SongFavoriteTableViewController()
     
     override func viewDidLoad() {
@@ -37,16 +38,16 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [all, portable1, portable2, respect, trilogy, ce, favorite]
+        return [all, portable1, portable2, respect, trilogy, ce, technika, favorite]
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        let alert = PMAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, favorite: favorite)
+        let alert = PMAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika: technika, favorite: favorite)
         present(alert, animated: true)
     }
     
     @IBAction func sortButton(_ sender: UIButton) {
-        let alert = PMAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce)
+        let alert = PMAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika: technika)
         present(alert, animated: true)
     }
     
@@ -60,7 +61,6 @@ class SongViewController: ButtonBarPagerTabStripViewController {
         let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
         let alert = PMAlertController.showOKButton(title: object.title, message: message)
         present(alert, animated: true)
-        
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {

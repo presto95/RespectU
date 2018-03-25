@@ -1109,15 +1109,12 @@ class Init{
             //2.01
             UserDefaults.standard.set(201, forKey: "version")
         }
-        //테크니카 대응하려면 Lowercase 부분도 싹다 바꿔줘야함
+        //테크니카 곡명 한글 없어서 lowercase 대응 필요없음 다행
 //        if(version <= 201){
 //            //2.02
 //            UserDefaults.standard.set(202, forKey: "version")
 //        }
         print("DATABASE INITIALIZE FINISHED!!")
-    }
-    deinit {
-        print("Deinit Init")
     }
 }
 

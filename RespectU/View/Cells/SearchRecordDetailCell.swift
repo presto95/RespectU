@@ -22,6 +22,8 @@ class SearchRecordDetailCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        color.layer.borderWidth = 1
+        color.layer.borderColor = UIColor.mainColor.cgColor
         // Initialization code
     }
 

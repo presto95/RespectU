@@ -27,7 +27,7 @@ class MissionViewController: ButtonBarPagerTabStripViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [MissionRespectTableViewController(), MissionTrilogyTableViewController(), MissionCETableViewController()]
+        return [MissionRespectTableViewController(), MissionTrilogyTableViewController(), MissionCETableViewController(), MissionTechnikaTableViewController()]
     }
     @IBAction func cancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

@@ -308,8 +308,8 @@
 " Recorded" = " 기록됨";
 "Select Button" = "버튼 선택";
 "Select Search Type" = "검색 타입 선택";
-"Search by Rate" = "정확도별 검색";
-"Search by Note" = "비고별 검색";
+"Level" = "난이도";
+"Select Level" = "난이도 선택";
 "Rate Range (%)" = "정확도 범위 (%)";
 "Select Detail Note" = "상세 비고 선택";
 "No MAX COMBOs" = "MAX COMBO 실패";

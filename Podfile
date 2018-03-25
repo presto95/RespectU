@@ -17,6 +17,7 @@ target 'RespectU' do
   pod 'Charts'
   pod 'PMAlertController'
   pod 'SwiftGifOrigin', '~> 1.6.1'
+  pod 'AKPickerView-Swift', :git => 'https://github.com/Akkyie/AKPickerView-Swift.git'
   # Pods for RespectU
 
 end

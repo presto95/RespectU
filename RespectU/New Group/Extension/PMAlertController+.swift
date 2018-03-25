@@ -67,7 +67,7 @@ extension PMAlertController{
         return alert
     }
     
-    static func showSearch(all: SongAllTableViewController, portable1: SongPortable1TableViewController, portable2: SongPortable2TableViewController, respect: SongRespectTableViewController, trilogy: SongTrilogyTableViewController, ce: SongCETableViewController, favorite: SongFavoriteTableViewController) -> PMAlertController{
+    static func showSearch(all: SongAllTableViewController, portable1: SongPortable1TableViewController, portable2: SongPortable2TableViewController, respect: SongRespectTableViewController, trilogy: SongTrilogyTableViewController, ce: SongCETableViewController, technika: SongTechnikaTableViewController, favorite: SongFavoriteTableViewController) -> PMAlertController{
         let alert = PMAlertController(title: "Search".localized, description: "Select the button type.".localized, image: nil, style: .alert)
         let button4 = PMAlertAction(title: "4B", style: .default) {
             all.favoriteButton = "4B"
@@ -76,6 +76,7 @@ extension PMAlertController{
             respect.favoriteButton = "4B"
             trilogy.favoriteButton = "4B"
             ce.favoriteButton = "4B"
+            technika.favoriteButton = "4B"
             favorite.favoriteButton = "4B"
             all.tableView.reloadData()
             portable1.tableView.reloadData()
@@ -83,6 +84,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
             favorite.tableView.reloadData()
         }
         let button5 = PMAlertAction(title: "5B", style: .default) {
@@ -92,6 +94,7 @@ extension PMAlertController{
             respect.favoriteButton = "5B"
             trilogy.favoriteButton = "5B"
             ce.favoriteButton = "5B"
+            technika.favoriteButton = "5B"
             favorite.favoriteButton = "5B"
             all.tableView.reloadData()
             portable1.tableView.reloadData()
@@ -99,6 +102,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
             favorite.tableView.reloadData()
         }
         let button6 = PMAlertAction(title: "6B", style: .default) {
@@ -108,6 +112,7 @@ extension PMAlertController{
             respect.favoriteButton = "6B"
             trilogy.favoriteButton = "6B"
             ce.favoriteButton = "6B"
+            technika.favoriteButton = "6B"
             favorite.favoriteButton = "6B"
             all.tableView.reloadData()
             portable1.tableView.reloadData()
@@ -115,6 +120,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
             favorite.tableView.reloadData()
         }
         let button8 = PMAlertAction(title: "8B", style: .default) {
@@ -124,6 +130,7 @@ extension PMAlertController{
             respect.favoriteButton = "8B"
             trilogy.favoriteButton = "8B"
             ce.favoriteButton = "8B"
+            technika.favoriteButton = "8B"
             favorite.favoriteButton = "8B"
             all.tableView.reloadData()
             portable1.tableView.reloadData()
@@ -131,6 +138,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
             favorite.tableView.reloadData()
         }
         let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel, action: nil)
@@ -154,7 +162,7 @@ extension PMAlertController{
         return alert
     }
     
-    static func showSort(all: SongAllTableViewController, portable1: SongPortable1TableViewController, portable2: SongPortable2TableViewController, respect: SongRespectTableViewController, trilogy: SongTrilogyTableViewController, ce: SongCETableViewController) -> PMAlertController{
+    static func showSort(all: SongAllTableViewController, portable1: SongPortable1TableViewController, portable2: SongPortable2TableViewController, respect: SongRespectTableViewController, trilogy: SongTrilogyTableViewController, ce: SongCETableViewController, technika: SongTechnikaTableViewController) -> PMAlertController{
         let realm = try! Realm()
         let alert = PMAlertController(title: "Sort".localized, description: "Select the sort method".localized, image: nil, style: .alert)
         let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
@@ -168,6 +176,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "5B":
                 let sortBy = [SortDescriptor(keyPath: "nm5", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -176,6 +185,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "6B":
                 let sortBy = [SortDescriptor(keyPath: "nm6", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -184,6 +194,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "8B":
                 let sortBy = [SortDescriptor(keyPath: "nm8", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -192,6 +203,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             default:
                 break
             }
@@ -201,6 +213,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
         }
         let normalDesc = PMAlertAction(title: "NORMAL / DESC".localized, style: .default) {
             switch(all.favoriteButton){
@@ -212,6 +225,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "5B":
                 let sortBy = [SortDescriptor(keyPath: "nm5", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -220,6 +234,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "6B":
                 let sortBy = [SortDescriptor(keyPath: "nm6", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -228,6 +243,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "8B":
                 let sortBy = [SortDescriptor(keyPath: "nm8", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -236,6 +252,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             default:
                 break
             }
@@ -245,6 +262,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
         }
         let hardAsc = PMAlertAction(title: "HARD / ASC".localized, style: .default) {
             switch(all.favoriteButton){
@@ -256,6 +274,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "5B":
                 let sortBy = [SortDescriptor(keyPath: "hd5", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -264,6 +283,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "6B":
                 let sortBy = [SortDescriptor(keyPath: "hd6", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -272,6 +292,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "8B":
                 let sortBy = [SortDescriptor(keyPath: "hd8", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -280,6 +301,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             default:
                 break
             }
@@ -289,6 +311,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
         }
         let hardDesc = PMAlertAction(title: "HARD / DESC".localized, style: .default) {
             switch(all.favoriteButton){
@@ -300,6 +323,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "5B":
                 let sortBy = [SortDescriptor(keyPath: "hd5", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -308,6 +332,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "6B":
                 let sortBy = [SortDescriptor(keyPath: "hd6", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -316,6 +341,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "8B":
                 let sortBy = [SortDescriptor(keyPath: "hd8", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -324,6 +350,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             default:
                 break
             }
@@ -333,6 +360,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
         }
         let maximumAsc = PMAlertAction(title: "MAXIMUM / ASC".localized, style: .default) {
             switch(all.favoriteButton){
@@ -344,6 +372,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "5B":
                 let sortBy = [SortDescriptor(keyPath: "mx5", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -352,6 +381,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "6B":
                 let sortBy = [SortDescriptor(keyPath: "mx6", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -360,6 +390,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "8B":
                 let sortBy = [SortDescriptor(keyPath: "mx8", ascending: true), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -368,6 +399,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             default:
                 break
             }
@@ -377,6 +409,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
         }
         let maximumDesc = PMAlertAction(title: "MAXIMUM / DESC".localized, style: .default) {
             switch(all.favoriteButton){
@@ -388,6 +421,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "5B":
                 let sortBy = [SortDescriptor(keyPath: "mx5", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -396,6 +430,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "6B":
                 let sortBy = [SortDescriptor(keyPath: "mx6", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -404,6 +439,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             case "8B":
                 let sortBy = [SortDescriptor(keyPath: "mx8", ascending: false), SortDescriptor(keyPath: "series", ascending: true), SortDescriptor(keyPath: "lowercase", ascending: true)]
                 all.results = realm.objects(SongInfo.self).sorted(by: sortBy)
@@ -412,6 +448,7 @@ extension PMAlertController{
                 respect.results = realm.objects(SongInfo.self).filter("series = 'Respect'").sorted(by: sortBy)
                 trilogy.results = realm.objects(SongInfo.self).filter("series = 'Trilogy'").sorted(by: sortBy)
                 ce.results = realm.objects(SongInfo.self).filter("series = 'CE'").sorted(by: sortBy)
+                technika.results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(by: sortBy)
             default:
                 break
             }
@@ -421,6 +458,7 @@ extension PMAlertController{
             respect.tableView.reloadData()
             trilogy.tableView.reloadData()
             ce.tableView.reloadData()
+            technika.tableView.reloadData()
         }
         alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
         alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)

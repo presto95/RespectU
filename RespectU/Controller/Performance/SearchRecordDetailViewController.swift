@@ -15,11 +15,13 @@ class SearchRecordDetailViewController: UIViewController {
     var isFirstExecuted = false
     var searchType: Int = 0
     var button: Int = 0
+    var level: Int = 0
     var lowerRange: Double = 0
     var upperRange: Double = 0
     var detailType: Int = 0
     @IBOutlet weak var tableView: UITableView!
     var realm: Realm! = nil
+    var levelResults: Results<RecordInfo>! = nil
     var noteResults: Results<RecordInfo>! = nil
     var tempRateResults: LazyFilterBidirectionalCollection<Results<RecordInfo>>! = nil
     var rateResults: [RecordInfo]! = nil
@@ -28,14 +30,31 @@ class SearchRecordDetailViewController: UIViewController {
         super.viewDidLoad()
         realm = try! Realm()
         noteResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
+        levelResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
         tableView.rowHeight = 80
         tableView.separatorColor = UIColor.mainColor
         tableView.layer.borderColor = UIColor.mainColor.cgColor
         tableView.layer.borderWidth = 3
         tableView.layer.cornerRadius = 10
         tableView.register(UINib(nibName: "SearchRecordDetailCell", bundle: nil), forCellReuseIdentifier: "searchRecordDetailCell")
-        
-        if(searchType == 0) {
+        if(searchType == 0){
+            switch(button){
+            case 0:
+                let query = NSPredicate(format: "nm4 = %d OR hd4 = %d OR mx4 = %d", level, level, level)
+                levelResults = levelResults.filter(query)
+            case 1:
+                let query = NSPredicate(format: "nm5 = %d OR hd5 = %d OR mx5 = %d", level, level, level)
+                levelResults = levelResults.filter(query)
+            case 2:
+                let query = NSPredicate(format: "nm6 = %d OR hd6 = %d OR mx6 = %d", level, level, level)
+                levelResults = levelResults.filter(query)
+            case 3:
+                let query = NSPredicate(format: "nm8 = %d OR hd8 = %d OR mx8 = %d", level, level, level)
+                levelResults = levelResults.filter(query)
+            default:
+                break
+            }
+        } else if(searchType == 1) {
             switch(button){
             case 0:
                 tempRateResults = noteResults.filter({ (object) -> Bool in
@@ -133,7 +152,7 @@ class SearchRecordDetailViewController: UIViewController {
                 break
             }
             rateResults = Array(tempRateResults)
-        } else {
+        } else if(searchType == 2){
             if(detailType == 0){
                 switch(button){
                 case 0:
@@ -170,7 +189,6 @@ class SearchRecordDetailViewController: UIViewController {
                 }
             }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -187,6 +205,117 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchRecordDetailCell") as! SearchRecordDetailCell
         if(searchType == 0){
+            let object = levelResults[indexPath.row]
+            cell.title.text = object.title
+            let query = NSPredicate(format: "title = %@", object.title)
+            let songInfo = realm.objects(SongInfo.self).filter(query).first!
+            switch(songInfo.series){
+            case "Portable1":
+                cell.color.backgroundColor = UIColor.portable1
+            case "Portable2":
+                cell.color.backgroundColor = UIColor.portable2
+            case "Respect":
+                cell.color.backgroundColor = UIColor.respect
+            case "Trilogy":
+                cell.color.backgroundColor = UIColor.trilogy
+            case "CE":
+                cell.color.backgroundColor = UIColor.ce
+            default:
+                break
+            }
+            switch(button){
+            case 0:
+                if(object.nm4 == level){
+                    cell.labelNm.isHidden = false
+                    cell.nm.text = object.nm4Rate
+                } else {
+                    cell.labelNm.isHidden = true
+                    cell.nm.text = nil
+                }
+                if(object.hd4 == level){
+                    cell.labelHd.isHidden = false
+                    cell.hd.text = object.hd4Rate
+                } else {
+                    cell.labelHd.isHidden = true
+                    cell.hd.text = nil
+                }
+                if(object.mx4 == level){
+                    cell.labelMx.isHidden = false
+                    cell.mx.text = object.mx4Rate
+                } else {
+                    cell.labelMx.isHidden = true
+                    cell.mx.text = nil
+                }
+            case 1:
+                if(object.nm5 == level){
+                    cell.labelNm.isHidden = false
+                    cell.nm.text = object.nm5Rate
+                } else {
+                    cell.labelNm.isHidden = true
+                    cell.nm.text = nil
+                }
+                if(object.hd5 == level){
+                    cell.labelHd.isHidden = false
+                    cell.hd.text = object.hd5Rate
+                } else {
+                    cell.labelHd.isHidden = true
+                    cell.hd.text = nil
+                }
+                if(object.mx5 == level){
+                    cell.labelMx.isHidden = false
+                    cell.mx.text = object.mx5Rate
+                } else {
+                    cell.labelMx.isHidden = true
+                    cell.mx.text = nil
+                }
+            case 2:
+                if(object.nm6 == level){
+                    cell.labelNm.isHidden = false
+                    cell.nm.text = object.nm6Rate
+                } else {
+                    cell.labelNm.isHidden = true
+                    cell.nm.text = nil
+                }
+                if(object.hd6 == level){
+                    cell.labelHd.isHidden = false
+                    cell.hd.text = object.hd6Rate
+                } else {
+                    cell.labelHd.isHidden = true
+                    cell.hd.text = nil
+                }
+                if(object.mx6 == level){
+                    cell.labelMx.isHidden = false
+                    cell.mx.text = object.mx6Rate
+                } else {
+                    cell.labelMx.isHidden = true
+                    cell.mx.text = nil
+                }
+            case 3:
+                if(object.nm8 == level){
+                    cell.labelNm.isHidden = false
+                    cell.nm.text = object.nm8Rate
+                } else {
+                    cell.labelNm.isHidden = true
+                    cell.nm.text = nil
+                }
+                if(object.hd8 == level){
+                    cell.labelHd.isHidden = false
+                    cell.hd.text = object.hd8Rate
+                } else {
+                    cell.labelHd.isHidden = true
+                    cell.hd.text = nil
+                }
+                if(object.mx8 == level){
+                    cell.labelMx.isHidden = false
+                    cell.mx.text = object.mx8Rate
+                } else {
+                    cell.labelMx.isHidden = true
+                    cell.mx.text = nil
+                }
+            default:
+                break
+            }
+        } else if(searchType == 1){
             let object = rateResults[indexPath.row]
             cell.title.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
@@ -297,7 +426,7 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
             default:
                 break
             }
-        } else {
+        } else if(searchType == 2){
             let object = noteResults[indexPath.row]
             cell.title.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
@@ -320,21 +449,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 switch(button){
                 case 0:
                     if(object.nm4 != 0 && object.nm4Note == "-"){
-                        cell.nm.text = "No MC"
+                        cell.nm.text = object.nm4Note
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd4 != 0 && object.hd4Note == "-"){
-                        cell.hd.text = "No MC"
+                        cell.hd.text = object.hd4Note
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx4 != 0 && object.mx4Note == "-"){
-                        cell.mx.text = "No MC"
+                        cell.mx.text = object.mx4Note
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -342,21 +471,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                     }
                 case 1:
                     if(object.nm5 != 0 && object.nm5Note == "-"){
-                        cell.nm.text = "No MC"
+                        cell.nm.text = object.nm5Note
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd5 != 0 && object.hd5Note == "-"){
-                        cell.hd.text = "No MC"
+                        cell.hd.text = object.hd5Note
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx5 != 0 && object.mx5Note == "-"){
-                        cell.mx.text = "No MC"
+                        cell.mx.text = object.mx5Note
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -364,21 +493,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                     }
                 case 2:
                     if(object.nm6 != 0 && object.nm6Note == "-"){
-                        cell.nm.text = "No MC"
+                        cell.nm.text = object.nm6Note
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd6 != 0 && object.hd6Note == "-"){
-                        cell.hd.text = "No MC"
+                        cell.hd.text = object.hd6Note
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx6 != 0 && object.mx6Note == "-"){
-                        cell.mx.text = "No MC"
+                        cell.mx.text = object.mx6Note
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -386,21 +515,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                     }
                 case 3:
                     if(object.nm8 != 0 && object.nm8Note == "-"){
-                        cell.nm.text = "No MC"
+                        cell.nm.text = object.nm8Note
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd8 != 0 && object.hd8Note == "-"){
-                        cell.hd.text = "No MC"
+                        cell.hd.text = object.hd8Note
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx8 != 0 && object.mx8Note == "-"){
-                        cell.mx.text = "No MC"
+                        cell.mx.text = object.mx8Note
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -508,6 +637,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searchType == 0){
+            return levelResults.count
+        } else if(searchType == 1) {
             return rateResults.count
         } else {
             return noteResults.count

@@ -161,7 +161,6 @@
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
-		1986CA2F205F543500CA43EA /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA2E205F543500CA43EA /* SearchByRateView.swift */; };
 		1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA30205F543F00CA43EA /* SearchByNoteView.xib */; };
 		1986CA33205F544900CA43EA /* SearchByNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA32205F544900CA43EA /* SearchByNoteView.swift */; };
 		1986CA35205F574100CA43EA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA34205F574100CA43EA /* UITextField+.swift */; };
@@ -182,6 +181,7 @@
 		199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992122049653900C74697 /* MissionRespectTableViewController.swift */; };
 		199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992142049654500C74697 /* MissionTrilogyTableViewController.swift */; };
 		199992172049654E00C74697 /* MissionCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992162049654E00C74697 /* MissionCETableViewController.swift */; };
+		199EFFE62067D51B00A6068F /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199EFFE52067D51B00A6068F /* SearchByRateView.swift */; };
 		19B5F9B9204A489800E12EC1 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B5F9B8204A489800E12EC1 /* Init.swift */; };
 		19B660261F960E5800CCEFB5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* String+.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
@@ -377,7 +377,6 @@
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
-		1986CA2E205F543500CA43EA /* SearchByRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchByRateView.swift; path = /Users/presto/XCode/RespectU/RespectU/View/Views/SearchByRateView.swift; sourceTree = "<absolute>"; };
 		1986CA30205F543F00CA43EA /* SearchByNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByNoteView.xib; sourceTree = "<group>"; };
 		1986CA32205F544900CA43EA /* SearchByNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNoteView.swift; sourceTree = "<group>"; };
 		1986CA34205F574100CA43EA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
@@ -398,6 +397,7 @@
 		199992122049653900C74697 /* MissionRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRespectTableViewController.swift; sourceTree = "<group>"; };
 		199992142049654500C74697 /* MissionTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTrilogyTableViewController.swift; sourceTree = "<group>"; };
 		199992162049654E00C74697 /* MissionCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCETableViewController.swift; sourceTree = "<group>"; };
+		199EFFE52067D51B00A6068F /* SearchByRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByRateView.swift; sourceTree = "<group>"; };
 		19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RespectU-Bridging-Header.h"; sourceTree = "<group>"; };
 		19B5F9B8204A489800E12EC1 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -548,7 +548,7 @@
 				19F38C94204CC957006BB72B /* SkillLevelDetailView.xib */,
 				19F38C96204CC962006BB72B /* SkillLevelDetailView.swift */,
 				1986CA2C205F542100CA43EA /* SearchByRateView.xib */,
-				1986CA2E205F543500CA43EA /* SearchByRateView.swift */,
+				199EFFE52067D51B00A6068F /* SearchByRateView.swift */,
 				1986CA30205F543F00CA43EA /* SearchByNoteView.xib */,
 				1986CA32205F544900CA43EA /* SearchByNoteView.swift */,
 				19892A8520662D0A009D01F8 /* SearchByLevelView.xib */,
@@ -1127,6 +1127,7 @@
 				19012FBA204835180061EF21 /* LoginViewController.swift in Sources */,
 				194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */,
 				19012FCD20484C260061EF21 /* TrophyInfo.swift in Sources */,
+				199EFFE62067D51B00A6068F /* SearchByRateView.swift in Sources */,
 				198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */,
 				194E52A6204A8F7B00B84AFA /* SongAllTableViewController.swift in Sources */,
 				193E4029204C237B0063A440 /* RankingViewController.swift in Sources */,
@@ -1189,7 +1190,6 @@
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
 				19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */,
-				1986CA2F205F543500CA43EA /* SearchByRateView.swift in Sources */,
 				194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,

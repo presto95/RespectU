@@ -145,9 +145,10 @@ class SearchRecordViewController: UIViewController {
             let newView = SearchByRateView.instanceFromXib() as! SearchByRateView
             newView.frame.size = subView.frame.size
             newView.lowerRate.frame.origin.x = button4.frame.origin.x
-            newView.lowerRate.frame.size.width = (button5.frame.origin.x - button4.frame.origin.x - button4.frame.width) + button4.frame.width * 2
+            //newView.lowerRate.frame.size.width = (button5.frame.origin.x - button4.frame.origin.x - button4.frame.width) + button4.frame.width * 2
             newView.lowerRate.frame.size.height = button4.frame.height
-            newView.upperRate.frame.origin.x = button6.frame.origin.x
+//            newView.upperRate.frame.origin.x = button6.frame.origin.x
+            newView.upperRate.frame.origin.x = button8.frame.origin.x + button8.frame.width - newView.lowerRate.frame.width
             newView.upperRate.frame.size = newView.lowerRate.frame.size
             newView.lowerRate.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
             newView.upperRate.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)

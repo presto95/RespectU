@@ -18,24 +18,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zz9-md-jml" customClass="GIDSignInButton">
-                                <rect key="frame" x="14" y="365" width="292" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zz9-md-jml" customClass="GIDSignInButton">
+                                <rect key="frame" x="16" y="365" width="288" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="XyT-w4-NbB"/>
+                                </constraints>
                                 <connections>
                                     <action selector="login:" destination="y09-pX-rxO" eventType="touchUpInside" id="hJs-SN-tF7"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pih-tX-MUh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pih-tX-MUh">
                                 <rect key="frame" x="16" y="421" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="J5T-0o-giD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2O-z4-mTP">
-                                <rect key="frame" x="244" y="435" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectu-3d-color-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEo-HK-77Y">
+                                <rect key="frame" x="16" y="163" width="288" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="aoT-Jo-pMs"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2O-z4-mTP">
+                                <rect key="frame" x="274" y="450" width="30" height="30"/>
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -43,12 +52,23 @@
                                     <action selector="skip:" destination="y09-pX-rxO" eventType="touchUpInside" id="lYZ-jT-R8t"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="respectu-3d-color-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="SEo-HK-77Y">
-                                <rect key="frame" x="33" y="163" width="255" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92398041490000005" green="0.64237487319999997" blue="0.20982709529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ofk-Ps-0ZI" firstAttribute="trailing" secondItem="Pih-tX-MUh" secondAttribute="trailing" constant="16" id="6AH-Kz-Djl"/>
+                            <constraint firstItem="h2O-z4-mTP" firstAttribute="top" secondItem="Pih-tX-MUh" secondAttribute="bottom" constant="8" id="CIv-LX-99G"/>
+                            <constraint firstItem="Ofk-Ps-0ZI" firstAttribute="trailing" secondItem="h2O-z4-mTP" secondAttribute="trailing" constant="16" id="EmG-0Z-svy"/>
+                            <constraint firstItem="Ofk-Ps-0ZI" firstAttribute="trailing" secondItem="Zz9-md-jml" secondAttribute="trailing" constant="16" id="FFV-mN-KGU"/>
+                            <constraint firstItem="Zz9-md-jml" firstAttribute="centerX" secondItem="gse-ju-xyX" secondAttribute="centerX" id="MFW-G9-bgE"/>
+                            <constraint firstItem="Zz9-md-jml" firstAttribute="top" secondItem="SEo-HK-77Y" secondAttribute="bottom" constant="158" id="Rhz-cY-Yqe"/>
+                            <constraint firstItem="Ofk-Ps-0ZI" firstAttribute="trailing" secondItem="SEo-HK-77Y" secondAttribute="trailing" constant="16" id="YZb-hk-Gtk"/>
+                            <constraint firstItem="Pih-tX-MUh" firstAttribute="leading" secondItem="Ofk-Ps-0ZI" secondAttribute="leading" constant="16" id="eUa-yg-tOP"/>
+                            <constraint firstItem="SEo-HK-77Y" firstAttribute="top" secondItem="Ofk-Ps-0ZI" secondAttribute="top" constant="143" id="gDu-Sn-ZGP"/>
+                            <constraint firstItem="Zz9-md-jml" firstAttribute="leading" secondItem="Ofk-Ps-0ZI" secondAttribute="leading" constant="16" id="jLK-GZ-wBc"/>
+                            <constraint firstItem="SEo-HK-77Y" firstAttribute="leading" secondItem="Ofk-Ps-0ZI" secondAttribute="leading" constant="16" id="jjA-ux-YDg"/>
+                            <constraint firstItem="SEo-HK-77Y" firstAttribute="centerX" secondItem="gse-ju-xyX" secondAttribute="centerX" id="phx-YS-gxg"/>
+                            <constraint firstItem="Pih-tX-MUh" firstAttribute="top" secondItem="Zz9-md-jml" secondAttribute="bottom" constant="8" id="vVj-jl-4vK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Ofk-Ps-0ZI"/>
                     </view>
                     <connections>
@@ -59,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Lg-8C-nLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-325.60000000000002" y="110.19490254872565"/>
+            <point key="canvasLocation" x="-326.25" y="109.85915492957747"/>
         </scene>
     </scenes>
     <resources>

@@ -220,6 +220,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 cell.color.backgroundColor = UIColor.trilogy
             case "CE":
                 cell.color.backgroundColor = UIColor.ce
+            case "Technika1":
+                cell.color.backgroundColor = UIColor.technika1
             default:
                 break
             }
@@ -331,6 +333,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 cell.color.backgroundColor = UIColor.trilogy
             case "CE":
                 cell.color.backgroundColor = UIColor.ce
+            case "Technika1":
+                cell.color.backgroundColor = UIColor.technika1
             default:
                 break
             }
@@ -442,6 +446,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 cell.color.backgroundColor = UIColor.trilogy
             case "CE":
                 cell.color.backgroundColor = UIColor.ce
+            case "Technika1":
+                cell.color.backgroundColor = UIColor.technika1
             default:
                 break
             }
@@ -449,21 +455,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 switch(button){
                 case 0:
                     if(object.nm4 != 0 && object.nm4Note == "-"){
-                        cell.nm.text = object.nm4Note
+                        cell.nm.text = object.nm4Rate
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd4 != 0 && object.hd4Note == "-"){
-                        cell.hd.text = object.hd4Note
+                        cell.hd.text = object.hd4Rate
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx4 != 0 && object.mx4Note == "-"){
-                        cell.mx.text = object.mx4Note
+                        cell.mx.text = object.mx4Rate
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -471,21 +477,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                     }
                 case 1:
                     if(object.nm5 != 0 && object.nm5Note == "-"){
-                        cell.nm.text = object.nm5Note
+                        cell.nm.text = object.nm5Rate
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd5 != 0 && object.hd5Note == "-"){
-                        cell.hd.text = object.hd5Note
+                        cell.hd.text = object.hd5Rate
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx5 != 0 && object.mx5Note == "-"){
-                        cell.mx.text = object.mx5Note
+                        cell.mx.text = object.mx5Rate
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -493,21 +499,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                     }
                 case 2:
                     if(object.nm6 != 0 && object.nm6Note == "-"){
-                        cell.nm.text = object.nm6Note
+                        cell.nm.text = object.nm6Rate
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd6 != 0 && object.hd6Note == "-"){
-                        cell.hd.text = object.hd6Note
+                        cell.hd.text = object.hd6Rate
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx6 != 0 && object.mx6Note == "-"){
-                        cell.mx.text = object.mx6Note
+                        cell.mx.text = object.mx6Rate
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil
@@ -515,21 +521,21 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                     }
                 case 3:
                     if(object.nm8 != 0 && object.nm8Note == "-"){
-                        cell.nm.text = object.nm8Note
+                        cell.nm.text = object.nm8Rate
                         cell.labelNm.isHidden = false
                     } else {
                         cell.nm.text = nil
                         cell.labelNm.isHidden = true
                     }
                     if(object.hd8 != 0 && object.hd8Note == "-"){
-                        cell.hd.text = object.hd8Note
+                        cell.hd.text = object.hd8Rate
                         cell.labelHd.isHidden = false
                     } else {
                         cell.hd.text = nil
                         cell.labelHd.isHidden = true
                     }
                     if(object.mx8 != 0 && object.mx8Note == "-"){
-                        cell.mx.text = object.mx8Note
+                        cell.mx.text = object.mx8Rate
                         cell.labelMx.isHidden = false
                     } else {
                         cell.mx.text = nil

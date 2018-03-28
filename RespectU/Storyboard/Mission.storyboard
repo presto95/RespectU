@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="966" y="-745"/>
         </scene>
-        <!--Mission Technika Table View Controller-->
+        <!--Mission Technika1 Table View Controller-->
         <scene sceneID="cHe-Og-je3">
             <objects>
-                <tableViewController storyboardIdentifier="MissionTechnikaTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Sd-ZI-nHn" customClass="MissionTechnikaTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MissionTechnika1TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1Sd-ZI-nHn" customClass="MissionTechnika1TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZZy-dS-Cvg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

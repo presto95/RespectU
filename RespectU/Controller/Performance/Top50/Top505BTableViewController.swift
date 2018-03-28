@@ -47,6 +47,8 @@ class Top505BTableViewController: UITableViewController {
             cell.color.backgroundColor = UIColor.trilogy
         case Series.ce.rawValue:
             cell.color.backgroundColor = UIColor.ce
+        case Series.technika1.rawValue:
+            cell.color.backgroundColor = UIColor.technika1
         default:
             break
         }

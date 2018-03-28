@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import RealmSwift
 import PMAlertController
 
-class SongTechnikaTableViewController: UITableViewController {
+class SongTechnika1TableViewController: UITableViewController {
     
     var realm: Realm! = nil
     var results: Results<SongInfo>! = nil
@@ -22,7 +22,7 @@ class SongTechnikaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        results = realm.objects(SongInfo.self).filter("series = 'Technika'").sorted(byKeyPath: "lowercase")
+        results = realm.objects(SongInfo.self).filter("series = 'Technika1'").sorted(byKeyPath: "lowercase")
         
         view.backgroundColor = UIColor.mainColor
         tableView.rowHeight = 60
@@ -41,7 +41,7 @@ class SongTechnikaTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "songCell") as! SongCell
         let object = results[indexPath.row]
-        cell.color.backgroundColor = UIColor.ce
+        cell.color.backgroundColor = UIColor.technika1
         cell.title.text = object.title
         cell.artist.text = object.composer
         cell.bpm.text = "BPM " + object.bpm
@@ -83,8 +83,8 @@ class SongTechnikaTableViewController: UITableViewController {
     }
 }
 
-extension SongTechnikaTableViewController: IndicatorInfoProvider{
+extension SongTechnika1TableViewController: IndicatorInfoProvider{
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA")
+        return IndicatorInfo(title: "TECHNIKA 1")
     }
 }

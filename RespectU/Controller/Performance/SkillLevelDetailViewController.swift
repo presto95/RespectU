@@ -83,6 +83,8 @@ class SkillLevelDetailViewController: UIViewController {
                 return UIColor.trilogy
             case "CE":
                 return UIColor.ce
+            case "Technika1":
+                return UIColor.technika1
             default:
                 return UIColor()
             }
@@ -99,6 +101,8 @@ class SkillLevelDetailViewController: UIViewController {
                 return UIColor.trilogy
             case "CE":
                 return UIColor.ce
+            case "Technika1":
+                return UIColor.technika1
             default:
                 return UIColor()
             }
@@ -115,6 +119,8 @@ class SkillLevelDetailViewController: UIViewController {
                 return UIColor.trilogy
             case "CE":
                 return UIColor.ce
+            case "Technika1":
+                return UIColor.technika1
             default:
                 return UIColor()
             }
@@ -131,6 +137,8 @@ class SkillLevelDetailViewController: UIViewController {
                 return UIColor.trilogy
             case "CE":
                 return UIColor.ce
+            case "Technika1":
+                return UIColor.technika1
             default:
                 return UIColor()
             }

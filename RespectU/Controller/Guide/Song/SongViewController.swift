@@ -19,7 +19,7 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     let respect = SongRespectTableViewController()
     let trilogy = SongTrilogyTableViewController()
     let ce = SongCETableViewController()
-    let technika = SongTechnikaTableViewController()
+    let technika = SongTechnika1TableViewController()
     let favorite = SongFavoriteTableViewController()
     
     override func viewDidLoad() {
@@ -42,12 +42,12 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        let alert = PMAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika: technika, favorite: favorite)
+        let alert = PMAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, favorite: favorite)
         present(alert, animated: true)
     }
     
     @IBAction func sortButton(_ sender: UIButton) {
-        let alert = PMAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika: technika)
+        let alert = PMAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika)
         present(alert, animated: true)
     }
     

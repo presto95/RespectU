@@ -31,6 +31,29 @@ class Init{
             }
             // Database - SongInfo
             
+            //Technika1
+            addSong("Technika1", "Access", "Sphazer", "135", 2, 4, 7, 3, 6, 0, 3, 0, 12, 5, 7, 12)
+            addSong("Technika1", "Area 7", "Sphazer", "130", 4, 0, 10, 4, 7, 10, 5, 7, 11, 4, 7, 12)
+            addSong("Technika1", "Beyond the Future", "7  Sequence", "150", 4, 8, 11, 4, 8, 11, 4, 9, 12, 4, 9, 12)
+            addSong("Technika1", "Dear my Lady", "Oriental ST8", "128", 5, 9, 0, 5, 7, 10, 5, 7, 10, 4, 7, 10)
+            addSong("Technika1", "DJMAX", "Humming Urban Stereo", "128", 2, 7, 0, 3, 0, 8, 4, 8, 0, 4, 8, 0)
+            addSong("Technika1", "Fury", "Sugardonut", "135", 4, 9, 11, 5, 8, 12, 5, 9, 12, 5, 10, 12)
+            addSong("Technika1", "HEXAD", "Electronic Boutique", "135", 5, 10, 13, 5, 9, 12, 5, 9, 12, 6, 10, 13)
+            addSong("Technika1", "Honeymoon", "Humming Urban Stereo", "150", 3, 5, 8, 4, 0, 8, 4, 8, 0, 3, 9, 0)
+            addSong("Technika1", "I want You", "Lin-G", "140", 3, 6, 8, 3, 8, 10, 5, 8, 11, 4, 9, 11)
+            addSong("Technika1", "Landscape", "Tsukasa", "140", 6, 9, 0, 6, 8, 11, 5, 9, 12, 7, 9, 13)
+            addSong("Technika1", "Melody", "bermei.inazawa", "188", 5, 8, 11, 5, 8, 11, 4, 8, 12, 5, 10, 12)
+            addSong("Technika1", "Play the Future", "Urbatronic Chopsticks", "128", 4, 9, 0, 4, 7, 10, 6, 10, 0, 5, 0, 10)
+            addSong("Technika1", "Remember", "Lin-G", "150", 3, 8, 10, 4, 7, 10, 4, 7, 11, 5, 0, 11)
+            addSong("Technika1", "Shoreline", "Oriental ST8", "135", 4, 8, 10, 6, 11, 0, 6, 11, 0, 6, 8, 12)
+            addSong("Technika1", "SON OF SUN", "Hosoe Shinji", "200", 7, 9, 13, 7, 10, 14, 7, 11, 15, 7, 10, 15)
+            addSong("Technika1", "SuperSonic", "Planetboom", "156", 4, 7, 11, 5, 8, 12, 6, 9, 12, 6, 10, 13)
+            addSong("Technika1", "Sweet Shining Shooting Star", "Croove", "140", 3, 8, 10, 3, 6, 10, 6, 0, 10, 6, 0, 11)
+            addSong("Technika1", "The Last Dance", "Urbatronic Chopsticks", "102", 4, 0, 8, 5, 11, 0, 5, 10, 0, 4, 0, 12)
+            addSong("Technika1", "Thor", "XeoN", "147", 7, 11, 14, 6, 10, 14, 6, 11, 14, 7, 11, 14)
+            addSong("Technika1", "Voyage", "makou", "125", 6, 9, 0, 5, 10, 0, 3, 9, 11, 5, 11, 0)
+            
+            
             //Clazziquai Edition
             addSong("CE", "Proposed, Flower, Wolf".localized, "ReX", "80", 1,3,6,1,6,0,1,4,7,1,3,7)
             addSong("CE", "Come to me".localized, "CLAZZIQUAI", "125", 3,5,8,4,0,8,2,7,9,4,8,12)
@@ -124,6 +147,8 @@ class Init{
             addSong("Respect", "Holy Orders (Be Just Or Be Dead)", "Daisuke Ishiwatari", "120", 4, 9, 11, 6, 8, 11, 6, 9, 12, 6, 10, 12)
             addSong("Respect", "Marionette", "Daisuke Ishiwatari", "136", 5, 9, 13, 7, 12, 0, 6, 10, 13, 8, 0, 13)
             addSong("Respect", "Rising The Sonic", "Dayz", "137", 4,9,12,5,10,13,5,9,13,5,10,14)
+            addSong("Respect", "Do you want it", "House Rulez", "123", 5, 8, 0, 7, 9, 0, 5, 9, 0, 5, 11, 0)
+            addSong("Respect", "Only On", "Dok2", "96", 2, 5, 0, 3, 6, 0, 2, 5, 0, 3, 5, 8)
             
             //Portable 1
             addSong("Portable1", "Ask to Wind".localized, "Forte Escape", "108", 1, 7, 0, 6, 7, 0, 3, 7, 9, 4, 8, 0)
@@ -173,7 +198,7 @@ class Init{
             addSong("Portable1", "Road Of Death", "NieN", "180", 4, 9, 0, 7, 13, 0, 8, 11, 14, 7, 13, 0)
             addSong("Portable1", "Rock Or Die", "NieN", "106", 6, 0, 0, 6, 9, 0, 6, 10, 12, 6, 9, 0)
             addSong("Portable1", "Save My Dream", "Forte Escape", "125", 1, 4, 0, 2, 4, 0, 2, 5, 9, 5, 8, 0)
-            addSong("Portable1", "SIN", "ESTi", "190", 3, 6, 11, 7, 10, 0, 7, 10, 0, 9, 12, 0)
+            addSong("Portable1", "SIN", "ESTi", "190", 3, 6, 11, 7, 10, 0, 7, 10, 14, 9, 12, 15)
             addSong("Portable1", "SIN ~The Last Scene~", "ESTi", "200", 7, 12, 14, 7, 11, 0, 8, 12, 14, 8, 13, 0)
             addSong("Portable1", "Sunny Side", "Croove", "112", 4, 8, 0, 5, 9, 0, 5, 8, 11, 10, 0, 0)
             addSong("Portable1", "Sunny Side ~Deepn' Soul Mix~", "makou", "122", 7, 10, 0, 7, 0, 0, 7, 0, 11, 8, 10, 0)
@@ -238,6 +263,21 @@ class Init{
             addSong("Portable2", "Your Own Miracle", "Ruby Tuesday", "136", 3, 9, 0, 3, 6, 10, 6, 10, 12, 7, 10, 13)
             
             //Database - Mission
+            
+            //Technika1
+            addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "")
+            addMission("Technika1", "Platinum Mixing", "Metro Drive", "Y (CE Style)", "NORMAL", "6B", "Melody", "NORMAL", "6B", "The Clear Blue Sky", "NORMAL", "6B", 0, 0, 4000, 93, 0, "Fever-Manual", "")
+            addMission("Technika1", "Platinum Mixing", "Using Effect", "Play the Future", "NORMAL", "5B", "Beyond the Future", "NORMAL", "5B", "Do you want it", "NORMAL", "5B", 0, 0, 0, 0, 20, "Fever-OFF, FADER 2", "")
+            addMission("Technika1", "Platinum Mixing", "Mr.Perfect", "Remember", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever-OFF", "")
+            addMission("Technika1", "Platinum Mixing", "High Technician", "CnP", "MAXIMUM", "5B", "Dreadnought", "MAXIMUM", "4B", "SIN", "MAXIMUM", "6B", 990000, 5, 0, 0, 0, "Fever-Manual", "")
+            addMission("Technika1", "Platinum Mixing", "Sound Storm", "Enemy Storm", "MAXIMUM", "4B", "Brain Storm", "MAXIMUM", "5B", "Thor", "MAXIMUM", "6B", 0, 5, 3900, 95, 25, "Fever-Manual", "")
+            addMission("Technika1", "Technical Mixing", "First Step", "Dear my Lady", "NORMAL", "4B", "Honeymoon", "HARD", "4B", "DJMAX", "HARD", "4B", "??", "SPECIAL", "TB", 900000, 0, 0, 0, 0, "Fever-OFF", "")
+            addMission("Technika1", "Technical Mixing", "Electro EP", "Access", "HARD", "5B", "Your Own Miracle", "HARD", "5B", "Area 7", "HARD", "5B", "??", "SPECIAL", "TB", 0, 0, 800, 0, 0, "Fever-OFF", "")
+            addMission("Technika1", "Technical Mixing", "Core Sound", "Beyond the Future", "HARD", "6B", "Voyage", "HARD", "6B", "Landscape", "HARD", "6B", "??", "SPECIAL", "TB", 0, 0, 0, 95, 0, "Fever-OFF", "")
+            addMission("Technika1", "Technical Mixing", "HeartBeat", "Remember", "MAXIMUM", "5B", "Play the Future", "HARD", "5B", "Melody", "MAXIMUM", "5B", "??", "SPECIAL", "TB", 0, 0, 0, 0, 15, "Fever-OFF", "")
+            addMission("Technika1", "Technical Mixing", "Customizer", "Sweet Shining Shooting Star", "MAXIMUM", "8B", "Fury", "MAXIMUM", "8B", "Y (CE Style)", "MAXIMUM", "8B", "??", "SPECIAL", "TB", 1125000, 0, 1750, 98, 0, "Fever-OFF", "")
+            addMission("Technika1", "Technical Mixing", "Conqueror", "SON OF SUN", "HARD", "4B", "SuperSonic", "MAXIMUM", "5B", "HEXAD", "MAXIMUM", "6B", "!?", "SPECIAL", "TB", 1150000, 0, 1500, 98, 0, "Fever-OFF", "")
+            
             
             //Clazziquai Edition
             addMission("CE", "Electronic City", "Club Tour", "Love Mode", "NORMAL", "4B", "Come to me".localized, "NORMAL", "4B", "Freedom", "NORMAL", "4B", 850000,0,0,0,0,"Fever-Manual", "Gallery : Clear (Flea Ver.)")
@@ -388,6 +428,17 @@ class Init{
             addTrophy("CE", "DJMAX ARTIST TEAM", "DJMAX TOURNAMENT LIVE 미션을 클리어했다.","DJMAX ARTIST TEAM","Cleared mission \"DJMAX TOURNAMENT LIVE\".","BRONZE")
             addTrophy("CE", "METROTRONICS", "ARCADE를 Clazziquai Edition 곡으로만 클리어했다.","METROTRONICS","Cleared Arcade mode playing only Clazziquai Edition Songs.","BRONZE")
             addTrophy("CE", "Go Back From the Top", "Clazziquai Edition 곡 중 숨겨진 BGA를 발견했다.", "Go Back From the Top","Found a Hidden BGA from a Clazziquai Edition Song.","BRONZE")
+            
+            addTrophy("Technika1", "플래티넘 크루", "TECHNIKA 곡을 모두 S랭크로 클리어했다.", "PLATINUM CREW", "Cleared all TECHNIKA songs in S rank.", "SILVER")
+            addTrophy("Technika1", "Rolling On the Screen", "Technical Mixing에서 할 수 있는 모든 패턴을 플레이했다.", "Rolling On the Screen", "Played all the patterns you can play in \"Technical Mixing\".", "SILVER")
+            addTrophy("Technika1", "테크니카의 10번째 생일을 축하해", "숨겨진 패턴을 MAX COMBO로 클리어했다.", "Happy 10th Birthday for TECHNIKA", "Cleared the hidden pattern in MAX COMBO", "SILVER")
+            addTrophy("Technika1", "First Step Set 졸업", "First Step 미션에서 플레이 할 수 있는 모든 곡을 클리어했다.", "First Step Set Complete", "Cleared all the songs in the First Step mission.", "BRONZE")
+            addTrophy("Technika1", "ONLY FOR ARCADE", "ARCADE를 TECHNIKA 곡으로만 클리어했다.", "ONLY FOR ARCADE", "Cleared ARCADE mode only with TECHNIKA songs.", "BRONZE")
+            addTrophy("Technika1", "Stylish eSper Shooting Sports", "COLLECTION 모드에서 SuperSonic의 뮤직 비디오를 감상했다.", "Stylish eSper Shooting Sports", "Watched a SuperSonic video in Collection.", "BRONZE")
+            addTrophy("Technika1", "앗 깜짝이야", "Mr.Perfect 미션을 플레이했다.", "What a Surprise", "Played \"Mr.Perfect\" mission.", "BRONZE")
+            addTrophy("Technika1", "너희집엔 이런거 없지?", "5가지의 TECHNIKA 전용 플레이트를 획득했다.", "I Bet You Don't Have This at Home", "Acquired 5 TECHNIKA Plates.", "BRONZE")
+            addTrophy("Technika1", "댓글댓글단다 댓글댓글단다", "추장의 장비를 갖추고 SON OF SUN을 MAX COMBO로 클리어했다.", "SON OF SUN", "Cleared \"SON OF SUN\" in MAX COMBO with \"SON OF SUN\" GEAR and NOTE Skins.", "BRONZE")
+            addTrophy("Technika1", "암튼 레어 카드", "TECHNIKA 곡 중 숨겨진 BGA를 발견했다.", "Rare Card Anyways", "Found a Hidden BGA from a TECHNIKA Song.", "BRONZE")
             
             //Database - AchievementInfo
             addAchievement("Play Count", 1, "MUSIC", "Syriana")
@@ -1109,11 +1160,112 @@ class Init{
             //2.01
             UserDefaults.standard.set(201, forKey: "version")
         }
-        //테크니카 곡명 한글 없어서 lowercase 대응 필요없음 다행
-//        if(version <= 201){
-//            //2.02
-//            UserDefaults.standard.set(202, forKey: "version")
-//        }
+        
+        if(version <= 201){
+            //2.02
+            let sin = realm.objects(RecordInfo.self).filter("title = 'SIN'").first!
+            try! realm.write{
+                sin.mx6 = 14
+                sin.mx8 = 15
+            }
+            if(realm.objects(SongInfo.self).filter("series = 'Technika1'").count == 0) {
+                addSong("Technika1", "Access", "Sphazer", "135", 2, 4, 7, 3, 6, 0, 3, 0, 12, 5, 7, 12)
+                addSong("Technika1", "Area 7", "Sphazer", "130", 4, 0, 10, 4, 7, 10, 5, 7, 11, 4, 7, 12)
+                addSong("Technika1", "Beyond the Future", "7  Sequence", "150", 4, 8, 11, 4, 8, 11, 4, 9, 12, 4, 9, 12)
+                addSong("Technika1", "Dear my Lady", "Oriental ST8", "128", 5, 9, 0, 5, 7, 10, 5, 7, 10, 4, 7, 10)
+                addSong("Technika1", "DJMAX", "Humming Urban Stereo", "128", 2, 7, 0, 3, 0, 8, 4, 8, 0, 4, 8, 0)
+                addSong("Technika1", "Fury", "Sugardonut", "135", 4, 9, 11, 5, 8, 12, 5, 9, 12, 5, 10, 12)
+                addSong("Technika1", "HEXAD", "Electronic Boutique", "135", 5, 10, 13, 5, 9, 12, 5, 9, 12, 6, 10, 13)
+                addSong("Technika1", "Honeymoon", "Humming Urban Stereo", "150", 3, 5, 8, 4, 0, 8, 4, 8, 0, 3, 9, 0)
+                addSong("Technika1", "I want You", "Lin-G", "140", 3, 6, 8, 3, 8, 10, 5, 8, 11, 4, 9, 11)
+                addSong("Technika1", "Landscape", "Tsukasa", "140", 6, 9, 0, 6, 8, 11, 5, 9, 12, 7, 9, 13)
+                addSong("Technika1", "Melody", "bermei.inazawa", "188", 5, 8, 11, 5, 8, 11, 4, 8, 12, 5, 10, 12)
+                addSong("Technika1", "Play the Future", "Urbatronic Chopsticks", "128", 4, 9, 0, 4, 7, 10, 6, 10, 0, 5, 0, 10)
+                addSong("Technika1", "Remember", "Lin-G", "150", 3, 8, 10, 4, 7, 10, 4, 7, 11, 5, 0, 11)
+                addSong("Technika1", "Shoreline", "Oriental ST8", "135", 4, 8, 10, 6, 11, 0, 6, 11, 0, 6, 8, 12)
+                addSong("Technika1", "SON OF SUN", "Hosoe Shinji", "200", 7, 9, 13, 7, 10, 14, 7, 11, 15, 7, 10, 15)
+                addSong("Technika1", "SuperSonic", "Planetboom", "156", 4, 7, 11, 5, 8, 12, 6, 9, 12, 6, 10, 13)
+                addSong("Technika1", "Sweet Shining Shooting Star", "Croove", "140", 3, 8, 10, 3, 6, 10, 6, 0, 10, 6, 0, 11)
+                addSong("Technika1", "The Last Dance", "Urbatronic Chopsticks", "102", 4, 0, 8, 5, 11, 0, 5, 10, 0, 4, 0, 12)
+                addSong("Technika1", "Thor", "XeoN", "147", 7, 11, 14, 6, 10, 14, 6, 11, 14, 7, 11, 14)
+                addSong("Technika1", "Voyage", "makou", "125", 6, 9, 0, 5, 10, 0, 3, 9, 11, 5, 11, 0)
+                
+            }
+            if(realm.objects(SongInfo.self).filter("title = 'Do you want it'").first == nil){
+                addSong("Respect", "Do you want it", "House Rulez", "123", 5, 8, 0, 7, 9, 0, 5, 9, 0, 5, 11, 0)
+            }
+            if(realm.objects(SongInfo.self).filter("title = 'Only On'").first == nil){
+                addSong("Respect", "Only On", "Dok2", "96", 2, 5, 0, 3, 6, 0, 2, 5, 0, 3, 5, 8)
+            }
+            //lowercase 만들어줌
+            for result in realm.objects(SongInfo.self).filter("series = 'Technika1'") {
+                try! realm.write{
+                    result.lowercase = result.title.lowercased()
+                }
+            }
+            let doyouwantit = realm.objects(SongInfo.self).filter("title = 'Do you want it'").first!
+            try! realm.write{
+                doyouwantit.lowercase = doyouwantit.title.lowercased()
+            }
+            let onlyon = realm.objects(SongInfo.self).filter("title = 'Only On'").first!
+            try! realm.write{
+                onlyon.lowercase = onlyon.title.lowercased()
+            }
+            //RecordInfo 초기화
+            if(realm.objects(RecordInfo.self).filter("series = 'Technika1'").count == 0){
+                let songInfo = realm.objects(SongInfo.self).filter("series = 'Technika1'")
+                for result in songInfo{
+                    initRecord("Technika1", result.title)
+                    initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+                } 
+            }
+            if(realm.objects(RecordInfo.self).filter("title = 'Do you want it'").first == nil){
+                initRecord("Respect", doyouwantit.title)
+                initRecordDifficulty(doyouwantit.title, doyouwantit.nm4, doyouwantit.nm5, doyouwantit.nm6, doyouwantit.nm8, doyouwantit.hd4, doyouwantit.hd5, doyouwantit.hd6, doyouwantit.hd8, doyouwantit.mx4, doyouwantit.mx5, doyouwantit.mx6, doyouwantit.mx8)
+            }
+            if(realm.objects(RecordInfo.self).filter("title = 'Only On'").first == nil){
+                initRecord("Respect", onlyon.title)
+                initRecordDifficulty(onlyon.title, onlyon.nm4, onlyon.nm5, onlyon.nm6, onlyon.nm8, onlyon.hd4, onlyon.hd5, onlyon.hd6, onlyon.hd8, onlyon.mx4, onlyon.mx5, onlyon.mx6, onlyon.mx8)
+            }
+            for result in realm.objects(RecordInfo.self).filter("series = 'Technika1'"){
+                try! realm.write{
+                    result.lowercase = result.title.lowercased()
+                }
+            }
+            let doyouwantitRecord = realm.objects(RecordInfo.self).filter("title = 'Do you want it'").first!
+            let onlyonRecord = realm.objects(RecordInfo.self).filter("title = 'Only On'").first!
+            try! realm.write{
+                doyouwantitRecord.lowercase = doyouwantit.title.lowercased()
+                onlyonRecord.lowercase = onlyon.title.lowercased()
+            }
+            if(realm.objects(MissionInfo.self).filter("type = 'Technika1'").count == 0){
+                addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "")
+                addMission("Technika1", "Platinum Mixing", "Metro Drive", "Y (CE Style)", "NORMAL", "6B", "Melody", "NORMAL", "6B", "The Clear Blue Sky", "NORMAL", "6B", 0, 0, 4000, 93, 0, "Fever-Manual", "")
+                addMission("Technika1", "Platinum Mixing", "Using Effect", "Play the Future", "NORMAL", "5B", "Beyond the Future", "NORMAL", "5B", "Do you want it", "NORMAL", "5B", 0, 0, 0, 0, 20, "Fever-OFF, FADER 2", "")
+                addMission("Technika1", "Platinum Mixing", "Mr.Perfect", "Remember", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever-OFF", "")
+                addMission("Technika1", "Platinum Mixing", "High Technician", "CnP", "MAXIMUM", "5B", "Dreadnought", "MAXIMUM", "4B", "SIN", "MAXIMUM", "6B", 990000, 5, 0, 0, 0, "Fever-Manual", "")
+                addMission("Technika1", "Platinum Mixing", "Sound Storm", "Enemy Storm", "MAXIMUM", "4B", "Brain Storm", "MAXIMUM", "5B", "Thor", "MAXIMUM", "6B", 0, 5, 3900, 95, 25, "Fever-Manual", "")
+                addMission("Technika1", "Technical Mixing", "First Step", "Dear my Lady", "NORMAL", "4B", "Honeymoon", "HARD", "4B", "DJMAX", "HARD", "4B", "??", "SPECIAL", "TB", 900000, 0, 0, 0, 0, "Fever-OFF", "")
+                addMission("Technika1", "Technical Mixing", "Electro EP", "Access", "HARD", "5B", "Your Own Miracle", "HARD", "5B", "Area 7", "HARD", "5B", "??", "SPECIAL", "TB", 0, 0, 800, 0, 0, "Fever-OFF", "")
+                addMission("Technika1", "Technical Mixing", "Core Sound", "Beyond the Future", "HARD", "6B", "Voyage", "HARD", "6B", "Landscape", "HARD", "6B", "??", "SPECIAL", "TB", 0, 0, 0, 95, 0, "Fever-OFF", "")
+                addMission("Technika1", "Technical Mixing", "HeartBeat", "Remember", "MAXIMUM", "5B", "Play the Future", "HARD", "5B", "Melody", "MAXIMUM", "5B", "??", "SPECIAL", "TB", 0, 0, 0, 0, 15, "Fever-OFF", "")
+                addMission("Technika1", "Technical Mixing", "Customizer", "Sweet Shining Shooting Star", "MAXIMUM", "8B", "Fury", "MAXIMUM", "8B", "Y (CE Style)", "MAXIMUM", "8B", "??", "SPECIAL", "TB", 1125000, 0, 1750, 98, 0, "Fever-OFF", "")
+                addMission("Technika1", "Technical Mixing", "Conqueror", "SON OF SUN", "HARD", "4B", "SuperSonic", "MAXIMUM", "5B", "HEXAD", "MAXIMUM", "6B", "!?", "SPECIAL", "TB", 1150000, 0, 1500, 98, 0, "Fever-OFF", "")
+            }
+            if(realm.objects(TrophyInfo.self).filter("series = 'Technika1'").count == 0){
+                addTrophy("Technika1", "플래티넘 크루", "TECHNIKA 곡을 모두 S랭크로 클리어했다.", "PLATINUM CREW", "Cleared all TECHNIKA songs in S rank.", "SILVER")
+                addTrophy("Technika1", "Rolling On the Screen", "Technical Mixing에서 할 수 있는 모든 패턴을 플레이했다.", "Rolling On the Screen", "Played all the patterns you can play in \"Technical Mixing\".", "SILVER")
+                addTrophy("Technika1", "테크니카의 10번째 생일을 축하해", "숨겨진 패턴을 MAX COMBO로 클리어했다.", "Happy 10th Birthday for TECHNIKA", "Cleared the hidden pattern in MAX COMBO", "SILVER")
+                addTrophy("Technika1", "First Step Set 졸업", "First Step 미션에서 플레이 할 수 있는 모든 곡을 클리어했다.", "First Step Set Complete", "Cleared all the songs in the First Step mission.", "BRONZE")
+                addTrophy("Technika1", "ONLY FOR ARCADE", "ARCADE를 TECHNIKA 곡으로만 클리어했다.", "ONLY FOR ARCADE", "Cleared ARCADE mode only with TECHNIKA songs.", "BRONZE")
+                addTrophy("Technika1", "Stylish eSper Shooting Sports", "COLLECTION 모드에서 SuperSonic의 뮤직 비디오를 감상했다.", "Stylish eSper Shooting Sports", "Watched a SuperSonic video in Collection.", "BRONZE")
+                addTrophy("Technika1", "앗 깜짝이야", "Mr.Perfect 미션을 플레이했다.", "What a Surprise", "Played \"Mr.Perfect\" mission.", "BRONZE")
+                addTrophy("Technika1", "너희집엔 이런거 없지?", "5가지의 TECHNIKA 전용 플레이트를 획득했다.", "I Bet You Don't Have This at Home", "Acquired 5 TECHNIKA Plates.", "BRONZE")
+                addTrophy("Technika1", "댓글댓글단다 댓글댓글단다", "추장의 장비를 갖추고 SON OF SUN을 MAX COMBO로 클리어했다.", "SON OF SUN", "Cleared \"SON OF SUN\" in MAX COMBO with \"SON OF SUN\" GEAR and NOTE Skins.", "BRONZE")
+                addTrophy("Technika1", "암튼 레어 카드", "TECHNIKA 곡 중 숨겨진 BGA를 발견했다.", "Rare Card Anyways", "Found a Hidden BGA from a TECHNIKA Song.", "BRONZE")
+            }
+            UserDefaults.standard.set(202, forKey: "version")
+        }
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

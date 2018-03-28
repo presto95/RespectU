@@ -103,6 +103,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.trilogy
                     case "CE":
                         return UIColor.ce
+                    case "Technika1":
+                        return UIColor.technika1
                     default:
                         return UIColor()
                     }
@@ -132,6 +134,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.trilogy
                     case "CE":
                         return UIColor.ce
+                    case "Technika1":
+                        return UIColor.technika1
                     default:
                         return UIColor()
                     }
@@ -160,6 +164,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.trilogy
                     case "CE":
                         return UIColor.ce
+                    case "Technika1":
+                        return UIColor.technika1
                     default:
                         return UIColor()
                     }
@@ -188,6 +194,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.trilogy
                     case "CE":
                         return UIColor.ce
+                    case "Technika1":
+                        return UIColor.technika1
                     default:
                         return UIColor()
                     }

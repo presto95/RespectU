@@ -130,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="3470" y="-756"/>
         </scene>
-        <!--Song Technika Table View Controller-->
+        <!--Song Technika1 Table View Controller-->
         <scene sceneID="beI-wE-laj">
             <objects>
-                <tableViewController storyboardIdentifier="SongTechnikaTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tTg-5d-pD0" customClass="SongTechnikaTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SongTechnika1TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tTg-5d-pD0" customClass="SongTechnika1TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1VL-pa-JoJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

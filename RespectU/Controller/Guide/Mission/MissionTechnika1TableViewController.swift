@@ -10,7 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class MissionTechnikaTableViewController: UITableViewController {
+class MissionTechnika1TableViewController: UITableViewController {
     
     var realm: Realm! = nil
     var results: Results<MissionInfo>! = nil
@@ -18,7 +18,7 @@ class MissionTechnikaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        results = realm.objects(MissionInfo.self).filter("type = 'Technika'")
+        results = realm.objects(MissionInfo.self).filter("type = 'Technika1'")
         view.backgroundColor = UIColor.mainColor
         tableView.rowHeight = 60
         tableView.separatorColor = UIColor.mainColor
@@ -40,9 +40,9 @@ class MissionTechnikaTableViewController: UITableViewController {
         cell.reward.text = object.reward.isEmpty ? "None".localized : object.reward
         switch(indexPath.section){
         case 0:
-            cell.color.backgroundColor=UIColor(red: 226/255.0, green: 223/255.0, blue: 113/255.0, alpha: 1)
+            cell.color.backgroundColor=UIColor(red: 182/255.0, green: 209/255.0, blue: 229/255.0, alpha: 1)
         case 1:
-            cell.color.backgroundColor=UIColor(red: 182/255.0, green: 161/255.0, blue: 205/255.0, alpha: 1)
+            cell.color.backgroundColor=UIColor(red: 227/255.0, green: 153/255.0, blue: 199/255.0, alpha: 1)
         default:
             break
         }
@@ -73,9 +73,9 @@ class MissionTechnikaTableViewController: UITableViewController {
     }
 }
 
-extension MissionTechnikaTableViewController: IndicatorInfoProvider{
+extension MissionTechnika1TableViewController: IndicatorInfoProvider{
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA")
+        return IndicatorInfo(title: "TECHNIKA 1")
     }
 }
 

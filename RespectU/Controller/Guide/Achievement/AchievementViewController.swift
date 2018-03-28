@@ -27,7 +27,7 @@ class AchievementViewController: ButtonBarPagerTabStripViewController {
         // Dispose of any resources that can be recreated.
     }
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [AchievementAllTableViewController(), AchievementMusicTableViewController(), AchievementGearTableViewController(), AchievementNoteTableViewController(), AchievementGalleryTableViewController(), AchievementCommentTableViewController()]
+        return [AchievementAllTableViewController(), AchievementMusicTableViewController(), AchievementGearTableViewController(), AchievementNoteTableViewController(), AchievementPlateTableViewController(), AchievementGalleryTableViewController(), AchievementCommentTableViewController()]
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {

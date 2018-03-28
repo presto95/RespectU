@@ -11,7 +11,7 @@ import XLPagerTabStrip
 import RealmSwift
 import PMAlertController
 
-class TrophyTechnikaTableViewController: UITableViewController {
+class TrophyTechnika1TableViewController: UITableViewController {
     
     var realm: Realm! = nil
     var results: Results<TrophyInfo>! = nil
@@ -19,7 +19,7 @@ class TrophyTechnikaTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        results = realm.objects(TrophyInfo.self).filter("series = 'Technika'")
+        results = realm.objects(TrophyInfo.self).filter("series = 'Technika1'")
         view.backgroundColor = UIColor.mainColor
         tableView.rowHeight = 60
         tableView.separatorColor = UIColor.mainColor
@@ -61,24 +61,24 @@ class TrophyTechnikaTableViewController: UITableViewController {
         default:
             break
         }
-        let imageName = "ce\(indexPath.row + 1).png"
+        let imageName = "technika1\(indexPath.row + 1).png"
         cell.imageTrophy.image = UIImage(named: imageName)
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let row = indexPath.row
-//        if(row == 6){
-//            let alert = PMAlertController.showOKButton(title: "Hidden BGA".localized, message: "First Kiss")
-//            self.present(alert, animated: true)
-//        }
+        let row = indexPath.row
+        if(row == 9){
+            let alert = PMAlertController.showOKButton(title: "Hidden BGA".localized, message: "Thor")
+            self.present(alert, animated: true)
+        }
     }
     
 }
 
-extension TrophyTechnikaTableViewController: IndicatorInfoProvider{
+extension TrophyTechnika1TableViewController: IndicatorInfoProvider{
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA")
+        return IndicatorInfo(title: "TECHNIKA 1")
     }
 }
 

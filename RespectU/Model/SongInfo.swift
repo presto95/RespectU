@@ -15,6 +15,7 @@ enum Series: String{
     case portable2 = "Portable2"
     case trilogy = "Trilogy"
     case ce = "CE"
+    case technika1 = "Technika1"
 }
 
 enum Button{

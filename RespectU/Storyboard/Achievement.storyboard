@@ -91,6 +91,26 @@
             </objects>
             <point key="canvasLocation" x="1774" y="-376"/>
         </scene>
+        <!--Achievement Plate Table View Controller-->
+        <scene sceneID="WsX-6G-EUq">
+            <objects>
+                <tableViewController storyboardIdentifier="AchievementPlateTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t0d-bJ-qiB" customClass="AchievementPlateTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IER-5A-SPG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="t0d-bJ-qiB" id="Ych-8v-tKu"/>
+                            <outlet property="delegate" destination="t0d-bJ-qiB" id="5ay-dv-n0v"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nky-D6-1Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2447" y="-336"/>
+        </scene>
         <!--Achievement Gallery Table View Controller-->
         <scene sceneID="yjL-YJ-Ieu">
             <objects>
@@ -109,7 +129,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="odt-ts-ykg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2432" y="-334"/>
+            <point key="canvasLocation" x="3116" y="-290"/>
         </scene>
         <!--Achievement Comment Table View Controller-->
         <scene sceneID="bzP-Wo-yUP">
@@ -129,7 +149,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cm-Zu-Up8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3065" y="-300"/>
+            <point key="canvasLocation" x="3772" y="-223"/>
         </scene>
         <!--Achievement View Controller-->
         <scene sceneID="895-ss-2WP">

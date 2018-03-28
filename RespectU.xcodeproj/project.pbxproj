@@ -155,9 +155,9 @@
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
 		1968185120490C730007F4D7 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185020490C730007F4D7 /* TipViewController.swift */; };
 		1968185320490D300007F4D7 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185220490D300007F4D7 /* UIColor+.swift */; };
-		197414C62062A77A00D72626 /* SongTechnikaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C52062A77A00D72626 /* SongTechnikaTableViewController.swift */; };
-		197414C82062A94A00D72626 /* TrophyTechnikaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C72062A94A00D72626 /* TrophyTechnikaTableViewController.swift */; };
-		197414CA2062A95400D72626 /* MissionTechnikaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C92062A95400D72626 /* MissionTechnikaTableViewController.swift */; };
+		197414C62062A77A00D72626 /* SongTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */; };
+		197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */; };
+		197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
@@ -182,6 +182,16 @@
 		199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992142049654500C74697 /* MissionTrilogyTableViewController.swift */; };
 		199992172049654E00C74697 /* MissionCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992162049654E00C74697 /* MissionCETableViewController.swift */; };
 		199EFFE62067D51B00A6068F /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199EFFE52067D51B00A6068F /* SearchByRateView.swift */; };
+		19A63816206B4F020007EB6B /* technika110.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A6380C206B4F010007EB6B /* technika110.png */; };
+		19A63817206B4F020007EB6B /* technika13.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A6380D206B4F010007EB6B /* technika13.png */; };
+		19A63818206B4F020007EB6B /* technika15.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A6380E206B4F010007EB6B /* technika15.png */; };
+		19A63819206B4F020007EB6B /* technika17.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A6380F206B4F010007EB6B /* technika17.png */; };
+		19A6381A206B4F020007EB6B /* technika16.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A63810206B4F010007EB6B /* technika16.png */; };
+		19A6381B206B4F020007EB6B /* technika11.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A63811206B4F020007EB6B /* technika11.png */; };
+		19A6381C206B4F020007EB6B /* technika12.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A63812206B4F020007EB6B /* technika12.png */; };
+		19A6381D206B4F020007EB6B /* technika14.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A63813206B4F020007EB6B /* technika14.png */; };
+		19A6381E206B4F020007EB6B /* technika18.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A63814206B4F020007EB6B /* technika18.png */; };
+		19A6381F206B4F020007EB6B /* technika19.png in Resources */ = {isa = PBXBuildFile; fileRef = 19A63815206B4F020007EB6B /* technika19.png */; };
 		19B5F9B9204A489800E12EC1 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B5F9B8204A489800E12EC1 /* Init.swift */; };
 		19B660261F960E5800CCEFB5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* String+.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
@@ -190,6 +200,7 @@
 		19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */; };
 		19C9216B1F810DE600774E3E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9216A1F810DE600774E3E /* MessageUI.framework */; };
 		19CEF6B21FAD33F6005AFA8F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CEF6B11FAD33F6005AFA8F /* icon.png */; };
+		19D1EF422069E9D600F2BFD5 /* AchievementPlateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D1EF412069E9D600F2BFD5 /* AchievementPlateTableViewController.swift */; };
 		19E02ACA204919830070D72B /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19E02AC9204919830070D72B /* Achievement.storyboard */; };
 		19E02ACC2049199C0070D72B /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E02ACB2049199C0070D72B /* AchievementViewController.swift */; };
 		19ECEE68205EBBA3000D742E /* SearchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */; };
@@ -371,9 +382,9 @@
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
 		1968185020490C730007F4D7 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		1968185220490D300007F4D7 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		197414C52062A77A00D72626 /* SongTechnikaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnikaTableViewController.swift; sourceTree = "<group>"; };
-		197414C72062A94A00D72626 /* TrophyTechnikaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnikaTableViewController.swift; sourceTree = "<group>"; };
-		197414C92062A95400D72626 /* MissionTechnikaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnikaTableViewController.swift; sourceTree = "<group>"; };
+		197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
@@ -399,6 +410,16 @@
 		199992162049654E00C74697 /* MissionCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCETableViewController.swift; sourceTree = "<group>"; };
 		199EFFE52067D51B00A6068F /* SearchByRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByRateView.swift; sourceTree = "<group>"; };
 		19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RespectU-Bridging-Header.h"; sourceTree = "<group>"; };
+		19A6380C206B4F010007EB6B /* technika110.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika110.png; sourceTree = "<group>"; };
+		19A6380D206B4F010007EB6B /* technika13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika13.png; sourceTree = "<group>"; };
+		19A6380E206B4F010007EB6B /* technika15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika15.png; sourceTree = "<group>"; };
+		19A6380F206B4F010007EB6B /* technika17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika17.png; sourceTree = "<group>"; };
+		19A63810206B4F010007EB6B /* technika16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika16.png; sourceTree = "<group>"; };
+		19A63811206B4F020007EB6B /* technika11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika11.png; sourceTree = "<group>"; };
+		19A63812206B4F020007EB6B /* technika12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika12.png; sourceTree = "<group>"; };
+		19A63813206B4F020007EB6B /* technika14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika14.png; sourceTree = "<group>"; };
+		19A63814206B4F020007EB6B /* technika18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika18.png; sourceTree = "<group>"; };
+		19A63815206B4F020007EB6B /* technika19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = technika19.png; sourceTree = "<group>"; };
 		19B5F9B8204A489800E12EC1 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660131F960A3D00CCEFB5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -414,6 +435,7 @@
 		19B6CFFA1F7953640097B86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9216A1F810DE600774E3E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		19CEF6B11FAD33F6005AFA8F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		19D1EF412069E9D600F2BFD5 /* AchievementPlateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementPlateTableViewController.swift; sourceTree = "<group>"; };
 		19E02AC9204919830070D72B /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
 		19E02ACB2049199C0070D72B /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordViewController.swift; sourceTree = "<group>"; };
@@ -617,6 +639,16 @@
 		1919A3A02008F6DB00D51A2A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				19A63811206B4F020007EB6B /* technika11.png */,
+				19A63812206B4F020007EB6B /* technika12.png */,
+				19A6380D206B4F010007EB6B /* technika13.png */,
+				19A63813206B4F020007EB6B /* technika14.png */,
+				19A6380E206B4F010007EB6B /* technika15.png */,
+				19A63810206B4F010007EB6B /* technika16.png */,
+				19A6380F206B4F010007EB6B /* technika17.png */,
+				19A63814206B4F020007EB6B /* technika18.png */,
+				19A63815206B4F020007EB6B /* technika19.png */,
+				19A6380C206B4F010007EB6B /* technika110.png */,
 				19FFA723204D5622006F2535 /* tutorial1.gif */,
 				19FFA722204D5622006F2535 /* tutorial2.gif */,
 				19CEF6B11FAD33F6005AFA8F /* icon.png */,
@@ -751,7 +783,7 @@
 				194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */,
 				194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */,
 				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
-				197414C52062A77A00D72626 /* SongTechnikaTableViewController.swift */,
+				197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */,
 				194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */,
 			);
 			path = Song;
@@ -764,7 +796,7 @@
 				199992122049653900C74697 /* MissionRespectTableViewController.swift */,
 				199992142049654500C74697 /* MissionTrilogyTableViewController.swift */,
 				199992162049654E00C74697 /* MissionCETableViewController.swift */,
-				197414C92062A95400D72626 /* MissionTechnikaTableViewController.swift */,
+				197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */,
 				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
 			);
 			path = Mission;
@@ -777,7 +809,7 @@
 				19320FCD2049568B0075BD86 /* TrophyRespectTableViewController.swift */,
 				19320FCF204956940075BD86 /* TrophyTrilogyTableViewController.swift */,
 				19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */,
-				197414C72062A94A00D72626 /* TrophyTechnikaTableViewController.swift */,
+				197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */,
 			);
 			path = Trophy;
 			sourceTree = "<group>";
@@ -790,6 +822,7 @@
 				19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */,
 				19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */,
 				19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */,
+				19D1EF412069E9D600F2BFD5 /* AchievementPlateTableViewController.swift */,
 				19320FC1204942590075BD86 /* AchievementGalleryTableViewController.swift */,
 				19320FC3204942640075BD86 /* AchievementCommentTableViewController.swift */,
 			);
@@ -921,6 +954,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19A6381E206B4F020007EB6B /* technika18.png in Resources */,
 				1919A4012008F7C100D51A2A /* respect3.png in Resources */,
 				193E4009204BF37E0063A440 /* SummaryCell.xib in Resources */,
 				1919A3E02008F7C100D51A2A /* respect22.png in Resources */,
@@ -931,17 +965,20 @@
 				1919A3DF2008F7C100D51A2A /* respect42.png in Resources */,
 				193E401B204C05A00063A440 /* Top50Cell.xib in Resources */,
 				1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */,
+				19A6381B206B4F020007EB6B /* technika11.png in Resources */,
 				198CB54E2013603D00646D55 /* respectu-flat-background.png in Resources */,
 				1919A3EE2008F7C100D51A2A /* respect31.png in Resources */,
 				19FF806D2018A1AC00ECC666 /* accuracyUpper80White.png in Resources */,
 				1919A3E42008F7C100D51A2A /* respect11.png in Resources */,
 				1919A3FC2008F7C100D51A2A /* respect14.png in Resources */,
+				19A63816206B4F020007EB6B /* technika110.png in Resources */,
 				19F38C95204CC957006BB72B /* SkillLevelDetailView.xib in Resources */,
 				193E3FF5204BB0D80063A440 /* RecordView.xib in Resources */,
 				1919A3E52008F7C100D51A2A /* respect21.png in Resources */,
 				1919A3F22008F7C100D51A2A /* respect38.png in Resources */,
 				194E52B8204AC55900B84AFA /* SongCell.xib in Resources */,
 				1927DA4E201E217F003D1752 /* NotoSansCJKkr-Medium.otf in Resources */,
+				19A6381C206B4F020007EB6B /* technika12.png in Resources */,
 				1919A3FF2008F7C100D51A2A /* respect39.png in Resources */,
 				1919A3E82008F7C100D51A2A /* respect19.png in Resources */,
 				1919A3F42008F7C100D51A2A /* respect27.png in Resources */,
@@ -998,18 +1035,22 @@
 				1919A3F82008F7C100D51A2A /* respect17.png in Resources */,
 				1919A3AB2008F7AD00D51A2A /* ce7.png in Resources */,
 				1999920F2049641A00C74697 /* MissionCell.xib in Resources */,
+				19A63818206B4F020007EB6B /* technika15.png in Resources */,
 				1919A3F72008F7C100D51A2A /* respect16.png in Resources */,
 				1919A3F02008F7C100D51A2A /* respect8.png in Resources */,
 				1919A3ED2008F7C100D51A2A /* respect20.png in Resources */,
 				191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */,
 				1919A3AE2008F7AD00D51A2A /* ce3.png in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
+				19A63817206B4F020007EB6B /* technika13.png in Resources */,
 				1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */,
 				193E403B204C2EB60063A440 /* RankingCell.xib in Resources */,
 				19012FB42048342F0061EF21 /* Login.storyboard in Resources */,
 				1919A3F12008F7C100D51A2A /* respect13.png in Resources */,
+				19A63819206B4F020007EB6B /* technika17.png in Resources */,
 				1919A40F2008F7C800D51A2A /* trilogy4.png in Resources */,
 				1919A3F52008F7C100D51A2A /* respect30.png in Resources */,
+				19A6381A206B4F020007EB6B /* technika16.png in Resources */,
 				1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */,
 				1927DA48201E1F88003D1752 /* NotoSansCJKkr-Light.otf in Resources */,
 				196818492048F6820007F4D7 /* Radio.storyboard in Resources */,
@@ -1019,8 +1060,10 @@
 				1919A3E92008F7C100D51A2A /* respect25.png in Resources */,
 				19FF806F2018A1AC00ECC666 /* accuracyBelow80White.png in Resources */,
 				1919A3DD2008F7C100D51A2A /* respect26.png in Resources */,
+				19A6381F206B4F020007EB6B /* technika19.png in Resources */,
 				1919A3F32008F7C100D51A2A /* respect28.png in Resources */,
 				19320FC6204955CC0075BD86 /* Trophy.storyboard in Resources */,
+				19A6381D206B4F020007EB6B /* technika14.png in Resources */,
 				1919A3F92008F7C100D51A2A /* respect35.png in Resources */,
 				19FF806E2018A1AC00ECC666 /* accuracyUpper80Black.png in Resources */,
 				1919A40E2008F7C800D51A2A /* trilogy3.png in Resources */,
@@ -1131,8 +1174,9 @@
 				198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */,
 				194E52A6204A8F7B00B84AFA /* SongAllTableViewController.swift in Sources */,
 				193E4029204C237B0063A440 /* RankingViewController.swift in Sources */,
-				197414C82062A94A00D72626 /* TrophyTechnikaTableViewController.swift in Sources */,
+				197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */,
 				193E4033204C240F0063A440 /* RankingPPTableViewController.swift in Sources */,
+				19D1EF422069E9D600F2BFD5 /* AchievementPlateTableViewController.swift in Sources */,
 				19012FC820484C0F0061EF21 /* MissionInfo.swift in Sources */,
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
@@ -1173,7 +1217,7 @@
 				19012FD520485C740061EF21 /* Tutorial3ViewController.swift in Sources */,
 				19FFA727204D5632006F2535 /* Tutorial1ViewController.swift in Sources */,
 				193E402D204C23F40063A440 /* Ranking5BTableViewController.swift in Sources */,
-				197414CA2062A95400D72626 /* MissionTechnikaTableViewController.swift in Sources */,
+				197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */,
 				193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */,
 				199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */,
 				196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */,
@@ -1209,7 +1253,7 @@
 				1968185120490C730007F4D7 /* TipViewController.swift in Sources */,
 				194E52AE204A941E00B84AFA /* SongTrilogyTableViewController.swift in Sources */,
 				193E400C204BF5D60063A440 /* SkillLevelCell.swift in Sources */,
-				197414C62062A77A00D72626 /* SongTechnikaTableViewController.swift in Sources */,
+				197414C62062A77A00D72626 /* SongTechnika1TableViewController.swift in Sources */,
 				199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */,
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
 				194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */,

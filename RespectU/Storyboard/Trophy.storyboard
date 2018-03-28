@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="1031" y="-550"/>
         </scene>
-        <!--Mission Technika Table View Controller-->
+        <!--Mission Technika1 Table View Controller-->
         <scene sceneID="6wu-LO-PWo">
             <objects>
-                <tableViewController storyboardIdentifier="MissionTechnikaTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lAi-Yy-XQQ" customClass="MissionTechnikaTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MissionTechnika1TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lAi-Yy-XQQ" customClass="MissionTechnika1TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MGx-Lk-jUL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

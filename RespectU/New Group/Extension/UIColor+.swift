@@ -16,9 +16,9 @@ extension UIColor{
     static var portable2 = UIColor(red: 252/255.0, green: 34/255.0, blue: 43/255.0, alpha: 1)
     static var trilogy = UIColor(red: 115/255.0, green: 139/255.0, blue: 252/255.0, alpha: 1)
     static var ce = UIColor(red: 255/255.0, green: 248/255.0, blue: 221/255.0, alpha: 1)
-//    static var technika = UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+    static var technika1 = UIColor(red: 238/255, green: 44/255, blue: 189/255, alpha: 1)
     static var platinum = UIColor(red: 229/255.0, green: 228/255.0, blue: 226/255.0, alpha: 1)
     static var gold = UIColor(red: 212/255.0, green: 175/255.0, blue: 55/255.0, alpha: 1)
-    static var silver = UIColor(red: 212/255.0, green: 175/255.0, blue: 55/255.0, alpha: 1)
+    static var silver = UIColor(red: 192/255.0, green: 192/255.0, blue: 192/255.0, alpha: 1)
     static var bronze = UIColor(red: 205/255.0, green: 127/255.0, blue: 50/255.0, alpha: 1)
 }

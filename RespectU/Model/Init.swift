@@ -67,11 +67,11 @@ class Init{
             addSong("CE", "Fate", "STi", "110", 3,7,9,3,8,10,3,9,0,3,7,10)
             addSong("CE", "First Kiss", "BJJ", "107", 2,4,8,2,4,7,2,5,7,2,4,8)
             addSong("CE", "Flea", "CLAZZIQUAI", "126", 4,9,12,4,9,12,5,9,12,6,0,13)
-            addSong("CE", "Freedom", "CLAZZIQUAI", "126", 5,7,10,5,7,10,7,0,11,6,8,12)
+            addSong("CE", "Freedom", "CLAZZIQUAI", "126", 5,7,10,5,7,10,7,0,11,6,8,10)
             addSong("CE", "Here in the Moment", "Ruby Tuesday", "115", 4,7,10,4,8,10,6,8,10,5,0,10)
             addSong("CE", "In My Heart", "Tsukasa", "123", 3,7,10,4,7,10,4,8,10,3,7,11)
             addSong("CE", "Love Mode", "CLAZZIQUAI", "120", 3,8,0,2,6,9,4,9,0,2,6,10)
-            addSong("CE", "Lover (CE Style)", "ND Lee", "145", 5,8,10,5,9,0,5,8,11,4,8,10)
+            addSong("CE", "Lover (CE Style)", "ND Lee", "145", 5,8,10,5,10,0,5,8,11,4,8,10)
             addSong("CE", "Tell Me", "Lee Geol".localized, "89", 1,6,0,2,5,9,3,6,8,1,8,0)
             addSong("CE", "The Clear Blue Sky", "Tsukasa", "178", 4,8,13,6,8,13,6,9,13,4,9,13)
             addSong("CE", "The Night Stage", "CLAZZIQUAI", "120", 3,6,0,3,7,0,3,8,0,3,7,10)
@@ -109,11 +109,11 @@ class Init{
             addSong("Respect", "Beyond Yourself", "Mycin.T", "90", 6, 9, 0, 6, 10, 0, 7, 9, 12, 6, 11, 0)
             addSong("Respect", "Binary World", "Tsukasa", "182", 5, 8, 13, 5, 7, 13, 9, 12, 13, 5, 7, 13)
             addSong("Respect", "BlackCat", "BEXTER", "130", 5, 11, 0, 6, 11, 0, 5, 8, 12, 7, 12, 0)
-            addSong("Respect", "Bullet, Wanted!", "Mycin.T", "150", 4, 8, 0, 7, 10, 0, 6, 9, 11, 7, 10, 0)
+            addSong("Respect", "Bullet, Wanted!", "Mycin.T", "150", 4, 8, 0, 7, 10, 0, 6, 9, 11, 7, 11, 0)
             addSong("Respect", "Child of Night", "GOTH", "130", 6, 8, 0, 7, 9, 12, 7, 10, 12, 7, 9, 12)
             addSong("Respect", "Don't Die", "Paul Bazooka", "175", 5, 9, 13, 7, 10, 14, 8, 11, 14, 7, 10, 14)
             addSong("Respect", "Enter The Universe", "GOTH", "162", 6, 9, 12, 7, 10, 14, 9, 12, 14, 7, 10, 14)
-            addSong("Respect", "Far East Princess", "Nauts", "102", 5, 9, 10, 5, 10, 0, 3, 9, 12, 5, 9, 0)
+            addSong("Respect", "Far East Princess", "Nauts", "102", 5, 7, 10, 5, 10, 0, 3, 9, 10, 5, 9, 0)
             addSong("Respect", "glory day", "BEXTER / Mycin.T", "162", 8, 10, 0, 7, 10, 0, 6, 11, 0, 7, 10, 0)
             addSong("Respect", "Groovin Up", "Mycin.T", "120", 3, 6, 0, 5, 9, 0, 5, 8, 11, 5, 9, 0)
             addSong("Respect", "Heavenly", "Makou", "125", 5, 7, 0, 4, 8, 0, 5, 9, 12, 4, 9, 0)
@@ -141,7 +141,7 @@ class Init{
             addSong("Respect", "v o l d e n u i t", "Cuve", "105", 5, 9, 12, 4, 9, 12, 5, 9, 12, 6, 9, 13)
             addSong("Respect", "waiting for me", "Croove", "150", 3, 8, 0, 4, 8, 0, 4, 9, 0, 5, 9, 0)
             addSong("Respect", "Waiting for you", "Mycin.T", "175", 4, 8, 0, 6, 10, 0, 6, 12, 0, 7, 11, 0)
-            addSong("Respect", "We're All Gonna Die", "Paul Bazooka", "180", 7, 12, 14, 8, 12, 0, 11, 13, 15, 8, 12, 15)
+            addSong("Respect", "We're All Gonna Die", "Paul Bazooka", "180", 8, 12, 14, 8, 12, 0, 11, 13, 15, 8, 12, 15)
             addSong("Respect", "WHY", "Nauts", "84", 3, 7, 0, 5, 10, 0, 2, 7, 10, 4, 7, 0)
             addSong("Respect", "Break a Spell", "Daisuke Ishiwatari", "200", 5, 9, 14, 6, 10, 0, 7, 9, 14, 7, 10, 14)
             addSong("Respect", "Holy Orders (Be Just Or Be Dead)", "Daisuke Ishiwatari", "120", 4, 9, 11, 6, 8, 11, 6, 9, 12, 6, 10, 12)
@@ -160,7 +160,7 @@ class Init{
             addSong("Portable1", "Bright Dream", "M2U", "130", 2, 4, 0, 5, 8, 0, 4, 7, 10, 6, 9, 0)
             addSong("Portable1", "Can We Talk", "Forte Escape", "125", 1, 7, 0, 7, 9, 13, 5, 8, 11, 8, 9, 12)
             addSong("Portable1", "Catch Me", "Forte Escape", "145", 3, 6, 0, 6, 0, 0, 7, 8, 0, 8, 12, 0)
-            addSong("Portable1", "Chrono Breakers", "NieN", "178", 5, 7, 11, 7, 10, 0, 7, 12, 0, 8, 13, 0)
+            addSong("Portable1", "Chrono Breakers", "NieN", "178", 5, 7, 11, 7, 10, 0, 7, 12, 0, 8, 12, 0)
             addSong("Portable1", "CnP", "CrooFE", "127", 3, 8, 12, 4, 9, 12, 4, 9, 12, 5, 10, 12)
             addSong("Portable1", "Elastic STAR", "Forte Escape", "132", 4, 7, 0, 6, 7, 0, 4, 8, 0, 4, 7, 0)
             addSong("Portable1", "End of the Moonlight", "Forte Escape", "155", 3, 7, 10, 5, 9, 0, 5, 9, 12, 7, 11, 0)
@@ -168,7 +168,7 @@ class Init{
             addSong("Portable1", "Eternal Memory".localized, "M2U", "125", 2, 6, 0, 3, 0, 0, 2, 7, 0, 5, 7, 0)
             addSong("Portable1", "Extreme Z4", "Forte Escape", "160", 3, 7, 0, 4, 8, 0, 7, 9, 0, 8, 12, 0)
             addSong("Portable1", "FEAR", "Supbaby", "182", 4, 9, 0, 5, 9, 12, 6, 12, 0, 8, 11, 13)
-            addSong("Portable1", "Fever GJ", "xxdbxx", "98", 3, 7, 0, 3, 6, 0, 3, 7, 11, 7, 0, 0)
+            addSong("Portable1", "Fever GJ", "xxdbxx", "98", 3, 7, 0, 3, 6, 0, 3, 7, 9, 7, 0, 0)
             addSong("Portable1", "FTR", "Supbaby", "140", 6, 10, 0, 5, 10, 0, 8, 11, 0, 7, 11, 0)
             addSong("Portable1", "Funky Chups", "Forte Escape", "127", 4, 0, 0, 5, 10, 0, 4, 6, 0, 7, 0, 0)
             addSong("Portable1", "Futurism", "Forte Escape", "142", 4, 8, 0, 7, 9, 0, 6, 8, 11, 8, 10, 0)
@@ -187,7 +187,7 @@ class Init{
             addSong("Portable1", "NB RANGER", "M2U", "140", 8, 12, 0, 7, 12, 0, 7, 10, 13, 9, 13, 0)
             addSong("Portable1", "Never Say", "ND Lee", "90", 3, 6, 0, 6, 7, 0, 2, 7, 12, 8, 0, 0)
             addSong("Portable1", "OBLIVION", "ESTi", "141", 3, 6, 11, 7, 0, 11, 3, 8, 11, 6, 11, 0)
-            addSong("Portable1", "OBLIVION ~Rockin' Night Style~", "NieN", "141", 3, 8, 12, 4, 10, 12, 7, 9, 13, 6, 11, 12)
+            addSong("Portable1", "OBLIVION ~Rockin' Night Style~", "NieN", "141", 3, 8, 12, 4, 10, 12, 7, 9, 13, 6, 11, 13)
             addSong("Portable1", "ON", "ND Lee", "72", 3, 5, 0, 2, 6, 0, 6, 10, 0, 7, 0, 0)
             addSong("Portable1", "One the Love", "xxdbxx", "125", 2, 5, 0, 6, 8, 0, 3, 6, 11, 7, 8, 0)
             addSong("Portable1", "Out Law", "Croove", "126", 5, 12, 0, 7, 12, 0, 7, 11, 13, 8, 12, 0)
@@ -200,7 +200,7 @@ class Init{
             addSong("Portable1", "Save My Dream", "Forte Escape", "125", 1, 4, 0, 2, 4, 0, 2, 5, 9, 5, 8, 0)
             addSong("Portable1", "SIN", "ESTi", "190", 3, 6, 11, 7, 10, 0, 7, 10, 14, 9, 12, 15)
             addSong("Portable1", "SIN ~The Last Scene~", "ESTi", "200", 7, 12, 14, 7, 11, 0, 8, 12, 14, 8, 13, 0)
-            addSong("Portable1", "Sunny Side", "Croove", "112", 4, 8, 0, 5, 9, 0, 5, 8, 11, 10, 0, 0)
+            addSong("Portable1", "Sunny Side", "Croove", "112", 4, 8, 0, 5, 9, 0, 5, 8, 11, 9, 0, 0)
             addSong("Portable1", "Sunny Side ~Deepn' Soul Mix~", "makou", "122", 7, 10, 0, 7, 0, 0, 7, 0, 11, 8, 10, 0)
             addSong("Portable1", "Temptation", "S-TRO", "136", 4, 10, 0, 4, 10, 0, 6, 0, 12, 9, 0, 0)
             addSong("Portable1", "Triple Zoe", "Forte Escape", "150", 4, 11, 0, 6, 11, 0, 8, 12, 0, 10, 12, 0)
@@ -209,10 +209,10 @@ class Init{
             
             //Portable 2
             addSong("Portable2", "HeartBeat".localized, "ND Lee", "155", 3, 5, 0, 4, 8, 0, 4, 7, 9, 6, 9, 0)
-            addSong("Portable2", "Taekwonburi".localized, "xxdbxx", "162", 5, 7, 0, 6, 0, 11, 6, 10, 14, 7, 0, 12)
+            addSong("Portable2", "Taekwonburi".localized, "xxdbxx", "162", 5, 7, 0, 6, 0, 12, 6, 10, 14, 7, 0, 12)
             addSong("Portable2", "A Lie", "makou", "100", 2, 5, 0, 5, 9, 0, 4, 6, 12, 7, 9, 0)
-            addSong("Portable2", "Another DAY", "Forte Escape", "142", 3, 7, 11, 6, 8, 0, 5, 8, 10, 7, 9, 0)
-            addSong("Portable2", "Brain Storm", "Croove", "172", 6, 9, 0, 7, 11, 14, 9, 13, 0, 8, 12, 14)
+            addSong("Portable2", "Another DAY", "Forte Escape", "142", 3, 7, 11, 6, 8, 0, 5, 8, 10, 7, 10, 0)
+            addSong("Portable2", "Brain Storm", "Croove", "172", 6, 11, 0, 7, 12, 14, 9, 13, 0, 8, 12, 14)
             addSong("Portable2", "Brandnew Days", "Planetboom", "124", 3, 8, 0, 6, 8, 0, 7, 10, 11, 7, 10, 0)
             addSong("Portable2", "Brave it Out", "BEXTER", "124", 6, 8, 0, 5, 9, 11, 6, 10, 13, 7, 10, 12)
             addSong("Portable2", "Bye Bye Love", "3rd Coast", "120", 2, 8, 0, 6, 7, 0, 6, 9, 11, 6, 8, 0)
@@ -222,7 +222,7 @@ class Init{
             addSong("Portable2", "Dream of You", "makou", "192", 4, 6, 11, 6, 10, 0, 5, 9, 11, 8, 11, 0)
             addSong("Portable2", "Fallen Angel", "DJ Mocha", "142", 4, 8, 0, 4, 8, 0, 3, 7, 10, 8, 10, 0)
             addSong("Portable2", "Fentanest", "Earbreaker / Eszett", "20 ~ 160", 4, 10, 0, 6, 9, 0, 7, 11, 0, 6, 9, 0)
-            addSong("Portable2", "For Seasons", "makou", "116", 1, 6, 0, 6, 9, 0, 4, 7, 11, 5, 9, 0)
+            addSong("Portable2", "For Seasons", "makou", "116", 1, 6, 0, 6, 9, 0, 4, 7, 11, 5, 10, 0)
             addSong("Portable2", "For the IKARUS", "NieN", "154", 4, 8, 0, 5, 11, 0, 8, 0, 12, 6, 12, 0)
             addSong("Portable2", "Get on Top", "Planetboom", "125", 3, 7, 0, 6, 9, 0, 5, 8, 12, 7, 10, 0)
             addSong("Portable2", "GET OUT", "ND Lee", "112", 5, 8, 0, 4, 9, 0, 4, 8, 13, 7, 10, 0)
@@ -234,27 +234,27 @@ class Init{
             addSong("Portable2", "Memoirs", "M2U", "140", 4, 9, 0, 7, 10, 0, 6, 9, 11, 7, 10, 0)
             addSong("Portable2", "Mess it Up", "Nauts", "140", 5, 9, 0, 4, 9, 0, 9, 12, 0, 6, 10, 0)
             addSong("Portable2", "Midnight Blood", "NieN", "147", 6, 13, 0, 6, 13, 0, 7, 10, 13, 6, 9, 13)
-            addSong("Portable2", "Miles", "Electronic Boutique", "130", 2, 10, 0, 5, 10, 13, 4, 9, 13, 4, 11, 13)
+            addSong("Portable2", "Miles", "Electronic Boutique", "130", 4, 10, 0, 5, 10, 13, 4, 9, 13, 4, 11, 13)
             addSong("Portable2", "Minus 3", "Croove", "147", 8, 11, 0, 6, 12, 0, 10, 0, 13, 7, 12, 0)
             addSong("Portable2", "My Alias", "Dayz", "110", 6, 9, 0, 6, 9, 12, 6, 9, 14, 5, 10, 0)
-            addSong("Portable2", "NANO RISK", "Dayz", "176", 6, 0, 0, 7, 11, 0, 6, 9, 12, 7, 11, 0)
+            addSong("Portable2", "NANO RISK", "Dayz", "176", 7, 0, 0, 7, 11, 0, 6, 9, 12, 7, 11, 0)
             addSong("Portable2", "NB POWER", "NieN", "185", 5, 7, 0, 6, 9, 13, 7, 11, 13, 7, 10, 0)
             addSong("Portable2", "NB Rangers -Returns-", "NieN", "145", 5, 9, 0, 7, 11, 0, 9, 11, 13, 7, 12, 0)
             addSong("Portable2", "Negative Nature", "Electronic Boutique", "125 ~ 145", 4, 8, 0, 4, 7, 0, 7, 12, 0, 4, 8, 0)
             addSong("Portable2", "Nightmare", "M2U", "190", 10, 12, 0, 8, 13, 15, 8, 13, 15, 8, 12, 15)
             addSong("Portable2", "Phantom Of Sky", "M2U", "115", 3, 7, 10, 4, 7, 0, 5, 10, 0, 4, 8, 0)
             addSong("Portable2", "plastic method", "zts", "118", 5, 8, 0, 8, 12, 0, 8, 12, 0, 8, 12, 0)
-            addSong("Portable2", "Right Now", "makou", "90", 1, 5, 0, 4, 8, 0, 4, 8, 11, 6, 8, 0)
+            addSong("Portable2", "Right Now", "makou", "90", 1, 5, 0, 4, 8, 0, 4, 8, 11, 6, 9, 0)
             addSong("Portable2", "Rocka-a-doodle-doo", "makou", "135", 3, 9, 0, 4, 8, 0, 7, 11, 0, 5, 9, 0)
             addSong("Portable2", "Rolling On the Duck", "NieN", "180", 7, 10, 0, 7, 10, 14, 8, 11, 14, 7, 10, 14)
             addSong("Portable2", "Seeker", "M2U", "150", 5, 9, 0, 8, 0, 14, 5, 9, 13, 7, 13, 0)
-            addSong("Portable2", "Showtime", "Ruby Tuesday", "138", 6, 8, 0, 6, 9, 0, 8, 12, 0, 6, 10, 0)
+            addSong("Portable2", "Showtime", "Ruby Tuesday", "138", 6, 10, 0, 6, 9, 0, 8, 12, 0, 6, 10, 0)
             addSong("Portable2", "Smoky Quartz", "makou", "104", 3, 6, 0, 7, 10, 0, 6, 0, 11, 7, 13, 0)
             addSong("Portable2", "sO mUCH iN LUV", "3rd Coast", "130", 1, 6, 0, 3, 6, 0, 4, 7, 11, 7, 0, 0)
-            addSong("Portable2", "SQUEEZE", "Oriental ST8", "147", 4, 9, 0, 7, 10, 0, 8, 10, 12, 7, 10, 0)
-            addSong("Portable2", "STALKER", "ND Lee", "112", 5, 10, 0, 7, 9, 0, 6, 10, 12, 8, 0, 14)
+            addSong("Portable2", "SQUEEZE", "Oriental ST8", "147", 4, 9, 0, 7, 11, 0, 8, 10, 12, 7, 12, 0)
+            addSong("Portable2", "STALKER", "ND Lee", "112", 5, 10, 0, 7, 9, 0, 6, 10, 12, 8, 0, 15)
             addSong("Portable2", "StarFish", "PlanetBoom", "150", 6, 9, 0, 7, 10, 0, 6, 10, 0, 6, 9, 0)
-            addSong("Portable2", "Stay with me", "Ruby Tuesday", "140", 2, 4, 0, 4, 7, 0, 3, 7, 0, 5, 9, 0)
+            addSong("Portable2", "Stay with me", "Ruby Tuesday", "140", 2, 4, 0, 4, 7, 0, 3, 7, 0, 7, 9, 0)
             addSong("Portable2", "Sunset Rider", "Nauts", "170", 5, 9, 0, 6, 10, 0, 5, 7, 11, 6, 9, 0)
             addSong("Portable2", "Syriana", "BEXTER", "135", 6, 9, 0, 6, 9, 0, 6, 9, 13, 5, 9, 0)
             addSong("Portable2", "WhiteBlue", "zts", "144", 7, 9, 13, 6, 10, 13, 7, 11, 13, 8, 11, 13)
@@ -265,18 +265,18 @@ class Init{
             //Database - Mission
             
             //Technika1
-            addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "")
-            addMission("Technika1", "Platinum Mixing", "Metro Drive", "Y (CE Style)", "NORMAL", "6B", "Melody", "NORMAL", "6B", "The Clear Blue Sky", "NORMAL", "6B", 0, 0, 4000, 93, 0, "Fever-Manual", "")
-            addMission("Technika1", "Platinum Mixing", "Using Effect", "Play the Future", "NORMAL", "5B", "Beyond the Future", "NORMAL", "5B", "Do you want it", "NORMAL", "5B", 0, 0, 0, 0, 20, "Fever-OFF, FADER 2", "")
-            addMission("Technika1", "Platinum Mixing", "Mr.Perfect", "Remember", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever-OFF", "")
-            addMission("Technika1", "Platinum Mixing", "High Technician", "CnP", "MAXIMUM", "5B", "Dreadnought", "MAXIMUM", "4B", "SIN", "MAXIMUM", "6B", 990000, 5, 0, 0, 0, "Fever-Manual", "")
-            addMission("Technika1", "Platinum Mixing", "Sound Storm", "Enemy Storm", "MAXIMUM", "4B", "Brain Storm", "MAXIMUM", "5B", "Thor", "MAXIMUM", "6B", 0, 5, 3900, 95, 25, "Fever-Manual", "")
-            addMission("Technika1", "Technical Mixing", "First Step", "Dear my Lady", "NORMAL", "4B", "Honeymoon", "HARD", "4B", "DJMAX", "HARD", "4B", "??", "SPECIAL", "TB", 900000, 0, 0, 0, 0, "Fever-OFF", "")
-            addMission("Technika1", "Technical Mixing", "Electro EP", "Access", "HARD", "5B", "Your Own Miracle", "HARD", "5B", "Area 7", "HARD", "5B", "??", "SPECIAL", "TB", 0, 0, 800, 0, 0, "Fever-OFF", "")
-            addMission("Technika1", "Technical Mixing", "Core Sound", "Beyond the Future", "HARD", "6B", "Voyage", "HARD", "6B", "Landscape", "HARD", "6B", "??", "SPECIAL", "TB", 0, 0, 0, 95, 0, "Fever-OFF", "")
-            addMission("Technika1", "Technical Mixing", "HeartBeat", "Remember", "MAXIMUM", "5B", "Play the Future", "HARD", "5B", "Melody", "MAXIMUM", "5B", "??", "SPECIAL", "TB", 0, 0, 0, 0, 15, "Fever-OFF", "")
-            addMission("Technika1", "Technical Mixing", "Customizer", "Sweet Shining Shooting Star", "MAXIMUM", "8B", "Fury", "MAXIMUM", "8B", "Y (CE Style)", "MAXIMUM", "8B", "??", "SPECIAL", "TB", 1125000, 0, 1750, 98, 0, "Fever-OFF", "")
-            addMission("Technika1", "Technical Mixing", "Conqueror", "SON OF SUN", "HARD", "4B", "SuperSonic", "MAXIMUM", "5B", "HEXAD", "MAXIMUM", "6B", "!?", "SPECIAL", "TB", 1150000, 0, 1500, 98, 0, "Fever-OFF", "")
+            addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "Gallery : I want you (3)")
+            addMission("Technika1", "Platinum Mixing", "Metro Drive", "Y (CE Style)", "NORMAL", "6B", "Melody", "NORMAL", "6B", "The Clear Blue Sky", "NORMAL", "6B", 0, 0, 4000, 93, 0, "Fever-Manual", "Plate : Honeymoon")
+            addMission("Technika1", "Platinum Mixing", "Using Effect", "Play the Future", "NORMAL", "5B", "Beyond the Future", "NORMAL", "5B", "Do you want it", "NORMAL", "5B", 0, 0, 0, 0, 20, "Fever-OFF, FADER 2", "Plate : Shoreline")
+            addMission("Technika1", "Platinum Mixing", "Mr.Perfect", "Remember", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever-OFF", "Plate : Remember")
+            addMission("Technika1", "Platinum Mixing", "High Technician", "CnP", "MAXIMUM", "5B", "Dreadnought", "MAXIMUM", "4B", "SIN", "MAXIMUM", "6B", 990000, 5, 0, 0, 0, "Fever-Manual", "Gallery : EXTRA (9)")
+            addMission("Technika1", "Platinum Mixing", "Sound Storm", "Enemy Storm", "MAXIMUM", "4B", "Brain Storm", "MAXIMUM", "5B", "Thor", "MAXIMUM", "6B", 0, 5, 3900, 95, 25, "Fever-Manual", "Gallery : Thor")
+            addMission("Technika1", "Technical Mixing", "First Step", "Dear my Lady", "NORMAL", "4B", "Honeymoon", "HARD", "4B", "DJMAX", "HARD", "4B", "??", "SPECIAL", "TB", 900000, 0, 0, 0, 0, "Fever-OFF", "Gallery : Honeymoon (3)")
+            addMission("Technika1", "Technical Mixing", "Electro EP", "Access", "HARD", "5B", "Your Own Miracle", "HARD", "5B", "Area 7", "HARD", "5B", "??", "SPECIAL", "TB", 0, 0, 800, 0, 0, "Fever-OFF", "Plate : SuperSonic")
+            addMission("Technika1", "Technical Mixing", "Core Sound", "Beyond the Future", "HARD", "6B", "Voyage", "HARD", "6B", "Landscape", "HARD", "6B", "??", "SPECIAL", "TB", 0, 0, 0, 95, 0, "Fever-OFF", "Gallery : Voyage")
+            addMission("Technika1", "Technical Mixing", "HeartBeat", "Remember", "MAXIMUM", "5B", "Play the Future", "HARD", "5B", "Melody", "MAXIMUM", "5B", "??", "SPECIAL", "TB", 0, 0, 0, 0, 15, "Fever-OFF", "Plate : Melody")
+            addMission("Technika1", "Technical Mixing", "Customizer", "Sweet Shining Shooting Star", "MAXIMUM", "8B", "Fury", "MAXIMUM", "8B", "Y (CE Style)", "MAXIMUM", "8B", "??", "SPECIAL", "TB", 1125000, 0, 1750, 98, 0, "Fever-OFF", "Gallery : EXTRA (10)")
+            addMission("Technika1", "Technical Mixing", "Conqueror", "SON OF SUN", "HARD", "4B", "SuperSonic", "MAXIMUM", "5B", "HEXAD", "MAXIMUM", "6B", "!?", "SPECIAL", "TB", 1150000, 0, 1500, 98, 0, "Fever-OFF", "Plate : Thor")
             
             
             //Clazziquai Edition
@@ -984,98 +984,6 @@ class Init{
             
         }
         
-        if(version <= 20){
-            //스킬포인트 계산
-            let recordSkill = try! Realm().objects(RecordInfo.self)
-            for i in recordSkill{
-                try! realm.write{
-                    let nm4Point = getSkillPoint(difficulty: i.nm4, rate: i.nm4Rate, note: i.nm4Note)
-                    let hd4Point = getSkillPoint(difficulty: i.hd4, rate: i.hd4Rate, note: i.hd4Note)
-                    let mx4Point = getSkillPoint(difficulty: i.mx4, rate: i.mx4Rate, note: i.mx4Note)
-                    let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
-                    i.button4SkillPoint = max4Point
-                    switch(max4Point){
-                    case nm4Point:
-                        i.button4HighestSkillPointRate = i.nm4Rate
-                        i.button4HighestSkillPointDifficulty = "NORMAL"
-                        i.button4HighestSkillPointNote = i.nm4Note
-                    case hd4Point:
-                        i.button4HighestSkillPointRate = i.hd4Rate
-                        i.button4HighestSkillPointDifficulty = "HARD"
-                        i.button4HighestSkillPointNote = i.hd4Note
-                    case mx4Point:
-                        i.button4HighestSkillPointRate = i.mx4Rate
-                        i.button4HighestSkillPointDifficulty = "MAXIMUM"
-                        i.button4HighestSkillPointNote = i.mx4Note
-                    default:
-                        break
-                    }
-                    let nm5Point = getSkillPoint(difficulty: i.nm5, rate: i.nm5Rate, note: i.nm5Note)
-                    let hd5Point = getSkillPoint(difficulty: i.hd5, rate: i.hd5Rate, note: i.hd5Note)
-                    let mx5Point = getSkillPoint(difficulty: i.mx5, rate: i.mx5Rate, note: i.mx5Note)
-                    let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
-                    i.button5SkillPoint = max5Point
-                    switch(max5Point){
-                    case nm5Point:
-                        i.button5HighestSkillPointRate = i.nm5Rate
-                        i.button5HighestSkillPointDifficulty = "NORMAL"
-                        i.button5HighestSkillPointNote = i.nm5Note
-                    case hd5Point:
-                        i.button5HighestSkillPointRate = i.hd5Rate
-                        i.button5HighestSkillPointDifficulty = "HARD"
-                        i.button5HighestSkillPointNote = i.hd5Note
-                    case mx5Point:
-                        i.button5HighestSkillPointRate = i.mx5Rate
-                        i.button5HighestSkillPointDifficulty = "MAXIMUM"
-                        i.button5HighestSkillPointNote = i.mx5Note
-                    default:
-                        break
-                    }
-                    let nm6Point = getSkillPoint(difficulty: i.nm6, rate: i.nm6Rate, note: i.nm6Note)
-                    let hd6Point = getSkillPoint(difficulty: i.hd6, rate: i.hd6Rate, note: i.hd6Note)
-                    let mx6Point = getSkillPoint(difficulty: i.mx6, rate: i.mx6Rate, note: i.mx6Note)
-                    let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
-                    i.button6SkillPoint = max6Point
-                    switch(max6Point){
-                    case nm6Point:
-                        i.button6HighestSkillPointRate = i.nm6Rate
-                        i.button6HighestSkillPointDifficulty = "NORMAL"
-                        i.button6HighestSkillPointNote = i.nm6Note
-                    case hd6Point:
-                        i.button6HighestSkillPointRate = i.hd6Rate
-                        i.button6HighestSkillPointDifficulty = "HARD"
-                        i.button6HighestSkillPointNote = i.hd6Note
-                    case mx6Point:
-                        i.button6HighestSkillPointRate = i.mx6Rate
-                        i.button6HighestSkillPointDifficulty = "MAXIMUM"
-                        i.button6HighestSkillPointNote = i.mx6Note
-                    default:
-                        break
-                    }
-                    let nm8Point = getSkillPoint(difficulty: i.nm8, rate: i.nm8Rate, note: i.nm8Note)
-                    let hd8Point = getSkillPoint(difficulty: i.hd8, rate: i.hd8Rate, note: i.hd8Note)
-                    let mx8Point = getSkillPoint(difficulty: i.mx8, rate: i.mx8Rate, note: i.mx8Note)
-                    let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
-                    i.button8SkillPoint = max8Point
-                    switch(max8Point){
-                    case nm8Point:
-                        i.button8HighestSkillPointRate = i.nm8Rate
-                        i.button8HighestSkillPointDifficulty = "NORMAL"
-                        i.button8HighestSkillPointNote = i.nm8Note
-                    case hd8Point:
-                        i.button8HighestSkillPointRate = i.hd8Rate
-                        i.button8HighestSkillPointDifficulty = "HARD"
-                        i.button8HighestSkillPointNote = i.hd8Note
-                    case mx8Point:
-                        i.button8HighestSkillPointRate = i.mx8Rate
-                        i.button8HighestSkillPointDifficulty = "MAXIMUM"
-                        i.button8HighestSkillPointNote = i.mx8Note
-                    default:
-                        break
-                    }
-                }
-            }
-        }
         if(version <= 24){
             if let object = realm.objects(AchievementInfo.self).filter("type = 'MUSIC'").filter("item = 'Triple Joe'").first{
                 try! realm.write{
@@ -1172,7 +1080,7 @@ class Init{
                 addSong("Technika1", "Access", "Sphazer", "135", 2, 4, 7, 3, 6, 0, 3, 0, 12, 5, 7, 12)
                 addSong("Technika1", "Area 7", "Sphazer", "130", 4, 0, 10, 4, 7, 10, 5, 7, 11, 4, 7, 12)
                 addSong("Technika1", "Beyond the Future", "7  Sequence", "150", 4, 8, 11, 4, 8, 11, 4, 9, 12, 4, 9, 12)
-                addSong("Technika1", "Dear my Lady", "Oriental ST8", "128", 5, 9, 0, 5, 7, 10, 5, 7, 10, 4, 7, 10)
+                addSong("Technika1", "Dear my Lady", "Oriental ST8", "128", 5, 9, 0, 5, 7, 10, 5, 7, 11, 4, 7, 10)
                 addSong("Technika1", "DJMAX", "Humming Urban Stereo", "128", 2, 7, 0, 3, 0, 8, 4, 8, 0, 4, 8, 0)
                 addSong("Technika1", "Fury", "Sugardonut", "135", 4, 9, 11, 5, 8, 12, 5, 9, 12, 5, 10, 12)
                 addSong("Technika1", "HEXAD", "Electronic Boutique", "135", 5, 10, 13, 5, 9, 12, 5, 9, 12, 6, 10, 13)
@@ -1183,7 +1091,7 @@ class Init{
                 addSong("Technika1", "Play the Future", "Urbatronic Chopsticks", "128", 4, 9, 0, 4, 7, 10, 6, 10, 0, 5, 0, 10)
                 addSong("Technika1", "Remember", "Lin-G", "150", 3, 8, 10, 4, 7, 10, 4, 7, 11, 5, 0, 11)
                 addSong("Technika1", "Shoreline", "Oriental ST8", "135", 4, 8, 10, 6, 11, 0, 6, 11, 0, 6, 8, 12)
-                addSong("Technika1", "SON OF SUN", "Hosoe Shinji", "200", 7, 9, 13, 7, 10, 14, 7, 11, 15, 7, 10, 15)
+                addSong("Technika1", "SON OF SUN", "Hosoe Shinji", "200", 7, 9, 14, 7, 10, 14, 7, 11, 14, 7, 10, 15)
                 addSong("Technika1", "SuperSonic", "Planetboom", "156", 4, 7, 11, 5, 8, 12, 6, 9, 12, 6, 10, 13)
                 addSong("Technika1", "Sweet Shining Shooting Star", "Croove", "140", 3, 8, 10, 3, 6, 10, 6, 0, 10, 6, 0, 11)
                 addSong("Technika1", "The Last Dance", "Urbatronic Chopsticks", "102", 4, 0, 8, 5, 11, 0, 5, 10, 0, 4, 0, 12)
@@ -1239,18 +1147,18 @@ class Init{
                 onlyonRecord.lowercase = onlyon.title.lowercased()
             }
             if(realm.objects(MissionInfo.self).filter("type = 'Technika1'").count == 0){
-                addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "")
-                addMission("Technika1", "Platinum Mixing", "Metro Drive", "Y (CE Style)", "NORMAL", "6B", "Melody", "NORMAL", "6B", "The Clear Blue Sky", "NORMAL", "6B", 0, 0, 4000, 93, 0, "Fever-Manual", "")
-                addMission("Technika1", "Platinum Mixing", "Using Effect", "Play the Future", "NORMAL", "5B", "Beyond the Future", "NORMAL", "5B", "Do you want it", "NORMAL", "5B", 0, 0, 0, 0, 20, "Fever-OFF, FADER 2", "")
-                addMission("Technika1", "Platinum Mixing", "Mr.Perfect", "Remember", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever-OFF", "")
-                addMission("Technika1", "Platinum Mixing", "High Technician", "CnP", "MAXIMUM", "5B", "Dreadnought", "MAXIMUM", "4B", "SIN", "MAXIMUM", "6B", 990000, 5, 0, 0, 0, "Fever-Manual", "")
-                addMission("Technika1", "Platinum Mixing", "Sound Storm", "Enemy Storm", "MAXIMUM", "4B", "Brain Storm", "MAXIMUM", "5B", "Thor", "MAXIMUM", "6B", 0, 5, 3900, 95, 25, "Fever-Manual", "")
-                addMission("Technika1", "Technical Mixing", "First Step", "Dear my Lady", "NORMAL", "4B", "Honeymoon", "HARD", "4B", "DJMAX", "HARD", "4B", "??", "SPECIAL", "TB", 900000, 0, 0, 0, 0, "Fever-OFF", "")
-                addMission("Technika1", "Technical Mixing", "Electro EP", "Access", "HARD", "5B", "Your Own Miracle", "HARD", "5B", "Area 7", "HARD", "5B", "??", "SPECIAL", "TB", 0, 0, 800, 0, 0, "Fever-OFF", "")
-                addMission("Technika1", "Technical Mixing", "Core Sound", "Beyond the Future", "HARD", "6B", "Voyage", "HARD", "6B", "Landscape", "HARD", "6B", "??", "SPECIAL", "TB", 0, 0, 0, 95, 0, "Fever-OFF", "")
-                addMission("Technika1", "Technical Mixing", "HeartBeat", "Remember", "MAXIMUM", "5B", "Play the Future", "HARD", "5B", "Melody", "MAXIMUM", "5B", "??", "SPECIAL", "TB", 0, 0, 0, 0, 15, "Fever-OFF", "")
-                addMission("Technika1", "Technical Mixing", "Customizer", "Sweet Shining Shooting Star", "MAXIMUM", "8B", "Fury", "MAXIMUM", "8B", "Y (CE Style)", "MAXIMUM", "8B", "??", "SPECIAL", "TB", 1125000, 0, 1750, 98, 0, "Fever-OFF", "")
-                addMission("Technika1", "Technical Mixing", "Conqueror", "SON OF SUN", "HARD", "4B", "SuperSonic", "MAXIMUM", "5B", "HEXAD", "MAXIMUM", "6B", "!?", "SPECIAL", "TB", 1150000, 0, 1500, 98, 0, "Fever-OFF", "")
+                addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "Gallery : I want you (3)")
+                addMission("Technika1", "Platinum Mixing", "Metro Drive", "Y (CE Style)", "NORMAL", "6B", "Melody", "NORMAL", "6B", "The Clear Blue Sky", "NORMAL", "6B", 0, 0, 4000, 93, 0, "Fever-Manual", "Plate : Honeymoon")
+                addMission("Technika1", "Platinum Mixing", "Using Effect", "Play the Future", "NORMAL", "5B", "Beyond the Future", "NORMAL", "5B", "Do you want it", "NORMAL", "5B", 0, 0, 0, 0, 20, "Fever-OFF, FADER 2", "Plate : Shoreline")
+                addMission("Technika1", "Platinum Mixing", "Mr.Perfect", "Remember", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever-OFF", "Plate : Remember")
+                addMission("Technika1", "Platinum Mixing", "High Technician", "CnP", "MAXIMUM", "5B", "Dreadnought", "MAXIMUM", "4B", "SIN", "MAXIMUM", "6B", 990000, 5, 0, 0, 0, "Fever-Manual", "Gallery : EXTRA (9)")
+                addMission("Technika1", "Platinum Mixing", "Sound Storm", "Enemy Storm", "MAXIMUM", "4B", "Brain Storm", "MAXIMUM", "5B", "Thor", "MAXIMUM", "6B", 0, 5, 3900, 95, 25, "Fever-Manual", "Gallery : Thor")
+                addMission("Technika1", "Technical Mixing", "First Step", "Dear my Lady", "NORMAL", "4B", "Honeymoon", "HARD", "4B", "DJMAX", "HARD", "4B", "??", "SPECIAL", "TB", 900000, 0, 0, 0, 0, "Fever-OFF", "Gallery : Honeymoon (3)")
+                addMission("Technika1", "Technical Mixing", "Electro EP", "Access", "HARD", "5B", "Your Own Miracle", "HARD", "5B", "Area 7", "HARD", "5B", "??", "SPECIAL", "TB", 0, 0, 800, 0, 0, "Fever-OFF", "Plate : SuperSonic")
+                addMission("Technika1", "Technical Mixing", "Core Sound", "Beyond the Future", "HARD", "6B", "Voyage", "HARD", "6B", "Landscape", "HARD", "6B", "??", "SPECIAL", "TB", 0, 0, 0, 95, 0, "Fever-OFF", "Gallery : Voyage")
+                addMission("Technika1", "Technical Mixing", "HeartBeat", "Remember", "MAXIMUM", "5B", "Play the Future", "HARD", "5B", "Melody", "MAXIMUM", "5B", "??", "SPECIAL", "TB", 0, 0, 0, 0, 15, "Fever-OFF", "Plate : Melody")
+                addMission("Technika1", "Technical Mixing", "Customizer", "Sweet Shining Shooting Star", "MAXIMUM", "8B", "Fury", "MAXIMUM", "8B", "Y (CE Style)", "MAXIMUM", "8B", "??", "SPECIAL", "TB", 1125000, 0, 1750, 98, 0, "Fever-OFF", "Gallery : EXTRA (10)")
+                addMission("Technika1", "Technical Mixing", "Conqueror", "SON OF SUN", "HARD", "4B", "SuperSonic", "MAXIMUM", "5B", "HEXAD", "MAXIMUM", "6B", "!?", "SPECIAL", "TB", 1150000, 0, 1500, 98, 0, "Fever-OFF", "Plate : Thor")
             }
             if(realm.objects(TrophyInfo.self).filter("series = 'Technika1'").count == 0){
                 addTrophy("Technika1", "플래티넘 크루", "TECHNIKA 곡을 모두 S랭크로 클리어했다.", "PLATINUM CREW", "Cleared all TECHNIKA songs in S rank.", "SILVER")
@@ -1265,6 +1173,175 @@ class Init{
                 addTrophy("Technika1", "암튼 레어 카드", "TECHNIKA 곡 중 숨겨진 BGA를 발견했다.", "Rare Card Anyways", "Found a Hidden BGA from a TECHNIKA Song.", "BRONZE")
             }
             UserDefaults.standard.set(202, forKey: "version")
+        }
+        
+        if(version <= 202){
+            let songResults = realm.objects(SongInfo.self)
+            let recordResults = realm.objects(RecordInfo.self)
+            var title = "Chrono Breakers"
+            var song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            var record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd8 = 12
+                record.hd8 = 12
+            }
+            title = "Fever GJ"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx6 = 9
+                record.mx6 = 9
+            }
+            title = "OBLIVION ~Rockin' Night Style~"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx8 = 13
+                record.mx8 = 13
+            }
+            title = "Sunny Side"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.nm8 = 9
+                record.nm8 = 9
+            }
+            title = "Another DAY"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd8 = 10
+                record.hd8 = 10
+            }
+            title = "Brain Storm"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd4 = 11
+                song.hd5 = 12
+                record.hd4 = 11
+                record.hd5 = 12
+            }
+            title = "For Seasons"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd8 = 10
+                record.hd8 = 10
+            }
+            title = "Miles"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.nm4 = 4
+                record.nm4 = 4
+            }
+            title = "NANO RISK"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.nm4 = 7
+                record.nm4 = 7
+            }
+            title = "Right Now"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd8 = 9
+                record.hd8 = 9
+            }
+            title = "Showtime"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd4 = 10
+                record.hd4 = 10
+            }
+            title = "STALKER"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx8 = 15
+                record.mx8 = 15
+            }
+            title = "Stay with me"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.nm8 = 7
+                record.nm8 = 7
+            }
+            title = "SQUEEZE"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd5 = 11
+                song.hd8 = 12
+                record.hd5 = 11
+                record.hd8 = 12
+            }
+            title = "Taekwonburi".localized
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx5 = 12
+                record.mx5 = 12
+            }
+            title = "Bullet, Wanted!"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd8 = 11
+                record.hd8 = 11
+            }
+            title = "Far East Princess"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd4 = 7
+                song.mx6 = 10
+                record.hd4 = 7
+                record.mx6 = 10
+            }
+            title = "We're All Gonna Die"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.nm4 = 8
+                record.nm4 = 8
+            }
+            title = "Freedom"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx8 = 10
+                record.mx8 = 10
+            }
+            title = "Lover (CE Style)"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.hd5 = 10
+                record.hd5 = 10
+            }
+            title = "Dear my Lady"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx6 = 11
+                record.mx6 = 11
+            }
+            title = "SON OF SUN"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                song.mx4 = 14
+                song.mx6 = 14
+                record.mx4 = 14
+                record.mx6 = 14
+            }
+            reloadSkillPoint(realm: realm)
+            UserDefaults.standard.set(203, forKey: "version")
         }
         print("DATABASE INITIALIZE FINISHED!!")
     }
@@ -1335,3 +1412,94 @@ func getWeight(value: Int) -> Double{
     return result
 }
 
+func reloadSkillPoint(realm: Realm){
+    let recordSkill = realm.objects(RecordInfo.self)
+    for i in recordSkill{
+        try! realm.write{
+            let nm4Point = getSkillPoint(difficulty: i.nm4, rate: i.nm4Rate, note: i.nm4Note)
+            let hd4Point = getSkillPoint(difficulty: i.hd4, rate: i.hd4Rate, note: i.hd4Note)
+            let mx4Point = getSkillPoint(difficulty: i.mx4, rate: i.mx4Rate, note: i.mx4Note)
+            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
+            i.button4SkillPoint = max4Point
+            switch(max4Point){
+            case nm4Point:
+                i.button4HighestSkillPointRate = i.nm4Rate
+                i.button4HighestSkillPointDifficulty = "NORMAL"
+                i.button4HighestSkillPointNote = i.nm4Note
+            case hd4Point:
+                i.button4HighestSkillPointRate = i.hd4Rate
+                i.button4HighestSkillPointDifficulty = "HARD"
+                i.button4HighestSkillPointNote = i.hd4Note
+            case mx4Point:
+                i.button4HighestSkillPointRate = i.mx4Rate
+                i.button4HighestSkillPointDifficulty = "MAXIMUM"
+                i.button4HighestSkillPointNote = i.mx4Note
+            default:
+                break
+            }
+            let nm5Point = getSkillPoint(difficulty: i.nm5, rate: i.nm5Rate, note: i.nm5Note)
+            let hd5Point = getSkillPoint(difficulty: i.hd5, rate: i.hd5Rate, note: i.hd5Note)
+            let mx5Point = getSkillPoint(difficulty: i.mx5, rate: i.mx5Rate, note: i.mx5Note)
+            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
+            i.button5SkillPoint = max5Point
+            switch(max5Point){
+            case nm5Point:
+                i.button5HighestSkillPointRate = i.nm5Rate
+                i.button5HighestSkillPointDifficulty = "NORMAL"
+                i.button5HighestSkillPointNote = i.nm5Note
+            case hd5Point:
+                i.button5HighestSkillPointRate = i.hd5Rate
+                i.button5HighestSkillPointDifficulty = "HARD"
+                i.button5HighestSkillPointNote = i.hd5Note
+            case mx5Point:
+                i.button5HighestSkillPointRate = i.mx5Rate
+                i.button5HighestSkillPointDifficulty = "MAXIMUM"
+                i.button5HighestSkillPointNote = i.mx5Note
+            default:
+                break
+            }
+            let nm6Point = getSkillPoint(difficulty: i.nm6, rate: i.nm6Rate, note: i.nm6Note)
+            let hd6Point = getSkillPoint(difficulty: i.hd6, rate: i.hd6Rate, note: i.hd6Note)
+            let mx6Point = getSkillPoint(difficulty: i.mx6, rate: i.mx6Rate, note: i.mx6Note)
+            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
+            i.button6SkillPoint = max6Point
+            switch(max6Point){
+            case nm6Point:
+                i.button6HighestSkillPointRate = i.nm6Rate
+                i.button6HighestSkillPointDifficulty = "NORMAL"
+                i.button6HighestSkillPointNote = i.nm6Note
+            case hd6Point:
+                i.button6HighestSkillPointRate = i.hd6Rate
+                i.button6HighestSkillPointDifficulty = "HARD"
+                i.button6HighestSkillPointNote = i.hd6Note
+            case mx6Point:
+                i.button6HighestSkillPointRate = i.mx6Rate
+                i.button6HighestSkillPointDifficulty = "MAXIMUM"
+                i.button6HighestSkillPointNote = i.mx6Note
+            default:
+                break
+            }
+            let nm8Point = getSkillPoint(difficulty: i.nm8, rate: i.nm8Rate, note: i.nm8Note)
+            let hd8Point = getSkillPoint(difficulty: i.hd8, rate: i.hd8Rate, note: i.hd8Note)
+            let mx8Point = getSkillPoint(difficulty: i.mx8, rate: i.mx8Rate, note: i.mx8Note)
+            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
+            i.button8SkillPoint = max8Point
+            switch(max8Point){
+            case nm8Point:
+                i.button8HighestSkillPointRate = i.nm8Rate
+                i.button8HighestSkillPointDifficulty = "NORMAL"
+                i.button8HighestSkillPointNote = i.nm8Note
+            case hd8Point:
+                i.button8HighestSkillPointRate = i.hd8Rate
+                i.button8HighestSkillPointDifficulty = "HARD"
+                i.button8HighestSkillPointNote = i.hd8Note
+            case mx8Point:
+                i.button8HighestSkillPointRate = i.mx8Rate
+                i.button8HighestSkillPointDifficulty = "MAXIMUM"
+                i.button8HighestSkillPointNote = i.mx8Note
+            default:
+                break
+            }
+        }
+    }
+}

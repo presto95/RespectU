@@ -194,7 +194,7 @@ extension GuideViewController: UICollectionViewDelegate{
                 let major = version.first!.description
                 let minor = version[version.index(version.startIndex, offsetBy: 1)...version.index(version.startIndex, offsetBy: 2)].description
                 let stringVersion = major + "." + minor
-                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.12\nRespectU " + stringVersion + "\n\nApp icon by icons8"
+                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.13\nRespectU " + stringVersion + "\n\nApp icon by icons8"
                 let alert = PMAlertController(title: "CREDITS".localized, description: message, image: nil, style: .alert)
                 let rate = PMAlertAction(title: "Rate this app".localized, style: .default, action: {
                     self.rateApp(appId: "id1291664067", completion: { (bool) in

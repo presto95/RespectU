@@ -1,0 +1,125 @@
+PODS:
+  - AKPickerView-Swift (2.0.1)
+  - BRYXBanner (0.8.0)
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - DZNEmptyDataSet (1.8.1)
+  - Firebase/Auth (4.8.0):
+    - Firebase/Core
+    - FirebaseAuth (= 4.4.1)
+  - Firebase/Core (4.8.0):
+    - FirebaseAnalytics (= 4.0.5)
+    - FirebaseCore (= 4.0.13)
+  - Firebase/Database (4.8.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 4.1.3)
+  - FirebaseAnalytics (4.0.5):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseAuth (4.4.1):
+    - FirebaseAnalytics (~> 4.0)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (4.0.13):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (4.1.3):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - leveldb-library (~> 1.18)
+  - FirebaseInstanceID (2.0.8):
+    - FirebaseCore (~> 4.0)
+  - GaugeKit (0.4.5)
+  - GoogleSignIn (4.1.1):
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+  - GTMOAuth2 (1.1.6):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.12):
+    - GTMSessionFetcher/Full (= 1.1.12)
+  - GTMSessionFetcher/Core (1.1.12)
+  - GTMSessionFetcher/Full (1.1.12):
+    - GTMSessionFetcher/Core (= 1.1.12)
+  - leveldb-library (1.20)
+  - MarqueeLabel/Swift (3.1.3)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
+  - PMAlertController (3.2.0)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - RealmSwift (2.10.1):
+    - Realm (= 2.10.1)
+  - SwiftGifOrigin (1.6.1)
+  - XLPagerTabStrip (8.0.0)
+
+DEPENDENCIES:
+  - AKPickerView-Swift (from `https://github.com/Akkyie/AKPickerView-Swift.git`)
+  - BRYXBanner
+  - Charts
+  - DZNEmptyDataSet
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Database
+  - GaugeKit
+  - GoogleSignIn
+  - MarqueeLabel/Swift
+  - PMAlertController
+  - RealmSwift
+  - SwiftGifOrigin (~> 1.6.1)
+  - XLPagerTabStrip (~> 8.0)
+
+EXTERNAL SOURCES:
+  AKPickerView-Swift:
+    :git: https://github.com/Akkyie/AKPickerView-Swift.git
+
+CHECKOUT OPTIONS:
+  AKPickerView-Swift:
+    :commit: 1ee8c7310bdef0f31f8fb92fbab0ab05978539f6
+    :git: https://github.com/Akkyie/AKPickerView-Swift.git
+
+SPEC CHECKSUMS:
+  AKPickerView-Swift: 4969de689bee54f720dd64700f7aaab02a8f2ddc
+  BRYXBanner: 406c3775789136531da6f3c98058be2f16e08a34
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  Firebase: 710decbbc6d9d48530e9a5dba3209740c3532e05
+  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
+  FirebaseAuth: dc0dd403beca5b2b016aac89c2d0b8dad1c81926
+  FirebaseCore: 3c02ec652db3d03fdc8bc6d9154af3e20d64b6f5
+  FirebaseDatabase: 7088bfc4af2cc00231bb36e1404fc2d7509eb4dc
+  FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
+  GaugeKit: 7872069a8aed2d26b17fca110fe1ab59722f8a33
+  GoogleSignIn: 3fdaa34a2ba04dbd7a25d7db39aecb0da98d5bdc
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  MarqueeLabel: baa5753dcbd36dca080e1f5c589a665aa5c906f1
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PMAlertController: 46047b840f6e1833c2a5395c91ccad29e72ae2c0
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
+  XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
+
+PODFILE CHECKSUM: ad300df7c0bc90e66fc17a11ef7b433bd7dd8cf2
+
+COCOAPODS: 1.3.1

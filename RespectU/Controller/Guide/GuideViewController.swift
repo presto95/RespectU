@@ -45,9 +45,7 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func recordPerformance(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Record", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "RecordViewController") as! RecordViewController
-        present(controller, animated: true, completion: nil)
+        goToAnotherView(storyboard: "Record", identifier: "RecordViewController")
     }
     private func goToAnotherView(storyboard: String, identifier: String){
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)

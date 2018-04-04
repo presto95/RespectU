@@ -1343,6 +1343,10 @@ class Init{
             reloadSkillPoint(realm: realm)
             UserDefaults.standard.set(203, forKey: "version")
         }
+        
+        if(version <= 203){
+            UserDefaults.standard.set(204, forKey: "version")
+        }
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

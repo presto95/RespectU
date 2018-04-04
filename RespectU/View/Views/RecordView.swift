@@ -18,7 +18,7 @@ class RecordView: UIView {
     var object: RecordInfo! = nil
     var top50Results: Results<RecordInfo>! = nil
     
-    static var viewController: RecordViewController! = nil
+    static var tableViewController: UITableViewController! = nil
     static var title: String = ""
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelSkillPoint: UILabel!
@@ -51,9 +51,16 @@ class RecordView: UIView {
         reloadButtonsAndLabels(button: favoriteButton)
     }
     
-    class func instanceFromXib(title: String, controller: RecordViewController) -> UIView{
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.borderWidth = 3
+        self.layer.cornerRadius = 10
+        self.layer.borderColor = UIColor.mainColor.cgColor
+    }
+    
+    class func instanceFromXib(title: String, tableViewController: UITableViewController) -> UIView{
         self.title = title
-        self.viewController = controller
+        self.tableViewController = tableViewController
         return UINib(nibName: "RecordView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! UIView
     }
     
@@ -103,12 +110,15 @@ class RecordView: UIView {
     }
     
     @IBAction func clickCancel(_ sender: UIButton) {
-        let parentViewController = self.parentViewController() as! RecordViewController
-        if(parentViewController.view.subviews.last is RecordView) {
-            parentViewController.tableView.frame.size.height += 200
+        let tableViewController = RecordView.tableViewController
+        let parentViewController = tableViewController?.parent as! RecordViewController
+        if(parentViewController.view.subviews.last is RecordView){
+            parentViewController.scrollView.frame.size.height += 200
             self.removeFromSuperview()
         }
-        parentViewController.tableView.deselectRow(at: parentViewController.tableView.indexPathForSelectedRow!, animated: false)
+        if let selectedRow = tableViewController?.tableView.indexPathForSelectedRow {
+            tableViewController?.tableView.deselectRow(at: selectedRow, animated: false)
+        }
     }
     
     func showRankAlert(difficulty: Difficulty, button: String){
@@ -141,7 +151,7 @@ class RecordView: UIView {
         alert.addAction(a)
         alert.addAction(b)
         alert.addAction(c)
-        RecordView.viewController.present(alert, animated: true, completion: nil)
+        RecordView.tableViewController.present(alert, animated: true, completion: nil)
     }
     func showRateAlert(difficulty: Difficulty, button: String){
         let alert = PMAlertController(title: "Rate".localized, description: "Input your rate.\nTo reset the value, do not enter any values.".localized, image: nil, style: .alert)
@@ -242,7 +252,7 @@ class RecordView: UIView {
         designAlertController(alert: alert, actions: cancel, yes)
         alert.addAction(cancel)
         alert.addAction(yes)
-        RecordView.viewController.present(alert, animated: true, completion: nil)
+        RecordView.tableViewController.present(alert, animated: true, completion: nil)
     }
     func showNoteAlert(difficulty: Difficulty, button: String){
         let alert = PMAlertController(title: "Note".localized, description: "Select your note.".localized, image: nil, style: .alert)
@@ -266,7 +276,7 @@ class RecordView: UIView {
         alert.addAction(initialize)
         alert.addAction(maxCombo)
         alert.addAction(perfectPlay)
-        RecordView.viewController.present(alert, animated: true, completion: nil)
+        RecordView.tableViewController.present(alert, animated: true, completion: nil)
     }
     func setRank(rank: String?, difficulty: Difficulty, button: String){
         switch(button){

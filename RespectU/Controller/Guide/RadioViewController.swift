@@ -15,7 +15,7 @@ class RadioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://djmax.otoize.com")
+        let url = URL(string: "https://djmax.protomox.com")
         let request = URLRequest(url: url!)
         webView.load(request)
         // Do any additional setup after loading the view.

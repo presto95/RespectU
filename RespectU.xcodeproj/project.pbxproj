@@ -559,24 +559,16 @@
 		19012FAE204808120061EF21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				19B6CFF51F7953640097B86B /* Assets.xcassets */,
-				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
-				19137A0B1FAB51420097B11C /* Fonts */,
-				1919A3A02008F6DB00D51A2A /* images */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		19012FAF204808170061EF21 /* ETC */ = {
-			isa = PBXGroup;
-			children = (
 				19012FB2204808AE0061EF21 /* Extension */,
 				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
+				19B6CFF51F7953640097B86B /* Assets.xcassets */,
+				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
+				19137A0B1FAB51420097B11C /* fonts */,
+				1919A3A02008F6DB00D51A2A /* images */,
 			);
-			name = ETC;
-			path = "New Group";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		19012FB0204808390061EF21 /* Views */ = {
@@ -644,7 +636,7 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		19137A0B1FAB51420097B11C /* Fonts */ = {
+		19137A0B1FAB51420097B11C /* fonts */ = {
 			isa = PBXGroup;
 			children = (
 				1927DA4D201E217B003D1752 /* NotoSansCJKkr-Medium.otf */,
@@ -652,7 +644,7 @@
 				1927DA46201E1F87003D1752 /* NotoSansCJKkr-Bold.otf */,
 				1927DA45201E1F86003D1752 /* NotoSansCJKkr-Light.otf */,
 			);
-			name = Fonts;
+			name = fonts;
 			path = ../..;
 			sourceTree = "<group>";
 		};
@@ -903,7 +895,6 @@
 				19012FAB204808070061EF21 /* Controller */,
 				19012FAD2048080F0061EF21 /* Storyboard */,
 				19012FAE204808120061EF21 /* Supporting Files */,
-				19012FAF204808170061EF21 /* ETC */,
 			);
 			path = RespectU;
 			sourceTree = "<group>";

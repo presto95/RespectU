@@ -6,7 +6,6 @@ target 'RespectU' do
   use_frameworks!
 	pod 'RealmSwift'
   pod 'MarqueeLabel/Swift'
-  pod 'BRYXBanner'
   pod 'GaugeKit'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
@@ -14,7 +13,6 @@ target 'RespectU' do
   pod 'GoogleSignIn'
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'
-  pod 'Charts'
   pod 'PMAlertController'
   pod 'SwiftGifOrigin', '~> 1.6.1'
   pod 'AKPickerView-Swift', :git => 'https://github.com/Akkyie/AKPickerView-Swift.git'

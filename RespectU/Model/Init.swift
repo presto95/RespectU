@@ -1349,7 +1349,7 @@ class Init{
         }
         
         if(version <= 204) {
-            var title = "c12lover"
+            var title = "c12Lover"
             let object = realm.objects(MissionInfo.self)
             var effector = object.filter(NSPredicate(format: "title = %@", title)).first!
             try! realm.write{

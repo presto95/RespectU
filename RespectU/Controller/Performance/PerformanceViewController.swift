@@ -258,9 +258,6 @@ extension PerformanceViewController: UITableViewDataSource{
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as! SummaryCell
             return cell
-//        case 2:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "graphCell") as! GraphCell
-//            return cell
         default:
             return UITableViewCell()
         }

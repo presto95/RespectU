@@ -283,10 +283,10 @@ class Init{
             addMission("CE", "Electronic City", "Club Tour", "Love Mode", "NORMAL", "4B", "Come to me".localized, "NORMAL", "4B", "Freedom", "NORMAL", "4B", 850000,0,0,0,0,"Fever-Manual", "Gallery : Clear (Flea Ver.)")
             addMission("CE", "Electronic City", "Hunter & Hunter", "Cherokee", "NORMAL", "4B", "The Feelings", "NORMAL", "5B", "Proposed, Flower, Wolf".localized, "MAXIMUM", "6B", 0,3,0,0,0,"Fever-Manual","Gallery : "+"Forever".localized+" (3)")
             addMission("CE", "Electronic City", "BubiBubi", "The Night Stage", "HARD", "4B", "Color", "MAXIMUM", "4B", "Flea", "FX", "4B", "Electronics", "FX", "4B",0,0,0,0,30,"Fever-OFF","Gallery : Freedom (3)")
-            addMission("CE", "Electronic City", "4DmaX", "To You".localized, "NORMAL", "5B", "Fate", "NORMAL", "5B", "Urban Night", "NORMAL", "5B", "Forever".localized, "NORMAL", "5B", 0,0,0,95,0,"Fever-OFF","Gallery : Creator (3)")
+            addMission("CE", "Electronic City", "4DmaX", "To You".localized, "NORMAL", "5B", "Fate", "NORMAL", "5B", "Urban Night", "NORMAL", "5B", "Forever".localized, "NORMAL", "5B", 0,0,0,95,0,"Fever-OFF / CHAOS 4D","Gallery : Creator (3)")
             addMission("CE", "Electronic City", "Catch Me If You Can", "Mess it Up", "HARD", "5B", "StarFish", "HARD", "6B", "Bullet, Wanted!", "HARD", "4B", "In My Heart", "MAXIMUM", "4B", 1000000,0,3000,0,0,"Fever-Manual / FOG","Gallery : In My Heart (3)")
             addMission("CE", "Electronic City", "CLAZZIQUAI", "Creator", "FX", "4B", "Come to me".localized, "FX", "4B", "Flea", "MAXIMUM", "6B", 0,0,0,95,0,"Fever-OFF / Gear : CE","Gallery : EXTRA (8)")
-            addMission("CE", "Metropolis", "Heaven's Gate", "Closer", "NORMAL", "4B", "For the IKARUS", "NORMAL", "5B", "The Clear Blue Sky", "NORMAL", "6B", "Ask to Wind".localized, "NORMAL", "8B", 1000000,0,0,0,0,"Fever-Manual","Gallery : The Clear Blue Sky (3)")
+            addMission("CE", "Metropolis", "Heaven's Gate", "Closer", "NORMAL", "4B", "For the IKARUS", "NORMAL", "5B", "The Clear Blue Sky", "NORMAL", "6B", "Ask to Wind".localized, "NORMAL", "8B", 1000000,0,0,0,0,"Fever-Manual / CHAOS REVERSE","Gallery : The Clear Blue Sky (3)")
             addMission("CE", "Metropolis","GLASS Field", "sO mUCH iN LUV", "HARD", "4B", "Secret Dejavu", "HARD", "4B", "Creator", "HARD", "4B", 0,3,1500,0,0,"Fever-Manual / FADE IN","Gallery : First Kiss (3)")
             addMission("CE", "Metropolis","Metro Project Vol.1", "Coastal Tempo", "FX", "4B", "Here in the Moment", "FX", "4B", "In My Heart", "FX", "4B", "Rising The Sonic", "FX", "4B", 0,0,0,92,0,"Fever-OFF","Gallery : Here in the Moment (3)")
             addMission("CE", "Metropolis","5inary Box", "RANDOM", "HARD", "4B", "RANDOM", "HARD", "5B", "RANDOM", "MAXIMUM", "6B", "RANDOM", "HARD", "8B", "RANDOM", "FX", "4B",0,0,0,0,25,"Fever-OFF","Gallery : Fate (3)")
@@ -344,7 +344,7 @@ class Init{
             addMission("Respect", "Visualizer", "Just 100%", "RANDOM", "NORMAL", "4B", 0, 0, 0, 100, 0, "Fever OFF", "Plate : Visualizer")
             addMission("Respect", "D-VELOPERS", "Light Water", "sO mUCH iN LUV", "MAXIMUM", "6B", "Right Now", "MAXIMUM", "6B", "Ya! Party!", "MAXIMUM", "6B", "Running girl", "MAXIMUM", "6B", 1300000, 0, 0, 0, 0, "Fever-Manual", "Plate : Lift You Up")
             addMission("Respect", "D-VELOPERS", "juking must die", "One the Love", "HARD", "4B", "WhiteBlue", "NORMAL", "4B", 0, 0, 0, 97, 1, "Fever OFF / SLIDE DOWN", "Comment : "+"Classic Game Fanatic".localized)
-            addMission("Respect", "D-VELOPERS", "c12Lover", "OBLIVION ~Rockin' Night Style~", "HARD", "5B", "Secret Dejavu", "HARD", "5B", "NB RANGER - Virgin Force", "HARD", "5B", "Rolling On the Duck", "HARD", "5B", 0, 0, 8500, 97, 10, "Fever AUTO", "Plate : quixotic")
+            addMission("Respect", "D-VELOPERS", "c12Lover", "OBLIVION ~Rockin' Night Style~", "HARD", "5B", "Secret Dejavu", "HARD", "5B", "NB RANGER - Virgin Force", "HARD", "5B", "Rolling On the Duck", "HARD", "5B", 0, 0, 8500, 97, 10, "Fever AUTO / CHAOS REVERSE", "Plate : quixotic")
             addMission("Respect", "D-VELOPERS", "BEXTER", "KUDA", "HARD", "6B", "Syriana", "HARD", "8B", "glory day", "HARD", "6B", "BlackCat", "MAXIMUM", "6B", 1350000, 0, 0, 0, 5, "Fever-Manual / Gear&Note : glory day", "Plate : Syriana")
             addMission("Respect", "D-VELOPERS", "NKO", "Heavenly", "HARD", "4B", "Chrono Breakers", "HARD", "4B", "Ray of Illuminati", "HARD", "6B", "KILLER BEE", "HARD", "6B", 982410, 4, 2010, 90, 23, "Fever-Manual", "Comment : "+"Doting Father".localized)
             addMission("Respect", "D-VELOPERS", "SSS", "A.I", "HARD", "4B", "Brain Storm", "HARD", "5B", "We're All Gonna Die", "HARD", "6B", "Don't Die", "MAXIMUM", "8B", 0, 0, 0, 0, 0, "Fever AUTO / vs AI", "Plate : D-VELOPERS / Trophy : DJ Alpha Resigns")
@@ -360,11 +360,11 @@ class Init{
             addMission("Trilogy", "T-SIDE", "Missing You", "My Jealousy", "NORMAL", "6B", "Streetlight", "NORMAL", "6B", "Someday", "HARD", "6B", 0, 0, 0, 0, 10, "Fever OFF", "Plate : Someday")
             addMission("Trilogy", "T-SIDE", "5! Ducks", "OBLIVION", "NORMAL", "5B", "Ladymade Star", "NORMAL", "5B", "Taekwonburi".localized, "NORMAL", "5B", 0, 0, 500, 0, 0, "Fever-Manual", "Plate : Talk! Talk!")
             addMission("Trilogy", "T-SIDE", "Electronic License", "ZET", "NORMAL", "4B", "Syriana ~Blast Wave Mix~", "NORMAL", "5B", "Nevermind", "NORMAL", "6B", 0, 0, 0, 0, 0, "Fever OFF / vs AI prototype", "Plate : My Jealousy / Trophy : DJ Alpha Resigns")
-            addMission("Trilogy", "T-SIDE", "Max Boy", "Your Own Miracle ~Disco House Mix~", "NORMAL", "6B", "sO mUCH iN LUV ~Melodic Twisted Mix~", "NORMAL", "5B", "A Lie ~Deep Inside Mix~", "NORMAL", "4B", 0, 3, 0, 90, 0, "Speed : 1.50 / Fever-Manual", "Plate : Streetlight")
+            addMission("Trilogy", "T-SIDE", "Max Boy", "Your Own Miracle ~Disco House Mix~", "NORMAL", "6B", "sO mUCH iN LUV ~Melodic Twisted Mix~", "NORMAL", "5B", "A Lie ~Deep Inside Mix~", "NORMAL", "4B", 0, 3, 0, 90, 0, "Speed : 1.50 / Fever-Manual / FADER PIXEL 2", "Plate : Streetlight")
             addMission("Trilogy", "T-SIDE", "DJMAX RESPECT U", "Only for you", "MAXIMUM", "4B", "Someday", "MAXIMUM", "4B", "Waiting for you", "HARD", "4B", "Running girl", "HARD", "4B", "KILLER BEE", "MAXIMUM", "4B", 0, 0, 0, 0, 30, "Fever OFF / Gear&Note : glory day", "Gallery : DJMAX RESPECT U / Trophy : "+"다음 이벤트도 기대해주세요".localized)
             addMission("Trilogy", "R-SIDE", "2nd Impression", "GET OUT ~Hip Noodle Mix~", "HARD", "4B", "For Seasons ~Air Guitar Mix~", "MAXIMUM", "6B", "STOP", "HARD", "4B", "NB Girls", "HARD", "6B", 0, 0, 0, 95, 0, "Fever OFF / FADE OUT", "")
             addMission("Trilogy", "R-SIDE", "Beat Phobia", "The One", "HARD", "5B", "Yo Creo Que Si ~Live House Version~", "HARD", "5B", "Nevermind", "HARD", "5B", "ZET", "HARD", "5B", 0, 4, 0, 85, 0, "Fever-Manual / FOG", "Plate : ZET")
-            addMission("Trilogy", "R-SIDE", "Critical Period", "RANDOM", "HARD", "4B", "RANDOM", "HARD", "5B", "RANDOM", "HARD", "6B", "RANDOM", "HARD", "8B", 0, 0, 0, 0, 25, "Fever OFF", "Plate : STOP")
+            addMission("Trilogy", "R-SIDE", "Critical Period", "RANDOM", "HARD", "4B", "RANDOM", "HARD", "5B", "RANDOM", "HARD", "6B", "RANDOM", "HARD", "8B", 0, 0, 0, 0, 25, "Fever OFF / FADER PIXEL 2", "Plate : STOP")
             addMission("Trilogy", "R-SIDE", "Under Control", "Talk! Talk!", "HARD", "6B", "My Alias", "HARD", "6B", "Ventilator", "HARD", "6B", "Mind Control", "HARD", "6B", 1150000, 5, 0, 0, 0, "Fever-Manual", "")
             addMission("Trilogy", "R-SIDE", "Boss Match", "SIN ~The Last Scene~", "MAXIMUM", "4B", "HAMSIN", "MAXIMUM", "5B", "Seeker", "MAXIMUM", "6B", "Don't Die", "MAXIMUM", "8B", 1353924, 0, 0, 93, 13, "Fever AUTO", "Gallery : DJMAX RESPECT U (2)")
             addMission("Trilogy", "R-SIDE", "In My Dream", "CnP", "HARD", "4B", "Sunset Rider", "HARD", "5B", "glory day", "HARD", "6B", 0, 5, 0, 97, 0, "Fever-Manual", "Plate : "+"Memory of Wind".localized)
@@ -1346,6 +1346,36 @@ class Init{
         
         if(version <= 203){
             UserDefaults.standard.set(204, forKey: "version")
+        }
+        
+        if(version <= 204) {
+            var title = "c12lover"
+            let object = realm.objects(MissionInfo.self)
+            var effector = object.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                effector.more = "Fever AUTO / CHAOS REVERSE"
+            }
+            title = "Max Boy"
+            effector = object.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write{
+                effector.more = "Speed : 1.50 / Fever-Manual / FADER PIXEL 2"
+            }
+            title = "Critical Period"
+            effector = object.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                effector.more = "Fever OFF / FADER PIXEL 2"
+            }
+            title = "4DmaX"
+            effector = object.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                effector.more = "Fever-OFF / CHAOS 4D"
+            }
+            title = "Heaven's Gate"
+            effector = object.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                effector.more = "Fever-Manual / CHAOS REVERSE"
+            }
+            UserDefaults.standard.set(205, forKey: "version")
         }
         print("DATABASE INITIALIZE FINISHED!!")
     }

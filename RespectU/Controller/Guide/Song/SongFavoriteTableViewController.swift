@@ -111,10 +111,10 @@ extension SongFavoriteTableViewController: DZNEmptyDataSetSource{
         return UIImage(named: "iconInfo.png")
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "No Favorites".localized, attributes: [NSAttributedStringKey.font : UIFont(name: "NotoSansCJKkr-Bold", size: 20)!])
+        return NSAttributedString(string: "No Favorites".localized, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .bold)])
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "Add songs to your favorites.".localized, attributes: [NSAttributedStringKey.font : UIFont(name: "NotoSansCJKkr-Regular", size: 14)!])
+        return NSAttributedString(string: "Add songs to your favorites.".localized, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .regular)])
     }
 }
 extension SongFavoriteTableViewController: DZNEmptyDataSetDelegate{

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
 import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().uiDelegate = self
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if(user != nil){
-                self.goToTutorialOrDismiss()
+                self.dismiss(animated: true, completion: nil)
             }
         }
         // Do any additional setup after loading the view.
@@ -39,19 +39,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance().signIn()
     }
     @IBAction func skip(_ sender: UIButton) {
-        goToTutorialOrDismiss()
-    }
-    func goToTutorialOrDismiss(){
-        UserDefaults.standard.set(false, forKey: "firstExecution2")
-        if(!UserDefaults.standard.bool(forKey: "firstExecution2")){
-            UserDefaults.standard.set(true, forKey: "firstExecution2")
-            let storyboard = UIStoryboard(name: "Tutorial", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialViewController
-            controller.modalTransitionStyle = .crossDissolve
-            present(controller, animated: true, completion: nil)
-        } else {
-            dismiss(animated: true, completion: nil)
-        }
-        
+        dismiss(animated: true, completion: nil)
     }
 }

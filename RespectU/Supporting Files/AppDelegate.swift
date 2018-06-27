@@ -9,8 +9,10 @@
 import UIKit
 import CoreData
 import RealmSwift
-import Firebase
 import GoogleSignIn
+import FirebaseDatabase
+import FirebaseAuth
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {

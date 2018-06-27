@@ -61,7 +61,7 @@ class TrophyTrilogyTableViewController: UITableViewController {
         default:
             break
         }
-        let imageName = "trilogy\(indexPath.row + 1).png"
+        let imageName = "trilogy\(indexPath.row + 1)"
         cell.imageTrophy.image = UIImage(named: imageName)
         return cell
     }

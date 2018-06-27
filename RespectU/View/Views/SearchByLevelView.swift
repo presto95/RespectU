@@ -24,8 +24,8 @@ class SearchByLevelView: UIView {
         pickerView.selectItem(0)
         pickerView.layer.borderWidth = 2
         pickerView.layer.borderColor = UIColor.mainColor.cgColor
-        pickerView.font = UIFont(name: "NotoSansCJKkr-Medium", size: 15)!
-        pickerView.highlightedFont = UIFont(name: "NotoSansCJKkr-Bold", size: 15)!
+        pickerView.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        pickerView.highlightedFont = UIFont.systemFont(ofSize: 15, weight: .bold)
         pickerView.viewDepth = UIScreen.main.bounds.width
         pickerView.reloadData()
         label.text = "Select Level".localized

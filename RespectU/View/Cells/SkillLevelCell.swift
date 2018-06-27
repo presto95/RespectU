@@ -9,7 +9,8 @@
 import UIKit
 import GaugeKit
 import RealmSwift
-import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 import PMAlertController
 
 class SkillLevelCell: UITableViewCell {

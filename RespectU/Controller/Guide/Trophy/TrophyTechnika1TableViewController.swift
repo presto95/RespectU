@@ -61,7 +61,7 @@ class TrophyTechnika1TableViewController: UITableViewController {
         default:
             break
         }
-        let imageName = "technika1\(indexPath.row + 1).png"
+        let imageName = "technika1\(indexPath.row + 1)"
         cell.imageTrophy.image = UIImage(named: imageName)
         return cell
     }

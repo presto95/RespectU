@@ -835,10 +835,10 @@ class RecordView: UIView {
 }
 
 func designAlertController(alert: PMAlertController, actions: PMAlertAction...){
-    alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-    alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
+    alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+    alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .regular)
     for action in actions{
-        action.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        action.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         action.separator.backgroundColor = .mainColor
     }
 }

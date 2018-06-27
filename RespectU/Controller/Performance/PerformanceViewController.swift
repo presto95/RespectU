@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAuth
 import GoogleSignIn
 import PMAlertController
 import RealmSwift
@@ -24,7 +24,6 @@ class PerformanceViewController: UIViewController {
         _ = Init()
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
-        //tableView.register(UINib(nibName: "GraphCell", bundle: nil), forCellReuseIdentifier: "graphCell")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         buttonRecord.setTitle("Performance Record".localized, for: .normal)
         if(Auth.auth().currentUser == nil){
@@ -39,54 +38,6 @@ class PerformanceViewController: UIViewController {
         favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
         tableView.reloadData()
         nickname.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: .normal)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        let realm = try! Realm()
-//        let records = realm.objects(RecordInfo.self)
-//        print(Auth.auth().currentUser?.uid)
-//        for record in records {
-//            let title = record.title
-//            Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("records").child(record.title).setValue([
-//                "nm4Rank": record.nm4Rank,
-//                "nm4Rate": record.nm4Rate,
-//                "nm4Note": record.nm4Note,
-//                "nm5Rank": record.nm5Rank,
-//                "nm5Rate": record.nm5Rate,
-//                "nm5Note": record.nm5Note,
-//                "nm6Rank": record.nm6Rank,
-//                "nm6Rate": record.nm6Rate,
-//                "nm6Note": record.nm6Note,
-//                "nm8Rank": record.nm8Rank,
-//                "nm8Rate": record.nm8Rate,
-//                "nm8Note": record.nm8Note,
-//                "hd4Rank": record.hd4Rank,
-//                "hd4Rate": record.hd4Rate,
-//                "hd4Note": record.hd4Note,
-//                "hd5Rank": record.hd5Rank,
-//                "hd5Rate": record.hd5Rate,
-//                "hd5Note": record.hd5Note,
-//                "hd6Rank": record.hd6Rank,
-//                "hd6Rate": record.hd6Rate,
-//                "hd6Note": record.hd6Note,
-//                "hd8Rank": record.hd8Rank,
-//                "hd8Rate": record.hd8Rate,
-//                "hd8Note": record.hd8Note,
-//                "mx4Rank": record.mx4Rank,
-//                "mx4Rate": record.mx4Rate,
-//                "mx4Note": record.mx4Note,
-//                "mx5Rank": record.mx5Rank,
-//                "mx5Rate": record.mx5Rate,
-//                "mx5Note": record.mx5Note,
-//                "mx6Rank": record.mx6Rank,
-//                "mx6Rate": record.mx6Rate,
-//                "mx6Note": record.mx6Note,
-//                "mx8Rank": record.mx8Rank,
-//                "mx8Rate": record.mx8Rate,
-//                "mx8Note": record.mx8Note
-//                ])
-//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -265,7 +216,7 @@ extension PerformanceViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = .white
-        header.textLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         header.backgroundView?.backgroundColor = UIColor.mainColor
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

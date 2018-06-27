@@ -8,7 +8,6 @@
 
 import UIKit
 import PMAlertController
-import BRYXBanner
 import RealmSwift
 
 extension PMAlertController{
@@ -17,9 +16,9 @@ extension PMAlertController{
         let alert = PMAlertController(title: title, description: message, image: nil, style: .alert)
         let action = PMAlertAction(title: "OK".localized, style: .default)
         action.separator.backgroundColor = .mainColor
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        action.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        action.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         alert.addAction(action)
         return alert
     }
@@ -35,10 +34,10 @@ extension PMAlertController{
         }
         yesAction.separator.backgroundColor = .mainColor
         favoriteAction.separator.backgroundColor = .mainColor
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        yesAction.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        favoriteAction.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        yesAction.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        favoriteAction.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         alert.addAction(favoriteAction)
         alert.addAction(yesAction)
         return alert
@@ -58,10 +57,10 @@ extension PMAlertController{
         }
         yesAction.separator.backgroundColor = .mainColor
         removeAction.separator.backgroundColor = .mainColor
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        yesAction.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        removeAction.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        yesAction.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        removeAction.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         alert.addAction(removeAction)
         alert.addAction(yesAction)
         return alert
@@ -142,13 +141,13 @@ extension PMAlertController{
             favorite.tableView.reloadData()
         }
         let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel, action: nil)
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        button4.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        button5.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        button6.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        button8.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        cancel.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        button4.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button5.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button6.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button8.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        cancel.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         button4.separator.backgroundColor = .mainColor
         button5.separator.backgroundColor = .mainColor
         button6.separator.backgroundColor = .mainColor
@@ -460,14 +459,14 @@ extension PMAlertController{
             ce.tableView.reloadData()
             technika1.tableView.reloadData()
         }
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        normalAsc.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        normalDesc.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        hardAsc.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        hardDesc.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        maximumAsc.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        maximumDesc.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        normalAsc.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        normalDesc.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        hardAsc.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        hardDesc.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        maximumAsc.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        maximumDesc.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         normalAsc.separator.backgroundColor = .mainColor
         normalDesc.separator.backgroundColor = .mainColor
         hardAsc.separator.backgroundColor = .mainColor
@@ -502,13 +501,13 @@ extension PMAlertController{
             UserDefaults.standard.set("8B", forKey: "favoriteButton")
         }
         let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel, action: nil)
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        button4.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        button5.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        button6.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        button8.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        cancel.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        button4.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button5.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button6.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        button8.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        cancel.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         button4.separator.backgroundColor = .mainColor
         button5.separator.backgroundColor = .mainColor
         button6.separator.backgroundColor = .mainColor
@@ -537,10 +536,10 @@ extension PMAlertController{
             }
         }
         let noAction = PMAlertAction(title: "Cancel".localized, style: .cancel)
-        alert.alertTitle.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        alert.alertDescription.font = UIFont(name: "NotoSansCJKkr-Medium", size: 13)
-        yesAction.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
-        noAction.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .medium)
+        yesAction.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        noAction.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         yesAction.separator.backgroundColor = UIColor.mainColor
         noAction.separator.backgroundColor = UIColor.mainColor
         alert.addAction(noAction)

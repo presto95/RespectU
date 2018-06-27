@@ -76,7 +76,7 @@ class MissionRespectTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = .white
-        header.textLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         header.backgroundView?.backgroundColor = UIColor.mainColor
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

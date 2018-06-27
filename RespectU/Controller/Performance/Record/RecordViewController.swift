@@ -21,7 +21,7 @@ class RecordViewController: ButtonBarPagerTabStripViewController {
         settings.style.selectedBarBackgroundColor = UIColor.mainColor
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
-        settings.style.buttonBarItemFont = UIFont(name: "NotoSansCJKkr-Medium", size: 14)!
+        settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
         // Do any additional setup after loading the view.
     }
 

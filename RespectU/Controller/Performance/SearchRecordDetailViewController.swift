@@ -662,7 +662,7 @@ extension SearchRecordDetailViewController: DZNEmptyDataSetSource{
         return nil
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return NSAttributedString(string: "No Results".localized, attributes: [NSAttributedStringKey.font : UIFont(name: "NotoSansCJKkr-Bold", size: 20)!])
+        return NSAttributedString(string: "No Results".localized, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .bold)])
     }
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return nil

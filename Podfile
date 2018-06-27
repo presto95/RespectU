@@ -4,7 +4,7 @@
 target 'RespectU' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-	pod 'RealmSwift'
+  pod 'RealmSwift'
   pod 'MarqueeLabel/Swift'
   pod 'GaugeKit'
   pod 'Firebase/Core'
@@ -14,7 +14,6 @@ target 'RespectU' do
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'
   pod 'PMAlertController'
-  pod 'SwiftGifOrigin', '~> 1.6.1'
   pod 'AKPickerView-Swift', :git => 'https://github.com/Akkyie/AKPickerView-Swift.git'
   # Pods for RespectU
 

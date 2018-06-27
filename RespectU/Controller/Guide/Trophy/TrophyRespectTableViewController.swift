@@ -61,7 +61,7 @@ class TrophyRespectTableViewController: UITableViewController {
         default:
             break
         }
-        let imageName = "respect\(indexPath.row + 1).png"
+        let imageName = "respect\(indexPath.row + 1)"
         cell.imageTrophy.image = UIImage(named: imageName)
         return cell
     }

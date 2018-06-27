@@ -8,7 +8,8 @@
 
 import UIKit
 import XLPagerTabStrip
-import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class Ranking4BTableViewController: UITableViewController {
 

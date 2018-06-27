@@ -13,7 +13,7 @@
         <!--Achievement All Table View Controller-->
         <scene sceneID="cOu-2G-jrP">
             <objects>
-                <tableViewController id="ib3-k2-NWw" customClass="AchievementAllTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AchievementAllTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ib3-k2-NWw" customClass="AchievementAllTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="brW-Yo-hah">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

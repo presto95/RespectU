@@ -23,7 +23,7 @@ class SearchRecordDetailViewController: UIViewController {
     var realm: Realm! = nil
     var levelResults: Results<RecordInfo>! = nil
     var noteResults: Results<RecordInfo>! = nil
-    var tempRateResults: LazyFilterBidirectionalCollection<Results<RecordInfo>>! = nil
+    var tempRateResults: LazyFilterCollection<Results<RecordInfo>>! = nil
     var rateResults: [RecordInfo]! = nil
     
     override func viewDidLoad() {

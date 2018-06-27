@@ -114,7 +114,7 @@ extension SummaryCell: UICollectionViewDataSource{
                 return String(count)
             }()
         case 6:
-            cell.content.text = "MC + PP"
+            cell.content.text = "MC+PP"
             cell.value.text = String(maxCombo + perfectPlay)
         default:
             break

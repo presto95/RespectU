@@ -1377,6 +1377,15 @@ class Init{
             }
             UserDefaults.standard.set(205, forKey: "version")
         }
+        
+//        if version <= 205 {
+//            //패턴 추가
+//            //리스펙트 곡 추가, 성과공간
+//            //링크디스크 곡 추가, 성과공간
+//            //블랙스퀘어 곡 추가, 성과공간
+//            UserDefaults.standard.set(205, forKey: "version")
+//        }
+        let a :Int = 0
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

@@ -19,22 +19,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="respect1" translatesAutoresizingMaskIntoConstraints="NO" id="dyr-m7-fRT">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respect1" translatesAutoresizingMaskIntoConstraints="NO" id="dyr-m7-fRT">
                         <rect key="frame" x="16" y="8" width="42" height="42"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="n7d-Gh-pU7"/>
+                            <constraint firstAttribute="width" constant="42" id="spc-cZ-74h"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61H-jf-AFO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61H-jf-AFO">
                         <rect key="frame" x="58" y="8" width="9" height="42"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="9" id="dxb-FM-wGm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-VV-snP" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="75" y="8" width="237" height="20"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-VV-snP" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                        <rect key="frame" x="75" y="8" width="229" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -52,10 +56,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9E-GX-55r" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="75" y="31" width="237" height="20"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9E-GX-55r" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                        <rect key="frame" x="75" y="35.5" width="229" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -75,6 +78,19 @@
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="61H-jf-AFO" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="LdI-2h-bHJ"/>
+                    <constraint firstItem="KSl-VV-snP" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="MwR-ZD-iNV"/>
+                    <constraint firstItem="KSl-VV-snP" firstAttribute="top" secondItem="61H-jf-AFO" secondAttribute="top" id="Srn-7c-VNO"/>
+                    <constraint firstItem="dyr-m7-fRT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b4q-JW-q6h"/>
+                    <constraint firstItem="dyr-m7-fRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fh2-0P-wBx"/>
+                    <constraint firstItem="61H-jf-AFO" firstAttribute="leading" secondItem="dyr-m7-fRT" secondAttribute="trailing" id="kxI-wW-FI7"/>
+                    <constraint firstItem="g9E-GX-55r" firstAttribute="bottom" secondItem="61H-jf-AFO" secondAttribute="bottom" id="mkc-3q-1ch"/>
+                    <constraint firstItem="61H-jf-AFO" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="top" id="nVe-Qe-cTY"/>
+                    <constraint firstAttribute="trailing" secondItem="KSl-VV-snP" secondAttribute="trailing" constant="16" id="pdN-Bd-dZV"/>
+                    <constraint firstAttribute="trailing" secondItem="g9E-GX-55r" secondAttribute="trailing" constant="16" id="rlt-Ql-GWi"/>
+                    <constraint firstItem="g9E-GX-55r" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="tvZ-BY-FPQ"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

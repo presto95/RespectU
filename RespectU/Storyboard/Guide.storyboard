@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,9 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dat-Sb-Vk7">
-                                <rect key="frame" x="16" y="40" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dat-Sb-Vk7">
+                                <rect key="frame" x="16" y="30" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0H5-Cx-cZf"/>
+                                    <constraint firstAttribute="height" constant="40" id="dBi-AM-zvM"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="backButton"/>
                                 <connections>
@@ -52,15 +56,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="For DJMAX RESPECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9g-57-TJC">
-                                            <rect key="frame" x="8" y="5" width="272" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For DJMAX RESPECT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9g-57-TJC">
+                                            <rect key="frame" x="8" y="7" width="145.5" height="17"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="X9g-57-TJC" firstAttribute="centerY" secondItem="NzD-OU-jGP" secondAttribute="centerY" id="MAh-Qx-OTR"/>
+                                        <constraint firstItem="X9g-57-TJC" firstAttribute="leading" secondItem="NzD-OU-jGP" secondAttribute="leading" constant="8" id="R8j-Og-hNj"/>
+                                    </constraints>
                                     <connections>
                                         <outlet property="sectionTitle" destination="X9g-57-TJC" id="y6L-AL-Jjl"/>
                                     </connections>
@@ -70,10 +77,12 @@
                                     <outlet property="delegate" destination="jIS-jF-tzf" id="cnm-5P-vhA"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-gJ-0bd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-gJ-0bd">
                                 <rect key="frame" x="0.0" y="599" width="375" height="68"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Sjq-gJ-0bd" secondAttribute="height" multiplier="375:68" id="Eqo-vR-MSh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="성과 기록하기"/>
@@ -81,12 +90,24 @@
                                     <action selector="recordPerformance:" destination="jIS-jF-tzf" eventType="touchUpInside" id="P3g-Cp-70b"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCx-DN-hau">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCx-DN-hau">
                                 <rect key="frame" x="138" y="20" width="100" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="hzH-5U-0nz"/>
+                                    <constraint firstAttribute="height" constant="60" id="q00-rN-Kow"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zCx-DN-hau" firstAttribute="centerX" secondItem="PNJ-EF-6jU" secondAttribute="centerX" id="D4h-SV-OMc"/>
+                            <constraint firstItem="dat-Sb-Vk7" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" constant="16" id="fes-OC-tTj"/>
+                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" id="hxw-ud-6Kd"/>
+                            <constraint firstItem="dat-Sb-Vk7" firstAttribute="centerY" secondItem="zCx-DN-hau" secondAttribute="centerY" id="mVS-p9-mL9"/>
+                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="bottom" secondItem="o04-IU-z3z" secondAttribute="bottom" id="tI3-Fu-Poq"/>
+                            <constraint firstItem="zCx-DN-hau" firstAttribute="top" secondItem="o04-IU-z3z" secondAttribute="top" id="uSF-64-qxc"/>
+                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="trailing" secondItem="o04-IU-z3z" secondAttribute="trailing" id="zKz-pS-8tn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o04-IU-z3z"/>
                     </view>
                     <connections>

@@ -50,24 +50,25 @@ class RecordPortable2TableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell") as! RecordCell
         let object = results[indexPath.row]
         cell.title.text = object.title
-        switch(object.series){
-        case Series.portable1.rawValue:
-            cell.color.backgroundColor = UIColor.portable1
-        case Series.portable2.rawValue:
-            cell.color.backgroundColor = UIColor.portable2
-        case Series.respect.rawValue:
-            cell.color.backgroundColor = UIColor.respect
-        case Series.trilogy.rawValue:
-            cell.color.backgroundColor = UIColor.trilogy
-        case Series.ce.rawValue:
-            cell.color.backgroundColor = UIColor.ce
-        case Series.technika1.rawValue:
-            cell.color.backgroundColor = UIColor.technika1
-        case Series.bs.rawValue:
-            cell.color.backgroundColor = UIColor.bs
-        default:
-            break
-        }
+        cell.color.backgroundColor = UIColor.portable2
+//        switch(object.series){
+//        case Series.portable1.rawValue:
+//            cell.color.backgroundColor = UIColor.portable1
+//        case Series.portable2.rawValue:
+//            cell.color.backgroundColor = UIColor.portable2
+//        case Series.respect.rawValue:
+//            cell.color.backgroundColor = UIColor.respect
+//        case Series.trilogy.rawValue:
+//            cell.color.backgroundColor = UIColor.trilogy
+//        case Series.ce.rawValue:
+//            cell.color.backgroundColor = UIColor.ce
+//        case Series.technika1.rawValue:
+//            cell.color.backgroundColor = UIColor.technika1
+//        case Series.bs.rawValue:
+//            cell.color.backgroundColor = UIColor.bs
+//        default:
+//            break
+//        }
         return cell
     }
     

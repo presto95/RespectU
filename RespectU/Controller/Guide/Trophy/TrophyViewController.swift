@@ -26,7 +26,7 @@ class TrophyViewController: ButtonBarPagerTabStripViewController {
         // Dispose of any resources that can be recreated.
     }
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [TrophyRespectTableViewController(), TrophyTrilogyTableViewController(), TrophyCETableViewController(), TrophyTechnika1TableViewController()]
+        return [TrophyRespectTableViewController(), TrophyTrilogyTableViewController(), TrophyCETableViewController(), TrophyTechnika1TableViewController(), TrophyBSTableViewController(), TrophyLinkDiskTableViewController()]
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {

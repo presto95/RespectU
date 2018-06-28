@@ -37,7 +37,7 @@ class Init{
             addSong(technika1, "SON OF SUN ~Extended Mix~", "Hosoe Shinji", "200", 7, 10, 14, 7, 10, 15, 7, 11, 14, 8, 11, 15)
             
             //Black Square
-            addSong(bs, "Purpose, Flower, Wolf part.2".localized, "ReX", "160", 3, 8, 0, 4, 10, 0, 4, 8, 11, 5, 10, 0)
+            addSong(bs, "Proposed, Flower, Wolf part.2".localized, "ReX", "160", 3, 8, 0, 4, 10, 0, 4, 8, 11, 5, 10, 0)
             addSong(bs, "Beat U Down", "makou", "155", 8, 12, 14, 8, 10, 14, 9, 12, 15, 8, 10, 14)
             addSong(bs, "Colours of Sorrow", "Tsukasa", "143", 4, 0, 11, 6, 9, 12, 5, 9, 13, 6, 9, 13)
             addSong(bs, "Cypher Gate", "7 Sequence", "150", 5, 8, 0, 7, 10, 0, 7, 10, 13, 7, 10, 13)
@@ -296,7 +296,7 @@ class Init{
             //Database - Mission
             
             //Black Square
-            addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Purpose, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "")
+            addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Proposed, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "")
             addMission(bs, stylishPerformance, "Downtown", "PDM", hard, button5, "Jealousy", hard, button5, "Secret World", hard, button5, 0, 0, 0, 96, 0, "Fever-OFF / FADE OUT", "")
             addMission(bs, stylishPerformance, "DnB Territory", "Ready Now", hard, button6, "Ruti'n", hard, button6, "Desperado", hard, button6, 0, 4, 0, 0, 15, "Fever-Manual", "")
             addMission(bs, stylishPerformance, "Core System", "Lover (BS Style)", hard, button5, "Y (BS Style)", hard, button5, "Colours of Sorrow", hard, button5, "Cypher Gate", hard, button5, 1000000, 0, 1000, 0, 0, "Fever-OFF", "")
@@ -1435,38 +1435,232 @@ class Init{
             UserDefaults.standard.set(205, forKey: "version")
         }
         
-//        if version <= 205 {
-//            //블랙스퀘어 곡 추가, 성과공간
-//            if realm.objects(SongInfo.self).filter("series = 'BS'").count == 0 {
-//                addSong(bs, "Purpose, Flower, Wolf part.2".localized, "ReX", "160", 3, 8, 0, 4, 10, 0, 4, 8, 11, 5, 10, 0)
-//                addSong(bs, "Beat U Down", "makou", "155", 8, 12, 14, 8, 10, 14, 9, 12, 15, 8, 10, 14)
-//                addSong(bs, "Colours of Sorrow", "Tsukasa", "143", 4, 0, 11, 6, 9, 12, 5, 9, 13, 6, 9, 13)
-//                addSong(bs, "Cypher Gate", "7 Sequence", "150", 5, 8, 0, 7, 10, 0, 7, 10, 13, 7, 10, 13)
-//                addSong(bs, "Desperado", "Croove", "130", 5, 9, 11, 7, 11, 0, 5, 8, 11, 7, 12, 0)
-//                addSong(bs, "Fermion", "makou", "156", 8, 11, 14, 7, 9, 14, 8, 12, 14, 7, 10, 14)
-//                addSong(bs, "Fever Pitch Girl", "Nikacha", "136", 5, 8, 0, 4, 7, 10, 6, 10, 0, 6, 11, 0)
-//                addSong(bs, "Get Down", "BJJ", "111", 4, 7, 9, 4, 9, 0, 4, 7, 10, 5, 10, 0)
-//                addSong(bs, "Grave Consequence", "Tsukasa", "180", 6, 10, 14, 6, 10, 13, 7, 12, 0, 7, 10, 14)
-//                addSong(bs, "Heart of Witch", "ReX", "170", 7, 12, 14, 7, 11, 15, 7, 12, 14, 8, 12, 15)
-//                addSong(bs, "In my Dream", "ND Lee", "140", 5, 10, 15, 8, 11, 13, 5, 11, 13, 8, 10, 14)
-//                addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 9, 0, 3, 8, 10)
-//                addSong(bs, "Keys to the World", "Planetboom", "160", 5, 8, 12, 6, 9, 13, 6, 11, 0, 6, 10, 13)
-//                addSong(bs, "Lovely hands", "Planetboom", "132", 4, 0, 10, 5, 9, 11, 3, 10, 0, 6, 9, 11)
-//                addSong(bs, "Lover (BS Style)", "ND Lee", "145", 5, 7, 12, 5, 10, 0, 4, 8, 11, 5, 8, 10)
-//                addSong(bs, "PDM", "Trish", "120", 3, 7, 10, 4, 7, 9, 3, 10, 0, 4, 9, 0)
-//                addSong(bs, "Ready Now", "Ruby Tuesday", "135", 4, 8, 0, 4, 7, 9, 4, 7, 10, 5, 0, 9)
-//                addSong(bs, "Ruti'n", "BEXTER", "120", 4, 10, 0, 5, 8, 11, 4, 9, 11, 5, 10, 0)
-//                addSong(bs, "Secret World", "Sweetune", "110", 4, 7, 10, 3, 8, 0, 4, 7, 10, 4, 0, 9)
-//                addSong(bs, "Y (BS Style", "ND Lee", "130", 5, 8, 11, 4, 7, 0, 4, 8, 12, 4, 8, 11)
-//            }
-//            //패턴 추가
-//            //리스펙트 곡 추가, 성과공간
-//            //링크디스크 곡 추가, 성과공간
-//  가         //블랙스케어 미션 추가
-//            //블랙스퀘어, 링크디스크 트로피 추가
-//
-//            UserDefaults.standard.set(205, forKey: "version")
-//        }
+        if version <= 205 {
+            //블랙스퀘어 곡 추가, 성과공간
+            if realm.objects(SongInfo.self).filter("series = 'BS'").count == 0 {
+                addSong(bs, "Proposed, Flower, Wolf part.2".localized, "ReX", "160", 3, 8, 0, 4, 10, 0, 4, 8, 11, 5, 10, 0)
+                addSong(bs, "Beat U Down", "makou", "155", 8, 12, 14, 8, 10, 14, 9, 12, 15, 8, 10, 14)
+                addSong(bs, "Colours of Sorrow", "Tsukasa", "143", 4, 0, 11, 6, 9, 12, 5, 9, 13, 6, 9, 13)
+                addSong(bs, "Cypher Gate", "7 Sequence", "150", 5, 8, 0, 7, 10, 0, 7, 10, 13, 7, 10, 13)
+                addSong(bs, "Desperado", "Croove", "130", 5, 9, 11, 7, 11, 0, 5, 8, 11, 7, 12, 0)
+                addSong(bs, "Fermion", "makou", "156", 8, 11, 14, 7, 9, 14, 8, 12, 14, 7, 10, 14)
+                addSong(bs, "Fever Pitch Girl", "Nikacha", "136", 5, 8, 0, 4, 7, 10, 6, 10, 0, 6, 11, 0)
+                addSong(bs, "Get Down", "BJJ", "111", 4, 7, 9, 4, 9, 0, 4, 7, 10, 5, 10, 0)
+                addSong(bs, "Grave Consequence", "Tsukasa", "180", 6, 10, 14, 6, 10, 13, 7, 12, 0, 7, 10, 14)
+                addSong(bs, "Heart of Witch", "ReX", "170", 7, 12, 14, 7, 11, 15, 7, 12, 14, 8, 12, 15)
+                addSong(bs, "In my Dream", "ND Lee", "140", 5, 10, 15, 8, 11, 13, 5, 11, 13, 8, 10, 14)
+                addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 9, 0, 3, 8, 10)
+                addSong(bs, "Keys to the World", "Planetboom", "160", 5, 8, 12, 6, 9, 13, 6, 11, 0, 6, 10, 13)
+                addSong(bs, "Lovely hands", "Planetboom", "132", 4, 0, 10, 5, 9, 11, 3, 10, 0, 6, 9, 11)
+                addSong(bs, "Lover (BS Style)", "ND Lee", "145", 5, 7, 12, 5, 10, 0, 4, 8, 11, 5, 8, 10)
+                addSong(bs, "PDM", "Trish", "120", 3, 7, 10, 4, 7, 9, 3, 10, 0, 4, 9, 0)
+                addSong(bs, "Ready Now", "Ruby Tuesday", "135", 4, 8, 0, 4, 7, 9, 4, 7, 10, 5, 0, 9)
+                addSong(bs, "Ruti'n", "BEXTER", "120", 4, 10, 0, 5, 8, 11, 4, 9, 11, 5, 10, 0)
+                addSong(bs, "Secret World", "Sweetune", "110", 4, 7, 10, 3, 8, 0, 4, 7, 10, 4, 0, 9)
+                addSong(bs, "Y (BS Style", "ND Lee", "130", 5, 8, 11, 4, 7, 0, 4, 8, 12, 4, 8, 11)
+            }
+            //리스펙트 곡 추가
+            if realm.objects(SongInfo.self).filter("title = 'ANALYS'").count == 0 {
+                addSong(respect, "ANALYS", "HAYAKO", "170", 7, 11, 14, 7, 11, 0, 7, 11, 13, 8, 10, 14)
+            }
+            if realm.objects(SongInfo.self).filter("title = 'Always'").count == 0 {
+                addSong(respect, "Always", "YUGI / Mool", "135", 4, 7, 0, 6, 9, 0, 5, 10, 0, 6, 10, 0)
+            }
+            if realm.objects(SongInfo.self).filter("title = 'Fly Away'").count == 0 {
+                addSong(respect, "Fly Away", "Xeon", "140", 3, 10, 0, 6, 10, 0, 4, 0, 11, 6, 10, 0)
+            }
+            //링크디스크 곡 추가
+            if realm.objects(SongInfo.self).filter("title = 'Here in the Moment ~Extended Mix~'").count == 0 {
+                addSong(ce, "Here in the Moment ~Extended Mix~", "Ruby Tuesday", "115", 4, 6, 9, 5, 8, 11, 6, 9, 12, 5, 8, 11)
+            }
+            if realm.objects(SongInfo.self).filter("title = 'Airwave ~Extended Mix~'").count == 0 {
+                addSong(bs, "Airwave ~Extended Mix~", "ReX", "150", 8, 10, 13, 7, 10, 14, 6, 12, 14, 7, 10, 13)
+            }
+            if realm.objects(SongInfo.self).filter("title = 'SON OF SUN ~Extended Mix~'").count == 0 {
+                addSong(technika1, "SON OF SUN ~Extended Mix~", "Hosoe Shinji", "200", 7, 10, 14, 7, 10, 15, 7, 11, 14, 8, 11, 15)
+            }
+            //RecordInfo 초기화
+            if realm.objects(RecordInfo.self).filter("title = 'Here in the Moment ~Extended Mix~'").count == 0 {
+                let result = realm.objects(SongInfo.self).filter("title = 'Here in the Moment ~Extended Mix~'").first!
+                initRecord(ce, result.title)
+                initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+            }
+            if realm.objects(RecordInfo.self).filter("title = 'Airwave ~Extended Mix~'").count == 0 {
+                let result = realm.objects(SongInfo.self).filter("title = 'Airwave ~Extended Mix~'").first!
+                initRecord(ce, result.title)
+                initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+            }
+            if realm.objects(RecordInfo.self).filter("title = 'SON OF SUN ~Extended Mix~'").count == 0 {
+                let result = realm.objects(SongInfo.self).filter("title = 'SON OF SUN ~Extended Mix~'").first!
+                initRecord(ce, result.title)
+                initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+            }
+            if realm.objects(RecordInfo.self).filter("series = 'BS'").count == 0 {
+                let songInfo = realm.objects(SongInfo.self).filter("series = 'BS'")
+                for result in songInfo {
+                    initRecord(bs, result.title)
+                    initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+                }
+            }
+            if realm.objects(RecordInfo.self).filter("title = 'ANALYS'").first == nil {
+                let result = realm.objects(SongInfo.self).filter("title = 'ANALYS'").first!
+                initRecord(respect, result.title)
+                initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+            }
+            if realm.objects(RecordInfo.self).filter("title = 'Always'").first == nil {
+                let result = realm.objects(SongInfo.self).filter("title = 'Always'").first!
+                initRecord(respect, result.title)
+                initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+            }
+            if realm.objects(RecordInfo.self).filter("title = 'Fly Away'").first == nil {
+                let result = realm.objects(SongInfo.self).filter("title = 'Fly Away'").first!
+                initRecord(respect, result.title)
+                initRecordDifficulty(result.title, result.nm4, result.nm5, result.nm6, result.nm8, result.hd4, result.hd5, result.hd6, result.hd8, result.mx4, result.mx5, result.mx6, result.mx8)
+            }
+            //블랙스퀘어 미션 추가
+            if realm.objects(MissionInfo.self).filter("type = 'BS'").count == 0 {
+                addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Proposed, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "")
+                addMission(bs, stylishPerformance, "Downtown", "PDM", hard, button5, "Jealousy", hard, button5, "Secret World", hard, button5, 0, 0, 0, 96, 0, "Fever-OFF / FADE OUT", "")
+                addMission(bs, stylishPerformance, "DnB Territory", "Ready Now", hard, button6, "Ruti'n", hard, button6, "Desperado", hard, button6, 0, 4, 0, 0, 15, "Fever-Manual", "")
+                addMission(bs, stylishPerformance, "Core System", "Lover (BS Style)", hard, button5, "Y (BS Style)", hard, button5, "Colours of Sorrow", hard, button5, "Cypher Gate", hard, button5, 1000000, 0, 1000, 0, 0, "Fever-OFF", "")
+                addMission(bs, stylishPerformance, "Kingdom of Rock", "Lovely hands", hard, button6, "Keys to the World", normal, button8, "Fever Pitch Girl", hard, button6, "Heart of Witch", normal, button8, 0, 0, 6000, 94, 0, "Fever-Manual / FADER PIXEL", "")
+                addMission(bs, stylishPerformance, "Load of Flame", "Colours of Sorrow", normal, button4, "Grave Consequence", normal, button5, "Beat U Down", normal, button4, "Fermion", normal, button8, 0, 0, 0, 80, 0, "Fever-OFF / CHAOS 4D", "")
+                addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFf", "")
+                addMission(bs, absoluteSound, "RD Colosseum", "Honeymoon", redesign, button4, "Taekwonburi".localized, redesign, button5, "I want You", redesign, button6, "Cypher Gate", redesign, button8, 0, 5, 0, 0, 0, "Fever-Manual", "")
+                addMission(bs, absoluteSound, "BS 24", "Always", hard, button4, "Fly Away", special, xb, "ANALYS", hard, button6, 985000, 0, 6500, 0, 0, "Fever-Manual", "")
+                addMission(bs, absoluteSound, "Quatrr4", "RANDOM", hard, button4, "RANDOM", hard, button4, "RANDOM", maximum, button4, "RANDOM", maximum, button4, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
+                addMission(bs, absoluteSound, "Metro Project vol.2", "HEXAD", fx, button5, "SuperSonic", fx, button5, "Cypher Gate", fx, button5, "In my Dream", fx, button5, 1230000, 0, 0, 95, 0, "Fever-Auto", "")
+                addMission(bs, absoluteSound, "Illusion", "Nevermind", hard, button4, "Rising The Sonic", hard, button5, "Do you want it", hard, button6, "ANALYS", hard, button8, 0, 0, 0, 0, 0, "Fever-Auto / FADER PIXEL / vs AI", "")
+            }
+            //블랙스퀘어 트로피 추가
+            if realm.objects(TrophyInfo.self).filter("series = 'BS'").count == 0 {
+                addTrophy(bs, "BLACK SQUARE에 도전하시겠습니까?", "BLACK SQUARE 곡에서 100개의 패턴을 MAX COMBO로 클리어했다.", "Do you want to try BLACK SQUARE?", "Cleared a 100 pattern BLACK SQUARE song with MAX COMBO", gold)
+                addTrophy(bs, "다시 한번 클럽 투어에 오신것을 환영합니다", "BLACK SQUARE 곡을 모두 S랭크로 클리어했다.", "Welcome back to the CLUB TOUR!", "Cleared all the BLACK SQUARE songs with S Rank.", silver)
+                addTrophy(bs, "Fermion으로 하겠어요", "Fermion 기어와 노트를 장착한 상태로 Fermion을 플레이했다.", "I'll go with Fermion", "Played \"Fermion\" using \"Fermion\" GEAR and NOTE Skins.", bronze)
+                addTrophy(bs, "REDESIGN?!", "RD Colosseum 미션을 클리어했다.", "REDESIGN?!", "Cleared the \"RD Colosseum\" mission.", bronze)
+                addTrophy(bs, "DJMAX 시리즈 중에서 최강 난이도", "BLACK SQUARE 곡에서 MAXIMUM 패턴을 MAX COMBO로 클리어했다.", "The toughest difficulty in the DJMAX series", "Cleared a BLACK SQUARE song at MAXIMUM difficulty level with MAX COMBO.", bronze)
+                addTrophy(bs, "정말 BLACK SQUARE 곡으로 할거야?", "ARCADE를 BLACK SQUARE 곡으로만 클리어했다.", "Are you sure you want a BLACK SQUARE song?", "Cleared ARCADE mode only with BLACK SQUARE songs.", bronze)
+                addTrophy(bs, "빨리 틀어요", "BLACK SQUARE 수록곡 중 한 곡을 연속으로 10회 클리어했다.", "Play it NOW!", "Cleared a BLACK SQUARE song 10 times in a row.", bronze)
+            }
+            //링크디스크 트로피 추가
+            if realm.objects(TrophyInfo.self).filter("series = 'Link Disk'").count == 0 {
+                addTrophy(linkDisk, "디스크 조각", "링크 디스크를 통해 획득할 수 있는 모든 곡을 MAX COMBO로 클리어했다.", "Disk Fragment", "Cleared all songs you can obtain through LINK DISK with MAX COMBO.", bronze)
+                addTrophy(linkDisk, "이제 최종 단계에 들어선거야", "The Others를 클리어했다.", "We're in the endgame now", "Cleared \"The Others\" mission.", bronze)
+                addTrophy(linkDisk, "디맥은 돌아온다", "METRO PROJECT 플레이트를 장착했다.", "DJMAX will Return", "Equipped \"METRO PROJECT\" plate.", bronze)
+            }
+            //패턴 추가
+            let songResults = realm.objects(SongInfo.self).sorted(byKeyPath: "title")
+            let recordResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "title")
+            var title = "Eternal Memory".localized
+            var song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            var record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.hd5 = 8
+                record.hd5 = 8
+            }
+            title = "Funky Chups"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.hd4 = 8
+                record.hd4 = 8
+            }
+            title = "Ladymade Star"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.mx4 = 10
+                record.mx4 = 10
+            }
+            title = "MASAI"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.mx4 = 11
+                song.mx5 = 12
+                record.mx4 = 11
+                record.mx5 = 12
+            }
+            title = "Memory of Beach"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.hd4 = 11
+                song.hd5 = 12
+                song.mx8 = 13
+                record.hd4 = 11
+                record.hd5 = 12
+                record.mx8 = 13
+            }
+            title = "quixotic"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.mx8 = 13
+                record.mx8 = 13
+            }
+            title = "Rocka-a-doodle-doo"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.mx8 = 12
+                record.mx8 = 12
+            }
+            title = "Royal Clown"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.mx4 = 14
+                song.mx8 = 14
+                record.mx4 = 14
+                record.mx8 = 14
+            }
+            title = "Sunny Side ~Deepn' Soul Mix~"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            record = recordResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.hd5 = 11
+                record.hd5 = 11
+            }
+            //SIN 예전에 패턴 추가할 때 song에는 추가 안해서 추가 해줘야함
+            title = "SIN"
+            song = songResults.filter(NSPredicate(format: "title = %@", title)).first!
+            try! realm.write {
+                song.mx6 = 14
+                song.mx8 = 15
+            }
+            //lowercase 초기화
+            for index in 0..<songResults.count {
+                let title = songResults[index].title.lowercased()
+                try! realm.write {
+                    songResults[index].lowercase = title
+                    recordResults[index].lowercase = title
+                }
+            }
+            //1. 모든 곡에 그냥 lowercase 처리
+            //2. 한국일 경우 한국 이름 곡 개수 세서(12개) 글자 순서대로 숫자로 lowercase 임의 처리
+            if Locale.current.regionCode! == "KR" {
+                let songInfo = try! realm.objects(SongInfo.self).sorted(byKeyPath: "title")
+                let recordInfo = try! realm.objects(RecordInfo.self).sorted(byKeyPath: "title")
+                var count = 0
+                for index in songInfo.count - 12  ..< songInfo.count {
+                    try! realm.write {
+                        if count < 10 {
+                            songInfo[index].lowercase = "00\(count)"
+                            recordInfo[index].lowercase = "00\(count)"
+                        } else {
+                            songInfo[index].lowercase = "0\(count)"
+                            recordInfo[index].lowercase = "0\(count)"
+                        }
+                    }
+                    count += 1
+                }
+            }
+//            UserDefaults.standard.set(206, forKey: "version")
+            for song in songResults {
+                print(song.title, song.lowercase)
+            }
+        }
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

@@ -49,7 +49,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3M-nI-SIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="-550"/>
+            <point key="canvasLocation" x="118" y="-551"/>
         </scene>
         <!--TrophyCE Table View Controller-->
         <scene sceneID="DRZ-Af-VML">
@@ -69,12 +69,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHQ-Xv-sog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="-550"/>
+            <point key="canvasLocation" x="522" y="-552"/>
         </scene>
-        <!--Mission Technika1 Table View Controller-->
+        <!--Trophy Technika1 Table View Controller-->
         <scene sceneID="6wu-LO-PWo">
             <objects>
-                <tableViewController storyboardIdentifier="MissionTechnika1TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lAi-Yy-XQQ" customClass="MissionTechnika1TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TrophyTechnika1TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lAi-Yy-XQQ" customClass="TrophyTechnika1TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MGx-Lk-jUL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,27 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Qr-ff-j0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="-550"/>
+            <point key="canvasLocation" x="914" y="-553"/>
+        </scene>
+        <!--TrophyBS Table View Controller-->
+        <scene sceneID="y1b-FY-esm">
+            <objects>
+                <tableViewController storyboardIdentifier="TrophyBSTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o4r-Bx-qo3" customClass="TrophyBSTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f0J-Gs-qCG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="o4r-Bx-qo3" id="LQ8-ZP-nQg"/>
+                            <outlet property="delegate" destination="o4r-Bx-qo3" id="Ndc-YE-4bS"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ytu-Ez-r1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="-554"/>
         </scene>
         <!--Trophy View Controller-->
         <scene sceneID="tiw-34-u8T">

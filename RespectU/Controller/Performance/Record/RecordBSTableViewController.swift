@@ -1,8 +1,8 @@
 //
-//  RecordCETableViewController.swift
+//  RecordBSTableViewController.swift
 //  RespectU
 //
-//  Created by Presto on 2018. 4. 4..
+//  Created by Presto on 2018. 6. 28..
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class RecordCETableViewController: UITableViewController {
+class RecordBSTableViewController: UITableViewController {
     
     let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     var realm: Realm! = nil
@@ -19,7 +19,7 @@ class RecordCETableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        results = realm.objects(RecordInfo.self).filter("series = 'CE'").sorted(byKeyPath: "lowercase")
+        results = realm.objects(RecordInfo.self).filter("series = 'BS'").sorted(byKeyPath: "lowercase")
         view.backgroundColor = UIColor.mainColor
         tableView.separatorColor = UIColor.mainColor
         tableView.layer.borderColor = UIColor.mainColor.cgColor
@@ -50,7 +50,7 @@ class RecordCETableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell") as! RecordCell
         let object = results[indexPath.row]
         cell.title.text = object.title
-        cell.color.backgroundColor = UIColor.ce
+        cell.color.backgroundColor = UIColor.bs
 //        switch(object.series){
 //        case Series.portable1.rawValue:
 //            cell.color.backgroundColor = UIColor.portable1
@@ -68,7 +68,7 @@ class RecordCETableViewController: UITableViewController {
 //            cell.color.backgroundColor = UIColor.bs
 //        default:
 //            break
-//        }
+        //}
         return cell
     }
     
@@ -91,8 +91,9 @@ class RecordCETableViewController: UITableViewController {
     }
 }
 
-extension RecordCETableViewController: IndicatorInfoProvider{
+extension RecordBSTableViewController: IndicatorInfoProvider{
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "CLAZZIQUAI")
+        return IndicatorInfo(title: "BLACK SQUARE")
     }
 }
+

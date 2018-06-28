@@ -31,7 +31,7 @@ class RecordViewController: ButtonBarPagerTabStripViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [RecordAllTableViewController(), RecordPortable1TableViewController(), RecordPortable2TableViewController(), RecordRespectTableViewController(), RecordTrilogyTableViewController(), RecordCETableViewController(), RecordTechnika1TableViewController()]
+        return [RecordAllTableViewController(), RecordPortable1TableViewController(), RecordPortable2TableViewController(), RecordRespectTableViewController(), RecordTrilogyTableViewController(), RecordCETableViewController(), RecordTechnika1TableViewController(), RecordBSTableViewController()]
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {

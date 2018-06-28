@@ -49,7 +49,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xDR-ZI-Qxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="-808"/>
+            <point key="canvasLocation" x="705" y="-839"/>
         </scene>
         <!--Song Portable2 Table View Controller-->
         <scene sceneID="zG9-x3-DdV">
@@ -69,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNg-Q7-2tD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="-786"/>
+            <point key="canvasLocation" x="1338" y="-840"/>
         </scene>
         <!--Song Respect Table View Controller-->
         <scene sceneID="Cml-Q1-7pC">
@@ -89,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59U-fJ-ESq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="-770"/>
+            <point key="canvasLocation" x="1969" y="-840"/>
         </scene>
         <!--Song Trilogy Table View Controller-->
         <scene sceneID="191-bL-Tmo">
@@ -109,7 +109,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej6-qn-t1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2801" y="-763"/>
+            <point key="canvasLocation" x="2623" y="-839"/>
         </scene>
         <!--SongCE Table View Controller-->
         <scene sceneID="SIs-hs-s6s">
@@ -129,7 +129,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L3t-WT-MdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3470" y="-756"/>
+            <point key="canvasLocation" x="3289" y="-839"/>
         </scene>
         <!--Song Technika1 Table View Controller-->
         <scene sceneID="beI-wE-laj">
@@ -149,7 +149,27 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ezy-3o-NRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4185" y="-743"/>
+            <point key="canvasLocation" x="3990" y="-839"/>
+        </scene>
+        <!--SongBS Table View Controller-->
+        <scene sceneID="BCE-KK-sa9">
+            <objects>
+                <tableViewController storyboardIdentifier="SongBSTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="clp-8y-ZO9" customClass="SongBSTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1sN-L9-aMn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="clp-8y-ZO9" id="tss-Wy-gdm"/>
+                            <outlet property="delegate" destination="clp-8y-ZO9" id="Dnv-C0-PNL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q8J-ri-Ack" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4646" y="-839"/>
         </scene>
         <!--Song Favorite Table View Controller-->
         <scene sceneID="zNr-mW-mNA">
@@ -169,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWL-ey-sSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4865" y="-743"/>
+            <point key="canvasLocation" x="5324" y="-839"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="k7y-9L-JNl">

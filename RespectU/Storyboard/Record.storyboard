@@ -151,6 +151,26 @@
             </objects>
             <point key="canvasLocation" x="3652" y="-545"/>
         </scene>
+        <!--RecordBS Table View Controller-->
+        <scene sceneID="4SK-c2-51N">
+            <objects>
+                <tableViewController storyboardIdentifier="RecordBSTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CdX-ZB-KdZ" customClass="RecordBSTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jMw-dA-aTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="CdX-ZB-KdZ" id="zAN-Nz-oYP"/>
+                            <outlet property="delegate" destination="CdX-ZB-KdZ" id="NEc-pr-Zx8"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LfC-Iq-b4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4322" y="-543"/>
+        </scene>
         <!--Record View Controller-->
         <scene sceneID="dRc-eG-Kon">
             <objects>

@@ -38,6 +38,7 @@ let button5 = "5B"
 let button6 = "6B"
 let button8 = "8B"
 let xb = "XB"
+let tb = "TB"
 
 //Trophy Grade
 let platinum = "PLATINUM"

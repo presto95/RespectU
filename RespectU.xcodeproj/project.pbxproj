@@ -542,8 +542,8 @@
 				199992162049654E00C74697 /* MissionCETableViewController.swift */,
 				197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */,
 				192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */,
-				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
 				191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */,
+				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";

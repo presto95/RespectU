@@ -19,6 +19,7 @@ class Init{
             UserDefaults.standard.set(15, forKey: "version")
             UserDefaults.standard.set(true, forKey: "error1")
         }
+        
         let version = UserDefaults.standard.integer(forKey: "version")
         print(version)
         
@@ -56,7 +57,7 @@ class Init{
             addSong(bs, "Ready Now", "Ruby Tuesday", "135", 4, 8, 0, 4, 7, 9, 4, 7, 10, 5, 0, 9)
             addSong(bs, "Ruti'n", "BEXTER", "120", 4, 10, 0, 5, 8, 11, 4, 9, 11, 5, 10, 0)
             addSong(bs, "Secret World", "Sweetune", "110", 4, 7, 10, 3, 8, 0, 4, 7, 10, 4, 0, 9)
-            addSong(bs, "Y (BS Style", "ND Lee", "130", 5, 8, 11, 4, 7, 0, 4, 8, 12, 4, 8, 11)
+            addSong(bs, "Y (BS Style)", "ND Lee", "130", 5, 8, 11, 4, 7, 0, 4, 8, 12, 4, 8, 11)
             
             //Technika1
             addSong("Technika1", "Access", "Sphazer", "135", 2, 4, 7, 3, 6, 0, 3, 0, 12, 5, 7, 12)
@@ -296,7 +297,18 @@ class Init{
             //Database - Mission
             
             //Link Disk
-            
+            addMission(linkDisk, whiteDisk, "The Others", "BlythE", hard, button4, "Triple Zoe", hard, button6, "NB RANGER", maximum, button6, "SIN ~The Last Scene~", hard, button8, 0, 0, 1500, 97, 20, "Fever-OFF", "")
+            addMission(linkDisk, whiteDisk, "Just 1%", "MASAI", maximum, button5, "NB POWER", maximum, button5, "Showtime", hard, button5, "Rolling On the Duck", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / Don't make the MAX 1%", "")
+            addMission(linkDisk, whiteDisk, "The Boss", "Ventilator", hard, button8, "Mind Control", hard, button8, "HAMSIN", hard, button8, "Taekwonburi".localized, maximum, button8, "Nevermind", hard, button8, "Nightmare", maximum, button8, 0, 0, 15100, 96, 0, "Fever-Manual", "")
+            addMission(linkDisk, whiteDisk, "ENVY vs NB", "DARK ENVY", maximum, button5, "NB RANGER - Virgin Force", maximum, button5, 0, 0, 0, 90, 0, "Fever-Off / CHAOS REVERSE", "")
+            addMission(linkDisk, whiteDisk, "Challenger", "PDM", maximum, button5, "A.I", hard, button8, "Purposed, Flower, Wolf part.2".localized, maximum, button6, "??", special, tb, 0, 0, 0, 99, 5, "Fever-Off", "")
+            addMission(linkDisk, whiteDisk, "MX Tournament", "ANALYS", maximum, button4, "Grave Consequence", maximum, button5, "Heart of Witch", maximum, button6, "Beat U Down", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / vs AI", "")
+            addMission(linkDisk, blackDisk, "Ending Scroll", "Purposed, Flower, Wolf".localized, hard, button4, "Purposed, Flower, Wolf part.2".localized, normal, button6, 0, 0, 0, 100, 0, "Fever-Off", "")
+            addMission(linkDisk, blackDisk, "Vitalize", "Ladymade Star", maximum, button4, "Royal Clown", maximum, button8, "Memory of Beach", hard, button5, "quixotic", maximum, button8, 1230000, 0, 0, 0, 0, "Fever-Manual", "")
+            addMission(linkDisk, blackDisk, "SPEED STAR", "Fentanest", hard, button6, "STOP", maximum, button5, "KILLER BEE", maximum, button6, "Negative Nature", hard, button6, "Royal Clown", maximum, button8, 0, 5, 0, 98, 0, "SPEED 2.00 / Fever-Manual", "")
+            addMission(linkDisk, blackDisk, "Infinity Combo", "NB POWER", maximum, button6, "WhiteBlue", maximum, button6, "RED", maximum, button6, "Sunny Side ~Deepn' Soul Mix~", maximum, button6, "Showtime", hard, button6, "Mind Control", maximum, button6, 0, 0, 38888, 0, 0, "Fever-Auto / FADER FOG", "")
+            addMission(linkDisk, blackDisk, "End of Metro Project", "In my Dream", special, xb, "Beat U Down", special, xb, "Grave Consequence", special, xb, "Heart of Witch", special, xb, "Fermion", special, xb, 1600000, 5, 5000, 0, 0, "Fever-Manual", "")
+            addMission(linkDisk, blackDisk, "Enter the Rocky Studio", "BlackCat", hard, button8, "ANALYS", maximum, button8, "Cypher Gate", redesign, button8, "STALKER", fx, button4, "Ventilator", fx, button5, "We're All Gonna Die", special, xb, 2000000, 5, 10000, 97, 50, "Fever-Manual", "")
             
             //Black Square
             addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Proposed, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "")
@@ -1460,7 +1472,7 @@ class Init{
                 addSong(bs, "Ready Now", "Ruby Tuesday", "135", 4, 8, 0, 4, 7, 9, 4, 7, 10, 5, 0, 9)
                 addSong(bs, "Ruti'n", "BEXTER", "120", 4, 10, 0, 5, 8, 11, 4, 9, 11, 5, 10, 0)
                 addSong(bs, "Secret World", "Sweetune", "110", 4, 7, 10, 3, 8, 0, 4, 7, 10, 4, 0, 9)
-                addSong(bs, "Y (BS Style", "ND Lee", "130", 5, 8, 11, 4, 7, 0, 4, 8, 12, 4, 8, 11)
+                addSong(bs, "Y (BS Style)", "ND Lee", "130", 5, 8, 11, 4, 7, 0, 4, 8, 12, 4, 8, 11)
             }
             //리스펙트 곡 추가
             if realm.objects(SongInfo.self).filter("title = 'ANALYS'").count == 0 {
@@ -1534,6 +1546,21 @@ class Init{
                 addMission(bs, absoluteSound, "Quatrr4", "RANDOM", hard, button4, "RANDOM", hard, button4, "RANDOM", maximum, button4, "RANDOM", maximum, button4, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
                 addMission(bs, absoluteSound, "Metro Project vol.2", "HEXAD", fx, button5, "SuperSonic", fx, button5, "Cypher Gate", fx, button5, "In my Dream", fx, button5, 1230000, 0, 0, 95, 0, "Fever-Auto", "")
                 addMission(bs, absoluteSound, "Illusion", "Nevermind", hard, button4, "Rising The Sonic", hard, button5, "Do you want it", hard, button6, "ANALYS", hard, button8, 0, 0, 0, 0, 0, "Fever-Auto / FADER PIXEL / vs AI", "")
+            }
+            //링크 디스크 미션 추가
+            if realm.objects(MissionInfo.self).filter("type = 'Link Disk'").count == 0 {
+                addMission(linkDisk, whiteDisk, "The Others", "BlythE", hard, button4, "Triple Zoe", hard, button6, "NB RANGER", maximum, button6, "SIN ~The Last Scene~", hard, button8, 0, 0, 1500, 97, 20, "Fever-OFF", "")
+                addMission(linkDisk, whiteDisk, "Just 1%", "MASAI", maximum, button5, "NB POWER", maximum, button5, "Showtime", hard, button5, "Rolling On the Duck", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / Don't make the MAX 1%", "")
+                addMission(linkDisk, whiteDisk, "The Boss", "Ventilator", hard, button8, "Mind Control", hard, button8, "HAMSIN", hard, button8, "Taekwonburi".localized, maximum, button8, "Nevermind", hard, button8, "Nightmare", maximum, button8, 0, 0, 15100, 96, 0, "Fever-Manual", "")
+                addMission(linkDisk, whiteDisk, "ENVY vs NB", "DARK ENVY", maximum, button5, "NB RANGER - Virgin Force", maximum, button5, 0, 0, 0, 90, 0, "Fever-Off / CHAOS REVERSE", "")
+                addMission(linkDisk, whiteDisk, "Challenger", "PDM", maximum, button5, "A.I", hard, button8, "Purposed, Flower, Wolf part.2".localized, maximum, button6, "??", special, tb, 0, 0, 0, 99, 5, "Fever-Off", "")
+                addMission(linkDisk, whiteDisk, "MX Tournament", "ANALYS", maximum, button4, "Grave Consequence", maximum, button5, "Heart of Witch", maximum, button6, "Beat U Down", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / vs AI", "")
+                addMission(linkDisk, blackDisk, "Ending Scroll", "Purposed, Flower, Wolf".localized, hard, button4, "Purposed, Flower, Wolf part.2".localized, normal, button6, 0, 0, 0, 100, 0, "Fever-Off", "")
+                addMission(linkDisk, blackDisk, "Vitalize", "Ladymade Star", maximum, button4, "Royal Clown", maximum, button8, "Memory of Beach", hard, button5, "quixotic", maximum, button8, 1230000, 0, 0, 0, 0, "Fever-Manual", "")
+                addMission(linkDisk, blackDisk, "SPEED STAR", "Fentanest", hard, button6, "STOP", maximum, button5, "KILLER BEE", maximum, button6, "Negative Nature", hard, button6, "Royal Clown", maximum, button8, 0, 5, 0, 98, 0, "SPEED 2.00 / Fever-Manual", "")
+                addMission(linkDisk, blackDisk, "Infinity Combo", "NB POWER", maximum, button6, "WhiteBlue", maximum, button6, "RED", maximum, button6, "Sunny Side ~Deepn' Soul Mix~", maximum, button6, "Showtime", hard, button6, "Mind Control", maximum, button6, 0, 0, 38888, 0, 0, "Fever-Auto / FADER FOG", "")
+                addMission(linkDisk, blackDisk, "End of Metro Project", "In my Dream", special, xb, "Beat U Down", special, xb, "Grave Consequence", special, xb, "Heart of Witch", special, xb, "Fermion", special, xb, 1600000, 5, 5000, 0, 0, "Fever-Manual", "")
+                addMission(linkDisk, blackDisk, "Enter the Rocky Studio", "BlackCat", hard, button8, "ANALYS", maximum, button8, "Cypher Gate", redesign, button8, "STALKER", fx, button4, "Ventilator", fx, button5, "We're All Gonna Die", special, xb, 2000000, 5, 10000, 97, 50, "Fever-Manual", "")
             }
             //블랙스퀘어 트로피 추가
             if realm.objects(TrophyInfo.self).filter("series = 'BS'").count == 0 {

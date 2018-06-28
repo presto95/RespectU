@@ -69,7 +69,7 @@ class TrophyTrilogyTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         if(row == 6){
-            let alert = PMAlertController.showOKButton(title: "Hidden BGA".localized, message: "STOP")
+            let alert = UIAlertController.showOKButton(title: "Hidden BGA".localized, message: "STOP")
             present(alert, animated: true)
         }
     }

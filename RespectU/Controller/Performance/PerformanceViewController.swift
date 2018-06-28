@@ -45,20 +45,19 @@ class PerformanceViewController: UIViewController {
     }
     
     @IBAction func clickNickname(_ sender: UIButton) {
-        let alert = PMAlertController(title: "Nickname Setting".localized, description: "Enter your nickname.".localized, image: nil, style: .alert)
+        let alert = UIAlertController(title: "Nickname Setting".localized, message: "Enter your nickname.".localized, preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField?.placeholder = "Nickname".localized
+            textField.placeholder = "Nickname".localized
         }
-        let noAction = PMAlertAction(title: "Cancel".localized, style: .cancel)
-        let yesAction = PMAlertAction(title: "OK".localized, style: .default) {
-            if let input = alert.textFields.first?.text {
+        let noAction = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        let yesAction = UIAlertAction(title: "OK".localized, style: .default) { _ in
+            if let input = alert.textFields?.first?.text {
                 if(!input.isEmpty){
                     UserDefaults.standard.set(input.trimmingCharacters(in: .whitespaces), forKey: "nickname")
                     self.nickname.setTitle(UserDefaults.standard.string(forKey: "nickname")!, for: .normal)
                 }
             }
         }
-        designAlertController(alert: alert, actions: noAction, yesAction)
         alert.addAction(noAction)
         alert.addAction(yesAction)
         present(alert, animated: true)

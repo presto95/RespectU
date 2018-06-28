@@ -145,7 +145,7 @@ extension GuideViewController: UICollectionViewDelegate{
                 goToAnotherView(storyboard: "Tip", identifier: "TipViewController")
             case 5:
                 if(!Reachability.isConnectedToNetwork()){
-                    let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
+                    let alert = UIAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
                     present(alert, animated: true)
                 } else {
                     goToAnotherView(storyboard: "Manual", identifier: "ManualViewController")
@@ -158,20 +158,20 @@ extension GuideViewController: UICollectionViewDelegate{
             case 0:
                 if(Auth.auth().currentUser == nil){
                     GIDSignIn.sharedInstance().signIn()
-                    let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "You have been logged in.".localized)
+                    let alert = UIAlertController.showOKButton(title: "Notice".localized, message: "You have been logged in.".localized)
                     present(alert, animated: true)
                 } else {
                     do {
                         try Auth.auth().signOut()
                     } catch { print("logout error") }
-                    let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "You have been logged out.".localized)
+                    let alert = UIAlertController.showOKButton(title: "Notice".localized, message: "You have been logged out.".localized)
                     self.present(alert, animated: true)
                 }
             case 1:
-                let alert = PMAlertController.showBPMDefault()
+                let alert = UIAlertController.showBPMDefault()
                 present(alert, animated: true)
             case 2:
-                let alert = PMAlertController.showFavoriteButtonSetting()
+                let alert = UIAlertController.showFavoriteButtonSetting()
                 present(alert, animated: true)
             default:
                 break
@@ -180,7 +180,7 @@ extension GuideViewController: UICollectionViewDelegate{
             switch(indexPath.row){
             case 0:
                 if(!Reachability.isConnectedToNetwork()){
-                    let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
+                    let alert = UIAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
                     present(alert, animated: true)
                 } else {
                     goToAnotherView(storyboard: "Radio", identifier: "RadioViewController")
@@ -193,14 +193,13 @@ extension GuideViewController: UICollectionViewDelegate{
                 let minor = version[version.index(version.startIndex, offsetBy: 1)...version.index(version.startIndex, offsetBy: 2)].description
                 let stringVersion = major + "." + minor
                 let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.14\nRespectU " + stringVersion + "\n\nApp icon by icons8"
-                let alert = PMAlertController(title: "CREDITS".localized, description: message, image: nil, style: .alert)
-                let rate = PMAlertAction(title: "Rate this app".localized, style: .default, action: {
+                let alert = UIAlertController(title: "CREDITS".localized, message: message, preferredStyle: .alert)
+                let rate = UIAlertAction(title: "Rate this app".localized, style: .default, handler: { _ in
                     self.rateApp(appId: "id1291664067", completion: { (bool) in
                         print("RateApp \(bool)")
                     })
                 })
-                let ok = PMAlertAction(title: "OK".localized, style: .default)
-                designAlertController(alert: alert, actions: rate, ok)
+                let ok = UIAlertAction(title: "OK".localized, style: .default)
                 alert.addAction(rate)
                 alert.addAction(ok)
                 present(alert, animated: true)

@@ -99,7 +99,7 @@ class SongFavoriteTableViewController: UITableViewController {
         let object = results[indexPath.row]
         let recommendedSpeed = String.decideSpeed(speed: myBpm / Double.convertBpmToDouble(string: object.bpm))
         let message = "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
-        let alert = PMAlertController.showOkAndRemoveFavorite(title: object.title, message: message, object: object, tableView: tableView)
+        let alert = UIAlertController.showOKAndRemoveFavorite(title: object.title, message: message, object: object, tableView: tableView)
         present(alert, animated: true)
     }
     

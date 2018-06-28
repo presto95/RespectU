@@ -43,12 +43,12 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        let alert = PMAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, bs: bs, favorite: favorite)
+        let alert = UIAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, bs: bs, favorite: favorite)
         present(alert, animated: true)
     }
     
     @IBAction func sortButton(_ sender: UIButton) {
-        let alert = PMAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, bs: bs)
+        let alert = UIAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, bs: bs)
         present(alert, animated: true)
     }
     
@@ -60,7 +60,7 @@ class SongViewController: ButtonBarPagerTabStripViewController {
         let object = results[random]
         let recommendedSpeed = String.decideSpeed(speed: myBpm / Double.convertBpmToDouble(string: object.bpm))
         let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
-        let alert = PMAlertController.showOKButton(title: object.title, message: message)
+        let alert = UIAlertController.showOKButton(title: object.title, message: message)
         present(alert, animated: true)
     }
     

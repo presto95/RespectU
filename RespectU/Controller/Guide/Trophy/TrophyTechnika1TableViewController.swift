@@ -69,7 +69,7 @@ class TrophyTechnika1TableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         if(row == 9){
-            let alert = PMAlertController.showOKButton(title: "Hidden BGA".localized, message: "Thor")
+            let alert = UIAlertController.showOKButton(title: "Hidden BGA".localized, message: "Thor")
             self.present(alert, animated: true)
         }
     }

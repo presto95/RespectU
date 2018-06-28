@@ -68,17 +68,17 @@ class TrophyRespectTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
-        let alert: PMAlertController
+        let alert: UIAlertController
         if(row == 36 || row == 37){
-            alert = PMAlertController.showOKButton(title: "Hidden BGAs".localized, message: "A Lie\nEnemy Storm\nNB RANGER - Virgin Force\nNever Say\nWhiteBlue\nOut Law")
+            alert = UIAlertController.showOKButton(title: "Hidden BGAs".localized, message: "A Lie\nEnemy Storm\nNB RANGER - Virgin Force\nNever Say\nWhiteBlue\nOut Law")
             present(alert, animated: true)
         }
         else if(row == 26){
-            alert = PMAlertController.showOKButton(title: "777 Combos".localized, message: "5B NORMAL [Seeker]\n47 Combos -> BREAK -> Full Combo -> Trophy Earned".localized)
+            alert = UIAlertController.showOKButton(title: "777 Combos".localized, message: "5B NORMAL [Seeker]\n47 Combos -> BREAK -> Full Combo -> Trophy Earned".localized)
             present(alert, animated: true)
         }
         else if(row == 41){
-            alert = PMAlertController.showOKButton(title: "CREDITS".localized, message: "CREDITS will appear when the average accuracy of three stages are greater than 98%.".localized)
+            alert = UIAlertController.showOKButton(title: "CREDITS".localized, message: "CREDITS will appear when the average accuracy of three stages are greater than 98%.".localized)
             present(alert, animated: true)
         }
     }

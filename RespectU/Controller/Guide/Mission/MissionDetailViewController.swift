@@ -201,7 +201,7 @@ class MissionDetailViewController: UIViewController {
         }()
         let difficultyString = difficulty == 0 ? "??" : String(difficulty)
         let message = button + " " + pattern + "\n\n" + "Difficulty".localized + "\n" + difficultyString + "\n\n" + "SPEED Recommendation".localized + "\n" + recommendedSpeed
-        let alert = PMAlertController.showOKButton(title: title, message: message)
+        let alert = UIAlertController.showOKButton(title: title, message: message)
         present(alert, animated: true)
     }
 

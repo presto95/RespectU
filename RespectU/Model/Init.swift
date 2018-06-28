@@ -295,6 +295,9 @@ class Init{
             
             //Database - Mission
             
+            //Link Disk
+            
+            
             //Black Square
             addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Proposed, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "")
             addMission(bs, stylishPerformance, "Downtown", "PDM", hard, button5, "Jealousy", hard, button5, "Secret World", hard, button5, 0, 0, 0, 96, 0, "Fever-OFF / FADE OUT", "")
@@ -1656,10 +1659,7 @@ class Init{
                     count += 1
                 }
             }
-//            UserDefaults.standard.set(206, forKey: "version")
-            for song in songResults {
-                print(song.title, song.lowercase)
-            }
+            UserDefaults.standard.set(206, forKey: "version")
         }
         print("DATABASE INITIALIZE FINISHED!!")
     }

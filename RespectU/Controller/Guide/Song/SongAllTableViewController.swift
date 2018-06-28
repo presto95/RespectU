@@ -108,7 +108,7 @@ class SongAllTableViewController: UITableViewController {
             }
         }
         let message = "SPEED Recommendation".localized + "\n\(recommendedSpeed)" + unlockInfo
-        let alert = PMAlertController.showOKAndAddFavorite(title: object.title, message: message, object: object)
+        let alert = UIAlertController.showOKAndAddFavorite(title: object.title, message: message, object: object)
         present(alert, animated: true)
     }
     

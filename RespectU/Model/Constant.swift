@@ -14,12 +14,15 @@ let trilogy = "Trilogy"
 let ce = "CE"
 let technika1 = "Technika1"
 let bs = "BS"
-
 let linkDisk = "Link Disk"
 
-//Black Square Sections
+//Black Square Mission Sections
 let stylishPerformance = "Stylish Performance"
 let absoluteSound = "Absolute Sound"
+
+//Link Disk Mission Sections
+let whiteDisk = "WHITE DISK"
+let blackDisk = "BLACK DISK"
 
 //Difficulty
 let normal = "NORMAL"

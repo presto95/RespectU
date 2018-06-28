@@ -49,24 +49,23 @@ class SkillLevelCell: UITableViewCell {
     }
     @IBAction func clickRanking(_ sender: UIButton) {
         if(!Reachability.isConnectedToNetwork()){
-            let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
+            let alert = UIAlertController.showOKButton(title: "Notice".localized, message: "Check your network status.".localized)
             self.parentViewController()?.present(alert, animated: true)
         } else {
             if(Auth.auth().currentUser == nil){
-                let alert = PMAlertController.showOKButton(title: "Notice".localized, message: "Log in First.".localized)
+                let alert = UIAlertController.showOKButton(title: "Notice".localized, message: "Log in First.".localized)
                 self.parentViewController()?.present(alert, animated: true)
             } else {
-                let alert = PMAlertController(title: "Ranking".localized, description: "", image: nil, style: .alert)
-                let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
-                let ranking = PMAlertAction(title: "Ranking".localized, style: .default, action: {
+                let alert = UIAlertController(title: "Ranking".localized, message: "", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
+                let ranking = UIAlertAction(title: "Ranking".localized, style: .default, handler: { _ in
                     let storyboard = UIStoryboard(name: "Ranking", bundle: nil)
                     let controller = storyboard.instantiateViewController(withIdentifier: "RankingViewController")
                     self.parentViewController()?.present(controller, animated: true, completion: nil)
                 })
-                let upload = PMAlertAction(title: "Upload".localized, style: .default, action: {
+                let upload = UIAlertAction(title: "Upload".localized, style: .default, handler: { _ in
                     self.upload()
                 })
-                designAlertController(alert: alert, actions: ranking, upload, cancel)
                 alert.addAction(cancel)
                 alert.addAction(upload)
                 alert.addAction(ranking)
@@ -75,43 +74,42 @@ class SkillLevelCell: UITableViewCell {
         }
     }
     @IBAction func clickCalculator(_ sender: UIButton) {
-        let alert = PMAlertController(title: "Skill Point Calculator".localized, description: "", image: nil, style: .alert)
+        let alert = UIAlertController(title: "Skill Point Calculator".localized, message: "", preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField?.placeholder = "Difficulty".localized
-            textField?.keyboardType = .numberPad
+            textField.placeholder = "Difficulty".localized
+            textField.keyboardType = .numberPad
         }
         alert.addTextField { (textField) in
-            textField?.placeholder = "Rate".localized
-            textField?.keyboardType = .decimalPad
+            textField.placeholder = "Rate".localized
+            textField.keyboardType = .decimalPad
         }
-        let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
-        let noMaxCombo = PMAlertAction(title: "MAX COMBO Failure".localized, style: .default) {
-            if let difficulty = Int((alert.textFields.first?.text!)!), let rate = Double((alert.textFields.last?.text!)!){
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        let noMaxCombo = UIAlertAction(title: "MAX COMBO Failure".localized, style: .default) { _ in
+            if let difficulty = Int((alert.textFields?.first?.text!)!), let rate = Double((alert.textFields?.last?.text!)!){
                 let skillPoint = getSkillPoint(difficulty: difficulty, rate: String(rate), note: "-")
-                let alert = PMAlertController.showOKButton(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
+                let alert = UIAlertController.showOKButton(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                 self.parentViewController()?.present(alert, animated: true)
             } else {
-                let alert = PMAlertController.showOKButton(title: "Error".localized, message: "Enter a valid value.".localized)
+                let alert = UIAlertController.showOKButton(title: "Error".localized, message: "Enter a valid value.".localized)
                 self.parentViewController()?.present(alert, animated: true)
             }
         }
-        let maxComboOrPerfectPlay = PMAlertAction(title: "MAX COMBO / PERFECT PLAY", style: .default) {
-            if let difficulty = Int((alert.textFields.first?.text!)!), let rate = Double((alert.textFields.last?.text!)!){
+        let maxComboOrPerfectPlay = UIAlertAction(title: "MAX COMBO / PERFECT PLAY", style: .default) { _ in
+            if let difficulty = Int((alert.textFields?.first?.text!)!), let rate = Double((alert.textFields?.last?.text!)!){
                 if(rate == 100){
                     let skillPoint = getSkillPoint(difficulty: difficulty, rate: String(rate), note: "PERFECT PLAY")
-                    let alert = PMAlertController.showOKButton(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
+                    let alert = UIAlertController.showOKButton(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                     self.parentViewController()?.present(alert, animated: true)
                 } else {
                 let skillPoint = getSkillPoint(difficulty: difficulty, rate: String(rate), note: "MAX COMBO")
-                let alert = PMAlertController.showOKButton(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
+                let alert = UIAlertController.showOKButton(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                 self.parentViewController()?.present(alert, animated: true)
                 }
             } else {
-                let alert = PMAlertController.showOKButton(title: "Error".localized, message: "Enter a valid value.".localized)
+                let alert = UIAlertController.showOKButton(title: "Error".localized, message: "Enter a valid value.".localized)
                 self.parentViewController()?.present(alert, animated: true)
             }
         }
-        designAlertController(alert: alert, actions: cancel, noMaxCombo, maxComboOrPerfectPlay)
         alert.addAction(cancel)
         alert.addAction(noMaxCombo)
         alert.addAction(maxComboOrPerfectPlay)

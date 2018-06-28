@@ -122,29 +122,28 @@ class RecordView: UIView {
     }
     
     func showRankAlert(difficulty: Difficulty, button: String){
-        let alert = PMAlertController(title: "Rank".localized, description: "Select your rank.".localized, image: nil, style: .alert)
-        let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
-        let initialize = PMAlertAction(title: "-", style: .default) {
+        let alert = UIAlertController(title: "Rank".localized, message: "Select your rank.".localized, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        let initialize = UIAlertAction(title: "-", style: .default) { _ in
             self.setRank(rank: nil, difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        let s = PMAlertAction(title: "S", style: .default) {
+        let s = UIAlertAction(title: "S", style: .default) { _ in
             self.setRank(rank: "S", difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        let a = PMAlertAction(title: "A", style: .default) {
+        let a = UIAlertAction(title: "A", style: .default) { _ in
             self.setRank(rank: "A", difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        let b = PMAlertAction(title: "B", style: .default) {
+        let b = UIAlertAction(title: "B", style: .default) { _ in
             self.setRank(rank: "B", difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        let c = PMAlertAction(title: "C", style: .default) {
+        let c = UIAlertAction(title: "C", style: .default) { _ in
             self.setRank(rank: "C", difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        designAlertController(alert: alert, actions: cancel, initialize, s, a, b, c)
         alert.addAction(cancel)
         alert.addAction(initialize)
         alert.addAction(s)
@@ -154,14 +153,14 @@ class RecordView: UIView {
         RecordView.tableViewController.present(alert, animated: true, completion: nil)
     }
     func showRateAlert(difficulty: Difficulty, button: String){
-        let alert = PMAlertController(title: "Rate".localized, description: "Input your rate.\nTo reset the value, do not enter any values.".localized, image: nil, style: .alert)
+        let alert = UIAlertController(title: "Rate".localized, message: "Input your rate.\nTo reset the value, do not enter any values.".localized, preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField?.keyboardType = .decimalPad
-            textField?.placeholder = "Rate".localized
+            textField.keyboardType = .decimalPad
+            textField.placeholder = "Rate".localized
         }
-        let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
-        let yes = PMAlertAction(title: "OK".localized, style: .default) {
-            if let input = alert.textFields.first?.text{
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        let yes = UIAlertAction(title: "OK".localized, style: .default) { _ in
+            if let input = alert.textFields?.first?.text {
                 if(input.isEmpty){
                     self.setRate(rate: nil, difficulty: difficulty, button: button)
                     self.reloadButtonsAndLabels(button: button)
@@ -249,29 +248,27 @@ class RecordView: UIView {
                 }
             }
         }
-        designAlertController(alert: alert, actions: cancel, yes)
         alert.addAction(cancel)
         alert.addAction(yes)
         RecordView.tableViewController.present(alert, animated: true, completion: nil)
     }
     func showNoteAlert(difficulty: Difficulty, button: String){
-        let alert = PMAlertController(title: "Note".localized, description: "Select your note.".localized, image: nil, style: .alert)
-        let cancel = PMAlertAction(title: "Cancel".localized, style: .cancel)
-        let initialize = PMAlertAction(title: "-", style: .default) {
+        let alert = UIAlertController(title: "Note".localized, message: "Select your note.".localized, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel)
+        let initialize = UIAlertAction(title: "-", style: .default) { _ in
             self.setNote(note: nil, difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        let maxCombo = PMAlertAction(title: "MAX COMBO", style: .default) {
+        let maxCombo = UIAlertAction(title: "MAX COMBO", style: .default) { _ in
             self.setNote(note: "MAX COMBO", difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        let perfectPlay = PMAlertAction(title: "PERFECT PLAY", style: .default) {
+        let perfectPlay = UIAlertAction(title: "PERFECT PLAY", style: .default) { _ in
             self.setRate(rate: "100", difficulty: difficulty, button: button)
             self.setRank(rank: "S", difficulty: difficulty, button: button)
             self.setNote(note: "PERFECT PLAY", difficulty: difficulty, button: button)
             self.reloadButtonsAndLabels(button: button)
         }
-        designAlertController(alert: alert, actions: cancel, initialize, maxCombo, perfectPlay)
         alert.addAction(cancel)
         alert.addAction(initialize)
         alert.addAction(maxCombo)
@@ -831,14 +828,5 @@ class RecordView: UIView {
         default:
             break
         }
-    }
-}
-
-func designAlertController(alert: PMAlertController, actions: PMAlertAction...){
-    alert.alertTitle.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-    alert.alertDescription.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-    for action in actions{
-        action.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        action.separator.backgroundColor = .mainColor
     }
 }

@@ -9,13 +9,14 @@
 import Foundation
 import RealmSwift
 
-enum Series: String{
+enum Series: String {
     case respect = "Respect"
     case portable1 = "Portable1"
     case portable2 = "Portable2"
     case trilogy = "Trilogy"
     case ce = "CE"
     case technika1 = "Technika1"
+    case bs = "BS"
 }
 
 enum Button{

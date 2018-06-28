@@ -222,6 +222,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 cell.color.backgroundColor = UIColor.ce
             case "Technika1":
                 cell.color.backgroundColor = UIColor.technika1
+            case Series.bs.rawValue:
+                cell.color.backgroundColor = UIColor.bs
             default:
                 break
             }
@@ -335,6 +337,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 cell.color.backgroundColor = UIColor.ce
             case "Technika1":
                 cell.color.backgroundColor = UIColor.technika1
+            case Series.bs.rawValue:
+                cell.color.backgroundColor = UIColor.bs
             default:
                 break
             }
@@ -448,6 +452,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 cell.color.backgroundColor = UIColor.ce
             case "Technika1":
                 cell.color.backgroundColor = UIColor.technika1
+            case Series.bs.rawValue:
+                cell.color.backgroundColor = UIColor.bs
             default:
                 break
             }

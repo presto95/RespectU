@@ -13,3 +13,4 @@ enum Difficulty{
     case hard
     case maximum
 }
+

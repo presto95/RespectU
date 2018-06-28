@@ -102,11 +102,12 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.ce
                     case "Technika1":
                         return UIColor.technika1
+                    case "BS":
+                        return UIColor.bs
                     default:
                         return UIColor()
                     }
                 }()
-//                \((skillPoint * 100).rounded() / 100)
                 cell.gauge.bgColor = cell.gauge.startColor
                 cell.skillLevel.text = getSkillLevelButton4(value: mySkillPointSum)
                 cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
@@ -133,6 +134,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.ce
                     case "Technika1":
                         return UIColor.technika1
+                    case "BS":
+                        return UIColor.bs
                     default:
                         return UIColor()
                     }
@@ -163,6 +166,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.ce
                     case "Technika1":
                         return UIColor.technika1
+                    case "BS":
+                        return UIColor.bs
                     default:
                         return UIColor()
                     }
@@ -193,6 +198,8 @@ extension PerformanceViewController: UITableViewDataSource{
                         return UIColor.ce
                     case "Technika1":
                         return UIColor.technika1
+                    case "BS":
+                        return UIColor.bs
                     default:
                         return UIColor()
                     }

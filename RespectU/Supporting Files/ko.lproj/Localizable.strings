@@ -68,7 +68,7 @@
 "Select your rank." = "랭크를 선택하세요.";
 "Select your note." = "비고를 선택하세요.";
 
-
+//곡명 로컬라이징
 "Ask to Wind" = "바람에게 부탁해";
 "Memory of Wind" = "바람의 기억";
 "HeartBeat" = "설레임";
@@ -82,6 +82,7 @@
 "To You" = "너에게";
 "Forever" = "영원";
 "Lee Geol" = "이궐";
+"Proposed, Flower, Wolf part.2" = "고백, 꽃, 늑대 part.2";
 
 "Super Rookie" = "슈퍼 루키";
 "Entertainer" ="엔터테이너";

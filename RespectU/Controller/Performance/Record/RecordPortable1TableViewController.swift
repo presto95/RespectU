@@ -62,6 +62,8 @@ class RecordPortable1TableViewController: UITableViewController {
             cell.color.backgroundColor = UIColor.ce
         case Series.technika1.rawValue:
             cell.color.backgroundColor = UIColor.technika1
+        case Series.bs.rawValue:
+            cell.color.backgroundColor = UIColor.bs
         default:
             break
         }

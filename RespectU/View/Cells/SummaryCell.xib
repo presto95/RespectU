@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -26,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="YY4-9M-zYW" secondAttribute="height" multiplier="4:1" id="THY-JS-gZl"/>
+                            <constraint firstAttribute="height" constant="80" id="qv3-Ud-BzD"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GQo-hn-1ux">
                             <size key="itemSize" width="60" height="60"/>
@@ -62,15 +61,15 @@
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="YY4-9M-zYW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5gk-t6-f9d"/>
+                    <constraint firstAttribute="trailing" secondItem="YY4-9M-zYW" secondAttribute="trailing" id="60p-Xb-Mmc"/>
                     <constraint firstItem="vFa-k9-aPd" firstAttribute="width" secondItem="Ve1-le-1N2" secondAttribute="width" id="BMQ-pn-yaM"/>
                     <constraint firstItem="vFa-k9-aPd" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Hax-1v-s9i"/>
-                    <constraint firstItem="YY4-9M-zYW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HkU-cg-EhQ"/>
                     <constraint firstItem="Ve1-le-1N2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="LLH-u1-PPf"/>
-                    <constraint firstAttribute="trailing" secondItem="YY4-9M-zYW" secondAttribute="trailing" id="Ouc-69-CBg"/>
                     <constraint firstItem="Ve1-le-1N2" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.4" id="WG4-Ny-tmD"/>
+                    <constraint firstItem="YY4-9M-zYW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bDg-bN-wex"/>
                     <constraint firstItem="vFa-k9-aPd" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="jfM-5A-kWZ"/>
                     <constraint firstItem="Ve1-le-1N2" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="yNb-aN-02S"/>
+                    <constraint firstItem="YY4-9M-zYW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zj7-yb-kbX"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

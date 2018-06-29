@@ -31,9 +31,8 @@
                                     <action selector="goToPrevious:" destination="jIS-jF-tzf" eventType="touchUpInside" id="NJ2-ID-4P0"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rz7-lR-Byt">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rz7-lR-Byt">
                                 <rect key="frame" x="0.0" y="88" width="375" height="503"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="BXd-5m-ZvD">
                                     <size key="itemSize" width="80" height="100"/>
@@ -101,6 +100,10 @@
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zCx-DN-hau" firstAttribute="centerX" secondItem="PNJ-EF-6jU" secondAttribute="centerX" id="D4h-SV-OMc"/>
+                            <constraint firstItem="Rz7-lR-Byt" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" id="HW0-wv-4Hh"/>
+                            <constraint firstItem="Rz7-lR-Byt" firstAttribute="top" secondItem="zCx-DN-hau" secondAttribute="bottom" constant="8" id="OVj-tj-8lh"/>
+                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="top" secondItem="Rz7-lR-Byt" secondAttribute="bottom" constant="8" id="RMm-yL-nWm"/>
+                            <constraint firstItem="Rz7-lR-Byt" firstAttribute="trailing" secondItem="o04-IU-z3z" secondAttribute="trailing" id="WQk-Ax-sVj"/>
                             <constraint firstItem="dat-Sb-Vk7" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" constant="16" id="fes-OC-tTj"/>
                             <constraint firstItem="Sjq-gJ-0bd" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" id="hxw-ud-6Kd"/>
                             <constraint firstItem="dat-Sb-Vk7" firstAttribute="centerY" secondItem="zCx-DN-hau" secondAttribute="centerY" id="mVS-p9-mL9"/>

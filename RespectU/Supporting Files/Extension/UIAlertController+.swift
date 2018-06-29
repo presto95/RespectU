@@ -57,7 +57,7 @@ extension UIAlertController {
             bs.tableView.reloadData()
             favorite.tableView.reloadData()
         }
-        let alert = UIAlertController(title: "Search".localized, message: "Select the button type.".localized, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Search".localized, message: "Select the button type.".localized, preferredStyle: .alert)
         let button4 = UIAlertAction(title: "4B", style: .default) { _ in
             all.favoriteButton = "4B"
             portable1.favoriteButton = "4B"
@@ -126,7 +126,7 @@ extension UIAlertController {
             bs.tableView.reloadData()
         }
         let realm = try! Realm()
-        let alert = UIAlertController(title: "Sort".localized, message: "Select the sort method".localized, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Sort".localized, message: "Select the sort method".localized, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
         let normalAsc = UIAlertAction(title: "NORMAL / ASC".localized, style: .default) { _ in
             switch(all.favoriteButton){
@@ -422,7 +422,7 @@ extension UIAlertController {
     static func showFavoriteButtonSetting() -> UIAlertController {
         let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
         let message = "Current".localized + " : \(favorite ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
-        let alert = UIAlertController(title: "My Favorite Button".localized, message: message, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "My Favorite Button".localized, message: message, preferredStyle: .alert)
         let button4 = UIAlertAction(title: "4B", style: .default) { _ in
             UserDefaults.standard.set("4B", forKey: "favoriteButton")
         }

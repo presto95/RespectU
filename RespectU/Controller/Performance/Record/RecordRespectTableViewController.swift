@@ -51,24 +51,6 @@ class RecordRespectTableViewController: UITableViewController {
         let object = results[indexPath.row]
         cell.title.text = object.title
         cell.color.backgroundColor = UIColor.respect
-//        switch(object.series){
-//        case Series.portable1.rawValue:
-//            cell.color.backgroundColor = UIColor.portable1
-//        case Series.portable2.rawValue:
-//            cell.color.backgroundColor = UIColor.portable2
-//        case Series.respect.rawValue:
-//            cell.color.backgroundColor = UIColor.respect
-//        case Series.trilogy.rawValue:
-//            cell.color.backgroundColor = UIColor.trilogy
-//        case Series.ce.rawValue:
-//            cell.color.backgroundColor = UIColor.ce
-//        case Series.technika1.rawValue:
-//            cell.color.backgroundColor = UIColor.technika1
-//        case Series.bs.rawValue:
-//            cell.color.backgroundColor = UIColor.bs
-//        default:
-//            break
-//        }
         return cell
     }
     

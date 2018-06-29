@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presto_95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcF-fH-PJm" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="54" y="9" width="172" height="21"/>
+                        <rect key="frame" x="54" y="11" width="67.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -48,15 +48,15 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="9896.12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei7-ln-PsG">
-                        <rect key="frame" x="234" y="9" width="70" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9896.12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei7-ln-PsG">
+                        <rect key="frame" x="250" y="9" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="ei7-ln-PsG" secondAttribute="trailing" constant="16" id="8mS-GN-Njj"/>
+                    <constraint firstAttribute="trailing" secondItem="ei7-ln-PsG" secondAttribute="trailing" constant="16" id="4z3-qm-gNb"/>
                     <constraint firstItem="P7k-mr-mdr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Dlq-4Z-hDd"/>
                     <constraint firstItem="P7k-mr-mdr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Eqd-8A-pnB"/>
                     <constraint firstItem="ei7-ln-PsG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aGO-U8-4Ag"/>

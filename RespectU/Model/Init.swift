@@ -298,12 +298,12 @@ class Init{
             
             //Link Disk
             addMission(linkDisk, whiteDisk, "The Others", "BlythE", hard, button4, "Triple Zoe", hard, button6, "NB RANGER", maximum, button6, "SIN ~The Last Scene~", hard, button8, 0, 0, 1500, 97, 20, "Fever-OFF", "")
-            addMission(linkDisk, whiteDisk, "Just 1%", "MASAI", maximum, button5, "NB POWER", maximum, button5, "Showtime", hard, button5, "Rolling On the Duck", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / Don't make the MAX 1%", "")
+            addMission(linkDisk, whiteDisk, "Just 1%", "MASAI", maximum, button5, "NB POWER", maximum, button5, "Showtime", hard, button5, "Rolling On the Duck", maximum, button8, 0, 0, 0, 0, 0, "Fever-OFF / Don't make the MAX 1%", "")
             addMission(linkDisk, whiteDisk, "The Boss", "Ventilator", hard, button8, "Mind Control", hard, button8, "HAMSIN", hard, button8, "Taekwonburi".localized, maximum, button8, "Nevermind", hard, button8, "Nightmare", maximum, button8, 0, 0, 15100, 96, 0, "Fever-Manual", "")
-            addMission(linkDisk, whiteDisk, "ENVY vs NB", "DARK ENVY", maximum, button5, "NB RANGER - Virgin Force", maximum, button5, 0, 0, 0, 90, 0, "Fever-Off / CHAOS REVERSE", "")
-            addMission(linkDisk, whiteDisk, "Challenger", "PDM", maximum, button5, "A.I", hard, button8, "Purposed, Flower, Wolf part.2".localized, maximum, button6, "??", special, tb, 0, 0, 0, 99, 5, "Fever-Off", "")
-            addMission(linkDisk, whiteDisk, "MX Tournament", "ANALYS", maximum, button4, "Grave Consequence", maximum, button5, "Heart of Witch", maximum, button6, "Beat U Down", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / vs AI", "")
-            addMission(linkDisk, blackDisk, "Ending Scroll", "Purposed, Flower, Wolf".localized, hard, button4, "Purposed, Flower, Wolf part.2".localized, normal, button6, 0, 0, 0, 100, 0, "Fever-Off", "")
+            addMission(linkDisk, whiteDisk, "ENVY vs NB", "DARK ENVY", maximum, button5, "NB RANGER - Virgin Force", maximum, button5, 0, 0, 0, 90, 0, "Fever-OFF / CHAOS REVERSE", "")
+            addMission(linkDisk, whiteDisk, "Challenger", "PDM", maximum, button5, "A.I", hard, button8, "Proposed, Flower, Wolf part.2".localized, maximum, button6, "??", special, tb, 0, 0, 0, 99, 5, "Fever-OFF", "")
+            addMission(linkDisk, whiteDisk, "MX Tournament", "ANALYS", maximum, button4, "Grave Consequence", maximum, button5, "Heart of Witch", maximum, button6, "Beat U Down", maximum, button8, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
+            addMission(linkDisk, blackDisk, "Ending Scroll", "Proposed, Flower, Wolf".localized, hard, button4, "Proposed, Flower, Wolf part.2".localized, normal, button6, 0, 0, 0, 100, 0, "Fever-OFF", "")
             addMission(linkDisk, blackDisk, "Vitalize", "Ladymade Star", maximum, button4, "Royal Clown", maximum, button8, "Memory of Beach", hard, button5, "quixotic", maximum, button8, 1230000, 0, 0, 0, 0, "Fever-Manual", "")
             addMission(linkDisk, blackDisk, "SPEED STAR", "Fentanest", hard, button6, "STOP", maximum, button5, "KILLER BEE", maximum, button6, "Negative Nature", hard, button6, "Royal Clown", maximum, button8, 0, 5, 0, 98, 0, "SPEED 2.00 / Fever-Manual", "")
             addMission(linkDisk, blackDisk, "Infinity Combo", "NB POWER", maximum, button6, "WhiteBlue", maximum, button6, "RED", maximum, button6, "Sunny Side ~Deepn' Soul Mix~", maximum, button6, "Showtime", hard, button6, "Mind Control", maximum, button6, 0, 0, 38888, 0, 0, "Fever-Auto / FADER FOG", "")
@@ -317,7 +317,7 @@ class Init{
             addMission(bs, stylishPerformance, "Core System", "Lover (BS Style)", hard, button5, "Y (BS Style)", hard, button5, "Colours of Sorrow", hard, button5, "Cypher Gate", hard, button5, 1000000, 0, 1000, 0, 0, "Fever-OFF", "")
             addMission(bs, stylishPerformance, "Kingdom of Rock", "Lovely hands", hard, button6, "Keys to the World", normal, button8, "Fever Pitch Girl", hard, button6, "Heart of Witch", normal, button8, 0, 0, 6000, 94, 0, "Fever-Manual / FADER PIXEL", "")
             addMission(bs, stylishPerformance, "Load of Flame", "Colours of Sorrow", normal, button4, "Grave Consequence", normal, button5, "Beat U Down", normal, button4, "Fermion", normal, button8, 0, 0, 0, 80, 0, "Fever-OFF / CHAOS 4D", "")
-            addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFf", "")
+            addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFF", "")
             addMission(bs, absoluteSound, "RD Colosseum", "Honeymoon", redesign, button4, "Taekwonburi".localized, redesign, button5, "I want You", redesign, button6, "Cypher Gate", redesign, button8, 0, 5, 0, 0, 0, "Fever-Manual", "")
             addMission(bs, absoluteSound, "BS 24", "Always", hard, button4, "Fly Away", special, xb, "ANALYS", hard, button6, 985000, 0, 6500, 0, 0, "Fever-Manual", "")
             addMission(bs, absoluteSound, "Quatrr4", "RANDOM", hard, button4, "RANDOM", hard, button4, "RANDOM", maximum, button4, "RANDOM", maximum, button4, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
@@ -1540,7 +1540,7 @@ class Init{
                 addMission(bs, stylishPerformance, "Core System", "Lover (BS Style)", hard, button5, "Y (BS Style)", hard, button5, "Colours of Sorrow", hard, button5, "Cypher Gate", hard, button5, 1000000, 0, 1000, 0, 0, "Fever-OFF", "")
                 addMission(bs, stylishPerformance, "Kingdom of Rock", "Lovely hands", hard, button6, "Keys to the World", normal, button8, "Fever Pitch Girl", hard, button6, "Heart of Witch", normal, button8, 0, 0, 6000, 94, 0, "Fever-Manual / FADER PIXEL", "")
                 addMission(bs, stylishPerformance, "Load of Flame", "Colours of Sorrow", normal, button4, "Grave Consequence", normal, button5, "Beat U Down", normal, button4, "Fermion", normal, button8, 0, 0, 0, 80, 0, "Fever-OFF / CHAOS 4D", "")
-                addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFf", "")
+                addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFF", "")
                 addMission(bs, absoluteSound, "RD Colosseum", "Honeymoon", redesign, button4, "Taekwonburi".localized, redesign, button5, "I want You", redesign, button6, "Cypher Gate", redesign, button8, 0, 5, 0, 0, 0, "Fever-Manual", "")
                 addMission(bs, absoluteSound, "BS 24", "Always", hard, button4, "Fly Away", special, xb, "ANALYS", hard, button6, 985000, 0, 6500, 0, 0, "Fever-Manual", "")
                 addMission(bs, absoluteSound, "Quatrr4", "RANDOM", hard, button4, "RANDOM", hard, button4, "RANDOM", maximum, button4, "RANDOM", maximum, button4, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
@@ -1550,12 +1550,12 @@ class Init{
             //링크 디스크 미션 추가
             if realm.objects(MissionInfo.self).filter("type = 'Link Disk'").count == 0 {
                 addMission(linkDisk, whiteDisk, "The Others", "BlythE", hard, button4, "Triple Zoe", hard, button6, "NB RANGER", maximum, button6, "SIN ~The Last Scene~", hard, button8, 0, 0, 1500, 97, 20, "Fever-OFF", "")
-                addMission(linkDisk, whiteDisk, "Just 1%", "MASAI", maximum, button5, "NB POWER", maximum, button5, "Showtime", hard, button5, "Rolling On the Duck", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / Don't make the MAX 1%", "")
+                addMission(linkDisk, whiteDisk, "Just 1%", "MASAI", maximum, button5, "NB POWER", maximum, button5, "Showtime", hard, button5, "Rolling On the Duck", maximum, button8, 0, 0, 0, 0, 0, "Fever-OFF / Don't make the MAX 1%", "")
                 addMission(linkDisk, whiteDisk, "The Boss", "Ventilator", hard, button8, "Mind Control", hard, button8, "HAMSIN", hard, button8, "Taekwonburi".localized, maximum, button8, "Nevermind", hard, button8, "Nightmare", maximum, button8, 0, 0, 15100, 96, 0, "Fever-Manual", "")
-                addMission(linkDisk, whiteDisk, "ENVY vs NB", "DARK ENVY", maximum, button5, "NB RANGER - Virgin Force", maximum, button5, 0, 0, 0, 90, 0, "Fever-Off / CHAOS REVERSE", "")
-                addMission(linkDisk, whiteDisk, "Challenger", "PDM", maximum, button5, "A.I", hard, button8, "Purposed, Flower, Wolf part.2".localized, maximum, button6, "??", special, tb, 0, 0, 0, 99, 5, "Fever-Off", "")
-                addMission(linkDisk, whiteDisk, "MX Tournament", "ANALYS", maximum, button4, "Grave Consequence", maximum, button5, "Heart of Witch", maximum, button6, "Beat U Down", maximum, button8, 0, 0, 0, 0, 0, "Fever-Off / vs AI", "")
-                addMission(linkDisk, blackDisk, "Ending Scroll", "Purposed, Flower, Wolf".localized, hard, button4, "Purposed, Flower, Wolf part.2".localized, normal, button6, 0, 0, 0, 100, 0, "Fever-Off", "")
+                addMission(linkDisk, whiteDisk, "ENVY vs NB", "DARK ENVY", maximum, button5, "NB RANGER - Virgin Force", maximum, button5, 0, 0, 0, 90, 0, "Fever-OFF / CHAOS REVERSE", "")
+                addMission(linkDisk, whiteDisk, "Challenger", "PDM", maximum, button5, "A.I", hard, button8, "Proposed, Flower, Wolf part.2".localized, maximum, button6, "??", special, tb, 0, 0, 0, 99, 5, "Fever-OFF", "")
+                addMission(linkDisk, whiteDisk, "MX Tournament", "ANALYS", maximum, button4, "Grave Consequence", maximum, button5, "Heart of Witch", maximum, button6, "Beat U Down", maximum, button8, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
+                addMission(linkDisk, blackDisk, "Ending Scroll", "Proposed, Flower, Wolf".localized, hard, button4, "Proposed, Flower, Wolf part.2".localized, normal, button6, 0, 0, 0, 100, 0, "Fever-OFF", "")
                 addMission(linkDisk, blackDisk, "Vitalize", "Ladymade Star", maximum, button4, "Royal Clown", maximum, button8, "Memory of Beach", hard, button5, "quixotic", maximum, button8, 1230000, 0, 0, 0, 0, "Fever-Manual", "")
                 addMission(linkDisk, blackDisk, "SPEED STAR", "Fentanest", hard, button6, "STOP", maximum, button5, "KILLER BEE", maximum, button6, "Negative Nature", hard, button6, "Royal Clown", maximum, button8, 0, 5, 0, 98, 0, "SPEED 2.00 / Fever-Manual", "")
                 addMission(linkDisk, blackDisk, "Infinity Combo", "NB POWER", maximum, button6, "WhiteBlue", maximum, button6, "RED", maximum, button6, "Sunny Side ~Deepn' Soul Mix~", maximum, button6, "Showtime", hard, button6, "Mind Control", maximum, button6, 0, 0, 38888, 0, 0, "Fever-Auto / FADER FOG", "")
@@ -1670,8 +1670,8 @@ class Init{
             //1. 모든 곡에 그냥 lowercase 처리
             //2. 한국일 경우 한국 이름 곡 개수 세서(12개) 글자 순서대로 숫자로 lowercase 임의 처리
             if Locale.current.regionCode! == "KR" {
-                let songInfo = try! realm.objects(SongInfo.self).sorted(byKeyPath: "title")
-                let recordInfo = try! realm.objects(RecordInfo.self).sorted(byKeyPath: "title")
+                let songInfo = realm.objects(SongInfo.self).sorted(byKeyPath: "title")
+                let recordInfo = realm.objects(RecordInfo.self).sorted(byKeyPath: "title")
                 var count = 0
                 for index in songInfo.count - 12  ..< songInfo.count {
                     try! realm.write {

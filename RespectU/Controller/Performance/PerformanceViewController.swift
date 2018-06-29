@@ -253,7 +253,6 @@ extension PerformanceViewController: UITableViewDataSource{
         return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return 3
         return 2
     }
 }

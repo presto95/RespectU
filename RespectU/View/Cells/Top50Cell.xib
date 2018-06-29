@@ -7,7 +7,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,16 +69,16 @@
                         <color key="textColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGH-wp-90e">
-                        <rect key="frame" x="256" y="20.5" width="48" height="17"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G0-QT-VGC">
                         <rect key="frame" x="197" y="31" width="51" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGH-wp-90e">
+                        <rect key="frame" x="272" y="21" width="48" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -91,14 +90,12 @@
                     <constraint firstItem="9G0-QT-VGC" firstAttribute="centerY" secondItem="kj1-oJ-7mn" secondAttribute="centerY" id="4Nn-ic-yfA"/>
                     <constraint firstItem="pDW-gr-fXV" firstAttribute="leading" secondItem="KLO-3V-SWj" secondAttribute="trailing" constant="8" id="D2b-hV-6hS"/>
                     <constraint firstItem="KLO-3V-SWj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="EGF-d8-dDO"/>
-                    <constraint firstItem="DGH-wp-90e" firstAttribute="leading" secondItem="ctr-Ve-ugs" secondAttribute="trailing" constant="8" id="KfK-yD-Jog"/>
+                    <constraint firstItem="DGH-wp-90e" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MCh-JK-Xqo"/>
                     <constraint firstItem="ctr-Ve-ugs" firstAttribute="leading" secondItem="KLO-3V-SWj" secondAttribute="trailing" constant="8" id="ONe-Ub-6Yg"/>
                     <constraint firstItem="ctr-Ve-ugs" firstAttribute="bottom" secondItem="KLO-3V-SWj" secondAttribute="centerY" constant="-2" id="VdB-S1-4y6"/>
-                    <constraint firstItem="DGH-wp-90e" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gQn-8R-BK5"/>
+                    <constraint firstAttribute="trailing" secondItem="DGH-wp-90e" secondAttribute="trailing" constant="16" id="my8-md-h8C"/>
                     <constraint firstItem="kj1-oJ-7mn" firstAttribute="leading" secondItem="pDW-gr-fXV" secondAttribute="trailing" constant="8" id="rH2-zQ-0MP"/>
                     <constraint firstItem="kj1-oJ-7mn" firstAttribute="centerY" secondItem="pDW-gr-fXV" secondAttribute="centerY" id="wT6-ez-F1p"/>
-                    <constraint firstItem="DGH-wp-90e" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="wms-n3-QXp"/>
-                    <constraint firstItem="DGH-wp-90e" firstAttribute="leading" secondItem="9G0-QT-VGC" secondAttribute="trailing" constant="8" id="zfb-7l-Req"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

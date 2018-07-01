@@ -13,6 +13,7 @@ import RealmSwift
 
 class SongViewController: ButtonBarPagerTabStripViewController {
     
+    @IBOutlet weak var selectedButtonLabel: UILabel!
     let all = SongAllTableViewController()
     let portable1 = SongPortable1TableViewController()
     let portable2 = SongPortable2TableViewController()
@@ -25,6 +26,7 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
         settings.style.buttonBarBackgroundColor = UIColor.subColor
         settings.style.buttonBarItemBackgroundColor = UIColor.subColor
         settings.style.selectedBarBackgroundColor = UIColor.mainColor
@@ -43,7 +45,7 @@ class SongViewController: ButtonBarPagerTabStripViewController {
     }
     
     @IBAction func searchButton(_ sender: UIButton) {
-        let alert = UIAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, bs: bs, favorite: favorite)
+        let alert = UIAlertController.showSearch(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika, bs: bs, favorite: favorite, selectedButtonLabel: self.selectedButtonLabel)
         present(alert, animated: true)
     }
     

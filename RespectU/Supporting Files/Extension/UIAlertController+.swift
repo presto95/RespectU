@@ -45,7 +45,7 @@ extension UIAlertController {
         alert.addAction(yesAction)
         return alert
     }
-    static func showSearch(all: SongAllTableViewController, portable1: SongPortable1TableViewController, portable2: SongPortable2TableViewController, respect: SongRespectTableViewController, trilogy: SongTrilogyTableViewController, ce: SongCETableViewController, technika1: SongTechnika1TableViewController, bs: SongBSTableViewController, favorite: SongFavoriteTableViewController) -> UIAlertController {
+    static func showSearch(all: SongAllTableViewController, portable1: SongPortable1TableViewController, portable2: SongPortable2TableViewController, respect: SongRespectTableViewController, trilogy: SongTrilogyTableViewController, ce: SongCETableViewController, technika1: SongTechnika1TableViewController, bs: SongBSTableViewController, favorite: SongFavoriteTableViewController, selectedButtonLabel: UILabel) -> UIAlertController {
         func reloadTableView() {
             all.tableView.reloadData()
             portable1.tableView.reloadData()
@@ -68,6 +68,7 @@ extension UIAlertController {
             technika1.favoriteButton = "4B"
             bs.favoriteButton = "4B"
             favorite.favoriteButton = "4B"
+            selectedButtonLabel.text = "4B"
             reloadTableView()
         }
         let button5 = UIAlertAction(title: "5B", style: .default) { _ in
@@ -80,6 +81,7 @@ extension UIAlertController {
             technika1.favoriteButton = "5B"
             bs.favoriteButton = "5B"
             favorite.favoriteButton = "5B"
+            selectedButtonLabel.text = "5B"
             reloadTableView()
         }
         let button6 = UIAlertAction(title: "6B", style: .default) { _ in
@@ -92,6 +94,7 @@ extension UIAlertController {
             technika1.favoriteButton = "6B"
             bs.favoriteButton = "6B"
             favorite.favoriteButton = "6B"
+            selectedButtonLabel.text = "6B"
             reloadTableView()
         }
         let button8 = UIAlertAction(title: "8B", style: .default) { _ in
@@ -104,6 +107,7 @@ extension UIAlertController {
             technika1.favoriteButton = "8B"
             bs.favoriteButton = "8B"
             favorite.favoriteButton = "8B"
+            selectedButtonLabel.text = "8B"
             reloadTableView()
         }
         let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)

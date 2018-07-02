@@ -9,8 +9,8 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
-import PMAlertController
 import RealmSwift
+import StoreKit
 
 class PerformanceViewController: UIViewController {
   
@@ -30,6 +30,14 @@ class PerformanceViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             present(controller, animated: true)
+        }
+        
+        if #available(iOS 10.3, *) {
+            let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
+            UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
+            if UserDefaults.standard.integer(forKey: "appOpenCount") % 3 == 0 {
+                SKStoreReviewController.requestReview()
+            }
         }
     }
     

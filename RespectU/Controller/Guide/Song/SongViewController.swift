@@ -8,7 +8,6 @@
 
 import UIKit
 import XLPagerTabStrip
-import PMAlertController
 import RealmSwift
 
 class SongViewController: ButtonBarPagerTabStripViewController {

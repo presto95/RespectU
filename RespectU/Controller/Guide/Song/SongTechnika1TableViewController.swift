@@ -9,7 +9,6 @@
 import UIKit
 import XLPagerTabStrip
 import RealmSwift
-import PMAlertController
 
 class SongTechnika1TableViewController: UITableViewController {
     

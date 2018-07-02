@@ -57,7 +57,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - PMAlertController (3.4.0)
   - Realm (3.7.4):
     - Realm/Headers (= 3.7.4)
   - Realm/Headers (3.7.4)
@@ -74,7 +73,6 @@ DEPENDENCIES:
   - GaugeKit
   - GoogleSignIn
   - MarqueeLabel/Swift
-  - PMAlertController
   - RealmSwift
   - XLPagerTabStrip (~> 8.0)
 
@@ -95,7 +93,6 @@ SPEC REPOS:
     - leveldb-library
     - MarqueeLabel
     - nanopb
-    - PMAlertController
     - Realm
     - RealmSwift
     - XLPagerTabStrip
@@ -126,11 +123,10 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PMAlertController: efb781925d741d50e0200018a00c53cecb8b4910
   Realm: a469bb59e33f9926102ccaea4349822c53b9117e
   RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: dd79ca5e1f9c299390acf0982b3e505becb8f073
+PODFILE CHECKSUM: 6869a53d1ccecefeb023c8c162ab2126d1e75045
 
 COCOAPODS: 1.5.3

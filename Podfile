@@ -13,7 +13,6 @@ target 'RespectU' do
   pod 'GoogleSignIn'
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'
-  pod 'PMAlertController'
   pod 'AKPickerView-Swift', :git => 'https://github.com/Akkyie/AKPickerView-Swift.git'
   # Pods for RespectU
 

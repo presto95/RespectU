@@ -9,7 +9,6 @@
 import UIKit
 import XLPagerTabStrip
 import RealmSwift
-import PMAlertController
 
 class TrophyTechnika1TableViewController: UITableViewController {
     

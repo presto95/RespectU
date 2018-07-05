@@ -105,7 +105,6 @@
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
 		1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA30205F543F00CA43EA /* SearchByNoteView.xib */; };
 		1986CA33205F544900CA43EA /* SearchByNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA32205F544900CA43EA /* SearchByNoteView.swift */; };
-		1986CA35205F574100CA43EA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA34205F574100CA43EA /* UITextField+.swift */; };
 		1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */; };
 		1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */; };
 		1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */; };
@@ -259,7 +258,6 @@
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
 		1986CA30205F543F00CA43EA /* SearchByNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByNoteView.xib; sourceTree = "<group>"; };
 		1986CA32205F544900CA43EA /* SearchByNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNoteView.swift; sourceTree = "<group>"; };
-		1986CA34205F574100CA43EA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailViewController.swift; sourceTree = "<group>"; };
 		1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailCell.swift; sourceTree = "<group>"; };
 		1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecordDetailCell.xib; sourceTree = "<group>"; };
@@ -352,106 +350,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		19012FAB204808070061EF21 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				199B3BB4204E7C6100F2C47B /* Start */,
-				199B3BB2204E7C4F00F2C47B /* Performance */,
-				199B3BB3204E7C5C00F2C47B /* Guide */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		19012FAC2048080C0061EF21 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				19012FB12048083D0061EF21 /* Cells */,
-				19012FB0204808390061EF21 /* Views */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		19012FAD2048080F0061EF21 /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
-				19012FB32048342F0061EF21 /* Login.storyboard */,
-				19012FB52048344F0061EF21 /* Performance.storyboard */,
-				193E3FF0204B9C240063A440 /* Record.storyboard */,
-				193E401E204C07F40063A440 /* Top50.storyboard */,
-				193E4034204C24180063A440 /* Ranking.storyboard */,
-				19012FB72048345B0061EF21 /* Guide.storyboard */,
-				19320FC9204955DC0075BD86 /* Song.storyboard */,
-				19320FC7204955D50075BD86 /* Mission.storyboard */,
-				19320FC5204955CC0075BD86 /* Trophy.storyboard */,
-				19E02AC9204919830070D72B /* Achievement.storyboard */,
-				1968184E20490ADA0007F4D7 /* Tip.storyboard */,
-				196818482048F6820007F4D7 /* Radio.storyboard */,
-				191DFEBC204E98850095E9C1 /* Manual.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
 		19012FAE204808120061EF21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19012FB2204808AE0061EF21 /* Extension */,
 				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
-				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
-				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		19012FB0204808390061EF21 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				196818442048E34D0007F4D7 /* GuideReusableView.swift */,
-				193E3FF4204BB0D80063A440 /* RecordView.xib */,
-				193E3FF6204BB1060063A440 /* RecordView.swift */,
-				19F38C94204CC957006BB72B /* SkillLevelDetailView.xib */,
-				19F38C96204CC962006BB72B /* SkillLevelDetailView.swift */,
-				1986CA2C205F542100CA43EA /* SearchByRateView.xib */,
-				199EFFE52067D51B00A6068F /* SearchByRateView.swift */,
-				1986CA30205F543F00CA43EA /* SearchByNoteView.xib */,
-				1986CA32205F544900CA43EA /* SearchByNoteView.swift */,
-				19892A8520662D0A009D01F8 /* SearchByLevelView.xib */,
-				19892A8720662F83009D01F8 /* SearchByLevelView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		19012FB12048083D0061EF21 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				196818402048D32A0007F4D7 /* GuideCell.swift */,
-				196818412048D32A0007F4D7 /* GuideCell.xib */,
-				193DE8D9204922B400A829BB /* AchievementCell.swift */,
-				193DE8DA204922B400A829BB /* AchievementCell.xib */,
-				19320FD3204959BE0075BD86 /* TrophyCell.swift */,
-				19320FD4204959BE0075BD86 /* TrophyCell.xib */,
-				1999920C2049641A00C74697 /* MissionCell.swift */,
-				1999920D2049641A00C74697 /* MissionCell.xib */,
-				194E52B5204AC55900B84AFA /* SongCell.swift */,
-				194E52B6204AC55900B84AFA /* SongCell.xib */,
-				193E4006204BF37E0063A440 /* SummaryCell.swift */,
-				193E4007204BF37E0063A440 /* SummaryCell.xib */,
-				198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */,
-				198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */,
-				193E400A204BF5D60063A440 /* SkillLevelCell.swift */,
-				193E400B204BF5D60063A440 /* SkillLevelCell.xib */,
-				193E4018204C05A00063A440 /* Top50Cell.swift */,
-				193E4019204C05A00063A440 /* Top50Cell.xib */,
-				193E4036204C27220063A440 /* RankingCell.swift */,
-				193E403A204C2EB60063A440 /* RankingCell.xib */,
-				1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */,
-				1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */,
-				196F824E2074AD49000DF337 /* RecordCell.swift */,
-				196F824B2074A91B000DF337 /* RecordCell.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		19012FB2204808AE0061EF21 /* Extension */ = {
@@ -461,7 +369,6 @@
 				1968185220490D300007F4D7 /* UIColor+.swift */,
 				194E52B9204AD3BF00B84AFA /* Double+.swift */,
 				193E4016204C03C50063A440 /* UIView+.swift */,
-				1986CA34205F574100CA43EA /* UITextField+.swift */,
 				191A8B7D20E4FC930064F93E /* UIAlertController+.swift */,
 			);
 			path = Extension;
@@ -476,130 +383,6 @@
 				35C82758ABE7A6568499A7F2 /* Pods_RespectU.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		199B3BB2204E7C4F00F2C47B /* Performance */ = {
-			isa = PBXGroup;
-			children = (
-				19012FBB204837040061EF21 /* PerformanceViewController.swift */,
-				19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */,
-				198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */,
-				19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */,
-				1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */,
-				19D67EC420744EBB00FD9EC7 /* Record */,
-				199B3BBA204E7CD500F2C47B /* Top50 */,
-				199B3BBB204E7CDC00F2C47B /* Ranking */,
-			);
-			path = Performance;
-			sourceTree = "<group>";
-		};
-		199B3BB3204E7C5C00F2C47B /* Guide */ = {
-			isa = PBXGroup;
-			children = (
-				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
-				199B3BB6204E7C9700F2C47B /* Song */,
-				199B3BB7204E7C9B00F2C47B /* Mission */,
-				199B3BB8204E7C9F00F2C47B /* Trophy */,
-				199B3BB9204E7CA400F2C47B /* Achievement */,
-				1968185020490C730007F4D7 /* TipViewController.swift */,
-				1968184A2048F70D0007F4D7 /* RadioViewController.swift */,
-				191DFEBA204E98360095E9C1 /* ManualViewController.swift */,
-			);
-			path = Guide;
-			sourceTree = "<group>";
-		};
-		199B3BB4204E7C6100F2C47B /* Start */ = {
-			isa = PBXGroup;
-			children = (
-				19012FB9204835180061EF21 /* LoginViewController.swift */,
-			);
-			path = Start;
-			sourceTree = "<group>";
-		};
-		199B3BB6204E7C9700F2C47B /* Song */ = {
-			isa = PBXGroup;
-			children = (
-				19535F09204A8E74008C9A45 /* SongViewController.swift */,
-				194E52A5204A8F7B00B84AFA /* SongAllTableViewController.swift */,
-				194E52A7204A8F9900B84AFA /* SongPortable1TableViewController.swift */,
-				194E52A9204A900D00B84AFA /* SongPortable2TableViewController.swift */,
-				194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */,
-				194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */,
-				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
-				197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */,
-				192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */,
-				194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */,
-			);
-			path = Song;
-			sourceTree = "<group>";
-		};
-		199B3BB7204E7C9B00F2C47B /* Mission */ = {
-			isa = PBXGroup;
-			children = (
-				199992102049652700C74697 /* MissionViewController.swift */,
-				199992122049653900C74697 /* MissionRespectTableViewController.swift */,
-				199992142049654500C74697 /* MissionTrilogyTableViewController.swift */,
-				199992162049654E00C74697 /* MissionCETableViewController.swift */,
-				197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */,
-				192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */,
-				191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */,
-				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
-			);
-			path = Mission;
-			sourceTree = "<group>";
-		};
-		199B3BB8204E7C9F00F2C47B /* Trophy */ = {
-			isa = PBXGroup;
-			children = (
-				19320FCB2049566A0075BD86 /* TrophyViewController.swift */,
-				19320FCD2049568B0075BD86 /* TrophyRespectTableViewController.swift */,
-				19320FCF204956940075BD86 /* TrophyTrilogyTableViewController.swift */,
-				19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */,
-				197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */,
-				192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */,
-				192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */,
-			);
-			path = Trophy;
-			sourceTree = "<group>";
-		};
-		199B3BB9204E7CA400F2C47B /* Achievement */ = {
-			isa = PBXGroup;
-			children = (
-				19E02ACB2049199C0070D72B /* AchievementViewController.swift */,
-				193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */,
-				19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */,
-				19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */,
-				19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */,
-				19D1EF412069E9D600F2BFD5 /* AchievementPlateTableViewController.swift */,
-				19320FC1204942590075BD86 /* AchievementGalleryTableViewController.swift */,
-				19320FC3204942640075BD86 /* AchievementCommentTableViewController.swift */,
-			);
-			path = Achievement;
-			sourceTree = "<group>";
-		};
-		199B3BBA204E7CD500F2C47B /* Top50 */ = {
-			isa = PBXGroup;
-			children = (
-				193E4012204C02A30063A440 /* Top50ViewController.swift */,
-				193E4020204C09DB0063A440 /* Top504BTableViewController.swift */,
-				193E4022204C09E70063A440 /* Top505BTableViewController.swift */,
-				193E4024204C09F20063A440 /* Top506BTableViewController.swift */,
-				193E4026204C09FA0063A440 /* Top508BTableViewController.swift */,
-			);
-			path = Top50;
-			sourceTree = "<group>";
-		};
-		199B3BBB204E7CDC00F2C47B /* Ranking */ = {
-			isa = PBXGroup;
-			children = (
-				193E4028204C237A0063A440 /* RankingViewController.swift */,
-				193E402A204C23E90063A440 /* Ranking4BTableViewController.swift */,
-				193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */,
-				193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */,
-				193E4030204C24060063A440 /* Ranking8BTableViewController.swift */,
-				193E4032204C240F0063A440 /* RankingPPTableViewController.swift */,
-			);
-			path = Ranking;
 			sourceTree = "<group>";
 		};
 		19B6CFDF1F7953640097B86B = {
@@ -626,16 +409,249 @@
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
 				1997B0992012551E0072EED9 /* GoogleService-Info.plist */,
+				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
 				19012FAA204808010061EF21 /* Model */,
-				19012FAC2048080C0061EF21 /* View */,
-				19012FAB204808070061EF21 /* Controller */,
-				19012FAD2048080F0061EF21 /* Storyboard */,
+				19E767CC20EE51A5008C9F9D /* Start */,
+				19E767B420EE49B4008C9F9D /* Performance */,
+				19E767B520EE49BC008C9F9D /* Guide */,
+				19E767C620EE4B8F008C9F9D /* Record */,
 				19012FAE204808120061EF21 /* Supporting Files */,
 			);
 			path = RespectU;
 			sourceTree = "<group>";
 		};
-		19D67EC420744EBB00FD9EC7 /* Record */ = {
+		19E767B420EE49B4008C9F9D /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				19E767CD20EE528D008C9F9D /* Main */,
+				19E767DA20EE5714008C9F9D /* SkillLevel */,
+				19E767D620EE560D008C9F9D /* Summary */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
+		19E767B520EE49BC008C9F9D /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				19E767C720EE4BB1008C9F9D /* Main */,
+				19E767B620EE49C4008C9F9D /* Song */,
+				19E767B720EE49C7008C9F9D /* Mission */,
+				19E767B820EE49CA008C9F9D /* Trophy */,
+				19E767B920EE49CE008C9F9D /* Achievement */,
+				19E767C820EE4CFE008C9F9D /* Tip */,
+				19E767CA20EE4D09008C9F9D /* Manual */,
+				19E767C920EE4D05008C9F9D /* Radio */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		19E767B620EE49C4008C9F9D /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				19320FC9204955DC0075BD86 /* Song.storyboard */,
+				19E767BD20EE4A22008C9F9D /* View */,
+				19E767BC20EE4A19008C9F9D /* Controller */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		19E767B720EE49C7008C9F9D /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				19320FC7204955D50075BD86 /* Mission.storyboard */,
+				19E767BE20EE4A51008C9F9D /* View */,
+				19E767BF20EE4A55008C9F9D /* Controller */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
+		19E767B820EE49CA008C9F9D /* Trophy */ = {
+			isa = PBXGroup;
+			children = (
+				19320FC5204955CC0075BD86 /* Trophy.storyboard */,
+				19E767C120EE4A68008C9F9D /* View */,
+				19E767C020EE4A62008C9F9D /* Controller */,
+			);
+			path = Trophy;
+			sourceTree = "<group>";
+		};
+		19E767B920EE49CE008C9F9D /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				19E02AC9204919830070D72B /* Achievement.storyboard */,
+				19E767C320EE4A7F008C9F9D /* View */,
+				19E767C220EE4A7A008C9F9D /* Controller */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		19E767BC20EE4A19008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19535F09204A8E74008C9A45 /* SongViewController.swift */,
+				194E52A5204A8F7B00B84AFA /* SongAllTableViewController.swift */,
+				194E52A7204A8F9900B84AFA /* SongPortable1TableViewController.swift */,
+				194E52A9204A900D00B84AFA /* SongPortable2TableViewController.swift */,
+				194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */,
+				194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */,
+				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
+				197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */,
+				192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */,
+				194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767BD20EE4A22008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				194E52B5204AC55900B84AFA /* SongCell.swift */,
+				194E52B6204AC55900B84AFA /* SongCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767BE20EE4A51008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1999920C2049641A00C74697 /* MissionCell.swift */,
+				1999920D2049641A00C74697 /* MissionCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767BF20EE4A55008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				199992102049652700C74697 /* MissionViewController.swift */,
+				199992122049653900C74697 /* MissionRespectTableViewController.swift */,
+				199992142049654500C74697 /* MissionTrilogyTableViewController.swift */,
+				199992162049654E00C74697 /* MissionCETableViewController.swift */,
+				197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */,
+				192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */,
+				191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */,
+				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767C020EE4A62008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19320FCB2049566A0075BD86 /* TrophyViewController.swift */,
+				19320FCD2049568B0075BD86 /* TrophyRespectTableViewController.swift */,
+				19320FCF204956940075BD86 /* TrophyTrilogyTableViewController.swift */,
+				19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */,
+				197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */,
+				192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */,
+				192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767C120EE4A68008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19320FD3204959BE0075BD86 /* TrophyCell.swift */,
+				19320FD4204959BE0075BD86 /* TrophyCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767C220EE4A7A008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19E02ACB2049199C0070D72B /* AchievementViewController.swift */,
+				193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */,
+				19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */,
+				19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */,
+				19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */,
+				19D1EF412069E9D600F2BFD5 /* AchievementPlateTableViewController.swift */,
+				19320FC1204942590075BD86 /* AchievementGalleryTableViewController.swift */,
+				19320FC3204942640075BD86 /* AchievementCommentTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767C320EE4A7F008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				193DE8D9204922B400A829BB /* AchievementCell.swift */,
+				193DE8DA204922B400A829BB /* AchievementCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767C620EE4B8F008C9F9D /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				193E3FF0204B9C240063A440 /* Record.storyboard */,
+				19E767CF20EE529D008C9F9D /* View */,
+				19E767CE20EE529A008C9F9D /* Controller */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		19E767C720EE4BB1008C9F9D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				19012FB72048345B0061EF21 /* Guide.storyboard */,
+				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
+				196818402048D32A0007F4D7 /* GuideCell.swift */,
+				196818412048D32A0007F4D7 /* GuideCell.xib */,
+				196818442048E34D0007F4D7 /* GuideReusableView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		19E767C820EE4CFE008C9F9D /* Tip */ = {
+			isa = PBXGroup;
+			children = (
+				1968184E20490ADA0007F4D7 /* Tip.storyboard */,
+				1968185020490C730007F4D7 /* TipViewController.swift */,
+			);
+			path = Tip;
+			sourceTree = "<group>";
+		};
+		19E767C920EE4D05008C9F9D /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				196818482048F6820007F4D7 /* Radio.storyboard */,
+				1968184A2048F70D0007F4D7 /* RadioViewController.swift */,
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
+		19E767CA20EE4D09008C9F9D /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				191DFEBC204E98850095E9C1 /* Manual.storyboard */,
+				191DFEBA204E98360095E9C1 /* ManualViewController.swift */,
+			);
+			path = Manual;
+			sourceTree = "<group>";
+		};
+		19E767CC20EE51A5008C9F9D /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
+				19012FB32048342F0061EF21 /* Login.storyboard */,
+				19012FB9204835180061EF21 /* LoginViewController.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
+		19E767CD20EE528D008C9F9D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				19E767DD20EE59A7008C9F9D /* SkillLevelDetail */,
+				19012FB52048344F0061EF21 /* Performance.storyboard */,
+				19012FBB204837040061EF21 /* PerformanceViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		19E767CE20EE529A008C9F9D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				193E3FF2204B9EB80063A440 /* RecordViewController.swift */,
@@ -648,7 +664,164 @@
 				19D67ED120744F3D00FD9EC7 /* RecordTechnika1TableViewController.swift */,
 				191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */,
 			);
-			path = Record;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767CF20EE529D008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				193E3FF4204BB0D80063A440 /* RecordView.xib */,
+				193E3FF6204BB1060063A440 /* RecordView.swift */,
+				196F824E2074AD49000DF337 /* RecordCell.swift */,
+				196F824B2074A91B000DF337 /* RecordCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767D020EE53DB008C9F9D /* Top50 */ = {
+			isa = PBXGroup;
+			children = (
+				193E401E204C07F40063A440 /* Top50.storyboard */,
+				19E767D320EE5501008C9F9D /* View */,
+				19E767D220EE5485008C9F9D /* Controller */,
+			);
+			path = Top50;
+			sourceTree = "<group>";
+		};
+		19E767D120EE53E0008C9F9D /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				193E4034204C24180063A440 /* Ranking.storyboard */,
+				19E767D520EE55EA008C9F9D /* View */,
+				19E767D420EE55E4008C9F9D /* Controller */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		19E767D220EE5485008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				193E4012204C02A30063A440 /* Top50ViewController.swift */,
+				193E4020204C09DB0063A440 /* Top504BTableViewController.swift */,
+				193E4022204C09E70063A440 /* Top505BTableViewController.swift */,
+				193E4024204C09F20063A440 /* Top506BTableViewController.swift */,
+				193E4026204C09FA0063A440 /* Top508BTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767D320EE5501008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				193E4018204C05A00063A440 /* Top50Cell.swift */,
+				193E4019204C05A00063A440 /* Top50Cell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767D420EE55E4008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				193E4028204C237A0063A440 /* RankingViewController.swift */,
+				193E402A204C23E90063A440 /* Ranking4BTableViewController.swift */,
+				193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */,
+				193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */,
+				193E4030204C24060063A440 /* Ranking8BTableViewController.swift */,
+				193E4032204C240F0063A440 /* RankingPPTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767D520EE55EA008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				193E4036204C27220063A440 /* RankingCell.swift */,
+				193E403A204C2EB60063A440 /* RankingCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767D620EE560D008C9F9D /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				19E767D920EE5650008C9F9D /* SearchRecord */,
+				19E767D720EE5626008C9F9D /* View */,
+				19E767D820EE5629008C9F9D /* Controller */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		19E767D720EE5626008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				193E4006204BF37E0063A440 /* SummaryCell.swift */,
+				193E4007204BF37E0063A440 /* SummaryCell.xib */,
+				198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */,
+				198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767D820EE5629008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767D920EE5650008C9F9D /* SearchRecord */ = {
+			isa = PBXGroup;
+			children = (
+				19E767DB20EE58CE008C9F9D /* View */,
+				19E767DC20EE58D3008C9F9D /* Controller */,
+			);
+			path = SearchRecord;
+			sourceTree = "<group>";
+		};
+		19E767DA20EE5714008C9F9D /* SkillLevel */ = {
+			isa = PBXGroup;
+			children = (
+				193E400A204BF5D60063A440 /* SkillLevelCell.swift */,
+				193E400B204BF5D60063A440 /* SkillLevelCell.xib */,
+				19E767D020EE53DB008C9F9D /* Top50 */,
+				19E767D120EE53E0008C9F9D /* Ranking */,
+			);
+			path = SkillLevel;
+			sourceTree = "<group>";
+		};
+		19E767DB20EE58CE008C9F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1986CA2C205F542100CA43EA /* SearchByRateView.xib */,
+				199EFFE52067D51B00A6068F /* SearchByRateView.swift */,
+				1986CA30205F543F00CA43EA /* SearchByNoteView.xib */,
+				1986CA32205F544900CA43EA /* SearchByNoteView.swift */,
+				19892A8520662D0A009D01F8 /* SearchByLevelView.xib */,
+				19892A8720662F83009D01F8 /* SearchByLevelView.swift */,
+				1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */,
+				1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19E767DC20EE58D3008C9F9D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */,
+				1986CA36205FC26600CA43EA /* SearchRecordDetailViewController.swift */,
+				198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19E767DD20EE59A7008C9F9D /* SkillLevelDetail */ = {
+			isa = PBXGroup;
+			children = (
+				19F38C92204CC69A006BB72B /* SkillLevelDetailViewController.swift */,
+				19F38C94204CC957006BB72B /* SkillLevelDetailView.xib */,
+				19F38C96204CC962006BB72B /* SkillLevelDetailView.swift */,
+			);
+			path = SkillLevelDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -901,7 +1074,6 @@
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
-				1986CA35205F574100CA43EA /* UITextField+.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,
 				193E4027204C09FA0063A440 /* Top508BTableViewController.swift in Sources */,
 				19012FC420484C020061EF21 /* TipInfo.swift in Sources */,

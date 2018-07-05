@@ -19,7 +19,7 @@ class Init{
             UserDefaults.standard.set(15, forKey: "version")
             UserDefaults.standard.set(true, forKey: "error1")
         }
-        
+    
         let version = UserDefaults.standard.integer(forKey: "version")
         print(version)
         
@@ -49,7 +49,7 @@ class Init{
             addSong(bs, "Grave Consequence", "Tsukasa", "180", 6, 10, 14, 6, 10, 13, 7, 12, 0, 7, 10, 14)
             addSong(bs, "Heart of Witch", "ReX", "170", 7, 12, 14, 7, 11, 15, 7, 12, 14, 8, 12, 15)
             addSong(bs, "In my Dream", "ND Lee", "140", 5, 10, 15, 8, 11, 13, 5, 11, 13, 8, 10, 14)
-            addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 9, 0, 3, 8, 10)
+            addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 0, 9, 3, 8, 10)
             addSong(bs, "Keys to the World", "Planetboom", "160", 5, 8, 12, 6, 9, 13, 6, 11, 0, 6, 10, 13)
             addSong(bs, "Lovely hands", "Planetboom", "132", 4, 0, 10, 5, 9, 11, 3, 10, 0, 6, 9, 11)
             addSong(bs, "Lover (BS Style)", "ND Lee", "145", 5, 7, 12, 5, 10, 0, 4, 8, 11, 5, 8, 10)
@@ -1464,7 +1464,7 @@ class Init{
                 addSong(bs, "Grave Consequence", "Tsukasa", "180", 6, 10, 14, 6, 10, 13, 7, 12, 0, 7, 10, 14)
                 addSong(bs, "Heart of Witch", "ReX", "170", 7, 12, 14, 7, 11, 15, 7, 12, 14, 8, 12, 15)
                 addSong(bs, "In my Dream", "ND Lee", "140", 5, 10, 15, 8, 11, 13, 5, 11, 13, 8, 10, 14)
-                addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 9, 0, 3, 8, 10)
+                addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 0, 9, 3, 8, 10)
                 addSong(bs, "Keys to the World", "Planetboom", "160", 5, 8, 12, 6, 9, 13, 6, 11, 0, 6, 10, 13)
                 addSong(bs, "Lovely hands", "Planetboom", "132", 4, 0, 10, 5, 9, 11, 3, 10, 0, 6, 9, 11)
                 addSong(bs, "Lover (BS Style)", "ND Lee", "145", 5, 7, 12, 5, 10, 0, 4, 8, 11, 5, 8, 10)
@@ -1687,6 +1687,90 @@ class Init{
                 }
             }
             UserDefaults.standard.set(206, forKey: "version")
+        }
+        
+        if version <= 206 {
+            let bs = realm.objects(MissionInfo.self).filter("type = 'BS'")
+            try! realm.write {
+                for index in 0..<bs.count {
+                    switch index {
+                    case 0:
+                        bs[index].reward = "Gallery : " + "Proposed, Flower, Wolf part.2".localized + " (3)"
+                    case 1:
+                        bs[index].reward = "Gallery : Jealousy"
+                    case 2:
+                        bs[index].reward = "Gallery : Ready Now (3)"
+                    case 3:
+                        bs[index].reward = "Plate : Get Down"
+                    case 4:
+                        bs[index].reward = "Plate : Fever Pitch Girl"
+                    case 5:
+                        bs[index].reward = "Plate : Clear (Get Down ver.)"
+                    case 6:
+                        bs[index].reward = "Plate : In my Dream"
+                    case 7:
+                        bs[index].reward = "MV : Glory Day (MUCA Live ver.)"
+                    case 8:
+                        bs[index].reward = "Gallery : EXTRA (11)"
+                    case 9:
+                        bs[index].reward = "Gallery : Heart of Witch (4)"
+                    case 10:
+                        bs[index].reward = "Plate : Fermion"
+                    case 11:
+                        bs[index].reward = "Plate : Heart of Witch"
+                    default:
+                        break
+                    }
+                }
+            }
+            var title = "Jealousy"
+            var song = realm.objects(SongInfo.self).filter("title = '\(title)'").first!
+            var record = realm.objects(RecordInfo.self).filter("title = '\(title)'").first!
+            try! realm.write {
+                song.hd6 = 0
+                song.mx6 = 9
+                record.hd6 = 0
+                record.mx6 = 9
+            }
+            title = "ANALYS"
+            song = realm.objects(SongInfo.self).filter("title = '\(title)'").first!
+            record = realm.objects(RecordInfo.self).filter("title = '\(title)'").first!
+            try! realm.write {
+                song.mx6 = 14
+                record.mx6 = 14
+                song.hd8 = 11
+                record.hd8 = 11
+            }
+            title = "In my Dream"
+            song = realm.objects(SongInfo.self).filter("title = '\(title)'").first!
+            record = realm.objects(RecordInfo.self).filter("title = '\(title)'").first!
+            try! realm.write {
+                song.mx4 = 14
+                record.mx4 = 14
+            }
+            title = "Beat U Down"
+            song = realm.objects(SongInfo.self).filter("title = '\(title)'").first!
+            record = realm.objects(RecordInfo.self).filter("title = '\(title)'").first!
+            try! realm.write {
+                song.mx6 = 14
+                record.mx6 = 14
+            }
+            title = "Colours of Sorrow"
+            song = realm.objects(SongInfo.self).filter("title = '\(title)'").first!
+            record = realm.objects(RecordInfo.self).filter("title = '\(title)'").first!
+            try! realm.write {
+                song.mx6 = 12
+                record.mx6 = 12
+            }
+            title = "Jealousy"
+            song = realm.objects(SongInfo.self).filter("title = '\(title)'").first!
+            record = realm.objects(RecordInfo.self).filter("title = '\(title)'").first!
+            try! realm.write {
+                song.mx8 = 9
+                record.mx8 = 9
+            }
+            reloadSkillPoint(realm: realm)
+            UserDefaults.standard.set(207, forKey: "version")
         }
         print("DATABASE INITIALIZE FINISHED!!")
     }

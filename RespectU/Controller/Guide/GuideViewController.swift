@@ -191,7 +191,7 @@ extension GuideViewController: UICollectionViewDelegate{
                 let major = version.first!.description
                 let minor = version[version.index(version.startIndex, offsetBy: 1)...version.index(version.startIndex, offsetBy: 2)].description
                 let stringVersion = major + "." + minor
-                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.14\nRespectU " + stringVersion + "\n\nApp icon by icons8"
+                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.15\nRespectU " + stringVersion + "\n\nApp icon by icons8"
                 let alert = UIAlertController(title: "CREDITS".localized, message: message, preferredStyle: .alert)
                 let rate = UIAlertAction(title: "Rate this app".localized, style: .default, handler: { _ in
                     self.rateApp(appId: "id1291664067", completion: { (bool) in

@@ -68,6 +68,7 @@ class MissionTechnika1TableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! MissionCell
         let storyboard = UIStoryboard(name: "Mission", bundle: nil)
         let next = storyboard.instantiateViewController(withIdentifier: "MissionDetailViewController") as! MissionDetailViewController
+        next.modalTransitionStyle = .crossDissolve
         next.missionTitle = cell.title.text!
         present(next, animated: true, completion: nil)
     }

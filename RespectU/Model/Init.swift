@@ -39,8 +39,8 @@ class Init{
             
             //Black Square
             addSong(bs, "Proposed, Flower, Wolf part.2".localized, "ReX", "160", 3, 8, 0, 4, 10, 0, 4, 8, 11, 5, 10, 0)
-            addSong(bs, "Beat U Down", "makou", "155", 8, 12, 14, 8, 10, 14, 9, 12, 15, 8, 10, 14)
-            addSong(bs, "Colours of Sorrow", "Tsukasa", "143", 4, 0, 11, 6, 9, 12, 5, 9, 13, 6, 9, 13)
+            addSong(bs, "Beat U Down", "makou", "155", 8, 12, 14, 8, 10, 14, 9, 12, 14, 8, 10, 14)
+            addSong(bs, "Colours of Sorrow", "Tsukasa", "143", 4, 0, 11, 6, 9, 12, 5, 9, 12, 6, 9, 13)
             addSong(bs, "Cypher Gate", "7 Sequence", "150", 5, 8, 0, 7, 10, 0, 7, 10, 13, 7, 10, 13)
             addSong(bs, "Desperado", "Croove", "130", 5, 9, 11, 7, 11, 0, 5, 8, 11, 7, 12, 0)
             addSong(bs, "Fermion", "makou", "156", 8, 11, 14, 7, 9, 14, 8, 12, 14, 7, 10, 14)
@@ -48,8 +48,8 @@ class Init{
             addSong(bs, "Get Down", "BJJ", "111", 4, 7, 9, 4, 9, 0, 4, 7, 10, 5, 10, 0)
             addSong(bs, "Grave Consequence", "Tsukasa", "180", 6, 10, 14, 6, 10, 13, 7, 12, 0, 7, 10, 14)
             addSong(bs, "Heart of Witch", "ReX", "170", 7, 12, 14, 7, 11, 15, 7, 12, 14, 8, 12, 15)
-            addSong(bs, "In my Dream", "ND Lee", "140", 5, 10, 15, 8, 11, 13, 5, 11, 13, 8, 10, 14)
-            addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 0, 9, 3, 8, 10)
+            addSong(bs, "In my Dream", "ND Lee", "140", 5, 10, 14, 8, 11, 13, 5, 11, 13, 8, 10, 14)
+            addSong(bs, "Jealousy", "3rd Coast", "125", 3, 7, 0, 3, 7, 9, 4, 0, 9, 3, 9, 10)
             addSong(bs, "Keys to the World", "Planetboom", "160", 5, 8, 12, 6, 9, 13, 6, 11, 0, 6, 10, 13)
             addSong(bs, "Lovely hands", "Planetboom", "132", 4, 0, 10, 5, 9, 11, 3, 10, 0, 6, 9, 11)
             addSong(bs, "Lover (BS Style)", "ND Lee", "145", 5, 7, 12, 5, 10, 0, 4, 8, 11, 5, 8, 10)
@@ -178,7 +178,7 @@ class Init{
             addSong("Respect", "Do you want it", "House Rulez", "123", 5, 8, 0, 7, 9, 0, 5, 9, 0, 5, 11, 0)
             addSong("Respect", "Only On", "Dok2", "96", 2, 5, 0, 3, 6, 0, 2, 5, 0, 3, 5, 8)
             //1.14
-            addSong(respect, "ANALYS", "HAYAKO", "170", 7, 11, 14, 7, 11, 0, 7, 11, 13, 8, 10, 14)
+            addSong(respect, "ANALYS", "HAYAKO", "170", 7, 11, 14, 7, 11, 0, 7, 11, 14, 8, 11, 14)
             addSong(respect, "Always", "YUGI / Mool", "135", 4, 7, 0, 6, 9, 0, 5, 10, 0, 6, 10, 0)
             addSong(respect, "Fly Away", "Xeon", "140", 3, 10, 0, 6, 10, 0, 4, 0, 11, 6, 10, 0)
             
@@ -311,18 +311,18 @@ class Init{
             addMission(linkDisk, blackDisk, "Enter the Rocky Studio", "BlackCat", hard, button8, "ANALYS", maximum, button8, "Cypher Gate", redesign, button8, "STALKER", fx, button4, "Ventilator", fx, button5, "We're All Gonna Die", special, xb, 2000000, 5, 10000, 97, 50, "Fever-Manual", "")
             
             //Black Square
-            addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Proposed, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "")
-            addMission(bs, stylishPerformance, "Downtown", "PDM", hard, button5, "Jealousy", hard, button5, "Secret World", hard, button5, 0, 0, 0, 96, 0, "Fever-OFF / FADE OUT", "")
-            addMission(bs, stylishPerformance, "DnB Territory", "Ready Now", hard, button6, "Ruti'n", hard, button6, "Desperado", hard, button6, 0, 4, 0, 0, 15, "Fever-Manual", "")
-            addMission(bs, stylishPerformance, "Core System", "Lover (BS Style)", hard, button5, "Y (BS Style)", hard, button5, "Colours of Sorrow", hard, button5, "Cypher Gate", hard, button5, 1000000, 0, 1000, 0, 0, "Fever-OFF", "")
-            addMission(bs, stylishPerformance, "Kingdom of Rock", "Lovely hands", hard, button6, "Keys to the World", normal, button8, "Fever Pitch Girl", hard, button6, "Heart of Witch", normal, button8, 0, 0, 6000, 94, 0, "Fever-Manual / FADER PIXEL", "")
-            addMission(bs, stylishPerformance, "Load of Flame", "Colours of Sorrow", normal, button4, "Grave Consequence", normal, button5, "Beat U Down", normal, button4, "Fermion", normal, button8, 0, 0, 0, 80, 0, "Fever-OFF / CHAOS 4D", "")
-            addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFF", "")
-            addMission(bs, absoluteSound, "RD Colosseum", "Honeymoon", redesign, button4, "Taekwonburi".localized, redesign, button5, "I want You", redesign, button6, "Cypher Gate", redesign, button8, 0, 5, 0, 0, 0, "Fever-Manual", "")
-            addMission(bs, absoluteSound, "BS 24", "Always", hard, button4, "Fly Away", special, xb, "ANALYS", hard, button6, 985000, 0, 6500, 0, 0, "Fever-Manual", "")
-            addMission(bs, absoluteSound, "Quatrr4", "RANDOM", hard, button4, "RANDOM", hard, button4, "RANDOM", maximum, button4, "RANDOM", maximum, button4, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "")
-            addMission(bs, absoluteSound, "Metro Project vol.2", "HEXAD", fx, button5, "SuperSonic", fx, button5, "Cypher Gate", fx, button5, "In my Dream", fx, button5, 1230000, 0, 0, 95, 0, "Fever-Auto", "")
-            addMission(bs, absoluteSound, "Illusion", "Nevermind", hard, button4, "Rising The Sonic", hard, button5, "Do you want it", hard, button6, "ANALYS", hard, button8, 0, 0, 0, 0, 0, "Fever-Auto / FADER PIXEL / vs AI", "")
+            addMission(bs, stylishPerformance, "NewB Crew", "Get Down", hard, button4, "Proposed, Flower, Wolf part.2".localized, hard, button4, 600000, 5, 0, 0, 0, "Fever-Manual", "Gallery : " + "Proposed, Flower, Wolf part.2".localized)
+            addMission(bs, stylishPerformance, "Downtown", "PDM", hard, button5, "Jealousy", hard, button5, "Secret World", hard, button5, 0, 0, 0, 96, 0, "Fever-OFF / FADE OUT", "Gallery : Jealousy")
+            addMission(bs, stylishPerformance, "DnB Territory", "Ready Now", hard, button6, "Ruti'n", hard, button6, "Desperado", hard, button6, 0, 4, 0, 0, 15, "Fever-Manual", "Gallery : Ready Now (3)")
+            addMission(bs, stylishPerformance, "Core System", "Lover (BS Style)", hard, button5, "Y (BS Style)", hard, button5, "Colours of Sorrow", hard, button5, "Cypher Gate", hard, button5, 1000000, 0, 1000, 0, 0, "Fever-OFF", "Plate : Get Down")
+            addMission(bs, stylishPerformance, "Kingdom of Rock", "Lovely hands", hard, button6, "Keys to the World", normal, button8, "Fever Pitch Girl", hard, button6, "Heart of Witch", normal, button8, 0, 0, 6000, 94, 0, "Fever-Manual / FADER PIXEL", "Plate : Fever Pitch Girl")
+            addMission(bs, stylishPerformance, "Load of Flame", "Colours of Sorrow", normal, button4, "Grave Consequence", normal, button5, "Beat U Down", normal, button4, "Fermion", normal, button8, 0, 0, 0, 80, 0, "Fever-OFF / CHAOS 4D", "Plate : Clear (Get Down ver.)")
+            addMission(bs, absoluteSound, "BLACK CUBE", "Get Down", fx, button5, 0, 0, 450, 0, 0, "Fever-OFF", "Plate : In my Dream")
+            addMission(bs, absoluteSound, "RD Colosseum", "Honeymoon", redesign, button4, "Taekwonburi".localized, redesign, button5, "I want You", redesign, button6, "Cypher Gate", redesign, button8, 0, 5, 0, 0, 0, "Fever-Manual", "MV : Glory Day (MUCA Live ver.)")
+            addMission(bs, absoluteSound, "BS 24", "Always", hard, button4, "Fly Away", special, xb, "ANALYS", hard, button6, 985000, 0, 6500, 0, 0, "Fever-Manual", "Gallery : EXTRA (11)")
+            addMission(bs, absoluteSound, "Quatrr4", "RANDOM", hard, button4, "RANDOM", hard, button4, "RANDOM", maximum, button4, "RANDOM", maximum, button4, 0, 0, 0, 0, 0, "Fever-OFF / vs AI", "Gallery : Heart of Witch (4)")
+            addMission(bs, absoluteSound, "Metro Project vol.2", "HEXAD", fx, button5, "SuperSonic", fx, button5, "Cypher Gate", fx, button5, "In my Dream", fx, button5, 1230000, 0, 0, 95, 0, "Fever-Auto", "Plate : Fermion")
+            addMission(bs, absoluteSound, "Illusion", "Nevermind", hard, button4, "Rising The Sonic", hard, button5, "Do you want it", hard, button6, "ANALYS", hard, button8, 0, 0, 0, 0, 0, "Fever-Auto / FADER PIXEL / vs AI", "Plate : Heart of Witch")
             
             //Technika1
             addMission("Technika1", "Platinum Mixing", "Idol Mania", "First Kiss", "NORMAL", "4B", "I want You", "NORMAL", "4B", "Ladymade Star", "HARD", "4B", 800000, 0, 0, 0, 0, "Fever-Manual", "Gallery : I want you (3)")

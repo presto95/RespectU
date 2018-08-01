@@ -22,6 +22,12 @@
 		19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */; };
 		191275DB2111E3D80046AA3E /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275DA2111E3D80046AA3E /* ActivityIndicatorView.swift */; };
 		191275DD2111EFE80046AA3E /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275DC2111EFE80046AA3E /* Achievement.swift */; };
+		191275E02112000F0046AA3E /* RecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275DF2112000F0046AA3E /* RecordRequest.swift */; };
+		191275E32112003F0046AA3E /* SongRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275E22112003F0046AA3E /* SongRequest.swift */; };
+		191275E5211200450046AA3E /* MissionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275E4211200450046AA3E /* MissionRequest.swift */; };
+		191275E72112004D0046AA3E /* AchievementRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275E62112004D0046AA3E /* AchievementRequest.swift */; };
+		191275E9211200560046AA3E /* TrophyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275E8211200560046AA3E /* TrophyRequest.swift */; };
+		191275EB211206790046AA3E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EA211206790046AA3E /* NSObject+.swift */; };
 		191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */; };
 		191A8B7E20E4FC930064F93E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7D20E4FC930064F93E /* UIAlertController+.swift */; };
 		191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */; };
@@ -92,7 +98,6 @@
 		194E52BA204AD3BF00B84AFA /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B9204AD3BF00B84AFA /* Double+.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
-		196818432048D32A0007F4D7 /* GuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196818412048D32A0007F4D7 /* GuideCell.xib */; };
 		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
 		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
 		1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968184A2048F70D0007F4D7 /* RadioViewController.swift */; };
@@ -180,6 +185,12 @@
 		19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInfo.swift; sourceTree = "<group>"; };
 		191275DA2111E3D80046AA3E /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		191275DC2111EFE80046AA3E /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		191275DF2112000F0046AA3E /* RecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRequest.swift; sourceTree = "<group>"; };
+		191275E22112003F0046AA3E /* SongRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequest.swift; sourceTree = "<group>"; };
+		191275E4211200450046AA3E /* MissionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRequest.swift; sourceTree = "<group>"; };
+		191275E62112004D0046AA3E /* AchievementRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRequest.swift; sourceTree = "<group>"; };
+		191275E8211200560046AA3E /* TrophyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyRequest.swift; sourceTree = "<group>"; };
+		191275EA211206790046AA3E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBSTableViewController.swift; sourceTree = "<group>"; };
 		191A8B7D20E4FC930064F93E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
@@ -250,7 +261,6 @@
 		194E52B9204AD3BF00B84AFA /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
-		196818412048D32A0007F4D7 /* GuideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideCell.xib; sourceTree = "<group>"; };
 		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
 		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
 		1968184A2048F70D0007F4D7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +388,7 @@
 				194E52B9204AD3BF00B84AFA /* Double+.swift */,
 				193E4016204C03C50063A440 /* UIView+.swift */,
 				191A8B7D20E4FC930064F93E /* UIAlertController+.swift */,
+				191275EA211206790046AA3E /* NSObject+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -393,6 +404,18 @@
 				191275DC2111EFE80046AA3E /* Achievement.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		191275E1211200230046AA3E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				191275DF2112000F0046AA3E /* RecordRequest.swift */,
+				191275E22112003F0046AA3E /* SongRequest.swift */,
+				191275E4211200450046AA3E /* MissionRequest.swift */,
+				191275E62112004D0046AA3E /* AchievementRequest.swift */,
+				191275E8211200560046AA3E /* TrophyRequest.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
@@ -429,6 +452,7 @@
 			children = (
 				191275DE2111F7150046AA3E /* Constants */,
 				19012FAA204808010061EF21 /* Model */,
+				191275E1211200230046AA3E /* Realm */,
 				19E767CC20EE51A5008C9F9D /* Start */,
 				19E767B420EE49B4008C9F9D /* Performance */,
 				19E767B520EE49BC008C9F9D /* Guide */,
@@ -617,7 +641,6 @@
 				19012FB72048345B0061EF21 /* Guide.storyboard */,
 				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
 				196818402048D32A0007F4D7 /* GuideCell.swift */,
-				196818412048D32A0007F4D7 /* GuideCell.xib */,
 				196818442048E34D0007F4D7 /* GuideReusableView.swift */,
 			);
 			path = Main;
@@ -924,7 +947,6 @@
 				19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */,
 				193DE8DC204922B400A829BB /* AchievementCell.xib in Resources */,
 				193E4035204C24180063A440 /* Ranking.storyboard in Resources */,
-				196818432048D32A0007F4D7 /* GuideCell.xib in Resources */,
 				19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */,
 				193E400D204BF5D60063A440 /* SkillLevelCell.xib in Resources */,
 				1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */,
@@ -1030,6 +1052,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191275E5211200450046AA3E /* MissionRequest.swift in Sources */,
 				19012FBA204835180061EF21 /* LoginViewController.swift in Sources */,
 				194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */,
 				19012FCD20484C260061EF21 /* TrophyInfo.swift in Sources */,
@@ -1045,6 +1068,7 @@
 				19D1EF422069E9D600F2BFD5 /* AchievementPlateTableViewController.swift in Sources */,
 				19012FC820484C0F0061EF21 /* MissionInfo.swift in Sources */,
 				191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */,
+				191275E02112000F0046AA3E /* RecordRequest.swift in Sources */,
 				192DF89B2111D92B0016F386 /* Series.swift in Sources */,
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
@@ -1057,6 +1081,7 @@
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
 				191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */,
 				19D67EC820744F0700FD9EC7 /* RecordPortable2TableViewController.swift in Sources */,
+				191275E32112003F0046AA3E /* SongRequest.swift in Sources */,
 				193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */,
 				194E52BA204AD3BF00B84AFA /* Double+.swift in Sources */,
 				19D67EC620744EEB00FD9EC7 /* RecordAllTableViewController.swift in Sources */,
@@ -1080,6 +1105,7 @@
 				194E52B7204AC55900B84AFA /* SongCell.swift in Sources */,
 				192DF89D2111DA640016F386 /* Buttons.swift in Sources */,
 				19012FBC204837040061EF21 /* PerformanceViewController.swift in Sources */,
+				191275E72112004D0046AA3E /* AchievementRequest.swift in Sources */,
 				193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */,
 				196F82492074A788000DF337 /* RecordPortable1TableViewController.swift in Sources */,
 				19320FD0204956940075BD86 /* TrophyTrilogyTableViewController.swift in Sources */,
@@ -1109,6 +1135,7 @@
 				194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,
+				191275E9211200560046AA3E /* TrophyRequest.swift in Sources */,
 				19F38C97204CC962006BB72B /* SkillLevelDetailView.swift in Sources */,
 				19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */,
 				19320FCC2049566A0075BD86 /* TrophyViewController.swift in Sources */,
@@ -1120,6 +1147,7 @@
 				19E02ACC2049199C0070D72B /* AchievementViewController.swift in Sources */,
 				19320FC2204942590075BD86 /* AchievementGalleryTableViewController.swift in Sources */,
 				19B6CFEC1F7953640097B86B /* AppDelegate.swift in Sources */,
+				191275EB211206790046AA3E /* NSObject+.swift in Sources */,
 				193E4038204C27220063A440 /* RankingCell.swift in Sources */,
 				19D67ED220744F3D00FD9EC7 /* RecordTechnika1TableViewController.swift in Sources */,
 				193E402F204C23FD0063A440 /* Ranking6BTableViewController.swift in Sources */,

@@ -19,13 +19,13 @@ class AchievementViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> AchievementViewController? {
+        guard let viewController = UIStoryboard(name: "Achievement", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? AchievementViewController else { return nil }
+        return viewController
     }
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return [AchievementAllTableViewController(), AchievementMusicTableViewController(), AchievementGearTableViewController(), AchievementNoteTableViewController(), AchievementPlateTableViewController(), AchievementGalleryTableViewController(), AchievementCommentTableViewController()]
     }

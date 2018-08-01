@@ -21,10 +21,11 @@ class TrophyViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> TrophyViewController? {
+        guard let viewController = UIStoryboard(name: "Trophy", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? TrophyViewController else { return nil }
+        return viewController
     }
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return [TrophyRespectTableViewController(), TrophyTrilogyTableViewController(), TrophyCETableViewController(), TrophyTechnika1TableViewController(), TrophyBSTableViewController(), TrophyLinkDiskTableViewController()]
     }

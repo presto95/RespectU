@@ -30,9 +30,9 @@ class ManualViewController: UIViewController {
         webView.addSubview(button)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> ManualViewController? {
+        guard let viewController = UIStoryboard(name: "Manual", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? ManualViewController else { return nil }
+        return viewController
     }
     
     @objc func cancelButton(_ sender: UIButton) {

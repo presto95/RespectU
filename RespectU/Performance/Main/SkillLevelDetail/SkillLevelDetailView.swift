@@ -24,4 +24,8 @@ class SkillLevelDetailView: UIView {
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
     }
+    
+    func setProperties() {
+        
+    }
 }

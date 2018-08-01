@@ -10,11 +10,34 @@ import UIKit
 
 class GuideCell: UICollectionViewCell {
 
-    @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.borderColor = UIColor.mainColor.cgColor
+        self.layer.borderWidth = 3
+        self.layer.cornerRadius = 10
     }
-
+    
+    func setProperties(_ image: UIImage, _ description: String) {
+        self.iconImageView.image = image
+        self.descriptionLabel.text = description
+    }
+    
+    func becomeHighlighted() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, animations: { [unowned self] in
+                self.contentView.backgroundColor = UIColor.mainColor
+            })
+        }
+    }
+    
+    func becomeUnhighlighted() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, animations: { [unowned self] in
+                self.contentView.backgroundColor = UIColor.subColor
+            })
+        }
+    }
 }

@@ -157,17 +157,12 @@ class SkillLevelDetailViewController: UIViewController {
         button6View.gauge.animateRate(1, newValue: CGFloat(myButton6.sum)) { _ in }
         button8View.gauge.animateRate(1, newValue: CGFloat(myButton8.sum)) { _ in }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    @IBAction func clickShare(_ sender: UIButton) {
+    @IBAction func touchUpShareButton(_ sender: UIButton) {
         let bounds = UIScreen.main.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
         self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
-        let img = UIGraphicsGetImageFromCurrentImageContext()
+        guard let img = UIGraphicsGetImageFromCurrentImageContext() else { return }
         UIGraphicsEndImageContext()
         let activityViewController = UIActivityViewController(activityItems: [img], applicationActivities: nil)
         self.present(activityViewController, animated: true, completion: nil)

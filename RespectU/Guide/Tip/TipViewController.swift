@@ -33,10 +33,11 @@ class TipViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> TipViewController? {
+        guard let viewController = UIStoryboard(name: "Tip", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? TipViewController else { return nil }
+        return viewController
     }
+    
     @IBAction func cancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

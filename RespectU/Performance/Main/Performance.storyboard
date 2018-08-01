@@ -1297,7 +1297,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" image="shareButton"/>
                                 <connections>
-                                    <action selector="clickShare:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
+                                    <action selector="touchUpShareButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
                                 </connections>
                             </button>
                         </subviews>

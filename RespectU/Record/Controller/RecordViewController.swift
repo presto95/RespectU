@@ -25,9 +25,9 @@ class RecordViewController: ButtonBarPagerTabStripViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> RecordViewController? {
+        guard let viewController = UIStoryboard(name: "Record", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? RecordViewController else { return nil }
+        return viewController
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +29,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="backButton"/>
                                 <connections>
-                                    <action selector="goToPrevious:" destination="jIS-jF-tzf" eventType="touchUpInside" id="NJ2-ID-4P0"/>
+                                    <action selector="touchUpPreviousButton:" destination="jIS-jF-tzf" eventType="touchUpInside" id="NJ2-ID-4P0"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rz7-lR-Byt">
@@ -47,8 +48,36 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="song" translatesAutoresizingMaskIntoConstraints="NO" id="mCQ-fm-EjJ">
+                                                    <rect key="frame" x="20" y="10" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="d2I-Yi-mdM"/>
+                                                        <constraint firstAttribute="height" constant="40" id="dCD-Fa-SJI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="banana apple graphe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWA-Dx-auX">
+                                                    <rect key="frame" x="0.0" y="50" width="80" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="mCQ-fm-EjJ" firstAttribute="centerX" secondItem="7Xh-0m-KRU" secondAttribute="centerX" id="21F-vZ-olF"/>
+                                            <constraint firstItem="wWA-Dx-auX" firstAttribute="leading" secondItem="7Xh-0m-KRU" secondAttribute="leading" id="33b-Ea-RU7"/>
+                                            <constraint firstItem="wWA-Dx-auX" firstAttribute="top" secondItem="mCQ-fm-EjJ" secondAttribute="bottom" id="AZI-0Z-cW1"/>
+                                            <constraint firstItem="wWA-Dx-auX" firstAttribute="top" secondItem="mCQ-fm-EjJ" secondAttribute="bottom" id="FeV-iF-I3P"/>
+                                            <constraint firstItem="mCQ-fm-EjJ" firstAttribute="centerY" secondItem="7Xh-0m-KRU" secondAttribute="bottom" multiplier="0.3" id="Nt0-fY-gLE"/>
+                                            <constraint firstAttribute="trailing" secondItem="wWA-Dx-auX" secondAttribute="trailing" id="gtx-GM-YfZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="wWA-Dx-auX" secondAttribute="bottom" id="mbf-KN-jWZ"/>
+                                        </constraints>
                                         <size key="customSize" width="80" height="100"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="wWA-Dx-auX" id="bvj-w6-igd"/>
+                                            <outlet property="iconImageView" destination="mCQ-fm-EjJ" id="5R7-TQ-LWZ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="guideSection" id="NzD-OU-jGP" customClass="GuideReusableView" customModule="RespectU" customModuleProvider="target">
@@ -86,7 +115,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="성과 기록하기"/>
                                 <connections>
-                                    <action selector="recordPerformance:" destination="jIS-jF-tzf" eventType="touchUpInside" id="P3g-Cp-70b"/>
+                                    <action selector="touchUpRecordButton:" destination="jIS-jF-tzf" eventType="touchUpInside" id="P3g-Cp-70b"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zCx-DN-hau">
@@ -114,9 +143,8 @@
                         <viewLayoutGuide key="safeArea" id="o04-IU-z3z"/>
                     </view>
                     <connections>
-                        <outlet property="buttonPerformance" destination="Sjq-gJ-0bd" id="AhD-21-dzv"/>
-                        <outlet property="buttonRecord" destination="Sjq-gJ-0bd" id="bsY-Gd-OwY"/>
                         <outlet property="collectionView" destination="Rz7-lR-Byt" id="QNd-8Y-7tG"/>
+                        <outlet property="recordButton" destination="Sjq-gJ-0bd" id="bsY-Gd-OwY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZw-E6-ugL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,5 +155,6 @@
     <resources>
         <image name="backButton" width="25" height="25"/>
         <image name="respectuFlat" width="1000" height="1000"/>
+        <image name="song" width="25" height="25"/>
     </resources>
 </document>

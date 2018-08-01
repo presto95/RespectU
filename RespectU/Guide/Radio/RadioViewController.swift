@@ -30,9 +30,9 @@ class RadioViewController: UIViewController {
         webView.addSubview(button)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> RadioViewController? {
+        guard let viewController = UIStoryboard(name: "Radio", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? RadioViewController else { return nil }
+        return viewController
     }
     
     @objc func cancelButton(_ sender: UIButton) {

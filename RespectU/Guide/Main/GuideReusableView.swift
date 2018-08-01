@@ -9,5 +9,14 @@
 import UIKit
 
 class GuideReusableView: UICollectionReusableView {
+    
     @IBOutlet weak var sectionTitle: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func setProperties(_ title: String) {
+        self.sectionTitle.text = title
+    }
 }

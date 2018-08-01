@@ -6,11 +6,11 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-import Foundation
-
-enum Difficulty{
-    case normal
-    case hard
-    case maximum
+struct Difficulty {
+    static let normal = "NORMAL"
+    static let hard = "HARD"
+    static let maximum = "MAXIMUM"
+    static let fx = "FX"
+    static let special = "SPECIAL"
+    static let redesign = "REDESIGN"
 }
-

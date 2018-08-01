@@ -30,6 +30,10 @@
 		192AFE2720E48ADF0006397F /* TrophyBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */; };
 		192AFE2920E48AE70006397F /* TrophyLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */; };
 		192AFE2D20E491CB0006397F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2C20E491CB0006397F /* Constant.swift */; };
+		192DF89B2111D92B0016F386 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89A2111D92B0016F386 /* Series.swift */; };
+		192DF89D2111DA640016F386 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89C2111DA640016F386 /* Buttons.swift */; };
+		192DF89F2111DAC80016F386 /* TrophyGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89E2111DAC80016F386 /* TrophyGrade.swift */; };
+		192DF8A12111DAED0016F386 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF8A02111DAED0016F386 /* Mission.swift */; };
 		19320FBC204942390075BD86 /* AchievementMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */; };
 		19320FBE204942440075BD86 /* AchievementGearTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */; };
 		19320FC02049424D0075BD86 /* AchievementNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */; };
@@ -183,6 +187,10 @@
 		192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBSTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyLinkDiskTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2C20E491CB0006397F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		192DF89A2111D92B0016F386 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		192DF89C2111DA640016F386 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		192DF89E2111DAC80016F386 /* TrophyGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyGrade.swift; sourceTree = "<group>"; };
+		192DF8A02111DAED0016F386 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 		19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMusicTableViewController.swift; sourceTree = "<group>"; };
 		19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementGearTableViewController.swift; sourceTree = "<group>"; };
 		19320FBF2049424D0075BD86 /* AchievementNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementNoteTableViewController.swift; sourceTree = "<group>"; };
@@ -277,12 +285,8 @@
 		19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RespectU-Bridging-Header.h"; sourceTree = "<group>"; };
 		19B5F9B8204A489800E12EC1 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		19B660131F960A3D00CCEFB5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		19B660151F960A4500CCEFB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660251F960E5800CCEFB5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		19B6602A1F960FA800CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		19B6602C1F960FAD00CCEFB5 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		19B6602D1F960FB100CCEFB5 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		19B6CFE81F7953640097B86B /* RespectU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RespectU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B6CFEB1F7953640097B86B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B6CFF51F7953640097B86B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -345,7 +349,11 @@
 				19012FC320484C020061EF21 /* TipInfo.swift */,
 				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
 				19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */,
+				192DF89A2111D92B0016F386 /* Series.swift */,
+				192DF8A02111DAED0016F386 /* Mission.swift */,
 				193E3FF8204BCFB20063A440 /* Difficulty.swift */,
+				192DF89E2111DAC80016F386 /* TrophyGrade.swift */,
+				192DF89C2111DA640016F386 /* Buttons.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -872,8 +880,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hant",
-				ja,
 			);
 			mainGroup = 19B6CFDF1F7953640097B86B;
 			productRefGroup = 19B6CFE91F7953640097B86B /* Products */;
@@ -1027,6 +1033,7 @@
 				19D1EF422069E9D600F2BFD5 /* AchievementPlateTableViewController.swift in Sources */,
 				19012FC820484C0F0061EF21 /* MissionInfo.swift in Sources */,
 				191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */,
+				192DF89B2111D92B0016F386 /* Series.swift in Sources */,
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
 				193E3FF7204BB1060063A440 /* RecordView.swift in Sources */,
@@ -1053,11 +1060,13 @@
 				199992112049652700C74697 /* MissionViewController.swift in Sources */,
 				196818422048D32A0007F4D7 /* GuideCell.swift in Sources */,
 				1968185320490D300007F4D7 /* UIColor+.swift in Sources */,
+				192DF89F2111DAC80016F386 /* TrophyGrade.swift in Sources */,
 				193E4008204BF37E0063A440 /* SummaryCell.swift in Sources */,
 				19B660261F960E5800CCEFB5 /* String+.swift in Sources */,
 				19320FD22049569D0075BD86 /* TrophyCETableViewController.swift in Sources */,
 				19F24BB42049A62D0034D624 /* MissionDetailViewController.swift in Sources */,
 				194E52B7204AC55900B84AFA /* SongCell.swift in Sources */,
+				192DF89D2111DA640016F386 /* Buttons.swift in Sources */,
 				19012FBC204837040061EF21 /* PerformanceViewController.swift in Sources */,
 				193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */,
 				196F82492074A788000DF337 /* RecordPortable1TableViewController.swift in Sources */,
@@ -1092,6 +1101,7 @@
 				19F38C97204CC962006BB72B /* SkillLevelDetailView.swift in Sources */,
 				19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */,
 				19320FCC2049566A0075BD86 /* TrophyViewController.swift in Sources */,
+				192DF8A12111DAED0016F386 /* Mission.swift in Sources */,
 				19320FBE204942440075BD86 /* AchievementGearTableViewController.swift in Sources */,
 				193E4021204C09DB0063A440 /* Top504BTableViewController.swift in Sources */,
 				19012FC620484C080061EF21 /* SongInfo.swift in Sources */,
@@ -1122,8 +1132,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				19B6602A1F960FA800CCEFB5 /* ko */,
-				19B6602C1F960FAD00CCEFB5 /* zh-Hant */,
-				19B6602D1F960FB100CCEFB5 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1133,8 +1141,6 @@
 			children = (
 				19B6CFF81F7953640097B86B /* Base */,
 				19B660111F96040A00CCEFB5 /* ko */,
-				19B660131F960A3D00CCEFB5 /* zh-Hant */,
-				19B660151F960A4500CCEFB5 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

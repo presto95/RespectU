@@ -22,6 +22,7 @@ class PerformanceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = Init()
+        AcitivityIndicatorView.shared.show(to: self.view)
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false

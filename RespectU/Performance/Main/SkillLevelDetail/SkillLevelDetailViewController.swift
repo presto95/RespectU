@@ -11,39 +11,27 @@ import RealmSwift
 
 class SkillLevelDetailViewController: UIViewController {
 
-    @IBOutlet weak var view1: UIView!
-    @IBOutlet weak var view2: UIView!
-    @IBOutlet weak var view3: UIView!
-    @IBOutlet weak var view4: UIView!
+    @IBOutlet weak var button4BackgroundView: UIView!
+    @IBOutlet weak var button5BackgroundView: UIView!
+    @IBOutlet weak var button6BackgroundView: UIView!
+    @IBOutlet weak var button8BackgroundView: UIView!
+    private let skillLevelDetailView = "SkillLevelDetailView"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let performanceRecordRate = getPerformanceRecordRate()
-        let button4View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
-        let button5View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
-        let button6View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
-        let button8View = SkillLevelDetailView.instanceFromXib() as! SkillLevelDetailView
-        button4View.frame.size = view1.frame.size
-        button5View.frame.size = view2.frame.size
-        button6View.frame.size = view3.frame.size
-        button8View.frame.size = view4.frame.size
-        view1.addSubview(button4View)
-        view2.addSubview(button5View)
-        view3.addSubview(button6View)
-        view4.addSubview(button8View)
-        button4View.layer.borderColor = UIColor.mainColor.cgColor
-        button4View.layer.borderWidth = 3
-        button4View.layer.cornerRadius = 10
-        button5View.layer.borderColor = UIColor.mainColor.cgColor
-        button5View.layer.borderWidth = 3
-        button5View.layer.cornerRadius = 10
-        button6View.layer.borderColor = UIColor.mainColor.cgColor
-        button6View.layer.borderWidth = 3
-        button6View.layer.cornerRadius = 10
-        button8View.layer.borderColor = UIColor.mainColor.cgColor
-        button8View.layer.borderWidth = 3
-        button8View.layer.cornerRadius = 10
+        guard let button4View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button5View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button6View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button8View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        let recordViews = [button4View, button5View, button6View, button8View]
+        let backgroundViews = [button4BackgroundView!, button5BackgroundView!, button6BackgroundView!, button8BackgroundView!]
+        for index in 0..<recordViews.count {
+            let recordView = recordViews[index]
+            let backgroundView = backgroundViews[index]
+            recordView.frame.size = backgroundView.bounds.size
+            backgroundView.addSubview(recordView)
+        }
         let button4Max = getMaxSkillPoint(button: "4B")
         let button5Max = getMaxSkillPoint(button: "5B")
         let button6Max = getMaxSkillPoint(button: "6B")

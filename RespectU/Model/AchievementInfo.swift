@@ -9,18 +9,18 @@
 import Foundation
 import RealmSwift
 
-class AchievementInfo: Object{
+class AchievementInfo: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var level: Int = 0
     @objc dynamic var type: String = ""
     @objc dynamic var item: String = ""
-}
-
-func addAchievement(_ title: String, _ level: Int, _ type: String, _ item : String){
-    let realm = try! Realm()
-    let achievement = AchievementInfo()
-    achievement.title = title; achievement.level = level; achievement.type = type; achievement.item = item
-    try! realm.write{
-        realm.add(achievement)
+    
+    static func add(_ title: String, _ level: Int, _ type: String, _ item : String) {
+        let realm = try! Realm()
+        let achievement = AchievementInfo()
+        achievement.title = title; achievement.level = level; achievement.type = type; achievement.item = item
+        try! realm.write{
+            realm.add(achievement)
+        }
     }
 }

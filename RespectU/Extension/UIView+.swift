@@ -9,6 +9,10 @@
 import UIKit
 
 extension UIView {
+    static func instanceFromXib(xibName: String) -> UIView {
+        guard let view = UINib(nibName: xibName, bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView else { return UIView() }
+        return view
+    }
     func parentViewController() -> UIViewController? {
         var parentResponder: UIResponder? = self
         while true {

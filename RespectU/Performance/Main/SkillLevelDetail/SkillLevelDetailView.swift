@@ -20,9 +20,8 @@ class SkillLevelDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    class func instanceFromXib() -> UIView{
-        return UINib(nibName: "SkillLevelDetailView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! UIView
+        self.layer.borderColor = UIColor.mainColor.cgColor
+        self.layer.borderWidth = 3
+        self.layer.cornerRadius = 10
     }
 }

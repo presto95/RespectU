@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Double{
+extension Double {
     static func convertBpmToDouble(string: String) -> Double{
         if let notChangedBpm = Double(string) {
             return notChangedBpm

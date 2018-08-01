@@ -10,19 +10,21 @@ import UIKit
 
 class AchievementCell: UITableViewCell {
 
-    @IBOutlet weak var stage: UILabel!
-    @IBOutlet weak var item: UILabel!
-    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var stageLabel: UILabel!
+    @IBOutlet weak var itemLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
+    func setProperties(_ object: AchievementInfo, isAll: Bool = false) {
+        self.stageLabel.text = "\(object.level)"
+        self.itemLabel.text = object.item
+        self.typeLabel.text = isAll ? object.type : nil
+    }
 }

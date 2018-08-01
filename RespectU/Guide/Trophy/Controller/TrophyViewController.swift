@@ -11,6 +11,13 @@ import XLPagerTabStrip
 
 class TrophyViewController: GuideBaseViewController {
 
+    lazy var respect = TrophyRespectTableViewController()
+    lazy var trilogy = TrophyTrilogyTableViewController()
+    lazy var ce = TrophyCETableViewController()
+    lazy var technika1 = TrophyTechnika1TableViewController()
+    lazy var bs = TrophyBSTableViewController()
+    lazy var linkDisk = TrophyLinkDiskTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,10 +28,10 @@ class TrophyViewController: GuideBaseViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [TrophyRespectTableViewController(), TrophyTrilogyTableViewController(), TrophyCETableViewController(), TrophyTechnika1TableViewController(), TrophyBSTableViewController(), TrophyLinkDiskTableViewController()]
+        return [respect, trilogy, ce, technika1, bs, linkDisk]
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

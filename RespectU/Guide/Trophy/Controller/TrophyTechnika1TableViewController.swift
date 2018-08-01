@@ -10,72 +10,33 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class TrophyTechnika1TableViewController: UITableViewController {
-    
-    var realm: Realm! = nil
-    var results: Results<TrophyInfo>! = nil
+class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        realm = try! Realm()
-        results = realm.objects(TrophyInfo.self).filter("series = 'Technika1'")
-        view.backgroundColor = UIColor.mainColor
-        tableView.rowHeight = 60
-        tableView.separatorColor = UIColor.mainColor
-        tableView.layer.borderColor = UIColor.mainColor.cgColor
-        tableView.layer.borderWidth = 3
-        tableView.layer.cornerRadius = 10
-        tableView.register(UINib(nibName: "TrophyCell", bundle: nil), forCellReuseIdentifier: "trophyCell")
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
+        results = realm.objects(TrophyInfo.self).filter("series = '\(Series.technika1)'")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "trophyCell") as! TrophyCell
-        let object = results[indexPath.row]
-        switch(Locale.preferredLanguages[0]){
-        case "ko-KR":
-            cell.title.text = object.titleKor
-            cell.content.text = object.contentKor
-        default:
-            cell.title.text = object.titleEng
-            cell.content.text = object.contentEng
-        }
-        switch(object.rating){
-        case Trophy.platinum.rawValue:
-            cell.color.backgroundColor = UIColor.platinum
-        case Trophy.gold.rawValue:
-            cell.color.backgroundColor = UIColor.gold
-        case Trophy.silver.rawValue:
-            cell.color.backgroundColor = UIColor.silver
-        case Trophy.bronze.rawValue:
-            cell.color.backgroundColor = UIColor.bronze
-        default:
-            break
-        }
+        guard let cell = super.tableView(tableView, cellForRowAt: indexPath) as? TrophyCell else { return UITableViewCell() }
         let imageName = "technika1\(indexPath.row + 1)"
-        cell.imageTrophy.image = UIImage(named: imageName)
+        cell.trophyImageView.image = UIImage(named: imageName)
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
-        if(row == 9){
-            let alert = UIAlertController.showOKButton(title: "Hidden BGA".localized, message: "Thor")
-            self.present(alert, animated: true)
+        if row == 9 {
+            UIAlertController
+                .alert(title: "Hidden BGA", message: "Thor")
+                .defaultAction(title: "OK".localized)
+                .present(to: self)
         }
     }
     
 }
 
-extension TrophyTechnika1TableViewController: IndicatorInfoProvider{
+extension TrophyTechnika1TableViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "TECHNIKA 1")
     }

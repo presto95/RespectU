@@ -11,6 +11,14 @@ import XLPagerTabStrip
 
 class AchievementViewController: GuideBaseViewController {
     
+    lazy var all = AchievementAllTableViewController()
+    lazy var music = AchievementMusicTableViewController()
+    lazy var gear = AchievementGearTableViewController()
+    lazy var note = AchievementNoteTableViewController()
+    lazy var plate = AchievementPlateTableViewController()
+    lazy var gallery = AchievementGalleryTableViewController()
+    lazy var comment = AchievementCommentTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,10 +29,10 @@ class AchievementViewController: GuideBaseViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [AchievementAllTableViewController(), AchievementMusicTableViewController(), AchievementGearTableViewController(), AchievementNoteTableViewController(), AchievementPlateTableViewController(), AchievementGalleryTableViewController(), AchievementCommentTableViewController()]
+        return [all, music, gear, note, plate, gallery, comment]
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

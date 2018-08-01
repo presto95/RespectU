@@ -14,7 +14,7 @@ class MissionLinkDiskTableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(MissionInfo.self).filter("type = 'Link Disk'")
+        results = realm.objects(MissionInfo.self).filter("type = '\(Series.linkDisk)'")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

@@ -12,8 +12,8 @@ import RealmSwift
 class TipViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var realm: Realm! = nil
-    var results: Results<TipInfo>! = nil
+    var realm: Realm!
+    var results: Results<TipInfo>!
     var indexArray = [Int]()
     
     override func viewDidLoad() {
@@ -21,12 +21,11 @@ class TipViewController: UIViewController {
         tableView.layer.borderColor = UIColor.mainColor.cgColor
         tableView.layer.borderWidth = 3
         tableView.layer.cornerRadius = 10
-        
         realm = try! Realm()
         results = realm?.objects(TipInfo.self)
         var randomNo = arc4random_uniform(UInt32((results.count)))
         for _ in 0..<results.count{
-            while(indexArray.contains(Int(randomNo))){
+            while indexArray.contains(Int(randomNo)) {
                 randomNo = arc4random_uniform(UInt32((results.count)))
             }
             indexArray.append(Int(randomNo))
@@ -38,14 +37,14 @@ class TipViewController: UIViewController {
         return viewController
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension TipViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell")!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell") else { return UITableViewCell() }
         cell.textLabel?.text = results[indexArray[indexPath.row]].tip.localized
         return cell
         

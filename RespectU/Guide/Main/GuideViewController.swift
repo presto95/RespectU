@@ -154,11 +154,44 @@ extension GuideViewController: UICollectionViewDelegate {
                         .present(to: self)
                 }
             case 1:
-                let alert = UIAlertController.showBPMDefault()
-                present(alert, animated: true)
+                let message = "Current".localized + " : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n" + "It becomes standard of Speed Recommendation.".localized
+                let alert = UIAlertController
+                    .alert(title: "BPM Default Setting".localized, message: message)
+                    .textField { (textField) in
+                        textField.placeholder = "BPM"
+                        textField.keyboardType = .numberPad
+                    }
+                alert.defaultAction(title: "OK".localized) { (action) in
+                    if let input = alert.textFields?.first?.text {
+                        if !input.isEmpty {
+                            guard let value = Double(input) else { return }
+                            UserDefaults.standard.set(value, forKey: "bpm")
+                            UserDefaults.standard.synchronize()
+                        }
+                    }
+                }
+                .cancelAction(title: "Cancel".localized)
+                .present(to: self)
             case 2:
-                let alert = UIAlertController.showFavoriteButtonSetting()
-                present(alert, animated: true)
+                let key = "favoriteButton"
+                let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
+                let message = "Current".localized + " : \(favorite ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
+                UIAlertController
+                    .alert(title: "My Favorite Button".localized, message: message)
+                    .defaultAction(title: Buttons.button4) { (action) in
+                        UserDefaults.standard.set(Buttons.button4, forKey: key)
+                    }
+                    .defaultAction(title: Buttons.button5) { (action) in
+                        UserDefaults.standard.set(Buttons.button5, forKey: key)
+                    }
+                    .defaultAction(title: Buttons.button6) { (action) in
+                        UserDefaults.standard.set(Buttons.button6, forKey: key)
+                    }
+                    .defaultAction(title: Buttons.button8) { (action) in
+                        UserDefaults.standard.set(Buttons.button8, forKey: key)
+                    }
+                    .cancelAction(title: "Cancel".localized)
+                    .present(to: self)
             default:
                 break
             }

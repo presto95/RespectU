@@ -96,10 +96,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="color" destination="61H-jf-AFO" id="1Yj-hh-h3d"/>
-                <outlet property="content" destination="g9E-GX-55r" id="w0f-pa-ErW"/>
-                <outlet property="imageTrophy" destination="dyr-m7-fRT" id="W0C-qr-u78"/>
-                <outlet property="title" destination="KSl-VV-snP" id="jo4-Hx-Ias"/>
+                <outlet property="colorLabel" destination="61H-jf-AFO" id="1Yj-hh-h3d"/>
+                <outlet property="contentLabel" destination="g9E-GX-55r" id="w0f-pa-ErW"/>
+                <outlet property="titleLab" destination="KSl-VV-snP" id="jo4-Hx-Ias"/>
+                <outlet property="titleLabel" destination="KSl-VV-snP" id="n9p-JP-iCB"/>
+                <outlet property="trophyImageView" destination="dyr-m7-fRT" id="W0C-qr-u78"/>
             </connections>
             <point key="canvasLocation" x="25" y="72"/>
         </tableViewCell>

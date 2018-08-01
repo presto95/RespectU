@@ -18,7 +18,6 @@ class RadioViewController: UIViewController {
         let url = URL(string: "https://djmax.protomox.com")
         let request = URLRequest(url: url!)
         webView.load(request)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,11 +34,10 @@ class RadioViewController: UIViewController {
         return viewController
     }
     
-    @objc func cancelButton(_ sender: UIButton) {
+    @objc func touchUpCancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
-
 
 extension RadioViewController: WKUIDelegate {
     override func loadView() {

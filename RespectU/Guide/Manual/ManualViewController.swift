@@ -18,7 +18,6 @@ class ManualViewController: UIViewController {
         let url = URL(string: "http://djmaxrespect.com/manual.html")
         let request = URLRequest(url: url!)
         webView.load(request)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,8 +34,8 @@ class ManualViewController: UIViewController {
         return viewController
     }
     
-    @objc func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @objc func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

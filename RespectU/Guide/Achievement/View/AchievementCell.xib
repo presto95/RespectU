@@ -67,9 +67,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="item" destination="tmf-XF-boN" id="G5p-Yo-hxu"/>
-                <outlet property="stage" destination="oWq-oA-I4b" id="Fj7-tW-324"/>
-                <outlet property="type" destination="vio-cD-HRs" id="Bb9-EM-Vin"/>
+                <outlet property="itemLabel" destination="tmf-XF-boN" id="G5p-Yo-hxu"/>
+                <outlet property="stageLabel" destination="oWq-oA-I4b" id="Fj7-tW-324"/>
+                <outlet property="typeLabel" destination="vio-cD-HRs" id="Bb9-EM-Vin"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -380,47 +380,4 @@ extension UIAlertController {
         alert.addAction(maximumDesc)
         return alert
     }
-    static func showFavoriteButtonSetting() -> UIAlertController {
-        let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
-        let message = "Current".localized + " : \(favorite ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
-        let alert = UIAlertController(title: "My Favorite Button".localized, message: message, preferredStyle: .alert)
-        let button4 = UIAlertAction(title: "4B", style: .default) { _ in
-            UserDefaults.standard.set("4B", forKey: "favoriteButton")
-        }
-        let button5 = UIAlertAction(title: "5B", style: .default) { _ in
-            UserDefaults.standard.set("5B", forKey: "favoriteButton")
-        }
-        let button6 = UIAlertAction(title: "6B", style: .default) { _ in
-            UserDefaults.standard.set("6B", forKey: "favoriteButton")
-        }
-        let button8 = UIAlertAction(title: "8B", style: .default) { _ in
-            UserDefaults.standard.set("8B", forKey: "favoriteButton")
-        }
-        let cancel = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
-        alert.addAction(cancel)
-        alert.addAction(button4)
-        alert.addAction(button5)
-        alert.addAction(button6)
-        alert.addAction(button8)
-        return alert
-    }
-    static func showBPMDefault() -> UIAlertController {
-        let message = "Current".localized + " : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n" + "It becomes standard of Speed Recommendation.".localized
-        let alert = UIAlertController(title: "BPM Default Setting".localized, message: message, preferredStyle: .alert)
-        alert.addTextField { (textField) in
-            textField.placeholder = "BPM"
-            textField.keyboardType = .numberPad
-        }
-        let yesAction = UIAlertAction(title: "OK".localized, style: .default) { _ in
-            if let input = alert.textFields?.first?.text {
-                if(!input.isEmpty){
-                    UserDefaults.standard.set(Double(input)!, forKey: "bpm")
-                }
-            }
-        }
-        let noAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil)
-        alert.addAction(noAction)
-        alert.addAction(yesAction)
-        return alert
-    }
 }

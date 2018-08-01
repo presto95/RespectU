@@ -11,17 +11,17 @@ import UIKit
 class TrophyCell: UITableViewCell {
 
     
-    @IBOutlet weak var imageTrophy: UIImageView!
-    @IBOutlet weak var color: UILabel!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var trophyImageView: UIImageView!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        color.layer.borderColor = UIColor.mainColor.cgColor
-        color.layer.borderWidth = 1
-        imageTrophy.layer.borderWidth = 1
-        imageTrophy.layer.borderColor = UIColor.mainColor.cgColor
+        colorLabel.layer.borderColor = UIColor.mainColor.cgColor
+        colorLabel.layer.borderWidth = 1
+        trophyImageView.layer.borderWidth = 1
+        trophyImageView.layer.borderColor = UIColor.mainColor.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,7 +31,23 @@ class TrophyCell: UITableViewCell {
     func setProperties(_ object: TrophyInfo) {
         switch Locale.preferredLanguages[0] {
         case "ko-KR":
-            
+            self.titleLabel.text = object.titleKor
+            self.contentLabel.text = object.contentKor
+        default:
+            self.titleLabel.text = object.titleEng
+            self.contentLabel.text = object.contentEng
+        }
+        switch object.rating {
+        case TrophyGrade.platinum:
+            self.colorLabel.backgroundColor = .platinum
+        case TrophyGrade.gold:
+            self.colorLabel.backgroundColor = .gold
+        case TrophyGrade.silver:
+            self.colorLabel.backgroundColor = .silver
+        case TrophyGrade.bronze:
+            self.colorLabel.backgroundColor = .bronze
+        default:
+            break
         }
     }
 }

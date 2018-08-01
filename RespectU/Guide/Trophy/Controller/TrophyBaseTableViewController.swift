@@ -24,5 +24,14 @@ class TrophyBaseTableViewController: GuideBaseTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TrophyCell else { return UITableViewCell() }
         let object = results[indexPath.row]
         cell.setProperties(object)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return results.count
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

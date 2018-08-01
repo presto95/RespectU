@@ -1,0 +1,65 @@
+//
+//  AchievementBaseTableViewController.swift
+//  RespectU
+//
+//  Created by Presto on 2018. 8. 2..
+//  Copyright © 2018년 Presto. All rights reserved.
+//
+
+import UIKit
+import RealmSwift
+
+class AchievementBaseTableViewController: GuideBaseTableViewController {
+
+    var results: Results<AchievementInfo>!
+    var stageCount = [Int]()
+    let cellIdentifier = "achievementCell"
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var count = 0
+        var tempTitle = ""
+        var isFirst = true
+        for item in results{
+            if(tempTitle != item.title){
+                tempTitle = item.title
+                if(isFirst){
+                    isFirst = false
+                } else{
+                    stageCount.append(count)
+                    count = 0
+                }
+            }
+            count += 1
+        }
+        stageCount.append(count)
+        tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stageCount[section]
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return stageCount.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var index = 0
+        for i in 0...section {
+            index += stageCount[i]
+        }
+        return results[index - 1].title.localized
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.textColor = .white
+        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        header.backgroundView?.backgroundColor = .mainColor
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}

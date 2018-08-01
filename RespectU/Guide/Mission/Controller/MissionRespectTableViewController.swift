@@ -14,7 +14,7 @@ class MissionRespectTableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(MissionInfo.self).filter("type = 'Respect'")
+        results = realm.objects(MissionInfo.self).filter("type = '\(Series.respect)'")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

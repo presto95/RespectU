@@ -116,6 +116,7 @@
 		197414C62062A77A00D72626 /* SongTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */; };
 		197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */; };
 		197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */; };
+		1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
@@ -285,6 +286,7 @@
 		197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
@@ -379,11 +381,11 @@
 		19012FAE204808120061EF21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
 				1997B0992012551E0072EED9 /* GoogleService-Info.plist */,
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
-				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
@@ -631,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				19E02ACB2049199C0070D72B /* AchievementViewController.swift */,
+				1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */,
 				193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */,
 				19320FBB204942390075BD86 /* AchievementMusicTableViewController.swift */,
 				19320FBD204942440075BD86 /* AchievementGearTableViewController.swift */,
@@ -1165,6 +1168,7 @@
 				19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */,
 				194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
+				1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,
 				191275E9211200560046AA3E /* TrophyRequest.swift in Sources */,
 				19F38C97204CC962006BB72B /* SkillLevelDetailView.swift in Sources */,

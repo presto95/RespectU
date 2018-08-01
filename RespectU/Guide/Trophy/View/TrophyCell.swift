@@ -28,4 +28,10 @@ class TrophyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func setProperties(_ object: TrophyInfo) {
+        switch Locale.preferredLanguages[0] {
+        case "ko-KR":
+            
+        }
+    }
 }

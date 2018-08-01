@@ -10,27 +10,11 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class TrophyRespectTableViewController: UITableViewController {
-
-    var realm: Realm! = nil
-    var results: Results<TrophyInfo>! = nil
+class TrophyRespectTableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        realm = try! Realm()
         results = realm.objects(TrophyInfo.self).filter("series = 'Respect'")
-        view.backgroundColor = UIColor.mainColor
-        tableView.rowHeight = 60
-        tableView.separatorColor = UIColor.mainColor
-        tableView.layer.borderColor = UIColor.mainColor.cgColor
-        tableView.layer.borderWidth = 3
-        tableView.layer.cornerRadius = 10
-        tableView.register(UINib(nibName: "TrophyCell", bundle: nil), forCellReuseIdentifier: "trophyCell")
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

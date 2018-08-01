@@ -10,21 +10,23 @@ import UIKit
 
 class MissionCell: UITableViewCell {
 
-    @IBOutlet weak var color: UILabel!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var reward: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var rewardLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        color.layer.borderColor = UIColor.mainColor.cgColor
-        color.layer.borderWidth = 1
-        // Initialization code
+        colorLabel.layer.borderColor = UIColor.mainColor.cgColor
+        colorLabel.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    func setProperties(_ object: MissionInfo) {
+        self.colorLabel.backgroundColor = object.section.missionColor
+        self.titleLabel.text = object.title
+        self.rewardLabel.text = object.reward.isEmpty ? "None".localized : object.reward
+    }
 }

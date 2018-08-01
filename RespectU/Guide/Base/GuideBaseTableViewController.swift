@@ -12,7 +12,7 @@ import XLPagerTabStrip
 
 class GuideBaseTableViewController: UITableViewController {
 
-    var realm: Realm! = nil
+    var realm: Realm!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,12 @@ class GuideBaseTableViewController: UITableViewController {
     }
     
     private func setup() {
-        view.backgroundColor = UIColor.mainColor
-        tableView.rowHeight = 60
-        tableView.separatorColor = UIColor.mainColor
-        tableView.layer.borderColor = UIColor.mainColor.cgColor
-        tableView.layer.borderWidth = 3
-        tableView.layer.cornerRadius = 10
+        self.view.backgroundColor = .mainColor
+        self.tableView.rowHeight = 60
+        self.tableView.separatorColor = .mainColor
+        self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        self.tableView.layer.borderColor = UIColor.mainColor.cgColor
+        self.tableView.layer.borderWidth = 3
+        self.tableView.layer.cornerRadius = 10
     }
 }

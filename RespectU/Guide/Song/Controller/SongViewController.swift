@@ -13,6 +13,7 @@ import RealmSwift
 class SongViewController: GuideBaseViewController {
     
     @IBOutlet weak var selectedButtonLabel: UILabel!
+    var realm: Realm!
     lazy var all = SongAllTableViewController()
     lazy var portable1 = SongPortable1TableViewController()
     lazy var portable2 = SongPortable2TableViewController()
@@ -25,6 +26,7 @@ class SongViewController: GuideBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.realm = try! Realm()
         self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     }
 
@@ -66,21 +68,24 @@ class SongViewController: GuideBaseViewController {
     }
     
     @IBAction func touchUpRandomButton(_ sender: UIButton) {
-        let realm = try! Realm()
-        let results = realm.objects(SongInfo.self)
-        let myBpm = UserDefaults.standard.double(forKey: "bpm")
+        let results = self.realm.objects(SongInfo.self)
+        let myBPM = UserDefaults.standard.double(forKey: "bpm")
         let random = Int(arc4random_uniform(UInt32(results.count - 1)))
         let object = results[random]
-        let recommendedSpeed = String.decideSpeed(speed: myBpm / Double.convertBpmToDouble(string: object.bpm))
+        let recommendedSpeed = getRecommendedSpeed(speed: myBPM / object.bpm.bpmToDouble)
         let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
-        let alert = UIAlertController.showOKButton(title: object.title, message: message)
-        self.present(alert, animated: true)
+        UIAlertController
+            .alert(title: object.title, message: message)
+            .defaultAction(title: "OK".localized)
+            .present(to: self)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+}
+
+extension SongViewController {
     private func setFavoriteButton(_ button: String) {
         self.all.favoriteButton = button
         self.portable1.favoriteButton = button

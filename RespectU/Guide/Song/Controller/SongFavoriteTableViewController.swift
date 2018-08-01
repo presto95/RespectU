@@ -13,7 +13,7 @@ import DZNEmptyDataSet
 
 class SongFavoriteTableViewController: SongBaseTableViewController {
     
-    var playlistResults: Results<PlaylistInfo>! = nil
+    var playlistResults: Results<PlaylistInfo>!
     
     override func viewDidLoad() {
         super.viewDidLoad()

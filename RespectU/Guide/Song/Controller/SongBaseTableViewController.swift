@@ -11,9 +11,9 @@ import RealmSwift
 
 class SongBaseTableViewController: GuideBaseTableViewController {
 
-    var songResults: Results<SongInfo>! = nil
-    var achievementResults: Results<AchievementInfo>! = nil
-    var missionResults: Results<MissionInfo>! = nil
+    var songResults: Results<SongInfo>!
+    var achievementResults: Results<AchievementInfo>!
+    var missionResults: Results<MissionInfo>!
     var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     let myBPM = UserDefaults.standard.double(forKey: "bpm")
     let cellIdentifier = "songCell"

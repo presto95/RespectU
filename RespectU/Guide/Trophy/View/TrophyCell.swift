@@ -22,13 +22,10 @@ class TrophyCell: UITableViewCell {
         color.layer.borderWidth = 1
         imageTrophy.layer.borderWidth = 1
         imageTrophy.layer.borderColor = UIColor.mainColor.cgColor
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -74,9 +70,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="color" destination="cS1-e4-YWp" id="ebL-Di-Gd1"/>
-                <outlet property="reward" destination="mfY-gI-o4O" id="kI7-1F-fbE"/>
-                <outlet property="title" destination="fQB-Sl-IjY" id="FLM-cV-IhJ"/>
+                <outlet property="colorLabel" destination="cS1-e4-YWp" id="ebL-Di-Gd1"/>
+                <outlet property="rewardLabel" destination="mfY-gI-o4O" id="kI7-1F-fbE"/>
+                <outlet property="titleLabel" destination="fQB-Sl-IjY" id="FLM-cV-IhJ"/>
             </connections>
         </tableViewCell>
     </objects>

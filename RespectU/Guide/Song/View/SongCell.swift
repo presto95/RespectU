@@ -29,7 +29,7 @@ class SongCell: UITableViewCell {
     }
     
     func setProperties(_ object: SongInfo, favoriteButton: String) {
-        self.colorLabel.backgroundColor = object.series.color
+        self.colorLabel.backgroundColor = object.series.seriesColor
         self.titleLabel.text = object.title
         self.composerLabel.text = object.composer
         self.bpmLabel.text = "BPM \(object.bpm)"

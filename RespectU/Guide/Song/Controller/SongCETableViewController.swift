@@ -16,14 +16,6 @@ class SongCETableViewController: SongBaseTableViewController {
         super.viewDidLoad()
         self.songResults = realm.objects(SongInfo.self).filter("series = '\(Series.ce)'").sorted(byKeyPath: "lowercase")
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return super.tableView(tableView, cellForRowAt: indexPath)
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.songResults.count

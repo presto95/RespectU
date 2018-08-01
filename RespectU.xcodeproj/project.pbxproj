@@ -32,6 +32,7 @@
 		191275F021120B530046AA3E /* GuideBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EF21120B530046AA3E /* GuideBaseTableViewController.swift */; };
 		191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F1211210610046AA3E /* SongBaseTableViewController.swift */; };
 		191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F321121B9D0046AA3E /* UIViewController+.swift */; };
+		191275F62112225E0046AA3E /* MissionBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */; };
 		191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */; };
 		191A8B7E20E4FC930064F93E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7D20E4FC930064F93E /* UIAlertController+.swift */; };
 		191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */; };
@@ -199,6 +200,7 @@
 		191275EF21120B530046AA3E /* GuideBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideBaseTableViewController.swift; sourceTree = "<group>"; };
 		191275F1211210610046AA3E /* SongBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBaseTableViewController.swift; sourceTree = "<group>"; };
 		191275F321121B9D0046AA3E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBaseTableViewController.swift; sourceTree = "<group>"; };
 		191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBSTableViewController.swift; sourceTree = "<group>"; };
 		191A8B7D20E4FC930064F93E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				199992102049652700C74697 /* MissionViewController.swift */,
+				191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */,
 				199992122049653900C74697 /* MissionRespectTableViewController.swift */,
 				199992142049654500C74697 /* MissionTrilogyTableViewController.swift */,
 				199992162049654E00C74697 /* MissionCETableViewController.swift */,
@@ -1119,6 +1122,7 @@
 				196818422048D32A0007F4D7 /* GuideCell.swift in Sources */,
 				1968185320490D300007F4D7 /* UIColor+.swift in Sources */,
 				192DF89F2111DAC80016F386 /* TrophyGrade.swift in Sources */,
+				191275F62112225E0046AA3E /* MissionBaseTableViewController.swift in Sources */,
 				193E4008204BF37E0063A440 /* SummaryCell.swift in Sources */,
 				19B660261F960E5800CCEFB5 /* String+.swift in Sources */,
 				19320FD22049569D0075BD86 /* TrophyCETableViewController.swift in Sources */,

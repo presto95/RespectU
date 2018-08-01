@@ -147,7 +147,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="cancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="7Aj-fJ-VyA"/>
+                                    <action selector="touchUpCancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="7Aj-fJ-VyA"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gTr-wO-q4Q" customClass="ButtonBarView" customModule="XLPagerTabStrip">
@@ -218,8 +218,8 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="cancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="df1-gk-WVe"/>
-                                    <action selector="cancelButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="sOE-Zy-qLT"/>
+                                    <action selector="touchUpCancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="df1-gk-WVe"/>
+                                    <action selector="touchUpCancelButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="sOE-Zy-qLT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQ9-Jg-HeK">
@@ -549,7 +549,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="MORE"/>
                                 <connections>
-                                    <action selector="clickMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="RGJ-L7-qyx"/>
+                                    <action selector="touchUpMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="RGJ-L7-qyx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTz-Sg-LZ9">
@@ -558,7 +558,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="MORE"/>
                                 <connections>
-                                    <action selector="clickMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="kQV-TA-yNC"/>
+                                    <action selector="touchUpMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="kQV-TA-yNC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn5-gU-Vq7">
@@ -567,7 +567,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="MORE"/>
                                 <connections>
-                                    <action selector="clickMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="eeC-cP-wJe"/>
+                                    <action selector="touchUpMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="eeC-cP-wJe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poH-dG-fOj">
@@ -576,7 +576,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="MORE"/>
                                 <connections>
-                                    <action selector="clickMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="CPH-nP-y0l"/>
+                                    <action selector="touchUpMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="CPH-nP-y0l"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pv7-Ry-oxe">
@@ -585,7 +585,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="MORE"/>
                                 <connections>
-                                    <action selector="clickMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="U2l-rg-Zsn"/>
+                                    <action selector="touchUpMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="U2l-rg-Zsn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQ7-23-NuE">
@@ -594,7 +594,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="MORE"/>
                                 <connections>
-                                    <action selector="clickMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="UIT-vb-Ocg"/>
+                                    <action selector="touchUpMoreButton:" destination="16X-16-0Xg" eventType="touchUpInside" id="UIT-vb-Ocg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TYPE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jny-vh-TT9">
@@ -645,38 +645,38 @@
                         <viewLayoutGuide key="safeArea" id="MGn-BZ-99j"/>
                     </view>
                     <connections>
-                        <outlet property="buttonSong1" destination="dO9-1f-nET" id="Ucz-4h-eeE"/>
-                        <outlet property="buttonSong2" destination="MTz-Sg-LZ9" id="o7g-HC-ozf"/>
-                        <outlet property="buttonSong3" destination="cn5-gU-Vq7" id="BTt-Nc-26g"/>
-                        <outlet property="buttonSong4" destination="poH-dG-fOj" id="VD9-P5-zJg"/>
-                        <outlet property="buttonSong5" destination="pv7-Ry-oxe" id="mbX-AK-ip7"/>
-                        <outlet property="buttonSong6" destination="oQ7-23-NuE" id="PzJ-UR-f4g"/>
-                        <outlet property="labelBreak" destination="cRf-iU-PjL" id="fjd-pm-yFm"/>
-                        <outlet property="labelCombo" destination="d9I-e0-d2g" id="DGH-6l-PFk"/>
-                        <outlet property="labelEffector" destination="sQ9-Jg-HeK" id="IoJ-46-aVi"/>
-                        <outlet property="labelFever" destination="roB-Mc-V4m" id="GTM-v8-ILm"/>
-                        <outlet property="labelRate" destination="50p-a7-QQX" id="ZKF-6d-dm8"/>
-                        <outlet property="labelReward" destination="GPv-yt-ysF" id="m8c-Hm-KQZ"/>
-                        <outlet property="labelScore" destination="WL3-kK-vyk" id="UZa-gk-ABS"/>
-                        <outlet property="labelSong1Button" destination="tw6-hC-ug0" id="Lfz-D9-u0y"/>
-                        <outlet property="labelSong1Difficulty" destination="8ks-Jv-laB" id="yA2-fT-StF"/>
-                        <outlet property="labelSong1Title" destination="zxU-BA-osE" id="bFv-SS-DdY"/>
-                        <outlet property="labelSong2Button" destination="sbS-hY-7F1" id="GU2-do-wid"/>
-                        <outlet property="labelSong2Difficulty" destination="cd5-Ea-sGL" id="ptW-Ld-VlQ"/>
-                        <outlet property="labelSong2Title" destination="NFF-hL-eHz" id="Dpl-ls-EDd"/>
-                        <outlet property="labelSong3Button" destination="mxj-Fi-LYV" id="Me7-tY-nvo"/>
-                        <outlet property="labelSong3Difficulty" destination="fbY-xY-Hon" id="n97-bF-sjb"/>
-                        <outlet property="labelSong3Title" destination="pez-1E-60d" id="rIA-nd-EKF"/>
-                        <outlet property="labelSong4Button" destination="NeD-rh-ciY" id="rhe-gO-LFk"/>
-                        <outlet property="labelSong4Difficulty" destination="mGV-cO-eR5" id="TLx-dc-0CJ"/>
-                        <outlet property="labelSong4Title" destination="PN7-J6-sHp" id="XCT-1w-dw0"/>
-                        <outlet property="labelSong5Button" destination="bb3-lS-l9W" id="LQ6-mk-3b5"/>
-                        <outlet property="labelSong5Difficulty" destination="ov1-DF-hhU" id="73Y-h2-7dg"/>
-                        <outlet property="labelSong5Title" destination="nLd-E7-Fot" id="3ru-At-uLp"/>
-                        <outlet property="labelSong6Button" destination="W2F-t9-Jgl" id="iXR-2I-A19"/>
-                        <outlet property="labelSong6Difficulty" destination="7dA-Ih-yLX" id="ngI-7x-xgg"/>
-                        <outlet property="labelSong6Title" destination="Olz-Wr-mb8" id="L9W-N5-T7N"/>
-                        <outlet property="labelTitle" destination="g9m-w0-Tev" id="Juf-YC-5eC"/>
+                        <outlet property="breakLabel" destination="cRf-iU-PjL" id="fjd-pm-yFm"/>
+                        <outlet property="comboLabel" destination="d9I-e0-d2g" id="DGH-6l-PFk"/>
+                        <outlet property="effectorLabel" destination="sQ9-Jg-HeK" id="IoJ-46-aVi"/>
+                        <outlet property="feverLabel" destination="roB-Mc-V4m" id="GTM-v8-ILm"/>
+                        <outlet property="rateLabel" destination="50p-a7-QQX" id="ZKF-6d-dm8"/>
+                        <outlet property="rewardLabel" destination="GPv-yt-ysF" id="m8c-Hm-KQZ"/>
+                        <outlet property="scoreLabel" destination="WL3-kK-vyk" id="UZa-gk-ABS"/>
+                        <outlet property="song1ButtonLabel" destination="tw6-hC-ug0" id="Lfz-D9-u0y"/>
+                        <outlet property="song1DifficultyLabel" destination="8ks-Jv-laB" id="yA2-fT-StF"/>
+                        <outlet property="song1MoreButton" destination="dO9-1f-nET" id="Ucz-4h-eeE"/>
+                        <outlet property="song1TitleLabel" destination="zxU-BA-osE" id="bFv-SS-DdY"/>
+                        <outlet property="song2ButtonLabel" destination="sbS-hY-7F1" id="GU2-do-wid"/>
+                        <outlet property="song2DifficultyLabel" destination="cd5-Ea-sGL" id="ptW-Ld-VlQ"/>
+                        <outlet property="song2MoreButton" destination="MTz-Sg-LZ9" id="o7g-HC-ozf"/>
+                        <outlet property="song2TitleLabel" destination="NFF-hL-eHz" id="Dpl-ls-EDd"/>
+                        <outlet property="song3ButtonLabel" destination="mxj-Fi-LYV" id="Me7-tY-nvo"/>
+                        <outlet property="song3DifficultyLabel" destination="fbY-xY-Hon" id="n97-bF-sjb"/>
+                        <outlet property="song3MoreButton" destination="cn5-gU-Vq7" id="BTt-Nc-26g"/>
+                        <outlet property="song3TitleLabel" destination="pez-1E-60d" id="rIA-nd-EKF"/>
+                        <outlet property="song4ButtonLabel" destination="NeD-rh-ciY" id="rhe-gO-LFk"/>
+                        <outlet property="song4DifficultyLabel" destination="mGV-cO-eR5" id="TLx-dc-0CJ"/>
+                        <outlet property="song4MoreButton" destination="poH-dG-fOj" id="VD9-P5-zJg"/>
+                        <outlet property="song4TitleLabel" destination="PN7-J6-sHp" id="XCT-1w-dw0"/>
+                        <outlet property="song5ButtonLabel" destination="bb3-lS-l9W" id="LQ6-mk-3b5"/>
+                        <outlet property="song5DifficultyLabel" destination="ov1-DF-hhU" id="73Y-h2-7dg"/>
+                        <outlet property="song5MoreButton" destination="pv7-Ry-oxe" id="mbX-AK-ip7"/>
+                        <outlet property="song5TitleLabel" destination="nLd-E7-Fot" id="3ru-At-uLp"/>
+                        <outlet property="song6ButtonLabel" destination="W2F-t9-Jgl" id="iXR-2I-A19"/>
+                        <outlet property="song6DifficultyLabel" destination="7dA-Ih-yLX" id="ngI-7x-xgg"/>
+                        <outlet property="song6MoreButton" destination="oQ7-23-NuE" id="PzJ-UR-f4g"/>
+                        <outlet property="song6TitleLabel" destination="Olz-Wr-mb8" id="L9W-N5-T7N"/>
+                        <outlet property="titleLabel" destination="g9m-w0-Tev" id="Juf-YC-5eC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8S-qC-xwn" userLabel="First Responder" sceneMemberID="firstResponder"/>

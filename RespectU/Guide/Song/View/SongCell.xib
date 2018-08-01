@@ -129,13 +129,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="artist" destination="qqD-JL-Vm8" id="gcu-BH-ItK"/>
-                <outlet property="bpm" destination="W8w-qG-BCA" id="Kd4-0R-BfT"/>
-                <outlet property="color" destination="oZY-x4-BDd" id="JBA-Lc-9TS"/>
-                <outlet property="hd" destination="IAZ-cj-SE0" id="8ke-kQ-92r"/>
-                <outlet property="mx" destination="7yX-WI-YhP" id="Wbg-zr-r6b"/>
-                <outlet property="nm" destination="9Oz-HY-wbL" id="gLy-vT-J8M"/>
-                <outlet property="title" destination="G0k-rr-rwe" id="nwj-tl-iI1"/>
+                <outlet property="bpmLabel" destination="W8w-qG-BCA" id="Kd4-0R-BfT"/>
+                <outlet property="colorLabel" destination="oZY-x4-BDd" id="JBA-Lc-9TS"/>
+                <outlet property="composerLabel" destination="qqD-JL-Vm8" id="gcu-BH-ItK"/>
+                <outlet property="hardLabel" destination="IAZ-cj-SE0" id="8ke-kQ-92r"/>
+                <outlet property="maximumLabel" destination="7yX-WI-YhP" id="Wbg-zr-r6b"/>
+                <outlet property="normalLabel" destination="9Oz-HY-wbL" id="gLy-vT-J8M"/>
+                <outlet property="titleLabel" destination="G0k-rr-rwe" id="nwj-tl-iI1"/>
             </connections>
         </tableViewCell>
     </objects>

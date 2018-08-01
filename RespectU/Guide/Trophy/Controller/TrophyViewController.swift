@@ -9,16 +9,10 @@
 import UIKit
 import XLPagerTabStrip
 
-class TrophyViewController: ButtonBarPagerTabStripViewController {
+class TrophyViewController: GuideBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        settings.style.buttonBarBackgroundColor = UIColor.subColor
-        settings.style.buttonBarItemBackgroundColor = UIColor.subColor
-        settings.style.selectedBarBackgroundColor = UIColor.mainColor
-        settings.style.buttonBarItemTitleColor = .black
-        settings.style.buttonBarItemsShouldFillAvailiableWidth = true
-        settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
 
     static func instantiate() -> TrophyViewController? {

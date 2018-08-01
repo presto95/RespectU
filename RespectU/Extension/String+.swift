@@ -7,10 +7,40 @@
 //
 
 import Foundation
+import UIKit
 
 extension String{
     var localized: String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
+    var color: UIColor? {
+        switch self {
+        case Series.portable1:
+            return UIColor.portable1
+        case Series.portable2:
+            return UIColor.portable2
+        case Series.respect:
+            return UIColor.respect
+        case Series.trilogy:
+            return UIColor.trilogy
+        case Series.ce:
+            return UIColor.ce
+        case Series.technika1:
+            return UIColor.technika1
+        case Series.bs:
+            return UIColor.bs
+        default:
+            return nil
+        }
+    }
+    var bpmToDouble: Double {
+        if let notChangedBpm = Double(self) {
+            return notChangedBpm
+        } else {
+            guard let lastBpm = self.split(separator: "~").last?.description else { return -1 }
+            guard let changedBpm = Double(lastBpm.trimmingCharacters(in: .whitespaces)) else { return -1 }
+            return changedBpm
+        }
     }
     
     static func decideSpeed(speed: Double) -> String {

@@ -8,12 +8,12 @@
 
 import Foundation
 
-extension Double {
-    static func convertBpmToDouble(string: String) -> Double{
-        if let notChangedBpm = Double(string) {
-            return notChangedBpm
-        } else {
-            return Double(string.split(separator: "~").last!.trimmingCharacters(in: .whitespaces))!
-        }
-    }
-}
+//extension Double {
+//    static func convertBpmToDouble(string: String) -> Double{
+//        if let notChangedBpm = Double(string) {
+//            return notChangedBpm
+//        } else {
+//            return Double(string.split(separator: "~").last!.trimmingCharacters(in: .whitespaces))!
+//        }
+//    }
+//}

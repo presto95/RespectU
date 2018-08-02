@@ -23,11 +23,16 @@ class SongViewController: GuideBaseViewController {
     lazy var technika1 = SongTechnika1TableViewController()
     lazy var bs = SongBSTableViewController()
     lazy var favorite = SongFavoriteTableViewController()
+    var favoriteButton: String {
+        return selectedButtonLabel.text ?? ""
+    }
+    var songViewControllers = [SongBaseTableViewController]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
         self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+        self.songViewControllers = [all, portable1, portable2, respect, trilogy, ce, technika1, bs, favorite]
     }
 
     static func instantiate() -> SongViewController? {
@@ -63,8 +68,28 @@ class SongViewController: GuideBaseViewController {
     }
     
     @IBAction func touchUpSortButton(_ sender: UIButton) {
-        let alert = UIAlertController.showSort(all: all, portable1: portable1, portable2: portable2, respect: respect, trilogy: trilogy, ce: ce, technika1: technika1, bs: bs)
-        present(alert, animated: true)
+        UIAlertController
+            .alert(title: "Sort".localized, message: "Select the sort method".localized)
+            .defaultAction(title: "\(Difficulty.normal) / ASC".localized) { [unowned self] action in
+                self.sort(difficulty: Difficulty.normal, isAscending: true)
+            }
+            .defaultAction(title: "\(Difficulty.normal) / DESC".localized) { [unowned self] action in
+                self.sort(difficulty: Difficulty.normal, isAscending: false)
+            }
+            .defaultAction(title: "\(Difficulty.hard) / ASC".localized) { [unowned self] action in
+                self.sort(difficulty: Difficulty.hard, isAscending: true)
+            }
+            .defaultAction(title: "\(Difficulty.hard) / ASC".localized) { [unowned self] action in
+                self.sort(difficulty: Difficulty.hard, isAscending: false)
+            }
+            .defaultAction(title: "\(Difficulty.maximum) / ASC".localized) { [unowned self] action in
+                self.sort(difficulty: Difficulty.maximum, isAscending: true)
+            }
+            .defaultAction(title: "\(Difficulty.maximum) / ASC".localized) { [unowned self] action in
+                self.sort(difficulty: Difficulty.maximum, isAscending: false)
+            }
+            .cancelAction(title: "Cancel".localized)
+            .present(to: self)
     }
     
     @IBAction func touchUpRandomButton(_ sender: UIButton) {
@@ -86,28 +111,91 @@ class SongViewController: GuideBaseViewController {
 }
 
 extension SongViewController {
+    private func sort(difficulty: String, isAscending: Bool) {
+        let viewControllers = [all, portable1, portable2, respect, trilogy, ce, technika1, bs]
+        let serieses = ["", Series.portable1, Series.portable2, Series.respect, Series.trilogy, Series.ce, Series.technika1, Series.bs]
+        var keyPath: String = ""
+        switch favoriteButton {
+        case Buttons.button4:
+            keyPath = {
+                switch difficulty {
+                case Difficulty.normal:
+                    return "nm4"
+                case Difficulty.hard:
+                    return "hd4"
+                case Difficulty.maximum:
+                    return "mx4"
+                default:
+                    return ""
+                }
+            }()
+        case Buttons.button5:
+            keyPath = {
+                switch difficulty {
+                case Difficulty.normal:
+                    return "nm5"
+                case Difficulty.hard:
+                    return "hd5"
+                case Difficulty.maximum:
+                    return "mx5"
+                default:
+                    return ""
+                }
+            }()
+        case Buttons.button6:
+            keyPath = {
+                switch difficulty {
+                case Difficulty.normal:
+                    return "nm6"
+                case Difficulty.hard:
+                    return "hd6"
+                case Difficulty.maximum:
+                    return "mx6"
+                default:
+                    return ""
+                }
+            }()
+        case Buttons.button8:
+            keyPath = {
+                switch difficulty {
+                case Difficulty.normal:
+                    return "nm8"
+                case Difficulty.hard:
+                    return "hd8"
+                case Difficulty.maximum:
+                    return "mx8"
+                default:
+                    return ""
+                }
+            }()
+        default:
+            break
+        }
+        let sortDescriptor = [SortDescriptor(keyPath: keyPath, ascending: isAscending), SortDescriptor(keyPath: "lowercase", ascending: true)]
+        let results = realm.objects(SongInfo.self)
+        let count = viewControllers.count
+        for index in 0..<count {
+            let viewController = viewControllers[index]
+            let series = serieses[index]
+            if series.isEmpty {
+                viewController.songResults = results.sorted(by: sortDescriptor)
+            } else {
+                viewController.songResults = results.filter("series = '\(series)'").sorted(by: sortDescriptor)
+            }
+        }
+        reloadAllTableViews()
+    }
+    
     private func setFavoriteButton(_ button: String) {
-        self.all.favoriteButton = button
-        self.portable1.favoriteButton = button
-        self.portable2.favoriteButton = button
-        self.respect.favoriteButton = button
-        self.trilogy.favoriteButton = button
-        self.ce.favoriteButton = button
-        self.technika1.favoriteButton = button
-        self.bs.favoriteButton = button
-        self.favorite.favoriteButton = button
+        for viewController in songViewControllers {
+            viewController.favoriteButton = button
+        }
         self.selectedButtonLabel.text = button
     }
     
     private func reloadAllTableViews() {
-        self.all.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.portable1.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.portable2.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.respect.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.trilogy.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.ce.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.technika1.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.bs.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        self.favorite.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+        for viewController in songViewControllers {
+            viewController.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+        }
     }
 }

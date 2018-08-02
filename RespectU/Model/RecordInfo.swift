@@ -128,6 +128,12 @@ class RecordInfo: Object {
         }
     }
     
+    //READ
+    static func get() -> Results<RecordInfo> {
+        let result = try! Realm().objects(RecordInfo.self)
+        return result
+    }
+    
     //DELETE
     static func remove(_ title: String, _ type: String) {
         let realm = try! Realm()

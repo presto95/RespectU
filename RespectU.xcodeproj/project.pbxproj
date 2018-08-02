@@ -726,8 +726,8 @@
 			children = (
 				193E3FF4204BB0D80063A440 /* RecordView.xib */,
 				193E3FF6204BB1060063A440 /* RecordView.swift */,
-				196F824E2074AD49000DF337 /* RecordCell.swift */,
 				196F824B2074A91B000DF337 /* RecordCell.xib */,
+				196F824E2074AD49000DF337 /* RecordCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

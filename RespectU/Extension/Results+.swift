@@ -21,9 +21,4 @@ extension Results {
     func filter(key: String, value: String, method: String) -> Results {
         return self.filter("\(key) \(method) '\(value)'")
     }
-    
-    @discardableResult
-    func sort(keyPath: String, isAscending: Bool) -> Results {
-        return self.sorted(byKeyPath: keyPath, ascending: isAscending)
-    }
 }

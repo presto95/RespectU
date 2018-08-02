@@ -13,7 +13,6 @@ protocol RecordViewDelegate: class {
     func presentRankAlert()
     func presentRateAlert()
     func presentNoteAlert()
-    func dismiss()
 }
 
 class RecordView: UIView {

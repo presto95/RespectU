@@ -28,7 +28,6 @@ class MissionBaseTableViewController: GuideBaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let cell = tableView.cellForRow(at: indexPath) as? MissionCell else { return }
         let object = self.results[indexPath.row + indexPath.section * 6]
         let detailViewController = MissionDetailViewController.instantiate(object)!
         detailViewController.modalTransitionStyle = .crossDissolve

@@ -10,20 +10,21 @@ import UIKit
 
 class RecordCell: UITableViewCell {
 
-    @IBOutlet weak var color: UILabel!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        color.layer.borderWidth = 1
-        color.layer.borderColor = UIColor.mainColor.cgColor
-        // Initialization code
+        self.colorLabel.layer.borderWidth = 1
+        self.colorLabel.layer.borderColor = UIColor.mainColor.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-
+    
+    func setProperties(_ object: RecordInfo) {
+        self.titleLabel.text = object.title
+        self.colorLabel.backgroundColor = object.series.seriesColor
+    }
 }

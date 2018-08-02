@@ -11,6 +11,7 @@ import XLPagerTabStrip
 
 class RecordViewController: GuideRecordBaseViewController {
     
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var buttonBar: ButtonBarView!
     lazy var all = RecordAllTableViewController()

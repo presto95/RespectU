@@ -39,12 +39,7 @@ class RecordPortable1TableViewController: UITableViewController {
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell") as! RecordCell
         let object = results[indexPath.row]
@@ -72,7 +67,7 @@ class RecordPortable1TableViewController: UITableViewController {
     }
 }
 
-extension RecordPortable1TableViewController: IndicatorInfoProvider{
+extension RecordPortable1TableViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "PORTABLE 1")
     }

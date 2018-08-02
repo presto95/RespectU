@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class TrophyViewController: GuideBaseViewController {
+class TrophyViewController: GuideRecordBaseViewController {
 
     lazy var respect = TrophyRespectTableViewController()
     lazy var trilogy = TrophyTrilogyTableViewController()

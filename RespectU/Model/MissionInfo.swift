@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class MissionInfo: Object {
+    
     @objc dynamic var type: String = ""
     @objc dynamic var section: String = ""
     @objc dynamic var title: String = ""
@@ -39,6 +40,7 @@ class MissionInfo: Object {
     @objc dynamic var more: String = ""   //기타 사항(이펙터)
     @objc dynamic var reward: String = ""
     
+    //CREATE
     static func add(_ type: String, _ section: String, _ title: String, _ song1title: String, _ song1level: String, _ song1key: String, _ scoreLim: Int, _ feverLim: Int, _ comboLim: Int, _ rateLim: Int, _ breakLim: Int, _ more: String, _ reward: String){
         let realm = try! Realm()
         let mission = MissionInfo()

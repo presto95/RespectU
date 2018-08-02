@@ -24,7 +24,6 @@ class GuideBaseTableViewController: UITableViewController {
     
     private func setup() {
         self.view.backgroundColor = .mainColor
-        self.tableView.rowHeight = 60
         self.tableView.separatorColor = .mainColor
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         self.tableView.layer.borderColor = UIColor.mainColor.cgColor

@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class AchievementViewController: GuideBaseViewController {
+class AchievementViewController: GuideRecordBaseViewController {
     
     lazy var all = AchievementAllTableViewController()
     lazy var music = AchievementMusicTableViewController()

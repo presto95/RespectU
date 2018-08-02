@@ -40,12 +40,7 @@ class RecordAllTableViewController: UITableViewController {
             }
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell") as! RecordCell
         let object = results[indexPath.row]
@@ -90,7 +85,7 @@ class RecordAllTableViewController: UITableViewController {
     }
 }
 
-extension RecordAllTableViewController: IndicatorInfoProvider{
+extension RecordAllTableViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "All")
     }

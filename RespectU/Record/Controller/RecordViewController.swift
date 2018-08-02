@@ -9,20 +9,21 @@
 import UIKit
 import XLPagerTabStrip
 
-class RecordViewController: ButtonBarPagerTabStripViewController {
+class RecordViewController: GuideRecordBaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var buttonBar: ButtonBarView!
+    lazy var all = RecordAllTableViewController()
+    lazy var portable1 = RecordPortable1TableViewController()
+    lazy var portable2 = RecordPortable2TableViewController()
+    lazy var respect = RecordRespectTableViewController()
+    lazy var trilogy = RecordTrilogyTableViewController()
+    lazy var ce = RecordCETableViewController()
+    lazy var technika1 = RecordTechnika1TableViewController()
+    lazy var bs = RecordBSTableViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settings.style.buttonBarBackgroundColor = UIColor.subColor
-        settings.style.buttonBarItemBackgroundColor = UIColor.subColor
-        settings.style.selectedBarBackgroundColor = UIColor.mainColor
-        settings.style.buttonBarItemTitleColor = .black
-        settings.style.buttonBarItemsShouldFillAvailiableWidth = true
-        settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
-        // Do any additional setup after loading the view.
     }
 
     static func instantiate() -> RecordViewController? {
@@ -31,11 +32,11 @@ class RecordViewController: ButtonBarPagerTabStripViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [RecordAllTableViewController(), RecordPortable1TableViewController(), RecordPortable2TableViewController(), RecordRespectTableViewController(), RecordTrilogyTableViewController(), RecordCETableViewController(), RecordTechnika1TableViewController(), RecordBSTableViewController()]
+        return [all, portable1, portable2, respect, trilogy, ce, technika1, bs]
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

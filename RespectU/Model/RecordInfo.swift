@@ -14,6 +14,7 @@ let button5GradeArray=["BEGINNER", "AMATEUR 4", "AMATEUR 3", "AMATEUR 2", "AMATE
 let button6And8GradeArray=["BEGINNER", "AMATEUR 4", "AMATEUR 3", "AMATEUR 2", "AMATEUR 1", "SUB DJ 4", "SUB DJ 3", "SUB DJ 2", "SUB DJ 1", "MAIN DJ 4", "MAIN DJ 3", "MAIN DJ 2", "MAIN DJ 1", "POP DJ 4", "POP DJ 3", "POP DJ 2", "POP DJ 1", "PROFESSIONAL 4", "PROFESSIONAL 3", "PROFESSIONAL 2", "PROFESSIONAL 1", "MIX MASTER 3", "MIX MASTER 2", "MIX MASTER 1", "SUPERSTAR 3", "SUPERSTAR 2", "SUPERSTAR 1", "DJMAX GRAND MASTER", "THE DJMAX"]
 
 class RecordInfo: Object {
+    
     @objc dynamic var series: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var nm4Rank: String = "-"
@@ -82,6 +83,7 @@ class RecordInfo: Object {
     @objc dynamic var button8HighestSkillPointNote: String = ""
     @objc dynamic var lowercase: String = ""
     
+    //CREATE
     static func add(_ title: String, _ nm4rank: String, _ nm4rate: String, _ nm4note: String, _ nm5rank: String, _ nm5rate: String, _ nm5note: String, _ nm6rank: String, _ nm6rate: String, _ nm6note: String, _ nm8rank: String, _ nm8rate: String, _ nm8note: String, _ hd4rank: String, _ hd4rate: String, _ hd4note: String, _ hd5rank: String, _ hd5rate: String, _ hd5note: String, _ hd6rank: String, _ hd6rate: String, _ hd6note: String, _ hd8rank: String, _ hd8rate: String, _ hd8note: String, _ mx4rank: String, _ mx4rate: String, _ mx4note: String, _ mx5rank: String, _ mx5rate: String, _ mx5note: String, _ mx6rank: String, _ mx6rate: String, _ mx6note: String, _ mx8rank: String, _ mx8rate: String, _ mx8note: String) {
         let realm = try! Realm()
         let record = realm.objects(RecordInfo.self).last!
@@ -126,6 +128,7 @@ class RecordInfo: Object {
         }
     }
     
+    //DELETE
     static func remove(_ title: String, _ type: String) {
         let realm = try! Realm()
         let record = realm.objects(RecordInfo.self).last!

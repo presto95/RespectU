@@ -187,7 +187,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="cancelButton:" destination="Sgo-is-0M5" eventType="touchUpInside" id="f3w-e0-Y10"/>
+                                    <action selector="touchUpCancelButton:" destination="Sgo-is-0M5" eventType="touchUpInside" id="f3w-e0-Y10"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="57Q-G4-O9N">

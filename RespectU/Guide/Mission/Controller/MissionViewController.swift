@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class MissionViewController: GuideBaseViewController {
+class MissionViewController: GuideRecordBaseViewController {
 
     lazy var respect = MissionRespectTableViewController()
     lazy var trilogy = MissionTrilogyTableViewController()

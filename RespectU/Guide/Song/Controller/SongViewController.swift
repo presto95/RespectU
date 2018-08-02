@@ -10,7 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class SongViewController: GuideBaseViewController {
+class SongViewController: GuideRecordBaseViewController {
     
     @IBOutlet weak var selectedButtonLabel: UILabel!
     var realm: Realm!

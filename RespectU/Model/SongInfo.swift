@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class SongInfo: Object {
+    
     @objc dynamic var series: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var composer: String = ""
@@ -28,6 +29,7 @@ class SongInfo: Object {
     @objc dynamic var mx8: Int = 0
     @objc dynamic var lowercase: String = ""
     
+    //CREATE
     static func add(_ series: String, _ title: String, _ composer: String, _ bpm: String, _ nm4: Int, _ hd4: Int, _ mx4: Int, _ nm5: Int, _ hd5: Int, _ mx5: Int, _ nm6: Int, _ hd6: Int, _ mx6: Int, _ nm8: Int, _ hd8: Int, _ mx8: Int){
         let realm = try! Realm()
         let song = SongInfo()
@@ -51,6 +53,15 @@ class SongInfo: Object {
             realm.add(song)
         }
     }
+    
+    //READ
+    static func get() -> Results<SongInfo> {
+        let songInfo = try! Realm().objects(SongInfo.self)
+        return songInfo
+    }
+    
+    //UPDATE
+    
+    //DELETE
 }
-
 

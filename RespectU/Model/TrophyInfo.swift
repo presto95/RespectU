@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class TrophyInfo: Object {
+    
     @objc dynamic var series: String = ""
     @objc dynamic var titleKor: String = ""
     @objc dynamic var contentKor: String = ""
@@ -17,6 +18,7 @@ class TrophyInfo: Object {
     @objc dynamic var contentEng: String = ""
     @objc dynamic var rating: String = ""
     
+    //CREATE
     static func add(_ series: String, _ titleKor: String, _ contentKor: String, _ titleEng: String, _ contentEng: String, _ rating: String){
         let realm = try! Realm()
         let trophy = TrophyInfo()

@@ -8,21 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class MissionTechnika1TableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(MissionInfo.self).filter("type = '\(Series.technika1)'")
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return results.count / 6
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return results[section * 6].section
+        self.results = MissionInfo.get().filter(key: "type", value: Series.technika1, method: FilterOperator.equal)
     }
 }
 

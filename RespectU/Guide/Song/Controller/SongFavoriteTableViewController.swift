@@ -17,11 +17,13 @@ class SongFavoriteTableViewController: SongBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.emptyDataSetDelegate = self
+        self.tableView.emptyDataSetSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.playlistResults = realm.objects(PlaylistInfo.self)
+        self.playlistResults = PlaylistInfo.get()
         self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
     }
 

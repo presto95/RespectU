@@ -8,13 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class SongAllTableViewController: SongBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.songResults = realm.objects(SongInfo.self).sorted(byKeyPath: "lowercase")
+        self.songResults = SongInfo.get().sorted(byKeyPath: "lowercase")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

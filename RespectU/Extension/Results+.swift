@@ -8,14 +8,6 @@
 
 import RealmSwift
 
-struct FilterMethod {
-    static let equal = "="
-    static let greaterOrEqual = ">="
-    static let greater = ">"
-    static let lessOrEqual = "<="
-    static let less = "<"
-}
-
 extension Results {
     @discardableResult
     func filter(key: String, value: String, method: String) -> Results {

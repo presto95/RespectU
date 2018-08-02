@@ -96,7 +96,6 @@
 		194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */; };
 		194E52B7204AC55900B84AFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B5204AC55900B84AFA /* SongCell.swift */; };
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
-		194E52BA204AD3BF00B84AFA /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B9204AD3BF00B84AFA /* Double+.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
 		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
@@ -112,6 +111,7 @@
 		197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */; };
 		197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */; };
 		1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */; };
+		19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19801B472112FE3400CDAAB1 /* FilterOperator.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
@@ -263,7 +263,6 @@
 		194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFavoriteTableViewController.swift; sourceTree = "<group>"; };
 		194E52B5204AC55900B84AFA /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
-		194E52B9204AD3BF00B84AFA /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
 		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
@@ -279,6 +278,7 @@
 		197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
+		19801B472112FE3400CDAAB1 /* FilterOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOperator.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
@@ -394,7 +394,6 @@
 				19B660251F960E5800CCEFB5 /* String+.swift */,
 				191275F321121B9D0046AA3E /* UIViewController+.swift */,
 				1968185220490D300007F4D7 /* UIColor+.swift */,
-				194E52B9204AD3BF00B84AFA /* Double+.swift */,
 				193E4016204C03C50063A440 /* UIView+.swift */,
 				191A8B7D20E4FC930064F93E /* UIAlertController+.swift */,
 				191275EA211206790046AA3E /* NSObject+.swift */,
@@ -412,6 +411,7 @@
 				192DF89E2111DAC80016F386 /* TrophyGrade.swift */,
 				192DF89C2111DA640016F386 /* Buttons.swift */,
 				191275DC2111EFE80046AA3E /* Achievement.swift */,
+				19801B472112FE3400CDAAB1 /* FilterOperator.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1093,9 +1093,9 @@
 				191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */,
 				19D67EC820744F0700FD9EC7 /* RecordPortable2TableViewController.swift in Sources */,
 				193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */,
-				194E52BA204AD3BF00B84AFA /* Double+.swift in Sources */,
 				19D67EC620744EEB00FD9EC7 /* RecordAllTableViewController.swift in Sources */,
 				19B5F9B9204A489800E12EC1 /* Init.swift in Sources */,
+				19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */,
 				19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */,
 				191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */,
 				19892A8820662F83009D01F8 /* SearchByLevelView.swift in Sources */,

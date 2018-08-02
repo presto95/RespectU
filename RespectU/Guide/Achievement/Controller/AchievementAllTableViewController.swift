@@ -8,13 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class AchievementAllTableViewController: AchievementBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(AchievementInfo.self)
+        self.results = AchievementInfo.get()
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

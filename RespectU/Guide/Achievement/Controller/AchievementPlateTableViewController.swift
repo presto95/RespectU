@@ -8,13 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class AchievementPlateTableViewController: AchievementBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(AchievementInfo.self).filter("type LIKE 'PLATE'")
+        self.results = AchievementInfo.get().filter(key: "type", value: Achievement.plate, method: FilterOperator.like)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

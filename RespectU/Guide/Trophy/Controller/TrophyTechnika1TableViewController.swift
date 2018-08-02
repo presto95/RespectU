@@ -8,13 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(TrophyInfo.self).filter("series = '\(Series.technika1)'")
+        self.results = TrophyInfo.get().filter(key: "series", value: Series.technika1, method: FilterOperator.equal)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

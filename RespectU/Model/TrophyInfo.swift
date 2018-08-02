@@ -32,5 +32,10 @@ class TrophyInfo: Object {
             realm.add(trophy)
         }
     }
+    
+    static func get() -> Results<TrophyInfo> {
+        let result = try! Realm().objects(TrophyInfo.self)
+        return result
+    }
 }
 

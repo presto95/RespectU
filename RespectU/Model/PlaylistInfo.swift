@@ -29,6 +29,7 @@ class PlaylistInfo: Object {
     @objc dynamic var mx6: Int = 0
     @objc dynamic var mx8: Int = 0
     
+    //CREATE
     static func add(series: String, title: String, composer: String, bpm: String, nm4: Int, hd4: Int, mx4: Int, nm5: Int, hd5: Int, mx5: Int, nm6: Int, hd6: Int, mx6: Int, nm8: Int, hd8: Int, mx8: Int) {
         let playlist = PlaylistInfo()
         playlist.series = series
@@ -52,5 +53,11 @@ class PlaylistInfo: Object {
         try! realm.write {
             realm.add(playlist)
         }
+    }
+    
+    //READ
+    static func get() -> Results<PlaylistInfo> {
+        let result = try! Realm().objects(PlaylistInfo.self)
+        return result
     }
 }

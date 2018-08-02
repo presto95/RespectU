@@ -38,6 +38,14 @@ class MissionBaseTableViewController: GuideBaseTableViewController {
         return 6
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.results.count / 6
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.results[section * 6].section
+    }
+    
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .white

@@ -8,12 +8,11 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class AchievementGalleryTableViewController: AchievementBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(AchievementInfo.self).filter("type LIKE 'GALLERY'")
+        self.results = AchievementInfo.get().filter(key: "type", value: Achievement.gallery, method: FilterOperator.like)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

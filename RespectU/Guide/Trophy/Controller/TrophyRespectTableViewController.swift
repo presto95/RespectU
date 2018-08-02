@@ -8,13 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class TrophyRespectTableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = realm.objects(TrophyInfo.self).filter("series = '\(Series.respect)'")
+        self.results = TrophyInfo.get().filter(key: "series", value: Series.respect, method: FilterOperator.equal)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +46,7 @@ class TrophyRespectTableViewController: TrophyBaseTableViewController {
         }
         else if row == 41 {
             title = "CREDITS".localized
-            messsage = "CREDITS will appear when the average accuracy of three stages are greater than 98%.".localized
+            message = "CREDITS will appear when the average accuracy of three stages are greater than 98%.".localized
             UIAlertController
                 .alert(title: title, message: message)
                 .defaultAction(title: "OK".localized)

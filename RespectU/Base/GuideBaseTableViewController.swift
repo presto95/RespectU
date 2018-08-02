@@ -17,8 +17,6 @@ class GuideBaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.realm = try! Realm()
-        self.tableView.emptyDataSetDelegate = self
-        self.tableView.emptyDataSetSource = self
         setup()
     }
     

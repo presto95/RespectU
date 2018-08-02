@@ -209,5 +209,11 @@ class MissionInfo: Object {
             realm.add(mission)
         }
     }
+    
+    //READ
+    static func get() -> Results<MissionInfo> {
+        let result = try! Realm().objects(MissionInfo.self)
+        return result
+    }
 }
 

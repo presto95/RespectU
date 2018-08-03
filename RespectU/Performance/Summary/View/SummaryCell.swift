@@ -9,14 +9,19 @@
 import UIKit
 import RealmSwift
 
+protocol SummaryCellDelegate: class {
+    func touchUpDetailButton(_ sender: UIButton)
+    func touchUpSearchButton(_ sender: UIButton)
+}
+
 class SummaryCell: UITableViewCell {
 
+    var delegate: SummaryCellDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
-    var realm: Realm! = nil
-    var results: Results<RecordInfo>! = nil
+    var realm: Realm!
+    var results: Results<RecordInfo>!
     var maxCombo = 0
     var perfectPlay = 0
     
@@ -31,29 +36,23 @@ class SummaryCell: UITableViewCell {
         searchButton.setTitle("Search by Condition".localized, for: .normal)
         searchButton.layer.borderWidth = 2
         searchButton.layer.borderColor = UIColor.mainColor.cgColor
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    @IBAction func clickDetail(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Performance", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SummaryDetailViewController")
-        self.parentViewController()?.present(controller, animated: true, completion: nil)
-    }
-    @IBAction func clickSearch(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Performance", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SearchRecordViewController")
-        self.parentViewController()?.present(controller, animated: true, completion: nil)
-    }
-}
-
-extension SummaryCell: UICollectionViewDelegate{
     
+    @objc func touchUpSearchButton(_ sender: UIButton) {
+        //SearchRecordViewController present
+        delegate?.touchUpSearchButton(sender)
+    }
+    
+    @objc func touchUpDetailButton(_ sender: UIButton) {
+        //SummaryDetailViewController present
+        delegate?.touchUpDetailButton(sender)
+    }
 }
+
 extension SummaryCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath) as! SummaryCollectionCell

@@ -33,7 +33,6 @@ class TrophyCETableViewController: TrophyBaseTableViewController {
                 .present(to: self)
         }
     }
-
 }
 
 extension TrophyCETableViewController: IndicatorInfoProvider {

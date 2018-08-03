@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class RecordViewController: GuideRecordBaseViewController {
+class RecordViewController: BaseViewController {
     
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!

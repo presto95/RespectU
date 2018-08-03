@@ -11,26 +11,22 @@ import RealmSwift
 
 class SearchRecordDetailCell: UITableViewCell {
 
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var nm: UILabel!
-    @IBOutlet weak var hd: UILabel!
-    @IBOutlet weak var mx: UILabel!
-    @IBOutlet weak var color: UILabel!
-    @IBOutlet weak var labelNm: UILabel!
-    @IBOutlet weak var labelHd: UILabel!
-    @IBOutlet weak var labelMx: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var normalLabel: UILabel!
+    @IBOutlet weak var hardLabel: UILabel!
+    @IBOutlet weak var maximumLabel: UILabel!
+    @IBOutlet weak var normalValueLabel: UILabel!
+    @IBOutlet weak var hardValueLabel: UILabel!
+    @IBOutlet weak var maximumValueLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        color.layer.borderWidth = 1
-        color.layer.borderColor = UIColor.mainColor.cgColor
-        // Initialization code
+        self.colorLabel.layer.borderWidth = 1
+        self.colorLabel.layer.borderColor = UIColor.mainColor.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }

@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 
 class AchievementGalleryTableViewController: AchievementBaseTableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.results = AchievementInfo.get().filter(key: "type", value: Achievement.gallery, method: FilterOperator.like)

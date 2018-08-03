@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-Ve-ugs" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="29" y="9" width="219" height="18"/>
+                        <rect key="frame" x="29" y="9" width="28" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGH-wp-90e">
-                        <rect key="frame" x="272" y="21" width="48" height="17"/>
+                        <rect key="frame" x="256" y="21" width="48" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -102,12 +102,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="color" destination="KLO-3V-SWj" id="rht-CM-lvW"/>
-                <outlet property="difficulty" destination="pDW-gr-fXV" id="16c-h4-Ify"/>
-                <outlet property="note" destination="kj1-oJ-7mn" id="Ac4-xb-gCg"/>
-                <outlet property="rate" destination="9G0-QT-VGC" id="KhH-OU-xz0"/>
-                <outlet property="skillPoint" destination="DGH-wp-90e" id="cUH-C7-02k"/>
-                <outlet property="title" destination="ctr-Ve-ugs" id="UIH-Un-vEf"/>
+                <outlet property="colorLabel" destination="KLO-3V-SWj" id="rht-CM-lvW"/>
+                <outlet property="difficultyLabel" destination="pDW-gr-fXV" id="16c-h4-Ify"/>
+                <outlet property="noteLabel" destination="kj1-oJ-7mn" id="Ac4-xb-gCg"/>
+                <outlet property="rateLabel" destination="9G0-QT-VGC" id="KhH-OU-xz0"/>
+                <outlet property="skillPointLabel" destination="DGH-wp-90e" id="cUH-C7-02k"/>
+                <outlet property="titleLabel" destination="ctr-Ve-ugs" id="UIH-Un-vEf"/>
             </connections>
             <point key="canvasLocation" x="25" y="60"/>
         </tableViewCell>

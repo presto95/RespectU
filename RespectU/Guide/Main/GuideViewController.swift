@@ -25,6 +25,11 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
         self.recordButton.setTitle("Performance Record".localized, for: .normal)
     }
     
+    static func instantiate() -> GuideViewController? {
+        guard let viewController = UIStoryboard(name: "Guide", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? GuideViewController else { return }
+        return viewController
+    }
+    
     @IBAction func touchUpPreviousButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

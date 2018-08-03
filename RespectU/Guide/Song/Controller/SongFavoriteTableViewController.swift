@@ -36,10 +36,8 @@ class SongFavoriteTableViewController: SongBaseTableViewController {
             .alert(title: object.title, message: message)
             .destructiveAction(title: "Remove".localized) { [unowned self] action in
                 let query = NSPredicate(format: "title = %@", object.title)
-                guard let row = self.realm.objects(PlaylistInfo.self).filter(query).first else { return }
-                try! self.realm.write {
-                    self.realm.delete(row)
-                }
+                guard let row = PlaylistInfo.get().filter(query).first else { return }
+                PlaylistInfo.delete(row)
                 self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
             }
             .cancelAction(title: "OK".localized)
@@ -81,6 +79,3 @@ extension SongFavoriteTableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "FAVORITE")
     }
 }
-
-
-

@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class MissionViewController: GuideRecordBaseViewController {
+class MissionViewController: BaseViewController {
 
     lazy var respect = MissionRespectTableViewController()
     lazy var trilogy = MissionTrilogyTableViewController()
@@ -17,6 +17,9 @@ class MissionViewController: GuideRecordBaseViewController {
     lazy var technika1 = MissionTechnika1TableViewController()
     lazy var bs = MissionBSTableViewController()
     lazy var linkDisk = MissionLinkDiskTableViewController()
+    lazy var missionViewControllers: [MissionBaseTableViewController] = {
+        return [respect, trilogy, ce, technika1, bs, linkDisk]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,7 @@ class MissionViewController: GuideRecordBaseViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [respect, trilogy, ce, technika1, bs, linkDisk]
+        return missionViewControllers
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

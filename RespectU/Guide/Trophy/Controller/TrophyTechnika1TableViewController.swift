@@ -22,6 +22,7 @@ class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
         cell.trophyImageView.image = UIImage(named: imageName)
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
@@ -32,7 +33,6 @@ class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
                 .present(to: self)
         }
     }
-    
 }
 
 extension TrophyTechnika1TableViewController: IndicatorInfoProvider {

@@ -8,12 +8,10 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
-class SongViewController: GuideRecordBaseViewController {
+class SongViewController: BaseViewController {
     
     @IBOutlet weak var selectedButtonLabel: UILabel!
-    var realm: Realm!
     lazy var all = SongAllTableViewController()
     lazy var portable1 = SongPortable1TableViewController()
     lazy var portable2 = SongPortable2TableViewController()
@@ -23,16 +21,17 @@ class SongViewController: GuideRecordBaseViewController {
     lazy var technika1 = SongTechnika1TableViewController()
     lazy var bs = SongBSTableViewController()
     lazy var favorite = SongFavoriteTableViewController()
+    lazy var songViewControllers: [SongBaseTableViewController] = {
+        return [all, portable1, portable2, respect, trilogy, ce, technika1, bs, favorite]
+    }()
     var favoriteButton: String {
         return selectedButtonLabel.text ?? ""
     }
-    var songViewControllers = [SongBaseTableViewController]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.realm = try! Realm()
         self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
-        self.songViewControllers = [all, portable1, portable2, respect, trilogy, ce, technika1, bs, favorite]
     }
 
     static func instantiate() -> SongViewController? {
@@ -41,26 +40,26 @@ class SongViewController: GuideRecordBaseViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [all, portable1, portable2, respect, trilogy, ce, technika1, bs, favorite]
+        return songViewControllers
     }
     
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Search".localized, message: "Select the button type.".localized)
-            .defaultAction(title: "4B") { [unowned self] action in
-                self.setFavoriteButton("4B")
+            .defaultAction(title: Buttons.button4) { [unowned self] action in
+                self.setFavoriteButton(Buttons.button4)
                 self.reloadAllTableViews()
             }
-            .defaultAction(title: "5B") { [unowned self] action in
-                self.setFavoriteButton("5B")
+            .defaultAction(title: Buttons.button5) { [unowned self] action in
+                self.setFavoriteButton(Buttons.button5)
                 self.reloadAllTableViews()
             }
-            .defaultAction(title: "6B") { [unowned self] action in
-                self.setFavoriteButton("6B")
+            .defaultAction(title: Buttons.button6) { [unowned self] action in
+                self.setFavoriteButton(Buttons.button6)
                 self.reloadAllTableViews()
             }
-            .defaultAction(title: "8B") { [unowned self] action in
-                self.setFavoriteButton("8B")
+            .defaultAction(title: Buttons.button8) { [unowned self] action in
+                self.setFavoriteButton(Buttons.button8)
                 self.reloadAllTableViews()
             }
             .cancelAction(title: "Cancel".localized)
@@ -93,7 +92,7 @@ class SongViewController: GuideRecordBaseViewController {
     }
     
     @IBAction func touchUpRandomButton(_ sender: UIButton) {
-        let results = self.realm.objects(SongInfo.self)
+        let results = SongInfo.get()
         let myBPM = UserDefaults.standard.double(forKey: "bpm")
         let random = Int(arc4random_uniform(UInt32(results.count - 1)))
         let object = results[random]

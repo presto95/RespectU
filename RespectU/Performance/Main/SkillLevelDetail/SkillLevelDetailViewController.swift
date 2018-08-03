@@ -44,18 +44,18 @@ class SkillLevelDetailViewController: UIViewController {
         let button5SkillLevel = getSkillLevelButton5(value: myButton5.sum)
         let button6SkillLevel = getSkillLevelButton6And8(value: myButton6.sum)
         let button8SkillLevel = getSkillLevelButton6And8(value: myButton8.sum)
-        button4View.button.text = "4B"
-        button5View.button.text = "5B"
-        button6View.button.text = "6B"
-        button8View.button.text = "8B"
-        button4View.skillLevel.text = button4SkillLevel
-        button5View.skillLevel.text = button5SkillLevel
-        button6View.skillLevel.text = button6SkillLevel
-        button8View.skillLevel.text = button8SkillLevel
-        button4View.skillPoint.text = "\((myButton4.sum * 100).rounded() / 100) " + "Point".localized
-        button5View.skillPoint.text = "\((myButton5.sum * 100).rounded() / 100) " + "Point".localized
-        button6View.skillPoint.text = "\((myButton6.sum * 100).rounded() / 100) " + "Point".localized
-        button8View.skillPoint.text = "\((myButton8.sum * 100).rounded() / 100) " + "Point".localized
+        button4View.buttonLabel.text = "4B"
+        button5View.buttonLabel.text = "5B"
+        button6View.buttonLabel.text = "6B"
+        button8View.buttonLabel.text = "8B"
+        button4View.skillLevelLabel.text = button4SkillLevel
+        button5View.skillLevelLabel.text = button5SkillLevel
+        button6View.skillLevelLabel.text = button6SkillLevel
+        button8View.skillLevelLabel.text = button8SkillLevel
+        button4View.skillPointLabel.text = "\((myButton4.sum * 100).rounded() / 100) " + "Point".localized
+        button5View.skillPointLabel.text = "\((myButton5.sum * 100).rounded() / 100) " + "Point".localized
+        button6View.skillPointLabel.text = "\((myButton6.sum * 100).rounded() / 100) " + "Point".localized
+        button8View.skillPointLabel.text = "\((myButton8.sum * 100).rounded() / 100) " + "Point".localized
         button4View.gauge.maxValue = CGFloat(button4Max)
         button5View.gauge.maxValue = CGFloat(button5Max)
         button6View.gauge.maxValue = CGFloat(button6Max)
@@ -140,22 +140,27 @@ class SkillLevelDetailViewController: UIViewController {
                 return UIColor()
             }
         }()
-        button4View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button4PerformanceRecordRate * 100) + " Recorded".localized
-        button5View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button5PerformanceRecordRate * 100) + " Recorded".localized
-        button6View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button6PerformanceRecordRate * 100) + " Recorded".localized
-        button8View.performanceRecordRate.text = String.init(format: "%04.1f%%", performanceRecordRate.button8PerformanceRecordRate * 100) + " Recorded".localized
+        button4View.recordRateLabel.text = String.init(format: "%04.1f%%", performanceRecordRate.button4PerformanceRecordRate * 100) + " Recorded".localized
+        button5View.recordRateLabel.text = String.init(format: "%04.1f%%", performanceRecordRate.button5PerformanceRecordRate * 100) + " Recorded".localized
+        button6View.recordRateLabel.text = String.init(format: "%04.1f%%", performanceRecordRate.button6PerformanceRecordRate * 100) + " Recorded".localized
+        button8View.recordRateLabel.text = String.init(format: "%04.1f%%", performanceRecordRate.button8PerformanceRecordRate * 100) + " Recorded".localized
         button4View.gauge.bgColor = button4View.gauge.startColor
         button5View.gauge.bgColor = button5View.gauge.startColor
         button6View.gauge.bgColor = button6View.gauge.startColor
         button8View.gauge.bgColor = button8View.gauge.startColor
-        button4View.percent.text = String(format: "%05.2f%%", myButton4.sum * 100 / button4Max)
-        button5View.percent.text = String(format: "%05.2f%%", myButton5.sum * 100 / button5Max)
-        button6View.percent.text = String(format: "%05.2f%%", myButton6.sum * 100 / button6Max)
-        button8View.percent.text = String(format: "%05.2f%%", myButton8.sum * 100 / button8Max)
+        button4View.percentLabel.text = String(format: "%05.2f%%", myButton4.sum * 100 / button4Max)
+        button5View.percentLabel.text = String(format: "%05.2f%%", myButton5.sum * 100 / button5Max)
+        button6View.percentLabel.text = String(format: "%05.2f%%", myButton6.sum * 100 / button6Max)
+        button8View.percentLabel.text = String(format: "%05.2f%%", myButton8.sum * 100 / button8Max)
         button4View.gauge.animateRate(1, newValue: CGFloat(myButton4.sum)) { _ in }
         button5View.gauge.animateRate(1, newValue: CGFloat(myButton5.sum)) { _ in }
         button6View.gauge.animateRate(1, newValue: CGFloat(myButton6.sum)) { _ in }
         button8View.gauge.animateRate(1, newValue: CGFloat(myButton8.sum)) { _ in }
+    }
+    
+    static func instantiate() -> SkillLevelDetailViewController? {
+        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SkillLevelDetailViewController else { return nil }
+        return viewController
     }
     
     @IBAction func touchUpShareButton(_ sender: UIButton) {
@@ -168,8 +173,8 @@ class SkillLevelDetailViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

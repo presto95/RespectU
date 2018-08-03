@@ -39,14 +39,14 @@ class SearchRecordViewController: UIViewController {
         types = [buttonByLevel, buttonByRate, buttonByNote]
         initializeButtons()
         initializeTypes()
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> SearchRecordViewController? {
+        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SearchRecordViewController else { return nil }
+        return viewController
     }
-    @IBAction func clickSearch(_ sender: UIButton) {
+    
+    @IBAction func touchUpSearchButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Performance", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SearchRecordDetailViewController") as! SearchRecordDetailViewController
         controller.button = { () -> Int in
@@ -71,8 +71,8 @@ class SearchRecordViewController: UIViewController {
             controller.level = levelView.selectedLevel
         } else if(buttonByRate.isSelected){
             let rateView = subView.subviews.first as! SearchByRateView
-            controller.lowerRange = Double((rateView.lowerRate.text)!)!
-            controller.upperRange = Double((rateView.upperRate.text)!)!
+            controller.lowerRange = Double((rateView.lowerRateTextField.text)!)!
+            controller.upperRange = Double((rateView.upperRateTextField.text)!)!
         } else if(buttonByNote.isSelected){
             let noteView = subView.subviews.first as! SearchByNoteView
             controller.detailType = { () -> Int in
@@ -86,11 +86,11 @@ class SearchRecordViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
-    @IBAction func clickCancel(_ sender: UIButton) {
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func clickButtons(_ sender: UIButton) {
+    @IBAction func touchUpButtons(_ sender: UIButton) {
         initializeButtons()
         for button in buttons{
             button?.isSelected = false
@@ -114,7 +114,7 @@ class SearchRecordViewController: UIViewController {
         checkValidate()
     }
     
-    @IBAction func clickTypes(_ sender: UIButton) {
+    @IBAction func touchUpTypesButton(_ sender: UIButton) {
         if(subView.subviews.first is SearchByRateView){
             
         } else if(subView.subviews.first is SearchByNoteView){
@@ -144,14 +144,12 @@ class SearchRecordViewController: UIViewController {
             selectedType = 1
             let newView = SearchByRateView.instanceFromXib() as! SearchByRateView
             newView.frame.size = subView.frame.size
-            newView.lowerRate.frame.origin.x = button4.frame.origin.x
-            //newView.lowerRate.frame.size.width = (button5.frame.origin.x - button4.frame.origin.x - button4.frame.width) + button4.frame.width * 2
-            newView.lowerRate.frame.size.height = button4.frame.height
-//            newView.upperRate.frame.origin.x = button6.frame.origin.x
-            newView.upperRate.frame.origin.x = button8.frame.origin.x + button8.frame.width - newView.lowerRate.frame.width
-            newView.upperRate.frame.size = newView.lowerRate.frame.size
-            newView.lowerRate.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
-            newView.upperRate.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
+            newView.lowerRateTextField.frame.origin.x = button4.frame.origin.x
+            newView.lowerRateTextField.frame.size.height = button4.frame.height
+            newView.upperRateTextField.frame.origin.x = button8.frame.origin.x + button8.frame.width - newView.lowerRateTextField.frame.width
+            newView.upperRateTextField.frame.size = newView.lowerRateTextField.frame.size
+            newView.lowerRateTextField.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
+            newView.upperRateTextField.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
             subView.addSubview(newView)
         case 2:
             selectedType = 2
@@ -207,8 +205,8 @@ class SearchRecordViewController: UIViewController {
             }
         } else if(subView.subviews.first is SearchByRateView){
             let newView = subView.subviews.first as! SearchByRateView
-            guard let lowerText = newView.lowerRate.text else { return }
-            guard let upperText = newView.upperRate.text else { return }
+            guard let lowerText = newView.lowerRateTextField.text else { return }
+            guard let upperText = newView.upperRateTextField.text else { return }
             guard let lower = Double(lowerText) else { return }
             guard let upper = Double(upperText) else { return }
             if(upper < lower) { return }

@@ -44,9 +44,6 @@
                         <state key="normal" title="Detail">
                             <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
-                        <connections>
-                            <action selector="clickDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gZR-mj-zwh"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-le-1N2">
                         <rect key="frame" x="16" y="89" width="128" height="30"/>
@@ -54,9 +51,6 @@
                         <state key="normal" title="Search">
                             <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
-                        <connections>
-                            <action selector="clickSearch:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ivL-7s-kZn"/>
-                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,7 +70,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="collectionView" destination="YY4-9M-zYW" id="SsN-qP-YTL"/>
-                <outlet property="collectionViewFlowLayout" destination="GQo-hn-1ux" id="ipo-cK-Yul"/>
                 <outlet property="detailButton" destination="vFa-k9-aPd" id="huA-QB-VsF"/>
                 <outlet property="searchButton" destination="Ve1-le-1N2" id="1Iv-O0-w3p"/>
             </connections>

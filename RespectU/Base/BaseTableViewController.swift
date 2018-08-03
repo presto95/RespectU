@@ -7,16 +7,12 @@
 //
 
 import UIKit
-import RealmSwift
 import XLPagerTabStrip
 
-class GuideBaseTableViewController: UITableViewController {
-
-    var realm: Realm!
+class BaseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.realm = try! Realm()
         setup()
     }
     

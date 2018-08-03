@@ -14,25 +14,21 @@ import StoreKit
 
 class PerformanceViewController: UIViewController {
   
-    @IBOutlet weak var buttonRecord: UIButton!
+    @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var nickname: UIButton!
+    @IBOutlet weak var nicknameButton: UIButton!
     var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = Init()
-        AcitivityIndicatorView.shared.show(to: self.view)
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        buttonRecord.setTitle("Performance Record".localized, for: .normal)
-        if(Auth.auth().currentUser == nil){
-            let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            present(controller, animated: true)
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        recordButton.setTitle("Performance Record".localized, for: .normal)
+        if Auth.auth().currentUser == nil {
+            guard let loginViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+            self.present(loginViewController, animated: true)
         }
-        
         if #available(iOS 10.3, *) {
             let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
             UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
@@ -44,16 +40,17 @@ class PerformanceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
-        tableView.reloadData()
-        nickname.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: .normal)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+        self.tableView.reloadData()
+        self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: .normal)
     }
     
-    @IBAction func clickNickname(_ sender: UIButton) {
+    static func instantiate() -> PerformanceViewController? {
+        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? PerformanceViewController else { return nil }
+        return viewController
+    }
+    
+    @IBAction func touchUpNicknameButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Nickname Setting".localized, message: "Enter your nickname.".localized, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Nickname".localized
@@ -63,7 +60,7 @@ class PerformanceViewController: UIViewController {
             if let input = alert.textFields?.first?.text {
                 if(!input.isEmpty){
                     UserDefaults.standard.set(input.trimmingCharacters(in: .whitespaces), forKey: "nickname")
-                    self.nickname.setTitle(UserDefaults.standard.string(forKey: "nickname")!, for: .normal)
+                    self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname")!, for: .normal)
                 }
             }
         }
@@ -71,23 +68,22 @@ class PerformanceViewController: UIViewController {
         alert.addAction(yesAction)
         present(alert, animated: true)
     }
-    @IBAction func goToNext(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Guide", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "GuideViewController") as! GuideViewController
-        navigationController?.pushViewController(controller, animated: true)
+    
+    @IBAction func touchUpNextButton(_ sender: UIButton) {
+        self.navigationController?.pushViewController(GuideViewController.instantiate()!, animated: true)
     }
-    @IBAction func recordPerformance(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Record", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "RecordViewController") as! RecordViewController
-        present(controller, animated: true, completion: nil)
+    
+    @IBAction func touchUpRecordButton(_ sender: UIButton) {
+        self.present(RecordViewController.instantiate()!, animated: true)
     }
 }
 
-extension PerformanceViewController: UITableViewDataSource{
+extension PerformanceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch(indexPath.section){
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "skillLevelCell") as! SkillLevelCell
+            cell.delegate = self
             switch(favoriteButton){
             case "4B":
                 let maxSkillPoint = getMaxSkillPoint(button: "4B")
@@ -117,10 +113,10 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getSkillLevelButton4(value: mySkillPointSum)
-                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
-                cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "4B")
-                cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
+                cell.skillLevelLabel.text = getSkillLevelButton4(value: mySkillPointSum)
+                cell.skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
+                cell.nextLevelLabel.text = getNextString(string: cell.skillLevelLabel.text!, button: "4B")
+                cell.percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             case "5B":
                 let maxSkillPoint = getMaxSkillPoint(button: "5B")
                 let mySkillPoint = getMySkillPoint(button: "5B")
@@ -149,10 +145,10 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getSkillLevelButton5(value: mySkillPointSum)
-                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
-                cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "5B")
-                cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
+                cell.skillLevelLabel.text = getSkillLevelButton5(value: mySkillPointSum)
+                cell.skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
+                cell.nextLevelLabel.text = getNextString(string: cell.skillLevelLabel.text!, button: "5B")
+                cell.percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             case "6B":
                 let maxSkillPoint = getMaxSkillPoint(button: "6B")
                 let mySkillPoint = getMySkillPoint(button: "6B")
@@ -181,10 +177,10 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getSkillLevelButton6And8(value: mySkillPointSum)
-                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
-                cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "6B")
-                cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
+                cell.skillLevelLabel.text = getSkillLevelButton6And8(value: mySkillPointSum)
+                cell.skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
+                cell.nextLevelLabel.text = getNextString(string: cell.skillLevelLabel.text!, button: "6B")
+                cell.percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             case "8B":
                 let maxSkillPoint = getMaxSkillPoint(button: "8B")
                 let mySkillPoint = getMySkillPoint(button: "8B")
@@ -213,10 +209,10 @@ extension PerformanceViewController: UITableViewDataSource{
                     }
                 }()
                 cell.gauge.bgColor = cell.gauge.startColor
-                cell.skillLevel.text = getSkillLevelButton6And8(value: mySkillPointSum)
-                cell.skillPoint.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
-                cell.nextLevel.text = getNextString(string: cell.skillLevel.text!, button: "8B")
-                cell.percent.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
+                cell.skillLevelLabel.text = getSkillLevelButton6And8(value: mySkillPointSum)
+                cell.skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
+                cell.nextLevelLabel.text = getNextString(string: cell.skillLevelLabel.text!, button: "8B")
+                cell.percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / maxSkillPoint)
             default:
                 break
             }
@@ -265,7 +261,7 @@ extension PerformanceViewController: UITableViewDataSource{
         return 2
     }
 }
-extension PerformanceViewController: UITableViewDelegate{
+extension PerformanceViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch(indexPath.section){
@@ -279,6 +275,34 @@ extension PerformanceViewController: UITableViewDelegate{
             break
         default:
             break
+        }
+    }
+}
+
+extension PerformanceViewController: SkillLevelCellDelegate {
+    func touchUpTop50Button(_ sender: UIButton) {
+        self.present(Top50ViewController.instantiate()!, animated: true)
+    }
+    func touchUpRankingButton(_ sender: UIButton) {
+        self.present(RankingViewController.instantiate()!, animated: true)
+    }
+    func touchUpCalculatorButton(_ sender: UIButton) {
+        let alert = UIAlertController
+                        .alert(title: "Skill Point Calculator".localized, message: "")
+                        .textField { textField in
+                            textField.placeholder = "Difficulty".localized
+                            textField.keyboardType = .numberPad
+                        }
+                        .textField { textField in
+                            textField.placeholder = "Rate".localized
+                            textField.keyboardType = .numberPad
+                        }
+        alert
+            .defaultAction(title: "MAX COMBO Failure".localized) { action in
+                if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
+                    let skillPoint = 
+                }
+                
         }
     }
 }

@@ -10,19 +10,21 @@ import UIKit
 
 class RankingCell: UITableViewCell {
 
-    @IBOutlet weak var ranking: UILabel!
-    @IBOutlet weak var nickname: UILabel!
-    @IBOutlet weak var skillPoint: UILabel!
+    @IBOutlet weak var rankingLabel: UILabel!
+    @IBOutlet weak var nicknameLabel: UILabel!
+    @IBOutlet weak var skillPointLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    func setProperties(_ dictionary: [(key: String, value: Double)], at row: Int) {
+        self.rankingLabel.text = "\(row + 1)"
+        self.nicknameLabel.text = dictionary[row].key
+        self.skillPointLabel.text = "\(dictionary[row].value)"
+    }
 }

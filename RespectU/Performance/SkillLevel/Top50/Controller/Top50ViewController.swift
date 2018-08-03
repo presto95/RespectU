@@ -9,27 +9,30 @@
 import UIKit
 import XLPagerTabStrip
 
-class Top50ViewController: ButtonBarPagerTabStripViewController {
+class Top50ViewController: BaseViewController {
 
+    lazy var button4TableViewController = Top504BTableViewController()
+    lazy var button5TableViewController = Top505BTableViewController()
+    lazy var button6TableViewController = Top506BTableViewController()
+    lazy var button8TableViewController = Top508BTableViewController()
+    lazy var top50ViewControllers: [Top50BaseTableViewController] = {
+        return [button4TableViewController, button5TableViewController, button6TableViewController, button8TableViewController]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        settings.style.buttonBarBackgroundColor = UIColor.subColor
-        settings.style.buttonBarItemBackgroundColor = UIColor.subColor
-        settings.style.selectedBarBackgroundColor = UIColor.mainColor
-        settings.style.buttonBarItemTitleColor = .black
-        settings.style.buttonBarItemsShouldFillAvailiableWidth = true
-        settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [Top504BTableViewController(), Top505BTableViewController(), Top506BTableViewController(), Top508BTableViewController()]
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    static func instantiate() -> Top50ViewController? {
+        guard let viewController = UIStoryboard(name: "Top50", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? Top50ViewController else { return nil }
+        return viewController
+    }
+
+    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+        return top50ViewControllers
+    }
+    
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

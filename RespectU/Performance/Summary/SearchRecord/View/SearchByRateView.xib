@@ -64,9 +64,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="label" destination="D33-VI-zbc" id="Dol-Va-K6p"/>
-                <outlet property="lowerRate" destination="W1T-kV-LlF" id="AWw-Z9-ZZR"/>
-                <outlet property="upperRate" destination="rBv-XK-wnN" id="EmV-OY-90A"/>
+                <outlet property="lowerRateTextField" destination="W1T-kV-LlF" id="AWw-Z9-ZZR"/>
+                <outlet property="titleLabel" destination="D33-VI-zbc" id="Dol-Va-K6p"/>
+                <outlet property="upperRateTextField" destination="rBv-XK-wnN" id="EmV-OY-90A"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="7.5"/>
         </view>

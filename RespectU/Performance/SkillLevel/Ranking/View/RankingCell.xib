@@ -49,7 +49,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9896.12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei7-ln-PsG">
-                        <rect key="frame" x="250" y="9" width="70" height="21"/>
+                        <rect key="frame" x="249.5" y="11" width="54.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -68,9 +68,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="nickname" destination="vcF-fH-PJm" id="dA4-rh-aHQ"/>
-                <outlet property="ranking" destination="P7k-mr-mdr" id="gMu-Gh-o9o"/>
-                <outlet property="skillPoint" destination="ei7-ln-PsG" id="VKM-Ek-K8E"/>
+                <outlet property="nicknameLabel" destination="vcF-fH-PJm" id="dA4-rh-aHQ"/>
+                <outlet property="rankingLabel" destination="P7k-mr-mdr" id="gMu-Gh-o9o"/>
+                <outlet property="skillPointLabel" destination="ei7-ln-PsG" id="VKM-Ek-K8E"/>
             </connections>
         </tableViewCell>
     </objects>

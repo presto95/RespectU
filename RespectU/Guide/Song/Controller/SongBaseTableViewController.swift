@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class SongBaseTableViewController: GuideBaseTableViewController {
+class SongBaseTableViewController: BaseTableViewController {
 
     var songResults: Results<SongInfo>!
     var achievementResults: Results<AchievementInfo>!
@@ -20,9 +20,9 @@ class SongBaseTableViewController: GuideBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)        
-        self.achievementResults = realm.objects(AchievementInfo.self).filter("type = 'MUSIC'")
-        self.missionResults = realm.objects(MissionInfo.self).filter("reward LIKE 'Music*'")
+        self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.achievementResults = AchievementInfo.get().filter(key: "type", value: Achievement.music, method: FilterOperator.equal)
+        self.missionResults = MissionInfo.get().filter(key: "reward", value: "Music*", method: FilterOperator.like)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,7 +34,7 @@ class SongBaseTableViewController: GuideBaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let object = songResults[indexPath.row]
+        let object = self.songResults[indexPath.row]
         let recommendedSpeed = getRecommendedSpeed(speed: myBPM / object.bpm.bpmToDouble)
         let unlockAchievement = "Unlock (ACHIEVEMENT".localized
         let unlockMission = "Unlock (MISSION)".localized
@@ -55,9 +55,9 @@ class SongBaseTableViewController: GuideBaseTableViewController {
         let message = "SPEED Recommendation".localized + "\n\(recommendedSpeed)" + unlockInfo
         UIAlertController
             .alert(title: object.title, message: message)
-            .defaultAction(title: "Add to Favorite".localized) { [unowned self] action in
+            .defaultAction(title: "Add to Favorite".localized) { action in
                 let query = NSPredicate(format: "title = %@", object.title)
-                if self.realm.objects(PlaylistInfo.self).filter(query).isEmpty {
+                if PlaylistInfo.get().filter(query).isEmpty {
                     PlaylistInfo.add(series: object.series, title: object.title, composer: object.composer, bpm: object.bpm, nm4: object.nm4, hd4: object.hd4, mx4: object.mx4, nm5: object.nm5, hd5: object.hd5, mx5: object.mx5, nm6: object.nm6, hd6: object.hd6, mx6: object.mx6, nm8: object.nm8, hd8: object.hd8, mx8: object.mx8)
                 }
             }

@@ -11,12 +11,12 @@ import GaugeKit
 
 class SkillLevelDetailView: UIView {
 
-    @IBOutlet weak var button: UILabel!
+    @IBOutlet weak var buttonLabel: UILabel!
     @IBOutlet var gauge: Gauge!
-    @IBOutlet weak var skillLevel: UILabel!
-    @IBOutlet weak var skillPoint: UILabel!
-    @IBOutlet weak var percent: UILabel!
-    @IBOutlet weak var performanceRecordRate: UILabel!
+    @IBOutlet weak var skillLevelLabel: UILabel!
+    @IBOutlet weak var skillPointLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var recordRateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

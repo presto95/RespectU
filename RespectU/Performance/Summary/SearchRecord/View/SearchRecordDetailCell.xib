@@ -123,14 +123,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="color" destination="dnQ-71-Fpa" id="8xt-dW-fYP"/>
-                <outlet property="hd" destination="QZe-wo-iud" id="hVu-8z-CWq"/>
-                <outlet property="labelHd" destination="b3t-QI-Z0g" id="9BJ-RG-eZW"/>
-                <outlet property="labelMx" destination="Wui-LJ-fuU" id="mfX-Cc-gFR"/>
-                <outlet property="labelNm" destination="61J-Mx-sXp" id="fue-K7-Lb9"/>
-                <outlet property="mx" destination="ULS-gB-76l" id="i6K-F6-JJz"/>
-                <outlet property="nm" destination="cJw-O0-Qk1" id="TTb-GC-8v4"/>
-                <outlet property="title" destination="dNe-1e-U2Z" id="Gd5-PT-WzU"/>
+                <outlet property="colorLabel" destination="dnQ-71-Fpa" id="8xt-dW-fYP"/>
+                <outlet property="hardLabel" destination="b3t-QI-Z0g" id="9BJ-RG-eZW"/>
+                <outlet property="hardValueLabel" destination="QZe-wo-iud" id="hVu-8z-CWq"/>
+                <outlet property="maximumLabel" destination="Wui-LJ-fuU" id="mfX-Cc-gFR"/>
+                <outlet property="maximumValueLabel" destination="ULS-gB-76l" id="i6K-F6-JJz"/>
+                <outlet property="normalLabel" destination="61J-Mx-sXp" id="fue-K7-Lb9"/>
+                <outlet property="normalValueLabel" destination="cJw-O0-Qk1" id="TTb-GC-8v4"/>
+                <outlet property="title" destination="dNe-1e-U2Z" id="mg5-gw-AeL"/>
             </connections>
             <point key="canvasLocation" x="25" y="70"/>
         </tableViewCell>

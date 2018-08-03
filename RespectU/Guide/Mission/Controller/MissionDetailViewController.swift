@@ -7,17 +7,15 @@
 //
 
 import UIKit
-import RealmSwift
 
 class MissionDetailViewController: UIViewController {
 
-    var realm: Realm!
     var object: MissionInfo!
     let myBPM = UserDefaults.standard.double(forKey: "bpm")
     let random = "RANDOM"
     
-    var isSong1Visible = true
-    var isSong2Visible = true
+    var existsSong1 = true
+    var existsSong2 = true
     var isSong3Visible = true
     var isSong4Visible = true
     var isSong5Visible = true
@@ -63,7 +61,6 @@ class MissionDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        realm = try! Realm()
         setVisibilityOfViews()
         titleLabel.text = object.title
         scoreLabel.text = object.scoreLim == 0 ? "-" : "\(object.scoreLim)"
@@ -73,12 +70,12 @@ class MissionDetailViewController: UIViewController {
         breakLabel.text = object.breakLim == 0 ? "-" : "\(object.breakLim)"
         effectorLabel.text = object.more
         rewardLabel.text = object.reward.isEmpty ? "None".localized : object.reward
-        if isSong1Visible {
+        if existsSong1 {
             song1ButtonLabel.text = object.song1key
             song1DifficultyLabel.text = object.song1level
             song1TitleLabel.text = object.song1title
         }
-        if isSong2Visible {
+        if existsSong2 {
             song2ButtonLabel.text = object.song2key
             song2DifficultyLabel.text = object.song2level
             song2TitleLabel.text = object.song2title
@@ -137,53 +134,53 @@ class MissionDetailViewController: UIViewController {
 
 extension MissionDetailViewController {
     private func presentMoreAlert(title: String, button: String, difficulty: String){
-        var difficulty: Int = 0
+        var level: Int = 0
         var bpm: Double = 0
         let query = NSPredicate(format: "title = %@", title)
-        if let object = realm.objects(SongInfo.self).filter(query).first {
+        if let object = SongInfo.get().filter(query).first {
             bpm = object.bpm.bpmToDouble
             switch button {
             case Buttons.button4:
-                switch(difficulty){
+                switch difficulty {
                 case Difficulty.normal:
-                    difficulty = object.nm4
+                    level = object.nm4
                 case Difficulty.hard:
-                    difficulty = object.hd4
+                    level = object.hd4
                 case Difficulty.maximum:
-                    difficulty = object.mx4
+                    level = object.mx4
                 default:
                     break
                 }
             case Buttons.button5:
                 switch difficulty {
                 case Difficulty.normal:
-                    difficulty = object.nm5
+                    level = object.nm5
                 case Difficulty.hard:
-                    difficulty = object.hd5
+                    level = object.hd5
                 case Difficulty.maximum:
-                    difficulty = object.mx5
+                    level = object.mx5
                 default:
                     break
                 }
             case Buttons.button6:
                 switch difficulty {
                 case Difficulty.normal:
-                    difficulty = object.nm6
+                    level = object.nm6
                 case Difficulty.hard:
-                    difficulty = object.hd6
+                    level = object.hd6
                 case Difficulty.maximum:
-                    difficulty = object.mx6
+                    level = object.mx6
                 default:
                     break
                 }
             case Buttons.button8:
                 switch difficulty {
                 case Difficulty.normal:
-                    difficulty = object.nm8
+                    level = object.nm8
                 case Difficulty.hard:
-                    difficulty = object.hd8
+                    level = object.hd8
                 case Difficulty.maximum:
-                    difficulty = object.mx8
+                    level = object.mx8
                 default:
                     break
                 }
@@ -198,21 +195,26 @@ extension MissionDetailViewController {
                 return "??"
             }
         }()
-        let difficultyString = difficulty == 0 ? "??" : "\(difficulty)"
-        let message = button + " " + difficulty + "\n\n" + "Difficulty".localized + "\n" + difficultyString + "\n\n" + "SPEED Recommendation".localized + "\n" + recommendedSpeed
+        let difficultyString = level == 0 ? "??" : "\(difficulty)"
+        let message = "\(button) \(difficulty)\n\n" + "Difficulty".localized + "\n\(difficultyString)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
         UIAlertController
             .alert(title: title, message: message)
             .defaultAction(title: "OK".localized)
             .present(to: self)
     }
     
-    private func setVisibilityOfViews(){
+    private func setVisibilityOfViews() {
+//        let titles = [object.song1title, object.song2title, object.song3title, object.song4title, object.song5title, object.song6title]
+//        let buttonLabels = [song1ButtonLabel, song2ButtonLabel, song3ButtonLabel, song4ButtonLabel, song5ButtonLabel, song6ButtonLabel]
+//        let difficultyLabels = [song1DifficultyLabel, song2DifficultyLabel, song3DifficultyLabel, song4DifficultyLabel, song5DifficultyLabel, song6DifficultyLabel]
+//        let titleLabels = [song1TitleLabel, song2TitleLabel, song3TitleLabel, song4TitleLabel, song5TitleLabel, song6TitleLabel]
+//        let moreButtons = [song1MoreButton, song2MoreButton, song3MoreButton, song4MoreButton, song5MoreButton, song6MoreButton]
         if object.song1title.isEmpty {
             song1ButtonLabel.isHidden = true
             song1DifficultyLabel.isHidden = true
             song1TitleLabel.isHidden = true
             song1MoreButton.isHidden = true
-            isSong1Visible = false
+            existsSong1 = false
         } else if object.song1title == random {
             song1MoreButton.isHidden = true
         }
@@ -221,7 +223,7 @@ extension MissionDetailViewController {
             song2DifficultyLabel.isHidden = true
             song2TitleLabel.isHidden = true
             song2MoreButton.isHidden = true
-            isSong2Visible = false
+            existsSong2 = false
         } else if object.song2title == random {
             song2MoreButton.isHidden = true
         }

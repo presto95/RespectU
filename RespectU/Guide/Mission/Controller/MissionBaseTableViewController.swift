@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class MissionBaseTableViewController: GuideBaseTableViewController {
+class MissionBaseTableViewController: BaseTableViewController {
 
     var results: Results<MissionInfo>!
     let cellIdentifier = "missionCell"

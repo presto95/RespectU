@@ -9,27 +9,30 @@
 import UIKit
 import XLPagerTabStrip
 
-class RankingViewController: ButtonBarPagerTabStripViewController {
+class RankingViewController: BaseViewController {
 
+    private lazy var button4TableViewController = Ranking4BTableViewController()
+    private lazy var button5TableViewController = Ranking5BTableViewController()
+    private lazy var button6TableViewController = Ranking6BTableViewController()
+    private lazy var button8TableViewController = Ranking8BTableViewController()
+    private lazy var perfectPlayTableViewController = RankingPPTableViewController()
+    private lazy var rankingViewControllers: [RankingBaseTableViewController] = {
+        return [button4TableViewController, button5TableViewController, button6TableViewController, button8TableViewController, perfectPlayTableViewController]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        settings.style.buttonBarBackgroundColor = UIColor.subColor
-        settings.style.buttonBarItemBackgroundColor = UIColor.subColor
-        settings.style.selectedBarBackgroundColor = UIColor.mainColor
-        settings.style.buttonBarItemTitleColor = .black
-        settings.style.buttonBarItemsShouldFillAvailiableWidth = true
-        settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> RankingViewController? {
+        guard let viewController = UIStoryboard(name: "Ranking", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? RankingViewController else { return nil }
+        return viewController
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [Ranking4BTableViewController(), Ranking5BTableViewController(), Ranking6BTableViewController(), Ranking8BTableViewController(), RankingPPTableViewController()]
+        return rankingViewControllers
     }
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

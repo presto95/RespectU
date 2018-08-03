@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -106,12 +102,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="button" destination="S2v-FN-4mB" id="Uko-u5-0QU"/>
+                <outlet property="buttonLabel" destination="S2v-FN-4mB" id="Uko-u5-0QU"/>
                 <outlet property="gauge" destination="Avb-eR-8iE" id="Jr2-jA-BiH"/>
-                <outlet property="percent" destination="fdb-s2-RQA" id="dBb-8G-Grq"/>
-                <outlet property="performanceRecordRate" destination="air-tu-5JT" id="98c-AW-GZu"/>
-                <outlet property="skillLevel" destination="vUn-om-4lR" id="nsw-Lh-iGP"/>
-                <outlet property="skillPoint" destination="cYw-aM-61i" id="sXd-Bx-maS"/>
+                <outlet property="percentLabel" destination="fdb-s2-RQA" id="dBb-8G-Grq"/>
+                <outlet property="recordRateLabel" destination="air-tu-5JT" id="98c-AW-GZu"/>
+                <outlet property="skillLevelLabel" destination="vUn-om-4lR" id="nsw-Lh-iGP"/>
+                <outlet property="skillPointLabel" destination="cYw-aM-61i" id="sXd-Bx-maS"/>
             </connections>
         </view>
     </objects>

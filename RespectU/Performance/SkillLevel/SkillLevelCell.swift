@@ -12,32 +12,50 @@ import RealmSwift
 import FirebaseAuth
 import FirebaseDatabase
 
+protocol SkillLevelCellDelegate {
+    func touchUpTop50Button(_ sender: UIButton)
+    func touchUpRankingButton(_ sender: UIButton)
+    func touchUpCalculatorButton(_ sender: UIButton)
+}
+
 class SkillLevelCell: UITableViewCell {
 
+    var delegate: SkillLevelCellDelegate?
     @IBOutlet var gauge: Gauge!
-    @IBOutlet weak var skillLevel: UILabel!
-    @IBOutlet weak var skillPoint: UILabel!
-    @IBOutlet weak var top50: UIButton!
-    @IBOutlet weak var ranking: UIButton!
-    @IBOutlet weak var calculator: UIButton!
-    @IBOutlet weak var percent: UILabel!
-    @IBOutlet weak var nextLevel: UILabel!
+    @IBOutlet weak var skillLevelLabel: UILabel!
+    @IBOutlet weak var skillPointLabel: UILabel!
+    @IBOutlet weak var top50Button: UIButton!
+    @IBOutlet weak var rankingButton: UIButton!
+    @IBOutlet weak var calculatorButton: UIButton!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var nextLevelLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        top50.layer.borderColor = UIColor.mainColor.cgColor
-        top50.layer.borderWidth = 2
-        ranking.layer.borderColor = UIColor.mainColor.cgColor
-        ranking.layer.borderWidth = 2
-        calculator.layer.borderColor = UIColor.mainColor.cgColor
-        calculator.layer.borderWidth = 2
-        ranking.setTitle("Ranking".localized, for: .normal)
-        calculator.setTitle("Calculator".localized, for: .normal)
-        // Initialization code
+        top50Button.layer.borderColor = UIColor.mainColor.cgColor
+        top50Button.layer.borderWidth = 2
+        rankingButton.layer.borderColor = UIColor.mainColor.cgColor
+        rankingButton.layer.borderWidth = 2
+        calculatorButton.layer.borderColor = UIColor.mainColor.cgColor
+        calculatorButton.layer.borderWidth = 2
+        rankingButton.setTitle("Ranking".localized, for: .normal)
+        calculatorButton.setTitle("Calculator".localized, for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @objc func touchUpTop50Button(_ sender: UIButton) {
+        delegate?.touchUpTop50Button(sender)
+    }
+    
+    @objc func touchUpRankingButton(_ sender: UIButton) {
+        delegate?.touchUpRankingButton(sender)
+    }
+    
+    @objc func touchUpCalculatorButton(_ sender: UIButton) {
+        delegate?.touchUpCalculatorButton(sender)
     }
     
     @IBAction func clickTop50(_ sender: UIButton) {

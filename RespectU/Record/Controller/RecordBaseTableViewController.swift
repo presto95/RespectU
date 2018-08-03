@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RecordBaseTableViewController: GuideBaseTableViewController {
+class RecordBaseTableViewController: BaseTableViewController {
 
     let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     var results: Results<RecordInfo>!

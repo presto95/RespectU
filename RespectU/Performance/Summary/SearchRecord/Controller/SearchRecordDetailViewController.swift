@@ -191,154 +191,154 @@ class SearchRecordDetailViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> SearchRecordDetailViewController? {
+        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SearchRecordDetailViewController else { return nil }
+        return viewController
     }
     
-    @IBAction func clickCancel(_ sender: UIButton) {
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
 
-extension SearchRecordDetailViewController: UITableViewDataSource{
+extension SearchRecordDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchRecordDetailCell") as! SearchRecordDetailCell
         if(searchType == 0){
             let object = levelResults[indexPath.row]
-            cell.title.text = object.title
+            cell.titleLabel.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
             let songInfo = realm.objects(SongInfo.self).filter(query).first!
             switch(songInfo.series){
             case "Portable1":
-                cell.color.backgroundColor = UIColor.portable1
+                cell.colorLabel.backgroundColor = UIColor.portable1
             case "Portable2":
-                cell.color.backgroundColor = UIColor.portable2
+                cell.colorLabel.backgroundColor = UIColor.portable2
             case "Respect":
-                cell.color.backgroundColor = UIColor.respect
+                cell.colorLabel.backgroundColor = UIColor.respect
             case "Trilogy":
-                cell.color.backgroundColor = UIColor.trilogy
+                cell.colorLabel.backgroundColor = UIColor.trilogy
             case "CE":
-                cell.color.backgroundColor = UIColor.ce
+                cell.colorLabel.backgroundColor = UIColor.ce
             case "Technika1":
-                cell.color.backgroundColor = UIColor.technika1
+                cell.colorLabel.backgroundColor = UIColor.technika1
             case Series.bs.rawValue:
-                cell.color.backgroundColor = UIColor.bs
+                cell.colorLabel.backgroundColor = UIColor.bs
             default:
                 break
             }
             switch(button){
             case 0:
                 if(object.nm4 == level){
-                    cell.labelNm.isHidden = false
-                    cell.nm.text = object.nm4Rate
+                    cell.normalLabel.isHidden = false
+                    cell.normalValueLabel.text = object.nm4Rate
                 } else {
-                    cell.labelNm.isHidden = true
-                    cell.nm.text = nil
+                    cell.normalLabel.isHidden = true
+                    cell.normalValueLabel.text = nil
                 }
                 if(object.hd4 == level){
-                    cell.labelHd.isHidden = false
-                    cell.hd.text = object.hd4Rate
+                    cell.hardLabel.isHidden = false
+                    cell.hardValueLabel.text = object.hd4Rate
                 } else {
-                    cell.labelHd.isHidden = true
-                    cell.hd.text = nil
+                    cell.hardLabel.isHidden = true
+                    cell.hardValueLabel.text = nil
                 }
                 if(object.mx4 == level){
-                    cell.labelMx.isHidden = false
-                    cell.mx.text = object.mx4Rate
+                    cell.maximumLabel.isHidden = false
+                    cell.maximumValueLabel.text = object.mx4Rate
                 } else {
-                    cell.labelMx.isHidden = true
-                    cell.mx.text = nil
+                    cell.maximumLabel.isHidden = true
+                    cell.maximumValueLabel.text = nil
                 }
             case 1:
                 if(object.nm5 == level){
-                    cell.labelNm.isHidden = false
-                    cell.nm.text = object.nm5Rate
+                    cell.normalLabel.isHidden = false
+                    cell.normalValueLabel.text = object.nm5Rate
                 } else {
-                    cell.labelNm.isHidden = true
-                    cell.nm.text = nil
+                    cell.normalLabel.isHidden = true
+                    cell.normalValueLabel.text = nil
                 }
                 if(object.hd5 == level){
-                    cell.labelHd.isHidden = false
-                    cell.hd.text = object.hd5Rate
+                    cell.hardLabel.isHidden = false
+                    cell.hardValueLabel.text = object.hd5Rate
                 } else {
-                    cell.labelHd.isHidden = true
-                    cell.hd.text = nil
+                    cell.hardLabel.isHidden = true
+                    cell.hardValueLabel.text = nil
                 }
                 if(object.mx5 == level){
-                    cell.labelMx.isHidden = false
-                    cell.mx.text = object.mx5Rate
+                    cell.maximumLabel.isHidden = false
+                    cell.maximumValueLabel.text = object.mx5Rate
                 } else {
-                    cell.labelMx.isHidden = true
-                    cell.mx.text = nil
+                    cell.maximumLabel.isHidden = true
+                    cell.maximumValueLabel.text = nil
                 }
             case 2:
                 if(object.nm6 == level){
-                    cell.labelNm.isHidden = false
-                    cell.nm.text = object.nm6Rate
+                    cell.normalLabel.isHidden = false
+                    cell.normalValueLabel.text = object.nm6Rate
                 } else {
-                    cell.labelNm.isHidden = true
-                    cell.nm.text = nil
+                    cell.normalLabel.isHidden = true
+                    cell.normalValueLabel.text = nil
                 }
                 if(object.hd6 == level){
-                    cell.labelHd.isHidden = false
-                    cell.hd.text = object.hd6Rate
+                    cell.hardLabel.isHidden = false
+                    cell.hardValueLabel.text = object.hd6Rate
                 } else {
-                    cell.labelHd.isHidden = true
-                    cell.hd.text = nil
+                    cell.hardLabel.isHidden = true
+                    cell.hardValueLabel.text = nil
                 }
                 if(object.mx6 == level){
-                    cell.labelMx.isHidden = false
-                    cell.mx.text = object.mx6Rate
+                    cell.maximumLabel.isHidden = false
+                    cell.maximumValueLabel.text = object.mx6Rate
                 } else {
-                    cell.labelMx.isHidden = true
-                    cell.mx.text = nil
+                    cell.maximumLabel.isHidden = true
+                    cell.maximumValueLabel.text = nil
                 }
             case 3:
                 if(object.nm8 == level){
-                    cell.labelNm.isHidden = false
-                    cell.nm.text = object.nm8Rate
+                    cell.normalLabel.isHidden = false
+                    cell.normalValueLabel.text = object.nm8Rate
                 } else {
-                    cell.labelNm.isHidden = true
-                    cell.nm.text = nil
+                    cell.normalLabel.isHidden = true
+                    cell.normalValueLabel.text = nil
                 }
                 if(object.hd8 == level){
-                    cell.labelHd.isHidden = false
-                    cell.hd.text = object.hd8Rate
+                    cell.hardLabel.isHidden = false
+                    cell.hardValueLabel.text = object.hd8Rate
                 } else {
-                    cell.labelHd.isHidden = true
-                    cell.hd.text = nil
+                    cell.hardLabel.isHidden = true
+                    cell.hardValueLabel.text = nil
                 }
                 if(object.mx8 == level){
-                    cell.labelMx.isHidden = false
-                    cell.mx.text = object.mx8Rate
+                    cell.maximumLabel.isHidden = false
+                    cell.maximumValueLabel.text = object.mx8Rate
                 } else {
-                    cell.labelMx.isHidden = true
-                    cell.mx.text = nil
+                    cell.maximumLabel.isHidden = true
+                    cell.maximumValueLabel.text = nil
                 }
             default:
                 break
             }
         } else if(searchType == 1){
             let object = rateResults[indexPath.row]
-            cell.title.text = object.title
+            cell.titleLabel.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
             let songInfo = realm.objects(SongInfo.self).filter(query).first!
             switch(songInfo.series){
             case "Portable1":
-                cell.color.backgroundColor = UIColor.portable1
+                cell.colorLabel.backgroundColor = UIColor.portable1
             case "Portable2":
-                cell.color.backgroundColor = UIColor.portable2
+                cell.colorLabel.backgroundColor = UIColor.portable2
             case "Respect":
-                cell.color.backgroundColor = UIColor.respect
+                cell.colorLabel.backgroundColor = UIColor.respect
             case "Trilogy":
-                cell.color.backgroundColor = UIColor.trilogy
+                cell.colorLabel.backgroundColor = UIColor.trilogy
             case "CE":
-                cell.color.backgroundColor = UIColor.ce
+                cell.colorLabel.backgroundColor = UIColor.ce
             case "Technika1":
-                cell.color.backgroundColor = UIColor.technika1
+                cell.colorLabel.backgroundColor = UIColor.technika1
             case Series.bs.rawValue:
-                cell.color.backgroundColor = UIColor.bs
+                cell.colorLabel.backgroundColor = UIColor.bs
             default:
                 break
             }
@@ -349,111 +349,111 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 let mx4Text = object.mx4Rate.split(separator: "%")[0].description
                 if let nm4 = Double(nm4Text) {
                     if(nm4 >= lowerRange && nm4 <= upperRange){
-                        cell.nm.text = nm4Text+"%"
-                        cell.labelNm.isHidden = false
-                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
-                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                        cell.normalValueLabel.text = nm4Text+"%"
+                        cell.normalLabel.isHidden = false
+                    } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
+                } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
                 if let hd4 = Double(hd4Text) {
                     if(hd4 >= lowerRange && hd4 <= upperRange){
-                        cell.hd.text = hd4Text+"%"
-                        cell.labelHd.isHidden = false
-                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
-                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                        cell.hardValueLabel.text = hd4Text+"%"
+                        cell.hardLabel.isHidden = false
+                    } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
+                } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
                 if let mx4 = Double(mx4Text) {
                     if(mx4 >= lowerRange && mx4 <= upperRange){
-                        cell.mx.text = mx4Text+"%"
-                        cell.labelMx.isHidden = false
-                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
-                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                        cell.maximumValueLabel.text = mx4Text+"%"
+                        cell.maximumLabel.isHidden = false
+                    } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
+                } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
             case 1:
                 let nm5Text = object.nm5Rate.split(separator: "%")[0].description
                 let hd5Text = object.hd5Rate.split(separator: "%")[0].description
                 let mx5Text = object.mx5Rate.split(separator: "%")[0].description
                 if let nm5 = Double(nm5Text) {
                     if(nm5 >= lowerRange && nm5 <= upperRange){
-                        cell.nm.text = nm5Text+"%"
-                        cell.labelNm.isHidden = false
-                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
-                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                        cell.normalValueLabel.text = nm5Text+"%"
+                        cell.normalLabel.isHidden = false
+                    } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
+                } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
                 if let hd5 = Double(hd5Text) {
                     if(hd5 >= lowerRange && hd5 <= upperRange){
-                        cell.hd.text = hd5Text+"%"
-                        cell.labelHd.isHidden = false
-                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
-                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                        cell.hardValueLabel.text = hd5Text+"%"
+                        cell.hardLabel.isHidden = false
+                    } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
+                } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
                 if let mx5 = Double(mx5Text) {
                     if(mx5 >= lowerRange && mx5 <= upperRange){
-                        cell.mx.text = mx5Text+"%"
-                        cell.labelMx.isHidden = false
-                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
-                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                        cell.maximumValueLabel.text = mx5Text+"%"
+                        cell.maximumLabel.isHidden = false
+                    } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
+                } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
             case 2:
                 let nm6Text = object.nm6Rate.split(separator: "%")[0].description
                 let hd6Text = object.hd6Rate.split(separator: "%")[0].description
                 let mx6Text = object.mx6Rate.split(separator: "%")[0].description
                 if let nm6 = Double(nm6Text) {
                     if(nm6 >= lowerRange && nm6 <= upperRange){
-                        cell.nm.text = nm6Text+"%"
-                        cell.labelNm.isHidden = false
-                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
-                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                        cell.normalValueLabel.text = nm6Text+"%"
+                        cell.normalLabel.isHidden = false
+                    } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
+                } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
                 if let hd6 = Double(hd6Text) {
                     if(hd6 >= lowerRange && hd6 <= upperRange){
-                        cell.hd.text = hd6Text+"%"
-                        cell.labelHd.isHidden = false
-                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
-                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                        cell.hardValueLabel.text = hd6Text+"%"
+                        cell.hardLabel.isHidden = false
+                    } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
+                } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
                 if let mx6 = Double(mx6Text) {
                     if(mx6 >= lowerRange && mx6 <= upperRange){
-                        cell.mx.text = mx6Text+"%"
-                        cell.labelMx.isHidden = false
-                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
-                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                        cell.maximumValueLabel.text = mx6Text+"%"
+                        cell.maximumLabel.isHidden = false
+                    } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
+                } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
             case 3:
                 let nm8Text = object.nm8Rate.split(separator: "%")[0].description
                 let hd8Text = object.hd8Rate.split(separator: "%")[0].description
                 let mx8Text = object.mx8Rate.split(separator: "%")[0].description
                 if let nm8 = Double(nm8Text) {
                     if(nm8 >= lowerRange && nm8 <= upperRange){
-                        cell.nm.text = nm8Text+"%"
-                        cell.labelNm.isHidden = false
-                    } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
-                } else { cell.nm.text = nil; cell.labelNm.isHidden = true }
+                        cell.normalValueLabel.text = nm8Text+"%"
+                        cell.normalLabel.isHidden = false
+                    } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
+                } else { cell.normalValueLabel.text = nil; cell.normalLabel.isHidden = true }
                 if let hd8 = Double(hd8Text) {
                     if(hd8 >= lowerRange && hd8 <= upperRange){
-                        cell.hd.text = hd8Text+"%"
-                        cell.labelHd.isHidden = false
-                    } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
-                } else { cell.hd.text = nil; cell.labelHd.isHidden = true }
+                        cell.hardValueLabel.text = hd8Text+"%"
+                        cell.hardLabel.isHidden = false
+                    } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
+                } else { cell.hardValueLabel.text = nil; cell.hardLabel.isHidden = true }
                 if let mx8 = Double(mx8Text) {
                     if(mx8 >= lowerRange && mx8 <= upperRange){
-                        cell.mx.text = mx8Text+"%"
-                        cell.labelMx.isHidden = false
-                    } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
-                } else { cell.mx.text = nil; cell.labelMx.isHidden = true }
+                        cell.maximumValueLabel.text = mx8Text+"%"
+                        cell.maximumLabel.isHidden = false
+                    } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
+                } else { cell.maximumValueLabel.text = nil; cell.maximumLabel.isHidden = true }
             default:
                 break
             }
         } else if(searchType == 2){
             let object = noteResults[indexPath.row]
-            cell.title.text = object.title
+            cell.titleLabel.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
             let songInfo = realm.objects(SongInfo.self).filter(query).first!
             switch(songInfo.series){
             case "Portable1":
-                cell.color.backgroundColor = UIColor.portable1
+                cell.colorLabel.backgroundColor = UIColor.portable1
             case "Portable2":
-                cell.color.backgroundColor = UIColor.portable2
+                cell.colorLabel.backgroundColor = UIColor.portable2
             case "Respect":
-                cell.color.backgroundColor = UIColor.respect
+                cell.colorLabel.backgroundColor = UIColor.respect
             case "Trilogy":
-                cell.color.backgroundColor = UIColor.trilogy
+                cell.colorLabel.backgroundColor = UIColor.trilogy
             case "CE":
-                cell.color.backgroundColor = UIColor.ce
+                cell.colorLabel.backgroundColor = UIColor.ce
             case "Technika1":
-                cell.color.backgroundColor = UIColor.technika1
+                cell.colorLabel.backgroundColor = UIColor.technika1
             case Series.bs.rawValue:
-                cell.color.backgroundColor = UIColor.bs
+                cell.colorLabel.backgroundColor = UIColor.bs
             default:
                 break
             }
@@ -461,91 +461,91 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 switch(button){
                 case 0:
                     if(object.nm4 != 0 && object.nm4Note == "-"){
-                        cell.nm.text = object.nm4Rate
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = object.nm4Rate
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd4 != 0 && object.hd4Note == "-"){
-                        cell.hd.text = object.hd4Rate
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = object.hd4Rate
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx4 != 0 && object.mx4Note == "-"){
-                        cell.mx.text = object.mx4Rate
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = object.mx4Rate
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 case 1:
                     if(object.nm5 != 0 && object.nm5Note == "-"){
-                        cell.nm.text = object.nm5Rate
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = object.nm5Rate
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd5 != 0 && object.hd5Note == "-"){
-                        cell.hd.text = object.hd5Rate
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = object.hd5Rate
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx5 != 0 && object.mx5Note == "-"){
-                        cell.mx.text = object.mx5Rate
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = object.mx5Rate
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 case 2:
                     if(object.nm6 != 0 && object.nm6Note == "-"){
-                        cell.nm.text = object.nm6Rate
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = object.nm6Rate
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd6 != 0 && object.hd6Note == "-"){
-                        cell.hd.text = object.hd6Rate
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = object.hd6Rate
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx6 != 0 && object.mx6Note == "-"){
-                        cell.mx.text = object.mx6Rate
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = object.mx6Rate
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 case 3:
                     if(object.nm8 != 0 && object.nm8Note == "-"){
-                        cell.nm.text = object.nm8Rate
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = object.nm8Rate
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd8 != 0 && object.hd8Note == "-"){
-                        cell.hd.text = object.hd8Rate
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = object.hd8Rate
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx8 != 0 && object.mx8Note == "-"){
-                        cell.mx.text = object.mx8Rate
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = object.mx8Rate
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 default:
                     break
@@ -554,91 +554,91 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
                 switch(button){
                 case 0:
                     if(object.nm4Note == "PERFECT PLAY"){
-                        cell.nm.text = "PP"
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = "PP"
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd4Note == "PERFECT PLAY"){
-                        cell.hd.text = "PP"
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = "PP"
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx4Note == "PERFECT PLAY"){
-                        cell.mx.text = "PP"
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = "PP"
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 case 1:
                     if(object.nm5Note == "PERFECT PLAY"){
-                        cell.nm.text = "PP"
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = "PP"
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd5Note == "PERFECT PLAY"){
-                        cell.hd.text = "PP"
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = "PP"
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx5Note == "PERFECT PLAY"){
-                        cell.mx.text = "PP"
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = "PP"
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 case 2:
                     if(object.nm6Note == "PERFECT PLAY"){
-                        cell.nm.text = "PP"
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = "PP"
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd6Note == "PERFECT PLAY"){
-                        cell.hd.text = "PP"
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = "PP"
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx6Note == "PERFECT PLAY"){
-                        cell.mx.text = "PP"
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = "PP"
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 case 3:
                     if(object.nm8Note == "PERFECT PLAY"){
-                        cell.nm.text = "PP"
-                        cell.labelNm.isHidden = false
+                        cell.normalValueLabel.text = "PP"
+                        cell.normalLabel.isHidden = false
                     } else {
-                        cell.nm.text = nil
-                        cell.labelNm.isHidden = true
+                        cell.normalValueLabel.text = nil
+                        cell.normalLabel.isHidden = true
                     }
                     if(object.hd8Note == "PERFECT PLAY"){
-                        cell.hd.text = "PP"
-                        cell.labelHd.isHidden = false
+                        cell.hardValueLabel.text = "PP"
+                        cell.hardLabel.isHidden = false
                     } else {
-                        cell.hd.text = nil
-                        cell.labelHd.isHidden = true
+                        cell.hardValueLabel.text = nil
+                        cell.hardLabel.isHidden = true
                     }
                     if(object.mx8Note == "PERFECT PLAY"){
-                        cell.mx.text = "PP"
-                        cell.labelMx.isHidden = false
+                        cell.maximumValueLabel.text = "PP"
+                        cell.maximumLabel.isHidden = false
                     } else {
-                        cell.mx.text = nil
-                        cell.labelMx.isHidden = true
+                        cell.maximumValueLabel.text = nil
+                        cell.maximumLabel.isHidden = true
                     }
                 default:
                     break
@@ -657,13 +657,13 @@ extension SearchRecordDetailViewController: UITableViewDataSource{
         }
     }
 }
-extension SearchRecordDetailViewController: UITableViewDelegate{
+extension SearchRecordDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
-extension SearchRecordDetailViewController: DZNEmptyDataSetSource{
+extension SearchRecordDetailViewController: DZNEmptyDataSetSource {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return nil
     }
@@ -674,7 +674,7 @@ extension SearchRecordDetailViewController: DZNEmptyDataSetSource{
         return nil
     }
 }
-extension SearchRecordDetailViewController: DZNEmptyDataSetDelegate{
+extension SearchRecordDetailViewController: DZNEmptyDataSetDelegate {
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return false
     }

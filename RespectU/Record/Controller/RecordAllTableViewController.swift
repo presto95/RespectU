@@ -8,7 +8,6 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class RecordAllTableViewController: RecordBaseTableViewController {
     

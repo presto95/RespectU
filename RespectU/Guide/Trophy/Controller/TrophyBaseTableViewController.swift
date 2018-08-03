@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class TrophyBaseTableViewController: GuideBaseTableViewController {
+class TrophyBaseTableViewController: BaseTableViewController {
 
     var results: Results<TrophyInfo>!
     let cellIdentifier = "trophyCell"

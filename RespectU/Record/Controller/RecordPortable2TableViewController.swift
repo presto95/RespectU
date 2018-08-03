@@ -8,15 +8,12 @@
 
 import UIKit
 import XLPagerTabStrip
-import RealmSwift
 
 class RecordPortable2TableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = RecordInfo
-            .get()
-            .filter(key: "series", value: Series.portable2, method: FilterMethod.equal).sorted(byKeyPath: "lowercase")
+        self.results = RecordInfo.get().filter(key: "series", value: Series.portable2, method: FilterOperator.equal).sorted(byKeyPath: "lowercase")
     }
 }
 

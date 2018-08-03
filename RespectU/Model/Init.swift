@@ -11,7 +11,7 @@ import RealmSwift
 
 class Init{
    
-    var realm: Realm! = nil
+    var realm: Realm!
     
     init() {
         realm = try! Realm()
@@ -1105,25 +1105,25 @@ class Init{
             try! realm.write{
                 realm.delete(realm.objects(TipInfo.self))
             }
-            addTip("Each music's speed settings are saved separately.")
-            addTip("ANALOG NOTE can be played by rotating the stick or holding it to one side.")
-            addTip("System Settings can be changed from the main menu by pressing the touch pad button.")
-            addTip("In FREESTYLE mode, press the R3 button to add a music to your favorites.")
-            addTip("In FREESTYLE mode, combos are cumulative.")
-            addTip("Some music have hidden BGAs.")
-            addTip("When you achieve MAX COMBO, you can receive the music video for the current music.")
-            addTip("While performing, press the touch pad to adjust the BGA brightness.")
-            addTip("In FREESTYLE mode, 2 players local play is possible, and each player can play a different mode.")
-            addTip("The button used to play can be changed in System Settings.")
-            addTip("FREESTYLE mode's combo accumulation can be changed in System Settings.")
-            addTip("ARCADE mode's music are chosen randomly according to the set difficulty.")
-            addTip("The FEVER gauge increases according to note play accuracy.")
-            addTip("You can change the System Settings UI skin.")
-            addTip("If the game screen doesn't display completely, check your \"PS4\" Display Area settings.")
-            addTip("In FREESTYLE mode, use the L1 button and R1 button to change the category.")
-            addTip("In ONLINE mode, you can play music you have not yet acquired.")
-            addTip("While FEVER is active, you can receive more points and larger combos.")
-            addTip("You can use the L2 button and R2 button to change the speed during play, or from the music selection screen.")
+            TipInfo.add("Each music's speed settings are saved separately.")
+            TipInfo.add("ANALOG NOTE can be played by rotating the stick or holding it to one side.")
+            TipInfo.add("System Settings can be changed from the main menu by pressing the touch pad button.")
+            TipInfo.add("In FREESTYLE mode, press the R3 button to add a music to your favorites.")
+            TipInfo.add("In FREESTYLE mode, combos are cumulative.")
+            TipInfo.add("Some music have hidden BGAs.")
+            TipInfo.add("When you achieve MAX COMBO, you can receive the music video for the current music.")
+            TipInfo.add("While performing, press the touch pad to adjust the BGA brightness.")
+            TipInfo.add("In FREESTYLE mode, 2 players local play is possible, and each player can play a different mode.")
+            TipInfo.add("The button used to play can be changed in System Settings.")
+            TipInfo.add("FREESTYLE mode's combo accumulation can be changed in System Settings.")
+            TipInfo.add("ARCADE mode's music are chosen randomly according to the set difficulty.")
+            TipInfo.add("The FEVER gauge increases according to note play accuracy.")
+            TipInfo.add("You can change the System Settings UI skin.")
+            TipInfo.add("If the game screen doesn't display completely, check your \"PS4\" Display Area settings.")
+            TipInfo.add("In FREESTYLE mode, use the L1 button and R1 button to change the category.")
+            TipInfo.add("In ONLINE mode, you can play music you have not yet acquired.")
+            TipInfo.add("While FEVER is active, you can receive more points and larger combos.")
+            TipInfo.add("You can use the L2 button and R2 button to change the speed during play, or from the music selection screen.")
         }
         
         if(version <= 25){
@@ -1814,162 +1814,5 @@ class Init{
             UserDefaults.standard.set(208, forKey: "version")
         }
         print("DATABASE INITIALIZE FINISHED!!")
-    }
-}
-
-func getSkillPoint(difficulty: Int, rate: String, note: String) -> Double{
-    if(difficulty == 0){
-        return 0
-    }
-    var skillPoint: Double
-    let e = 2.71828
-    let rateString = rate.split(separator: "%")[0].description
-    let accuracy = Double(rateString) ?? 0
-    let weight = getWeight(value: difficulty)
-    if(accuracy >= 80){
-        let temp = pow((accuracy - 80) / 20.0, e) + 1
-        skillPoint = weight * 50 * temp
-    }
-    else{
-        skillPoint = Double(weight * accuracy * 5) / 8.0
-    }
-    if(note == "-"){
-        skillPoint = skillPoint * 0.98
-    }
-    else if(note == "PERFECT PLAY"){
-        skillPoint = skillPoint * 1.05
-    }
-    skillPoint = (skillPoint * 100).rounded() / 100
-    return skillPoint
-}
-
-func getWeight(value: Int) -> Double{
-    var result: Double = 0.0
-    switch(value){
-    case 1:
-        result = 0.4
-    case 2:
-        result = 0.6
-    case 3:
-        result = 0.8
-    case 4:
-        result = 1
-    case 5:
-        result = 1.14
-    case 6:
-        result = 1.24
-    case 7:
-        result = 1.33
-    case 8:
-        result = 1.42
-    case 9:
-        result = 1.53
-    case 10:
-        result = 1.6
-    case 11:
-        result = 1.68
-    case 12:
-        result = 1.77
-    case 13:
-        result = 1.85
-    case 14:
-        result = 1.94
-    case 15:
-        result = 2
-    default:
-        break
-    }
-    return result
-}
-
-func reloadSkillPoint(realm: Realm){
-    let recordSkill = realm.objects(RecordInfo.self)
-    for i in recordSkill{
-        try! realm.write{
-            let nm4Point = getSkillPoint(difficulty: i.nm4, rate: i.nm4Rate, note: i.nm4Note)
-            let hd4Point = getSkillPoint(difficulty: i.hd4, rate: i.hd4Rate, note: i.hd4Note)
-            let mx4Point = getSkillPoint(difficulty: i.mx4, rate: i.mx4Rate, note: i.mx4Note)
-            let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
-            i.button4SkillPoint = max4Point
-            switch(max4Point){
-            case nm4Point:
-                i.button4HighestSkillPointRate = i.nm4Rate
-                i.button4HighestSkillPointDifficulty = Difficulty.normal
-                i.button4HighestSkillPointNote = i.nm4Note
-            case hd4Point:
-                i.button4HighestSkillPointRate = i.hd4Rate
-                i.button4HighestSkillPointDifficulty = Difficulty.hard
-                i.button4HighestSkillPointNote = i.hd4Note
-            case mx4Point:
-                i.button4HighestSkillPointRate = i.mx4Rate
-                i.button4HighestSkillPointDifficulty = Difficulty.maximum
-                i.button4HighestSkillPointNote = i.mx4Note
-            default:
-                break
-            }
-            let nm5Point = getSkillPoint(difficulty: i.nm5, rate: i.nm5Rate, note: i.nm5Note)
-            let hd5Point = getSkillPoint(difficulty: i.hd5, rate: i.hd5Rate, note: i.hd5Note)
-            let mx5Point = getSkillPoint(difficulty: i.mx5, rate: i.mx5Rate, note: i.mx5Note)
-            let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
-            i.button5SkillPoint = max5Point
-            switch(max5Point){
-            case nm5Point:
-                i.button5HighestSkillPointRate = i.nm5Rate
-                i.button5HighestSkillPointDifficulty = Difficulty.normal
-                i.button5HighestSkillPointNote = i.nm5Note
-            case hd5Point:
-                i.button5HighestSkillPointRate = i.hd5Rate
-                i.button5HighestSkillPointDifficulty = Difficulty.hard
-                i.button5HighestSkillPointNote = i.hd5Note
-            case mx5Point:
-                i.button5HighestSkillPointRate = i.mx5Rate
-                i.button5HighestSkillPointDifficulty = Difficulty.maximum
-                i.button5HighestSkillPointNote = i.mx5Note
-            default:
-                break
-            }
-            let nm6Point = getSkillPoint(difficulty: i.nm6, rate: i.nm6Rate, note: i.nm6Note)
-            let hd6Point = getSkillPoint(difficulty: i.hd6, rate: i.hd6Rate, note: i.hd6Note)
-            let mx6Point = getSkillPoint(difficulty: i.mx6, rate: i.mx6Rate, note: i.mx6Note)
-            let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
-            i.button6SkillPoint = max6Point
-            switch(max6Point){
-            case nm6Point:
-                i.button6HighestSkillPointRate = i.nm6Rate
-                i.button6HighestSkillPointDifficulty = Difficulty.normal
-                i.button6HighestSkillPointNote = i.nm6Note
-            case hd6Point:
-                i.button6HighestSkillPointRate = i.hd6Rate
-                i.button6HighestSkillPointDifficulty = Difficulty.hard
-                i.button6HighestSkillPointNote = i.hd6Note
-            case mx6Point:
-                i.button6HighestSkillPointRate = i.mx6Rate
-                i.button6HighestSkillPointDifficulty = Difficulty.maximum
-                i.button6HighestSkillPointNote = i.mx6Note
-            default:
-                break
-            }
-            let nm8Point = getSkillPoint(difficulty: i.nm8, rate: i.nm8Rate, note: i.nm8Note)
-            let hd8Point = getSkillPoint(difficulty: i.hd8, rate: i.hd8Rate, note: i.hd8Note)
-            let mx8Point = getSkillPoint(difficulty: i.mx8, rate: i.mx8Rate, note: i.mx8Note)
-            let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
-            i.button8SkillPoint = max8Point
-            switch(max8Point){
-            case nm8Point:
-                i.button8HighestSkillPointRate = i.nm8Rate
-                i.button8HighestSkillPointDifficulty = Difficulty.normal
-                i.button8HighestSkillPointNote = i.nm8Note
-            case hd8Point:
-                i.button8HighestSkillPointRate = i.hd8Rate
-                i.button8HighestSkillPointDifficulty = Difficulty.hard
-                i.button8HighestSkillPointNote = i.hd8Note
-            case mx8Point:
-                i.button8HighestSkillPointRate = i.mx8Rate
-                i.button8HighestSkillPointDifficulty = Difficulty.maximum
-                i.button8HighestSkillPointNote = i.mx8Note
-            default:
-                break
-            }
-        }
     }
 }

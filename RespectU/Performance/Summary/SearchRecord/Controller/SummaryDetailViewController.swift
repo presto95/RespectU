@@ -572,13 +572,13 @@ class SummaryDetailViewController: UIViewController {
         labelAllAvg.text = String(format: "%05.2f%%", rates[4])
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    static func instantiate() -> SummaryDetailViewController? {
+        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SummaryDetailViewController else { return nil }
+        return viewController
     }
     
-    @IBAction func cancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setArrayOfRate(index: Int, button: Button, rate: Double){

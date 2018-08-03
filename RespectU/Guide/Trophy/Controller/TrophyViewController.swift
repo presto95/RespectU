@@ -9,14 +9,17 @@
 import UIKit
 import XLPagerTabStrip
 
-class TrophyViewController: GuideRecordBaseViewController {
+class TrophyViewController: BaseViewController {
 
-    lazy var respect = TrophyRespectTableViewController()
-    lazy var trilogy = TrophyTrilogyTableViewController()
-    lazy var ce = TrophyCETableViewController()
-    lazy var technika1 = TrophyTechnika1TableViewController()
-    lazy var bs = TrophyBSTableViewController()
-    lazy var linkDisk = TrophyLinkDiskTableViewController()
+    private lazy var respectTableViewController = TrophyRespectTableViewController()
+    private lazy var trilogyTableViewController = TrophyTrilogyTableViewController()
+    private lazy var ceTableViewController = TrophyCETableViewController()
+    private lazy var technika1TableViewController = TrophyTechnika1TableViewController()
+    private lazy var bsTableViewController = TrophyBSTableViewController()
+    private lazy var linkDiskTableViewController = TrophyLinkDiskTableViewController()
+    lazy var trophyViewControllers: [TrophyBaseTableViewController] = {
+        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, linkDiskTableViewController]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +31,7 @@ class TrophyViewController: GuideRecordBaseViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [respect, trilogy, ce, technika1, bs, linkDisk]
+        return trophyViewControllers
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

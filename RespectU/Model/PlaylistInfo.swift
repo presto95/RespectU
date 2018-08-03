@@ -11,6 +11,7 @@ import UIKit
 
 
 class PlaylistInfo: Object {
+    
     @objc dynamic var id: Int = 0
     @objc dynamic var series: String = ""
     @objc dynamic var title: String = ""
@@ -59,5 +60,13 @@ class PlaylistInfo: Object {
     static func get() -> Results<PlaylistInfo> {
         let result = try! Realm().objects(PlaylistInfo.self)
         return result
+    }
+    
+    //DELETE
+    static func delete(_ object: PlaylistInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(object)
+        }
     }
 }

@@ -20,17 +20,17 @@ class SearchRecordDetailViewController: UIViewController {
     var upperRange: Double = 0
     var detailType: Int = 0
     @IBOutlet weak var tableView: UITableView!
-    var realm: Realm! = nil
-    var levelResults: Results<RecordInfo>! = nil
-    var noteResults: Results<RecordInfo>! = nil
-    var tempRateResults: LazyFilterCollection<Results<RecordInfo>>! = nil
-    var rateResults: [RecordInfo]! = nil
+    var realm: Realm!
+    var levelResults: Results<RecordInfo>!
+    var noteResults: Results<RecordInfo>!
+    var tempRateResults: LazyFilterCollection<Results<RecordInfo>>!
+    var rateResults: [RecordInfo]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         realm = try! Realm()
-        noteResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
-        levelResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
+        noteResults = RecordInfo.get().sorted(byKeyPath: "lowercase")
+        levelResults = RecordInfo.get().sorted(byKeyPath: "lowercase")
         tableView.rowHeight = 80
         tableView.separatorColor = UIColor.main
         tableView.layer.borderColor = UIColor.main.cgColor
@@ -197,7 +197,7 @@ class SearchRecordDetailViewController: UIViewController {
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -208,25 +208,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource {
             let object = levelResults[indexPath.row]
             cell.titleLabel.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
-            let songInfo = realm.objects(SongInfo.self).filter(query).first!
-            switch(songInfo.series){
-            case "Portable1":
-                cell.colorLabel.backgroundColor = UIColor.portable1
-            case "Portable2":
-                cell.colorLabel.backgroundColor = UIColor.portable2
-            case "Respect":
-                cell.colorLabel.backgroundColor = UIColor.respect
-            case "Trilogy":
-                cell.colorLabel.backgroundColor = UIColor.trilogy
-            case "CE":
-                cell.colorLabel.backgroundColor = UIColor.ce
-            case "Technika1":
-                cell.colorLabel.backgroundColor = UIColor.technika1
-            case Series.bs.rawValue:
-                cell.colorLabel.backgroundColor = UIColor.bs
-            default:
-                break
-            }
+            guard let songInfo = SongInfo.get().filter(query).first else { return UITableViewCell() }
+            cell.colorLabel.backgroundColor = songInfo.series.seriesColor
             switch(button){
             case 0:
                 if(object.nm4 == level){
@@ -323,25 +306,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource {
             let object = rateResults[indexPath.row]
             cell.titleLabel.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
-            let songInfo = realm.objects(SongInfo.self).filter(query).first!
-            switch(songInfo.series){
-            case "Portable1":
-                cell.colorLabel.backgroundColor = UIColor.portable1
-            case "Portable2":
-                cell.colorLabel.backgroundColor = UIColor.portable2
-            case "Respect":
-                cell.colorLabel.backgroundColor = UIColor.respect
-            case "Trilogy":
-                cell.colorLabel.backgroundColor = UIColor.trilogy
-            case "CE":
-                cell.colorLabel.backgroundColor = UIColor.ce
-            case "Technika1":
-                cell.colorLabel.backgroundColor = UIColor.technika1
-            case Series.bs.rawValue:
-                cell.colorLabel.backgroundColor = UIColor.bs
-            default:
-                break
-            }
+            guard let songInfo = SongInfo.get().filter(query).first else { return UITableViewCell() }
+            cell.colorLabel.backgroundColor = songInfo.series.seriesColor
             switch(button){
             case 0:
                 let nm4Text = object.nm4Rate.split(separator: "%")[0].description
@@ -438,25 +404,8 @@ extension SearchRecordDetailViewController: UITableViewDataSource {
             let object = noteResults[indexPath.row]
             cell.titleLabel.text = object.title
             let query = NSPredicate(format: "title = %@", object.title)
-            let songInfo = realm.objects(SongInfo.self).filter(query).first!
-            switch(songInfo.series){
-            case "Portable1":
-                cell.colorLabel.backgroundColor = UIColor.portable1
-            case "Portable2":
-                cell.colorLabel.backgroundColor = UIColor.portable2
-            case "Respect":
-                cell.colorLabel.backgroundColor = UIColor.respect
-            case "Trilogy":
-                cell.colorLabel.backgroundColor = UIColor.trilogy
-            case "CE":
-                cell.colorLabel.backgroundColor = UIColor.ce
-            case "Technika1":
-                cell.colorLabel.backgroundColor = UIColor.technika1
-            case Series.bs.rawValue:
-                cell.colorLabel.backgroundColor = UIColor.bs
-            default:
-                break
-            }
+            guard let songInfo = SongInfo.get().filter(query).first else { return UITableViewCell() }
+            cell.colorLabel.backgroundColor = songInfo.series.seriesColor
             if(detailType == 0){
                 switch(button){
                 case 0:

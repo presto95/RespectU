@@ -130,7 +130,7 @@
                 <outlet property="maximumValueLabel" destination="ULS-gB-76l" id="i6K-F6-JJz"/>
                 <outlet property="normalLabel" destination="61J-Mx-sXp" id="fue-K7-Lb9"/>
                 <outlet property="normalValueLabel" destination="cJw-O0-Qk1" id="TTb-GC-8v4"/>
-                <outlet property="title" destination="dNe-1e-U2Z" id="mg5-gw-AeL"/>
+                <outlet property="titleLabel" destination="dNe-1e-U2Z" id="RC4-3C-Hrh"/>
             </connections>
             <point key="canvasLocation" x="25" y="70"/>
         </tableViewCell>

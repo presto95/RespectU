@@ -26,7 +26,7 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     static func instantiate() -> GuideViewController? {
-        guard let viewController = UIStoryboard(name: "Guide", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? GuideViewController else { return }
+        guard let viewController = UIStoryboard(name: "Guide", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? GuideViewController else { return nil }
         return viewController
     }
     

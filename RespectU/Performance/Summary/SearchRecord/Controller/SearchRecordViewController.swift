@@ -47,8 +47,7 @@ class SearchRecordViewController: UIViewController {
     }
     
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Performance", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SearchRecordDetailViewController") as! SearchRecordDetailViewController
+        let controller = SearchRecordDetailViewController.instantiate()!
         controller.button = { () -> Int in
             for i in 0..<buttons.count {
                 if(buttons[i]?.isSelected)!{
@@ -83,7 +82,7 @@ class SearchRecordViewController: UIViewController {
                 }
             }()
         }
-        present(controller, animated: true, completion: nil)
+        self.present(controller, animated: true)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -134,7 +133,7 @@ class SearchRecordViewController: UIViewController {
         switch(sender.tag){
         case 0:
             selectedType = 0
-            let newView = SearchByLevelView.instanceFromXib() as! SearchByLevelView
+            guard let newView = UIView.instanceFromXib(xibName: "SearchByLevelView") as? SearchByLevelView else { return }
             newView.frame.size = subView.frame.size
             newView.pickerView.frame.size.height = button4.frame.height
             newView.pickerView.frame.origin.x = button4.frame.origin.x
@@ -142,7 +141,7 @@ class SearchRecordViewController: UIViewController {
             subView.addSubview(newView)
         case 1:
             selectedType = 1
-            let newView = SearchByRateView.instanceFromXib() as! SearchByRateView
+            guard let newView = UIView.instanceFromXib(xibName: "SearchByRateView") as? SearchByRateView else { return }
             newView.frame.size = subView.frame.size
             newView.lowerRateTextField.frame.origin.x = button4.frame.origin.x
             newView.lowerRateTextField.frame.size.height = button4.frame.height
@@ -153,7 +152,7 @@ class SearchRecordViewController: UIViewController {
             subView.addSubview(newView)
         case 2:
             selectedType = 2
-            let newView = SearchByNoteView.instanceFromXib() as! SearchByNoteView
+            guard let newView = UIView.instanceFromXib(xibName: "SearchByNoteView") as? SearchByNoteView else { return }
             newView.frame.size = subView.frame.size
             newView.buttonNoMCs.frame.origin.x = button4.frame.origin.x
             newView.buttonNoMCs.frame.size.width = (button5.frame.origin.x - button4.frame.origin.x - button4.frame.width) + button4.frame.width * 2

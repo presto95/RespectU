@@ -28,7 +28,7 @@ class SearchByRateView: UIView {
         lowerRateTextField.placeholder = "More Than".localized
         upperRateTextField.placeholder = "Below".localized
         for textField in textFields {
-            textField.layer.borderColor = UIColor.mainColor.cgColor
+            textField.layer.borderColor = UIColor.main.cgColor
             textField.layer.borderWidth = 2
             textField.keyboardType = .decimalPad
         }
@@ -50,7 +50,7 @@ class SearchByRateView: UIView {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true
-        toolBar.tintColor = .mainColor
+        toolBar.tintColor = .main
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(touchUpDoneButton))
         toolBar.setItems([flexibleSpace, doneButton], animated: false)

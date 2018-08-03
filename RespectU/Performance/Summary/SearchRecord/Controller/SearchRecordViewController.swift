@@ -97,7 +97,7 @@ class SearchRecordViewController: UIViewController {
         }
         sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
-            sender.backgroundColor = UIColor.mainColor
+            sender.backgroundColor = UIColor.main
         }
         switch(sender.tag){
         case 0:
@@ -129,7 +129,7 @@ class SearchRecordViewController: UIViewController {
         }
         sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
-            sender.backgroundColor = UIColor.mainColor
+            sender.backgroundColor = UIColor.main
         }
         switch(sender.tag){
         case 0:
@@ -179,9 +179,9 @@ class SearchRecordViewController: UIViewController {
     func initializeButtons(){
         for button in buttons{
             UIView.animate(withDuration: 0.3) {
-                button?.backgroundColor = UIColor.subColor
+                button?.backgroundColor = UIColor.sub
             }
-            button?.layer.borderColor = UIColor.mainColor.cgColor
+            button?.layer.borderColor = UIColor.main.cgColor
             button?.layer.borderWidth = 2
         }
     }
@@ -189,9 +189,9 @@ class SearchRecordViewController: UIViewController {
     func initializeTypes(){
         for type in types{
             UIView.animate(withDuration: 0.3) {
-                type?.backgroundColor = UIColor.subColor
+                type?.backgroundColor = UIColor.sub
             }
-            type?.layer.borderColor = UIColor.mainColor.cgColor
+            type?.layer.borderColor = UIColor.main.cgColor
             type?.layer.borderWidth = 2
         }
     }

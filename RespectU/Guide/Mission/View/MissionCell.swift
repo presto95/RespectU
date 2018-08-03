@@ -16,7 +16,7 @@ class MissionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorLabel.layer.borderColor = UIColor.mainColor.cgColor
+        colorLabel.layer.borderColor = UIColor.main.cgColor
         colorLabel.layer.borderWidth = 1
     }
 

@@ -14,14 +14,17 @@ class RecordViewController: BaseViewController {
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var buttonBar: ButtonBarView!
-    lazy var all = RecordAllTableViewController()
-    lazy var portable1 = RecordPortable1TableViewController()
-    lazy var portable2 = RecordPortable2TableViewController()
-    lazy var respect = RecordRespectTableViewController()
-    lazy var trilogy = RecordTrilogyTableViewController()
-    lazy var ce = RecordCETableViewController()
-    lazy var technika1 = RecordTechnika1TableViewController()
-    lazy var bs = RecordBSTableViewController()
+    private lazy var allTableViewController = RecordAllTableViewController()
+    private lazy var portable1TableViewController = RecordPortable1TableViewController()
+    private lazy var portable2TableViewController = RecordPortable2TableViewController()
+    private lazy var respectTableViewController = RecordRespectTableViewController()
+    private lazy var trilogyTableViewController = RecordTrilogyTableViewController()
+    private lazy var ceTableViewController = RecordCETableViewController()
+    private lazy var technika1TableViewController = RecordTechnika1TableViewController()
+    private lazy var bsTableViewController = RecordBSTableViewController()
+    lazy var recordViewControllers: [RecordBaseTableViewController] = {
+        return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +36,7 @@ class RecordViewController: BaseViewController {
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return [all, portable1, portable2, respect, trilogy, ce, technika1, bs]
+        return recordViewControllers
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

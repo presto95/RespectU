@@ -10,12 +10,10 @@ import UIKit
 
 class SummaryCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var value: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }

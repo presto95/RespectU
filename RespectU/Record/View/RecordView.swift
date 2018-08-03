@@ -47,7 +47,7 @@ class RecordView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         realm = try! Realm()
-        results = realm.objects(RecordInfo.self)
+        results = RecordInfo.get()
         let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
         cancelButton.setTitle("Cancel".localized, for: .normal)
         typeButton.setTitle(favoriteButton, for: .normal)
@@ -61,13 +61,7 @@ class RecordView: UIView {
         super.layoutSubviews()
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
-        self.layer.borderColor = UIColor.mainColor.cgColor
-    }
-    
-    class func instanceFromXib(title: String, tableViewController: UITableViewController) -> UIView{
-        self.title = title
-        self.tableViewController = tableViewController
-        return UINib(nibName: "RecordView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! UIView
+        self.layer.borderColor = UIColor.main.cgColor
     }
     
     @IBAction func touchUpTypeButton(_ sender: UIButton) {

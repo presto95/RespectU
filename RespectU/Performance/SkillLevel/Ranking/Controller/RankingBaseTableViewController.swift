@@ -31,40 +31,26 @@ class RankingBaseTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sortedDic.count
     }
+    
+    @objc func didReceiveFirebaseFetch(_ notification: Notification) {
+        guard let dictionary = notification.userInfo?["dictionary"] as? [(key: String, value: Double)] else { return }
+        self.sortedDic = dictionary
+        hideIndicator()
+    }
 }
 
 extension RankingBaseTableViewController {
-    func fetchFirebase(_ key: String) {
-        var userIds = [String]()
-        var values = [Double]()
-        let ref = Database.database().reference()
-        ref.child("users").observeSingleEvent(of: .value) { snapshot in
-            DispatchQueue.main.async {
-                ERProgressHud.show()
-            }
-            var dic = [String: Double]()
-            for child in snapshot.children {
-                guard let snap = child as? DataSnapshot else { return }
-                for child in snap.children {
-                    guard let snap = child as? DataSnapshot else { return }
-                    if snap.key == "userId" {
-                        guard let userId = snap.value as? String else { return }
-                        userIds.append(userId)
-                    }
-                    if snap.key == key {
-                        guard let value = snap.value as? Double else { return }
-                        values.append(value)
-                    }
-                }
-            }
-            for index in 0..<userIds.count {
-                dic[userIds[index]] = values[index]
-            }
-            self.sortedDic = dic.sorted { $0.value > $1.value }
-            DispatchQueue.main.async {
-                ERProgressHud.hide()
-                self.tableView.reloadData()
-            }
+    func showIndicator() {
+        DispatchQueue.main.async {
+            ERProgressHud.show()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+    }
+    func hideIndicator() {
+        DispatchQueue.main.async {
+            ERProgressHud.hide()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            self.tableView.reloadData()
         }
     }
 }

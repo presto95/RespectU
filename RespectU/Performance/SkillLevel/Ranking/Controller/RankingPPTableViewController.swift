@@ -13,7 +13,9 @@ class RankingPPTableViewController: RankingBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFirebase("countPerfectPlay")
+        showIndicator()
+        Firebase.fetch("countPerfectPlay")
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveFirebaseFetch(_:)), name: .didReceiveFirebaseFetch, object: nil)
     }
 }
 

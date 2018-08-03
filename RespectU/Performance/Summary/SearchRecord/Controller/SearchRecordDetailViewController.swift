@@ -32,8 +32,8 @@ class SearchRecordDetailViewController: UIViewController {
         noteResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
         levelResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "lowercase")
         tableView.rowHeight = 80
-        tableView.separatorColor = UIColor.mainColor
-        tableView.layer.borderColor = UIColor.mainColor.cgColor
+        tableView.separatorColor = UIColor.main
+        tableView.layer.borderColor = UIColor.main.cgColor
         tableView.layer.borderWidth = 3
         tableView.layer.cornerRadius = 10
         tableView.register(UINib(nibName: "SearchRecordDetailCell", bundle: nil), forCellReuseIdentifier: "searchRecordDetailCell")

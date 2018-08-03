@@ -20,7 +20,7 @@ class SkillLevelDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderColor = UIColor.mainColor.cgColor
+        self.layer.borderColor = UIColor.main.cgColor
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
     }

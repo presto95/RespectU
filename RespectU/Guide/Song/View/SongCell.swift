@@ -20,7 +20,7 @@ class SongCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.colorLabel.layer.borderColor = UIColor.mainColor.cgColor
+        self.colorLabel.layer.borderColor = UIColor.main.cgColor
         self.colorLabel.layer.borderWidth = 1
     }
 

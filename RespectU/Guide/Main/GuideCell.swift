@@ -15,7 +15,7 @@ class GuideCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderColor = UIColor.mainColor.cgColor
+        self.layer.borderColor = UIColor.main.cgColor
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
     }
@@ -28,7 +28,7 @@ class GuideCell: UICollectionViewCell {
     func becomeHighlighted() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.5, animations: { [unowned self] in
-                self.contentView.backgroundColor = UIColor.mainColor
+                self.contentView.backgroundColor = UIColor.main
             })
         }
     }
@@ -36,7 +36,7 @@ class GuideCell: UICollectionViewCell {
     func becomeUnhighlighted() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.5, animations: { [unowned self] in
-                self.contentView.backgroundColor = UIColor.subColor
+                self.contentView.backgroundColor = UIColor.sub
             })
         }
     }

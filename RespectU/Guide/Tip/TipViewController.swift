@@ -18,7 +18,7 @@ class TipViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.layer.borderColor = UIColor.mainColor.cgColor
+        tableView.layer.borderColor = UIColor.main.cgColor
         tableView.layer.borderWidth = 3
         tableView.layer.cornerRadius = 10
         realm = try! Realm()

@@ -56,7 +56,7 @@ class AchievementBaseTableViewController: BaseTableViewController {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        header.backgroundView?.backgroundColor = .mainColor
+        header.backgroundView?.backgroundColor = .main
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

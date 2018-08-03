@@ -10,8 +10,8 @@ import UIKit
 
 extension UIColor {
     //App Colors
-    static let mainColor = #colorLiteral(red: 0.9098039216, green: 0.6352941176, blue: 0.2078431373, alpha: 1)
-    static let subColor = #colorLiteral(red: 1, green: 0.8392156863, blue: 0.6196078431, alpha: 1)
+    static let main = #colorLiteral(red: 0.9098039216, green: 0.6352941176, blue: 0.2078431373, alpha: 1)
+    static let sub = #colorLiteral(red: 1, green: 0.8392156863, blue: 0.6196078431, alpha: 1)
     //Series Colors
     static let respect = #colorLiteral(red: 0.9411764706, green: 0.7019607843, blue: 0.1725490196, alpha: 1)
     static let portable1 = #colorLiteral(red: 0.1137254902, green: 0.7058823529, blue: 0.8235294118, alpha: 1)

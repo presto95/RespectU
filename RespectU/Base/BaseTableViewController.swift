@@ -17,10 +17,10 @@ class BaseTableViewController: UITableViewController {
     }
     
     private func setup() {
-        self.view.backgroundColor = .mainColor
-        self.tableView.separatorColor = .mainColor
+        self.view.backgroundColor = .main
+        self.tableView.separatorColor = .main
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
-        self.tableView.layer.borderColor = UIColor.mainColor.cgColor
+        self.tableView.layer.borderColor = UIColor.main.cgColor
         self.tableView.layer.borderWidth = 3
         self.tableView.layer.cornerRadius = 10
     }

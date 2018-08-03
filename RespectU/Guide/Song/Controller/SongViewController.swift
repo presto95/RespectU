@@ -7,22 +7,23 @@
 //
 
 import UIKit
+import RealmSwift
 import XLPagerTabStrip
 
 class SongViewController: BaseViewController {
     
     @IBOutlet weak var selectedButtonLabel: UILabel!
-    lazy var all = SongAllTableViewController()
-    lazy var portable1 = SongPortable1TableViewController()
-    lazy var portable2 = SongPortable2TableViewController()
-    lazy var respect = SongRespectTableViewController()
-    lazy var trilogy = SongTrilogyTableViewController()
-    lazy var ce = SongCETableViewController()
-    lazy var technika1 = SongTechnika1TableViewController()
-    lazy var bs = SongBSTableViewController()
-    lazy var favorite = SongFavoriteTableViewController()
+    private lazy var allTableViewController = SongAllTableViewController()
+    private lazy var portable1TableViewController = SongPortable1TableViewController()
+    private lazy var portable2TableViewController = SongPortable2TableViewController()
+    private lazy var respectTableViewController = SongRespectTableViewController()
+    private lazy var trilogyTableViewController = SongTrilogyTableViewController()
+    private lazy var ceTableViewController = SongCETableViewController()
+    private lazy var technika1TableViewController = SongTechnika1TableViewController()
+    private lazy var bsTableViewController = SongBSTableViewController()
+    private lazy var favoriteTableViewController = SongFavoriteTableViewController()
     lazy var songViewControllers: [SongBaseTableViewController] = {
-        return [all, portable1, portable2, respect, trilogy, ce, technika1, bs, favorite]
+        return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, favoriteTableViewController]
     }()
     var favoriteButton: String {
         return selectedButtonLabel.text ?? ""
@@ -111,7 +112,7 @@ class SongViewController: BaseViewController {
 
 extension SongViewController {
     private func sort(difficulty: String, isAscending: Bool) {
-        let viewControllers = [all, portable1, portable2, respect, trilogy, ce, technika1, bs]
+        let viewControllers = songViewControllers.removeLast()
         let serieses = ["", Series.portable1, Series.portable2, Series.respect, Series.trilogy, Series.ce, Series.technika1, Series.bs]
         var keyPath: String = ""
         switch favoriteButton {
@@ -171,7 +172,7 @@ extension SongViewController {
             break
         }
         let sortDescriptor = [SortDescriptor(keyPath: keyPath, ascending: isAscending), SortDescriptor(keyPath: "lowercase", ascending: true)]
-        let results = realm.objects(SongInfo.self)
+        let results = SongInfo.get()
         let count = viewControllers.count
         for index in 0..<count {
             let viewController = viewControllers[index]

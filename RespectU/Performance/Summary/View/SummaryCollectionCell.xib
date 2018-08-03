@@ -43,8 +43,8 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
-                <outlet property="content" destination="1qF-6C-vTF" id="i0z-HP-63Y"/>
-                <outlet property="value" destination="2aL-l5-2nc" id="6AF-MV-u82"/>
+                <outlet property="contentLabel" destination="1qF-6C-vTF" id="lbU-Ly-9L6"/>
+                <outlet property="valueLabel" destination="2aL-l5-2nc" id="6AF-MV-u82"/>
             </connections>
         </collectionViewCell>
     </objects>

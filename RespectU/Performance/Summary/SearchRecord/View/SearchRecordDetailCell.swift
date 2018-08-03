@@ -23,7 +23,7 @@ class SearchRecordDetailCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.colorLabel.layer.borderWidth = 1
-        self.colorLabel.layer.borderColor = UIColor.mainColor.cgColor
+        self.colorLabel.layer.borderColor = UIColor.main.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

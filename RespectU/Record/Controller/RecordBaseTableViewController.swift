@@ -54,7 +54,7 @@ class RecordBaseTableViewController: BaseTableViewController {
         } else {
             recordViewController.scrollViewBottomConstraint.constant -= 200
         }
-        guard let recordView = RecordView.instanceFromXib(title: title, tableViewController: self) as? RecordView else { return }
+        guard let recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView else { return }
         recordView.frame = CGRect(x: 0, y: recordViewController.view.bounds.height - 210, width: recordViewController.view.bounds.width, height: 200)
         recordViewController.view.addSubview(recordView)
     }

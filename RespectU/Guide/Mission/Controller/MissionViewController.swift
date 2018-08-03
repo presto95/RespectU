@@ -11,14 +11,14 @@ import XLPagerTabStrip
 
 class MissionViewController: BaseViewController {
 
-    lazy var respect = MissionRespectTableViewController()
-    lazy var trilogy = MissionTrilogyTableViewController()
-    lazy var ce = MissionCETableViewController()
-    lazy var technika1 = MissionTechnika1TableViewController()
-    lazy var bs = MissionBSTableViewController()
-    lazy var linkDisk = MissionLinkDiskTableViewController()
+    private lazy var respectTableViewController = MissionRespectTableViewController()
+    private lazy var trilogyTableViewController = MissionTrilogyTableViewController()
+    private lazy var ceTableViewController = MissionCETableViewController()
+    private lazy var technika1TableViewController = MissionTechnika1TableViewController()
+    private lazy var bsTableViewController = MissionBSTableViewController()
+    private lazy var linkDiskTableViewController = MissionLinkDiskTableViewController()
     lazy var missionViewControllers: [MissionBaseTableViewController] = {
-        return [respect, trilogy, ce, technika1, bs, linkDisk]
+        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, linkDiskTableViewController]
     }()
     
     override func viewDidLoad() {

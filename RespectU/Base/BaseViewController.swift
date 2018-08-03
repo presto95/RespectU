@@ -17,9 +17,9 @@ class BaseViewController: ButtonBarPagerTabStripViewController {
     }
     
     private func setUpButtonBarPagerTabStrip() {
-        settings.style.buttonBarBackgroundColor = .subColor
-        settings.style.buttonBarItemBackgroundColor = .subColor
-        settings.style.selectedBarBackgroundColor = .mainColor
+        settings.style.buttonBarBackgroundColor = .sub
+        settings.style.buttonBarItemBackgroundColor = .sub
+        settings.style.selectedBarBackgroundColor = .main
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)

@@ -65,11 +65,11 @@ extension SongFavoriteTableViewController: DZNEmptyDataSetDelegate {
         return false
     }
     func emptyDataSetWillAppear(_ scrollView: UIScrollView!) {
-        tableView.backgroundColor = UIColor.subColor
+        tableView.backgroundColor = UIColor.sub
         tableView.separatorStyle = .none
     }
     func emptyDataSetWillDisappear(_ scrollView: UIScrollView!) {
-        tableView.backgroundColor = UIColor.mainColor
+        tableView.backgroundColor = UIColor.main
         tableView.separatorStyle = .singleLine
     }
 }

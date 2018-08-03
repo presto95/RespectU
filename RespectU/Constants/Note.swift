@@ -6,7 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Result {
+struct Note {
     static let maxCombo = "MAX COMBO"
     static let perfectPlay = "PERFECT PLAY"
+    static let none = "-"
 }

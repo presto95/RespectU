@@ -13,7 +13,9 @@ class Ranking5BTableViewController: RankingBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchFirebase("button5SkillPoint")
+        showIndicator()
+        Firebase.fetch("button5SkillPoint")
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveFirebaseFetch(_:)), name: .didReceiveFirebaseFetch, object: nil)
     }
 }
 

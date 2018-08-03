@@ -33,7 +33,7 @@ class SearchByNoteView: UIView {
         buttonPPs.isSelected = false
         sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
-            sender.backgroundColor = UIColor.mainColor
+            sender.backgroundColor = UIColor.main
         }
         switch(sender.tag){
         case 0:
@@ -47,11 +47,11 @@ class SearchByNoteView: UIView {
     
     func initializeButtons(){
         UIView.animate(withDuration: 0.3) {
-            self.buttonNoMCs.backgroundColor = UIColor.subColor
-            self.buttonPPs.backgroundColor = UIColor.subColor
+            self.buttonNoMCs.backgroundColor = UIColor.sub
+            self.buttonPPs.backgroundColor = UIColor.sub
         }
-        buttonNoMCs.layer.borderColor = UIColor.mainColor.cgColor
-        buttonPPs.layer.borderColor = UIColor.mainColor.cgColor
+        buttonNoMCs.layer.borderColor = UIColor.main.cgColor
+        buttonPPs.layer.borderColor = UIColor.main.cgColor
         buttonNoMCs.layer.borderWidth = 2
         buttonPPs.layer.borderWidth = 2
     }

@@ -57,7 +57,6 @@ extension SummaryCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath) as! SummaryCollectionCell
         var count = 0
-        
         cell.layer.borderColor = UIColor.main.cgColor
         cell.layer.borderWidth = 3
         cell.layer.cornerRadius = 10

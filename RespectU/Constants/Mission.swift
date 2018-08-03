@@ -10,7 +10,7 @@ struct Mission {
     struct Respect {
         static let departure = "Departure"
         static let clubRoad645 = "CLUB Road645"
-        static let maxTheater = "MAX THEATER"
+        static let maxTheater = "MAX Theater"
         static let anotherWorld = "Another WORLD"
         static let backStage = "Back STAGE"
         static let chaosTheory = "Chaos theory"

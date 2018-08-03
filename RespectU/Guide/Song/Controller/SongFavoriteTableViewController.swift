@@ -51,7 +51,7 @@ class SongFavoriteTableViewController: SongBaseTableViewController {
 
 extension SongFavoriteTableViewController: DZNEmptyDataSetSource {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return #imageLiteral(resourceName: "info")
+        return nil
     }
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "No Favorites".localized, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 20, weight: .bold)])

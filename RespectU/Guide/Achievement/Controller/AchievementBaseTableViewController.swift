@@ -33,6 +33,7 @@ class AchievementBaseTableViewController: BaseTableViewController {
             count += 1
         }
         stageCount.append(count)
+        self.tableView.rowHeight = 60
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 

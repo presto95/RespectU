@@ -39,6 +39,9 @@ class SkillLevelCell: UITableViewCell {
         }
         self.rankingButton.setTitle("Ranking".localized, for: .normal)
         self.calculatorButton.setTitle("Calculator".localized, for: .normal)
+        self.top50Button.addTarget(self, action: #selector(touchUpTop50Button(_:)), for: .touchUpInside)
+        self.rankingButton.addTarget(self, action: #selector(touchUpRankingButton(_:)), for: .touchUpInside)
+        self.calculatorButton.addTarget(self, action: #selector(touchUpCalculatorButton(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

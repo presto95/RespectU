@@ -153,7 +153,7 @@ extension PerformanceViewController: SkillLevelCellDelegate {
             }
             .textField { textField in
                 textField.placeholder = "Rate".localized
-                textField.keyboardType = .numberPad
+                textField.keyboardType = .decimalPad
         }
         alert.defaultAction(title: "\(Note.maxCombo) Failure".localized) { action in
             if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
@@ -169,28 +169,29 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                     .present(to: self)
             }
         }
-            .defaultAction(title: "\(Note.maxCombo) / \(Note.perfectPlay)") { action in
-                if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
-                    if rate == 100 {
-                        let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.perfectPlay)
-                        UIAlertController
-                            .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                            .defaultAction(title: "OK".localized)
-                            .present(to: self)
-                    } else {
-                        let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.maxCombo)
-                        UIAlertController
-                            .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                            .defaultAction(title: "OK".localized)
-                            .present(to: self)
-                    }
-                } else {
+        .defaultAction(title: "\(Note.maxCombo) / \(Note.perfectPlay)") { action in
+            if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
+                if rate == 100 {
+                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.perfectPlay)
                     UIAlertController
-                        .alert(title: "Error".localized, message: "Enter a valid value.".localized)
+                        .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
+                        .defaultAction(title: "OK".localized)
+                        .present(to: self)
+                } else {
+                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.maxCombo)
+                    UIAlertController
+                        .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                         .defaultAction(title: "OK".localized)
                         .present(to: self)
                 }
+            } else {
+                UIAlertController
+                    .alert(title: "Error".localized, message: "Enter a valid value.".localized)
+                    .defaultAction(title: "OK".localized)
+                    .present(to: self)
+            }
         }
+        .present(to: self)
         
     }
     func touchUpTop50Button(_ sender: UIButton) {

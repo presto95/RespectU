@@ -80,9 +80,9 @@ class Skill {
         default:
             break
         }
-        top50Difficulties.sort()
-        for difficulty in top50Difficulties {
-            max += Skill.weight(difficulty) * 105
+        top50Difficulties.sort(by: >)
+        for index in 0..<50 {
+            max += Skill.weight(top50Difficulties[index]) * 105
         }
         return max
     }
@@ -102,13 +102,13 @@ class Skill {
         }
         switch button {
         case Buttons.button4:
-            return getSum("button4SkillPoint")
+            return getSum(Skill.button4SkillPoint)
         case Buttons.button5:
-            return getSum("button5SkillPoint")
+            return getSum(Skill.button5SkillPoint)
         case Buttons.button6:
-            return getSum("button6SkillPoint")
+            return getSum(Skill.button6SkillPoint)
         case Buttons.button8:
-            return getSum("button8SkillPoint")
+            return getSum(Skill.button8SkillPoint)
         default:
             return (0, "")
         }
@@ -269,93 +269,94 @@ class Skill {
         return nextSkillLevel
     }
     
-    static func recordRate() -> (button4RecordRate: Double, button5RecordRate: Double, button6RecordRate: Double, button8RecordRate: Double) {
-        var button4Count = [0, 0]
-        var button5Count = [0, 0]
-        var button6Count = [0, 0]
-        var button8Count = [0, 0]
+    static func recordRate(button: String) -> Double {
+        var counts = [0, 0]
         let results = RecordInfo.get()
         for result in results {
-            if result.nm4 != 0 {
-                button4Count[0] += 1
-            }
-            if result.hd4 != 0 {
-                button4Count[0] += 1
-            }
-            if result.mx4 != 0 {
-                button4Count[0] += 1
-            }
-            if result.nm5 != 0 {
-                button5Count[0] += 1
-            }
-            if result.hd5 != 0 {
-                button5Count[0] += 1
-            }
-            if result.mx5 != 0 {
-                button5Count[0] += 1
-            }
-            if result.nm6 != 0 {
-                button6Count[0] += 1
-            }
-            if result.hd6 != 0 {
-                button6Count[0] += 1
-            }
-            if result.mx6 != 0 {
-                button6Count[0] += 1
-            }
-            if result.nm8 != 0 {
-                button8Count[0] += 1
-            }
-            if result.hd8 != 0 {
-                button8Count[0] += 1
-            }
-            if result.mx8 != 0 {
-                button8Count[0] += 1
-            }
-            if let _ = Double(result.nm4Rate.split(separator: "%")[0]) {
-                button4Count[1] += 1
-            }
-            if let _ = Double(result.hd4Rate.split(separator: "%")[0]) {
-                button4Count[1] += 1
-            }
-            if let _ = Double(result.mx4Rate.split(separator: "%")[0]) {
-                button4Count[1] += 1
-            }
-            if let _ = Double(result.nm5Rate.split(separator: "%")[0]) {
-                button5Count[1] += 1
-            }
-            if let _ = Double(result.hd5Rate.split(separator: "%")[0]) {
-                button5Count[1] += 1
-            }
-            if let _ = Double(result.mx5Rate.split(separator: "%")[0]) {
-                button5Count[1] += 1
-            }
-            if let _ = Double(result.nm6Rate.split(separator: "%")[0]) {
-                button6Count[1] += 1
-            }
-            if let _ = Double(result.hd6Rate.split(separator: "%")[0]) {
-                button6Count[1] += 1
-            }
-            if let _ = Double(result.mx6Rate.split(separator: "%")[0]) {
-                button6Count[1] += 1
-            }
-            if let _ = Double(result.nm8Rate.split(separator: "%")[0]) {
-                button8Count[1] += 1
-            }
-            if let _ = Double(result.hd8Rate.split(separator: "%")[0]) {
-                button8Count[1] += 1
-            }
-            if let _ = Double(result.mx8Rate.split(separator: "%")[0]) {
-                button8Count[1] += 1
+            switch button {
+            case Buttons.button4:
+                if result.nm4 != 0 {
+                    counts[0] += 1
+                }
+                if result.hd4 != 0 {
+                    counts[0] += 1
+                }
+                if result.mx4 != 0 {
+                    counts[0] += 1
+                }
+                if let _ = Double(result.nm4Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.hd4Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.mx4Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+            case Buttons.button5:
+                if result.nm5 != 0 {
+                    counts[0] += 1
+                }
+                if result.hd5 != 0 {
+                    counts[0] += 1
+                }
+                if result.mx5 != 0 {
+                    counts[0] += 1
+                }
+                if let _ = Double(result.nm5Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.hd5Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.mx5Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+            case Buttons.button6:
+                if result.nm6 != 0 {
+                    counts[0] += 1
+                }
+                if result.hd6 != 0 {
+                    counts[0] += 1
+                }
+                if result.mx6 != 0 {
+                    counts[0] += 1
+                }
+                if let _ = Double(result.nm6Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.hd6Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.mx6Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+            case Buttons.button8:
+                if result.nm8 != 0 {
+                    counts[0] += 1
+                }
+                if result.hd8 != 0 {
+                    counts[0] += 1
+                }
+                if result.mx8 != 0 {
+                    counts[0] += 1
+                }
+                if let _ = Double(result.nm8Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.hd8Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+                if let _ = Double(result.mx8Rate.split(separator: "%")[0]) {
+                    counts[1] += 1
+                }
+            default:
+                break
             }
         }
-        let button4Rate = Double(button4Count[1]) / Double(button4Count[0])
-        let button5Rate = Double(button5Count[1]) / Double(button5Count[0])
-        let button6Rate = Double(button6Count[1]) / Double(button6Count[0])
-        let button8Rate = Double(button8Count[1]) / Double(button8Count[0])
-        return (button4Rate, button5Rate, button6Rate, button8Rate)
+        let rate = Double(counts[1]) / Double(counts[0])
+        return rate
     }
-    
 }
 
 extension Skill {

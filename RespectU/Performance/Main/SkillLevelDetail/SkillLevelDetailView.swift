@@ -26,7 +26,7 @@ class SkillLevelDetailView: UIView {
     }
     
     func setProperties(button: String) {
-        let recordRate = Skill.recordRate()
+        let recordRate = Skill.recordRate(button: button)
         let maxSkillPoint = Skill.maxSkillPoint(button: button)
         let mySkillPoint = Skill.mySkillPoint(button: button)
         let sum = mySkillPoint.sum
@@ -46,9 +46,9 @@ class SkillLevelDetailView: UIView {
         self.skillPointLabel.text = "\((sum * 100).rounded() / 100) " + "Point".localized
         self.gauge.maxValue = CGFloat(maxSkillPoint)
         self.gauge.startColor = mySkillPoint.highestSeries.seriesColor ?? .clear
-        self.recordRateLabel.text = String(format: "%04.1f%%", recordRate.button4RecordRate * 100) + " Recorded".localized
         self.gauge.bgColor = self.gauge.startColor
         self.percentLabel.text = String(format: "%05.2f%%", sum * 100 / maxSkillPoint)
+        self.recordRateLabel.text = String(format: "%04.1f%%", recordRate * 100) + " Recorded".localized
         self.gauge.animateRate(1, newValue: CGFloat(sum)) { _ in }
     }
 }

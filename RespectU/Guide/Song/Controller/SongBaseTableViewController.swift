@@ -21,6 +21,7 @@ class SongBaseTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.tableView.rowHeight = 60
         self.achievementResults = AchievementInfo.get().filter(key: "type", value: Achievement.music, method: FilterOperator.equal)
         self.missionResults = MissionInfo.get().filter(key: "reward", value: "Music*", method: FilterOperator.like)
     }
@@ -36,7 +37,7 @@ class SongBaseTableViewController: BaseTableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let object = self.songResults[indexPath.row]
         let recommendedSpeed = getRecommendedSpeed(speed: myBPM / object.bpm.bpmToDouble)
-        let unlockAchievement = "Unlock (ACHIEVEMENT".localized
+        let unlockAchievement = "Unlock (ACHIEVEMENT)".localized
         let unlockMission = "Unlock (MISSION)".localized
         var unlockInfo = ""
         for result in achievementResults {

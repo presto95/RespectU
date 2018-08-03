@@ -836,24 +836,24 @@ class Init{
             try! realm.write{
                 songInfo.nm4 = 6; songInfo.hd4 = 9; songInfo.mx4 = 12; songInfo.nm5 = 8; songInfo.hd5 = 11; songInfo.nm6 = 8; songInfo.mx6 = 13
                 songInfo.nm8 = 8; songInfo.hd8 = 13;
-                let nm4Point = getSkillPoint(difficulty: songInfo.nm4, rate: songInfo.nm4Rate, note: songInfo.nm4Note)
-                let hd4Point = getSkillPoint(difficulty: songInfo.hd4, rate: songInfo.hd4Rate, note: songInfo.hd4Note)
-                let mx4Point = getSkillPoint(difficulty: songInfo.mx4, rate: songInfo.mx4Rate, note: songInfo.mx4Note)
+                let nm4Point = Skill.skillPoint(difficulty: songInfo.nm4, rate: songInfo.nm4Rate, note: songInfo.nm4Note)
+                let hd4Point = Skill.skillPoint(difficulty: songInfo.hd4, rate: songInfo.hd4Rate, note: songInfo.hd4Note)
+                let mx4Point = Skill.skillPoint(difficulty: songInfo.mx4, rate: songInfo.mx4Rate, note: songInfo.mx4Note)
                 let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
                 songInfo.button4SkillPoint = max4Point
-                let nm5Point = getSkillPoint(difficulty: songInfo.nm5, rate: songInfo.nm5Rate, note: songInfo.nm5Note)
-                let hd5Point = getSkillPoint(difficulty: songInfo.hd5, rate: songInfo.hd5Rate, note: songInfo.hd5Note)
-                let mx5Point = getSkillPoint(difficulty: songInfo.mx5, rate: songInfo.mx5Rate, note: songInfo.mx5Note)
+                let nm5Point = Skill.skillPoint(difficulty: songInfo.nm5, rate: songInfo.nm5Rate, note: songInfo.nm5Note)
+                let hd5Point = Skill.skillPoint(difficulty: songInfo.hd5, rate: songInfo.hd5Rate, note: songInfo.hd5Note)
+                let mx5Point = Skill.skillPoint(difficulty: songInfo.mx5, rate: songInfo.mx5Rate, note: songInfo.mx5Note)
                 let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
                 songInfo.button5SkillPoint = max5Point
-                let nm6Point = getSkillPoint(difficulty: songInfo.nm6, rate: songInfo.nm6Rate, note: songInfo.nm6Note)
-                let hd6Point = getSkillPoint(difficulty: songInfo.hd6, rate: songInfo.hd6Rate, note: songInfo.hd6Note)
-                let mx6Point = getSkillPoint(difficulty: songInfo.mx6, rate: songInfo.mx6Rate, note: songInfo.mx6Note)
+                let nm6Point = Skill.skillPoint(difficulty: songInfo.nm6, rate: songInfo.nm6Rate, note: songInfo.nm6Note)
+                let hd6Point = Skill.skillPoint(difficulty: songInfo.hd6, rate: songInfo.hd6Rate, note: songInfo.hd6Note)
+                let mx6Point = Skill.skillPoint(difficulty: songInfo.mx6, rate: songInfo.mx6Rate, note: songInfo.mx6Note)
                 let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
                 songInfo.button6SkillPoint = max6Point
-                let nm8Point = getSkillPoint(difficulty: songInfo.nm8, rate: songInfo.nm8Rate, note: songInfo.nm8Note)
-                let hd8Point = getSkillPoint(difficulty: songInfo.hd8, rate: songInfo.hd8Rate, note: songInfo.hd8Note)
-                let mx8Point = getSkillPoint(difficulty: songInfo.mx8, rate: songInfo.mx8Rate, note: songInfo.mx8Note)
+                let nm8Point = Skill.skillPoint(difficulty: songInfo.nm8, rate: songInfo.nm8Rate, note: songInfo.nm8Note)
+                let hd8Point = Skill.skillPoint(difficulty: songInfo.hd8, rate: songInfo.hd8Rate, note: songInfo.hd8Note)
+                let mx8Point = Skill.skillPoint(difficulty: songInfo.mx8, rate: songInfo.mx8Rate, note: songInfo.mx8Note)
                 let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
                 songInfo.button8SkillPoint = max8Point
             }
@@ -863,24 +863,24 @@ class Init{
                 songInfo.nm5 = 5; songInfo.hd5 = 10; songInfo.mx5 = 13;
                 songInfo.nm6 = 5; songInfo.hd6 = 9; songInfo.mx6 = 13;
                 songInfo.nm8 = 5; songInfo.hd8 = 10; songInfo.mx8 = 14;
-                let nm4Point = getSkillPoint(difficulty: songInfo.nm4, rate: songInfo.nm4Rate, note: songInfo.nm4Note)
-                let hd4Point = getSkillPoint(difficulty: songInfo.hd4, rate: songInfo.hd4Rate, note: songInfo.hd4Note)
-                let mx4Point = getSkillPoint(difficulty: songInfo.mx4, rate: songInfo.mx4Rate, note: songInfo.mx4Note)
+                let nm4Point = Skill.skillPoint(difficulty: songInfo.nm4, rate: songInfo.nm4Rate, note: songInfo.nm4Note)
+                let hd4Point = Skill.skillPoint(difficulty: songInfo.hd4, rate: songInfo.hd4Rate, note: songInfo.hd4Note)
+                let mx4Point = Skill.skillPoint(difficulty: songInfo.mx4, rate: songInfo.mx4Rate, note: songInfo.mx4Note)
                 let max4Point = [nm4Point, hd4Point, mx4Point].sorted()[2]
                 songInfo.button4SkillPoint = max4Point
-                let nm5Point = getSkillPoint(difficulty: songInfo.nm5, rate: songInfo.nm5Rate, note: songInfo.nm5Note)
-                let hd5Point = getSkillPoint(difficulty: songInfo.hd5, rate: songInfo.hd5Rate, note: songInfo.hd5Note)
-                let mx5Point = getSkillPoint(difficulty: songInfo.mx5, rate: songInfo.mx5Rate, note: songInfo.mx5Note)
+                let nm5Point = Skill.skillPoint(difficulty: songInfo.nm5, rate: songInfo.nm5Rate, note: songInfo.nm5Note)
+                let hd5Point = Skill.skillPoint(difficulty: songInfo.hd5, rate: songInfo.hd5Rate, note: songInfo.hd5Note)
+                let mx5Point = Skill.skillPoint(difficulty: songInfo.mx5, rate: songInfo.mx5Rate, note: songInfo.mx5Note)
                 let max5Point = [nm5Point, hd5Point, mx5Point].sorted()[2]
                 songInfo.button5SkillPoint = max5Point
-                let nm6Point = getSkillPoint(difficulty: songInfo.nm6, rate: songInfo.nm6Rate, note: songInfo.nm6Note)
-                let hd6Point = getSkillPoint(difficulty: songInfo.hd6, rate: songInfo.hd6Rate, note: songInfo.hd6Note)
-                let mx6Point = getSkillPoint(difficulty: songInfo.mx6, rate: songInfo.mx6Rate, note: songInfo.mx6Note)
+                let nm6Point = Skill.skillPoint(difficulty: songInfo.nm6, rate: songInfo.nm6Rate, note: songInfo.nm6Note)
+                let hd6Point = Skill.skillPoint(difficulty: songInfo.hd6, rate: songInfo.hd6Rate, note: songInfo.hd6Note)
+                let mx6Point = Skill.skillPoint(difficulty: songInfo.mx6, rate: songInfo.mx6Rate, note: songInfo.mx6Note)
                 let max6Point = [nm6Point, hd6Point, mx6Point].sorted()[2]
                 songInfo.button6SkillPoint = max6Point
-                let nm8Point = getSkillPoint(difficulty: songInfo.nm8, rate: songInfo.nm8Rate, note: songInfo.nm8Note)
-                let hd8Point = getSkillPoint(difficulty: songInfo.hd8, rate: songInfo.hd8Rate, note: songInfo.hd8Note)
-                let mx8Point = getSkillPoint(difficulty: songInfo.mx8, rate: songInfo.mx8Rate, note: songInfo.mx8Note)
+                let nm8Point = Skill.skillPoint(difficulty: songInfo.nm8, rate: songInfo.nm8Rate, note: songInfo.nm8Note)
+                let hd8Point = Skill.skillPoint(difficulty: songInfo.hd8, rate: songInfo.hd8Rate, note: songInfo.hd8Note)
+                let mx8Point = Skill.skillPoint(difficulty: songInfo.mx8, rate: songInfo.mx8Rate, note: songInfo.mx8Note)
                 let max8Point = [nm8Point, hd8Point, mx8Point].sorted()[2]
                 songInfo.button8SkillPoint = max8Point
             }
@@ -1413,7 +1413,7 @@ class Init{
                 record.mx4 = 14
                 record.mx6 = 14
             }
-            reloadSkillPoint(realm: realm)
+            Skill.refresh()
             UserDefaults.standard.set(203, forKey: "version")
         }
         
@@ -1770,7 +1770,7 @@ class Init{
                 song.mx8 = 9
                 record.mx8 = 9
             }
-            reloadSkillPoint(realm: realm)
+            Skill.refresh()
             UserDefaults.standard.set(207, forKey: "version")
         }
         if version <= 207 {

@@ -84,7 +84,7 @@ extension PerformanceViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "skillLevelCell") as! SkillLevelCell
             cell.delegate = self
-            cell.setProperties(favoriteButton, max: Skill.maxSkillPoint(favoriteButton), my: Skill.mySkillPoint(button: favoriteButton))
+            cell.setProperties(favoriteButton, max: Skill.maxSkillPoint(button: favoriteButton), my: Skill.mySkillPoint(button: favoriteButton))
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as! SummaryCell

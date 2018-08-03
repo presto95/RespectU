@@ -112,7 +112,7 @@ class SongViewController: BaseViewController {
 
 extension SongViewController {
     private func sort(difficulty: String, isAscending: Bool) {
-        let viewControllers = songViewControllers.removeLast()
+        let tempViewControllers = [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController]
         let serieses = ["", Series.portable1, Series.portable2, Series.respect, Series.trilogy, Series.ce, Series.technika1, Series.bs]
         var keyPath: String = ""
         switch favoriteButton {
@@ -173,9 +173,9 @@ extension SongViewController {
         }
         let sortDescriptor = [SortDescriptor(keyPath: keyPath, ascending: isAscending), SortDescriptor(keyPath: "lowercase", ascending: true)]
         let results = SongInfo.get()
-        let count = viewControllers.count
+        let count = tempViewControllers.count
         for index in 0..<count {
-            let viewController = viewControllers[index]
+            let viewController = tempViewControllers[index]
             let series = serieses[index]
             if series.isEmpty {
                 viewController.songResults = results.sorted(by: sortDescriptor)

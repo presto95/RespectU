@@ -52,7 +52,7 @@ class Skill {
     }
     
     //현재 데이터베이스로 얻을 수 있는 최대 스킬포인트 계산
-    static func maxSkillPoint(_ button: String) -> Double {
+    static func maxSkillPoint(button: String) -> Double {
         let results = SongInfo.get()
         var max: Double = 0
         var top50Difficulties = [Int]()
@@ -229,6 +229,136 @@ class Skill {
         }
     }
     
+    static func nextSkillLevel(of skillLevel: String, button: String) -> String? {
+        var index: Int = 0
+        var nextSkillLevel = "Next".localized + " : "
+        switch button {
+        case Buttons.button4:
+            for element in SkillLevel.button4SkillLevels {
+                if element == skillLevel { break }
+                index += 1
+            }
+            if index + 1 == SkillLevel.button4SkillLevels.count {
+                nextSkillLevel += "None".localized
+            } else {
+                nextSkillLevel += SkillLevel.button4SkillLevels[index + 1]
+            }
+        case Buttons.button5:
+            for element in SkillLevel.button5SkillLevels {
+                if element == skillLevel { break }
+                index += 1
+            }
+            if index + 1 == SkillLevel.button5SkillLevels.count {
+                nextSkillLevel += "None".localized
+            } else {
+                nextSkillLevel += SkillLevel.button5SkillLevels[index + 1]
+            }
+        case Buttons.button6, Buttons.button8:
+            for element in SkillLevel.button6And8SkillLevels {
+                if element == skillLevel { break }
+                index += 1
+            }
+            if index + 1 == SkillLevel.button6And8SkillLevels.count {
+                nextSkillLevel += "None".localized
+            } else {
+                nextSkillLevel += SkillLevel.button6And8SkillLevels[index + 1]
+            }
+        default:
+            break
+        }
+        return nextSkillLevel
+    }
+    
+    static func recordRate() -> (button4RecordRate: Double, button5RecordRate: Double, button6RecordRate: Double, button8RecordRate: Double) {
+        var button4Count = [0, 0]
+        var button5Count = [0, 0]
+        var button6Count = [0, 0]
+        var button8Count = [0, 0]
+        let results = RecordInfo.get()
+        for result in results {
+            if result.nm4 != 0 {
+                button4Count[0] += 1
+            }
+            if result.hd4 != 0 {
+                button4Count[0] += 1
+            }
+            if result.mx4 != 0 {
+                button4Count[0] += 1
+            }
+            if result.nm5 != 0 {
+                button5Count[0] += 1
+            }
+            if result.hd5 != 0 {
+                button5Count[0] += 1
+            }
+            if result.mx5 != 0 {
+                button5Count[0] += 1
+            }
+            if result.nm6 != 0 {
+                button6Count[0] += 1
+            }
+            if result.hd6 != 0 {
+                button6Count[0] += 1
+            }
+            if result.mx6 != 0 {
+                button6Count[0] += 1
+            }
+            if result.nm8 != 0 {
+                button8Count[0] += 1
+            }
+            if result.hd8 != 0 {
+                button8Count[0] += 1
+            }
+            if result.mx8 != 0 {
+                button8Count[0] += 1
+            }
+            if let _ = Double(result.nm4Rate.split(separator: "%")[0]) {
+                button4Count[1] += 1
+            }
+            if let _ = Double(result.hd4Rate.split(separator: "%")[0]) {
+                button4Count[1] += 1
+            }
+            if let _ = Double(result.mx4Rate.split(separator: "%")[0]) {
+                button4Count[1] += 1
+            }
+            if let _ = Double(result.nm5Rate.split(separator: "%")[0]) {
+                button5Count[1] += 1
+            }
+            if let _ = Double(result.hd5Rate.split(separator: "%")[0]) {
+                button5Count[1] += 1
+            }
+            if let _ = Double(result.mx5Rate.split(separator: "%")[0]) {
+                button5Count[1] += 1
+            }
+            if let _ = Double(result.nm6Rate.split(separator: "%")[0]) {
+                button6Count[1] += 1
+            }
+            if let _ = Double(result.hd6Rate.split(separator: "%")[0]) {
+                button6Count[1] += 1
+            }
+            if let _ = Double(result.mx6Rate.split(separator: "%")[0]) {
+                button6Count[1] += 1
+            }
+            if let _ = Double(result.nm8Rate.split(separator: "%")[0]) {
+                button8Count[1] += 1
+            }
+            if let _ = Double(result.hd8Rate.split(separator: "%")[0]) {
+                button8Count[1] += 1
+            }
+            if let _ = Double(result.mx8Rate.split(separator: "%")[0]) {
+                button8Count[1] += 1
+            }
+        }
+        let button4Rate = Double(button4Count[1]) / Double(button4Count[0])
+        let button5Rate = Double(button5Count[1]) / Double(button5Count[0])
+        let button6Rate = Double(button6Count[1]) / Double(button6Count[0])
+        let button8Rate = Double(button8Count[1]) / Double(button8Count[0])
+        return (button4Rate, button5Rate, button6Rate, button8Rate)
+    }
+    
+}
+
+extension Skill {
     static func button4SkillLevel(_ value: Double) -> String? {
         switch value {
         case 0..<1000:
@@ -420,46 +550,6 @@ class Skill {
         default:
             return nil
         }
-    }
-    
-    static func nextSkillLevel(of skillLevel: String, button: String) -> String? {
-        var index: Int = 0
-        var nextSkillLevel = "Next".localized + " : "
-        switch button {
-        case Buttons.button4:
-            for element in SkillLevel.button4SkillLevels {
-                if element == skillLevel { break }
-                index += 1
-            }
-            if index + 1 == SkillLevel.button4SkillLevels.count {
-                nextSkillLevel += "None".localized
-            } else {
-                nextSkillLevel += SkillLevel.button4SkillLevels[index + 1]
-            }
-        case Buttons.button5:
-            for element in SkillLevel.button5SkillLevels {
-                if element == skillLevel { break }
-                index += 1
-            }
-            if index + 1 == SkillLevel.button5SkillLevels.count {
-                nextSkillLevel += "None".localized
-            } else {
-                nextSkillLevel += SkillLevel.button5SkillLevels[index + 1]
-            }
-        case Buttons.button6, Buttons.button8:
-            for element in SkillLevel.button6And8SkillLevels {
-                if element == skillLevel { break }
-                index += 1
-            }
-            if index + 1 == SkillLevel.button6And8SkillLevels.count {
-                nextSkillLevel += "None".localized
-            } else {
-                nextSkillLevel += SkillLevel.button6And8SkillLevels[index + 1]
-            }
-        default:
-            break
-        }
-        return nextSkillLevel
     }
     
     //스킬포인트 가중치 계산

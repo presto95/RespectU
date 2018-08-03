@@ -129,6 +129,7 @@
 		198B6C562113E5A60058DE49 /* SkillLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C552113E5A60058DE49 /* SkillLevel.swift */; };
 		198B6C58211423920058DE49 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C57211423920058DE49 /* Firebase.swift */; };
 		198B6C5A2114244B0058DE49 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C592114244B0058DE49 /* Notification.Name+.swift */; };
+		198B6C5C211443C70058DE49 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C5B211443C70058DE49 /* Rank.swift */; };
 		198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */; };
 		198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */; };
 		198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */; };
@@ -303,6 +304,7 @@
 		198B6C552113E5A60058DE49 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
 		198B6C57211423920058DE49 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		198B6C592114244B0058DE49 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
+		198B6C5B211443C70058DE49 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
 		198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
 		198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 				192DF89C2111DA640016F386 /* Buttons.swift */,
 				191275DC2111EFE80046AA3E /* Achievement.swift */,
 				19801B472112FE3400CDAAB1 /* FilterOperator.swift */,
+				198B6C5B211443C70058DE49 /* Rank.swift */,
 				198B6C51211392CA0058DE49 /* Note.swift */,
 				198B6C552113E5A60058DE49 /* SkillLevel.swift */,
 			);
@@ -1154,6 +1157,7 @@
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,
 				193E4027204C09FA0063A440 /* Top508BTableViewController.swift in Sources */,
+				198B6C5C211443C70058DE49 /* Rank.swift in Sources */,
 				19012FC420484C020061EF21 /* TipInfo.swift in Sources */,
 				191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */,
 				193DE8DB204922B400A829BB /* AchievementCell.swift in Sources */,

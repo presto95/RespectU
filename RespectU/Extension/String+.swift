@@ -88,6 +88,17 @@ extension String{
             return changedBpm
         }
     }
+    var noteAbbreviation: String? {
+        if self == Note.none {
+            return Note.none
+        } else if self == Note.maxCombo {
+            return "MC"
+        } else if self == Note.perfectPlay {
+            return "PP"
+        } else {
+            return nil
+        }
+    }
 }
 
 

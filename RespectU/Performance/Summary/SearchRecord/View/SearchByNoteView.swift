@@ -32,7 +32,7 @@ class SearchByNoteView: UIView {
         initializeButtons()
         noMaxComboButton.isSelected = false
         perfectPlayButton.isSelected = false
-        sender.isEnabled = true
+        sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
             sender.backgroundColor = UIColor.main
         }

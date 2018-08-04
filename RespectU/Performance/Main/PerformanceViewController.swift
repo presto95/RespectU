@@ -148,6 +148,12 @@ extension PerformanceViewController: UITableViewDelegate {
             break
         }
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
 }
 
 extension PerformanceViewController: UICollectionViewDataSource {

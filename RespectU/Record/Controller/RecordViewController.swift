@@ -29,11 +29,6 @@ class RecordViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    static func instantiate() -> RecordViewController? {
-        guard let viewController = UIStoryboard(name: "Record", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? RecordViewController else { return nil }
-        return viewController
-    }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return recordViewControllers

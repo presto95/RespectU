@@ -569,11 +569,6 @@ class SummaryDetailViewController: UIViewController {
         labelAllPatterns.text = countAll[10].description
         labelAllAvg.text = String(format: "%05.2f%%", rates[4])
     }
-
-    static func instantiate() -> SummaryDetailViewController? {
-        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SummaryDetailViewController else { return nil }
-        return viewController
-    }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

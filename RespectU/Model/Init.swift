@@ -1813,6 +1813,39 @@ class Init{
             
             UserDefaults.standard.set(208, forKey: "version")
         }
+        if version <= 208 {
+            //lowercase 초기화
+            let songResults = realm.objects(SongInfo.self).sorted(byKeyPath: "title", ascending: true)
+            let recordResults = realm.objects(RecordInfo.self).sorted(byKeyPath: "title", ascending: true)
+            for index in 0..<songResults.count {
+                let title = songResults[index].title.lowercased()
+                try! realm.write {
+                    songResults[index].lowercase = title
+                    recordResults[index].lowercase = title
+                }
+            }
+            //1. 모든 곡에 그냥 lowercase 처리
+            //2. 한국일 경우 한국 이름 곡 개수 세서(13개) 글자 순서대로 숫자로 lowercase 임의 처리
+            if Locale.current.regionCode! == "KR" {
+                let songInfo = realm.objects(SongInfo.self).sorted(byKeyPath: "title")
+                let recordInfo = realm.objects(RecordInfo.self).sorted(byKeyPath: "title")
+                var count = 0
+                for index in songInfo.count - 13  ..< songInfo.count {
+                    try! realm.write {
+                        if count < 10 {
+                            songInfo[index].lowercase = "00\(count)"
+                            recordInfo[index].lowercase = "00\(count)"
+                        } else {
+                            songInfo[index].lowercase = "0\(count)"
+                            recordInfo[index].lowercase = "0\(count)"
+                        }
+                    }
+                    count += 1
+                }
+            }
+            UserDefaults.standard.set(209, forKey: "version")
+        }
+        
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

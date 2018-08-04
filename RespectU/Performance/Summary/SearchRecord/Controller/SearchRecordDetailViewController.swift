@@ -190,11 +190,6 @@ class SearchRecordDetailViewController: UIViewController {
             }
         }
     }
-
-    static func instantiate() -> SearchRecordDetailViewController? {
-        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SearchRecordDetailViewController else { return nil }
-        return viewController
-    }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

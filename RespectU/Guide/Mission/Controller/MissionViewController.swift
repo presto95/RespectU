@@ -24,11 +24,6 @@ class MissionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    static func instantiate() -> MissionViewController? {
-        guard let viewController = UIStoryboard(name: "Mission", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? MissionViewController else { return nil }
-        return viewController
-    }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return missionViewControllers

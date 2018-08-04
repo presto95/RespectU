@@ -12,8 +12,8 @@ import XLPagerTabStrip
 class AchievementCommentTableViewController: AchievementBaseTableViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.results = AchievementInfo.get().filter(key: "type", value: Achievement.comment, method: FilterOperator.like)
+        super.viewDidLoad()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

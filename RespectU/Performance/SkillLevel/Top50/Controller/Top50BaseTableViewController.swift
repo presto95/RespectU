@@ -17,14 +17,8 @@ class Top50BaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? Top50Cell else { return UITableViewCell() }
-        let object = results[indexPath.row]
-        cell.setProperties(object, button: Buttons.button4)
-        return cell
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

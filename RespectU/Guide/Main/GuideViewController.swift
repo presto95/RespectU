@@ -25,17 +25,13 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
         self.recordButton.setTitle("Performance Record".localized, for: .normal)
     }
     
-    static func instantiate() -> GuideViewController? {
-        guard let viewController = UIStoryboard(name: "Guide", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? GuideViewController else { return nil }
-        return viewController
-    }
-    
     @IBAction func touchUpPreviousButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func touchUpRecordButton(_ sender: UIButton) {
-        self.present(RecordViewController.instantiate()!, animated: true)
+        guard let vc = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
+        self.present(vc, animated: true)
     }
     
     private func sendEmail() {
@@ -120,20 +116,26 @@ extension GuideViewController: UICollectionViewDelegate {
         case 0:
             switch indexPath.row {
             case 0:
-                self.present(SongViewController.instantiate()!, animated: true)
+                guard let vc = UIViewController.instantiate(storyboard: "Song", identifier: SongViewController.classNameToString) as? SongViewController else { return }
+                self.present(vc, animated: true)
             case 1:
-                self.present(MissionViewController.instantiate()!, animated: true)
+                guard let vc = UIViewController.instantiate(storyboard: "Mission", identifier: MissionViewController.classNameToString) as? MissionViewController else { return }
+                self.present(vc, animated: true)
             case 2:
-                self.present(TrophyViewController.instantiate()!, animated: true)
+                guard let vc = UIViewController.instantiate(storyboard: "Trophy", identifier: TrophyViewController.classNameToString) as? TrophyViewController else { return }
+                self.present(vc, animated: true)
             case 3:
-                self.present(AchievementViewController.instantiate()!, animated: true)
+                guard let vc = UIViewController.instantiate(storyboard: "Achievement", identifier: AchievementViewController.classNameToString) as? AchievementViewController else { return }
+                self.present(vc, animated: true)
             case 4:
-                self.present(TipViewController.instantiate()!, animated: true)
+                guard let vc = UIViewController.instantiate(storyboard: "Tip", identifier: TipViewController.classNameToString) as? TipViewController else { return }
+                self.present(vc, animated: true)
             case 5:
                 if !Reachability.isConnectedToNetwork() {
                     presentNetworkAlert()
                 } else {
-                    self.present(ManualViewController.instantiate()!, animated: true, completion: nil)
+                    guard let vc = UIViewController.instantiate(storyboard: "Manual", identifier: ManualViewController.classNameToString) as? ManualViewController else { return }
+                    self.present(vc, animated: true)
                 }
             default:
                 break
@@ -206,16 +208,14 @@ extension GuideViewController: UICollectionViewDelegate {
                 if !Reachability.isConnectedToNetwork() {
                     presentNetworkAlert()
                 } else {
-                    self.present(RadioViewController.instantiate()!, animated: true, completion: nil)
+                    guard let vc = UIViewController.instantiate(storyboard: "Radio", identifier: RadioViewController.classNameToString) as? RadioViewController else { return }
+                    self.present(vc, animated: true)
                 }
             case 1:
                 sendEmail()
             case 2:
-                let version = String(UserDefaults.standard.integer(forKey: "version"))
-                guard let major = version.first?.description else { return }
-                let minor = version[version.index(version.startIndex, offsetBy: 1)...version.index(version.startIndex, offsetBy: 2)].description
-                let stringVersion = "\(major).\(minor)"
-                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.16\nRespectU \(stringVersion)\n\nApp icon by icons8"
+                let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.16\nRespectU \(version)\n\nApp icon by icons8"
                 UIAlertController
                     .alert(title: "CREDITS".localized, message: message)
                     .defaultAction(title: "Rate this app".localized) { [unowned self] (action) in
@@ -242,7 +242,7 @@ extension GuideViewController: UICollectionViewDelegateFlowLayout {
         return 5
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 4, height: self.view.frame.width / 3)
+        return CGSize(width: 80, height: 100)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)

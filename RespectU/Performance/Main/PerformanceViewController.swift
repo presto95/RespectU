@@ -34,6 +34,7 @@ class PerformanceViewController: UIViewController {
             UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
             if UserDefaults.standard.integer(forKey: "appOpenCount") % 3 == 0 {
                 SKStoreReviewController.requestReview()
+                
             }
         }
     }
@@ -70,11 +71,13 @@ class PerformanceViewController: UIViewController {
     }
     
     @IBAction func touchUpNextButton(_ sender: UIButton) {
-        self.navigationController?.pushViewController(GuideViewController.instantiate()!, animated: true)
+        guard let vc = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.classNameToString) as? GuideViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func touchUpRecordButton(_ sender: UIButton) {
-        self.present(RecordViewController.instantiate()!, animated: true)
+        guard let vc = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
+        self.present(vc, animated: true)
     }
 }
 
@@ -82,12 +85,15 @@ extension PerformanceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "skillLevelCell") as! SkillLevelCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "skillLevelCell", for: indexPath) as? SkillLevelCell else { return UITableViewCell() }
             cell.delegate = self
             cell.setProperties(favoriteButton, max: Skill.maxSkillPoint(button: favoriteButton), my: Skill.mySkillPoint(button: favoriteButton))
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell") as! SummaryCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as? SummaryCell else { return UITableViewCell() }
+            cell.delegate = self
+            cell.collectionView.dataSource = self
+            cell.collectionView.register(UINib(nibName: "SummaryCollectionCell", bundle: nil), forCellWithReuseIdentifier: "summaryCollectionCell")
             return cell
         default:
             return UITableViewCell()
@@ -136,10 +142,22 @@ extension PerformanceViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            self.present(SkillLevelDetailViewController.instantiate()!, animated: true)
+            guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
+            self.present(vc, animated: true)
         default:
             break
         }
+    }
+}
+
+extension PerformanceViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for:  indexPath) as? SummaryCollectionCell else { return UICollectionViewCell() }
+        cell.setProperties(RecordInfo.get(), at: indexPath.item)
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
     }
 }
 
@@ -191,11 +209,13 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                     .present(to: self)
             }
         }
+        .cancelAction(title: "Cancel".localized)
         .present(to: self)
         
     }
     func touchUpTop50Button(_ sender: UIButton) {
-        self.present(Top50ViewController.instantiate()!, animated: true)
+        guard let vc = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
+        self.present(vc, animated: true)
     }
     func touchUpRankingButton(_ sender: UIButton) {
         if !Reachability.isConnectedToNetwork() {
@@ -207,7 +227,8 @@ extension PerformanceViewController: SkillLevelCellDelegate {
             UIAlertController
                 .alert(title: "Ranking".localized, message: "")
                 .defaultAction(title: "Ranking".localized) { action in
-                    self.present(RankingViewController.instantiate()!, animated: true)
+                    guard let vc = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) as? RankingViewController else { return }
+                    self.present(vc, animated: true)
                 }
                 .defaultAction(title: "Upload".localized) { action in
                     Firebase.upload()
@@ -215,5 +236,17 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                 .cancelAction(title: "Cancel".localized)
                 .present(to: self)
         }
+    }
+}
+
+extension PerformanceViewController: SummaryCellDelegate {
+    func touchUpDetailButton(_ sender: UIButton) {
+        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.classNameToString) as? SummaryDetailViewController else { return }
+        self.present(vc, animated: true)
+    }
+    
+    func touchUpSearchButton(_ sender: UIButton) {
+        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
+        self.present(vc, animated: true)
     }
 }

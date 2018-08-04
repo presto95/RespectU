@@ -40,15 +40,10 @@ class SearchRecordViewController: UIViewController {
         initializeButtons()
         initializeTypes()
     }
-
-    static func instantiate() -> SearchRecordViewController? {
-        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SearchRecordViewController else { return nil }
-        return viewController
-    }
     
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
-        let controller = SearchRecordDetailViewController.instantiate()!
-        controller.button = { () -> Int in
+        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordDetailViewController.classNameToString) as? SearchRecordDetailViewController else { return }
+        vc.button = { () -> Int in
             for i in 0..<buttons.count {
                 if(buttons[i]?.isSelected)!{
                     return i
@@ -56,7 +51,7 @@ class SearchRecordViewController: UIViewController {
             }
             return -1
         }()
-        controller.searchType = { () -> Int in
+        vc.searchType = { () -> Int in
             for i in 0..<types.count{
                 if(types[i]?.isSelected)!{
                     return i
@@ -67,14 +62,14 @@ class SearchRecordViewController: UIViewController {
         if(buttonByLevel.isSelected){
             //레벨정렬
             let levelView = subView.subviews.first as! SearchByLevelView
-            controller.level = levelView.selectedLevel
+            vc.level = levelView.selectedLevel
         } else if(buttonByRate.isSelected){
             let rateView = subView.subviews.first as! SearchByRateView
-            controller.lowerRange = Double((rateView.lowerRateTextField.text)!)!
-            controller.upperRange = Double((rateView.upperRateTextField.text)!)!
+            vc.lowerRange = Double((rateView.lowerRateTextField.text)!)!
+            vc.upperRange = Double((rateView.upperRateTextField.text)!)!
         } else if(buttonByNote.isSelected){
             let noteView = subView.subviews.first as! SearchByNoteView
-            controller.detailType = { () -> Int in
+            vc.detailType = { () -> Int in
                 if(noteView.buttonNoMCs.isSelected){
                     return 0
                 } else {
@@ -82,11 +77,11 @@ class SearchRecordViewController: UIViewController {
                 }
             }()
         }
-        self.present(controller, animated: true)
+        self.present(vc, animated: true)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func touchUpButtons(_ sender: UIButton) {

@@ -29,13 +29,8 @@ class RadioViewController: UIViewController {
         webView.addSubview(button)
     }
     
-    static func instantiate() -> RadioViewController? {
-        guard let viewController = UIStoryboard(name: "Radio", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? RadioViewController else { return nil }
-        return viewController
-    }
-    
     @objc func touchUpCancelButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

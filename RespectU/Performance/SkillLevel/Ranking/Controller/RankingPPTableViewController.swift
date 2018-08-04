@@ -13,9 +13,18 @@ class RankingPPTableViewController: RankingBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showIndicator()
         Firebase.fetch("countPerfectPlay")
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveFirebaseFetch(_:)), name: .didReceiveFirebaseFetch, object: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? RankingCell else { return UITableViewCell() }
+        cell.setProperties(sortedDic, at: indexPath.row, isPerfect: true)
+        return cell
     }
 }
 

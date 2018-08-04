@@ -23,15 +23,11 @@ class RankingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    static func instantiate() -> RankingViewController? {
-        guard let viewController = UIStoryboard(name: "Ranking", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? RankingViewController else { return nil }
-        return viewController
-    }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return rankingViewControllers
     }
+    
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

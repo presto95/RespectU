@@ -45,42 +45,17 @@ class Firebase {
         let button8SkillPoint = Skill.mySkillPoint(button: Buttons.button8).sum
         var perfectCount = 0
         let results = RecordInfo.get()
+        let difficulties = ["nm", "hd", "mx"]
+        let buttons = [4, 5, 6, 8]
         for result in results {
-            if result.nm4Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.hd4Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.mx4Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.nm5Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.hd5Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.mx5Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.nm6Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.hd6Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.mx6Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.nm8Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.hd8Note == Note.perfectPlay {
-                perfectCount += 1
-            }
-            if result.mx8Note == Note.perfectPlay {
-                perfectCount += 1
+            for difficulty in difficulties {
+                for button in buttons {
+                    let key = "\(difficulty)\(button)Note"
+                    let value = result.value(forKey: key) as? String ?? Note.none
+                    if value == Note.perfectPlay {
+                        perfectCount += 1
+                    }
+                }
             }
         }
         let uid = Auth.auth().currentUser?.uid ?? ""

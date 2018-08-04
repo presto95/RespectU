@@ -31,11 +31,6 @@ class TipViewController: UIViewController {
             indexArray.append(Int(randomNo))
         }
     }
-
-    static func instantiate() -> TipViewController? {
-        guard let viewController = UIStoryboard(name: "Tip", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? TipViewController else { return nil }
-        return viewController
-    }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

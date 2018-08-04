@@ -34,11 +34,6 @@ class SongViewController: BaseViewController {
         super.viewDidLoad()
         self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     }
-
-    static func instantiate() -> SongViewController? {
-        guard let viewController = UIStoryboard(name: "Song", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SongViewController else { return nil }
-        return viewController
-    }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return songViewControllers

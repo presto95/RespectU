@@ -12,8 +12,8 @@ import XLPagerTabStrip
 class AchievementGalleryTableViewController: AchievementBaseTableViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.results = AchievementInfo.get().filter(key: "type", value: Achievement.gallery, method: FilterOperator.like)
+        super.viewDidLoad()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

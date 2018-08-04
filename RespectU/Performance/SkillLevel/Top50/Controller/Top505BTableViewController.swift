@@ -13,7 +13,14 @@ class Top505BTableViewController: Top50BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = RecordInfo.get().sorted(byKeyPath: "button5SkillPoint", ascending: false)
+        self.results = RecordInfo.get().sorted(byKeyPath: Skill.button5SkillPoint, ascending: false)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? Top50Cell else { return UITableViewCell() }
+        let object = results[indexPath.row]
+        cell.setProperties(object, button: Buttons.button5)
+        return cell
     }
 }
 

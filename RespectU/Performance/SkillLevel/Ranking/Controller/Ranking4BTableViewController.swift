@@ -13,9 +13,12 @@ class Ranking4BTableViewController: RankingBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showIndicator()
-        Firebase.fetch("button4SkillPoint")
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveFirebaseFetch(_:)), name: .didReceiveFirebaseFetch, object: nil)
+        Firebase.fetch(Skill.button4SkillPoint)
     }
 }
 

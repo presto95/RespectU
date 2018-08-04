@@ -31,8 +31,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-Ve-ugs" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="29" y="9" width="28" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctr-Ve-ugs" customClass="MarqueeLabel" customModule="MarqueeLabel">
+                        <rect key="frame" x="29" y="9" width="219" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -94,6 +94,7 @@
                     <constraint firstItem="ctr-Ve-ugs" firstAttribute="leading" secondItem="KLO-3V-SWj" secondAttribute="trailing" constant="8" id="ONe-Ub-6Yg"/>
                     <constraint firstItem="ctr-Ve-ugs" firstAttribute="bottom" secondItem="KLO-3V-SWj" secondAttribute="centerY" constant="-2" id="VdB-S1-4y6"/>
                     <constraint firstAttribute="trailing" secondItem="DGH-wp-90e" secondAttribute="trailing" constant="16" id="my8-md-h8C"/>
+                    <constraint firstItem="ctr-Ve-ugs" firstAttribute="trailing" secondItem="9G0-QT-VGC" secondAttribute="trailing" id="qxG-ID-ecz"/>
                     <constraint firstItem="kj1-oJ-7mn" firstAttribute="leading" secondItem="pDW-gr-fXV" secondAttribute="trailing" constant="8" id="rH2-zQ-0MP"/>
                     <constraint firstItem="kj1-oJ-7mn" firstAttribute="centerY" secondItem="pDW-gr-fXV" secondAttribute="centerY" id="wT6-ez-F1p"/>
                 </constraints>

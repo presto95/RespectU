@@ -20,12 +20,12 @@ class AchievementBaseTableViewController: BaseTableViewController {
         var count = 0
         var tempTitle = ""
         var isFirst = true
-        for item in results{
-            if(tempTitle != item.title){
+        for item in results {
+            if tempTitle != item.title {
                 tempTitle = item.title
-                if(isFirst){
+                if isFirst {
                     isFirst = false
-                } else{
+                } else {
                     stageCount.append(count)
                     count = 0
                 }
@@ -33,7 +33,7 @@ class AchievementBaseTableViewController: BaseTableViewController {
             count += 1
         }
         stageCount.append(count)
-        self.tableView.rowHeight = 60
+        self.tableView.rowHeight = 40
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 

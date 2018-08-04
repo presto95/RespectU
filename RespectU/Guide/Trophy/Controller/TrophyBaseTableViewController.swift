@@ -22,7 +22,7 @@ class TrophyBaseTableViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? TrophyCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TrophyCell else { return UITableViewCell() }
         let object = results[indexPath.row]
         cell.setProperties(object)
         return cell

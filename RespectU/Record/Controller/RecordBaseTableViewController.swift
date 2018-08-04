@@ -17,9 +17,7 @@ class RecordBaseTableViewController: BaseTableViewController {
     }
     let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     var results: Results<RecordInfo>!
-    var object: RecordInfo!
     var recordView: RecordView!
-    var top50Results: Results<RecordInfo>!
     let cellIdentifier = "recordCell"
     
     override func viewDidLoad() {
@@ -30,6 +28,9 @@ class RecordBaseTableViewController: BaseTableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         dismissRecordViewIfExists()
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -44,25 +45,19 @@ class RecordBaseTableViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-        let title = cell.titleLabel.text ?? ""
-        let lastSubview = recordViewController.view.subviews.last
-        if lastSubview is RecordView {
-            lastSubview?.removeFromSuperview()
-        } else {
-            recordViewController.scrollViewBottomConstraint.constant -= 200
-        }
+        dismissRecordViewIfExists()
+        let object = self.results[indexPath.row]
         self.recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView
-        self.object = self.results[indexPath.row]
-        recordView.delegate = self
-        recordView.title = title
-        recordView.frame = CGRect(x: 0, y: recordViewController.view.bounds.height - 210, width: recordViewController.view.bounds.width, height: 200)
+        self.recordView.delegate = self
+        self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
+        self.recordView.frame = CGRect(x: 0, y: recordViewController.view.bounds.height - 210, width: recordViewController.view.bounds.width, height: 200)
+        recordViewController.scrollViewBottomConstraint.constant += 200
         recordViewController.view.addSubview(recordView)
     }
 }
 
 extension RecordBaseTableViewController {
-    func setRank(_ rank: String, difficulty: String, button: String) {
+    func setRank(_ object: RecordInfo, rank: String, difficulty: String, button: String) {
         let key: String = {
             switch button {
             case Buttons.button4:
@@ -116,7 +111,7 @@ extension RecordBaseTableViewController {
         RecordInfo.update(object, with: [key: rank])
     }
     
-    func setRate(_ rate: String, difficulty: String, button: String) {
+    func setRate(_ object: RecordInfo, rate: String, difficulty: String, button: String) {
         let value: String
         if rate.isEmpty {
             value = "-"
@@ -175,11 +170,11 @@ extension RecordBaseTableViewController {
             }
         }()
         RecordInfo.update(object, with: [key: value])
-        setHighestSkillPoint(button: button)
-        recordView.updateRankAndSkillPointLabel(button: button)
+        setHighestSkillPoint(object, button: button)
+        recordView.updateRankAndSkillPointLabel(object, button: button)
     }
     
-    func setNote(_ note: String, difficulty: String, button: String) {
+    func setNote(_ object: RecordInfo, note: String, difficulty: String, button: String) {
         let key: String = {
             switch button {
             case Buttons.button4:
@@ -231,11 +226,11 @@ extension RecordBaseTableViewController {
             }
         }()
         RecordInfo.update(object, with: [key: note])
-        setHighestSkillPoint(button: button)
-        recordView.updateRankAndSkillPointLabel(button: button)
+        setHighestSkillPoint(object, button: button)
+        recordView.updateRankAndSkillPointLabel(object, button: button)
     }
     
-    func setHighestSkillPoint(button: String) {
+    func setHighestSkillPoint(_ object: RecordInfo, button: String) {
         switch button {
         case Buttons.button4:
             let normalButton4SkillPoint = Skill.skillPoint(difficulty: object.nm4, rate: object.nm4Rate, note: object.nm4Note)
@@ -357,11 +352,8 @@ extension RecordBaseTableViewController {
     func dismissRecordViewIfExists() {
         let lastSubview = recordViewController.view.subviews.last
         if lastSubview is RecordView {
-            recordViewController.scrollViewBottomConstraint.constant += 200
             lastSubview?.removeFromSuperview()
-        }
-        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            recordViewController.scrollViewBottomConstraint.constant -= 200
         }
     }
 }
@@ -369,37 +361,43 @@ extension RecordBaseTableViewController {
 extension RecordBaseTableViewController: RecordViewDelegate {
     func touchUpTypeButton(_ sender: UIButton) {
         let button = sender.title(for: .normal) ?? Buttons.button4
-        recordView.changeButton(button: button)
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        let object = self.results[selectedIndexPath.row]
+        recordView.changeButton(object, button: button)
     }
     
     func presentRankAlert(difficulty: String, button: String) {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        let object = self.results[selectedIndexPath.row]
         UIAlertController
             .alert(title: "Rank".localized, message: "Select your rank.".localized)
             .defaultAction(title: Rank.none) { [unowned self] action in
-                self.setRank(Rank.none, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setRank(object, rank: Rank.none, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .defaultAction(title: Rank.s) { [unowned self] action in
-                self.setRank(Rank.s, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .defaultAction(title: Rank.a) { [unowned self] action in
-                self.setRank(Rank.a, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .defaultAction(title: Rank.b) { [unowned self] action in
-                self.setRank(Rank.b, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .defaultAction(title: Rank.c) { [unowned self] action in
-                self.setRank(Rank.c, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .cancelAction(title: "Cancel".localized)
             .present(to: self)
     }
     
     func presentRateAlert(difficulty: String, button: String) {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        let object = self.results[selectedIndexPath.row]
         let alert = UIAlertController
             .alert(title: "Rate".localized, message: "Input your rate.\nTo reset the value, do not enter any values.".localized)
         alert.textField { textField in
@@ -409,38 +407,38 @@ extension RecordBaseTableViewController: RecordViewDelegate {
             .defaultAction(title: "OK".localized) { [unowned self] action in
                 let input = alert.textFields?.first?.text ?? ""
                 if !input.isEmpty {
-                    self.setRate("", difficulty: difficulty, button: button)
+                    self.setRate(object, rate: "", difficulty: difficulty, button: button)
                 } else {
                     guard let value = Double(input) else { return }
                     let rate = value >= 100 ? "\(100.00)" : input
-                    self.setRate(rate, difficulty: difficulty, button: button)
+                    self.setRate(object, rate: rate, difficulty: difficulty, button: button)
                     switch value {
                     case 98...100:
-                        self.setRank(Rank.s, difficulty: difficulty, button: button)
+                        self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
                     case 95..<98:
-                        self.setRank(Rank.a, difficulty: difficulty, button: button)
+                        self.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
                     case 90..<95:
-                        self.setRank(Rank.b, difficulty: difficulty, button: button)
+                        self.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
                     case 0..<90:
-                        self.setRank(Rank.c, difficulty: difficulty, button: button)
+                        self.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
                     default:
                         break
                     }
                 }
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
                 switch button {
                 case Buttons.button4:
                     switch difficulty {
                     case Difficulty.normal:
-                        if self.object.nm4Note != Note.maxCombo {
+                        if object.nm4Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.hard:
-                        if self.object.hd4Note != Note.maxCombo {
+                        if object.hd4Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.maximum:
-                        if self.object.mx4Note != Note.maxCombo {
+                        if object.mx4Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     default:
@@ -449,15 +447,15 @@ extension RecordBaseTableViewController: RecordViewDelegate {
                 case Buttons.button5:
                     switch difficulty {
                     case Difficulty.normal:
-                        if self.object.nm5Note != Note.maxCombo {
+                        if object.nm5Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.hard:
-                        if self.object.hd5Note != Note.maxCombo {
+                        if object.hd5Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.maximum:
-                        if self.object.mx5Note != Note.maxCombo {
+                        if object.mx5Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     default:
@@ -466,15 +464,15 @@ extension RecordBaseTableViewController: RecordViewDelegate {
                 case Buttons.button6:
                     switch difficulty {
                     case Difficulty.normal:
-                        if self.object.nm6Note != Note.maxCombo {
+                        if object.nm6Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.hard:
-                        if self.object.hd6Note != Note.maxCombo {
+                        if object.hd6Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.maximum:
-                        if self.object.mx6Note != Note.maxCombo {
+                        if object.mx6Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     default:
@@ -483,15 +481,15 @@ extension RecordBaseTableViewController: RecordViewDelegate {
                 case Buttons.button8:
                     switch difficulty {
                     case Difficulty.normal:
-                        if self.object.nm8Note != Note.maxCombo {
+                        if object.nm8Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.hard:
-                        if self.object.hd8Note != Note.maxCombo {
+                        if object.hd8Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     case Difficulty.maximum:
-                        if self.object.mx8Note != Note.maxCombo {
+                        if object.mx8Note != Note.maxCombo {
                             self.presentNoteAlert(difficulty: difficulty, button: button)
                         }
                     default:
@@ -506,21 +504,23 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     }
     
     func presentNoteAlert(difficulty: String, button: String) {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        let object = self.results[selectedIndexPath.row]
         UIAlertController
             .alert(title: "Note".localized, message: "Select your note.".localized)
             .defaultAction(title: Note.none) { [unowned self] action in
-                self.setNote(Note.none, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setNote(object, note: Note.none, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .defaultAction(title: Note.maxCombo) { [unowned self] action in
-                self.setNote(Note.maxCombo, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .defaultAction(title: Note.perfectPlay) { [unowned self] action in
-                self.setRank(Rank.s, difficulty: difficulty, button: button)
-                self.setRate("100", difficulty: difficulty, button: button)
-                self.setNote(Note.perfectPlay, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(button: button)
+                self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
+                self.setRate(object, rate: "100", difficulty: difficulty, button: button)
+                self.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
             }
             .cancelAction(title: "Cancel".localized)
             .present(to: self)

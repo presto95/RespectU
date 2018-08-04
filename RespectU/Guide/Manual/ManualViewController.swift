@@ -28,11 +28,6 @@ class ManualViewController: UIViewController {
         button.addTarget(self, action: #selector(touchUpCancelButton(_:)), for: .touchUpInside)
         webView.addSubview(button)
     }
-
-    static func instantiate() -> ManualViewController? {
-        guard let viewController = UIStoryboard(name: "Manual", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? ManualViewController else { return nil }
-        return viewController
-    }
     
     @objc func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)

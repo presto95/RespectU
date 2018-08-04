@@ -12,8 +12,8 @@ import XLPagerTabStrip
 class AchievementAllTableViewController: AchievementBaseTableViewController {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.results = AchievementInfo.get()
+        super.viewDidLoad()
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

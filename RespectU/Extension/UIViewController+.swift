@@ -9,6 +9,11 @@
 import UIKit
 
 extension UIViewController {
+    static func instantiate(storyboard: String, identifier: String) -> UIViewController? {
+        let viewController = UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(withIdentifier: identifier)
+        return viewController
+    }
+    
     func getRecommendedSpeed(speed: Double) -> String {
         switch speed {
         case ..<0.50:

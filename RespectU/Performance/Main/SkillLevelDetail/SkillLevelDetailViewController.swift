@@ -35,11 +35,6 @@ class SkillLevelDetailViewController: UIViewController {
         }
     }
     
-    static func instantiate() -> SkillLevelDetailViewController? {
-        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? SkillLevelDetailViewController else { return nil }
-        return viewController
-    }
-    
     @IBAction func touchUpShareButton(_ sender: UIButton) {
         let bounds = UIScreen.main.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)

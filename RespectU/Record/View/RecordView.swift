@@ -20,11 +20,6 @@ protocol RecordViewDelegate: class {
 class RecordView: UIView {
 
     var delegate: RecordViewDelegate?
-    var results: Results<RecordInfo>!
-    var query: NSPredicate!
-    var object: RecordInfo!
-    var top50Results: Results<RecordInfo>!
-    var title: String = ""
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
     @IBOutlet weak var typeButton: UIButton!
@@ -45,25 +40,11 @@ class RecordView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.results = RecordInfo.get()
-        let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
-        self.cancelButton.setTitle("Cancel".localized, for: .normal)
-        self.typeButton.setTitle(favoriteButton, for: .normal)
-        self.titleLabel.text = title
-        self.query = NSPredicate(format: "title = %@", title)
-        self.object = results.filter(query).first
-        reloadButtonsAndLabels(button: favoriteButton)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         self.layer.borderWidth = 3
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIColor.main.cgColor
-    }
-    
-    @IBAction func touchUpTypeButton(_ sender: UIButton) {
-        delegate?.touchUpTypeButton(sender)
+        self.cancelButton.setTitle("Cancel".localized, for: .normal)
+        self.cancelButton.addTarget(self, action: #selector(touchUpCancelButton(_:)), for: .touchUpInside)
     }
     
     @IBAction func touchUpOtherButtons(_ sender: UIButton) {
@@ -92,59 +73,59 @@ class RecordView: UIView {
         }
     }
     
+    @IBAction func touchUpTypeButton(_ sender: UIButton) {
+        delegate?.touchUpTypeButton(sender)
+    }
+    
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         delegate?.dismiss()
     }
 }
 
 extension RecordView {
-    func changeButton(button: String) {
+    func changeButton(_ object: RecordInfo, button: String) {
         switch button {
         case Buttons.button4:
             self.typeButton.setTitle(Buttons.button5, for: .normal)
-            reloadButtonsAndLabels(button: Buttons.button5)
+            reloadButtonsAndLabels(object, button: Buttons.button5)
         case Buttons.button5:
             self.typeButton.setTitle(Buttons.button6, for: .normal)
-            reloadButtonsAndLabels(button: Buttons.button6)
+            reloadButtonsAndLabels(object, button: Buttons.button6)
         case Buttons.button6:
             self.typeButton.setTitle(Buttons.button8, for: .normal)
-            reloadButtonsAndLabels(button: Buttons.button8)
+            reloadButtonsAndLabels(object, button: Buttons.button8)
         case Buttons.button8:
             self.typeButton.setTitle(Buttons.button4, for: .normal)
-            reloadButtonsAndLabels(button: Buttons.button4)
+            reloadButtonsAndLabels(object, button: Buttons.button4)
         default:
             break
         }
     }
     
-    func updateRankAndSkillPointLabel(button: String) {
-        let query = NSPredicate(format: "title = %@", title)
+    func updateRankAndSkillPointLabel(_ object: RecordInfo, button: String) {
+        let top50Results: Results<RecordInfo>
         switch button {
         case Buttons.button4:
             self.skillPointLabel.text = "\(object.button4SkillPoint) " + "Point".localized
-            self.top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button4SkillPoint, ascending: false)
+            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button4SkillPoint, ascending: false)
         case Buttons.button5:
             self.skillPointLabel.text = "\(object.button5SkillPoint) " + "Point".localized
-            self.top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button5SkillPoint, ascending: false)
+            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button5SkillPoint, ascending: false)
         case Buttons.button6:
             self.skillPointLabel.text = "\(object.button6SkillPoint) " + "Point".localized
-            self.top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button6SkillPoint, ascending: false)
+            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button6SkillPoint, ascending: false)
         case Buttons.button8:
             self.skillPointLabel.text = "\(object.button8SkillPoint) " + "Point".localized
-            self.top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button8SkillPoint, ascending: false)
+            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button8SkillPoint, ascending: false)
         default:
-            break
+            top50Results = RecordInfo.get()
         }
-        guard let filtered = top50Results.filter(query).first else { return }
-        guard let index = self.top50Results.index(of: filtered) else { return }
-        if index < 50 {
-            self.rankLabel.text = "#\(index + 1)"
-        } else {
-            self.rankLabel.text = "Out of Rank".localized
-        }
+        updateRankLabel(object, top50Results: top50Results)
     }
     
-    func reloadButtonsAndLabels(button: String) {
+    func reloadButtonsAndLabels(_ object: RecordInfo, button: String) {
+        self.typeButton.setTitle(button, for: .normal)
+        self.titleLabel.text = object.title
         let normalButtons = [normalRankButton, normalRateButton, normalNoteButton]
         let hardButtons = [hardRankButton, hardRateButton, hardNoteButton]
         let maximumButtons = [maximumRankButton, maximumRateButton, maximumNoteButton]
@@ -154,6 +135,7 @@ extension RecordView {
             maximumButtons[index]?.isEnabled = true
         }
         var buttonInteger = 0
+        let top50Results: Results<RecordInfo>
         switch button {
         case Buttons.button4:
             top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button4SkillPoint, ascending: false)
@@ -168,9 +150,9 @@ extension RecordView {
             top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button8SkillPoint, ascending: false)
             buttonInteger = 8
         default:
-            break
+            top50Results = RecordInfo.get()
         }
-        updateRankLabel()
+        updateRankLabel(object, top50Results: top50Results)
         skillPointLabel.text = "\(object.value(forKey: "button\(buttonInteger)SkillPoint") as? Double ?? 0) " + "Point".localized
         if object.value(forKey: "nm\(buttonInteger)") as? Int ?? 0 == 0 {
             for button in normalButtons {
@@ -210,9 +192,10 @@ extension RecordView {
         }
     }
     
-    private func updateRankLabel() {
+    private func updateRankLabel(_ object: RecordInfo, top50Results: Results<RecordInfo>) {
+        let query = NSPredicate(format: "title = %@", object.title)
         guard let filtered = top50Results.filter(query).first else { return }
-        guard let index = self.top50Results.index(of: filtered) else { return }
+        guard let index = top50Results.index(of: filtered) else { return }
         if index < 50 {
             self.rankLabel.text = "#\(index + 1)"
         } else {

@@ -18,10 +18,10 @@ class TrophyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorLabel.layer.borderColor = UIColor.main.cgColor
-        colorLabel.layer.borderWidth = 1
-        trophyImageView.layer.borderWidth = 1
-        trophyImageView.layer.borderColor = UIColor.main.cgColor
+        self.colorLabel.layer.borderColor = UIColor.main.cgColor
+        self.colorLabel.layer.borderWidth = 1
+        self.trophyImageView.layer.borderWidth = 1
+        self.trophyImageView.layer.borderColor = UIColor.main.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

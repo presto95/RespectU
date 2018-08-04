@@ -25,11 +25,6 @@ class AchievementViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    static func instantiate() -> AchievementViewController? {
-        guard let viewController = UIStoryboard(name: "Achievement", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? AchievementViewController else { return nil }
-        return viewController
-    }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return achievementViewControllers

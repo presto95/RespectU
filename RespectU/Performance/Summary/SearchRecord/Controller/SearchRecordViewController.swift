@@ -7,36 +7,40 @@
 //
 
 import UIKit
+import AKPickerView_Swift
 
 class SearchRecordViewController: UIViewController {
 
+    let levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    var selectedLevel: Int = 0
     var selectedButton: Int = -1
     var selectedType: Int = -1
-    @IBOutlet weak var button4: UIButton!
-    @IBOutlet weak var button5: UIButton!
-    @IBOutlet weak var button6: UIButton!
-    @IBOutlet weak var button8: UIButton!
-    @IBOutlet weak var buttonByLevel: UIButton!
-    @IBOutlet weak var buttonByRate: UIButton!
-    @IBOutlet weak var buttonByNote: UIButton!
+    var selectedDetailNote: Int = -1
+    @IBOutlet weak var button4Button: UIButton!
+    @IBOutlet weak var button5Button: UIButton!
+    @IBOutlet weak var button6Button: UIButton!
+    @IBOutlet weak var button8Button: UIButton!
+    @IBOutlet weak var searchByLevelButton: UIButton!
+    @IBOutlet weak var searchByRateButton: UIButton!
+    @IBOutlet weak var searchByNoteButton: UIButton!
     @IBOutlet weak var subView: UIView!
-    @IBOutlet weak var buttonSearch: UIButton!
-    @IBOutlet weak var labelFirst: UILabel!
-    @IBOutlet weak var labelSecond: UILabel!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var buttonLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     var buttons = [UIButton?]()
-    var types = [UIButton?]()
+    var methods = [UIButton?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelFirst.text = "Select Button".localized
-        labelSecond.text = "Select Search Type".localized
-        buttonByLevel.setTitle("Level".localized, for: .normal)
-        buttonByRate.setTitle("Rate".localized, for: .normal)
-        buttonByNote.setTitle("Note".localized, for: .normal)
-        buttonSearch.setTitle("Enter all conditions".localized, for: .disabled)
-        buttonSearch.setTitle("Search".localized, for: .normal)
-        buttons = [button4, button5, button6, button8]
-        types = [buttonByLevel, buttonByRate, buttonByNote]
+        buttonLabel.text = "Select Button".localized
+        typeLabel.text = "Select Search Method".localized
+        searchByLevelButton.setTitle("Level".localized, for: .normal)
+        searchByRateButton.setTitle("Rate".localized, for: .normal)
+        searchByNoteButton.setTitle("Note".localized, for: .normal)
+        searchButton.setTitle("Enter all conditions".localized, for: .disabled)
+        searchButton.setTitle("Search".localized, for: .normal)
+        buttons = [button4Button, button5Button, button6Button, button8Button]
+        methods = [searchByLevelButton, searchByRateButton, searchByNoteButton]
         initializeButtons()
         initializeTypes()
     }
@@ -52,25 +56,25 @@ class SearchRecordViewController: UIViewController {
             return -1
         }()
         vc.searchType = { () -> Int in
-            for i in 0..<types.count{
-                if(types[i]?.isSelected)!{
+            for i in 0..<methods.count{
+                if(methods[i]?.isSelected)!{
                     return i
                 }
             }
             return -1
         }()
-        if(buttonByLevel.isSelected){
-            //레벨정렬
-            let levelView = subView.subviews.first as! SearchByLevelView
-            vc.level = levelView.selectedLevel
-        } else if(buttonByRate.isSelected){
-            let rateView = subView.subviews.first as! SearchByRateView
-            vc.lowerRange = Double((rateView.lowerRateTextField.text)!)!
-            vc.upperRange = Double((rateView.upperRateTextField.text)!)!
-        } else if(buttonByNote.isSelected){
-            let noteView = subView.subviews.first as! SearchByNoteView
+        if searchByLevelButton.isSelected {
+            vc.level = selectedLevel
+        } else if searchByRateButton.isSelected {
+            guard let rateView = subView.subviews.first as? SearchByRateView else { return }
+            let lowerRate = Double(rateView.lowerRateTextField.text ?? "") ?? 0
+            let upperRate = Double(rateView.upperRateTextField.text ?? "") ?? 0
+            vc.lowerRange = lowerRate
+            vc.upperRange = upperRate
+        } else if searchByNoteButton.isSelected {
+            guard let noteView = subView.subviews.first as? SearchByNoteView else { return }
             vc.detailType = { () -> Int in
-                if(noteView.buttonNoMCs.isSelected){
+                if noteView.noMaxComboButton.isSelected {
                     return 0
                 } else {
                     return 1
@@ -108,54 +112,57 @@ class SearchRecordViewController: UIViewController {
         checkValidate()
     }
     
-    @IBAction func touchUpTypesButton(_ sender: UIButton) {
-        if(subView.subviews.first is SearchByRateView){
-            
-        } else if(subView.subviews.first is SearchByNoteView){
-            (subView.subviews.first as! SearchByNoteView).selectedDetailNote = -1
+    @IBAction func touchUpMethodButtons(_ sender: UIButton) {
+        let view = subView.subviews.first
+        if view is SearchByNoteView {
+            selectedDetailNote = -1
         }
-        if(subView.subviews.count != 0){
+        if subView.subviews.count != 0 {
             subView.subviews.first?.removeFromSuperview()
         }
         initializeTypes()
-        for type in types{
+        for type in methods {
             type?.isSelected = false
         }
         sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
             sender.backgroundColor = UIColor.main
         }
-        switch(sender.tag){
+        switch sender.tag {
         case 0:
             selectedType = 0
             guard let newView = UIView.instanceFromXib(xibName: "SearchByLevelView") as? SearchByLevelView else { return }
             newView.frame.size = subView.frame.size
-            newView.pickerView.frame.size.height = button4.frame.height
-            newView.pickerView.frame.origin.x = button4.frame.origin.x
-            newView.pickerView.frame.size.width = button8.frame.origin.x + button8.frame.width - button4.frame.origin.x
+            newView.pickerView.delegate = self
+            newView.pickerView.dataSource = self
+            newView.pickerView.frame.size.height = button4Button.frame.height
+            newView.pickerView.frame.origin.x = button4Button.frame.origin.x
+            newView.pickerView.frame.size.width = button8Button.frame.origin.x + button8Button.frame.width - button4Button.frame.origin.x
             subView.addSubview(newView)
         case 1:
             selectedType = 1
             guard let newView = UIView.instanceFromXib(xibName: "SearchByRateView") as? SearchByRateView else { return }
+            newView.delegate = self
             newView.frame.size = subView.frame.size
-            newView.lowerRateTextField.frame.origin.x = button4.frame.origin.x
-            newView.lowerRateTextField.frame.size.height = button4.frame.height
-            newView.upperRateTextField.frame.origin.x = button8.frame.origin.x + button8.frame.width - newView.lowerRateTextField.frame.width
+            newView.lowerRateTextField.frame.origin.x = button4Button.frame.origin.x
+            newView.lowerRateTextField.frame.size.height = button4Button.frame.height
+            newView.upperRateTextField.frame.origin.x = button8Button.frame.origin.x + button8Button.frame.width - newView.lowerRateTextField.frame.width
             newView.upperRateTextField.frame.size = newView.lowerRateTextField.frame.size
-            newView.lowerRateTextField.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
-            newView.upperRateTextField.addTarget(self, action: #selector(endEdit), for: .editingDidEnd)
+            newView.lowerRateTextField.addTarget(self, action: #selector(didEndEditing), for: .editingDidEnd)
+            newView.upperRateTextField.addTarget(self, action: #selector(didEndEditing), for: .editingDidEnd)
             subView.addSubview(newView)
         case 2:
             selectedType = 2
             guard let newView = UIView.instanceFromXib(xibName: "SearchByNoteView") as? SearchByNoteView else { return }
+            newView.delegate = self
             newView.frame.size = subView.frame.size
-            newView.buttonNoMCs.frame.origin.x = button4.frame.origin.x
-            newView.buttonNoMCs.frame.size.width = (button5.frame.origin.x - button4.frame.origin.x - button4.frame.width) + button4.frame.width * 2
-            newView.buttonNoMCs.frame.size.height = button4.frame.height
-            newView.buttonPPs.frame.origin.x = button6.frame.origin.x
-            newView.buttonPPs.frame.size = newView.buttonNoMCs.frame.size
-            newView.buttonNoMCs.addTarget(self, action: #selector(clickNewViewButton), for: .touchUpInside)
-            newView.buttonPPs.addTarget(self, action: #selector(clickNewViewButton), for: .touchUpInside)
+            newView.noMaxComboButton.frame.origin.x = button4Button.frame.origin.x
+            newView.noMaxComboButton.frame.size.width = (button5Button.frame.origin.x - button4Button.frame.origin.x - button4Button.frame.width) + button4Button.frame.width * 2
+            newView.noMaxComboButton.frame.size.height = button4Button.frame.height
+            newView.perfectPlayButton.frame.origin.x = button6Button.frame.origin.x
+            newView.perfectPlayButton.frame.size = newView.noMaxComboButton.frame.size
+            newView.noMaxComboButton.addTarget(self, action: #selector(touchUpSearchByNoteButtons), for: .touchUpInside)
+            newView.perfectPlayButton.addTarget(self, action: #selector(touchUpSearchByNoteButtons), for: .touchUpInside)
             subView.addSubview(newView)
         default:
             break
@@ -163,10 +170,11 @@ class SearchRecordViewController: UIViewController {
         checkValidate()
     }
     
-    @objc func clickNewViewButton(_ sender: UIButton){
+    @objc func touchUpSearchByNoteButtons(_ sender: UIButton){
         checkValidate()
     }
-    @objc func endEdit(_ sender: UITextField){
+    
+    @objc func didEndEditing(_ sender: UITextField){
         checkValidate()
     }
     
@@ -181,7 +189,7 @@ class SearchRecordViewController: UIViewController {
     }
     
     func initializeTypes(){
-        for type in types{
+        for type in methods{
             UIView.animate(withDuration: 0.3) {
                 type?.backgroundColor = UIColor.sub
             }
@@ -191,25 +199,70 @@ class SearchRecordViewController: UIViewController {
     }
     
     func checkValidate(){
-        buttonSearch.isEnabled = false
-        if(subView.subviews.first is SearchByLevelView){
-            let newView = subView.subviews.first as! SearchByLevelView
-            if(newView.selectedLevel != 0){
-                buttonSearch.isEnabled = true
+        searchButton.isEnabled = false
+        let view = subView.subviews.first
+        if view is SearchByLevelView {
+            if selectedLevel != 0 {
+                searchButton.isEnabled = true
             }
-        } else if(subView.subviews.first is SearchByRateView){
-            let newView = subView.subviews.first as! SearchByRateView
+        } else if view is SearchByRateView {
+            guard let newView = view as? SearchByRateView else { return }
             guard let lowerText = newView.lowerRateTextField.text else { return }
             guard let upperText = newView.upperRateTextField.text else { return }
             guard let lower = Double(lowerText) else { return }
             guard let upper = Double(upperText) else { return }
-            if(upper < lower) { return }
-            buttonSearch.isEnabled = true
-        } else if(subView.subviews.first is SearchByNoteView){
-            let newView = subView.subviews.first as! SearchByNoteView
-            if(newView.selectedDetailNote != -1 && selectedType != -1 && selectedButton != -1){
-                buttonSearch.isEnabled = true
+            if upper < lower { return }
+            searchButton.isEnabled = true
+        } else if view is SearchByNoteView {
+            if selectedDetailNote != -1 && selectedType != -1 && selectedButton != -1 {
+                searchButton.isEnabled = true
             }
         } 
+    }
+}
+
+extension SearchRecordViewController: AKPickerViewDataSource, AKPickerViewDelegate {
+    func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
+        return 15
+    }
+    func pickerView(_ pickerView: AKPickerView, titleForItem item: Int) -> String {
+        return "\(levels[item])"
+    }
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
+        self.selectedLevel = levels[item]
+    }
+}
+
+extension SearchRecordViewController: SearchByRateViewDelegate {
+    func touchUpDoneButton(_ textFields: [UITextField]) {
+        guard let lowerRateTextField = textFields.first else { return }
+        guard let upperRateTextField = textFields.last else { return }
+        if lowerRateTextField.isFirstResponder {
+            lowerRateTextField.resignFirstResponder()
+            setTextFieldText(lowerRateTextField)
+        } else if upperRateTextField.isFirstResponder {
+            upperRateTextField.resignFirstResponder()
+            setTextFieldText(upperRateTextField)
+        }
+    }
+    private func setTextFieldText(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        guard let value = Double(text) else { return }
+        if value >= 100 {
+            textField.text = "100"
+        }
+    }
+}
+
+extension SearchRecordViewController: SearchByNoteViewDelegate {
+    func touchUpNoteButtons(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            selectedDetailNote = 0
+        case 1:
+            selectedDetailNote = 1
+        default:
+            break
+        }
     }
 }

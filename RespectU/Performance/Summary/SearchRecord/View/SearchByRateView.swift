@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol SearchByRateViewDelegate: class {
-    func touchUpDoneButton()
+protocol SearchByRateViewDelegate {
+    func touchUpDoneButton(_ textFields: [UITextField])
 }
 
 class SearchByRateView: UIView {
@@ -36,16 +36,11 @@ class SearchByRateView: UIView {
     }
     
     @objc func touchUpDoneButton() {
-        delegate?.touchUpDoneButton()
-//        if lowerRateTextField.isFirstResponder {
-//            self.lowerRateTextField.resignFirstResponder()
-//            setTextFieldText(self.lowerRateTextField)
-//        } else if upperRateTextField.isFirstResponder {
-//            self.upperRateTextField.resignFirstResponder()
-//            setTextFieldText(self.upperRateTextField)
-//        }
+        delegate?.touchUpDoneButton(textFields)
     }
-    
+}
+
+extension SearchByRateView {
     private func setToolBar() {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
@@ -60,12 +55,4 @@ class SearchByRateView: UIView {
             textField.inputAccessoryView = toolBar
         }
     }
-    
-//    private func setTextFieldText(_ textField: UITextField) {
-//        guard let text = textField.text else { return }
-//        guard let value = Double(text) else { return }
-//        if value >= 100 {
-//            textField.text = "100"
-//        }
-//    }
 }

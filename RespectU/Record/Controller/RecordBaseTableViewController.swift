@@ -28,9 +28,7 @@ class RecordBaseTableViewController: BaseTableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         dismissRecordViewIfExists()
-        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
-        }
+        deselectTableViewIfSelected()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -356,6 +354,12 @@ extension RecordBaseTableViewController {
             recordViewController.scrollViewBottomConstraint.constant -= 200
         }
     }
+    
+    func deselectTableViewIfSelected() {
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
 }
 
 extension RecordBaseTableViewController: RecordViewDelegate {
@@ -406,7 +410,7 @@ extension RecordBaseTableViewController: RecordViewDelegate {
         }
             .defaultAction(title: "OK".localized) { [unowned self] action in
                 let input = alert.textFields?.first?.text ?? ""
-                if !input.isEmpty {
+                if input.isEmpty {
                     self.setRate(object, rate: "", difficulty: difficulty, button: button)
                 } else {
                     guard let value = Double(input) else { return }
@@ -528,5 +532,6 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     
     func dismiss() {
         dismissRecordViewIfExists()
+        deselectTableViewIfSelected()
     }
 }

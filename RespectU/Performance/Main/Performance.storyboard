@@ -195,7 +195,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpTypesButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
+                                    <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-OB-QQS">
@@ -280,7 +280,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpTypesButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="5Of-Q2-SiK"/>
+                                    <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="5Of-Q2-SiK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-ll-1DY">
@@ -303,7 +303,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpTypesButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
+                                    <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -351,17 +351,17 @@
                         <viewLayoutGuide key="safeArea" id="qPJ-87-AMa"/>
                     </view>
                     <connections>
-                        <outlet property="button4" destination="mmk-0v-GnB" id="ef3-Rm-wqe"/>
-                        <outlet property="button5" destination="2dk-OB-QQS" id="Gnf-wg-Dd7"/>
-                        <outlet property="button6" destination="xfo-BL-3Y0" id="Oag-9c-XA8"/>
-                        <outlet property="button8" destination="Qdm-6L-E83" id="DCe-x1-SW5"/>
-                        <outlet property="buttonByLevel" destination="jJs-ll-1DY" id="IAn-UT-ZiM"/>
-                        <outlet property="buttonByNote" destination="8Qr-we-q7b" id="g2y-In-6qd"/>
-                        <outlet property="buttonByRate" destination="qVD-j5-plt" id="HK6-7o-YFy"/>
-                        <outlet property="buttonSearch" destination="bSc-BU-IYD" id="N00-xO-Nwe"/>
-                        <outlet property="labelFirst" destination="LLa-8u-u9K" id="XPw-on-ZfA"/>
-                        <outlet property="labelSecond" destination="vrC-Pp-4jJ" id="KLW-xn-peo"/>
+                        <outlet property="button4Button" destination="mmk-0v-GnB" id="ef3-Rm-wqe"/>
+                        <outlet property="button5Button" destination="2dk-OB-QQS" id="Gnf-wg-Dd7"/>
+                        <outlet property="button6Button" destination="xfo-BL-3Y0" id="Oag-9c-XA8"/>
+                        <outlet property="button8Button" destination="Qdm-6L-E83" id="DCe-x1-SW5"/>
+                        <outlet property="buttonLabel" destination="LLa-8u-u9K" id="XPw-on-ZfA"/>
+                        <outlet property="searchButton" destination="bSc-BU-IYD" id="N00-xO-Nwe"/>
+                        <outlet property="searchByLevelButton" destination="jJs-ll-1DY" id="IAn-UT-ZiM"/>
+                        <outlet property="searchByNoteButton" destination="8Qr-we-q7b" id="g2y-In-6qd"/>
+                        <outlet property="searchByRateButton" destination="qVD-j5-plt" id="HK6-7o-YFy"/>
                         <outlet property="subView" destination="D8w-To-bk3" id="eHm-3H-6js"/>
+                        <outlet property="typeLabel" destination="vrC-Pp-4jJ" id="KLW-xn-peo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dch-FR-bsU" userLabel="First Responder" sceneMemberID="firstResponder"/>

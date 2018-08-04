@@ -862,12 +862,12 @@
 		19E767DB20EE58CE008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				19892A8520662D0A009D01F8 /* SearchByLevelView.xib */,
+				19892A8720662F83009D01F8 /* SearchByLevelView.swift */,
 				1986CA2C205F542100CA43EA /* SearchByRateView.xib */,
 				199EFFE52067D51B00A6068F /* SearchByRateView.swift */,
 				1986CA30205F543F00CA43EA /* SearchByNoteView.xib */,
 				1986CA32205F544900CA43EA /* SearchByNoteView.swift */,
-				19892A8520662D0A009D01F8 /* SearchByLevelView.xib */,
-				19892A8720662F83009D01F8 /* SearchByLevelView.swift */,
 				1986CA39205FC85A00CA43EA /* SearchRecordDetailCell.xib */,
 				1986CA38205FC85A00CA43EA /* SearchRecordDetailCell.swift */,
 			);

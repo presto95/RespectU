@@ -13,14 +13,4 @@ extension UIView {
         guard let view = UINib(nibName: xibName, bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView else { return UIView() }
         return view
     }
-//    func parentViewController() -> UIViewController? {
-//        var parentResponder: UIResponder? = self
-//        while true {
-//            guard let nextResponder = parentResponder?.next else { return nil }
-//            if let viewController = nextResponder as? UIViewController {
-//                return viewController
-//            }
-//            parentResponder = nextResponder
-//        }
-//    }
 }

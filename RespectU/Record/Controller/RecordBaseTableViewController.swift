@@ -43,14 +43,21 @@ class RecordBaseTableViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
         dismissRecordViewIfExists()
         let object = self.results[indexPath.row]
+        cell.setColorWhenSelected(object.series)
         self.recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView
         self.recordView.delegate = self
         self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
         self.recordView.frame = CGRect(x: 0, y: recordViewController.view.bounds.height - 210, width: recordViewController.view.bounds.width, height: 200)
         recordViewController.scrollViewBottomConstraint.constant += 200
         recordViewController.view.addSubview(recordView)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
+        cell.setColorWhenDeselected()
     }
 }
 

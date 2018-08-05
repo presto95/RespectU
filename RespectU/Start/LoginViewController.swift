@@ -12,16 +12,18 @@ import GoogleSignIn
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate {
 
-    @IBOutlet weak var buttonSkip: UIButton!
-    @IBOutlet weak var labelExplanation: UILabel!
-    @IBOutlet weak var buttonLogin: GIDSignInButton!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var loginButton: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonLogin.style = .wide
-        buttonLogin.colorScheme = .light
-        buttonSkip.setTitle("SKIP".localized, for: .normal)
-        labelExplanation.text = "You must be logged in to use the ranking system.".localized
+        self.loginButton.style = .wide
+        self.loginButton.colorScheme = .light
+        self.skipButton.setTitle("SKIP".localized, for: .normal)
+        self.explanationLabel.text = "You must be logged in to use the ranking system.".localized
+        self.loginButton.addTarget(self, action: #selector(touchUpLoginButton(_:)), for: .touchUpInside)
+        self.skipButton.addTarget(self, action: #selector(touchUpSkipButton(_:)), for: .touchUpInside)
         GIDSignIn.sharedInstance().uiDelegate = self
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if(user != nil){
@@ -30,11 +32,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
 
-    @IBAction func login(_ sender: GIDSignInButton) {
+    @objc func touchUpLoginButton(_ sender: GIDSignInButton) {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    @IBAction func skip(_ sender: UIButton) {
+    @objc func touchUpSkipButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -229,6 +229,7 @@ class Skill {
         }
     }
     
+    //버튼별 현재 스킬레벨의 다음 단계 가져오기
     static func nextSkillLevel(of skillLevel: String, button: String) -> String? {
         var index: Int = 0
         var nextSkillLevel = "Next".localized + " : "
@@ -269,6 +270,7 @@ class Skill {
         return nextSkillLevel
     }
     
+    //성과 기록 비율 계산
     static func recordRate(button: String) -> Double {
         var counts = [0, 0]
         let results = RecordInfo.get()

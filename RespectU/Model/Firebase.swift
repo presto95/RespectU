@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class Firebase {
+    //파이어베이스 데이터베이스 가져오기
     static func fetch(_ key: String) {
         var userIds = [String]()
         var values = [Double]()
@@ -37,7 +38,7 @@ class Firebase {
             NotificationCenter.default.post(name: .didReceiveFirebaseFetch, object: nil, userInfo: ["dictionary": sortedDic])
         }
     }
-    
+    //파이어베이스 데이터베이스 갱신
     static func upload() {
         let button4SkillPoint = Skill.mySkillPoint(button: Buttons.button4).sum
         let button5SkillPoint = Skill.mySkillPoint(button: Buttons.button5).sum

@@ -195,7 +195,7 @@ extension MissionDetailViewController {
                 return "??"
             }
         }()
-        let difficultyString = level == 0 ? "??" : "\(difficulty)"
+        let difficultyString = level == 0 ? "??" : "\(level)"
         let message = "\(button) \(difficulty)\n\n" + "Difficulty".localized + "\n\(difficultyString)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
         UIAlertController
             .alert(title: title, message: message)
@@ -204,11 +204,6 @@ extension MissionDetailViewController {
     }
     
     private func setVisibilityOfViews() {
-//        let titles = [object.song1title, object.song2title, object.song3title, object.song4title, object.song5title, object.song6title]
-//        let buttonLabels = [song1ButtonLabel, song2ButtonLabel, song3ButtonLabel, song4ButtonLabel, song5ButtonLabel, song6ButtonLabel]
-//        let difficultyLabels = [song1DifficultyLabel, song2DifficultyLabel, song3DifficultyLabel, song4DifficultyLabel, song5DifficultyLabel, song6DifficultyLabel]
-//        let titleLabels = [song1TitleLabel, song2TitleLabel, song3TitleLabel, song4TitleLabel, song5TitleLabel, song6TitleLabel]
-//        let moreButtons = [song1MoreButton, song2MoreButton, song3MoreButton, song4MoreButton, song5MoreButton, song6MoreButton]
         if object.song1title.isEmpty {
             song1ButtonLabel.isHidden = true
             song1DifficultyLabel.isHidden = true

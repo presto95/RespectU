@@ -34,6 +34,7 @@
 		191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */; };
 		191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191DFEBA204E98360095E9C1 /* ManualViewController.swift */; };
 		191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 191DFEBC204E98850095E9C1 /* Manual.storyboard */; };
+		1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928D5FC211824DF00F7901F /* UITableViewCell+.swift */; };
 		192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */; };
 		192AFE2520E48AD50006397F /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */; };
 		192AFE2720E48ADF0006397F /* TrophyBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */; };
@@ -209,6 +210,7 @@
 		191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
 		191DFEBA204E98360095E9C1 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
 		191DFEBC204E98850095E9C1 /* Manual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Manual.storyboard; sourceTree = "<group>"; };
+		1928D5FC211824DF00F7901F /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBSTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBSTableViewController.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
 				198B6C592114244B0058DE49 /* Notification.Name+.swift */,
+				1928D5FC211824DF00F7901F /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1157,6 +1160,7 @@
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
+				1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,
 				193E4027204C09FA0063A440 /* Top508BTableViewController.swift in Sources */,
 				198B6C5C211443C70058DE49 /* Rank.swift in Sources */,

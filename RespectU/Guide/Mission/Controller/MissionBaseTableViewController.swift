@@ -53,4 +53,16 @@ class MissionBaseTableViewController: BaseTableViewController {
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         header.backgroundView?.backgroundColor = .main
     }
+    
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MissionCell else { return }
+        let object = results[indexPath.row + indexPath.section * 6]
+        cell.setColorsInMission(object.section, labels: cell.labels)
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MissionCell else { return }
+        cell.unsetColors(labels: cell.labels)
+    }
 }

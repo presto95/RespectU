@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="missionCell" rowHeight="60" id="KGk-i7-Jjw" customClass="MissionCell" customModule="RespectU" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="missionCell" rowHeight="60" id="KGk-i7-Jjw" customClass="MissionCell" customModule="RespectU" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -36,7 +39,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ Alpha Resigns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-gI-o4O" customClass="MarqueeLabel" customModule="MarqueeLabel">
                         <rect key="frame" x="29" y="31" width="275" height="16"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                        <color key="textColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
@@ -56,9 +59,9 @@
                 </subviews>
                 <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="mfY-gI-o4O" firstAttribute="top" secondItem="cS1-e4-YWp" secondAttribute="centerY" constant="2" id="54e-WC-AzE"/>
-                    <constraint firstItem="fQB-Sl-IjY" firstAttribute="bottom" secondItem="cS1-e4-YWp" secondAttribute="centerY" constant="-2" id="7c7-4c-F95"/>
                     <constraint firstAttribute="trailing" secondItem="fQB-Sl-IjY" secondAttribute="trailing" constant="16" id="9ac-Ah-6Tg"/>
+                    <constraint firstItem="mfY-gI-o4O" firstAttribute="bottom" secondItem="cS1-e4-YWp" secondAttribute="bottom" id="LDr-k4-Kp6"/>
+                    <constraint firstItem="fQB-Sl-IjY" firstAttribute="top" secondItem="cS1-e4-YWp" secondAttribute="top" id="PJ0-v4-YLn"/>
                     <constraint firstItem="cS1-e4-YWp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Px5-6M-At9"/>
                     <constraint firstItem="fQB-Sl-IjY" firstAttribute="leading" secondItem="cS1-e4-YWp" secondAttribute="trailing" constant="8" id="YCz-1M-FyW"/>
                     <constraint firstItem="cS1-e4-YWp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="l9B-uK-9oF"/>

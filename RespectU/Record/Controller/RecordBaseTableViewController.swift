@@ -25,10 +25,14 @@ class RecordBaseTableViewController: BaseTableViewController {
         self.tableView.register(UINib(nibName: "RecordCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        deselectTableViewIfSelected()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         dismissRecordViewIfExists()
-        deselectTableViewIfSelected()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,9 +41,9 @@ class RecordBaseTableViewController: BaseTableViewController {
         cell.setProperties(object)
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             if selectedIndexPath == indexPath {
-                cell.setColorWhenSelected(object.series, isJust: false)
+                cell.setColorsInSong(object.series, labels: cell.labels)
             } else {
-                cell.setColorWhenDeselected(isJust: false)
+                cell.unsetColors(labels: cell.labels)
             }
         }
         return cell
@@ -53,18 +57,32 @@ class RecordBaseTableViewController: BaseTableViewController {
         guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
         dismissRecordViewIfExists()
         let object = self.results[indexPath.row]
-        cell.setColorWhenSelected(object.series, isJust: true)
+        cell.setColorsInSong(object.series, labels: cell.labels)
         self.recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView
         self.recordView.delegate = self
         self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
         self.recordView.frame = CGRect(x: 0, y: recordViewController.view.bounds.height - 210, width: recordViewController.view.bounds.width, height: 200)
         recordViewController.scrollViewBottomConstraint.constant += 200
+        recordViewController.view.layoutIfNeeded()
+        tableView.scrollToNearestSelectedRow(at: .middle, animated: true)
         recordViewController.view.addSubview(recordView)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-        cell.setColorWhenDeselected(isJust: true)
+        cell.unsetColors(labels: cell.labels)
+    }
+    
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
+        let object = results[indexPath.row]
+        cell.setColorsInSong(object.series, labels: cell.labels)
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
+        cell.unsetColors(labels: cell.labels)
     }
 }
 
@@ -361,7 +379,7 @@ extension RecordBaseTableViewController {
         }
     }
     
-    func dismissRecordViewIfExists() {
+    private func dismissRecordViewIfExists() {
         let lastSubview = recordViewController.view.subviews.last
         if lastSubview is RecordView {
             lastSubview?.removeFromSuperview()
@@ -369,10 +387,11 @@ extension RecordBaseTableViewController {
         }
     }
     
-    func deselectTableViewIfSelected() {
+    private func deselectTableViewIfSelected() {
         if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
             guard let cell = tableView.cellForRow(at: selectedIndexPath) as? RecordCell else { return }
-            cell.setColorWhenDeselected(isJust: false)
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+            cell.unsetColors(labels: cell.labels)
         }
     }
 }
@@ -545,7 +564,7 @@ extension RecordBaseTableViewController: RecordViewDelegate {
             .present(to: self)
     }
     
-    func dismiss() {
+    func touchUpCancelButton() {
         dismissRecordViewIfExists()
         deselectTableViewIfSelected()
     }

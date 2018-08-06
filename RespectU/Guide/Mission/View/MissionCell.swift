@@ -13,6 +13,9 @@ class MissionCell: UITableViewCell {
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rewardLabel: UILabel!
+    lazy var labels: [UILabel] = {
+        return [titleLabel, rewardLabel]
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()

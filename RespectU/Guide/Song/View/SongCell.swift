@@ -18,6 +18,9 @@ class SongCell: UITableViewCell {
     @IBOutlet weak var normalLabel: UILabel!
     @IBOutlet weak var hardLabel: UILabel!
     @IBOutlet weak var maximumLabel: UILabel!
+    lazy var labels: [UILabel] = {
+        return [titleLabel, composerLabel, bpmLabel, normalLabel, hardLabel, maximumLabel]
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()

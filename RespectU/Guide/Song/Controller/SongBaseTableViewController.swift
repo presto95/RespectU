@@ -65,4 +65,16 @@ class SongBaseTableViewController: BaseTableViewController {
             .cancelAction(title: "OK".localized)
             .present(to: self)
     }
+    
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SongCell else { return }
+        let object = songResults[indexPath.row]
+        cell.setColorsInSong(object.series, labels: cell.labels)
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? SongCell else { return }
+        cell.unsetColors(labels: cell.labels)
+        
+    }
 }

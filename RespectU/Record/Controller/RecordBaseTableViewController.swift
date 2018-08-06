@@ -35,6 +35,13 @@ class RecordBaseTableViewController: BaseTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecordCell else { return UITableViewCell() }
         let object = self.results[indexPath.row]
         cell.setProperties(object)
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            if selectedIndexPath == indexPath {
+                cell.setColorWhenSelected(object.series, isJust: false)
+            } else {
+                cell.setColorWhenDeselected(isJust: false)
+            }
+        }
         return cell
     }
     
@@ -46,7 +53,7 @@ class RecordBaseTableViewController: BaseTableViewController {
         guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
         dismissRecordViewIfExists()
         let object = self.results[indexPath.row]
-        cell.setColorWhenSelected(object.series)
+        cell.setColorWhenSelected(object.series, isJust: true)
         self.recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView
         self.recordView.delegate = self
         self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
@@ -57,7 +64,7 @@ class RecordBaseTableViewController: BaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-        cell.setColorWhenDeselected()
+        cell.setColorWhenDeselected(isJust: true)
     }
 }
 
@@ -364,7 +371,8 @@ extension RecordBaseTableViewController {
     
     func deselectTableViewIfSelected() {
         if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-            self.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            guard let cell = tableView.cellForRow(at: selectedIndexPath) as? RecordCell else { return }
+            cell.setColorWhenDeselected(isJust: false)
         }
     }
 }

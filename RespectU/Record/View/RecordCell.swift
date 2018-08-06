@@ -28,35 +28,54 @@ class RecordCell: UITableViewCell {
         self.colorLabel.backgroundColor = object.series.seriesColor
     }
     
-    func setColorWhenSelected(_ series: String) {
-        switch series {
-        case Series.portable1:
-            self.contentView.backgroundColor = UIColor.portable1
-            self.titleLabel.textColor = .white
-        case Series.portable2:
-            self.contentView.backgroundColor = UIColor.portable2
-            self.titleLabel.textColor = .white
-        case Series.respect:
-            self.contentView.backgroundColor = UIColor.respect
-            self.titleLabel.textColor = .white
-        case Series.trilogy:
-            self.contentView.backgroundColor = UIColor.trilogy
-            self.titleLabel.textColor = .white
-        case Series.ce:
-            self.contentView.backgroundColor = UIColor.ce
-            self.titleLabel.textColor = .black
-        case Series.technika1:
-            self.contentView.backgroundColor = UIColor.technika1
-            self.titleLabel.textColor = .white
-        case Series.bs:
-            self.contentView.backgroundColor = UIColor.bs
-            self.titleLabel.textColor = .white
-        default:
-            break
+    func setColorWhenSelected(_ series: String, isJust: Bool) {
+        func setColor() {
+            switch series {
+            case Series.portable1:
+                self.contentView.backgroundColor = UIColor.portable1
+                self.titleLabel.textColor = .white
+            case Series.portable2:
+                self.contentView.backgroundColor = UIColor.portable2
+                self.titleLabel.textColor = .white
+            case Series.respect:
+                self.contentView.backgroundColor = UIColor.respect
+                self.titleLabel.textColor = .white
+            case Series.trilogy:
+                self.contentView.backgroundColor = UIColor.trilogy
+                self.titleLabel.textColor = .white
+            case Series.ce:
+                self.contentView.backgroundColor = UIColor.ce
+                self.titleLabel.textColor = .black
+            case Series.technika1:
+                self.contentView.backgroundColor = UIColor.technika1
+                self.titleLabel.textColor = .white
+            case Series.bs:
+                self.contentView.backgroundColor = UIColor.bs
+                self.titleLabel.textColor = .white
+            default:
+                break
+            }
+        }
+        if isJust {
+            UIView.animate(withDuration: 0.5) {
+                setColor()
+            }
+        } else {
+            setColor()
         }
     }
     
-    func setColorWhenDeselected() {
-        self.titleLabel.textColor = .black
+    func setColorWhenDeselected(isJust: Bool) {
+        func setColor() {
+            self.contentView.backgroundColor = UIColor.sub
+            self.titleLabel.textColor = .black
+        }
+        if isJust {
+            UIView.animate(withDuration: 0.5) { 
+                setColor()
+            }
+        } else {
+            setColor()
+        }
     }
 }

@@ -39,7 +39,7 @@ class SearchByNoteView: UIView {
     }
     
     private func initializeButtons() {
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.3) { [unowned self] in
             self.noMaxComboButton.backgroundColor = UIColor.sub
             self.perfectPlayButton.backgroundColor = UIColor.sub
         }

@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Rank {
+enum Rank {
     static let s = "S"
     static let a = "A"
     static let b = "B"

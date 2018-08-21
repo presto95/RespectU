@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SkillLevel {
+enum SkillLevel {
     static let beginner = "BEGINNER"
     static let amateur4 = "AMATEUR 4"
     static let amateur3 = "AMATEUR 3"

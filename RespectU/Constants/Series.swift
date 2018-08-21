@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Series {
+enum Series {
     static let respect = "Respect"
     static let portable1 = "Portable1"
     static let portable2 = "Portable2"
@@ -16,14 +16,3 @@ struct Series {
     static let bs = "BS"
     static let linkDisk = "Link Disk"
 }
-
-//enum Series {
-//    static let respect = "Respect"
-//    static let portable1 = "Portable1"
-//    static let portable2 = "Portable2"
-//    static let trilogy = "Trilogy"
-//    static let ce = "CE"
-//    static let technika1 = "Technika1"
-//    static let bs = "BS"
-//    static let linkDisk = "Link Disk"
-//}

@@ -6,8 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Mission {
-    struct Respect {
+enum Mission {
+    enum Respect {
         static let departure = "Departure"
         static let clubRoad645 = "CLUB Road645"
         static let maxTheater = "MAX Theater"
@@ -19,23 +19,23 @@ struct Mission {
         static let developers = "D-VELOPERS"
         static let destination = "Destination"
     }
-    struct Trilogy {
+    enum Trilogy {
         static let tSide = "T-SIDE"
         static let rSide = "R-SIDE"
     }
-    struct CE {
+    enum CE {
         static let electronicCity = "Electronic City"
         static let metropolis = "Metropolis"
     }
-    struct Technika1 {
+    enum Technika1 {
         static let platinumMixing = "Platinum Mixing"
         static let technicalMixing = "Technical Mixing"
     }
-    struct BS {
+    enum BS {
         static let stylishPerformance = "Stylish Performance"
         static let absoluteSound = "Absolute Sound"
     }
-    struct LinkDisk {
+    enum LinkDisk {
         static let whiteDisk = "WHITE DISK"
         static let blackDisk = "BLACK DISK"
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Achievement {
+enum Achievement {
     //title
     static let playCount = "Play Count"
     static let playerLevel = "Player Level"

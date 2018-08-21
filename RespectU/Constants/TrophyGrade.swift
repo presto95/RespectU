@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct TrophyGrade {
+enum TrophyGrade {
     static let platinum = "PLATINUM"
     static let gold = "GOLD"
     static let silver = "SILVER"

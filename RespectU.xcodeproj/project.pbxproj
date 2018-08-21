@@ -57,6 +57,10 @@
 		19320FD22049569D0075BD86 /* TrophyCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */; };
 		19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19320FD3204959BE0075BD86 /* TrophyCell.swift */; };
 		19320FD6204959BE0075BD86 /* TrophyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19320FD4204959BE0075BD86 /* TrophyCell.xib */; };
+		1939C96E212BFD8500A6F8E3 /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C96D212BFD8500A6F8E3 /* Ranking.swift */; };
+		1939C970212BFD9200A6F8E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C96F212BFD9200A6F8E3 /* User.swift */; };
+		1939C973212BFF1900A6F8E3 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C972212BFF1900A6F8E3 /* Network.swift */; };
+		1939C975212C004D00A6F8E3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C974212C004D00A6F8E3 /* API.swift */; };
 		193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */; };
 		193DE8DB204922B400A829BB /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DE8D9204922B400A829BB /* AchievementCell.swift */; };
 		193DE8DC204922B400A829BB /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193DE8DA204922B400A829BB /* AchievementCell.xib */; };
@@ -233,6 +237,10 @@
 		19320FD12049569D0075BD86 /* TrophyCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCETableViewController.swift; sourceTree = "<group>"; };
 		19320FD3204959BE0075BD86 /* TrophyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCell.swift; sourceTree = "<group>"; };
 		19320FD4204959BE0075BD86 /* TrophyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrophyCell.xib; sourceTree = "<group>"; };
+		1939C96D212BFD8500A6F8E3 /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
+		1939C96F212BFD9200A6F8E3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1939C972212BFF1900A6F8E3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1939C974212C004D00A6F8E3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
 		193DE8D9204922B400A829BB /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		193DE8DA204922B400A829BB /* AchievementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
@@ -388,6 +396,8 @@
 				19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */,
 				198B6C4F2113913C0058DE49 /* Skill.swift */,
 				198B6C57211423920058DE49 /* Firebase.swift */,
+				1939C96D212BFD8500A6F8E3 /* Ranking.swift */,
+				1939C96F212BFD9200A6F8E3 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -450,6 +460,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		1939C971212BFF1000A6F8E3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1939C972212BFF1900A6F8E3 /* Network.swift */,
+				1939C974212C004D00A6F8E3 /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +501,7 @@
 		19B6CFEA1F7953640097B86B /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
+				1939C971212BFF1000A6F8E3 /* Network */,
 				191275DE2111F7150046AA3E /* Constants */,
 				19012FAA204808010061EF21 /* Model */,
 				191275EE21120B380046AA3E /* Base */,
@@ -1153,6 +1173,7 @@
 				19D67ECE20744F2000FD9EC7 /* RecordTrilogyTableViewController.swift in Sources */,
 				193E402D204C23F40063A440 /* Ranking5BTableViewController.swift in Sources */,
 				197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */,
+				1939C973212BFF1900A6F8E3 /* Network.swift in Sources */,
 				193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */,
 				199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */,
 				19D67ECC20744F1700FD9EC7 /* RecordRespectTableViewController.swift in Sources */,
@@ -1160,9 +1181,12 @@
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
+				1939C975212C004D00A6F8E3 /* API.swift in Sources */,
 				1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,
 				193E4027204C09FA0063A440 /* Top508BTableViewController.swift in Sources */,
+				1939C970212BFD9200A6F8E3 /* User.swift in Sources */,
+				1939C96E212BFD8500A6F8E3 /* Ranking.swift in Sources */,
 				198B6C5C211443C70058DE49 /* Rank.swift in Sources */,
 				19012FC420484C020061EF21 /* TipInfo.swift in Sources */,
 				191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */,

@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Difficulty {
+enum Difficulty {
     static let normal = "NORMAL"
     static let hard = "HARD"
     static let maximum = "MAXIMUM"

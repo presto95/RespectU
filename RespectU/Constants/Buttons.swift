@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Buttons {
+enum Buttons {
     static let button4 = "4B"
     static let button5 = "5B"
     static let button6 = "6B"

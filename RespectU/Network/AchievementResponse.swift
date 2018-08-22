@@ -8,11 +8,10 @@
 
 struct AchievementResponse: Codable {
     struct Achievement: Codable {
-        let _id: String
-        let title: String
-        let level: Int
         let type: String
-        let item: String
+        let level: Int
+        let section: Language
+        let item: Language
     }
     let achievement: [Achievement]
 }

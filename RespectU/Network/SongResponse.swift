@@ -13,16 +13,23 @@ struct SongResponse: Codable {
             let hard: Int
             let maximum: Int
         }
-        let _id: String
         let title: String
         let lowercase: String
         let series: String
         let composer: String
-        let bpm: String
+        let bpm: Int
+        let subBpm: Int
         let button4: Button
         let button5: Button
         let button6: Button
         let button8: Button
+        var bpmToString: String {
+            if subBpm == 0 {
+                return "\(bpm)"
+            } else {
+                return "\(bpm) ~ \(subBpm)"
+            }
+        }
     }
     let song: [Song]
 }

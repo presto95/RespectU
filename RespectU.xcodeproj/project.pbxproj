@@ -101,6 +101,7 @@
 		194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */; };
 		194E52B7204AC55900B84AFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B5204AC55900B84AFA /* SongCell.swift */; };
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
+		1950D885212D6F92004ED086 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950D884212D6F92004ED086 /* Language.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
 		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
@@ -287,6 +288,7 @@
 		194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFavoriteTableViewController.swift; sourceTree = "<group>"; };
 		194E52B5204AC55900B84AFA /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
+		1950D884212D6F92004ED086 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
 		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 		1939C971212BFF1000A6F8E3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1950D884212D6F92004ED086 /* Language.swift */,
 				1939C972212BFF1900A6F8E3 /* Network.swift */,
 				1939C974212C004D00A6F8E3 /* API.swift */,
 				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
@@ -1144,6 +1147,7 @@
 				192DF89B2111D92B0016F386 /* Series.swift in Sources */,
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
+				1950D885212D6F92004ED086 /* Language.swift in Sources */,
 				193E3FF7204BB1060063A440 /* RecordView.swift in Sources */,
 				199992172049654E00C74697 /* MissionCETableViewController.swift in Sources */,
 				19320FC02049424D0075BD86 /* AchievementNoteTableViewController.swift in Sources */,

@@ -9,6 +9,7 @@
 struct PlaylistResponse: Codable {
     struct Song: Codable {
         struct Button: Codable {
+            let _id: String
             let normal: Int
             let hard: Int
             let maximum: Int

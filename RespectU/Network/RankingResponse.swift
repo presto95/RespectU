@@ -6,6 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import Foundation
+
 struct RankingResponse: Codable {
     struct Ranking: Codable {
         let _id: String

@@ -8,11 +8,7 @@
 
 struct TipResponse: Codable {
     struct Tip: Codable {
-        let _id: String
-        let title: String
-        var koreanTitle: String {
-            return title.localized
-        }
+        let title: Language
     }
     let tip: [Tip]
 }

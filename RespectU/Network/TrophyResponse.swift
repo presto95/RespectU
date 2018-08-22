@@ -8,6 +8,11 @@
 
 struct TrophyResponse: Codable {
     struct Trophy: Codable {
-        
+        let series: String
+        let rating: String
+        let image: String
+        let title: Language
+        let content: Language
     }
+    let trophy: [Trophy]
 }

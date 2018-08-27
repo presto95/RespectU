@@ -29,7 +29,6 @@ class SongViewController: BaseViewController {
         return selectedButtonLabel.text ?? ""
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"

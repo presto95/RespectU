@@ -9,7 +9,7 @@
 import Foundation
 
 class API {
-    private static let baseUrl = "http://localhost:3000"
+    static let baseUrl = "http://localhost:3000"
     private static let jsonDecoder = JSONDecoder()
 }
 

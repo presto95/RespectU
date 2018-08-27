@@ -59,9 +59,29 @@ extension AchievementBaseTableViewController {
         }
         stages.append(count)
     }
+    
+    func achievementCell(at indexPath: IndexPath, isAll: Bool = false) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? AchievementCell else { return UITableViewCell() }
+        var rowIndex = 0
+        if indexPath.section > 0 {
+            for i in 1...indexPath.section {
+                rowIndex += stages[i - 1]
+            }
+        }
+        rowIndex += indexPath.row
+        let count = self.results?.count ?? 0
+        if rowIndex < count {
+            let object = self.results?[rowIndex]
+            cell.setProperties(object, isAll: isAll)
+        }
+        return cell
+    }
 }
 
 extension AchievementBaseTableViewController {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return achievementCell(at: indexPath)
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.stages[section]
     }
@@ -71,12 +91,14 @@ extension AchievementBaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var index = 0
-        for i in 0...section {
-            index += stages[i]
+        if section < self.stages.count {
+            var index = 0
+            for i in 0...section {
+                index += stages[i]
+            }
+            return self.results?[index - 1].localizedSection
         }
-        let sectionTitle = self.results?[index - 1].section
-        return regionCode == "KR" ? sectionTitle?.korean : sectionTitle?.english
+        return nil
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

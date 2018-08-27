@@ -11,16 +11,9 @@ import XLPagerTabStrip
 
 class TrophyBSTableViewController: TrophyBaseTableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.results = TrophyInfo.get().filter(key: "series", value: Series.bs, method: FilterOperator.equal)
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = super.tableView(tableView, cellForRowAt: indexPath) as? TrophyCell else { return UITableViewCell() }
-        let imageName = "bs\(indexPath.row + 1)"
-        cell.trophyImageView.image = UIImage(named: imageName)
-        return cell
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        API.fetchTrophies(of: "bs")
     }
 }
 

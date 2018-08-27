@@ -27,9 +27,10 @@ class MissionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: MissionInfo) {
+    func setProperties(_ object: MissionResponse.Mission?) {
+        guard let object = object else { return }
         self.colorLabel.backgroundColor = object.section.missionColor
         self.titleLabel.text = object.title
-        self.rewardLabel.text = object.reward.isEmpty ? "None".localized : object.reward
+        self.rewardLabel.text = object.localizedReward
     }
 }

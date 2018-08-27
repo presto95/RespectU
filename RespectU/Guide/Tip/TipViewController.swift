@@ -60,8 +60,7 @@ extension TipViewController {
 extension TipViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell") else { return UITableViewCell() }
-        let title = self.tips?[indexes[indexPath.row]].title
-        cell.textLabel?.text = regionCode == "KR" ? title?.korean : title?.english
+        cell.textLabel?.text = self.tips?[indexes[indexPath.row]].localizedTitle
         return cell    
     }
     

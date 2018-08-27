@@ -28,23 +28,26 @@ class TrophyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: TrophyInfo) {
-        switch Locale.preferredLanguages[0] {
-        case "ko-KR":
-            self.titleLabel.text = object.titleKor
-            self.contentLabel.text = object.contentKor
-        default:
-            self.titleLabel.text = object.titleEng
-            self.contentLabel.text = object.contentEng
+    func setProperties(_ object: TrophyResponse.Trophy?) {
+        guard let object = object else { return }
+        let imageUrl = "\(API.baseUrl)/images/\(object.series)/\(object.image).png"
+        guard let url = URL(string: imageUrl) else { return }
+        DispatchQueue.global().async {
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                self.trophyImageView.image = UIImage(data: imageData)
+            }
         }
+        self.titleLabel.text = object.localizedTitle
+        self.contentLabel.text = object.localizedContent
         switch object.rating {
-        case TrophyGrade.platinum:
+        case "platinum":
             self.colorLabel.backgroundColor = .platinum
-        case TrophyGrade.gold:
+        case "gold":
             self.colorLabel.backgroundColor = .gold
-        case TrophyGrade.silver:
+        case "silver":
             self.colorLabel.backgroundColor = .silver
-        case TrophyGrade.bronze:
+        case "bronze":
             self.colorLabel.backgroundColor = .bronze
         default:
             break

@@ -6,6 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import Foundation
+
 struct SongResponse: Codable {
     struct Song: Codable {
         struct Button: Codable {
@@ -23,6 +25,13 @@ struct SongResponse: Codable {
         let button5: Button
         let button6: Button
         let button8: Button
+        var localizedTitle: String {
+            if Locale.current.regionCode == "KR", let korean = title.korean {
+                return korean
+            } else {
+                return title.english
+            }
+        }
         var bpmToString: String {
             if subBpm == 0 {
                 return "\(bpm)"

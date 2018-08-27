@@ -11,9 +11,9 @@ import XLPagerTabStrip
 
 class MissionCETableViewController: MissionBaseTableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.results = MissionInfo.get().filter(key: "type", value: Series.ce, method: FilterOperator.equal)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        API.fetchMissions(of: "ce")
     }
 }
 

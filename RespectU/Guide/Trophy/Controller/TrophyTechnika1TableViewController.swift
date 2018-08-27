@@ -11,18 +11,13 @@ import XLPagerTabStrip
 
 class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.results = TrophyInfo.get().filter(key: "series", value: Series.technika1, method: FilterOperator.equal)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        API.fetchTrophies(of: "technika1")
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = super.tableView(tableView, cellForRowAt: indexPath) as? TrophyCell else { return UITableViewCell() }
-        let imageName = "technika1\(indexPath.row + 1)"
-        cell.trophyImageView.image = UIImage(named: imageName)
-        return cell
-    }
-    
+}
+
+extension TrophyTechnika1TableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row

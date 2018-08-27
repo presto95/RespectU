@@ -6,12 +6,28 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import Foundation
+
 struct AchievementResponse: Codable {
     struct Achievement: Codable {
         let type: String
         let level: Int
         let section: Language
         let item: Language
+        var localizedSection: String {
+            if Locale.current.regionCode == "KR", let korean = section.korean {
+                return korean
+            } else {
+                return section.english
+            }
+        }
+        var localizedItem: String {
+            if Locale.current.regionCode == "KR", let korean = item.korean {
+                return korean
+            } else {
+                return item.english
+            }
+        }
     }
     let achievement: [Achievement]
     var count: Int {

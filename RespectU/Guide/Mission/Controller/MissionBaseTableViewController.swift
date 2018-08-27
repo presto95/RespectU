@@ -11,25 +11,40 @@ import RealmSwift
 
 class MissionBaseTableViewController: BaseTableViewController {
 
-    var results: Results<MissionInfo>!
+    var results: MissionResponse?
     let cellIdentifier = "missionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "MissionCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMissions(_:)), name: .didReceiveMissions, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showIndicator()
+    }
+    
+    @objc func didReceiveMissions(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["missions"] as? MissionResponse else { return }
+        self.results = userInfo
+        DispatchQueue.main.async { [weak self] in
+            self?.hideIndicator()
+            self?.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? MissionCell else { return UITableViewCell() }
-        let object = self.results[indexPath.row + indexPath.section * 6]
+        let object = self.results?[indexPath.row + indexPath.section * 6]
         cell.setProperties(object)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let object = self.results[indexPath.row + indexPath.section * 6]
+        let object = self.results?[indexPath.row + indexPath.section * 6]
         let detailViewController = MissionDetailViewController.instantiate(object)!
         detailViewController.modalTransitionStyle = .crossDissolve
         self.present(detailViewController, animated: true)
@@ -40,11 +55,11 @@ class MissionBaseTableViewController: BaseTableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.results.count / 6
+        return (self.results?.count ?? 0) / 6
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.results[section * 6].section
+        return self.results?[section * 6].section
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -56,9 +71,8 @@ class MissionBaseTableViewController: BaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? MissionCell else { return }
-        let object = results[indexPath.row + indexPath.section * 6]
+        guard let object = self.results?[indexPath.row + indexPath.section * 6] else { return }
         cell.setColorsInMission(object.section, labels: cell.labels)
-        
     }
     
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {

@@ -12,24 +12,45 @@ import RealmSwift
 
 class TrophyBaseTableViewController: BaseTableViewController {
 
-    var results: Results<TrophyInfo>!
+    var results: TrophyResponse?
     let cellIdentifier = "trophyCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "TrophyCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophy(_:)), name: .didReceiveTrophies, object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showIndicator()
+    }
+    
+    @objc func didReceiveTrophy(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
+        self.results = userInfo
+        DispatchQueue.main.async { [weak self] in
+            self?.hideIndicator()
+            self?.tableView.reloadData()
+        }
+    }
+}
+
+extension TrophyBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TrophyCell else { return UITableViewCell() }
-        let object = results[indexPath.row]
-        cell.setProperties(object)
+        let row = indexPath.row
+        let count = self.results?.count ?? 0
+        if row < count {
+            let object = self.results?[indexPath.row]
+            cell.setProperties(object)
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return results.count
+        return self.results?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

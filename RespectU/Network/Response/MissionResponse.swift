@@ -6,12 +6,21 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import Foundation
+
 struct MissionResponse: Codable {
     struct Mission: Codable {
         struct Stage: Codable {
             let title: Language
             let difficulty: String
             let button: String
+            var localizedTitle: String {
+                if Locale.current.regionCode == "KR", let korean = title.korean {
+                    return korean
+                } else {
+                    return title.english
+                }
+            }
         }
         let series: String
         let section: String
@@ -29,6 +38,13 @@ struct MissionResponse: Codable {
         let song4: Stage?
         let song5: Stage?
         let song6: Stage?
+        var localizedReward: String {
+            if Locale.current.regionCode == "KR", let korean = reward.korean {
+                return korean
+            } else {
+                return reward.english
+            }
+        }
     }
     let mission: [Mission]
     var count: Int {

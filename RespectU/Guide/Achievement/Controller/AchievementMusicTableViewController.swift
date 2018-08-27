@@ -15,20 +15,6 @@ class AchievementMusicTableViewController: AchievementBaseTableViewController {
         super.viewWillAppear(animated)
         API.fetchAchievements(of: "music")
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? AchievementCell else { return UITableViewCell() }
-        var rowIndex = 0
-        if indexPath.section > 0 {
-            for i in 1...indexPath.section {
-                rowIndex += stages[i - 1]
-            }
-        }
-        rowIndex += indexPath.row
-        let object = self.results?[rowIndex]
-        cell.setProperties(object)
-        return cell
-    }
 }
 
 extension AchievementMusicTableViewController: IndicatorInfoProvider{

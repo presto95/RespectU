@@ -10,16 +10,28 @@ import UIKit
 
 class MissionDetailViewController: UIViewController {
 
-    var object: MissionInfo!
+    var object: MissionResponse.Mission!
     let myBPM = UserDefaults.standard.double(forKey: "bpm")
     let random = "RANDOM"
     
-    var existsSong1 = true
-    var existsSong2 = true
-    var isSong3Visible = true
-    var isSong4Visible = true
-    var isSong5Visible = true
-    var isSong6Visible = true
+    var existsSong1: Bool {
+        return object.song1 != nil
+    }
+    var existsSong2: Bool {
+        return object.song2 != nil
+    }
+    var existsSong3: Bool {
+        return object.song3 != nil
+    }
+    var existsSong4: Bool {
+        return object.song4 != nil
+    }
+    var existsSong5: Bool {
+        return object.song5 != nil
+    }
+    var existsSong6: Bool {
+        return object.song6 != nil
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
@@ -63,46 +75,46 @@ class MissionDetailViewController: UIViewController {
         super.viewDidLoad()
         setVisibilityOfViews()
         titleLabel.text = object.title
-        scoreLabel.text = object.scoreLim == 0 ? "-" : "\(object.scoreLim)"
-        feverLabel.text = object.feverLim == 0 ? "-" : "X\(object.feverLim)"
-        comboLabel.text = object.comboLim == 0 ? "-" : "\(object.comboLim)"
-        rateLabel.text = object.rateLim == 0 ? "-" : "\(object.rateLim)%"
-        breakLabel.text = object.breakLim == 0 ? "-" : "\(object.breakLim)"
-        effectorLabel.text = object.more
-        rewardLabel.text = object.reward.isEmpty ? "None".localized : object.reward
-        if existsSong1 {
-            song1ButtonLabel.text = object.song1key
-            song1DifficultyLabel.text = object.song1level
-            song1TitleLabel.text = object.song1title
+        scoreLabel.text = object.score == 0 ? "-" : "\(object.score)"
+        feverLabel.text = object.fever == 0 ? "-" : "X\(object.fever)"
+        comboLabel.text = object.combo == 0 ? "-" : "\(object.combo)"
+        rateLabel.text = object.rate == 0 ? "-" : "\(object.rate)%"
+        breakLabel.text = object.break == 0 ? "-" : "\(object.break)"
+        effectorLabel.text = object.effector
+        rewardLabel.text = object.localizedReward
+        if let song = object.song1 {
+            song1ButtonLabel.text = song.button.uppercased()
+            song1DifficultyLabel.text = song.difficulty.uppercased()
+            song1TitleLabel.text = song.localizedTitle
         }
-        if existsSong2 {
-            song2ButtonLabel.text = object.song2key
-            song2DifficultyLabel.text = object.song2level
-            song2TitleLabel.text = object.song2title
+        if let song = object.song2 {
+            song2ButtonLabel.text = song.button.uppercased()
+            song2DifficultyLabel.text = song.difficulty.uppercased()
+            song2TitleLabel.text = song.localizedTitle
         }
-        if isSong3Visible {
-            song3ButtonLabel.text = object.song3key
-            song3DifficultyLabel.text = object.song3level
-            song3TitleLabel.text = object.song3title
+        if let song = object.song3 {
+            song3ButtonLabel.text = song.button.uppercased()
+            song3DifficultyLabel.text = song.difficulty.uppercased()
+            song3TitleLabel.text = song.localizedTitle
         }
-        if isSong4Visible {
-            song4ButtonLabel.text = object.song4key
-            song4DifficultyLabel.text = object.song4level
-            song4TitleLabel.text = object.song4title
+        if let song = object.song4 {
+            song4ButtonLabel.text = song.button.uppercased()
+            song4DifficultyLabel.text = song.difficulty.uppercased()
+            song4TitleLabel.text = song.localizedTitle
         }
-        if isSong5Visible {
-            song5ButtonLabel.text = object.song5key
-            song5DifficultyLabel.text = object.song5level
-            song5TitleLabel.text = object.song5title
+        if let song = object.song5 {
+            song5ButtonLabel.text = song.button.uppercased()
+            song5DifficultyLabel.text = song.difficulty.uppercased()
+            song5TitleLabel.text = song.localizedTitle
         }
-        if isSong6Visible {
-            song6ButtonLabel.text = object.song6key
-            song6DifficultyLabel.text = object.song6level
-            song6TitleLabel.text = object.song6title
+        if let song = object.song6 {
+            song6ButtonLabel.text = song.button.uppercased()
+            song6DifficultyLabel.text = song.difficulty.uppercased()
+            song6TitleLabel.text = song.localizedTitle
         }
     }
 
-    static func instantiate(_ object: MissionInfo) -> MissionDetailViewController? {
+    static func instantiate(_ object: MissionResponse.Mission?) -> MissionDetailViewController? {
         guard let viewController = UIStoryboard(name: "Mission", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? MissionDetailViewController else { return nil }
         viewController.object = object
         return viewController
@@ -115,17 +127,17 @@ class MissionDetailViewController: UIViewController {
     @IBAction func touchUpMoreButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            presentMoreAlert(title: object.song1title, button: object.song1key, difficulty: object.song1level)
+            presentMoreAlert(title: object.song1?.localizedTitle, button: object.song1?.button, difficulty: object.song1?.difficulty)
         case 1:
-            presentMoreAlert(title: object.song2title, button: object.song2key, difficulty: object.song2level)
+            presentMoreAlert(title: object.song2?.localizedTitle, button: object.song2?.button, difficulty: object.song2?.difficulty)
         case 2:
-            presentMoreAlert(title: object.song3title, button: object.song3key, difficulty: object.song3level)
+            presentMoreAlert(title: object.song3?.localizedTitle, button: object.song3?.button, difficulty: object.song3?.difficulty)
         case 3:
-            presentMoreAlert(title: object.song4title, button: object.song4key, difficulty: object.song4level)
+            presentMoreAlert(title: object.song4?.localizedTitle, button: object.song4?.button, difficulty: object.song4?.difficulty)
         case 4:
-            presentMoreAlert(title: object.song5title, button: object.song5key, difficulty: object.song5level)
+            presentMoreAlert(title: object.song5?.localizedTitle, button: object.song5?.button, difficulty: object.song5?.difficulty)
         case 5:
-            presentMoreAlert(title: object.song6title, button: object.song6key, difficulty: object.song6level)
+            presentMoreAlert(title: object.song6?.localizedTitle, button: object.song6?.button, difficulty: object.song6?.difficulty)
         default:
             break
         }
@@ -133,7 +145,8 @@ class MissionDetailViewController: UIViewController {
 }
 
 extension MissionDetailViewController {
-    private func presentMoreAlert(title: String, button: String, difficulty: String){
+    private func presentMoreAlert(title: String?, button: String?, difficulty: String?){
+        guard let title = title, let button = button, let difficulty = difficulty else { return }
         var level: Int = 0
         var bpm: Double = 0
         let query = NSPredicate(format: "title = %@", title)
@@ -204,58 +217,52 @@ extension MissionDetailViewController {
     }
     
     private func setVisibilityOfViews() {
-        if object.song1title.isEmpty {
+        if !existsSong1 {
             song1ButtonLabel.isHidden = true
             song1DifficultyLabel.isHidden = true
             song1TitleLabel.isHidden = true
             song1MoreButton.isHidden = true
-            existsSong1 = false
-        } else if object.song1title == random {
+        } else if object.song1?.localizedTitle == random {
             song1MoreButton.isHidden = true
         }
-        if object.song2title.isEmpty {
+        if !existsSong2 {
             song2ButtonLabel.isHidden = true
             song2DifficultyLabel.isHidden = true
             song2TitleLabel.isHidden = true
             song2MoreButton.isHidden = true
-            existsSong2 = false
-        } else if object.song2title == random {
+        } else if object.song2?.localizedTitle == random {
             song2MoreButton.isHidden = true
         }
-        if object.song3title.isEmpty {
+        if !existsSong3 {
             song3ButtonLabel.isHidden = true
             song3DifficultyLabel.isHidden = true
             song3TitleLabel.isHidden = true
             song3MoreButton.isHidden = true
-            isSong3Visible = false
-        } else if object.song3title == random {
+        } else if object.song3?.localizedTitle == random {
             song3MoreButton.isHidden = true
         }
-        if object.song4title.isEmpty {
+        if !existsSong4 {
             song4ButtonLabel.isHidden = true
             song4DifficultyLabel.isHidden = true
             song4TitleLabel.isHidden = true
             song4MoreButton.isHidden = true
-            isSong4Visible = false
-        } else if object.song4title == random {
+        } else if object.song4?.localizedTitle == random {
             song4MoreButton.isHidden = true
         }
-        if object.song5title.isEmpty {
+        if !existsSong5 {
             song5ButtonLabel.isHidden = true
             song5DifficultyLabel.isHidden = true
             song5TitleLabel.isHidden = true
             song5MoreButton.isHidden = true
-            isSong5Visible = false
-        } else if object.song5title == random {
+        } else if object.song5?.localizedTitle == random {
             song5MoreButton.isHidden = true
         }
-        if object.song6title.isEmpty {
+        if !existsSong6 {
             song6ButtonLabel.isHidden = true
             song6DifficultyLabel.isHidden = true
             song6TitleLabel.isHidden = true
             song6MoreButton.isHidden = true
-            isSong6Visible = false
-        } else if object.song6title == random {
+        } else if object.song6?.localizedTitle == random {
             song6MoreButton.isHidden = true
         }
     }

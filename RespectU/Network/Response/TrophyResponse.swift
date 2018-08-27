@@ -6,6 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import Foundation
+
 struct TrophyResponse: Codable {
     struct Trophy: Codable {
         let series: String
@@ -13,6 +15,20 @@ struct TrophyResponse: Codable {
         let image: String
         let title: Language
         let content: Language
+        var localizedTitle: String {
+            if Locale.current.regionCode == "KR", let korean = title.korean {
+                return korean
+            } else {
+                return title.english
+            }
+        }
+        var localizedContent: String {
+            if Locale.current.regionCode == "KR", let korean = content.korean {
+                return korean
+            } else {
+                return content.english
+            }
+        }
     }
     let trophy: [Trophy]
     var count: Int {

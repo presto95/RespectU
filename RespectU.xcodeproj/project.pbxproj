@@ -20,7 +20,6 @@
 		19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCA20484C1D0061EF21 /* AchievementInfo.swift */; };
 		19012FCD20484C260061EF21 /* TrophyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCC20484C260061EF21 /* TrophyInfo.swift */; };
 		19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */; };
-		191275DB2111E3D80046AA3E /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275DA2111E3D80046AA3E /* ActivityIndicatorView.swift */; };
 		191275DD2111EFE80046AA3E /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275DC2111EFE80046AA3E /* Achievement.swift */; };
 		191275EB211206790046AA3E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EA211206790046AA3E /* NSObject+.swift */; };
 		191275ED21120B080046AA3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EC21120B080046AA3E /* BaseViewController.swift */; };
@@ -152,7 +151,7 @@
 		19B09E31212C5565005EE66D /* TrophyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E30212C5565005EE66D /* TrophyResponse.swift */; };
 		19B09E33212C556F005EE66D /* AchievementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E32212C556F005EE66D /* AchievementResponse.swift */; };
 		19B09E35212C5576005EE66D /* TipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E34212C5576005EE66D /* TipResponse.swift */; };
-		19B09E39212C5C4C005EE66D /* PlaylistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E38212C5C4C005EE66D /* PlaylistResponse.swift */; };
+		19B09E39212C5C4C005EE66D /* FavoriteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */; };
 		19B5F9B9204A489800E12EC1 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B5F9B8204A489800E12EC1 /* Init.swift */; };
 		19B660261F960E5800CCEFB5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* String+.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
@@ -207,7 +206,6 @@
 		19012FCA20484C1D0061EF21 /* AchievementInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementInfo.swift; sourceTree = "<group>"; };
 		19012FCC20484C260061EF21 /* TrophyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyInfo.swift; sourceTree = "<group>"; };
 		19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInfo.swift; sourceTree = "<group>"; };
-		191275DA2111E3D80046AA3E /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		191275DC2111EFE80046AA3E /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		191275EA211206790046AA3E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		191275EC21120B080046AA3E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -340,7 +338,7 @@
 		19B09E30212C5565005EE66D /* TrophyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyResponse.swift; sourceTree = "<group>"; };
 		19B09E32212C556F005EE66D /* AchievementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementResponse.swift; sourceTree = "<group>"; };
 		19B09E34212C5576005EE66D /* TipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipResponse.swift; sourceTree = "<group>"; };
-		19B09E38212C5C4C005EE66D /* PlaylistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistResponse.swift; sourceTree = "<group>"; };
+		19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteResponse.swift; sourceTree = "<group>"; };
 		19B5F9B8204A489800E12EC1 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660251F960E5800CCEFB5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
-				191275DA2111E3D80046AA3E /* ActivityIndicatorView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -475,9 +472,9 @@
 		1939C971212BFF1000A6F8E3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1950D884212D6F92004ED086 /* Language.swift */,
 				1939C972212BFF1900A6F8E3 /* Network.swift */,
 				1939C974212C004D00A6F8E3 /* API.swift */,
+				1950D884212D6F92004ED086 /* Language.swift */,
 				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
 				1939C96F212BFD9200A6F8E3 /* UserResponse.swift */,
 				19B09E2C212C555A005EE66D /* SongResponse.swift */,
@@ -485,7 +482,7 @@
 				19B09E30212C5565005EE66D /* TrophyResponse.swift */,
 				19B09E32212C556F005EE66D /* AchievementResponse.swift */,
 				19B09E34212C5576005EE66D /* TipResponse.swift */,
-				19B09E38212C5C4C005EE66D /* PlaylistResponse.swift */,
+				19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -522,6 +519,7 @@
 		19B6CFEA1F7953640097B86B /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
+				19E9CA012133CC610032EF3F /* Deprecated */,
 				1939C971212BFF1000A6F8E3 /* Network */,
 				191275DE2111F7150046AA3E /* Constants */,
 				19012FAA204808010061EF21 /* Model */,
@@ -938,6 +936,13 @@
 			path = SkillLevelDetail;
 			sourceTree = "<group>";
 		};
+		19E9CA012133CC610032EF3F /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1134,7 +1139,6 @@
 				191A8B7E20E4FC930064F93E /* UIAlertController+.swift in Sources */,
 				198B6C5A2114244B0058DE49 /* Notification.Name+.swift in Sources */,
 				198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */,
-				191275DB2111E3D80046AA3E /* ActivityIndicatorView.swift in Sources */,
 				194E52A6204A8F7B00B84AFA /* SongAllTableViewController.swift in Sources */,
 				193E4029204C237B0063A440 /* RankingViewController.swift in Sources */,
 				197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */,
@@ -1258,7 +1262,7 @@
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,
 				192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */,
 				194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */,
-				19B09E39212C5C4C005EE66D /* PlaylistResponse.swift in Sources */,
+				19B09E39212C5C4C005EE66D /* FavoriteResponse.swift in Sources */,
 				1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,6 @@ import Foundation
 
 struct RankingResponse: Codable {
     struct Ranking: Codable {
-        let _id: String
         let uid: String
         let userId: String
         let button4: Double

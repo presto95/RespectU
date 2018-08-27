@@ -10,10 +10,10 @@ import UIKit
 import XLPagerTabStrip
 
 class AchievementMusicTableViewController: AchievementBaseTableViewController {
-    
-    override func viewDidLoad() {
-        self.results = AchievementInfo.get().filter(key: "type", value: Achievement.music, method: FilterOperator.like)
-        super.viewDidLoad()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        API.fetchAchievements(of: "music")
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -21,11 +21,11 @@ class AchievementMusicTableViewController: AchievementBaseTableViewController {
         var rowIndex = 0
         if indexPath.section > 0 {
             for i in 1...indexPath.section {
-                rowIndex += stageCount[i - 1]
+                rowIndex += stages[i - 1]
             }
         }
         rowIndex += indexPath.row
-        let object = results[rowIndex]
+        let object = self.results?[rowIndex]
         cell.setProperties(object)
         return cell
     }

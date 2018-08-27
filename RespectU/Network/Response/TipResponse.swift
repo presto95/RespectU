@@ -11,4 +11,10 @@ struct TipResponse: Codable {
         let title: Language
     }
     let tip: [Tip]
+    var count: Int {
+        return tip.count
+    }
+    subscript(index: Int) -> Tip {
+        return tip[index]
+    }
 }

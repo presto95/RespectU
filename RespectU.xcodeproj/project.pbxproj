@@ -100,6 +100,7 @@
 		194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */; };
 		194E52B7204AC55900B84AFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B5204AC55900B84AFA /* SongCell.swift */; };
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
+		1950AC3B2133F392006DF64B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950AC3A2133F392006DF64B /* Tip.swift */; };
 		1950D885212D6F92004ED086 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950D884212D6F92004ED086 /* Language.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
@@ -286,6 +287,7 @@
 		194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFavoriteTableViewController.swift; sourceTree = "<group>"; };
 		194E52B5204AC55900B84AFA /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
+		1950AC3A2133F392006DF64B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		1950D884212D6F92004ED086 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
@@ -435,10 +437,10 @@
 				1968185220490D300007F4D7 /* UIColor+.swift */,
 				193E4016204C03C50063A440 /* UIView+.swift */,
 				191A8B7D20E4FC930064F93E /* UIAlertController+.swift */,
+				1928D5FC211824DF00F7901F /* UITableViewCell+.swift */,
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
 				198B6C592114244B0058DE49 /* Notification.Name+.swift */,
-				1928D5FC211824DF00F7901F /* UITableViewCell+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -474,17 +476,17 @@
 			children = (
 				1939C972212BFF1900A6F8E3 /* Network.swift */,
 				1939C974212C004D00A6F8E3 /* API.swift */,
-				1950D884212D6F92004ED086 /* Language.swift */,
-				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
-				1939C96F212BFD9200A6F8E3 /* UserResponse.swift */,
-				19B09E2C212C555A005EE66D /* SongResponse.swift */,
-				19B09E2E212C555F005EE66D /* MissionResponse.swift */,
-				19B09E30212C5565005EE66D /* TrophyResponse.swift */,
-				19B09E32212C556F005EE66D /* AchievementResponse.swift */,
-				19B09E34212C5576005EE66D /* TipResponse.swift */,
-				19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */,
+				19A258182133FAD700C3A3AC /* Response */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		1950AC392133F26B006DF64B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1950AC3A2133F392006DF64B /* Tip.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
@@ -496,6 +498,22 @@
 				35C82758ABE7A6568499A7F2 /* Pods_RespectU.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		19A258182133FAD700C3A3AC /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				1950D884212D6F92004ED086 /* Language.swift */,
+				19B09E2C212C555A005EE66D /* SongResponse.swift */,
+				19B09E2E212C555F005EE66D /* MissionResponse.swift */,
+				19B09E30212C5565005EE66D /* TrophyResponse.swift */,
+				19B09E32212C556F005EE66D /* AchievementResponse.swift */,
+				19B09E34212C5576005EE66D /* TipResponse.swift */,
+				19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */,
+				1939C96F212BFD9200A6F8E3 /* UserResponse.swift */,
+				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		19B6CFDF1F7953640097B86B = {
@@ -522,7 +540,7 @@
 				19E9CA012133CC610032EF3F /* Deprecated */,
 				1939C971212BFF1000A6F8E3 /* Network */,
 				191275DE2111F7150046AA3E /* Constants */,
-				19012FAA204808010061EF21 /* Model */,
+				1950AC392133F26B006DF64B /* Model */,
 				191275EE21120B380046AA3E /* Base */,
 				19E767CC20EE51A5008C9F9D /* Start */,
 				19E767B420EE49B4008C9F9D /* Performance */,
@@ -939,6 +957,7 @@
 		19E9CA012133CC610032EF3F /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				19012FAA204808010061EF21 /* Model */,
 			);
 			path = Deprecated;
 			sourceTree = "<group>";
@@ -1168,6 +1187,7 @@
 				19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */,
 				19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */,
 				191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */,
+				1950AC3B2133F392006DF64B /* Tip.swift in Sources */,
 				19892A8820662F83009D01F8 /* SearchByLevelView.swift in Sources */,
 				193E403D204C2FB90063A440 /* ERProgressHud.swift in Sources */,
 				19320FBC204942390075BD86 /* AchievementMusicTableViewController.swift in Sources */,

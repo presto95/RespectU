@@ -29,14 +29,14 @@ class PerformanceViewController: UIViewController {
             guard let loginViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
             self.present(loginViewController, animated: true)
         }
-        if #available(iOS 10.3, *) {
-            let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
-            UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
-            if UserDefaults.standard.integer(forKey: "appOpenCount") % 3 == 0 {
-                SKStoreReviewController.requestReview()
-                
-            }
-        }
+//        if #available(iOS 10.3, *) {
+//            let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
+//            UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
+//            if UserDefaults.standard.integer(forKey: "appOpenCount") % 3 == 0 {
+//                SKStoreReviewController.requestReview()
+//                
+//            }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

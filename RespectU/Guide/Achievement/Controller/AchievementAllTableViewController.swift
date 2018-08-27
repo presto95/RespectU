@@ -11,9 +11,9 @@ import XLPagerTabStrip
 
 class AchievementAllTableViewController: AchievementBaseTableViewController {
     
-    override func viewDidLoad() {
-        self.results = AchievementInfo.get()
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        API.fetchAchievements()
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -21,11 +21,11 @@ class AchievementAllTableViewController: AchievementBaseTableViewController {
         var rowIndex = 0
         if indexPath.section > 0 {
             for i in 1...indexPath.section {
-                rowIndex += stageCount[i - 1]
+                rowIndex += stages[i - 1]
             }
         }
         rowIndex += indexPath.row
-        let object = results[rowIndex]
+        let object = self.results?[rowIndex]
         cell.setProperties(object, isAll: true)
         return cell
     }

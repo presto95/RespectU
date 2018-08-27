@@ -15,4 +15,7 @@ extension NSObject {
     static var classNameToString: String {
         return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
     }
+    var regionCode: String {
+        return Locale.current.regionCode ?? ""
+    }
 }

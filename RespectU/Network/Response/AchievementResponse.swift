@@ -14,4 +14,10 @@ struct AchievementResponse: Codable {
         let item: Language
     }
     let achievement: [Achievement]
+    var count: Int {
+        return achievement.count
+    }
+    subscript(index: Int) -> Achievement {
+        return achievement[index]
+    }
 }

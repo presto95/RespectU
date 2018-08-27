@@ -63,8 +63,8 @@ extension API {
 
 //MARK:- Achievement
 extension API {
-    static func fetchAchievement(of series: String = "") {
-        Network.get("\(baseUrl)/achievements/\(series)", successHandler: { (data) in
+    static func fetchAchievements(of type: String = "") {
+        Network.get("\(baseUrl)/achievements/\(type)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(AchievementResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveAchievements, object: nil, userInfo: ["achievements": results])

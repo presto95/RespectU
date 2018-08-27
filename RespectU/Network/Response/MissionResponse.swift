@@ -31,4 +31,10 @@ struct MissionResponse: Codable {
         let song6: Stage?
     }
     let mission: [Mission]
+    var count: Int {
+        return mission.count
+    }
+    subscript(index: Int) -> Mission {
+        return mission[index]
+    }
 }

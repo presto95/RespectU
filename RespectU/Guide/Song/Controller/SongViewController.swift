@@ -92,8 +92,8 @@ class SongViewController: BaseViewController {
         let myBPM = UserDefaults.standard.double(forKey: "bpm")
         let random = Int(arc4random_uniform(UInt32(results.count - 1)))
         let object = results[random]
-        let recommendedSpeed = getRecommendedSpeed(speed: myBPM / object.bpm.bpmToDouble)
-        let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
+        let speed = recommendedSpeed(by: myBPM / object.bpm.bpmToDouble)
+        let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
         UIAlertController
             .alert(title: object.title, message: message)
             .defaultAction(title: "OK".localized)

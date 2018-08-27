@@ -22,9 +22,14 @@ class AchievementCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: AchievementInfo, isAll: Bool = false) {
-        self.stageLabel.text = "\(object.level)"
-        self.itemLabel.text = object.item
-        self.typeLabel.text = isAll ? object.type : nil
+    func setProperties(_ object: AchievementResponse.Achievement?, isAll: Bool = false) {
+        let item = object?.item
+        self.stageLabel.text = "\(object?.level ?? 0)"
+        if regionCode == "KR", let korean = item?.korean {
+            self.itemLabel.text = korean
+        } else {
+            self.itemLabel.text = item?.english
+        }
+        self.typeLabel.text = isAll ? object?.type.uppercased() : nil
     }
 }

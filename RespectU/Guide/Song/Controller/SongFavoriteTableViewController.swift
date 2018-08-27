@@ -37,8 +37,8 @@ class SongFavoriteTableViewController: SongBaseTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let object = self.playlistResults[indexPath.row]
-        let recommendedSpeed = getRecommendedSpeed(speed: myBPM / object.bpm.bpmToDouble)
-        let message = "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
+        let speed = recommendedSpeed(by: myBPM / object.bpm.bpmToDouble)
+        let message = "SPEED Recommendation".localized + "\n\(speed)"
         UIAlertController
             .alert(title: object.title, message: message)
             .destructiveAction(title: "Remove".localized) { [unowned self] action in

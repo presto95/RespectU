@@ -43,18 +43,3 @@ class RankingBaseTableViewController: BaseTableViewController {
         }
     }
 }
-
-extension RankingBaseTableViewController {
-    func showIndicator() {
-        DispatchQueue.main.async {
-            ERProgressHud.show()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        }
-    }
-    func hideIndicator() {
-        DispatchQueue.main.async {
-            ERProgressHud.hide()
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
-    }
-}

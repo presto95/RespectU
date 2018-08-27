@@ -15,4 +15,10 @@ struct TrophyResponse: Codable {
         let content: Language
     }
     let trophy: [Trophy]
+    var count: Int {
+        return trophy.count
+    }
+    subscript(index: Int) -> Trophy {
+        return trophy[index]
+    }
 }

@@ -188,15 +188,15 @@ extension MissionDetailViewController {
                 break
             }
         }
-        let recommendedSpeed: String = { () -> String in
+        let speed: String = { () -> String in
             if bpm != 0 {
-                return getRecommendedSpeed(speed: myBPM / bpm)
+                return recommendedSpeed(by: myBPM / bpm)
             } else {
                 return "??"
             }
         }()
         let difficultyString = level == 0 ? "??" : "\(level)"
-        let message = "\(button) \(difficulty)\n\n" + "Difficulty".localized + "\n\(difficultyString)\n\n" + "SPEED Recommendation".localized + "\n\(recommendedSpeed)"
+        let message = "\(button) \(difficulty)\n\n" + "Difficulty".localized + "\n\(difficultyString)\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
         UIAlertController
             .alert(title: title, message: message)
             .defaultAction(title: "OK".localized)

@@ -11,46 +11,72 @@ import RealmSwift
 
 class AchievementBaseTableViewController: BaseTableViewController {
 
-    var results: Results<AchievementInfo>!
-    var stageCount = [Int]()
+    var results: AchievementResponse?
+    var stages = [Int]()
     let cellIdentifier = "achievementCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 40
+        tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveAchievements(_:)), name: .didReceiveAchievements, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showIndicator()
+    }
+    
+    @objc func didReceiveAchievements(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["achievements"] as? AchievementResponse else { return }
+        self.results = userInfo
+        generateStageCounts()
+        DispatchQueue.main.async { [weak self] in
+            self?.hideIndicator()
+            self?.tableView.reloadData()
+        }
+    }
+}
+
+extension AchievementBaseTableViewController {
+    func generateStageCounts() {
+        guard let results = self.results else { return }
+        self.stages.removeAll()
         var count = 0
         var tempTitle = ""
         var isFirst = true
-        for item in results {
-            if tempTitle != item.title {
-                tempTitle = item.title
+        for item in results.achievement {
+            if tempTitle != item.section.english {
+                tempTitle = item.section.english
                 if isFirst {
                     isFirst = false
                 } else {
-                    stageCount.append(count)
+                    stages.append(count)
                     count = 0
                 }
             }
             count += 1
         }
-        stageCount.append(count)
-        self.tableView.rowHeight = 40
-        tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        stages.append(count)
     }
+}
 
+extension AchievementBaseTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stageCount[section]
+        return self.stages[section]
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return stageCount.count
+        return self.stages.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var index = 0
         for i in 0...section {
-            index += stageCount[i]
+            index += stages[i]
         }
-        return results[index - 1].title.localized
+        let sectionTitle = self.results?[index - 1].section
+        return regionCode == "KR" ? sectionTitle?.korean : sectionTitle?.english
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

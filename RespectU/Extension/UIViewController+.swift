@@ -14,7 +14,7 @@ extension UIViewController {
         return viewController
     }
     
-    func getRecommendedSpeed(speed: Double) -> String {
+    func recommendedSpeed(by speed: Double) -> String {
         switch speed {
         case ..<0.50:
             return "0.50"
@@ -58,6 +58,20 @@ extension UIViewController {
             return "5.00"
         default:
             return ""
+        }
+    }
+    
+    func showIndicator() {
+        DispatchQueue.main.async {
+            ERProgressHud.show()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        }
+    }
+    
+    func hideIndicator() {
+        DispatchQueue.main.async {
+            ERProgressHud.hide()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 }

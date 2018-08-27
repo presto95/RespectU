@@ -9,7 +9,6 @@
 import RealmSwift
 
 extension Results {
-    
     @discardableResult
     func filter(key: String, value: String, method: String) -> Results {
         return self.filter("\(key) \(method) '\(value)'")

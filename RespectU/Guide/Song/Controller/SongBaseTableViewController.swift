@@ -36,7 +36,7 @@ class SongBaseTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let object = self.songResults[indexPath.row]
-        let recommendedSpeed = getRecommendedSpeed(speed: myBPM / object.bpm.bpmToDouble)
+        let speed = recommendedSpeed(by: myBPM / object.bpm.bpmToDouble)
         let unlockAchievement = "Unlock (ACHIEVEMENT)".localized
         let unlockMission = "Unlock (MISSION)".localized
         var unlockInfo = ""
@@ -53,7 +53,7 @@ class SongBaseTableViewController: BaseTableViewController {
                 break
             }
         }
-        let message = "SPEED Recommendation".localized + "\n\(recommendedSpeed)" + unlockInfo
+        let message = "SPEED Recommendation".localized + "\n\(speed)" + unlockInfo
         UIAlertController
             .alert(title: object.title, message: message)
             .defaultAction(title: "Add to Favorite".localized) { action in

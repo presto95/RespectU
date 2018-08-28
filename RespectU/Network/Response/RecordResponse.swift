@@ -6,6 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import Foundation
+
 struct RecordResponse: Codable {
     struct Record: Codable {
         struct Button: Codable {
@@ -27,6 +29,13 @@ struct RecordResponse: Codable {
         let button5: Button
         let button6: Button
         let button8: Button
+        var localizedTitle: String {
+            if Locale.current.regionCode == "KR", let korean = title.korean {
+                return korean
+            } else {
+                return title.english
+            }
+        }
     }
     let uid: String
     let records: [Record]

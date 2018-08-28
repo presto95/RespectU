@@ -16,13 +16,16 @@ class RecordBaseTableViewController: BaseTableViewController {
         return parent
     }
     let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
-    var results: Results<RecordInfo>!
+    var songResults: SongResponse?
     var recordView: RecordView!
     let cellIdentifier = "recordCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showIndicator()
         self.tableView.register(UINib(nibName: "RecordCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSongs(_:)), name: .errorReceiveSongs, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -34,12 +37,33 @@ class RecordBaseTableViewController: BaseTableViewController {
         super.viewDidAppear(animated)
         dismissRecordViewIfExists()
     }
+    
+    @objc func didReceiveSongs(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
+        self.songResults = userInfo
+        DispatchQueue.main.async { [weak self] in
+            self?.hideIndicator()
+            self?.tableView.reloadData()
+        }
+        NotificationCenter.default.removeObserver(self, name: .didReceiveSongs, object: nil)
+    }
+    
+    @objc func errorReceiveSongs(_ notification: Notification) {
+        guard let error = notification.userInfo?["error"] as? String else { return }
+        UIAlertController
+            .alert(title: "", message: error)
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.hideIndicator()
+                self?.parent?.dismiss(animated: true, completion: nil)
+            }
+            .present(to: self)
+    }
 }
 
 extension RecordBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecordCell else { return UITableViewCell() }
-        let object = self.results[indexPath.row]
+        guard let object = self.songResults?[indexPath.row] else { return UITableViewCell() }
         cell.setProperties(object)
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             if selectedIndexPath == indexPath {
@@ -52,13 +76,13 @@ extension RecordBaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.results.count
+        return self.songResults?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
         dismissRecordViewIfExists()
-        let object = self.results[indexPath.row]
+        guard let object = self.songResults?[indexPath.row] else { return }
         cell.setColorsInSong(object.series, labels: cell.labels)
         self.recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView
         self.recordView.delegate = self
@@ -77,7 +101,7 @@ extension RecordBaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-        let object = results[indexPath.row]
+        guard let object = self.songResults?[indexPath.row] else { return }
         cell.setColorsInSong(object.series, labels: cell.labels)
         
     }
@@ -404,13 +428,13 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     func touchUpTypeButton(_ sender: UIButton) {
         let button = sender.title(for: .normal) ?? Buttons.button4
         guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        let object = self.results[selectedIndexPath.row]
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
         recordView.changeButton(object, button: button)
     }
     
     func presentRankAlert(difficulty: String, button: String) {
         guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        let object = self.results[selectedIndexPath.row]
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
         UIAlertController
             .alert(title: "Rank".localized, message: "Select your rank.".localized)
             .defaultAction(title: Rank.none) { [unowned self] action in
@@ -439,7 +463,7 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     
     func presentRateAlert(difficulty: String, button: String) {
         guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        let object = self.results[selectedIndexPath.row]
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
         let alert = UIAlertController
             .alert(title: "Rate".localized, message: "Input your rate.\nTo reset the value, do not enter any values.".localized)
         alert.textField { textField in
@@ -547,7 +571,7 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     
     func presentNoteAlert(difficulty: String, button: String) {
         guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        let object = self.results[selectedIndexPath.row]
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
         UIAlertController
             .alert(title: "Note".localized, message: "Select your note.".localized)
             .defaultAction(title: Note.none) { [unowned self] action in

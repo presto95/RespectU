@@ -26,8 +26,9 @@ class RecordCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: RecordInfo) {
-        self.titleLabel.text = object.title
+    func setProperties(_ object: SongResponse.Song?) {
+        guard let object = object else { return }
         self.colorLabel.backgroundColor = object.series.seriesColor
+        self.titleLabel.text = object.localizedTitle
     }
 }

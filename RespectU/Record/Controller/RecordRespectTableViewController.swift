@@ -13,7 +13,7 @@ class RecordRespectTableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = RecordInfo.get().filter(key: "series", value: Series.respect, method: FilterOperator.equal).sorted(byKeyPath: "lowercase")
+        API.fetchSongs(of: "respect")
     }
 }
 

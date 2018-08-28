@@ -13,7 +13,7 @@ class RecordCETableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = RecordInfo.get().filter(key: "series", value: Series.ce, method: FilterOperator.equal).sorted(byKeyPath: "lowercase")
+        API.fetchSongs(of: "ce")
     }
 }
 

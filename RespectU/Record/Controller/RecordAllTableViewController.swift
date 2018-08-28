@@ -13,7 +13,7 @@ class RecordAllTableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = RecordInfo.get().sorted(byKeyPath: "lowercase")
+        API.fetchSongs()
     }
 }
 

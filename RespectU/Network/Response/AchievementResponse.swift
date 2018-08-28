@@ -29,11 +29,11 @@ struct AchievementResponse: Codable {
             }
         }
     }
-    let achievement: [Achievement]
+    let achievements: [Achievement]
     var count: Int {
-        return achievement.count
+        return achievements.count
     }
     subscript(index: Int) -> Achievement {
-        return achievement[index]
+        return achievements[index]
     }
 }

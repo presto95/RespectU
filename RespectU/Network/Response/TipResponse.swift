@@ -19,11 +19,11 @@ struct TipResponse: Codable {
             }
         }
     }
-    let tip: [Tip]
+    let tips: [Tip]
     var count: Int {
-        return tip.count
+        return tips.count
     }
     subscript(index: Int) -> Tip {
-        return tip[index]
+        return tips[index]
     }
 }

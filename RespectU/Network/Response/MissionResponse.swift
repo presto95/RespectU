@@ -46,11 +46,11 @@ struct MissionResponse: Codable {
             }
         }
     }
-    let mission: [Mission]
+    let missions: [Mission]
     var count: Int {
-        return mission.count
+        return missions.count
     }
     subscript(index: Int) -> Mission {
-        return mission[index]
+        return missions[index]
     }
 }

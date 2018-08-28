@@ -34,7 +34,9 @@ class RecordBaseTableViewController: BaseTableViewController {
         super.viewDidAppear(animated)
         dismissRecordViewIfExists()
     }
-    
+}
+
+extension RecordBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RecordCell else { return UITableViewCell() }
         let object = self.results[indexPath.row]
@@ -378,7 +380,9 @@ extension RecordBaseTableViewController {
             break
         }
     }
-    
+}
+
+extension RecordBaseTableViewController {
     private func dismissRecordViewIfExists() {
         let lastSubview = recordViewController.view.subviews.last
         if lastSubview is RecordView {

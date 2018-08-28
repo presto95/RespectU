@@ -36,7 +36,7 @@ class SongBaseTableViewController: BaseTableViewController {
     
     @objc func didReceiveSongs(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
-        let sorted = userInfo.song.sorted { $0.localizedLowercase < $1.localizedLowercase }
+        let sorted = userInfo.songs.sorted { $0.localizedLowercase < $1.localizedLowercase }
         self.songResults = sorted
         DispatchQueue.main.async { [weak self] in
             self?.hideIndicator()

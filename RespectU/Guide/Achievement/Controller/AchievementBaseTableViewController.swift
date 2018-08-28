@@ -54,7 +54,7 @@ extension AchievementBaseTableViewController {
         var count = 0
         var tempTitle = ""
         var isFirst = true
-        for item in results.achievement {
+        for item in results.achievements {
             if tempTitle != item.section.english {
                 tempTitle = item.section.english
                 if isFirst {

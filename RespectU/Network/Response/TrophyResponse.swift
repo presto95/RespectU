@@ -30,11 +30,11 @@ struct TrophyResponse: Codable {
             }
         }
     }
-    let trophy: [Trophy]
+    let trophies: [Trophy]
     var count: Int {
-        return trophy.count
+        return trophies.count
     }
     subscript(index: Int) -> Trophy {
-        return trophy[index]
+        return trophies[index]
     }
 }

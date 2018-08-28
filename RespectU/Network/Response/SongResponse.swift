@@ -47,11 +47,11 @@ struct SongResponse: Codable {
             }
         }
     }
-    let song: [Song]
+    let songs: [Song]
     var count: Int {
-        return song.count
+        return songs.count
     }
     subscript(index: Int) -> Song {
-        return song[index]
+        return songs[index]
     }
 }

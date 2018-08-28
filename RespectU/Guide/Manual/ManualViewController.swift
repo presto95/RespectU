@@ -15,8 +15,8 @@ class ManualViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "http://djmaxrespect.com/manual.html")
-        let request = URLRequest(url: url!)
+        guard let url = URL(string: "http://djmaxrespect.com/manual.html") else { return }
+        let request = URLRequest(url: url)
         webView.load(request)
     }
     

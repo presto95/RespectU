@@ -22,7 +22,7 @@ class RecordView: UIView {
     var delegate: RecordViewDelegate?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
-    @IBOutlet weak var typeButton: UIButton!
+    @IBOutlet weak var buttonButton: UIButton!
     @IBOutlet weak var normalRankButton: UIButton!
     @IBOutlet weak var normalRateButton: UIButton!
     @IBOutlet weak var normalNoteButton: UIButton!
@@ -37,6 +37,18 @@ class RecordView: UIView {
     @IBOutlet weak var hardLabel: UILabel!
     @IBOutlet weak var maximumLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
+    var levelLabels: [UILabel] {
+        return [normalLabel, hardLabel, maximumLabel]
+    }
+    var normalButtons: [UIButton] {
+        return [normalRankButton, normalRateButton, normalNoteButton]
+    }
+    var hardButtons: [UIButton] {
+        return [hardRankButton, hardRateButton, hardNoteButton]
+    }
+    var maximumButtons: [UIButton] {
+        return [maximumRankButton, maximumRateButton, maximumNoteButton]
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,7 +60,7 @@ class RecordView: UIView {
     }
     
     @IBAction func touchUpOtherButtons(_ sender: UIButton) {
-        let button = typeButton.titleLabel?.text ?? "4B"
+        let button = buttonButton.titleLabel?.text ?? "4B"
         switch sender.tag {
         case 0:
             delegate?.presentRankAlert(difficulty: Difficulty.normal, button: button)
@@ -86,16 +98,16 @@ extension RecordView {
     func changeButton(_ object: RecordInfo, button: String) {
         switch button {
         case Buttons.button4:
-            self.typeButton.setTitle(Buttons.button5, for: .normal)
+            self.buttonButton.setTitle(Buttons.button5, for: .normal)
             reloadButtonsAndLabels(object, button: Buttons.button5)
         case Buttons.button5:
-            self.typeButton.setTitle(Buttons.button6, for: .normal)
+            self.buttonButton.setTitle(Buttons.button6, for: .normal)
             reloadButtonsAndLabels(object, button: Buttons.button6)
         case Buttons.button6:
-            self.typeButton.setTitle(Buttons.button8, for: .normal)
+            self.buttonButton.setTitle(Buttons.button8, for: .normal)
             reloadButtonsAndLabels(object, button: Buttons.button8)
         case Buttons.button8:
-            self.typeButton.setTitle(Buttons.button4, for: .normal)
+            self.buttonButton.setTitle(Buttons.button4, for: .normal)
             reloadButtonsAndLabels(object, button: Buttons.button4)
         default:
             break
@@ -108,7 +120,7 @@ extension RecordView {
     }
     
     func reloadButtonsAndLabels(_ object: RecordInfo, button: String) {
-        self.typeButton.setTitle(button, for: .normal)
+        self.buttonButton.setTitle(button, for: .normal)
         self.titleLabel.text = object.title
         let normalButtons = [normalRankButton, normalRateButton, normalNoteButton]
         let hardButtons = [hardRankButton, hardRateButton, hardNoteButton]

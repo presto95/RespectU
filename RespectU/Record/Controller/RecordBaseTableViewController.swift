@@ -112,6 +112,180 @@ extension RecordBaseTableViewController {
     }
 }
 
+extension RecordBaseTableViewController: RecordViewDelegate {
+    func touchUpTypeButton(_ sender: UIButton) {
+        let button = sender.title(for: .normal) ?? Buttons.button4
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
+        recordView.changeButton(object, button: button)
+    }
+    
+    func presentRankAlert(difficulty: String, button: String) {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
+        UIAlertController
+            .alert(title: "Rank".localized, message: "Select your rank.".localized)
+            .defaultAction(title: Rank.none) { [unowned self] action in
+                self.setRank(object, rank: Rank.none, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .defaultAction(title: Rank.s) { [unowned self] action in
+                self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .defaultAction(title: Rank.a) { [unowned self] action in
+                self.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .defaultAction(title: Rank.b) { [unowned self] action in
+                self.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .defaultAction(title: Rank.c) { [unowned self] action in
+                self.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .cancelAction(title: "Cancel".localized)
+            .present(to: self)
+    }
+    
+    func presentRateAlert(difficulty: String, button: String) {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
+        let alert = UIAlertController
+            .alert(title: "Rate".localized, message: "Input your rate.\nTo reset the value, do not enter any values.".localized)
+        alert.textField { textField in
+            textField.keyboardType = .decimalPad
+            textField.placeholder = "Rate".localized
+            }
+            .defaultAction(title: "OK".localized) { [unowned self] action in
+                let input = alert.textFields?.first?.text ?? ""
+                if input.isEmpty {
+                    self.setRate(object, rate: "", difficulty: difficulty, button: button)
+                } else {
+                    guard let value = Double(input) else { return }
+                    let rate = value >= 100 ? "\(100.00)" : input
+                    self.setRate(object, rate: rate, difficulty: difficulty, button: button)
+                    switch value {
+                    case 98...100:
+                        self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
+                    case 95..<98:
+                        self.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
+                    case 90..<95:
+                        self.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
+                    case 0..<90:
+                        self.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
+                    default:
+                        break
+                    }
+                }
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+                switch button {
+                case Buttons.button4:
+                    switch difficulty {
+                    case Difficulty.normal:
+                        if object.nm4Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.hard:
+                        if object.hd4Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.maximum:
+                        if object.mx4Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    default:
+                        break
+                    }
+                case Buttons.button5:
+                    switch difficulty {
+                    case Difficulty.normal:
+                        if object.nm5Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.hard:
+                        if object.hd5Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.maximum:
+                        if object.mx5Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    default:
+                        break
+                    }
+                case Buttons.button6:
+                    switch difficulty {
+                    case Difficulty.normal:
+                        if object.nm6Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.hard:
+                        if object.hd6Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.maximum:
+                        if object.mx6Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    default:
+                        break
+                    }
+                case Buttons.button8:
+                    switch difficulty {
+                    case Difficulty.normal:
+                        if object.nm8Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.hard:
+                        if object.hd8Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    case Difficulty.maximum:
+                        if object.mx8Note != Note.maxCombo {
+                            self.presentNoteAlert(difficulty: difficulty, button: button)
+                        }
+                    default:
+                        break
+                    }
+                default:
+                    break
+                }
+            }
+            .cancelAction(title: "Cancel".localized)
+            .present(to: self)
+    }
+    
+    func presentNoteAlert(difficulty: String, button: String) {
+        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+        guard let object = self.songResults?[selectedIndexPath.row] else { return }
+        UIAlertController
+            .alert(title: "Note".localized, message: "Select your note.".localized)
+            .defaultAction(title: Note.none) { [unowned self] action in
+                self.setNote(object, note: Note.none, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .defaultAction(title: Note.maxCombo) { [unowned self] action in
+                self.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .defaultAction(title: Note.perfectPlay) { [unowned self] action in
+                self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
+                self.setRate(object, rate: "100", difficulty: difficulty, button: button)
+                self.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)
+                self.recordView.reloadButtonsAndLabels(object, button: button)
+            }
+            .cancelAction(title: "Cancel".localized)
+            .present(to: self)
+    }
+    
+    func touchUpCancelButton() {
+        dismissRecordViewIfExists()
+        deselectTableViewIfSelected()
+    }
+}
+
 extension RecordBaseTableViewController {
     func setRank(_ object: RecordInfo, rank: String, difficulty: String, button: String) {
         let key: String = {
@@ -424,176 +598,3 @@ extension RecordBaseTableViewController {
     }
 }
 
-extension RecordBaseTableViewController: RecordViewDelegate {
-    func touchUpTypeButton(_ sender: UIButton) {
-        let button = sender.title(for: .normal) ?? Buttons.button4
-        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        guard let object = self.songResults?[selectedIndexPath.row] else { return }
-        recordView.changeButton(object, button: button)
-    }
-    
-    func presentRankAlert(difficulty: String, button: String) {
-        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        guard let object = self.songResults?[selectedIndexPath.row] else { return }
-        UIAlertController
-            .alert(title: "Rank".localized, message: "Select your rank.".localized)
-            .defaultAction(title: Rank.none) { [unowned self] action in
-                self.setRank(object, rank: Rank.none, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .defaultAction(title: Rank.s) { [unowned self] action in
-                self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .defaultAction(title: Rank.a) { [unowned self] action in
-                self.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .defaultAction(title: Rank.b) { [unowned self] action in
-                self.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .defaultAction(title: Rank.c) { [unowned self] action in
-                self.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .cancelAction(title: "Cancel".localized)
-            .present(to: self)
-    }
-    
-    func presentRateAlert(difficulty: String, button: String) {
-        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        guard let object = self.songResults?[selectedIndexPath.row] else { return }
-        let alert = UIAlertController
-            .alert(title: "Rate".localized, message: "Input your rate.\nTo reset the value, do not enter any values.".localized)
-        alert.textField { textField in
-            textField.keyboardType = .decimalPad
-            textField.placeholder = "Rate".localized
-        }
-            .defaultAction(title: "OK".localized) { [unowned self] action in
-                let input = alert.textFields?.first?.text ?? ""
-                if input.isEmpty {
-                    self.setRate(object, rate: "", difficulty: difficulty, button: button)
-                } else {
-                    guard let value = Double(input) else { return }
-                    let rate = value >= 100 ? "\(100.00)" : input
-                    self.setRate(object, rate: rate, difficulty: difficulty, button: button)
-                    switch value {
-                    case 98...100:
-                        self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
-                    case 95..<98:
-                        self.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
-                    case 90..<95:
-                        self.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
-                    case 0..<90:
-                        self.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
-                    default:
-                        break
-                    }
-                }
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-                switch button {
-                case Buttons.button4:
-                    switch difficulty {
-                    case Difficulty.normal:
-                        if object.nm4Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.hard:
-                        if object.hd4Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.maximum:
-                        if object.mx4Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    default:
-                        break
-                    }
-                case Buttons.button5:
-                    switch difficulty {
-                    case Difficulty.normal:
-                        if object.nm5Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.hard:
-                        if object.hd5Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.maximum:
-                        if object.mx5Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    default:
-                        break
-                    }
-                case Buttons.button6:
-                    switch difficulty {
-                    case Difficulty.normal:
-                        if object.nm6Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.hard:
-                        if object.hd6Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.maximum:
-                        if object.mx6Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    default:
-                        break
-                    }
-                case Buttons.button8:
-                    switch difficulty {
-                    case Difficulty.normal:
-                        if object.nm8Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.hard:
-                        if object.hd8Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    case Difficulty.maximum:
-                        if object.mx8Note != Note.maxCombo {
-                            self.presentNoteAlert(difficulty: difficulty, button: button)
-                        }
-                    default:
-                        break
-                    }
-                default:
-                    break
-                }
-            }
-            .cancelAction(title: "Cancel".localized)
-            .present(to: self)
-    }
-    
-    func presentNoteAlert(difficulty: String, button: String) {
-        guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-        guard let object = self.songResults?[selectedIndexPath.row] else { return }
-        UIAlertController
-            .alert(title: "Note".localized, message: "Select your note.".localized)
-            .defaultAction(title: Note.none) { [unowned self] action in
-                self.setNote(object, note: Note.none, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .defaultAction(title: Note.maxCombo) { [unowned self] action in
-                self.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .defaultAction(title: Note.perfectPlay) { [unowned self] action in
-                self.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
-                self.setRate(object, rate: "100", difficulty: difficulty, button: button)
-                self.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)
-                self.recordView.reloadButtonsAndLabels(object, button: button)
-            }
-            .cancelAction(title: "Cancel".localized)
-            .present(to: self)
-    }
-    
-    func touchUpCancelButton() {
-        dismissRecordViewIfExists()
-        deselectTableViewIfSelected()
-    }
-}

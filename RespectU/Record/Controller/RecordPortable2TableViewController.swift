@@ -13,7 +13,7 @@ class RecordPortable2TableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchSongs(of: "portable2")
+        API.requestSongs(of: "portable2")
     }
 }
 

@@ -13,7 +13,7 @@ class AchievementGalleryTableViewController: AchievementBaseTableViewController 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchAchievements(of: "gallery")
+        API.requestAchievements(of: "gallery")
     }
 }
 

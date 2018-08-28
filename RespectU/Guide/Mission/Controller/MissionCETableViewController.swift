@@ -13,7 +13,7 @@ class MissionCETableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchMissions(of: "ce")
+        API.requestMissions(of: "ce")
     }
 }
 

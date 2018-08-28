@@ -13,7 +13,7 @@ class TrophyRespectTableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchTrophies(of: "respect")
+        API.requestTrophies(of: "respect")
     }
 }
 

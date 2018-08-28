@@ -17,7 +17,7 @@ class TipViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchTips()
+        API.requestTips()
         showIndicator()
         setupTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTips), name: .didReceiveTips, object: nil)

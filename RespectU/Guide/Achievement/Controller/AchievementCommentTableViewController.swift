@@ -13,7 +13,7 @@ class AchievementCommentTableViewController: AchievementBaseTableViewController 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchAchievements(of: "comment")
+        API.requestAchievements(of: "comment")
     }
 }
 

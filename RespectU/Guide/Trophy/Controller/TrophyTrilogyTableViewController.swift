@@ -13,7 +13,7 @@ class TrophyTrilogyTableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchTrophies(of: "trilogy")
+        API.requestTrophies(of: "trilogy")
     }
 }
 

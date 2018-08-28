@@ -13,7 +13,7 @@ class SongBSTableViewController: SongBaseTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        API.fetchSongs(of: "bs")
+        API.requestSongs(of: "bs")
     }
 }
 

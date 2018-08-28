@@ -13,7 +13,7 @@ class RecordBSTableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchSongs(of: "bs")
+        API.requestSongs(of: "bs")
     }
 }
 

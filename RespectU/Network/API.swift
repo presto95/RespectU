@@ -15,7 +15,7 @@ class API {
 
 //MARK:- Song
 extension API {
-    static func fetchSongs(of series: String = "") {
+    static func requestSongs(of series: String = "") {
         Network.get("\(baseUrl)/songs/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(SongResponse.self, from: data)
@@ -31,7 +31,7 @@ extension API {
 
 //MARK:- Mission
 extension API {
-    static func fetchMissions(of series: String) {
+    static func requestMissions(of series: String) {
         Network.get("\(baseUrl)/missions/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(MissionResponse.self, from: data)
@@ -47,7 +47,7 @@ extension API {
 
 //MARK:- Trophy
 extension API {
-    static func fetchTrophies(of series: String) {
+    static func requestTrophies(of series: String) {
         Network.get("\(baseUrl)/trophies/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(TrophyResponse.self, from: data)
@@ -63,7 +63,7 @@ extension API {
 
 //MARK:- Achievement
 extension API {
-    static func fetchAchievements(of type: String = "") {
+    static func requestAchievements(of type: String = "") {
         Network.get("\(baseUrl)/achievements/\(type)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(AchievementResponse.self, from: data)
@@ -79,7 +79,7 @@ extension API {
 
 //MARK:- Tip
 extension API {
-    static func fetchTips() {
+    static func requestTips() {
         Network.get("\(baseUrl)/tips", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(TipResponse.self, from: data)

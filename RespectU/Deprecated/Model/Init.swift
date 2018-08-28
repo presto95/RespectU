@@ -1845,7 +1845,7 @@ class Init{
             }
             UserDefaults.standard.set(209, forKey: "version")
         }
-        API.fetchSongs()
+        API.requestSongs()
         print("DATABASE INITIALIZE FINISHED!!")
     }
 }

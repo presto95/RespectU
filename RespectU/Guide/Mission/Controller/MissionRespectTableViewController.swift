@@ -13,7 +13,7 @@ class MissionRespectTableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchMissions(of: "respect")
+        API.requestMissions(of: "respect")
     }
 }
 

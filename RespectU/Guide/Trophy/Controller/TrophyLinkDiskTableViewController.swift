@@ -13,7 +13,7 @@ class TrophyLinkDiskTableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchTrophies(of: "linkdisk")
+        API.requestTrophies(of: "linkdisk")
     }
 }
 

@@ -13,7 +13,7 @@ class AchievementMusicTableViewController: AchievementBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchAchievements(of: "music")
+        API.requestAchievements(of: "music")
     }
 }
 

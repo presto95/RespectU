@@ -13,7 +13,7 @@ class RecordTechnika1TableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.fetchSongs(of: "technika1")
+        API.requestSongs(of: "technika1")
     }
 }
 

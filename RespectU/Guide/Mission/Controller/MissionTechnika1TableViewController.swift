@@ -11,8 +11,8 @@ import XLPagerTabStrip
 
 class MissionTechnika1TableViewController: MissionBaseTableViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         API.fetchMissions(of: "technika1")
     }
 }

@@ -11,8 +11,8 @@ import XLPagerTabStrip
 
 class MissionLinkDiskTableViewController: MissionBaseTableViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         API.fetchMissions(of: "linkdisk")
     }
 }

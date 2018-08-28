@@ -16,14 +16,10 @@ class MissionBaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showIndicator()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "MissionCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMissions(_:)), name: .didReceiveMissions, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.showIndicator()
     }
     
     @objc func didReceiveMissions(_ notification: Notification) {
@@ -33,6 +29,7 @@ class MissionBaseTableViewController: BaseTableViewController {
             self?.hideIndicator()
             self?.tableView.reloadData()
         }
+        NotificationCenter.default.removeObserver(self, name: .didReceiveMissions, object: nil)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,11 +11,13 @@ import XLPagerTabStrip
 
 class AchievementAllTableViewController: AchievementBaseTableViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         API.fetchAchievements()
     }
-   
+}
+
+extension AchievementAllTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return achievementCell(at: indexPath, isAll: true)
     }

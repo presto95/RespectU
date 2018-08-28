@@ -11,8 +11,8 @@ import XLPagerTabStrip
 
 class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         API.fetchTrophies(of: "technika1")
     }
 }

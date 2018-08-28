@@ -17,14 +17,10 @@ class AchievementBaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showIndicator()
         self.tableView.rowHeight = 40
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveAchievements(_:)), name: .didReceiveAchievements, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        showIndicator()
     }
     
     @objc func didReceiveAchievements(_ notification: Notification) {
@@ -35,6 +31,7 @@ class AchievementBaseTableViewController: BaseTableViewController {
             self?.hideIndicator()
             self?.tableView.reloadData()
         }
+        NotificationCenter.default.removeObserver(self, name: .didReceiveAchievements, object: nil)
     }
 }
 

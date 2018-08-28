@@ -11,8 +11,8 @@ import XLPagerTabStrip
 
 class MissionTrilogyTableViewController: MissionBaseTableViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         API.fetchMissions(of: "trilogy")
     }
 }

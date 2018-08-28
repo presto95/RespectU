@@ -31,6 +31,7 @@ class TipViewController: UIViewController {
             self?.tableView.reloadData()
             self?.hideIndicator()
         }
+        NotificationCenter.default.removeObserver(self, name: .didReceiveTips, object: nil)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

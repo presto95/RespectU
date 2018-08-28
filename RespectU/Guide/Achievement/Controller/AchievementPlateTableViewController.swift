@@ -11,8 +11,8 @@ import XLPagerTabStrip
 
 class AchievementPlateTableViewController: AchievementBaseTableViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         API.fetchAchievements(of: "plate")
     }
 }

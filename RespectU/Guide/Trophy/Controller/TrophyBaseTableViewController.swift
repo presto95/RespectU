@@ -17,14 +17,10 @@ class TrophyBaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showIndicator()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "TrophyCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophy(_:)), name: .didReceiveTrophies, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.showIndicator()
     }
     
     @objc func didReceiveTrophy(_ notification: Notification) {
@@ -34,6 +30,7 @@ class TrophyBaseTableViewController: BaseTableViewController {
             self?.hideIndicator()
             self?.tableView.reloadData()
         }
+        NotificationCenter.default.removeObserver(self, name: .didReceiveTrophies, object: nil)
     }
 }
 

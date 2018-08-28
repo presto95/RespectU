@@ -97,7 +97,6 @@
 		194E52AC204A901A00B84AFA /* SongRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */; };
 		194E52AE204A941E00B84AFA /* SongTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */; };
 		194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52AF204A948300B84AFA /* SongCETableViewController.swift */; };
-		194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */; };
 		194E52B7204AC55900B84AFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B5204AC55900B84AFA /* SongCell.swift */; };
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
 		1950AC3B2133F392006DF64B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950AC3A2133F392006DF64B /* Tip.swift */; };
@@ -284,7 +283,6 @@
 		194E52AB204A901A00B84AFA /* SongRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRespectTableViewController.swift; sourceTree = "<group>"; };
 		194E52AD204A941E00B84AFA /* SongTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrilogyTableViewController.swift; sourceTree = "<group>"; };
 		194E52AF204A948300B84AFA /* SongCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCETableViewController.swift; sourceTree = "<group>"; };
-		194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFavoriteTableViewController.swift; sourceTree = "<group>"; };
 		194E52B5204AC55900B84AFA /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
 		1950AC3A2133F392006DF64B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
@@ -630,7 +628,6 @@
 				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
 				197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */,
 				192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */,
-				194E52B1204A94B900B84AFA /* SongFavoriteTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1247,7 +1244,6 @@
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
 				19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */,
-				194E52B2204A94B900B84AFA /* SongFavoriteTableViewController.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
 				1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,

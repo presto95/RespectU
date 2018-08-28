@@ -7,8 +7,8 @@
 //
 
 enum TrophyGrade {
-    static let platinum = "PLATINUM"
-    static let gold = "GOLD"
-    static let silver = "SILVER"
-    static let bronze = "BRONZE"
+    static let platinum = "platinum"
+    static let gold = "gold"
+    static let silver = "silver"
+    static let bronze = "bronze"
 }

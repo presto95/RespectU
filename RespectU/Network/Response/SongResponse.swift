@@ -32,11 +32,18 @@ struct SongResponse: Codable {
                 return title.english
             }
         }
-        var bpmToString: String {
-            if subBpm == 0 {
-                return "\(bpm)"
+        var localizedLowercase: String {
+            if Locale.current.regionCode == "KR", let korean = lowercase.korean {
+                return korean
             } else {
-                return "\(bpm) ~ \(subBpm ?? 0)"
+                return lowercase.english
+            }
+        }
+        var bpmToString: String {
+            if let subBpm = subBpm {
+                return "BPM \(bpm) ~ \(subBpm)"
+            } else {
+                return "BPM \(bpm)"
             }
         }
     }

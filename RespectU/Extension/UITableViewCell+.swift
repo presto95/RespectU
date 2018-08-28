@@ -10,29 +10,29 @@ import UIKit
 
 extension UITableViewCell {
     func setColorsInSong(_ series: String, labels: [UILabel]) {
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { [weak self] in
             switch series {
             case Series.portable1:
-                self.contentView.backgroundColor = UIColor.portable1
-                self.setColors(of: labels, to: .white)
+                self?.contentView.backgroundColor = UIColor.portable1
+                self?.setColors(of: labels, to: .white)
             case Series.portable2:
-                self.contentView.backgroundColor = UIColor.portable2
-                self.setColors(of: labels, to: .white)
+                self?.contentView.backgroundColor = UIColor.portable2
+                self?.setColors(of: labels, to: .white)
             case Series.respect:
-                self.contentView.backgroundColor = UIColor.respect
-                self.setColors(of: labels, to: .white)
+                self?.contentView.backgroundColor = UIColor.respect
+                self?.setColors(of: labels, to: .white)
             case Series.trilogy:
-                self.contentView.backgroundColor = UIColor.trilogy
-                self.setColors(of: labels, to: .white)
+                self?.contentView.backgroundColor = UIColor.trilogy
+                self?.setColors(of: labels, to: .white)
             case Series.ce:
-                self.contentView.backgroundColor = UIColor.ce
-                self.setColors(of: labels, to: .black)
+                self?.contentView.backgroundColor = UIColor.ce
+                self?.setColors(of: labels, to: .black)
             case Series.technika1:
-                self.contentView.backgroundColor = UIColor.technika1
-                self.setColors(of: labels, to: .white)
+                self?.contentView.backgroundColor = UIColor.technika1
+                self?.setColors(of: labels, to: .white)
             case Series.bs:
-                self.contentView.backgroundColor = UIColor.bs
-                self.setColors(of: labels, to: .white)
+                self?.contentView.backgroundColor = UIColor.bs
+                self?.setColors(of: labels, to: .white)
             default:
                 break
             }
@@ -90,9 +90,9 @@ extension UITableViewCell {
     }
     
     func unsetColors(labels: [UILabel]) {
-        DispatchQueue.main.async { [unowned self] in
-            self.contentView.backgroundColor = .sub
-            self.setColors(of: labels, to: .black)
+        DispatchQueue.main.async { [weak self] in
+            self?.contentView.backgroundColor = .sub
+            self?.setColors(of: labels, to: .black)
         }
     }
     

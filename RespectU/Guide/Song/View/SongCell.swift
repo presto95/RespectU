@@ -32,57 +32,28 @@ class SongCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: Object, favoriteButton: String) {
-        if let object = object as? SongInfo {
-            self.colorLabel.backgroundColor = object.series.seriesColor
-            self.titleLabel.text = object.title
-            self.composerLabel.text = object.composer
-            self.bpmLabel.text = "BPM \(object.bpm)"
-            switch favoriteButton {
-            case Buttons.button4:
-                self.normalLabel.text = object.nm4 == 0 ? "-" : "\(object.nm4)"
-                self.hardLabel.text = object.hd4 == 0 ? "-" : "\(object.hd4)"
-                self.maximumLabel.text = object.mx4 == 0 ? "-" : "\(object.mx4)"
-            case Buttons.button5:
-                self.normalLabel.text = object.nm5 == 0 ? "-" : "\(object.nm5)"
-                self.hardLabel.text = object.hd5 == 0 ? "-" : "\(object.hd5)"
-                self.maximumLabel.text = object.mx5 == 0 ? "-" : "\(object.mx5)"
-            case Buttons.button6:
-                self.normalLabel.text = object.nm6 == 0 ? "-" : "\(object.nm6)"
-                self.hardLabel.text = object.hd6 == 0 ? "-" : "\(object.hd6)"
-                self.maximumLabel.text = object.mx6 == 0 ? "-" : "\(object.mx6)"
-            case Buttons.button8:
-                self.normalLabel.text = object.nm8 == 0 ? "-" : "\(object.nm8)"
-                self.hardLabel.text = object.hd8 == 0 ? "-" : "\(object.hd8)"
-                self.maximumLabel.text = object.mx8 == 0 ? "-" : "\(object.mx8)"
-            default:
-                break
-            }
-        } else if let object = object as? PlaylistInfo {
-            self.colorLabel.backgroundColor = object.series.seriesColor
-            self.titleLabel.text = object.title
-            self.composerLabel.text = object.composer
-            self.bpmLabel.text = "BPM \(object.bpm)"
-            switch favoriteButton {
-            case Buttons.button4:
-                self.normalLabel.text = object.nm4 == 0 ? "-" : "\(object.nm4)"
-                self.hardLabel.text = object.hd4 == 0 ? "-" : "\(object.hd4)"
-                self.maximumLabel.text = object.mx4 == 0 ? "-" : "\(object.mx4)"
-            case Buttons.button5:
-                self.normalLabel.text = object.nm5 == 0 ? "-" : "\(object.nm5)"
-                self.hardLabel.text = object.hd5 == 0 ? "-" : "\(object.hd5)"
-                self.maximumLabel.text = object.mx5 == 0 ? "-" : "\(object.mx5)"
-            case Buttons.button6:
-                self.normalLabel.text = object.nm6 == 0 ? "-" : "\(object.nm6)"
-                self.hardLabel.text = object.hd6 == 0 ? "-" : "\(object.hd6)"
-                self.maximumLabel.text = object.mx6 == 0 ? "-" : "\(object.mx6)"
-            case Buttons.button8:
-                self.normalLabel.text = object.nm8 == 0 ? "-" : "\(object.nm8)"
-                self.hardLabel.text = object.hd8 == 0 ? "-" : "\(object.hd8)"
-                self.maximumLabel.text = object.mx8 == 0 ? "-" : "\(object.mx8)"
-            default:
-                break
-            }
+    func setProperties(_ object: SongResponse.Song?, favoriteButton: String) {
+        guard let object = object else { return }
+        self.colorLabel.backgroundColor = object.series.seriesColor
+        self.titleLabel.text = object.localizedTitle
+        self.composerLabel.text = object.composer
+        self.bpmLabel.text = object.bpmToString
+        var buttons: SongResponse.Song.Button?
+        switch favoriteButton {
+        case Buttons.button4:
+            buttons = object.button4
+        case Buttons.button5:
+            buttons = object.button5
+        case Buttons.button6:
+            buttons = object.button6
+        case Buttons.button8:
+            buttons = object.button8
+        default:
+            break
         }
+        guard let button = buttons else { return }
+        self.normalLabel.text = button.normal == 0 ? "-" : "\(button.normal)"
+        self.hardLabel.text = button.hard == 0 ? "-" : "\(button.hard)"
+        self.maximumLabel.text = button.maximum == 0 ? "-" : "\(button.maximum)"
     }
 }

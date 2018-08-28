@@ -31,7 +31,9 @@ class MissionBaseTableViewController: BaseTableViewController {
         }
         NotificationCenter.default.removeObserver(self, name: .didReceiveMissions, object: nil)
     }
-    
+}
+
+extension MissionBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? MissionCell else { return UITableViewCell() }
         let object = self.results?[indexPath.row + indexPath.section * 6]

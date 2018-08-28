@@ -7,12 +7,12 @@
 //
 
 enum Series {
-    static let respect = "Respect"
-    static let portable1 = "Portable1"
-    static let portable2 = "Portable2"
-    static let trilogy = "Trilogy"
-    static let ce = "CE"
-    static let technika1 = "Technika1"
-    static let bs = "BS"
-    static let linkDisk = "Link Disk"
+    static let respect = "respect"
+    static let portable1 = "portable1"
+    static let portable2 = "portable2"
+    static let trilogy = "trilogy"
+    static let ce = "ce"
+    static let technika1 = "technika1"
+    static let bs = "bs"
+    static let linkDisk = "linkdisk"
 }

@@ -19,7 +19,6 @@
 		19012FC820484C0F0061EF21 /* MissionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FC720484C0F0061EF21 /* MissionInfo.swift */; };
 		19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCA20484C1D0061EF21 /* AchievementInfo.swift */; };
 		19012FCD20484C260061EF21 /* TrophyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCC20484C260061EF21 /* TrophyInfo.swift */; };
-		19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */; };
 		191275DD2111EFE80046AA3E /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275DC2111EFE80046AA3E /* Achievement.swift */; };
 		191275EB211206790046AA3E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EA211206790046AA3E /* NSObject+.swift */; };
 		191275ED21120B080046AA3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EC21120B080046AA3E /* BaseViewController.swift */; };
@@ -151,7 +150,6 @@
 		19B09E31212C5565005EE66D /* TrophyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E30212C5565005EE66D /* TrophyResponse.swift */; };
 		19B09E33212C556F005EE66D /* AchievementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E32212C556F005EE66D /* AchievementResponse.swift */; };
 		19B09E35212C5576005EE66D /* TipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E34212C5576005EE66D /* TipResponse.swift */; };
-		19B09E39212C5C4C005EE66D /* FavoriteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */; };
 		19B5F9B9204A489800E12EC1 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B5F9B8204A489800E12EC1 /* Init.swift */; };
 		19B660261F960E5800CCEFB5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* String+.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
@@ -205,7 +203,6 @@
 		19012FC720484C0F0061EF21 /* MissionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionInfo.swift; sourceTree = "<group>"; };
 		19012FCA20484C1D0061EF21 /* AchievementInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementInfo.swift; sourceTree = "<group>"; };
 		19012FCC20484C260061EF21 /* TrophyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyInfo.swift; sourceTree = "<group>"; };
-		19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistInfo.swift; sourceTree = "<group>"; };
 		191275DC2111EFE80046AA3E /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		191275EA211206790046AA3E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		191275EC21120B080046AA3E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -338,7 +335,6 @@
 		19B09E30212C5565005EE66D /* TrophyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyResponse.swift; sourceTree = "<group>"; };
 		19B09E32212C556F005EE66D /* AchievementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementResponse.swift; sourceTree = "<group>"; };
 		19B09E34212C5576005EE66D /* TipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipResponse.swift; sourceTree = "<group>"; };
-		19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteResponse.swift; sourceTree = "<group>"; };
 		19B5F9B8204A489800E12EC1 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660251F960E5800CCEFB5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -405,7 +401,6 @@
 				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
 				19012FC320484C020061EF21 /* TipInfo.swift */,
 				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
-				19012FCE20484C2C0061EF21 /* PlaylistInfo.swift */,
 				198B6C4F2113913C0058DE49 /* Skill.swift */,
 				198B6C57211423920058DE49 /* Firebase.swift */,
 			);
@@ -507,7 +502,6 @@
 				19B09E30212C5565005EE66D /* TrophyResponse.swift */,
 				19B09E32212C556F005EE66D /* AchievementResponse.swift */,
 				19B09E34212C5576005EE66D /* TipResponse.swift */,
-				19B09E38212C5C4C005EE66D /* FavoriteResponse.swift */,
 				1939C96F212BFD9200A6F8E3 /* UserResponse.swift */,
 				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
 			);
@@ -1223,7 +1217,6 @@
 				19D67ECC20744F1700FD9EC7 /* RecordRespectTableViewController.swift in Sources */,
 				196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */,
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
-				19012FCF20484C2C0061EF21 /* PlaylistInfo.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
 				1939C975212C004D00A6F8E3 /* API.swift in Sources */,
 				1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */,
@@ -1278,7 +1271,6 @@
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,
 				192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */,
 				194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */,
-				19B09E39212C5C4C005EE66D /* FavoriteResponse.swift in Sources */,
 				1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,8 +13,13 @@ extension Notification.Name {
     static let didReceiveFirebaseUpload = Notification.Name("DidReceiveFirebaseUpload")
     
     static let didReceiveSongs = Notification.Name("DidReceiveSongs")
+    static let errorReceiveSongs = Notification.Name("ErrorReceiveSongs")
     static let didReceiveMissions = Notification.Name("DidReceiveMissions")
+    static let errorReceiveMissions = Notification.Name("ErrorReceiveMissions")
     static let didReceiveTrophies = Notification.Name("DidReceiveTrophies")
+    static let errorReceiveTrophies = Notification.Name("ErrorReceiveTrophies")
     static let didReceiveAchievements = Notification.Name("DidReceiveAchievements")
+    static let errorReceiveAchievements = Notification.Name("ErrorReceiveAchievements")
     static let didReceiveTips = Notification.Name("DidReceiveTips")
+    static let errorReceiveTips = Notification.Name("ErrorReceiveTips")
 }

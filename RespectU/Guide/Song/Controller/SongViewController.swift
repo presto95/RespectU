@@ -86,14 +86,17 @@ class SongViewController: BaseViewController {
     }
     
     @IBAction func touchUpRandomButton(_ sender: UIButton) {
-        let results = SongInfo.get()
-        let myBPM = UserDefaults.standard.double(forKey: "bpm")
+        guard let results = allTableViewController.songResults else { return }
         let random = Int(arc4random_uniform(UInt32(results.count - 1)))
         let object = results[random]
-        let speed = recommendedSpeed(by: myBPM / object.bpm.bpmToDouble)
-        let message = "\(object.series)\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
+        let myBpm = UserDefaults.standard.double(forKey: "bpm")
+        let speed = recommendedSpeed(by: myBpm / Double(object.bpm))
+        var message = "\(object.series.uppercased())\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
+        if let _ = object.subBpm {
+            message += "\n" + "(SPEED Variation)".localized
+        }
         UIAlertController
-            .alert(title: object.title, message: message)
+            .alert(title: object.localizedTitle, message: message)
             .defaultAction(title: "OK".localized)
             .present(to: self)
     }

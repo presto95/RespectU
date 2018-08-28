@@ -20,10 +20,11 @@ class TrophyBaseTableViewController: BaseTableViewController {
         showIndicator()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "TrophyCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophy(_:)), name: .didReceiveTrophies, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophies(_:)), name: .didReceiveTrophies, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTrophies(_:)), name: .errorReceiveTrophies, object: nil)
     }
     
-    @objc func didReceiveTrophy(_ notification: Notification) {
+    @objc func didReceiveTrophies(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
         self.results = userInfo
         DispatchQueue.main.async { [weak self] in
@@ -31,6 +32,17 @@ class TrophyBaseTableViewController: BaseTableViewController {
             self?.tableView.reloadData()
         }
         NotificationCenter.default.removeObserver(self, name: .didReceiveTrophies, object: nil)
+    }
+    
+    @objc func errorReceiveTrophies(_ notification: Notification) {
+        guard let error = notification.userInfo?["error"] as? String else { return }
+        UIAlertController
+            .alert(title: "", message: error)
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.hideIndicator()
+                self?.parent?.dismiss(animated: true, completion: nil)
+            }
+            .present(to: self)
     }
 }
 

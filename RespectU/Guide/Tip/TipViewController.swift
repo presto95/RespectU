@@ -21,6 +21,7 @@ class TipViewController: UIViewController {
         showIndicator()
         setupTableView()
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTips), name: .didReceiveTips, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
     }
     
     @objc func didReceiveTips(_ notification: Notification) {
@@ -32,6 +33,17 @@ class TipViewController: UIViewController {
             self?.hideIndicator()
         }
         NotificationCenter.default.removeObserver(self, name: .didReceiveTips, object: nil)
+    }
+    
+    @objc func errorReceiveTips(_ notification: Notification) {
+        guard let error = notification.userInfo?["error"] as? String else { return }
+        UIAlertController
+            .alert(title: "", message: error)
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.hideIndicator()
+                self?.dismiss(animated: true, completion: nil)
+            }
+            .present(to: self)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

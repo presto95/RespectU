@@ -25,6 +25,7 @@ class SongBaseTableViewController: BaseTableViewController {
         //도전과제 : type == music
         //미션 : reward == music
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSongs(_:)), name: .errorReceiveSongs, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +41,17 @@ class SongBaseTableViewController: BaseTableViewController {
             self?.hideIndicator()
             self?.tableView.reloadData()
         }
+    }
+    
+    @objc func errorReceiveSongs(_ notification: Notification) {
+        guard let error = notification.userInfo?["error"] as? String else { return }
+        UIAlertController
+            .alert(title: "", message: error)
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.hideIndicator()
+                self?.parent?.dismiss(animated: true, completion: nil)
+            }
+            .present(to: self)
     }
 }
 

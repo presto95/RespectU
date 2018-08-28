@@ -21,6 +21,7 @@ class AchievementBaseTableViewController: BaseTableViewController {
         self.tableView.rowHeight = 40
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveAchievements(_:)), name: .didReceiveAchievements, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveAchievements(_:)), name: .errorReceiveAchievements, object: nil)
     }
     
     @objc func didReceiveAchievements(_ notification: Notification) {
@@ -32,6 +33,17 @@ class AchievementBaseTableViewController: BaseTableViewController {
             self?.tableView.reloadData()
         }
         NotificationCenter.default.removeObserver(self, name: .didReceiveAchievements, object: nil)
+    }
+    
+    @objc func errorReceiveAchievements(_ notification: Notification) {
+        guard let error = notification.userInfo?["error"] as? String else { return }
+        UIAlertController
+            .alert(title: "", message: error)
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.hideIndicator()
+                self?.parent?.dismiss(animated: true, completion: nil)
+            }
+            .present(to: self)
     }
 }
 

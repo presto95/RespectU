@@ -35,19 +35,19 @@ class TrophyCell: UITableViewCell {
         DispatchQueue.global().async {
             guard let imageData = try? Data(contentsOf: url) else { return }
             DispatchQueue.main.async {
-                self.trophyImageView.image = UIImage(data: imageData)
+                self.trophyImageView.image = UIImage(data: imageData, scale: 0.5)
             }
         }
         self.titleLabel.text = object.localizedTitle
         self.contentLabel.text = object.localizedContent
         switch object.rating {
-        case "platinum":
+        case TrophyGrade.platinum:
             self.colorLabel.backgroundColor = .platinum
-        case "gold":
+        case TrophyGrade.gold:
             self.colorLabel.backgroundColor = .gold
-        case "silver":
+        case TrophyGrade.silver:
             self.colorLabel.backgroundColor = .silver
-        case "bronze":
+        case TrophyGrade.bronze:
             self.colorLabel.backgroundColor = .bronze
         default:
             break

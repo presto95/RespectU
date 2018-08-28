@@ -637,8 +637,10 @@
                         <constraints>
                             <constraint firstItem="MGn-BZ-99j" firstAttribute="trailing" secondItem="gdr-fp-mBZ" secondAttribute="trailing" constant="16" id="5Y4-W6-gmw"/>
                             <constraint firstItem="gdr-fp-mBZ" firstAttribute="centerY" secondItem="RI4-1r-mmA" secondAttribute="centerY" id="Atu-8p-ajv"/>
+                            <constraint firstItem="g9m-w0-Tev" firstAttribute="leading" secondItem="MGn-BZ-99j" secondAttribute="leading" constant="16" id="B4m-12-wC2"/>
                             <constraint firstItem="g9m-w0-Tev" firstAttribute="top" secondItem="gdr-fp-mBZ" secondAttribute="bottom" constant="20" id="GEj-CA-bqE"/>
                             <constraint firstItem="g9m-w0-Tev" firstAttribute="centerX" secondItem="Bcf-On-qty" secondAttribute="centerX" id="Ie6-tP-XzU"/>
+                            <constraint firstItem="MGn-BZ-99j" firstAttribute="trailing" secondItem="g9m-w0-Tev" secondAttribute="trailing" constant="16" id="Z6a-Oa-utA"/>
                             <constraint firstItem="RI4-1r-mmA" firstAttribute="centerX" secondItem="Bcf-On-qty" secondAttribute="centerX" id="k8S-tL-qfY"/>
                             <constraint firstItem="RI4-1r-mmA" firstAttribute="top" secondItem="MGn-BZ-99j" secondAttribute="top" id="wiw-Le-4mF"/>
                         </constraints>

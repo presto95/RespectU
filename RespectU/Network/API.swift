@@ -21,10 +21,10 @@ extension API {
                 let results = try jsonDecoder.decode(SongResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveSongs, object: nil, userInfo: ["songs": results])
             } catch {
-                print(error.localizedDescription)
+                NotificationCenter.default.post(name: .errorReceiveSongs, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }) { (error) in
-            print(error.localizedDescription)
+            NotificationCenter.default.post(name: .errorReceiveSongs, object: nil, userInfo: ["error": error.localizedDescription])
         }
     }
 }
@@ -37,10 +37,10 @@ extension API {
                 let results = try jsonDecoder.decode(MissionResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveMissions, object: nil, userInfo: ["missions": results])
             } catch {
-                print(error.localizedDescription)
+                NotificationCenter.default.post(name: .errorReceiveMissions, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }) { (error) in
-            print(error.localizedDescription)
+            NotificationCenter.default.post(name: .errorReceiveMissions, object: nil, userInfo: ["error": error.localizedDescription])
         }
     }
 }
@@ -53,10 +53,10 @@ extension API {
                 let results = try jsonDecoder.decode(TrophyResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveTrophies, object: nil, userInfo: ["trophies": results])
             } catch {
-                print(error.localizedDescription)
+                NotificationCenter.default.post(name: .errorReceiveTrophies, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }) { (error) in
-            print(error.localizedDescription)
+            NotificationCenter.default.post(name: .errorReceiveTrophies, object: nil, userInfo: ["error": error.localizedDescription])
         }
     }
 }
@@ -69,10 +69,10 @@ extension API {
                 let results = try jsonDecoder.decode(AchievementResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveAchievements, object: nil, userInfo: ["achievements": results])
             } catch {
-                print(error.localizedDescription)
+                NotificationCenter.default.post(name: .errorReceiveAchievements, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }) { (error) in
-            print(error.localizedDescription)
+            NotificationCenter.default.post(name: .errorReceiveAchievements, object: nil, userInfo: ["error": error.localizedDescription])
         }
     }
 }
@@ -85,10 +85,10 @@ extension API {
                 let results = try jsonDecoder.decode(TipResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveTips, object: nil, userInfo: ["tips": results])
             } catch {
-                print(error.localizedDescription)
+                NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }) { (error) in
-            print(error.localizedDescription)
+            NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
         }
     }
 }

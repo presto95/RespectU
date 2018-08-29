@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         })
         Realm.Configuration.defaultConfiguration = config
         let _ = try! Realm()
-        let _ = Init()
+        //let _ = Init()
         // Override point for customization after application launch.
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID

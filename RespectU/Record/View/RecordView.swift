@@ -20,6 +20,7 @@ protocol RecordViewDelegate: class {
 class RecordView: UIView {
 
     var delegate: RecordViewDelegate?
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
     @IBOutlet weak var buttonButton: UIButton!
@@ -94,133 +95,133 @@ class RecordView: UIView {
     }
 }
 
-extension RecordView {
-    func changeButton(_ object: RecordInfo, button: String) {
-        switch button {
-        case Buttons.button4:
-            self.buttonButton.setTitle(Buttons.button5, for: .normal)
-            reloadButtonsAndLabels(object, button: Buttons.button5)
-        case Buttons.button5:
-            self.buttonButton.setTitle(Buttons.button6, for: .normal)
-            reloadButtonsAndLabels(object, button: Buttons.button6)
-        case Buttons.button6:
-            self.buttonButton.setTitle(Buttons.button8, for: .normal)
-            reloadButtonsAndLabels(object, button: Buttons.button8)
-        case Buttons.button8:
-            self.buttonButton.setTitle(Buttons.button4, for: .normal)
-            reloadButtonsAndLabels(object, button: Buttons.button4)
-        default:
-            break
-        }
-    }
-    
-    func updateRankAndSkillPointLabel(_ object: RecordInfo, button: String) {
-        updateSkillPointLabel(object, button: button)
-        updateRankLabel(title: object.title, button: button)
-    }
-    
-    func reloadButtonsAndLabels(_ object: RecordInfo, button: String) {
-        self.buttonButton.setTitle(button, for: .normal)
-        self.titleLabel.text = object.title
-        let normalButtons = [normalRankButton, normalRateButton, normalNoteButton]
-        let hardButtons = [hardRankButton, hardRateButton, hardNoteButton]
-        let maximumButtons = [maximumRankButton, maximumRateButton, maximumNoteButton]
-        for index in 0..<3 {
-            normalButtons[index]?.isEnabled = true
-            hardButtons[index]?.isEnabled = true
-            maximumButtons[index]?.isEnabled = true
-        }
-        var buttonInteger = 0
-        switch button {
-        case Buttons.button4:
-            buttonInteger = 4
-        case Buttons.button5:
-            buttonInteger = 5
-        case Buttons.button6:
-            buttonInteger = 6
-        case Buttons.button8:
-            buttonInteger = 8
-        default:
-            break
-        }
-        updateRankLabel(title: object.title, button: button)
-        skillPointLabel.text = "\(object.value(forKey: "button\(buttonInteger)SkillPoint") as? Double ?? 0) " + "Point".localized
-        if object.value(forKey: "nm\(buttonInteger)") as? Int ?? 0 == 0 {
-            for button in normalButtons {
-                button?.isEnabled = false
-                button?.setTitle("None".localized, for: .normal)
-            }
-            normalLabel.text = nil
-        } else {
-            normalRankButton.setTitle(object.value(forKey: "nm\(buttonInteger)Rank") as? String ?? Rank.none, for: .normal)
-            normalRateButton.setTitle(object.value(forKey: "nm\(buttonInteger)Rate") as? String ?? "-", for: .normal)
-            normalNoteButton.setTitle((object.value(forKey: "nm\(buttonInteger)Note") as? String ?? Note.none).noteAbbreviation, for: .normal)
-            normalLabel.text = "\(object.value(forKey: "nm\(buttonInteger)") as? Int ?? 0)"
-        }
-        if object.value(forKey: "hd\(buttonInteger)") as? Int ?? 0 == 0 {
-            for button in hardButtons {
-                button?.isEnabled = false
-                button?.setTitle("None".localized, for: .normal)
-            }
-            hardLabel.text = nil
-        } else {
-            hardRankButton.setTitle(object.value(forKey: "hd\(buttonInteger)Rank") as? String ?? Rank.none, for: .normal)
-            hardRateButton.setTitle(object.value(forKey: "hd\(buttonInteger)Rate") as? String ?? "-", for: .normal)
-            hardNoteButton.setTitle((object.value(forKey: "hd\(buttonInteger)Note") as? String ?? Note.none).noteAbbreviation, for: .normal)
-            hardLabel.text = "\(object.value(forKey: "hd\(buttonInteger)") as? Int ?? 0)"
-        }
-        if object.value(forKey: "mx\(buttonInteger)") as? Int ?? 0 == 0 {
-            for button in maximumButtons {
-                button?.isEnabled = false
-                button?.setTitle("None".localized, for: .normal)
-            }
-            maximumLabel.text = nil
-        } else {
-            maximumRankButton.setTitle(object.value(forKey: "mx\(buttonInteger)Rank") as? String ?? Rank.none, for: .normal)
-            maximumRateButton.setTitle(object.value(forKey: "mx\(buttonInteger)Rate") as? String ?? "-", for: .normal)
-            maximumNoteButton.setTitle((object.value(forKey: "mx\(buttonInteger)Note") as? String ?? Note.none).noteAbbreviation, for: .normal)
-            maximumLabel.text = "\(object.value(forKey: "mx\(buttonInteger)") as? Int ?? 0)"
-        }
-    }
-    
-    private func updateSkillPointLabel(_ object: RecordInfo, button: String) {
-        switch button {
-        case Buttons.button4:
-            self.skillPointLabel.text = "\(object.button4SkillPoint) " + "Point".localized
-        case Buttons.button5:
-            self.skillPointLabel.text = "\(object.button5SkillPoint) " + "Point".localized
-        case Buttons.button6:
-            self.skillPointLabel.text = "\(object.button6SkillPoint) " + "Point".localized
-        case Buttons.button8:
-            self.skillPointLabel.text = "\(object.button8SkillPoint) " + "Point".localized
-        default:
-            break
-        }
-    }
-    
-    private func updateRankLabel(title: String, button: String) {
-        let top50Results: Results<RecordInfo>
-        switch button {
-        case Buttons.button4:
-             top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button4SkillPoint, ascending: false)
-        case Buttons.button5:
-            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button5SkillPoint, ascending: false)
-        case Buttons.button6:
-            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button6SkillPoint, ascending: false)
-        case Buttons.button8:
-            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button8SkillPoint, ascending: false)
-        default:
-            top50Results = RecordInfo.get()
-        }
-        let query = NSPredicate(format: "title = %@", title)
-        guard let filtered = top50Results.filter(query).first else { return }
-        guard let index = top50Results.index(of: filtered) else { return }
-        if index < 50 {
-            self.rankLabel.text = "#\(index + 1)"
-        } else {
-            self.rankLabel.text = "Out of Rank".localized
-        }
-    }
-}
-
-
+//extension RecordView {
+//    func changeButton(_ object: RecordInfo, button: String) {
+//        switch button {
+//        case Buttons.button4:
+//            self.buttonButton.setTitle(Buttons.button5, for: .normal)
+//            reloadButtonsAndLabels(object, button: Buttons.button5)
+//        case Buttons.button5:
+//            self.buttonButton.setTitle(Buttons.button6, for: .normal)
+//            reloadButtonsAndLabels(object, button: Buttons.button6)
+//        case Buttons.button6:
+//            self.buttonButton.setTitle(Buttons.button8, for: .normal)
+//            reloadButtonsAndLabels(object, button: Buttons.button8)
+//        case Buttons.button8:
+//            self.buttonButton.setTitle(Buttons.button4, for: .normal)
+//            reloadButtonsAndLabels(object, button: Buttons.button4)
+//        default:
+//            break
+//        }
+//    }
+//
+//    func updateRankAndSkillPointLabel(_ object: SongResponse.Song, button: String) {
+//        updateSkillPointLabel(object, button: button)
+//        updateRankLabel(title: object.localizedTitle, button: button)
+//    }
+//
+//    func reloadButtonsAndLabels(_ object: SongResponse.Song, button: String) {
+//        self.buttonButton.setTitle(button, for: .normal)
+//        self.titleLabel.text = object.localizedTitle
+//        let normalButtons = [normalRankButton, normalRateButton, normalNoteButton]
+//        let hardButtons = [hardRankButton, hardRateButton, hardNoteButton]
+//        let maximumButtons = [maximumRankButton, maximumRateButton, maximumNoteButton]
+//        for index in 0..<3 {
+//            normalButtons[index]?.isEnabled = true
+//            hardButtons[index]?.isEnabled = true
+//            maximumButtons[index]?.isEnabled = true
+//        }
+//        var buttonInteger = 0
+//        switch button {
+//        case Buttons.button4:
+//            buttonInteger = 4
+//        case Buttons.button5:
+//            buttonInteger = 5
+//        case Buttons.button6:
+//            buttonInteger = 6
+//        case Buttons.button8:
+//            buttonInteger = 8
+//        default:
+//            break
+//        }
+//        updateRankLabel(title: object.localizedTitle, button: button)
+//        skillPointLabel.text = "\(object.value(forKey: "button\(buttonInteger)SkillPoint") as? Double ?? 0) " + "Point".localized
+//        if object.value(forKey: "nm\(buttonInteger)") as? Int ?? 0 == 0 {
+//            for button in normalButtons {
+//                button?.isEnabled = false
+//                button?.setTitle("None".localized, for: .normal)
+//            }
+//            normalLabel.text = nil
+//        } else {
+//            normalRankButton.setTitle(object.value(forKey: "nm\(buttonInteger)Rank") as? String ?? Rank.none, for: .normal)
+//            normalRateButton.setTitle(object.value(forKey: "nm\(buttonInteger)Rate") as? String ?? "-", for: .normal)
+//            normalNoteButton.setTitle((object.value(forKey: "nm\(buttonInteger)Note") as? String ?? Note.none).noteAbbreviation, for: .normal)
+//            normalLabel.text = "\(object.value(forKey: "nm\(buttonInteger)") as? Int ?? 0)"
+//        }
+//        if object.value(forKey: "hd\(buttonInteger)") as? Int ?? 0 == 0 {
+//            for button in hardButtons {
+//                button?.isEnabled = false
+//                button?.setTitle("None".localized, for: .normal)
+//            }
+//            hardLabel.text = nil
+//        } else {
+//            hardRankButton.setTitle(object.value(forKey: "hd\(buttonInteger)Rank") as? String ?? Rank.none, for: .normal)
+//            hardRateButton.setTitle(object.value(forKey: "hd\(buttonInteger)Rate") as? String ?? "-", for: .normal)
+//            hardNoteButton.setTitle((object.value(forKey: "hd\(buttonInteger)Note") as? String ?? Note.none).noteAbbreviation, for: .normal)
+//            hardLabel.text = "\(object.value(forKey: "hd\(buttonInteger)") as? Int ?? 0)"
+//        }
+//        if object.value(forKey: "mx\(buttonInteger)") as? Int ?? 0 == 0 {
+//            for button in maximumButtons {
+//                button?.isEnabled = false
+//                button?.setTitle("None".localized, for: .normal)
+//            }
+//            maximumLabel.text = nil
+//        } else {
+//            maximumRankButton.setTitle(object.value(forKey: "mx\(buttonInteger)Rank") as? String ?? Rank.none, for: .normal)
+//            maximumRateButton.setTitle(object.value(forKey: "mx\(buttonInteger)Rate") as? String ?? "-", for: .normal)
+//            maximumNoteButton.setTitle((object.value(forKey: "mx\(buttonInteger)Note") as? String ?? Note.none).noteAbbreviation, for: .normal)
+//            maximumLabel.text = "\(object.value(forKey: "mx\(buttonInteger)") as? Int ?? 0)"
+//        }
+//    }
+//
+//    private func updateSkillPointLabel(_ object: SongResponse.Song, button: String) {
+//        switch button {
+//        case Buttons.button4:
+//            self.skillPointLabel.text = "\(object.button4SkillPoint) " + "Point".localized
+//        case Buttons.button5:
+//            self.skillPointLabel.text = "\(object.button5SkillPoint) " + "Point".localized
+//        case Buttons.button6:
+//            self.skillPointLabel.text = "\(object.button6SkillPoint) " + "Point".localized
+//        case Buttons.button8:
+//            self.skillPointLabel.text = "\(object.button8SkillPoint) " + "Point".localized
+//        default:
+//            break
+//        }
+//    }
+//
+//    private func updateRankLabel(title: String, button: String) {
+//        let top50Results: Results<RecordInfo>
+//        switch button {
+//        case Buttons.button4:
+//             top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button4SkillPoint, ascending: false)
+//        case Buttons.button5:
+//            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button5SkillPoint, ascending: false)
+//        case Buttons.button6:
+//            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button6SkillPoint, ascending: false)
+//        case Buttons.button8:
+//            top50Results = RecordInfo.get().sorted(byKeyPath: Skill.button8SkillPoint, ascending: false)
+//        default:
+//            top50Results = RecordInfo.get()
+//        }
+//        let query = NSPredicate(format: "title = %@", title)
+//        guard let filtered = top50Results.filter(query).first else { return }
+//        guard let index = top50Results.index(of: filtered) else { return }
+//        if index < 50 {
+//            self.rankLabel.text = "#\(index + 1)"
+//        } else {
+//            self.rankLabel.text = "Out of Rank".localized
+//        }
+//    }
+//}
+//
+//

@@ -7,10 +7,10 @@
 //
 
 enum Buttons {
-    static let button4 = "4B"
-    static let button5 = "5B"
-    static let button6 = "6B"
-    static let button8 = "8B"
-    static let xb = "XB"
-    static let tb = "TB"
+    static let button4 = "4b"
+    static let button5 = "5b"
+    static let button6 = "6b"
+    static let button8 = "8b"
+    static let xb = "xb"
+    static let tb = "tb"
 }

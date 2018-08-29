@@ -93,6 +93,11 @@ extension API {
     }
 }
 
+//MARK:- Record
+extension API {
+    
+}
+
 //MARK:- Ranking
 extension API {
     static func fetchRankings() {

@@ -277,4 +277,7 @@
 "While FEVER is active, you can receive more points and larger combos." = "피버를 발동하면 더 많은 콤보와 점수를 획득할 수 있습니다.";
 "You can use the L2 button and R2 button to change the speed during play, or from the music selection screen." = "음악 연주 중이거나 곡 선택 화면에서 L2 버튼, R2 버튼으로 배속을 즉시 변경할 수 있습니다.";
 
-
+"ID" = "아이디";
+"Password" = "비밀번호";
+"Sign In" = "로그인";
+"Sign Up" = "회원가입";

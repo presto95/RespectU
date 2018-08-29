@@ -59,6 +59,14 @@
 		1939C970212BFD9200A6F8E3 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C96F212BFD9200A6F8E3 /* UserResponse.swift */; };
 		1939C973212BFF1900A6F8E3 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C972212BFF1900A6F8E3 /* Network.swift */; };
 		1939C975212C004D00A6F8E3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1939C974212C004D00A6F8E3 /* API.swift */; };
+		193C285421366C1B001EB7F3 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C285321366C1B001EB7F3 /* SignIn.storyboard */; };
+		193C285621366C28001EB7F3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C285521366C28001EB7F3 /* SignInViewController.swift */; };
+		193C2858213671D5001EB7F3 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C2857213671D4001EB7F3 /* SignInTextField.swift */; };
+		193C285A213671F6001EB7F3 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C2859213671F6001EB7F3 /* SignInButton.swift */; };
+		193C285C213674B1001EB7F3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C285B213674B1001EB7F3 /* SignUpViewController.swift */; };
+		193C28602136C8E7001EB7F3 /* Synchronize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C285F2136C8E7001EB7F3 /* Synchronize.storyboard */; };
+		193C28622136C8F0001EB7F3 /* SynchronizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28612136C8F0001EB7F3 /* SynchronizeViewController.swift */; };
+		193C28642136CB73001EB7F3 /* LanguageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28632136CB73001EB7F3 /* LanguageInfo.swift */; };
 		193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */; };
 		193DE8DB204922B400A829BB /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DE8D9204922B400A829BB /* AchievementCell.swift */; };
 		193DE8DC204922B400A829BB /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193DE8DA204922B400A829BB /* AchievementCell.xib */; };
@@ -150,7 +158,6 @@
 		19B09E31212C5565005EE66D /* TrophyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E30212C5565005EE66D /* TrophyResponse.swift */; };
 		19B09E33212C556F005EE66D /* AchievementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E32212C556F005EE66D /* AchievementResponse.swift */; };
 		19B09E35212C5576005EE66D /* TipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B09E34212C5576005EE66D /* TipResponse.swift */; };
-		19B5F9B9204A489800E12EC1 /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B5F9B8204A489800E12EC1 /* Init.swift */; };
 		19B660261F960E5800CCEFB5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B660251F960E5800CCEFB5 /* String+.swift */; };
 		19B660291F960FA800CCEFB5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19B6602B1F960FA800CCEFB5 /* Localizable.strings */; };
 		19B6CFEC1F7953640097B86B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B6CFEB1F7953640097B86B /* AppDelegate.swift */; };
@@ -244,6 +251,14 @@
 		1939C96F212BFD9200A6F8E3 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		1939C972212BFF1900A6F8E3 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		1939C974212C004D00A6F8E3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		193C285321366C1B001EB7F3 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		193C285521366C28001EB7F3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		193C2857213671D4001EB7F3 /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
+		193C2859213671F6001EB7F3 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		193C285B213674B1001EB7F3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		193C285F2136C8E7001EB7F3 /* Synchronize.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Synchronize.storyboard; sourceTree = "<group>"; };
+		193C28612136C8F0001EB7F3 /* SynchronizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizeViewController.swift; sourceTree = "<group>"; };
+		193C28632136CB73001EB7F3 /* LanguageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
 		193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
 		193DE8D9204922B400A829BB /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		193DE8DA204922B400A829BB /* AchievementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
@@ -336,7 +351,6 @@
 		19B09E30212C5565005EE66D /* TrophyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyResponse.swift; sourceTree = "<group>"; };
 		19B09E32212C556F005EE66D /* AchievementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementResponse.swift; sourceTree = "<group>"; };
 		19B09E34212C5576005EE66D /* TipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipResponse.swift; sourceTree = "<group>"; };
-		19B5F9B8204A489800E12EC1 /* Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		19B660111F96040A00CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		19B660251F960E5800CCEFB5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		19B6602A1F960FA800CCEFB5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -396,17 +410,18 @@
 		19012FAA204808010061EF21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19B5F9B8204A489800E12EC1 /* Init.swift */,
+				193C28632136CB73001EB7F3 /* LanguageInfo.swift */,
 				19012FC520484C080061EF21 /* SongInfo.swift */,
 				19012FC720484C0F0061EF21 /* MissionInfo.swift */,
 				19012FCC20484C260061EF21 /* TrophyInfo.swift */,
 				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
-				19012FC320484C020061EF21 /* TipInfo.swift */,
 				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
+				19012FC320484C020061EF21 /* TipInfo.swift */,
 				198B6C4F2113913C0058DE49 /* Skill.swift */,
 				198B6C57211423920058DE49 /* Firebase.swift */,
 			);
-			path = Model;
+			name = Model;
+			path = Deprecated/Model;
 			sourceTree = "<group>";
 		};
 		19012FAE204808120061EF21 /* Supporting Files */ = {
@@ -476,6 +491,24 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		193C285D213674F7001EB7F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				193C2857213671D4001EB7F3 /* SignInTextField.swift */,
+				193C2859213671F6001EB7F3 /* SignInButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		193C285E2136C8C4001EB7F3 /* Synchronize */ = {
+			isa = PBXGroup;
+			children = (
+				193C285F2136C8E7001EB7F3 /* Synchronize.storyboard */,
+				193C28612136C8F0001EB7F3 /* SynchronizeViewController.swift */,
+			);
+			path = Synchronize;
+			sourceTree = "<group>";
+		};
 		1950AC392133F26B006DF64B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,7 +565,7 @@
 		19B6CFEA1F7953640097B86B /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
-				19E9CA012133CC610032EF3F /* Deprecated */,
+				19012FAA204808010061EF21 /* Model */,
 				1939C971212BFF1000A6F8E3 /* Network */,
 				191275DE2111F7150046AA3E /* Constants */,
 				1950AC392133F26B006DF64B /* Model */,
@@ -568,6 +601,7 @@
 				19E767C820EE4CFE008C9F9D /* Tip */,
 				19E767CA20EE4D09008C9F9D /* Manual */,
 				19E767C920EE4D05008C9F9D /* Radio */,
+				193C285E2136C8C4001EB7F3 /* Synchronize */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -763,9 +797,13 @@
 		19E767CC20EE51A5008C9F9D /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				193C285D213674F7001EB7F3 /* View */,
 				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
 				19012FB32048342F0061EF21 /* Login.storyboard */,
 				19012FB9204835180061EF21 /* LoginViewController.swift */,
+				193C285321366C1B001EB7F3 /* SignIn.storyboard */,
+				193C285521366C28001EB7F3 /* SignInViewController.swift */,
+				193C285B213674B1001EB7F3 /* SignUpViewController.swift */,
 			);
 			path = Start;
 			sourceTree = "<group>";
@@ -948,14 +986,6 @@
 			path = SkillLevelDetail;
 			sourceTree = "<group>";
 		};
-		19E9CA012133CC610032EF3F /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				19012FAA204808010061EF21 /* Model */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1024,6 +1054,7 @@
 				19892A8620662D0A009D01F8 /* SearchByLevelView.xib in Resources */,
 				1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */,
 				193E401B204C05A00063A440 /* Top50Cell.xib in Resources */,
+				193C285421366C1B001EB7F3 /* SignIn.storyboard in Resources */,
 				1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */,
 				19F38C95204CC957006BB72B /* SkillLevelDetailView.xib in Resources */,
 				193E3FF5204BB0D80063A440 /* RecordView.xib in Resources */,
@@ -1048,6 +1079,7 @@
 				193E403B204C2EB60063A440 /* RankingCell.xib in Resources */,
 				19012FB42048342F0061EF21 /* Login.storyboard in Resources */,
 				1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */,
+				193C28602136C8E7001EB7F3 /* Synchronize.storyboard in Resources */,
 				196818492048F6820007F4D7 /* Radio.storyboard in Resources */,
 				19320FC8204955D50075BD86 /* Mission.storyboard in Resources */,
 				19012FB82048345B0061EF21 /* Guide.storyboard in Resources */,
@@ -1172,12 +1204,12 @@
 				19320FC4204942640075BD86 /* AchievementCommentTableViewController.swift in Sources */,
 				1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */,
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
+				193C285621366C28001EB7F3 /* SignInViewController.swift in Sources */,
 				19B09E35212C5576005EE66D /* TipResponse.swift in Sources */,
 				191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */,
 				19D67EC820744F0700FD9EC7 /* RecordPortable2TableViewController.swift in Sources */,
 				193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */,
 				19D67EC620744EEB00FD9EC7 /* RecordAllTableViewController.swift in Sources */,
-				19B5F9B9204A489800E12EC1 /* Init.swift in Sources */,
 				19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */,
 				19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */,
 				191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */,
@@ -1207,6 +1239,7 @@
 				196F82492074A788000DF337 /* RecordPortable1TableViewController.swift in Sources */,
 				198B6C502113913C0058DE49 /* Skill.swift in Sources */,
 				19320FD0204956940075BD86 /* TrophyTrilogyTableViewController.swift in Sources */,
+				193C28642136CB73001EB7F3 /* LanguageInfo.swift in Sources */,
 				198B6C562113E5A60058DE49 /* SkillLevel.swift in Sources */,
 				196F824F2074AD49000DF337 /* RecordCell.swift in Sources */,
 				19F2312F20156BBC00ADF825 /* Reachability.swift in Sources */,
@@ -1230,13 +1263,16 @@
 				1939C96E212BFD8500A6F8E3 /* RankingResponse.swift in Sources */,
 				198B6C5C211443C70058DE49 /* Rank.swift in Sources */,
 				19B09E2D212C555A005EE66D /* SongResponse.swift in Sources */,
+				193C2858213671D5001EB7F3 /* SignInTextField.swift in Sources */,
 				19012FC420484C020061EF21 /* TipInfo.swift in Sources */,
 				191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */,
+				193C285C213674B1001EB7F3 /* SignUpViewController.swift in Sources */,
 				193DE8DB204922B400A829BB /* AchievementCell.swift in Sources */,
 				192AFE2520E48AD50006397F /* MissionBSTableViewController.swift in Sources */,
 				193E4017204C03C50063A440 /* UIView+.swift in Sources */,
 				19012FC220484BFA0061EF21 /* RecordInfo.swift in Sources */,
 				192AFE2920E48AE70006397F /* TrophyLinkDiskTableViewController.swift in Sources */,
+				193C285A213671F6001EB7F3 /* SignInButton.swift in Sources */,
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
 				19012FCB20484C1D0061EF21 /* AchievementInfo.swift in Sources */,
@@ -1274,6 +1310,7 @@
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,
 				192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */,
+				193C28622136C8F0001EB7F3 /* SynchronizeViewController.swift in Sources */,
 				194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */,
 				1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */,
 			);

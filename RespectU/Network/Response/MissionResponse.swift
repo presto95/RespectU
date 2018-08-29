@@ -32,12 +32,12 @@ struct MissionResponse: Codable {
         let `break`: Int
         let effector: String
         let reward: Language
-        let song1: Stage?
-        let song2: Stage?
-        let song3: Stage?
-        let song4: Stage?
-        let song5: Stage?
-        let song6: Stage?
+        let stage1: Stage?
+        let stage2: Stage?
+        let stage3: Stage?
+        let stage4: Stage?
+        let stage5: Stage?
+        let stage6: Stage?
         var localizedReward: String {
             if Locale.current.regionCode == "KR", let korean = reward.korean {
                 return korean

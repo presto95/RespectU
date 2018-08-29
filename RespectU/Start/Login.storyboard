@@ -87,6 +87,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="respectuFlat" width="1000" height="1000"/>
+        <image name="respectuFlat" width="500" height="500"/>
     </resources>
 </document>

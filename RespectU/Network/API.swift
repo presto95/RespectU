@@ -93,30 +93,24 @@ extension API {
     }
 }
 
-//MARK:- Record
+//MARK:- Upload / Download Data
 extension API {
+    static func uploadData() {
+        
+    }
     
+    static func downloadData() {
+        
+    }
 }
 
 //MARK:- Ranking
 extension API {
-    static func fetchRankings() {
-        Network.get("\(baseUrl)/rankings/fetch", successHandler: { (data) in
+    static func requestRankings() {
+        Network.get("\(baseUrl)/records", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(RankingResponse.self, from: data)
                 print(results)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-    }
-    
-    static func uploadRanking(parameters: [String: Any]) {
-        Network.post("\(baseUrl)/ranking/upload", parameters: parameters, successHandler: { (data) in
-            do {
-                print(data)
             } catch {
                 print(error.localizedDescription)
             }

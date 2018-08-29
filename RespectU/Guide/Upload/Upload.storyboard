@@ -6,14 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Synchronize View Controller-->
+        <!--Upload View Controller-->
         <scene sceneID="qla-xQ-Rw8">
             <objects>
-                <viewController id="aAu-1X-pQK" customClass="SynchronizeViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UploadViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aAu-1X-pQK" customClass="UploadViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zre-PF-ggr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,35 +33,45 @@
                                     <action selector="touchUpCancelButton:" destination="aAu-1X-pQK" eventType="touchUpInside" id="Byl-G7-8Eb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brq-F7-VWb">
-                                <rect key="frame" x="164" y="473" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54c-QI-5Rw">
-                                <rect key="frame" x="166" y="212" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccI-Ff-eWr">
-                                <rect key="frame" x="166" y="301" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="gjS-IY-fk6">
+                                <rect key="frame" x="16" y="254.5" width="343" height="158"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기록한 성과 기록 정보를 서버에 저장합니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gw9-G6-pO7">
+                                        <rect key="frame" x="43" y="0.0" width="257.5" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhA-jN-E4c">
+                                        <rect key="frame" x="78" y="118" width="187.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QWl-Qu-dY0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="데이터 내보내기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rwk-7Z-4Mb" firstAttribute="centerY" secondItem="TI3-DK-vHk" secondAttribute="centerY" id="4gL-UE-ClM"/>
                             <constraint firstItem="TI3-DK-vHk" firstAttribute="top" secondItem="fEN-Hu-aTw" secondAttribute="top" id="APx-RM-UPX"/>
+                            <constraint firstItem="gjS-IY-fk6" firstAttribute="leading" secondItem="fEN-Hu-aTw" secondAttribute="leading" constant="16" id="E1P-U5-BMe"/>
+                            <constraint firstItem="fEN-Hu-aTw" firstAttribute="trailing" secondItem="gjS-IY-fk6" secondAttribute="trailing" constant="16" id="EeX-aD-GiS"/>
                             <constraint firstItem="TI3-DK-vHk" firstAttribute="centerX" secondItem="Zre-PF-ggr" secondAttribute="centerX" id="Ma6-NQ-xUm"/>
+                            <constraint firstItem="gjS-IY-fk6" firstAttribute="centerY" secondItem="Zre-PF-ggr" secondAttribute="centerY" id="RJR-sj-0xk"/>
+                            <constraint firstItem="gjS-IY-fk6" firstAttribute="centerX" secondItem="Zre-PF-ggr" secondAttribute="centerX" id="bC3-bP-Moz"/>
+                            <constraint firstItem="PhA-jN-E4c" firstAttribute="width" secondItem="Zre-PF-ggr" secondAttribute="width" multiplier="0.5" id="cnx-pz-agm"/>
                             <constraint firstItem="fEN-Hu-aTw" firstAttribute="trailing" secondItem="rwk-7Z-4Mb" secondAttribute="trailing" constant="16" id="fPy-1m-eqk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fEN-Hu-aTw"/>
                     </view>
+                    <connections>
+                        <outlet property="uploadButton" destination="PhA-jN-E4c" id="YaT-Ke-re3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymj-aZ-gZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

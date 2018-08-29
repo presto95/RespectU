@@ -64,9 +64,11 @@
 		193C2858213671D5001EB7F3 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C2857213671D4001EB7F3 /* SignInTextField.swift */; };
 		193C285A213671F6001EB7F3 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C2859213671F6001EB7F3 /* SignInButton.swift */; };
 		193C285C213674B1001EB7F3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C285B213674B1001EB7F3 /* SignUpViewController.swift */; };
-		193C28602136C8E7001EB7F3 /* Synchronize.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C285F2136C8E7001EB7F3 /* Synchronize.storyboard */; };
-		193C28622136C8F0001EB7F3 /* SynchronizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28612136C8F0001EB7F3 /* SynchronizeViewController.swift */; };
+		193C28602136C8E7001EB7F3 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C285F2136C8E7001EB7F3 /* Upload.storyboard */; };
+		193C28622136C8F0001EB7F3 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28612136C8F0001EB7F3 /* UploadViewController.swift */; };
 		193C28642136CB73001EB7F3 /* LanguageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28632136CB73001EB7F3 /* LanguageInfo.swift */; };
+		193C28672136E522001EB7F3 /* Download.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C28662136E522001EB7F3 /* Download.storyboard */; };
+		193C28692136E52A001EB7F3 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28682136E52A001EB7F3 /* DownloadViewController.swift */; };
 		193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */; };
 		193DE8DB204922B400A829BB /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DE8D9204922B400A829BB /* AchievementCell.swift */; };
 		193DE8DC204922B400A829BB /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193DE8DA204922B400A829BB /* AchievementCell.xib */; };
@@ -106,7 +108,6 @@
 		194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52AF204A948300B84AFA /* SongCETableViewController.swift */; };
 		194E52B7204AC55900B84AFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B5204AC55900B84AFA /* SongCell.swift */; };
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
-		1950AC3B2133F392006DF64B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950AC3A2133F392006DF64B /* Tip.swift */; };
 		1950D885212D6F92004ED086 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950D884212D6F92004ED086 /* Language.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
@@ -256,9 +257,11 @@
 		193C2857213671D4001EB7F3 /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
 		193C2859213671F6001EB7F3 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		193C285B213674B1001EB7F3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		193C285F2136C8E7001EB7F3 /* Synchronize.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Synchronize.storyboard; sourceTree = "<group>"; };
-		193C28612136C8F0001EB7F3 /* SynchronizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizeViewController.swift; sourceTree = "<group>"; };
+		193C285F2136C8E7001EB7F3 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
+		193C28612136C8F0001EB7F3 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		193C28632136CB73001EB7F3 /* LanguageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
+		193C28662136E522001EB7F3 /* Download.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Download.storyboard; sourceTree = "<group>"; };
+		193C28682136E52A001EB7F3 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		193DE8D7204920EF00A829BB /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
 		193DE8D9204922B400A829BB /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		193DE8DA204922B400A829BB /* AchievementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
@@ -298,7 +301,6 @@
 		194E52AF204A948300B84AFA /* SongCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCETableViewController.swift; sourceTree = "<group>"; };
 		194E52B5204AC55900B84AFA /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
-		1950AC3A2133F392006DF64B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		1950D884212D6F92004ED086 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
@@ -486,7 +488,6 @@
 			children = (
 				1939C972212BFF1900A6F8E3 /* Network.swift */,
 				1939C974212C004D00A6F8E3 /* API.swift */,
-				19A258182133FAD700C3A3AC /* Response */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -500,21 +501,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		193C285E2136C8C4001EB7F3 /* Synchronize */ = {
+		193C285E2136C8C4001EB7F3 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
-				193C285F2136C8E7001EB7F3 /* Synchronize.storyboard */,
-				193C28612136C8F0001EB7F3 /* SynchronizeViewController.swift */,
+				193C285F2136C8E7001EB7F3 /* Upload.storyboard */,
+				193C28612136C8F0001EB7F3 /* UploadViewController.swift */,
 			);
-			path = Synchronize;
+			path = Upload;
 			sourceTree = "<group>";
 		};
-		1950AC392133F26B006DF64B /* Model */ = {
+		193C28652136E516001EB7F3 /* Download */ = {
 			isa = PBXGroup;
 			children = (
-				1950AC3A2133F392006DF64B /* Tip.swift */,
+				193C28662136E522001EB7F3 /* Download.storyboard */,
+				193C28682136E52A001EB7F3 /* DownloadViewController.swift */,
 			);
-			path = Model;
+			path = Download;
 			sourceTree = "<group>";
 		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
@@ -567,8 +569,8 @@
 			children = (
 				19012FAA204808010061EF21 /* Model */,
 				1939C971212BFF1000A6F8E3 /* Network */,
+				19A258182133FAD700C3A3AC /* Response */,
 				191275DE2111F7150046AA3E /* Constants */,
-				1950AC392133F26B006DF64B /* Model */,
 				191275EE21120B380046AA3E /* Base */,
 				19E767CC20EE51A5008C9F9D /* Start */,
 				19E767B420EE49B4008C9F9D /* Performance */,
@@ -601,7 +603,8 @@
 				19E767C820EE4CFE008C9F9D /* Tip */,
 				19E767CA20EE4D09008C9F9D /* Manual */,
 				19E767C920EE4D05008C9F9D /* Radio */,
-				193C285E2136C8C4001EB7F3 /* Synchronize */,
+				193C285E2136C8C4001EB7F3 /* Upload */,
+				193C28652136E516001EB7F3 /* Download */,
 			);
 			path = Guide;
 			sourceTree = "<group>";
@@ -1072,6 +1075,7 @@
 				193E400D204BF5D60063A440 /* SkillLevelCell.xib in Resources */,
 				1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */,
 				198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */,
+				193C28672136E522001EB7F3 /* Download.storyboard in Resources */,
 				1999920F2049641A00C74697 /* MissionCell.xib in Resources */,
 				191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
@@ -1079,7 +1083,7 @@
 				193E403B204C2EB60063A440 /* RankingCell.xib in Resources */,
 				19012FB42048342F0061EF21 /* Login.storyboard in Resources */,
 				1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */,
-				193C28602136C8E7001EB7F3 /* Synchronize.storyboard in Resources */,
+				193C28602136C8E7001EB7F3 /* Upload.storyboard in Resources */,
 				196818492048F6820007F4D7 /* Radio.storyboard in Resources */,
 				19320FC8204955D50075BD86 /* Mission.storyboard in Resources */,
 				19012FB82048345B0061EF21 /* Guide.storyboard in Resources */,
@@ -1213,7 +1217,6 @@
 				19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */,
 				19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */,
 				191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */,
-				1950AC3B2133F392006DF64B /* Tip.swift in Sources */,
 				19892A8820662F83009D01F8 /* SearchByLevelView.swift in Sources */,
 				193E403D204C2FB90063A440 /* ERProgressHud.swift in Sources */,
 				19320FBC204942390075BD86 /* AchievementMusicTableViewController.swift in Sources */,
@@ -1282,6 +1285,7 @@
 				19B09E31212C5565005EE66D /* TrophyResponse.swift in Sources */,
 				198B6C58211423920058DE49 /* Firebase.swift in Sources */,
 				19F38C97204CC962006BB72B /* SkillLevelDetailView.swift in Sources */,
+				193C28692136E52A001EB7F3 /* DownloadViewController.swift in Sources */,
 				19F13FBC2112F161003E622E /* RecordBaseTableViewController.swift in Sources */,
 				19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */,
 				19320FCC2049566A0075BD86 /* TrophyViewController.swift in Sources */,
@@ -1310,7 +1314,7 @@
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,
 				192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */,
-				193C28622136C8F0001EB7F3 /* SynchronizeViewController.swift in Sources */,
+				193C28622136C8F0001EB7F3 /* UploadViewController.swift in Sources */,
 				194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */,
 				1986CA3A205FC85A00CA43EA /* SearchRecordDetailCell.swift in Sources */,
 			);

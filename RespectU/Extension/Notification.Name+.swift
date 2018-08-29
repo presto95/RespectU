@@ -22,4 +22,9 @@ extension Notification.Name {
     static let errorReceiveAchievements = Notification.Name("ErrorReceiveAchievements")
     static let didReceiveTips = Notification.Name("DidReceiveTips")
     static let errorReceiveTips = Notification.Name("ErrorReceiveTips")
+    
+    static let didReceiveUploadData = Notification.Name("DidReceiveUploadData")
+    static let errorReceiveUploadData = Notification.Name("ErrorReceiveUploadData")
+    static let didReceiveDownloadData = Notification.Name("DidReceiveDownloadData")
+    static let errorReceiveDownloadData = Notification.Name("ErrorReceiveDownloadData")
 }

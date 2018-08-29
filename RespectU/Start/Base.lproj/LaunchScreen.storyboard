@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,21 +15,21 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="jUt-eL-Hcv">
-                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0GE-kb-hI6"/>
-                                    <constraint firstAttribute="height" constant="200" id="mBN-Te-YXl"/>
+                                    <constraint firstAttribute="height" constant="200" id="WV7-8o-53c"/>
+                                    <constraint firstAttribute="width" constant="200" id="qjz-2J-VTz"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90814238786697388" green="0.63452833890914917" blue="0.20667991042137146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jUt-eL-Hcv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="X8d-4v-syL"/>
-                            <constraint firstItem="jUt-eL-Hcv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gI4-mR-ryS"/>
+                            <constraint firstItem="jUt-eL-Hcv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WEu-Yg-S3v"/>
+                            <constraint firstItem="jUt-eL-Hcv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kIf-XP-bVW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="respectuFlat" width="1000" height="1000"/>
+        <image name="respectuFlat" width="500" height="500"/>
     </resources>
 </document>

@@ -281,3 +281,5 @@
 "Password" = "비밀번호";
 "Sign In" = "로그인";
 "Sign Up" = "회원가입";
+"Your data has been successfully uploaded." = "데이터를 성공적으로 내보냈습니다.";
+"Your data has been successfully downloaded." = "데이터를 성공적으로 가져왔습니다.";

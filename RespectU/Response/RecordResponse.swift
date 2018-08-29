@@ -39,4 +39,5 @@ struct RecordResponse: Codable {
     }
     let uid: String
     let records: [Record]
+    let perfectPlays: Int
 }

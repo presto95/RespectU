@@ -9,19 +9,19 @@
 
 
 
-#### 개발 기간
+### 개발 기간
 
 '17.10. ~ 현재
 
 
 
-#### 사용한 라이브러리
+### 사용한 라이브러리
 
 Realm / Firebase / GoogleSignIn / SwiftKeychainWrapper / GaugeKit / MarqueeLabel/Swift / XLPagerTabStrip / DZNEmptyDataSet / AKPickerView-Swift
 
 
 
-#### 의의
+### 의의
 
 - 세 번째 개인 프로젝트
 - App Store에 업로드한 첫 번째 애플리케이션
@@ -34,7 +34,7 @@ Realm / Firebase / GoogleSignIn / SwiftKeychainWrapper / GaugeKit / MarqueeLabel
 
 
 
-#### 개발 이슈
+### 개발 이슈
 
 1. 서버 데이터베이스와 로컬 데이터베이스(Realm)와의 동기화
    - Firebase를 통해 하고 있는 인증 / 데이터베이스 기능을 Node.js로 작성한 서버로 이전
@@ -58,7 +58,7 @@ Realm / Firebase / GoogleSignIn / SwiftKeychainWrapper / GaugeKit / MarqueeLabel
 
 
 
-#### 버전 기록
+### 버전 기록
 
 ![6](./images/6.png)
 

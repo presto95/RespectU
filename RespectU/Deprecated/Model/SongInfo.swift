@@ -24,61 +24,63 @@ import RealmSwift
     dynamic var button5: Button = Button()
     dynamic var button6: Button = Button()
     dynamic var button8: Button = Button()
+    var localizedTitle: String {
+        if Locale.current.regionCode == "KR", let korean = title.korean {
+            return korean
+        } else {
+            return title.english
+        }
+    }
+    var localizedLowercase: String {
+        if Locale.current.regionCode == "KR", let korean = lowercase.korean {
+            return korean
+        } else {
+            return lowercase.english
+        }
+    }
+    var bpmToString: String {
+        if let subBpm = subBpm {
+            return "BPM \(bpm) ~ \(subBpm)"
+        } else {
+            return "BPM \(bpm)"
+        }
+    }
+    
+    static func add(_ songInfo: SongResponse.Song) {
+        let realm = try! Realm()
+        let object = SongInfo()
+        object.title.english = songInfo.title.english
+        object.title.korean = songInfo.title.korean
+        object.lowercase.english = songInfo.title.english
+        object.lowercase.korean = songInfo.lowercase.korean
+        object.series = songInfo.series
+        object.composer = songInfo.composer
+        object.bpm = songInfo.bpm
+        object.subBpm = songInfo.subBpm
+        object.button4.normal = songInfo.button4.normal
+        object.button4.hard = songInfo.button4.hard
+        object.button4.maximum = songInfo.button4.maximum
+        object.button5.normal = songInfo.button5.normal
+        object.button5.hard = songInfo.button5.hard
+        object.button5.maximum = songInfo.button5.maximum
+        object.button6.normal = songInfo.button6.normal
+        object.button6.hard = songInfo.button6.hard
+        object.button6.maximum = songInfo.button6.maximum
+        object.button8.normal = songInfo.button8.normal
+        object.button8.hard = songInfo.button8.hard
+        object.button8.maximum = songInfo.button8.maximum
+        try! realm.write {
+            realm.add(object)
+        }
+    }
+    
+    static func fetch(of series: String = "") -> Results<SongInfo> {
+        let songInfo = try! Realm().objects(SongInfo.self)
+        if series.isEmpty {
+            return songInfo
+        } else {
+            let filtered = songInfo.filter(key: "series", value: series, method: FilterOperator.equal)
+            return filtered
+        }
+    }
 }
-
-//
-//class SongInfo: Object {
-//    @objc dynamic var series: String = ""
-//    @objc dynamic var title: String = ""
-//    @objc dynamic var composer: String = ""
-//    @objc dynamic var bpm: String = ""
-//    @objc dynamic var nm4: Int = 0
-//    @objc dynamic var nm5: Int = 0
-//    @objc dynamic var nm6: Int = 0
-//    @objc dynamic var nm8: Int = 0
-//    @objc dynamic var hd4: Int = 0
-//    @objc dynamic var hd5: Int = 0
-//    @objc dynamic var hd6: Int = 0
-//    @objc dynamic var hd8: Int = 0
-//    @objc dynamic var mx4: Int = 0
-//    @objc dynamic var mx5: Int = 0
-//    @objc dynamic var mx6: Int = 0
-//    @objc dynamic var mx8: Int = 0
-//    @objc dynamic var lowercase: String = ""
-//
-//    //CREATE
-//    static func add(_ series: String, _ title: String, _ composer: String, _ bpm: String, _ nm4: Int, _ hd4: Int, _ mx4: Int, _ nm5: Int, _ hd5: Int, _ mx5: Int, _ nm6: Int, _ hd6: Int, _ mx6: Int, _ nm8: Int, _ hd8: Int, _ mx8: Int){
-//        let realm = try! Realm()
-//        let song = SongInfo()
-//        song.series = series
-//        song.title = title
-//        song.composer = composer
-//        song.bpm = bpm
-//        song.nm4 = nm4
-//        song.nm5 = nm5
-//        song.nm6 = nm6
-//        song.nm8 = nm8
-//        song.hd4 = hd4
-//        song.hd5 = hd5
-//        song.hd6 = hd6
-//        song.hd8 = hd8
-//        song.mx4 = mx4
-//        song.mx5 = mx5
-//        song.mx6 = mx6
-//        song.mx8 = mx8
-//        try! realm.write {
-//            realm.add(song)
-//        }
-//    }
-//
-//    //READ
-//    static func get() -> Results<SongInfo> {
-//        let songInfo = try! Realm().objects(SongInfo.self)
-//        return songInfo
-//    }
-//
-//    //UPDATE
-//
-//    //DELETE
-//}
-

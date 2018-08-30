@@ -20,6 +20,7 @@ struct RecordResponse: Codable {
             let normal: Difficulty
             let hard: Difficulty
             let maximum: Difficulty
+            let highestSkillPoint: Double
             let highestSkillPointDifficulty: String
             let highestSkillPointNote: String
             let highestSillPointRate: Double

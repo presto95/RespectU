@@ -34,6 +34,7 @@ extension String{
             return nil
         }
     }
+    
     var missionColor: UIColor? {
         switch self {
         case Mission.Respect.departure:
@@ -80,6 +81,7 @@ extension String{
             return nil
         }
     }
+    
     var bpmToDouble: Double {
         if let notChangedBpm = Double(self) {
             return notChangedBpm
@@ -89,6 +91,7 @@ extension String{
             return changedBpm
         }
     }
+    
     var noteAbbreviation: String? {
         if self == Note.none {
             return Note.none

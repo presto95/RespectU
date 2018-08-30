@@ -30,6 +30,77 @@ import RealmSwift
     dynamic var stage4: Stage?
     dynamic var stage5: Stage?
     dynamic var stage6: Stage?
+    var localizedReward: String {
+        if Locale.current.regionCode == "KR", let korean = reward.korean {
+            return korean
+        } else {
+            return reward.english
+        }
+    }
+    
+    static func add(_ missionInfo: MissionResponse.Mission) {
+        let realm = try! Realm()
+        let object = MissionInfo()
+        object.series = missionInfo.series
+        object.section = missionInfo.section
+        object.title = missionInfo.title
+        object.score = missionInfo.score
+        object.combo = missionInfo.combo
+        object.rate = missionInfo.rate
+        object.break = missionInfo.break
+        object.effector = missionInfo.effector
+        object.reward.english = missionInfo.reward.english
+        object.reward.korean = missionInfo.reward.korean
+        if let object = object.stage1, let missionInfo = missionInfo.stage1 {
+            object.title.english = missionInfo.title.english
+            object.title.korean = missionInfo.title.korean
+            object.difficulty = missionInfo.difficulty
+            object.button = missionInfo.button
+        }
+        if let object = object.stage2, let missionInfo = missionInfo.stage2 {
+            object.title.english = missionInfo.title.english
+            object.title.korean = missionInfo.title.korean
+            object.difficulty = missionInfo.difficulty
+            object.button = missionInfo.button
+        }
+        if let object = object.stage3, let missionInfo = missionInfo.stage3 {
+            object.title.english = missionInfo.title.english
+            object.title.korean = missionInfo.title.korean
+            object.difficulty = missionInfo.difficulty
+            object.button = missionInfo.button
+        }
+        if let object = object.stage4, let missionInfo = missionInfo.stage4 {
+            object.title.english = missionInfo.title.english
+            object.title.korean = missionInfo.title.korean
+            object.difficulty = missionInfo.difficulty
+            object.button = missionInfo.button
+        }
+        if let object = object.stage5, let missionInfo = missionInfo.stage5 {
+            object.title.english = missionInfo.title.english
+            object.title.korean = missionInfo.title.korean
+            object.difficulty = missionInfo.difficulty
+            object.button = missionInfo.button
+        }
+        if let object = object.stage6, let missionInfo = missionInfo.stage6 {
+            object.title.english = missionInfo.title.english
+            object.title.korean = missionInfo.title.korean
+            object.difficulty = missionInfo.difficulty
+            object.button = missionInfo.button
+        }
+        try! realm.write {
+            realm.add(object)
+        }
+    }
+    
+    static func fetch(of series: String = "") -> Results<MissionInfo> {
+        let missionInfo = try! Realm().objects(MissionInfo.self)
+        if series.isEmpty {
+            return missionInfo
+        } else {
+            let filtered = missionInfo.filter(key: "series", value: series, method: FilterOperator.equal)
+            return filtered
+        }
+    }
 }
 
 //class MissionInfo: Object {

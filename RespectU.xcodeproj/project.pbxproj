@@ -416,9 +416,9 @@
 				19012FC520484C080061EF21 /* SongInfo.swift */,
 				19012FC720484C0F0061EF21 /* MissionInfo.swift */,
 				19012FCC20484C260061EF21 /* TrophyInfo.swift */,
-				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
 				19012FCA20484C1D0061EF21 /* AchievementInfo.swift */,
 				19012FC320484C020061EF21 /* TipInfo.swift */,
+				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
 				198B6C4F2113913C0058DE49 /* Skill.swift */,
 				198B6C57211423920058DE49 /* Firebase.swift */,
 			);

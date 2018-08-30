@@ -19,16 +19,51 @@ import RealmSwift
         dynamic var normal: Difficulty = Difficulty()
         dynamic var hard: Difficulty = Difficulty()
         dynamic var maximum: Difficulty = Difficulty()
+        dynamic var highestSkillPoint: Double = 0
         dynamic var highestSkillPointDifficulty: String = ""
         dynamic var highestSkillPointNote: String = ""
         dynamic var highestSkillPointRate: Double = 0
     }
-    dynamic var uid: String = ""
     dynamic var title: LanguageInfo = LanguageInfo()
+    dynamic var series: String = ""
     dynamic var button4: Button = Button()
     dynamic var button5: Button = Button()
     dynamic var button6: Button = Button()
     dynamic var button8: Button = Button()
+    var localizedTitle: String {
+        if Locale.current.regionCode == "KR", let korean = title.korean {
+            return korean
+        } else {
+            return title.english
+        }
+    }
+    
+    static func add(_ recordInfo: RecordInfo) {
+        let realm = try! Realm()
+        let object = RecordInfo()
+        object.title = recordInfo.title
+        object.button4 = recordInfo.button4
+        object.button5 = recordInfo.button5
+        object.button6 = recordInfo.button6
+        object.button8 = recordInfo.button8
+        try! realm.write {
+            realm.add(object)
+        }
+    }
+    
+    static func fetch(of title: String) -> Results<RecordInfo> {
+        let recordInfo = try! Realm().objects(RecordInfo.self).filter(key: "title", value: title, method: FilterOperator.equal)
+        return recordInfo
+    }
+
+    static func update(_ object: RecordInfo, with dictionary: [String: Any]) {
+        let realm = try! Realm()
+        try! realm.write {
+            for (key, value) in dictionary {
+                object.setValue(value, forKey: key)
+            }
+        }
+    }
 }
 
 //class RecordInfo: Object {
@@ -154,16 +189,7 @@ import RealmSwift
 //
 //    //UPDATE
 //    static func update(_ object: RecordInfo, with dictionary: [String: Any]) {
-//        let realm = try! Realm()
-//        do {
-//            try realm.write {
-//                for (key, value) in dictionary {
-//                    object.setValue(value, forKey: key)
-//                }
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+//
 //    }
 //
 //    //DELETE

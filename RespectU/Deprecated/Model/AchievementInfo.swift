@@ -13,6 +13,44 @@ import RealmSwift
     dynamic var level: Int = 0
     dynamic var section: LanguageInfo = LanguageInfo()
     dynamic var item: LanguageInfo = LanguageInfo()
+    var localizedSection: String {
+        if Locale.current.regionCode == "KR", let korean = section.korean {
+            return korean
+        } else {
+            return section.english
+        }
+    }
+    var localizedItem: String {
+        if Locale.current.regionCode == "KR", let korean = item.korean {
+            return korean
+        } else {
+            return item.english
+        }
+    }
+    
+    static func add(_ achievementInfo: AchievementResponse.Achievement) {
+        let realm = try! Realm()
+        let object = AchievementInfo()
+        object.type = achievementInfo.type
+        object.level = achievementInfo.level
+        object.section.english = achievementInfo.section.english
+        object.section.korean = achievementInfo.section.korean
+        object.item.english = achievementInfo.item.english
+        object.item.korean = achievementInfo.item.korean
+        try! realm.write {
+            realm.add(object)
+        }
+    }
+    
+    static func fetch(of type: String = "") -> Results<AchievementInfo> {
+        let achievementInfo = try! Realm().objects(AchievementInfo.self)
+        if type.isEmpty {
+            return achievementInfo
+        } else {
+            let filtered = achievementInfo.filter(key: "type", value: type, method: FilterOperator.equal)
+            return filtered
+        }
+    }
 }
 
 //class AchievementInfo: Object {

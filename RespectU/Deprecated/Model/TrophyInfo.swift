@@ -14,6 +14,45 @@ import RealmSwift
     dynamic var image: String = ""
     dynamic var title: LanguageInfo = LanguageInfo()
     dynamic var content: LanguageInfo = LanguageInfo()
+    var localizedTitle: String {
+        if Locale.current.regionCode == "KR", let korean = title.korean {
+            return korean
+        } else {
+            return title.english
+        }
+    }
+    var localizedContent: String {
+        if Locale.current.regionCode == "KR", let korean = content.korean {
+            return korean
+        } else {
+            return content.english
+        }
+    }
+    
+    static func add(_ trophyInfo: TrophyResponse.Trophy) {
+        let realm = try! Realm()
+        let object = TrophyInfo()
+        object.series = trophyInfo.series
+        object.rating = trophyInfo.rating
+        object.image = trophyInfo.image
+        object.title.english = trophyInfo.title.english
+        object.title.korean = trophyInfo.title.korean
+        object.content.english = trophyInfo.content.english
+        object.content.korean = trophyInfo.content.korean
+        try! realm.write {
+            realm.add(object)
+        }
+    }
+    
+    static func fetch(of series: String = "") -> Results<TrophyInfo> {
+        let trophyInfo = try! Realm().objects(TrophyInfo.self)
+        if series.isEmpty {
+            return trophyInfo
+        } else {
+            let filtered = trophyInfo.filter(key: "series", value: series, method: FilterOperator.equal)
+            return filtered
+        }
+    }
 }
 
 

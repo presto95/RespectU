@@ -10,6 +10,28 @@ import RealmSwift
 
 @objcMembers class TipInfo: Object {
     dynamic var title: LanguageInfo = LanguageInfo()
+    var localizedTitle: String {
+        if Locale.current.regionCode == "KR", let korean = title.korean {
+            return korean
+        } else {
+            return title.english
+        }
+    }
+    
+    static func add(_ tipInfo: TipResponse.Tip) {
+        let realm = try! Realm()
+        let object = TipInfo()
+        object.title.english = tipInfo.title.english
+        object.title.korean = tipInfo.title.korean
+        try! realm.write {
+            realm.add(object)
+        }
+    }
+    
+    static func fetch() -> Results<TipInfo> {
+        let tipInfo = try! Realm().objects(TipInfo.self)
+        return tipInfo
+    }
 }
 
 //class TipInfo: Object {

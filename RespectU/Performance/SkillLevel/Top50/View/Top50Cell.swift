@@ -29,28 +29,28 @@ class Top50Cell: UITableViewCell {
     
     func setProperties(_ object: RecordInfo, button: String) {
         self.colorLabel.backgroundColor = object.series.seriesColor
-        self.titleLabel.text = object.title
+        self.titleLabel.text = object.localizedTitle
         switch button {
         case Buttons.button4:
-            self.difficultyLabel.text = object.button4HighestSkillPointDifficulty
-            self.noteLabel.text = object.button4HighestSkillPointNote
-            self.rateLabel.text = object.button4HighestSkillPointRate
-            self.skillPointLabel.text = "\(object.button4SkillPoint)"
+            self.difficultyLabel.text = object.button4.highestSkillPointDifficulty
+            self.noteLabel.text = object.button4.highestSkillPointNote
+            self.rateLabel.text = "\(object.button4.highestSkillPointRate)%"
+            self.skillPointLabel.text = "\(object.button4.highestSkillPoint)"
         case Buttons.button5:
-            self.difficultyLabel.text = object.button5HighestSkillPointDifficulty
-            self.noteLabel.text = object.button5HighestSkillPointNote
-            self.rateLabel.text = object.button5HighestSkillPointRate
-            self.skillPointLabel.text = "\(object.button5SkillPoint)"
+            self.difficultyLabel.text = object.button5.highestSkillPointDifficulty
+            self.noteLabel.text = object.button5.highestSkillPointNote
+            self.rateLabel.text = "\(object.button5.highestSkillPointRate)%"
+            self.skillPointLabel.text = "\(object.button5.highestSkillPoint)"
         case Buttons.button6:
-            self.difficultyLabel.text = object.button6HighestSkillPointDifficulty
-            self.noteLabel.text = object.button6HighestSkillPointNote
-            self.rateLabel.text = object.button6HighestSkillPointRate
-            self.skillPointLabel.text = "\(object.button6SkillPoint)"
+            self.difficultyLabel.text = object.button6.highestSkillPointDifficulty
+            self.noteLabel.text = object.button6.highestSkillPointNote
+            self.rateLabel.text = "\(object.button6.highestSkillPointRate)%"
+            self.skillPointLabel.text = "\(object.button6.highestSkillPoint)"
         case Buttons.button8:
-            self.difficultyLabel.text = object.button8HighestSkillPointDifficulty
-            self.noteLabel.text = object.button8HighestSkillPointNote
-            self.rateLabel.text = object.button8HighestSkillPointRate
-            self.skillPointLabel.text = "\(object.button8SkillPoint)"
+            self.difficultyLabel.text = object.button8.highestSkillPointDifficulty
+            self.noteLabel.text = object.button8.highestSkillPointNote
+            self.rateLabel.text = "\(object.button8.highestSkillPointRate)%"
+            self.skillPointLabel.text = "\(object.button8.highestSkillPoint)"
         default:
             break
         }

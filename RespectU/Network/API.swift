@@ -31,7 +31,7 @@ extension API {
 
 //MARK:- Mission
 extension API {
-    static func requestMissions(of series: String) {
+    static func requestMissions(of series: String = "") {
         Network.get("\(baseUrl)/missions/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(MissionResponse.self, from: data)
@@ -47,7 +47,7 @@ extension API {
 
 //MARK:- Trophy
 extension API {
-    static func requestTrophies(of series: String) {
+    static func requestTrophies(of series: String = "") {
         Network.get("\(baseUrl)/trophies/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(TrophyResponse.self, from: data)
@@ -90,17 +90,6 @@ extension API {
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
         }
-    }
-}
-
-//MARK:- Upload / Download Data
-extension API {
-    static func uploadData() {
-        
-    }
-    
-    static func downloadData() {
-        
     }
 }
 

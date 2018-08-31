@@ -6,6 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+///랭크 열거형
 enum Rank {
     static let s = "S"
     static let a = "A"

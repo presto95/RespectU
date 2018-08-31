@@ -11,603 +11,145 @@ import RealmSwift
 
 class SummaryDetailViewController: UIViewController {
 
-    @IBOutlet weak var label4B0: UILabel!
-    @IBOutlet weak var label4B1: UILabel!
-    @IBOutlet weak var label4B2: UILabel!
-    @IBOutlet weak var label4B3: UILabel!
-    @IBOutlet weak var label4B4: UILabel!
-    @IBOutlet weak var label4B5: UILabel!
-    @IBOutlet weak var label4B6: UILabel!
-    @IBOutlet weak var label4B7: UILabel!
-    @IBOutlet weak var label4BMC: UILabel!
-    @IBOutlet weak var label4BPP: UILabel!
-    @IBOutlet weak var label4BPatterns: UILabel!
-    @IBOutlet weak var label4BAvg: UILabel!
-    @IBOutlet weak var label5B0: UILabel!
-    @IBOutlet weak var label5B1: UILabel!
-    @IBOutlet weak var label5B2: UILabel!
-    @IBOutlet weak var label5B3: UILabel!
-    @IBOutlet weak var label5B4: UILabel!
-    @IBOutlet weak var label5B5: UILabel!
-    @IBOutlet weak var label5B6: UILabel!
-    @IBOutlet weak var label5B7: UILabel!
-    @IBOutlet weak var label5BMC: UILabel!
-    @IBOutlet weak var label5BPP: UILabel!
-    @IBOutlet weak var label5BPatterns: UILabel!
-    @IBOutlet weak var label5BAvg: UILabel!
-    @IBOutlet weak var label6B0: UILabel!
-    @IBOutlet weak var label6B1: UILabel!
-    @IBOutlet weak var label6B2: UILabel!
-    @IBOutlet weak var label6B3: UILabel!
-    @IBOutlet weak var label6B4: UILabel!
-    @IBOutlet weak var label6B5: UILabel!
-    @IBOutlet weak var label6B6: UILabel!
-    @IBOutlet weak var label6B7: UILabel!
-    @IBOutlet weak var label6BMC: UILabel!
-    @IBOutlet weak var label6BPP: UILabel!
-    @IBOutlet weak var label6BPatterns: UILabel!
-    @IBOutlet weak var label6BAvg: UILabel!
-    @IBOutlet weak var label8B0: UILabel!
-    @IBOutlet weak var label8B1: UILabel!
-    @IBOutlet weak var label8B2: UILabel!
-    @IBOutlet weak var label8B3: UILabel!
-    @IBOutlet weak var label8B4: UILabel!
-    @IBOutlet weak var label8B5: UILabel!
-    @IBOutlet weak var label8B6: UILabel!
-    @IBOutlet weak var label8B7: UILabel!
-    @IBOutlet weak var label8BMC: UILabel!
-    @IBOutlet weak var label8BPP: UILabel!
-    @IBOutlet weak var label8BPatterns: UILabel!
-    @IBOutlet weak var label8BAvg: UILabel!
-    @IBOutlet weak var labelAll0: UILabel!
-    @IBOutlet weak var labelAll1: UILabel!
-    @IBOutlet weak var labelAll2: UILabel!
-    @IBOutlet weak var labelAll3: UILabel!
-    @IBOutlet weak var labelAll4: UILabel!
-    @IBOutlet weak var labelAll5: UILabel!
-    @IBOutlet weak var labelAll6: UILabel!
-    @IBOutlet weak var labelAll7: UILabel!
-    @IBOutlet weak var labelAllMC: UILabel!
-    @IBOutlet weak var labelAllPP: UILabel!
-    @IBOutlet weak var labelAllPatterns: UILabel!
-    @IBOutlet weak var labelAllAvg: UILabel!
-    
-    var results: Results<RecordInfo>!
-    var count4B = Array(repeating: 0, count: 13)
-    var count5B = Array(repeating: 0, count: 13)
-    var count6B = Array(repeating: 0, count: 13)
-    var count8B = Array(repeating: 0, count: 13)
-    var countAll = Array(repeating: 0, count: 13)
-    var rates = Array(repeating: 0.0, count: 5)
+    // 0 1 2 3 4 5 6 7 : 정확도
+    // 8 : 맥스 콤보
+    // 9 : 퍼펙트 플레이
+    // 10 : 총 패턴 수
+    // 11 : 성과 기록한 패턴 수
+    @IBOutlet weak var button4StackView: UIStackView!
+    @IBOutlet weak var button5StackView: UIStackView!
+    @IBOutlet weak var button6StackView: UIStackView!
+    @IBOutlet weak var button8StackView: UIStackView!
+    @IBOutlet weak var allStackView: UIStackView!
+    var recordResults: Results<RecordInfo>!
+    var songResults: Results<SongInfo>!
+    var button4Array = Array(repeating: 0, count: 12)
+    var button5Array = Array(repeating: 0, count: 12)
+    var button6Array = Array(repeating: 0, count: 12)
+    var button8Array = Array(repeating: 0, count: 12)
+    var allArray = Array(repeating: 0, count: 12)
+    var rateArray = Array(repeating: 0.0, count: 5)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 0 ~ 7 : 정확도
-        // 8 : 맥스콤보
-        // 9 : 퍼펙트플레이
-        // 10 : 패턴수
-        // 11 : 평균 정확도
-        // 12 : 성과 기록한 패턴 수
-        results = RecordInfo.get()
-        //패턴 수 세기
-        for result in results{
-            if(result.nm4 != 0){
-                count4B[10] += 1
-            }
-            if(result.hd4 != 0){
-                count4B[10] += 1
-            }
-            if(result.mx4 != 0){
-                count4B[10] += 1
-            }
-            if(result.nm5 != 0){
-                count5B[10] += 1
-            }
-            if(result.hd5 != 0){
-                count5B[10] += 1
-            }
-            if(result.mx5 != 0){
-                count5B[10] += 1
-            }
-            if(result.nm6 != 0){
-                count6B[10] += 1
-            }
-            if(result.hd6 != 0){
-                count6B[10] += 1
-            }
-            if(result.mx6 != 0){
-                count6B[10] += 1
-            }
-            if(result.nm8 != 0){
-                count8B[10] += 1
-            }
-            if(result.hd8 != 0){
-                count8B[10] += 1
-            }
-            if(result.mx8 != 0){
-                count8B[10] += 1
-            }
-            var rate = Double(result.nm4Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button4, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button4, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button4, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button4, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button4, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button4, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button4, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button4, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.hd4Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button4, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button4, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button4, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button4, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button4, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button4, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button4, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button4, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.mx4Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button4, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button4, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button4, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button4, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button4, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button4, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button4, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button4, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.nm5Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button5, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button5, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button5, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button5, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button5, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button5, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button5, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button5, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.hd5Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button5, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button5, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button5, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button5, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button5, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button5, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button5, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button5, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.mx5Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button5, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button5, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button5, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button5, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button5, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button5, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button5, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button5, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.nm6Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button6, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button6, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button6, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button6, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button6, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button6, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button6, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button6, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.hd6Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button6, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button6, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button6, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button6, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button6, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button6, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button6, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button6, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.mx6Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button6, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button6, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button6, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button6, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button6, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button6, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button6, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button6, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.nm8Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button8, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button8, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button8, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button8, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button8, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button8, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button8, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button8, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.hd8Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button8, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button8, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button8, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button8, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button8, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button8, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button8, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button8, rate: rate)
-            default:
-                break
-            }
-            rate = Double(result.mx8Rate.split(separator: "%")[0]) ?? -1
-            switch(rate){
-            case 99.80...100.00:
-                setArrayOfRate(index: 0, button: Buttons.button8, rate: rate)
-            case 99.50..<99.80:
-                setArrayOfRate(index: 1, button: Buttons.button8, rate: rate)
-            case 99.00..<99.50:
-                setArrayOfRate(index: 2, button: Buttons.button8, rate: rate)
-            case 98.50..<99.00:
-                setArrayOfRate(index: 3, button: Buttons.button8, rate: rate)
-            case 98.00..<98.50:
-                setArrayOfRate(index: 4, button: Buttons.button8, rate: rate)
-            case 95.00..<98.00:
-                setArrayOfRate(index: 5, button: Buttons.button8, rate: rate)
-            case 90.00..<95.00:
-                setArrayOfRate(index: 6, button: Buttons.button8, rate: rate)
-            case 0.00..<90.00:
-                setArrayOfRate(index: 7, button: Buttons.button8, rate: rate)
-            default:
-                break
-            }
-            var note = result.nm4Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button4)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button4)
-            default:
-                break
-            }
-            note = result.hd4Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button4)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button4)
-            default:
-                break
-            }
-            note = result.mx4Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button4)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button4)
-            default:
-                break
-            }
-            note = result.nm5Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button5)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button5)
-            default:
-                break
-            }
-            note = result.hd5Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button5)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button5)
-            default:
-                break
-            }
-            note = result.mx5Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button5)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button5)
-            default:
-                break
-            }
-            note = result.nm6Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button6)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button6)
-            default:
-                break
-            }
-            note = result.hd6Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button6)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button6)
-            default:
-                break
-            }
-            note = result.mx6Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button6)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button6)
-            default:
-                break
-            }
-            note = result.nm8Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button8)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button8)
-            default:
-                break
-            }
-            note = result.hd8Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button8)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button8)
-            default:
-                break
-            }
-            note = result.mx8Note
-            switch(note){
-            case "MAX COMBO":
-                setArrayOfNote(index: 8, button: Buttons.button8)
-            case "PERFECT PLAY":
-                setArrayOfNote(index: 9, button: Buttons.button8)
-            default:
-                break
-            }
+        
+        self.recordResults = RecordInfo.fetch()
+        self.songResults = SongInfo.fetch()
+        for result in recordResults {
+            setButtonArrayWithTotalPatterns(songResults)
+            setButtonArrayExceptTotalPatterns(result.button4, to: &button4Array)
+            setButtonArrayExceptTotalPatterns(result.button5, to: &button5Array)
+            setButtonArrayExceptTotalPatterns(result.button6, to: &button6Array)
+            setButtonArrayExceptTotalPatterns(result.button8, to: &button8Array)
+            setRateArray(result.button4, to: &rateArray[0])
+            setRateArray(result.button5, to: &rateArray[1])
+            setRateArray(result.button6, to: &rateArray[2])
+            setRateArray(result.button8, to: &rateArray[3])
         }
-        for i in 0...12{
-            countAll[i] = count4B[i] + count5B[i] + count6B[i] + count8B[i]
+        for i in 0..<allArray.count {
+            allArray[i] = button4Array[i] + button5Array[i] + button6Array[i] + button8Array[i]
         }
-        // 0 ~ 7 : 정확도
-        // 8 : 맥스콤보
-        // 9 : 퍼펙트플레이
-        // 10 : 총 패턴수
-        // 11 : 평균 정확도
-        // 12 : 성과 기록한 패턴 수
-        rates[0] = rates[0] / Double(count4B[12])
-        rates[1] = rates[1] / Double(count5B[12])
-        rates[2] = rates[2] / Double(count6B[12])
-        rates[3] = rates[3] / Double(count8B[12])
-        rates[4] = (rates[0] + rates[1] + rates[2] + rates[3]) / 4.0
-        
-        label4B0.text = count4B[0].description
-        label4B1.text = count4B[1].description
-        label4B2.text = count4B[2].description
-        label4B3.text = count4B[3].description
-        label4B4.text = count4B[4].description
-        label4B5.text = count4B[5].description
-        label4B6.text = count4B[6].description
-        label4B7.text = count4B[7].description
-        label4BMC.text = count4B[8].description
-        label4BPP.text = count4B[9].description
-        label4BPatterns.text = count4B[10].description
-        label4BAvg.text = String(format: "%05.2f%%", rates[0])
-        
-        label5B0.text = count5B[0].description
-        label5B1.text = count5B[1].description
-        label5B2.text = count5B[2].description
-        label5B3.text = count5B[3].description
-        label5B4.text = count5B[4].description
-        label5B5.text = count5B[5].description
-        label5B6.text = count5B[6].description
-        label5B7.text = count5B[7].description
-        label5BMC.text = count5B[8].description
-        label5BPP.text = count5B[9].description
-        label5BPatterns.text = count5B[10].description
-        label5BAvg.text = String(format: "%05.2f%%", rates[1])
-        
-        
-        label6B0.text = count6B[0].description
-        label6B1.text = count6B[1].description
-        label6B2.text = count6B[2].description
-        label6B3.text = count6B[3].description
-        label6B4.text = count6B[4].description
-        label6B5.text = count6B[5].description
-        label6B6.text = count6B[6].description
-        label6B7.text = count6B[7].description
-        label6BMC.text = count6B[8].description
-        label6BPP.text = count6B[9].description
-        label6BPatterns.text = count6B[10].description
-        label6BAvg.text = String(format: "%05.2f%%", rates[2])
-        
-        label8B0.text = count8B[0].description
-        label8B1.text = count8B[1].description
-        label8B2.text = count8B[2].description
-        label8B3.text = count8B[3].description
-        label8B4.text = count8B[4].description
-        label8B5.text = count8B[5].description
-        label8B6.text = count8B[6].description
-        label8B7.text = count8B[7].description
-        label8BMC.text = count8B[8].description
-        label8BPP.text = count8B[9].description
-        label8BPatterns.text = count8B[10].description
-        label8BAvg.text = String(format: "%05.2f%%", rates[3])
-        
-        labelAll0.text = countAll[0].description
-        labelAll1.text = countAll[1].description
-        labelAll2.text = countAll[2].description
-        labelAll3.text = countAll[3].description
-        labelAll4.text = countAll[4].description
-        labelAll5.text = countAll[5].description
-        labelAll6.text = countAll[6].description
-        labelAll7.text = countAll[7].description
-        labelAllMC.text = countAll[8].description
-        labelAllPP.text = countAll[9].description
-        labelAllPatterns.text = countAll[10].description
-        labelAllAvg.text = String(format: "%05.2f%%", rates[4])
+        rateArray[4] = rateArray[0] + rateArray[1] + rateArray[2] + rateArray[3]
+        let count = button4StackView.arrangedSubviews.count
+        for index in 1..<count - 1 {
+            guard let button4Label = button4StackView.arrangedSubviews[index] as? UILabel else { return }
+            guard let button5Label = button5StackView.arrangedSubviews[index] as? UILabel else { return }
+            guard let button6Label = button6StackView.arrangedSubviews[index] as? UILabel else { return }
+            guard let button8Label = button8StackView.arrangedSubviews[index] as? UILabel else { return }
+            guard let allLabel = allStackView.arrangedSubviews[index] as? UILabel else { return }
+            button4Label.text = "\(button4Array[index - 1])"
+            button5Label.text = "\(button5Array[index - 1])"
+            button6Label.text = "\(button6Array[index - 1])"
+            button8Label.text = "\(button8Array[index - 1])"
+            allLabel.text = "\(allArray[index - 1])"
+        }
+        guard let button4AverageLabel = button4StackView.arrangedSubviews.last as? UILabel else { return }
+        guard let button5AverageLabel = button5StackView.arrangedSubviews.last as? UILabel else { return }
+        guard let button6AverageLabel = button6StackView.arrangedSubviews.last as? UILabel else { return }
+        guard let button8AverageLabel = button8StackView.arrangedSubviews.last as? UILabel else { return }
+        guard let allAverageLabel = allStackView.arrangedSubviews.last as? UILabel else { return }
+        button4AverageLabel.text = "\(rateArray[0])%"
+        button5AverageLabel.text = "\(rateArray[1])%"
+        button6AverageLabel.text = "\(rateArray[2])%"
+        button8AverageLabel.text = "\(rateArray[3])%"
+        allAverageLabel.text = "\(rateArray[4])%"
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    func setArrayOfRate(index: Int, button: String, rate: Double) {
-        switch button {
-        case Buttons.button4:
-            count4B[index] += 1
-            count4B[12] += 1
-            rates[0] += rate
-        case Buttons.button5:
-            count5B[index] += 1
-            count5B[12] += 1
-            rates[1] += rate
-        case Buttons.button6:
-            count6B[index] += 1
-            count6B[12] += 1
-            rates[2] += rate
-        case Buttons.button8:
-            count8B[index] += 1
-            count8B[12] += 1
-            rates[3] += rate
-        default:
-            break
+}
+
+extension SummaryDetailViewController {
+    private func setButtonArrayWithTotalPatterns(_ results: Results<SongInfo>) {
+        for result in results {
+            let buttons = ["button4", "button5", "button6", "button8"]
+            let difficulties = ["normal", "hard", "maximum"]
+            for i in 0..<4 {
+                let buttonKey = buttons[i]
+                guard let button = result.value(forKey: buttonKey) as? SongInfo.Button else { return }
+                for difficulty in difficulties {
+                    guard let difficulty = button.value(forKey: difficulty) as? Int else { return }
+                    if difficulty != 0 {
+                        switch i {
+                        case 0:
+                            button4Array[10] += 1
+                        case 1:
+                            button5Array[10] += 1
+                        case 2:
+                            button6Array[10] += 1
+                        case 3:
+                            button8Array[10] += 1
+                        default:
+                            break
+                        }
+                    }
+                }
+            }
         }
     }
-    func setArrayOfNote(index: Int, button: String) {
-        switch button {
-        case Buttons.button4:
-            count4B[index] += 1
-        case Buttons.button5:
-            count5B[index] += 1
-        case Buttons.button6:
-            count6B[index] += 1
-        case Buttons.button8:
-            count8B[index] += 1
-        default:
-            break
+    private func setButtonArrayExceptTotalPatterns(_ button: RecordInfo.Button, to array: inout [Int]) {
+        let difficulties = ["normal", "hard", "maximum"]
+        for difficulty in difficulties {
+            guard let difficulty = button.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return }
+            switch difficulty.rate {
+            case 99.8...100:
+                array[0] += 1
+            case 99.5..<99.8:
+                array[1] += 1
+            case 99..<99.5:
+                array[2] += 1
+            case 98.5..<99:
+                array[3] += 1
+            case 98..<98.5:
+                array[4] += 1
+            case 95..<98:
+                array[5] += 1
+            case 90..<95:
+                array[6] += 1
+            case ..<90:
+                array[7] += 1
+            default:
+                break
+            }
+            switch difficulty.note {
+            case "MC":
+                array[8] += 1
+            case "PP":
+                array[9] += 1
+            default:
+                break
+            }
+            if !difficulty.rank.isEmpty {
+                array[11] += 1
+            }
+        }
+    }
+    private func setRateArray(_ button: RecordInfo.Button, to value: inout Double) {
+        let difficulties = ["normal", "hard", "maximum"]
+        for difficulty in difficulties {
+            guard let difficulty = button.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return }
+            value += difficulty.rate
         }
     }
 }

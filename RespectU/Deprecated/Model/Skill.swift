@@ -27,14 +27,13 @@ class Skill {
     static let button8HighestSkillPointDifficulty = "button8HighestSkillPointDifficulty"
     static let button8HighestSkillPointNote = "button8HighestSkillPointNote"
     
-    //단일 스킬포인트 계산
-    static func skillPoint(difficulty: Int, rate: String, note: String) -> Double {
+    ///단일 스킬포인트 계산
+    static func skillPoint(difficulty: Int, rate: Double, note: String) -> Double {
         if difficulty == 0 {
             return 0
         }
         var skillPoint: Double
         let e = 2.71828
-        let rate = Double(rate.split(separator: "%").first?.description ?? "") ?? 0
         let weight = Skill.weight(difficulty)
         if rate >= 80 {
             let temp = pow((rate - 80) / 20.0, e) + 1
@@ -51,34 +50,27 @@ class Skill {
         return skillPoint
     }
     
-    //현재 데이터베이스로 얻을 수 있는 최대 스킬포인트 계산
+    ///현재 데이터베이스로 얻을 수 있는 최대 스킬포인트 계산
     static func maxSkillPoint(button: String) -> Double {
-        let results = SongInfo.get()
+        let results = SongInfo.fetch()
         var max: Double = 0
         var top50Difficulties = [Int]()
-        switch button {
-        case Buttons.button4:
-            for result in results {
-                guard let highest = [result.nm4, result.hd4, result.mx4].sorted().last else { return 0 }
-                top50Difficulties.append(highest)
+        for result in results {
+            let buttonResult: SongInfo.Button
+            switch button {
+            case Buttons.button4:
+                buttonResult = result.button4
+            case Buttons.button5:
+                buttonResult = result.button5
+            case Buttons.button6:
+                buttonResult = result.button6
+            case Buttons.button8:
+                buttonResult = result.button8
+            default:
+                break
             }
-        case Buttons.button5:
-            for result in results {
-                guard let highest = [result.nm5, result.hd5, result.mx5].sorted().last else { return 0 }
-                top50Difficulties.append(highest)
-            }
-        case Buttons.button6:
-            for result in results {
-                guard let highest = [result.nm6, result.hd6, result.mx6].sorted().last else { return 0 }
-                top50Difficulties.append(highest)
-            }
-        case Buttons.button8:
-            for result in results {
-                guard let highest = [result.nm8, result.hd8, result.mx8].sorted().last else { return 0 }
-                top50Difficulties.append(highest)
-            }
-        default:
-            break
+            guard let highest = [buttonResult.normal, buttonResult.hard, buttonResult.maximum].sorted().last else { return 0 }
+            top50Difficulties.append(highest)
         }
         top50Difficulties.sort(by: >)
         for index in 0..<50 {
@@ -87,7 +79,7 @@ class Skill {
         return max
     }
     
-    //내 기록의 스킬포인트와 1등의 시리즈 계산
+    ///내 기록의 스킬포인트와 1등의 시리즈 계산
     static func mySkillPoint(button: String) -> (sum: Double, highestSeries: String) {
         func getSum(_ key: String) -> (sum: Double, highestSeries: String) {
             let record = RecordInfo.get().sorted(byKeyPath: key, ascending: false)
@@ -114,7 +106,7 @@ class Skill {
         }
     }
     
-    //스킬포인트 다시 계산하여 데이터베이스 갱신
+    ///스킬포인트 다시 계산하여 데이터베이스 갱신
     static func refresh() {
         let results = RecordInfo.get()
         for result in results {
@@ -229,7 +221,7 @@ class Skill {
         }
     }
     
-    //버튼별 현재 스킬레벨의 다음 단계 가져오기
+    ///버튼별 현재 스킬레벨의 다음 단계 가져오기
     static func nextSkillLevel(of skillLevel: String, button: String) -> String? {
         var index: Int = 0
         var nextSkillLevel = "Next".localized + " : "
@@ -270,98 +262,59 @@ class Skill {
         return nextSkillLevel
     }
     
-    //성과 기록 비율 계산
+    ///성과 기록 비율 계산
     static func recordRate(button: String) -> Double {
         var counts = [0, 0]
-        let results = RecordInfo.get()
-        for result in results {
+        let recordResults = RecordInfo.fetch()
+        let songResults = SongInfo.fetch()
+        
+        for result in recordResults {
+            let buttonResult: RecordInfo.Button
+            let songResult: SongInfo.Button
+            guard let filteredSong = songResults.filter(key: "localizedTitle", value: result.localizedTitle, method: FilterOperator.equal).first else { return 0 }
             switch button {
             case Buttons.button4:
-                if result.nm4 != 0 {
-                    counts[0] += 1
-                }
-                if result.hd4 != 0 {
-                    counts[0] += 1
-                }
-                if result.mx4 != 0 {
-                    counts[0] += 1
-                }
-                if let _ = Double(result.nm4Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.hd4Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.mx4Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
+                buttonResult = result.button4
+                songResult = filteredSong.button4
             case Buttons.button5:
-                if result.nm5 != 0 {
-                    counts[0] += 1
-                }
-                if result.hd5 != 0 {
-                    counts[0] += 1
-                }
-                if result.mx5 != 0 {
-                    counts[0] += 1
-                }
-                if let _ = Double(result.nm5Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.hd5Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.mx5Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
+                buttonResult = result.button5
+                songResult = filteredSong.button5
             case Buttons.button6:
-                if result.nm6 != 0 {
-                    counts[0] += 1
-                }
-                if result.hd6 != 0 {
-                    counts[0] += 1
-                }
-                if result.mx6 != 0 {
-                    counts[0] += 1
-                }
-                if let _ = Double(result.nm6Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.hd6Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.mx6Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
+                buttonResult = result.button6
+                songResult = filteredSong.button6
             case Buttons.button8:
-                if result.nm8 != 0 {
-                    counts[0] += 1
-                }
-                if result.hd8 != 0 {
-                    counts[0] += 1
-                }
-                if result.mx8 != 0 {
-                    counts[0] += 1
-                }
-                if let _ = Double(result.nm8Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.hd8Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
-                if let _ = Double(result.mx8Rate.split(separator: "%")[0]) {
-                    counts[1] += 1
-                }
+                buttonResult = result.button8
+                songResult = filteredSong.button8
             default:
                 break
             }
+            if songResult.normal != 0 {
+                counts[0] += 1
+            }
+            if songResult.hard != 0 {
+                counts[0] += 1
+            }
+            if songResult.maximum != 0 {
+                counts[0] += 1
+            }
+            if buttonResult.normal.rate != 0{
+                counts[1] += 1
+            }
+            if buttonResult.hard.rate != 0{
+                counts[1] += 1
+            }
+            if buttonResult.maximum.rate != 0{
+                counts[1] += 1
+            }
+            let rate = Double(counts[1]) / Double(counts[0])
+            return rate
+            
         }
-        let rate = Double(counts[1]) / Double(counts[0])
-        return rate
     }
 }
 
 extension Skill {
+    ///4버튼 스킬 레벨 반환
     static func button4SkillLevel(_ value: Double) -> String? {
         switch value {
         case 0..<1000:
@@ -425,6 +378,7 @@ extension Skill {
         }
     }
     
+    ///5버튼 스킬 레벨 반환
     static func button5SkillLevel(_ value: Double) -> String? {
         switch value {
         case 0..<1000:
@@ -490,6 +444,7 @@ extension Skill {
         }
     }
     
+    ///6, 8버튼 스킬 레벨 반환
     static func button6And8SkillLevel(_ value: Double) -> String? {
         switch value {
         case 0..<1500:
@@ -555,7 +510,7 @@ extension Skill {
         }
     }
     
-    //스킬포인트 가중치 계산
+    ///스킬포인트 가중치 계산
     static func weight(_ value: Int) -> Double {
         switch value {
         case 1:

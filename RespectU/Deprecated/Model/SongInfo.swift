@@ -74,6 +74,7 @@ import RealmSwift
         }
     }
     
+    ///시리즈별 음악 가져오기
     static func fetch(of series: String = "") -> Results<SongInfo> {
         let songInfo = try! Realm().objects(SongInfo.self)
         if series.isEmpty {
@@ -82,5 +83,11 @@ import RealmSwift
             let filtered = songInfo.filter(key: "series", value: series, method: FilterOperator.equal)
             return filtered
         }
+    }
+    
+    ///타이틀별 음악 가져오기
+    static func fetch(by title: String) -> Results<SongInfo> {
+        let songInfo = try! Realm().objects(SongInfo.self).filter(key: "localizedTitle", value: title, method: FilterOperator.equal)
+        return songInfo
     }
 }

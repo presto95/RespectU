@@ -17,6 +17,7 @@ class Top50BaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.results = RecordInfo.fetch()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }

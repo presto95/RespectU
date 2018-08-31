@@ -145,55 +145,66 @@ class MissionDetailViewController: UIViewController {
 }
 
 extension MissionDetailViewController {
+    ///더보기 버튼 눌렀을 때 UIAlertController 띄우기
     private func presentMoreAlert(title: String?, button: String?, difficulty: String?){
         guard let title = title, let button = button, let difficulty = difficulty else { return }
-        var level: Int = 0
-        var bpm: Double = 0
-        let query = NSPredicate(format: "title = %@", title)
-        if let object = SongInfo.get().filter(query).first {
-            bpm = object.bpm.bpmToDouble
+        var level: Int?
+        var bpm: Int = 0
+        var changesSpeed: Bool = false
+        if let object = SongInfo.fetch(by: title).first {
+            if let subBpm = object.subBpm {
+                bpm = subBpm
+                changesSpeed = true
+            } else {
+                bpm = object.bpm
+            }
+            let buttonResult: SongInfo.Button?
             switch button {
             case Buttons.button4:
+                buttonResult = object.button4
                 switch difficulty {
                 case Difficulty.normal:
-                    level = object.nm4
+                    level = buttonResult?.normal
                 case Difficulty.hard:
-                    level = object.hd4
+                    level = buttonResult?.hard
                 case Difficulty.maximum:
-                    level = object.mx4
+                    level = buttonResult?.maximum
                 default:
                     break
                 }
             case Buttons.button5:
+                buttonResult = object.button5
                 switch difficulty {
                 case Difficulty.normal:
-                    level = object.nm5
+                    level = buttonResult?.normal
                 case Difficulty.hard:
-                    level = object.hd5
+                    level = buttonResult?.hard
                 case Difficulty.maximum:
-                    level = object.mx5
+                    level = buttonResult?.maximum
                 default:
                     break
                 }
             case Buttons.button6:
+                buttonResult = object.button6
                 switch difficulty {
                 case Difficulty.normal:
-                    level = object.nm6
+                    level = buttonResult?.normal
                 case Difficulty.hard:
-                    level = object.hd6
+                    level = buttonResult?.hard
                 case Difficulty.maximum:
-                    level = object.mx6
+                    level = buttonResult?.maximum
                 default:
                     break
                 }
             case Buttons.button8:
+                buttonResult = object.button8
                 switch difficulty {
                 case Difficulty.normal:
-                    level = object.nm8
+                    level = buttonResult?.normal
                 case Difficulty.hard:
-                    level = object.hd8
+                    level = buttonResult?.hard
                 case Difficulty.maximum:
-                    level = object.mx8
+                    level = buttonResult?.maximum
                 default:
                     break
                 }
@@ -201,21 +212,31 @@ extension MissionDetailViewController {
                 break
             }
         }
-        let speed: String = { () -> String in
+        let speedString = { () -> String in
             if bpm != 0 {
-                return recommendedSpeed(by: myBPM / bpm)
+                return recommendedSpeed(by: myBPM / Double(bpm))
             } else {
                 return "??"
             }
         }()
-        let difficultyString = level == 0 ? "??" : "\(level)"
-        let message = "\(button) \(difficulty)\n\n" + "Difficulty".localized + "\n\(difficultyString)\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
+        let levelString = { () -> String in
+            if let level = level {
+                return "\(level)"
+            } else {
+                return "??"
+            }
+        }
+        var message = "\(button.uppercased()) \(difficulty.uppercased())\n\n" + "Level".localized + "\n\(levelString)\n\n" + "SPEED Recommendation".localized + "\n\(speedString)"
+        if changesSpeed {
+            message += "\n" + "(SPEED Variation)".localized
+        }
         UIAlertController
             .alert(title: title, message: message)
             .defaultAction(title: "OK".localized)
             .present(to: self)
     }
     
+    ///뷰들의 가시성 초기 설정
     private func setVisibilityOfViews() {
         if !existsSong1 {
             song1ButtonLabel.isHidden = true

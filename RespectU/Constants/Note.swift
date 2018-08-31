@@ -7,7 +7,7 @@
 //
 
 enum Note {
-    static let maxCombo = "MAX COMBO"
-    static let perfectPlay = "PERFECT PLAY"
+    static let maxCombo = "MC"
+    static let perfectPlay = "PP"
     static let none = "-"
 }

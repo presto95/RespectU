@@ -13,6 +13,7 @@ class SummaryCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    let contents = [Rank.s, Rank.a, Rank.b, Rank.c, Note.maxCombo, Note.perfectPlay, "\(Note.maxCombo)+\(Note.perfectPlay)"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,30 +23,54 @@ class SummaryCollectionCell: UICollectionViewCell {
     }
     
     func setProperties(_ results: Results<RecordInfo>, at item: Int) {
+        let buttons = ["button4", "button5", "button6", "button8"]
+        let difficulties = ["normal", "hard", "maximum"]
+        var count: Int = 0
+        self.contentLabel.text = self.contents[item]
+        switch item {
+        case 0, 1, 2, 3:
+            self.valueLabel.text = {
+                for result in results {
+                    for button in buttons {
+                        guard let buttonResult = result.value(forKey: button) as? RecordInfo.Button else { return nil }
+                        for difficulty in difficulties {
+                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return nil }
+                            if difficultyResult.rank == self.contents[item] {
+                                count += 1
+                            }
+                        }
+                    }
+                }
+                return "\(count)"
+            }()
+        case 4, 5:
+            self.valueLabel.text = {
+                for result in results {
+                    for button in buttons {
+                        guard let buttonResult = result.value(forKey: button) as? RecordInfo.Button else { return nil }
+                        for difficulty in difficulties {
+                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return nil }
+                            if difficultyResult.note == self.contents[item] {
+                                count += 1
+                            }
+                        }
+                    }
+                }
+                return "\(count)"
+            }()
+        case 6:
+            break
+        default:
+            break
+        }
+        
+        
+        
         let difficulties = ["nm", "hd", "mx"]
         let buttons = [4, 5, 6, 8]
         var count = 0
-        let rankOrNote: String = {
-            switch item {
-            case 0:
-                return Rank.s
-            case 1:
-                return Rank.a
-            case 2:
-                return Rank.b
-            case 3:
-                return Rank.c
-            case 4:
-                return Note.maxCombo
-            case 5:
-                return Note.perfectPlay
-            default:
-                return ""
-            }
-        }()
         switch item {
         case 0, 1, 2, 3:
-            self.contentLabel.text = rankOrNote
             self.valueLabel.text = {
                 for result in results {
                     for difficulty in difficulties {
@@ -61,7 +86,6 @@ class SummaryCollectionCell: UICollectionViewCell {
                 return "\(count)"
             }()
         case 4, 5:
-            self.contentLabel.text = rankOrNote.noteAbbreviation
             self.valueLabel.text = {
                 for result in results {
                     for difficulty in difficulties {
@@ -77,7 +101,6 @@ class SummaryCollectionCell: UICollectionViewCell {
                 return "\(count)"
             }()
         case 6:
-            self.contentLabel.text = "\(Note.maxCombo.noteAbbreviation ?? "")+\(Note.perfectPlay.noteAbbreviation ?? "")"
             self.valueLabel.text = {
                 for result in results {
                     for difficulty in difficulties {

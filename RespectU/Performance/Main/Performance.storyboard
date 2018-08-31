@@ -973,66 +973,11 @@
                         <viewLayoutGuide key="safeArea" id="FFP-HA-LyI"/>
                     </view>
                     <connections>
-                        <outlet property="label4B0" destination="2cF-Ag-X37" id="AF8-7m-RIm"/>
-                        <outlet property="label4B1" destination="dJC-M5-Htr" id="P1I-kc-1jQ"/>
-                        <outlet property="label4B2" destination="Wdf-FR-uaU" id="Dbi-XI-Yev"/>
-                        <outlet property="label4B3" destination="oxc-dZ-oMX" id="kQ7-f7-u7b"/>
-                        <outlet property="label4B4" destination="xSl-JN-0P8" id="uRj-Cf-FMs"/>
-                        <outlet property="label4B5" destination="u4F-Cv-Hbg" id="wqS-gO-mAz"/>
-                        <outlet property="label4B6" destination="aZg-cY-aFK" id="f1d-oU-zBt"/>
-                        <outlet property="label4B7" destination="ado-gz-3iI" id="QtS-yf-aif"/>
-                        <outlet property="label4BAvg" destination="WtV-hG-8Gk" id="Lwp-ot-If0"/>
-                        <outlet property="label4BMC" destination="cMq-oh-L02" id="Tza-Je-oOC"/>
-                        <outlet property="label4BPP" destination="0y1-K7-Ete" id="g5x-aB-MEj"/>
-                        <outlet property="label4BPatterns" destination="97W-Fb-ISg" id="z8X-Do-rXN"/>
-                        <outlet property="label5B0" destination="RNZ-DK-J3G" id="2pt-sW-gZl"/>
-                        <outlet property="label5B1" destination="OJT-rC-UaE" id="4VG-5u-J5c"/>
-                        <outlet property="label5B2" destination="aTR-oQ-06d" id="YtH-G6-mgT"/>
-                        <outlet property="label5B3" destination="Jjr-nq-uWK" id="qZk-rd-eYe"/>
-                        <outlet property="label5B4" destination="Suf-tl-yRF" id="QLs-1J-5Kz"/>
-                        <outlet property="label5B5" destination="YyI-E9-dgX" id="KYb-Oc-ogL"/>
-                        <outlet property="label5B6" destination="efg-8V-QjB" id="YRH-wQ-6dE"/>
-                        <outlet property="label5B7" destination="qk2-BV-FuM" id="CaN-NP-rsz"/>
-                        <outlet property="label5BAvg" destination="7Ym-DB-VEQ" id="xhD-fe-z12"/>
-                        <outlet property="label5BMC" destination="DAz-9y-sf3" id="XVf-EE-sxD"/>
-                        <outlet property="label5BPP" destination="DgJ-LB-YeW" id="xr2-Af-1mV"/>
-                        <outlet property="label5BPatterns" destination="ETS-es-XB9" id="JKd-0m-LAJ"/>
-                        <outlet property="label6B0" destination="fCB-XZ-hDc" id="Huo-Jm-My8"/>
-                        <outlet property="label6B1" destination="F90-0U-jiR" id="87i-nG-qjO"/>
-                        <outlet property="label6B2" destination="gb8-FB-znd" id="ArA-FG-Rxu"/>
-                        <outlet property="label6B3" destination="XNx-oL-yKs" id="IQc-Y3-lRM"/>
-                        <outlet property="label6B4" destination="HBJ-bF-4pt" id="qpp-01-jxP"/>
-                        <outlet property="label6B5" destination="mes-DL-7Hx" id="EAV-jp-IjS"/>
-                        <outlet property="label6B6" destination="nuZ-0x-2bb" id="HDN-Av-dQP"/>
-                        <outlet property="label6B7" destination="IJ6-vy-pIA" id="n17-WA-Hdt"/>
-                        <outlet property="label6BAvg" destination="Fx9-2f-yCX" id="qcs-lv-pBv"/>
-                        <outlet property="label6BMC" destination="QZr-zh-L0i" id="1O8-87-WDR"/>
-                        <outlet property="label6BPP" destination="ij8-QY-icT" id="Vrz-gH-vbG"/>
-                        <outlet property="label6BPatterns" destination="uiT-hj-YOX" id="l3u-6v-AHQ"/>
-                        <outlet property="label8B0" destination="SRl-4J-VJb" id="3pg-UD-kvg"/>
-                        <outlet property="label8B1" destination="v7K-VH-RAZ" id="U6Y-mB-oYw"/>
-                        <outlet property="label8B2" destination="0bk-iF-Kad" id="jtE-tR-ySU"/>
-                        <outlet property="label8B3" destination="65f-gU-Tup" id="I5E-qh-smV"/>
-                        <outlet property="label8B4" destination="5if-XY-lwx" id="LyQ-KK-sAx"/>
-                        <outlet property="label8B5" destination="VTX-Eu-mOk" id="GPo-DX-hYV"/>
-                        <outlet property="label8B6" destination="gt4-RM-cUb" id="3Uc-Ye-Kuh"/>
-                        <outlet property="label8B7" destination="2oU-ll-Inn" id="oIt-Xd-7UQ"/>
-                        <outlet property="label8BAvg" destination="D3H-uW-66V" id="pM8-iq-6b5"/>
-                        <outlet property="label8BMC" destination="QEa-v0-h14" id="Dpc-Wc-Div"/>
-                        <outlet property="label8BPP" destination="QST-jt-U3g" id="HPc-mC-24d"/>
-                        <outlet property="label8BPatterns" destination="J5a-1G-wb0" id="VKn-j3-aeO"/>
-                        <outlet property="labelAll0" destination="OZA-aK-669" id="E9t-PD-ubR"/>
-                        <outlet property="labelAll1" destination="t8U-ig-fKK" id="5uO-Kt-lOB"/>
-                        <outlet property="labelAll2" destination="Ex3-eF-M5U" id="DOV-RC-3Ne"/>
-                        <outlet property="labelAll3" destination="ncn-Nk-iar" id="s8d-8g-xdp"/>
-                        <outlet property="labelAll4" destination="9Si-So-1g4" id="ViK-wk-RKh"/>
-                        <outlet property="labelAll5" destination="Kct-CQ-Ype" id="jPT-FT-caq"/>
-                        <outlet property="labelAll6" destination="iAs-vQ-Yuf" id="0PX-d6-3nV"/>
-                        <outlet property="labelAll7" destination="yqE-Dn-dxf" id="qtz-HT-pNb"/>
-                        <outlet property="labelAllAvg" destination="wzP-HQ-iGd" id="dKY-V0-2Ju"/>
-                        <outlet property="labelAllMC" destination="D1g-lD-DLm" id="0sr-mZ-tfT"/>
-                        <outlet property="labelAllPP" destination="BmW-CJ-RRn" id="3vs-5X-djh"/>
-                        <outlet property="labelAllPatterns" destination="Ce2-o5-Dtw" id="VhM-Sk-yOb"/>
+                        <outlet property="allStackView" destination="bPp-R4-iuN" id="kmc-Vz-foL"/>
+                        <outlet property="button4StackView" destination="WUG-eh-Wh6" id="OOE-S5-i07"/>
+                        <outlet property="button5StackView" destination="mSV-IA-4ma" id="9bL-cP-cEU"/>
+                        <outlet property="button6StackView" destination="mjq-l3-ybB" id="0vx-2P-Ki5"/>
+                        <outlet property="button8StackView" destination="E97-Jh-Fix" id="hOr-Gh-B1d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUd-wc-chw" userLabel="First Responder" sceneMemberID="firstResponder"/>

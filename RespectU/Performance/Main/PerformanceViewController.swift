@@ -159,9 +159,10 @@ extension PerformanceViewController: UITableViewDelegate {
 extension PerformanceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for:  indexPath) as? SummaryCollectionCell else { return UICollectionViewCell() }
-        cell.setProperties(RecordInfo.get(), at: indexPath.item)
+        cell.setProperties(RecordInfo.fetch(), at: indexPath.item)
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }

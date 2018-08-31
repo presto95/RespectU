@@ -51,9 +51,14 @@ import RealmSwift
         }
     }
     
-    static func fetch(of title: String) -> Results<RecordInfo> {
-        let recordInfo = try! Realm().objects(RecordInfo.self).filter(key: "title", value: title, method: FilterOperator.equal)
-        return recordInfo
+    static func fetch(of title: String = "") -> Results<RecordInfo> {
+        let recordInfo = try! Realm().objects(RecordInfo.self)
+        if title.isEmpty {
+            return recordInfo
+        } else {
+            let filtered = recordInfo.filter(key: "title", value: title, method: FilterOperator.equal)
+            return filtered
+        }
     }
 
     static func update(_ object: RecordInfo, with dictionary: [String: Any]) {

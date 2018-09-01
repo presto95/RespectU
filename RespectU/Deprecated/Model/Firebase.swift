@@ -40,10 +40,10 @@ class Firebase {
     }
     //파이어베이스 데이터베이스 갱신
     static func upload() {
-        let button4SkillPoint = Skill.mySkillPoint(button: Buttons.button4).sum
-        let button5SkillPoint = Skill.mySkillPoint(button: Buttons.button5).sum
-        let button6SkillPoint = Skill.mySkillPoint(button: Buttons.button6).sum
-        let button8SkillPoint = Skill.mySkillPoint(button: Buttons.button8).sum
+        let button4SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button4).sum
+        let button5SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button5).sum
+        let button6SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button6).sum
+        let button8SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button8).sum
         var perfectCount = 0
         let results = RecordInfo.get()
         let difficulties = ["nm", "hd", "mx"]

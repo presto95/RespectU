@@ -59,62 +59,21 @@ class SummaryCollectionCell: UICollectionViewCell {
                 return "\(count)"
             }()
         case 6:
+            self.valueLabel.text = {
+                for result in results {
+                    for button in buttons {
+                        guard let buttonResult = result.value(forKey: button) as? RecordInfo.Button else { return nil }
+                        for difficulty in difficulties {
+                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return nil }
+                            if difficultyResult.note == self.contents[4] || difficultyResult.note == self.contents[5] {
+                                count += 1
+                            }
+                        }
+                    }
+                }
+                return "\(count)"
+            }()
             break
-        default:
-            break
-        }
-        
-        
-        
-        let difficulties = ["nm", "hd", "mx"]
-        let buttons = [4, 5, 6, 8]
-        var count = 0
-        switch item {
-        case 0, 1, 2, 3:
-            self.valueLabel.text = {
-                for result in results {
-                    for difficulty in difficulties {
-                        for button in buttons {
-                            let key = "\(difficulty)\(button)Rank"
-                            let value = result.value(forKey: key) as? String ?? Rank.none
-                            if value == rankOrNote {
-                                count += 1
-                            }
-                        }
-                    }
-                }
-                return "\(count)"
-            }()
-        case 4, 5:
-            self.valueLabel.text = {
-                for result in results {
-                    for difficulty in difficulties {
-                        for button in buttons {
-                            let key = "\(difficulty)\(button)Note"
-                            let value = result.value(forKey: key) as? String ?? Note.none
-                            if value == rankOrNote {
-                                count += 1
-                            }
-                        }
-                    }
-                }
-                return "\(count)"
-            }()
-        case 6:
-            self.valueLabel.text = {
-                for result in results {
-                    for difficulty in difficulties {
-                        for button in buttons {
-                            let key = "\(difficulty)\(button)Note"
-                            let value = result.value(forKey: key) as? String ?? Note.none
-                            if value == Note.maxCombo || value == Note.perfectPlay {
-                                count += 1
-                            }
-                        }
-                    }
-                }
-                return "\(count)"
-            }()
         default:
             break
         }

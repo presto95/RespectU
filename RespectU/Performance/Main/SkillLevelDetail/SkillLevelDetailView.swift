@@ -28,7 +28,7 @@ class SkillLevelDetailView: UIView {
     func setProperties(button: String) {
         let recordRate = Skill.recordRate(button: button)
         let maxSkillPoint = Skill.maxSkillPoint(button: button)
-        let mySkillPoint = Skill.mySkillPoint(button: button)
+        let mySkillPoint = Skill.mySkillPointAndHighestSeries(button: button)
         let sum = mySkillPoint.sum
         let skillLevel: String?
         switch button {

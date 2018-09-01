@@ -152,13 +152,13 @@ extension MissionDetailViewController {
         var bpm: Int = 0
         var changesSpeed: Bool = false
         if let object = SongInfo.fetch(by: title).first {
-            if let subBpm = object.subBpm {
+            if let subBpm = object.subBpm.value {
                 bpm = subBpm
                 changesSpeed = true
             } else {
                 bpm = object.bpm
             }
-            let buttonResult: SongInfo.Button?
+            let buttonResult: SongButton?
             switch button {
             case Buttons.button4:
                 buttonResult = object.button4

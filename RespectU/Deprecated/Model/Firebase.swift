@@ -45,7 +45,7 @@ class Firebase {
         let button6SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button6).sum
         let button8SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button8).sum
         var perfectCount = 0
-        let results = RecordInfo.get()
+        let results = RecordInfo.fetch()
         let difficulties = ["nm", "hd", "mx"]
         let buttons = [4, 5, 6, 8]
         for result in results {

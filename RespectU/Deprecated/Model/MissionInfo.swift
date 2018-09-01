@@ -8,33 +8,35 @@
 
 import RealmSwift
 
-@objcMembers class MissionInfo: Object {
-    @objcMembers class Stage: Object {
-        dynamic var title: LanguageInfo = LanguageInfo()
-        dynamic var difficulty: String = ""
-        dynamic var button: String = ""
-    }
-    dynamic var series: String = ""
-    dynamic var section: String = ""
-    dynamic var title: String = ""
-    dynamic var score: Int = 0
-    dynamic var fever: Int = 0
-    dynamic var combo: Int = 0
-    dynamic var rate: Int = 0
-    dynamic var `break`: Int = 0
-    dynamic var effector: String = ""
-    dynamic var reward: LanguageInfo = LanguageInfo()
-    dynamic var stage1: Stage?
-    dynamic var stage2: Stage?
-    dynamic var stage3: Stage?
-    dynamic var stage4: Stage?
-    dynamic var stage5: Stage?
-    dynamic var stage6: Stage?
+class Stage: Object {
+    @objc dynamic var title: LanguageInfo?
+    @objc dynamic var difficulty: String = ""
+    @objc dynamic var button: String = ""
+}
+
+class MissionInfo: Object {
+    @objc dynamic var series: String = ""
+    @objc dynamic var section: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var score: Int = 0
+    @objc dynamic var fever: Int = 0
+    @objc dynamic var combo: Int = 0
+    @objc dynamic var rate: Int = 0
+    @objc dynamic var `break`: Int = 0
+    @objc dynamic var effector: String = ""
+    @objc dynamic var reward: LanguageInfo?
+    @objc dynamic var stage1: Stage?
+    @objc dynamic var stage2: Stage?
+    @objc dynamic var stage3: Stage?
+    @objc dynamic var stage4: Stage?
+    @objc dynamic var stage5: Stage?
+    @objc dynamic var stage6: Stage?
+    
     var localizedReward: String {
-        if Locale.current.regionCode == "KR", let korean = reward.korean {
+        if Locale.current.regionCode == "KR", let korean = reward?.korean {
             return korean
         } else {
-            return reward.english
+            return reward?.english ?? ""
         }
     }
     
@@ -49,41 +51,41 @@ import RealmSwift
         object.rate = missionInfo.rate
         object.break = missionInfo.break
         object.effector = missionInfo.effector
-        object.reward.english = missionInfo.reward.english
-        object.reward.korean = missionInfo.reward.korean
+        object.reward?.english = missionInfo.reward.english
+        object.reward?.korean = missionInfo.reward.korean
         if let object = object.stage1, let missionInfo = missionInfo.stage1 {
-            object.title.english = missionInfo.title.english
-            object.title.korean = missionInfo.title.korean
+            object.title?.english = missionInfo.title.english
+            object.title?.korean = missionInfo.title.korean
             object.difficulty = missionInfo.difficulty
             object.button = missionInfo.button
         }
         if let object = object.stage2, let missionInfo = missionInfo.stage2 {
-            object.title.english = missionInfo.title.english
-            object.title.korean = missionInfo.title.korean
+            object.title?.english = missionInfo.title.english
+            object.title?.korean = missionInfo.title.korean
             object.difficulty = missionInfo.difficulty
             object.button = missionInfo.button
         }
         if let object = object.stage3, let missionInfo = missionInfo.stage3 {
-            object.title.english = missionInfo.title.english
-            object.title.korean = missionInfo.title.korean
+            object.title?.english = missionInfo.title.english
+            object.title?.korean = missionInfo.title.korean
             object.difficulty = missionInfo.difficulty
             object.button = missionInfo.button
         }
         if let object = object.stage4, let missionInfo = missionInfo.stage4 {
-            object.title.english = missionInfo.title.english
-            object.title.korean = missionInfo.title.korean
+            object.title?.english = missionInfo.title.english
+            object.title?.korean = missionInfo.title.korean
             object.difficulty = missionInfo.difficulty
             object.button = missionInfo.button
         }
         if let object = object.stage5, let missionInfo = missionInfo.stage5 {
-            object.title.english = missionInfo.title.english
-            object.title.korean = missionInfo.title.korean
+            object.title?.english = missionInfo.title.english
+            object.title?.korean = missionInfo.title.korean
             object.difficulty = missionInfo.difficulty
             object.button = missionInfo.button
         }
         if let object = object.stage6, let missionInfo = missionInfo.stage6 {
-            object.title.english = missionInfo.title.english
-            object.title.korean = missionInfo.title.korean
+            object.title?.english = missionInfo.title.english
+            object.title?.korean = missionInfo.title.korean
             object.difficulty = missionInfo.difficulty
             object.button = missionInfo.button
         }

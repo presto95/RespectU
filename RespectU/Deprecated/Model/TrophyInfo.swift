@@ -8,24 +8,25 @@
 
 import RealmSwift
 
-@objcMembers class TrophyInfo: Object {
-    dynamic var series: String = ""
-    dynamic var rating: String = ""
-    dynamic var image: String = ""
-    dynamic var title: LanguageInfo = LanguageInfo()
-    dynamic var content: LanguageInfo = LanguageInfo()
+class TrophyInfo: Object {
+    @objc dynamic var series: String = ""
+    @objc dynamic var rating: String = ""
+    @objc dynamic var image: String = ""
+    @objc dynamic var title: LanguageInfo?
+    @objc dynamic var content: LanguageInfo?
+    
     var localizedTitle: String {
-        if Locale.current.regionCode == "KR", let korean = title.korean {
+        if Locale.current.regionCode == "KR", let korean = title?.korean {
             return korean
         } else {
-            return title.english
+            return title?.english ?? ""
         }
     }
     var localizedContent: String {
-        if Locale.current.regionCode == "KR", let korean = content.korean {
+        if Locale.current.regionCode == "KR", let korean = content?.korean {
             return korean
         } else {
-            return content.english
+            return content?.english ?? ""
         }
     }
     
@@ -35,10 +36,10 @@ import RealmSwift
         object.series = trophyInfo.series
         object.rating = trophyInfo.rating
         object.image = trophyInfo.image
-        object.title.english = trophyInfo.title.english
-        object.title.korean = trophyInfo.title.korean
-        object.content.english = trophyInfo.content.english
-        object.content.korean = trophyInfo.content.korean
+        object.title?.english = trophyInfo.title.english
+        object.title?.korean = trophyInfo.title.korean
+        object.content?.english = trophyInfo.content.english
+        object.content?.korean = trophyInfo.content.korean
         try! realm.write {
             realm.add(object)
         }

@@ -13,12 +13,8 @@ class SearchRecordDetailCell: UITableViewCell {
 
     @IBOutlet weak var colorLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var normalLabel: UILabel!
-    @IBOutlet weak var hardLabel: UILabel!
-    @IBOutlet weak var maximumLabel: UILabel!
-    @IBOutlet weak var normalValueLabel: UILabel!
-    @IBOutlet weak var hardValueLabel: UILabel!
-    @IBOutlet weak var maximumValueLabel: UILabel!
+    @IBOutlet weak var difficultyLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

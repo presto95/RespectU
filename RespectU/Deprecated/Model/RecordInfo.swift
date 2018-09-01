@@ -8,33 +8,36 @@
 
 import RealmSwift
 
-@objcMembers class RecordInfo: Object {
-    @objcMembers class Button: Object {
-        @objcMembers class Difficulty: Object {
-            dynamic var rank: String = ""
-            dynamic var rate: Double = 0
-            dynamic var note: String = ""
-            dynamic var skillPoint: Double = 0
-        }
-        dynamic var normal: Difficulty = Difficulty()
-        dynamic var hard: Difficulty = Difficulty()
-        dynamic var maximum: Difficulty = Difficulty()
-        dynamic var highestSkillPoint: Double = 0
-        dynamic var highestSkillPointDifficulty: String = ""
-        dynamic var highestSkillPointNote: String = ""
-        dynamic var highestSkillPointRate: Double = 0
-    }
-    dynamic var title: LanguageInfo = LanguageInfo()
-    dynamic var series: String = ""
-    dynamic var button4: Button = Button()
-    dynamic var button5: Button = Button()
-    dynamic var button6: Button = Button()
-    dynamic var button8: Button = Button()
+class DifficultyRecord: Object {
+    @objc dynamic var rank: String = ""
+    @objc dynamic var rate: Double = 0
+    @objc dynamic var note: String = ""
+    @objc dynamic var skillPoint: Double = 0
+}
+
+class RecordButton: Object {
+    @objc dynamic var normal: DifficultyRecord?
+    @objc dynamic var hard: DifficultyRecord?
+    @objc dynamic var maximum: DifficultyRecord?
+    @objc dynamic var highestSkillPoint: Double = 0
+    @objc dynamic var highestSkillPointDifficulty: String = ""
+    @objc dynamic var highestSkillPointNote: String = ""
+    @objc dynamic var highestSkillPointRate: Double = 0
+}
+
+class RecordInfo: Object {
+    @objc dynamic var title: LanguageInfo?
+    @objc dynamic var series: String = ""
+    @objc dynamic var button4: RecordButton?
+    @objc dynamic var button5: RecordButton?
+    @objc dynamic var button6: RecordButton?
+    @objc dynamic var button8: RecordButton?
+    
     var localizedTitle: String {
-        if Locale.current.regionCode == "KR", let korean = title.korean {
+        if Locale.current.regionCode == "KR", let korean = title?.korean {
             return korean
         } else {
-            return title.english
+            return title?.english ?? ""
         }
     }
     
@@ -65,7 +68,7 @@ import RealmSwift
         let realm = try! Realm()
         try! realm.write {
             for (key, value) in dictionary {
-                object.setValue(value, forKey: key)
+                object.setValue(value, forKeyPath: key)
             }
         }
     }

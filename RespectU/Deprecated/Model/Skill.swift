@@ -10,26 +10,15 @@ import Foundation
 import RealmSwift
 
 class Skill {
-//
+
     static let button4SkillPoint = "button4SkillPoint"
-//    static let button4HighestSkillPointRate = "button4HighestSkillPointRate"
-//    static let button4HighestSkillPointDifficulty = "button4HighestSkillPointDifficulty"
-//    static let button4HighestSkillPointNote = "button4HighestSkillPointNote"
     static let button5SkillPoint = "button5SkillPoint"
-//    static let button5HighestSkillPointRate = "button5HighestSkillPointRate"
-//    static let button5HighestSkillPointDifficulty = "button5HighestSkillPointDifficulty"
-//    static let button5HighestSkillPointNote = "button5HighestSkillPointNote"
     static let button6SkillPoint = "button6SkillPoint"
-//    static let button6HighestSkillPointRate = "button6HighestSkillPointRate"
-//    static let button6HighestSkillPointDifficulty = "button6HighestSkillPointDifficulty"
-//    static let button6HighestSkillPointNote = "button6HighestSkillPointNote"
     static let button8SkillPoint = "button8SkillPoint"
-//    static let button8HighestSkillPointRate = "button8HighestSkillPointRate"
-//    static let button8HighestSkillPointDifficulty = "button8HighestSkillPointDifficulty"
-//    static let button8HighestSkillPointNote = "button8HighestSkillPointNote"
     
     ///단일 스킬포인트 계산
-    static func skillPoint(difficulty: Int, rate: Double, note: String) -> Double {
+    static func skillPoint(difficulty: Int, rate: Double?, note: String?) -> Double {
+        guard let rate = rate, let note = note else { return 0 }
         if difficulty == 0 {
             return 0
         }
@@ -57,7 +46,7 @@ class Skill {
         var max: Double = 0
         var top50Difficulties = [Int]()
         for result in results {
-            let buttonResult: SongInfo.Button
+            let buttonResult: SongButton?
             switch button {
             case Buttons.button4:
                 buttonResult = result.button4
@@ -68,9 +57,11 @@ class Skill {
             case Buttons.button8:
                 buttonResult = result.button8
             default:
+                buttonResult = SongButton()
                 break
             }
-            guard let highest = [buttonResult.normal, buttonResult.hard, buttonResult.maximum].sorted().last else { return 0 }
+            guard let bindedButtonResult = buttonResult else { return 0 }
+            guard let highest = [bindedButtonResult.normal, bindedButtonResult.hard, bindedButtonResult.maximum].sorted().last else { return 0 }
             top50Difficulties.append(highest)
         }
         top50Difficulties.sort(by: >)
@@ -89,13 +80,13 @@ class Skill {
                 var skillPoint: Double = 0
                 switch button {
                 case Buttons.button4:
-                    skillPoint = results[index].button4.highestSkillPoint
+                    skillPoint = results[index].button4?.highestSkillPoint ?? 0
                 case Buttons.button5:
-                    skillPoint = results[index].button5.highestSkillPoint
+                    skillPoint = results[index].button5?.highestSkillPoint ?? 0
                 case Buttons.button6:
-                    skillPoint = results[index].button6.highestSkillPoint
+                    skillPoint = results[index].button6?.highestSkillPoint ?? 0
                 case Buttons.button8:
-                    skillPoint = results[index].button8.highestSkillPoint
+                    skillPoint = results[index].button8?.highestSkillPoint ?? 0
                 default:
                     break
                 }
@@ -143,136 +134,43 @@ class Skill {
             guard let songResult = songResults.filter(key: "localizedTitle", value: recordResult.localizedTitle, method: FilterOperator.equal).first else { return }
             let buttons = ["button4", "button5", "button6", "button8"]
             for button in buttons {
-                guard let recordButtonResult = recordResult.value(forKey: button) as? RecordInfo.Button else { return }
-                guard let songButtonResult = songResult.value(forKey: button) as? SongInfo.Button else { return }
+                guard let recordButtonResult = recordResult.value(forKey: button) as? RecordButton else { return }
+                guard let songButtonResult = songResult.value(forKey: button) as? SongButton else { return }
                 let recordNormal = recordButtonResult.normal
                 let recordHard = recordButtonResult.hard
                 let recordMaximum = recordButtonResult.maximum
                 let songNormal = songButtonResult.normal
                 let songHard = songButtonResult.hard
                 let songMaximum = songButtonResult.maximum
-                let normalSkillPoint = Skill.skillPoint(difficulty: songNormal, rate: recordNormal.rate, note: recordNormal.note)
-                let hardSkillPoint = Skill.skillPoint(difficulty: songHard, rate: recordHard.rate, note: recordHard.note)
-                let maximumSkillPoint = Skill.skillPoint(difficulty: songMaximum, rate: recordMaximum.rate, note: recordMaximum.note)
+                let normalSkillPoint = Skill.skillPoint(difficulty: songNormal, rate: recordNormal?.rate, note: recordNormal?.note)
+                let hardSkillPoint = Skill.skillPoint(difficulty: songHard, rate: recordHard?.rate, note: recordHard?.note)
+                let maximumSkillPoint = Skill.skillPoint(difficulty: songMaximum, rate: recordMaximum?.rate, note: recordMaximum?.note)
                 guard let maxSkillPoint = [normalSkillPoint, hardSkillPoint, maximumSkillPoint].sorted().last else { return }
-                
+                RecordInfo.update(recordResult, with: ["\(button).highestSkillPoint": maxSkillPoint])
+                switch maxSkillPoint {
+                case normalSkillPoint:
+                    RecordInfo.update(recordResult, with: [
+                        "\(button).highestSkillPointDifficulty": Difficulty.normal,
+                        "\(button).highestSkillPointRate": recordNormal?.rate,
+                        "\(button).highestSkillPointNote": recordNormal?.note
+                        ])
+                case hardSkillPoint:
+                    RecordInfo.update(recordResult, with: [
+                        "\(button).highestSkillPointDifficulty": Difficulty.hard,
+                        "\(button).highestSkillPointRate": recordHard?.rate,
+                        "\(button).highestSkillPointNote": recordHard?.note
+                        ])
+                case maximumSkillPoint:
+                    RecordInfo.update(recordResult, with: [
+                        "\(button).highestSkillPointDifficulty": Difficulty.maximum,
+                        "\(button).highestSkillPointRate": recordMaximum?.rate,
+                        "\(button).highestSkillPointNote": recordMaximum?.note
+                        ])
+                default:
+                    break
+                }
             }
             
-        }
-        
-        
-        
-        
-        let results = RecordInfo.get()
-        for result in results {
-            let normalButton4SkillPoint = Skill.skillPoint(difficulty: result.nm4, rate: result.nm4Rate, note: result.nm4Note)
-            let hardButton4SkillPoint = Skill.skillPoint(difficulty: result.hd4, rate: result.hd4Rate, note: result.hd4Note)
-            let maximumButton4SkillPoint = Skill.skillPoint(difficulty: result.mx4, rate: result.mx4Rate, note: result.mx4Note)
-            guard let maxButton4SkillPoint = [normalButton4SkillPoint, hardButton4SkillPoint, maximumButton4SkillPoint].sorted().last else { return }
-            RecordInfo.update(result, with: [button4SkillPoint: maxButton4SkillPoint])
-            switch maximumButton4SkillPoint {
-            case normalButton4SkillPoint:
-                RecordInfo.update(result, with: [
-                    button4HighestSkillPointRate: result.nm4Rate,
-                    button4HighestSkillPointDifficulty: Difficulty.normal,
-                    button4HighestSkillPointNote: result.nm4Note
-                    ])
-            case hardButton4SkillPoint:
-                RecordInfo.update(result, with: [
-                    button4HighestSkillPointRate: result.hd4Rate,
-                    button4HighestSkillPointDifficulty: Difficulty.hard,
-                    button4HighestSkillPointNote: result.hd4Note
-                    ])
-            case maximumButton4SkillPoint:
-                RecordInfo.update(result, with: [
-                    button4HighestSkillPointRate: result.mx4Rate,
-                    button4HighestSkillPointDifficulty: Difficulty.maximum,
-                    button4HighestSkillPointNote: result.mx4Note
-                    ])
-            default:
-                break
-            }
-            let normalButton5SkillPoint = Skill.skillPoint(difficulty: result.nm5, rate: result.nm5Rate, note: result.nm5Note)
-            let hardButton5SkillPoint = Skill.skillPoint(difficulty: result.hd5, rate: result.hd5Rate, note: result.hd5Note)
-            let maximumButton5SkillPoint = Skill.skillPoint(difficulty: result.mx5, rate: result.mx5Rate, note: result.mx5Note)
-            guard let maxButton5SkillPoint = [normalButton5SkillPoint, hardButton5SkillPoint, maximumButton5SkillPoint].sorted().last else { return }
-            RecordInfo.update(result, with: [button5SkillPoint: maxButton5SkillPoint])
-            switch maximumButton5SkillPoint {
-            case normalButton5SkillPoint:
-                RecordInfo.update(result, with: [
-                    button5HighestSkillPointRate: result.nm5Rate,
-                    button5HighestSkillPointDifficulty: Difficulty.normal,
-                    button5HighestSkillPointNote: result.nm5Note
-                    ])
-            case hardButton5SkillPoint:
-                RecordInfo.update(result, with: [
-                    button5HighestSkillPointRate: result.hd5Rate,
-                    button5HighestSkillPointDifficulty: Difficulty.hard,
-                    button5HighestSkillPointNote: result.hd5Note
-                    ])
-            case maximumButton5SkillPoint:
-                RecordInfo.update(result, with: [
-                    button5HighestSkillPointRate: result.mx5Rate,
-                    button5HighestSkillPointDifficulty: Difficulty.maximum,
-                    button5HighestSkillPointNote: result.mx5Note
-                    ])
-            default:
-                break
-            }
-            let normalButton6SkillPoint = Skill.skillPoint(difficulty: result.nm6, rate: result.nm6Rate, note: result.nm6Note)
-            let hardButton6SkillPoint = Skill.skillPoint(difficulty: result.hd6, rate: result.hd6Rate, note: result.hd6Note)
-            let maximumButton6SkillPoint = Skill.skillPoint(difficulty: result.mx6, rate: result.mx6Rate, note: result.mx6Note)
-            guard let maxButton6SkillPoint = [normalButton6SkillPoint, hardButton6SkillPoint, maximumButton6SkillPoint].sorted().last else { return }
-            RecordInfo.update(result, with: [button6SkillPoint: maxButton6SkillPoint])
-            switch maximumButton6SkillPoint {
-            case normalButton6SkillPoint:
-                RecordInfo.update(result, with: [
-                    button6HighestSkillPointRate: result.nm6Rate,
-                    button6HighestSkillPointDifficulty: Difficulty.normal,
-                    button6HighestSkillPointNote: result.nm6Note
-                    ])
-            case hardButton6SkillPoint:
-                RecordInfo.update(result, with: [
-                    button6HighestSkillPointRate: result.hd6Rate,
-                    button6HighestSkillPointDifficulty: Difficulty.hard,
-                    button6HighestSkillPointNote: result.hd6Note
-                    ])
-            case maximumButton6SkillPoint:
-                RecordInfo.update(result, with: [
-                    button6HighestSkillPointRate: result.mx6Rate,
-                    button6HighestSkillPointDifficulty: Difficulty.maximum,
-                    button6HighestSkillPointNote: result.mx6Note
-                    ])
-            default:
-                break
-            }
-            let normalButton8SkillPoint = Skill.skillPoint(difficulty: result.nm8, rate: result.nm8Rate, note: result.nm8Note)
-            let hardButton8SkillPoint = Skill.skillPoint(difficulty: result.hd8, rate: result.hd8Rate, note: result.hd8Note)
-            let maximumButton8SkillPoint = Skill.skillPoint(difficulty: result.mx8, rate: result.mx8Rate, note: result.mx8Note)
-            guard let maxButton8SkillPoint = [normalButton8SkillPoint, hardButton8SkillPoint, maximumButton8SkillPoint].sorted().last else { return }
-            RecordInfo.update(result, with: [button8SkillPoint: maxButton8SkillPoint])
-            switch maximumButton8SkillPoint {
-            case normalButton8SkillPoint:
-                RecordInfo.update(result, with: [
-                    button8HighestSkillPointRate: result.nm8Rate,
-                    button8HighestSkillPointDifficulty: Difficulty.normal,
-                    button8HighestSkillPointNote: result.nm8Note
-                    ])
-            case hardButton8SkillPoint:
-                RecordInfo.update(result, with: [
-                    button8HighestSkillPointRate: result.hd8Rate,
-                    button8HighestSkillPointDifficulty: Difficulty.hard,
-                    button8HighestSkillPointNote: result.hd8Note
-                    ])
-            case maximumButton8SkillPoint:
-                RecordInfo.update(result, with: [
-                    button8HighestSkillPointRate: result.mx8Rate,
-                    button8HighestSkillPointDifficulty: Difficulty.maximum,
-                    button8HighestSkillPointNote: result.mx8Note
-                    ])
-            default:
-                break
-            }
         }
     }
     
@@ -322,10 +220,9 @@ class Skill {
         var counts = [0, 0]
         let recordResults = RecordInfo.fetch()
         let songResults = SongInfo.fetch()
-        
         for result in recordResults {
-            let buttonResult: RecordInfo.Button
-            let songResult: SongInfo.Button
+            let buttonResult: RecordButton?
+            let songResult: SongButton?
             guard let filteredSong = songResults.filter(key: "localizedTitle", value: result.localizedTitle, method: FilterOperator.equal).first else { return 0 }
             switch button {
             case Buttons.button4:
@@ -341,30 +238,30 @@ class Skill {
                 buttonResult = result.button8
                 songResult = filteredSong.button8
             default:
-                break
+                buttonResult = RecordButton()
+                songResult = SongButton()
             }
-            if songResult.normal != 0 {
+            if songResult?.normal != 0 {
                 counts[0] += 1
             }
-            if songResult.hard != 0 {
+            if songResult?.hard != 0 {
                 counts[0] += 1
             }
-            if songResult.maximum != 0 {
+            if songResult?.maximum != 0 {
                 counts[0] += 1
             }
-            if buttonResult.normal.rate != 0{
+            if buttonResult?.normal?.rate != 0{
                 counts[1] += 1
             }
-            if buttonResult.hard.rate != 0{
+            if buttonResult?.hard?.rate != 0{
                 counts[1] += 1
             }
-            if buttonResult.maximum.rate != 0{
+            if buttonResult?.maximum?.rate != 0{
                 counts[1] += 1
             }
-            let rate = Double(counts[1]) / Double(counts[0])
-            return rate
-            
         }
+        let rate = Double(counts[1]) / Double(counts[0])
+        return rate
     }
 }
 

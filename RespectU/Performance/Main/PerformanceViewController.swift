@@ -111,8 +111,6 @@ extension PerformanceViewController: UITableViewDataSource {
             return "Skill Level".localized
         case 1:
             return "Summary".localized
-        case 2:
-            return "Graph".localized
         default:
             return nil
         }
@@ -123,8 +121,6 @@ extension PerformanceViewController: UITableViewDataSource {
             return 150
         case 1:
             return 130
-        case 2:
-            return 40
         default:
             return 0
         }
@@ -182,7 +178,7 @@ extension PerformanceViewController: SkillLevelCellDelegate {
         }
         alert.defaultAction(title: "\(Note.maxCombo) Failure".localized) { action in
             if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
-                let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.none)
+                let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.none)
                 UIAlertController
                     .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                     .defaultAction(title: "OK".localized)
@@ -197,13 +193,13 @@ extension PerformanceViewController: SkillLevelCellDelegate {
         .defaultAction(title: "\(Note.maxCombo) / \(Note.perfectPlay)") { action in
             if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
                 if rate == 100 {
-                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.perfectPlay)
+                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.perfectPlay)
                     UIAlertController
                         .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                         .defaultAction(title: "OK".localized)
                         .present(to: self)
                 } else {
-                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: "\(rate)", note: Note.maxCombo)
+                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.maxCombo)
                     UIAlertController
                         .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
                         .defaultAction(title: "OK".localized)

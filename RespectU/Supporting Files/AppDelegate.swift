@@ -17,31 +17,41 @@ import FirebaseCore
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
+    var realm: Realm?
 
     //realm 마이그레이션
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let config = Realm.Configuration(
-            schemaVersion: 12,  //Increment this each time your schema changes
-            migrationBlock: { migration, oldSchemaVersion in
-                if (oldSchemaVersion < 1) {
-                    //If you need to transfer any data
-                    //(in your case you don't right now) you will transfer here
-                }
-        })
-        Realm.Configuration.defaultConfiguration = config
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(SongInfo.fetch())
-            realm.delete(MissionInfo.fetch())
-            realm.delete(TrophyInfo.fetch())
-            realm.delete(AchievementInfo.fetch())
-            realm.delete(TipInfo.fetch())
-        }
-        // Override point for customization after application launch.
+        //Realm.Configuration.defaultConfiguration = config
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        realm = try! Realm()
+//        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
+//            do {
+//                try FileManager.default.removeItem(at: fileURL)
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
+//        let config = Realm.Configuration(
+//            schemaVersion: 12,  //Increment this each time your schema changes
+//            migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion < 1) {
+//                    //If you need to transfer any data
+//                    //(in your case you don't right now) you will transfer here
+//                }
+//        })
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         UIApplication.shared.isStatusBarHidden = false
+        
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+        window?.rootViewController = controller
+        window?.makeKeyAndVisible()
+        
         return true
     }
     

@@ -8,9 +8,7 @@
 
 import RealmSwift
 
-@objcMembers class LanguageInfo: Object {
-    
-    dynamic var english: String = ""
-    dynamic var korean: String?
-    
+class LanguageInfo: Object {
+    @objc dynamic var english: String = ""
+    @objc dynamic var korean: String?
 }

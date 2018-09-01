@@ -81,13 +81,14 @@ class SummaryDetailViewController: UIViewController {
 }
 
 extension SummaryDetailViewController {
-    private func setButtonArrayWithTotalPatterns(_ results: Results<SongInfo>) {
+    private func setButtonArrayWithTotalPatterns(_ results: Results<SongInfo>?) {
+        guard let results = results else { return }
         for result in results {
             let buttons = ["button4", "button5", "button6", "button8"]
             let difficulties = ["normal", "hard", "maximum"]
             for i in 0..<4 {
                 let buttonKey = buttons[i]
-                guard let button = result.value(forKey: buttonKey) as? SongInfo.Button else { return }
+                guard let button = result.value(forKey: buttonKey) as? SongButton else { return }
                 for difficulty in difficulties {
                     guard let difficulty = button.value(forKey: difficulty) as? Int else { return }
                     if difficulty != 0 {
@@ -108,10 +109,11 @@ extension SummaryDetailViewController {
             }
         }
     }
-    private func setButtonArrayExceptTotalPatterns(_ button: RecordInfo.Button, to array: inout [Int]) {
+    private func setButtonArrayExceptTotalPatterns(_ button: RecordButton?, to array: inout [Int]) {
+        guard let button = button else { return }
         let difficulties = ["normal", "hard", "maximum"]
         for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return }
+            guard let difficulty = button.value(forKey: difficulty) as? DifficultyRecord else { return }
             switch difficulty.rate {
             case 99.8...100:
                 array[0] += 1
@@ -145,10 +147,11 @@ extension SummaryDetailViewController {
             }
         }
     }
-    private func setRateArray(_ button: RecordInfo.Button, to value: inout Double) {
+    private func setRateArray(_ button: RecordButton?, to value: inout Double) {
+        guard let button = button else { return }
         let difficulties = ["normal", "hard", "maximum"]
         for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? RecordInfo.Button.Difficulty else { return }
+            guard let difficulty = button.value(forKey: difficulty) as? DifficultyRecord else { return }
             value += difficulty.rate
         }
     }

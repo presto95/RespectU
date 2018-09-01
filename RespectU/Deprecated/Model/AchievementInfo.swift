@@ -8,23 +8,24 @@
 
 import RealmSwift
 
-@objcMembers class AchievementInfo: Object {
-    dynamic var type: String = ""
-    dynamic var level: Int = 0
-    dynamic var section: LanguageInfo = LanguageInfo()
-    dynamic var item: LanguageInfo = LanguageInfo()
+class AchievementInfo: Object {
+    @objc dynamic var type: String = ""
+    @objc dynamic var level: Int = 0
+    @objc dynamic var section: LanguageInfo?
+    @objc dynamic var item: LanguageInfo?
+    
     var localizedSection: String {
-        if Locale.current.regionCode == "KR", let korean = section.korean {
+        if Locale.current.regionCode == "KR", let korean = section?.korean {
             return korean
         } else {
-            return section.english
+            return section?.english ?? ""
         }
     }
     var localizedItem: String {
-        if Locale.current.regionCode == "KR", let korean = item.korean {
+        if Locale.current.regionCode == "KR", let korean = item?.korean {
             return korean
         } else {
-            return item.english
+            return item?.english ?? ""
         }
     }
     
@@ -33,10 +34,10 @@ import RealmSwift
         let object = AchievementInfo()
         object.type = achievementInfo.type
         object.level = achievementInfo.level
-        object.section.english = achievementInfo.section.english
-        object.section.korean = achievementInfo.section.korean
-        object.item.english = achievementInfo.item.english
-        object.item.korean = achievementInfo.item.korean
+        object.section?.english = achievementInfo.section.english
+        object.section?.korean = achievementInfo.section.korean
+        object.item?.english = achievementInfo.item.english
+        object.item?.korean = achievementInfo.item.korean
         try! realm.write {
             realm.add(object)
         }

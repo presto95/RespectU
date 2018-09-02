@@ -33,13 +33,17 @@ class TrophyInfo: Object {
     static func add(_ trophyInfo: TrophyResponse.Trophy) {
         let realm = try! Realm()
         let object = TrophyInfo()
+        let titleInfo = LanguageInfo()
+        let contentInfo = LanguageInfo()
         object.series = trophyInfo.series
         object.rating = trophyInfo.rating
         object.image = trophyInfo.image
-        object.title?.english = trophyInfo.title.english
-        object.title?.korean = trophyInfo.title.korean
-        object.content?.english = trophyInfo.content.english
-        object.content?.korean = trophyInfo.content.korean
+        titleInfo.english = trophyInfo.title.english
+        titleInfo.korean = trophyInfo.title.korean
+        contentInfo.english = trophyInfo.content.english
+        contentInfo.korean = trophyInfo.content.korean
+        object.title = titleInfo
+        object.content = contentInfo
         try! realm.write {
             realm.add(object)
         }
@@ -55,35 +59,3 @@ class TrophyInfo: Object {
         }
     }
 }
-
-
-//class TrophyInfo: Object {
-//
-//    @objc dynamic var series: String = ""
-//    @objc dynamic var titleKor: String = ""
-//    @objc dynamic var contentKor: String = ""
-//    @objc dynamic var titleEng: String = ""
-//    @objc dynamic var contentEng: String = ""
-//    @objc dynamic var rating: String = ""
-//
-//    //CREATE
-//    static func add(_ series: String, _ titleKor: String, _ contentKor: String, _ titleEng: String, _ contentEng: String, _ rating: String){
-//        let realm = try! Realm()
-//        let trophy = TrophyInfo()
-//        trophy.series = series
-//        trophy.titleKor = titleKor
-//        trophy.contentKor = contentKor
-//        trophy.titleEng = titleEng
-//        trophy.contentEng = contentEng
-//        trophy.rating = rating
-//        try! realm.write {
-//            realm.add(trophy)
-//        }
-//    }
-//
-//    static func get() -> Results<TrophyInfo> {
-//        let result = try! Realm().objects(TrophyInfo.self)
-//        return result
-//    }
-//}
-//

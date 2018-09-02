@@ -13,7 +13,7 @@ class AchievementAllTableViewController: AchievementBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.requestAchievements()
+        self.results = AchievementInfo.fetch()
     }
 }
 

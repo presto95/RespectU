@@ -11,37 +11,13 @@ import RealmSwift
 
 class MissionBaseTableViewController: BaseTableViewController {
 
-    var results: MissionResponse?
+    var results: Results<MissionInfo>?
     let cellIdentifier = "missionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showIndicator()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "MissionCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMissions(_:)), name: .didReceiveMissions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveMissions(_:)), name: .errorReceiveMissions, object: nil)
-    }
-    
-    @objc func didReceiveMissions(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["missions"] as? MissionResponse else { return }
-        self.results = userInfo
-        DispatchQueue.main.async { [weak self] in
-            self?.hideIndicator()
-            self?.tableView.reloadData()
-        }
-        NotificationCenter.default.removeObserver(self, name: .didReceiveMissions, object: nil)
-    }
-    
-    @objc func errorReceiveMissions(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        UIAlertController
-            .alert(title: "", message: error)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
-                self?.hideIndicator()
-                self?.parent?.dismiss(animated: true, completion: nil)
-            }
-            .present(to: self)
     }
 }
 

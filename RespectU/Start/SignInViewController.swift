@@ -14,6 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class SignInViewController: UIViewController {
         self.signUpButton.setTitle("Sign Up".localized, for: [])
         self.signInButton.addTarget(self, action: #selector(touchUpSignInButton(_:)), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
+        self.skipButton.addTarget(self, action: #selector(touchUpSkipButton(_:)), for: .touchUpInside)
     }
     
     @objc func touchUpSignInButton(_ sender: UIButton) {
@@ -32,5 +34,10 @@ class SignInViewController: UIViewController {
     @objc func touchUpSignUpButton(_ sender: UIButton) {
         guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignUpViewController") else { return }
         self.navigationController?.pushViewController(next, animated: true)
+    }
+    
+    @objc func touchUpSkipButton(_ sender: UIButton) {
+        guard let next = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
+        UIApplication.shared.keyWindow?.rootViewController = next
     }
 }

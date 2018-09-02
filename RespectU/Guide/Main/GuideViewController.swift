@@ -13,7 +13,7 @@ import GoogleSignIn
 
 class GuideViewController: UIViewController, GIDSignInUIDelegate {
 
-    private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favoriteButton"], ["radio", "email", "credit"]]
+    private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favorite"], ["radio", "email", "credit"]]
     private let sectionHeaderTitles = ["Guide for DJMAX RESPECT", "Personal Setting", "More"]
     private let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["DJMAX Radio Station", "Send Email to Developer", "Credit"]]
     @IBOutlet private weak var collectionView: UICollectionView!

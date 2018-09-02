@@ -8,8 +8,32 @@
 
 import UIKit
 
-class StartViewController: UIViewController {
+class InitViewController: UIViewController {
 
+    var finishesSong: Bool = false
+    var finishesMission: Bool = false
+    var finishesTrophy: Bool = false
+    var finishesAchievement: Bool = false
+    var finishesTip: Bool = false
+    var count = 0 {
+        didSet {
+            if count == 5 {
+                hideIndicator()
+                if finishesAll {
+                    presentSuccessAlert()
+                } else {
+                    presentFailureAlert()
+                }
+            }
+        }
+    }
+    var finishesAll: Bool {
+        if finishesSong, finishesMission, finishesTrophy, finishesAchievement, finishesTip {
+            return true
+        }
+        return false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
@@ -26,101 +50,128 @@ class StartViewController: UIViewController {
     
     @objc func didReceiveSongs(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
-        print("song start")
         for song in userInfo.songs {
             SongInfo.add(song)
         }
-        print("song finished")
+        finishesSong = true
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func didReceiveMissions(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["missions"] as? MissionResponse else { return }
-        print("mission start")
         for mission in userInfo.missions {
             MissionInfo.add(mission)
         }
-        print("mission finished")
+        finishesMission = true
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func didReceiveTrophies(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
-        print("trophy start")
         for trophy in userInfo.trophies {
             TrophyInfo.add(trophy)
         }
-        print("trophy finished")
+        finishesTrophy = true
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func didReceiveAchievements(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["achievements"] as? AchievementResponse else { return }
-        print("achievement start")
         for achievement in userInfo.achievements {
             AchievementInfo.add(achievement)
         }
-        print("achievement finished")
+        finishesAchievement = true
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func didReceiveTips(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["tips"] as? TipResponse else { return }
-        print("tip start")
         for tip in userInfo.tips {
             TipInfo.add(tip)
         }
-        print("tip finished")
+        finishesTip = true
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func errorReceiveSongs(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        print("song", error)
-        //presentFailureAlert(error)
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func errorReceiveMissions(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        print("mission", error)
-        //presentFailureAlert(error)
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func errorReceiveTrophies(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        print("trophy", error)
-        //presentFailureAlert(error)
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func errorReceiveAchievements(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        print("achievement", error)
-        //presentFailureAlert(error)
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
     @objc func errorReceiveTips(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        print("tip", error)
-        //presentFailureAlert(error)
+        DispatchQueue.main.sync {
+            count += 1
+        }
     }
     
-    func presentCompletionAlert() {
-        print("success")
-//        UIAlertController
-//            .alert(title: "", message: "Your data has been successfully downloaded.".localized)
-//            .defaultAction(title: "OK".localized) { [weak self] _ in
-//                self?.hideIndicator()
-//                self?.parent?.dismiss(animated: true, completion: nil)
-//            }
-//            .present(to: self)
+    func presentSuccessAlert() {
+        let results = SongInfo.fetch()
+        print(results.count)
+        UIAlertController
+            .alert(title: "", message: "Your data has been successfully downloaded.".localized)
+            .defaultAction(title: "OK".localized) { _ in
+                for result in results {
+                    let recordInfo = RecordInfo()
+                    recordInfo.title = result.title
+                    recordInfo.series = result.series
+                    let recordButton = RecordButton()
+                    let difficultyRecord = DifficultyRecord()
+                    recordButton.normal = difficultyRecord
+                    recordButton.hard = difficultyRecord
+                    recordButton.maximum = difficultyRecord
+                    recordInfo.button4 = recordButton
+                    recordInfo.button5 = recordButton
+                    recordInfo.button6 = recordButton
+                    recordInfo.button8 = recordButton
+                    RecordInfo.add(recordInfo)
+                }
+                guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "NavigationController") else { return }
+                UIApplication.shared.keyWindow?.rootViewController = next
+            }
+            .present(to: self)
     }
     
-    func presentFailureAlert(_ error: String) {
-        print("fail")
-//        UIAlertController
-//            .alert(title: "", message: error)
-//            .defaultAction(title: "OK".localized) { [weak self] _ in
-//                self?.hideIndicator()
-//            }
-//            .present(to: self)
+    func presentFailureAlert() {
+        UIAlertController
+            .alert(title: "", message: "Network Error.")
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.count = 0
+            }
+            .present(to: self)
     }
+    
 
     @IBAction func touchUpDownloadButton(_ sender: UIButton) {
+        showIndicator()
         API.requestSongs()
         API.requestMissions()
         API.requestTrophies()

@@ -32,13 +32,13 @@ class SongCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: SongResponse.Song?, favoriteButton: String) {
+    func setProperties(_ object: SongInfo?, favoriteButton: String) {
         guard let object = object else { return }
         self.colorLabel.backgroundColor = object.series.seriesColor
         self.titleLabel.text = object.localizedTitle
         self.composerLabel.text = object.composer
         self.bpmLabel.text = object.bpmToString
-        var buttons: SongResponse.Song.Button?
+        var buttons: SongButton?
         switch favoriteButton {
         case Buttons.button4:
             buttons = object.button4

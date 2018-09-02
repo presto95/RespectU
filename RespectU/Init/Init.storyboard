@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Start View Controller-->
+        <!--Init View Controller-->
         <scene sceneID="WHt-vP-Tdj">
             <objects>
-                <viewController storyboardIdentifier="StartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nFJ-hj-6kw" customClass="StartViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nFJ-hj-6kw" customClass="InitViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cU0-jJ-DFh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,26 +25,22 @@
                                     <constraint firstAttribute="height" constant="60" id="uh8-u7-cqh"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIq-i8-obp">
-                                <rect key="frame" x="334" y="38" width="25" height="25"/>
-                                <state key="normal" image="fail"/>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="33l-xW-QFG">
                                 <rect key="frame" x="16" y="254.5" width="343" height="158"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초기 데이터를 가져옵니다." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZc-BJ-q7l">
-                                        <rect key="frame" x="94" y="0.0" width="155.5" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="초기 데이터 등 기본 설정을 진행합니다." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZc-BJ-q7l">
+                                        <rect key="frame" x="56" y="0.0" width="231.5" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-vt-GSG">
-                                        <rect key="frame" x="124" y="118" width="95" height="40"/>
+                                        <rect key="frame" x="145.5" y="118" width="52" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0Jg-tJ-2Ly"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="데이터 가져오기">
+                                        <state key="normal" title="시작하기">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -57,10 +53,8 @@
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="33l-xW-QFG" secondAttribute="centerX" id="Egu-cD-0pF"/>
-                            <constraint firstItem="jFE-q1-kXZ" firstAttribute="trailing" secondItem="kIq-i8-obp" secondAttribute="trailing" constant="16" id="NnB-5V-S1G"/>
                             <constraint firstItem="33l-xW-QFG" firstAttribute="leading" secondItem="jFE-q1-kXZ" secondAttribute="leading" constant="16" id="OQG-vF-YSO"/>
                             <constraint firstItem="FQA-Wo-Swr" firstAttribute="top" secondItem="jFE-q1-kXZ" secondAttribute="top" id="Whi-np-674"/>
-                            <constraint firstItem="kIq-i8-obp" firstAttribute="centerY" secondItem="FQA-Wo-Swr" secondAttribute="centerY" id="cnU-jl-cHo"/>
                             <constraint firstItem="FQA-Wo-Swr" firstAttribute="centerX" secondItem="cU0-jJ-DFh" secondAttribute="centerX" id="fNx-Qn-15U"/>
                             <constraint firstItem="33l-xW-QFG" firstAttribute="centerY" secondItem="cU0-jJ-DFh" secondAttribute="centerY" id="yTN-hc-LJh"/>
                         </constraints>
@@ -73,7 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fail" width="25" height="25"/>
         <image name="respectuFlat" width="500" height="500"/>
     </resources>
 </document>

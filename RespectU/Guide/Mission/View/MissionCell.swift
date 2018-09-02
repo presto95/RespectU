@@ -27,7 +27,7 @@ class MissionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: MissionResponse.Mission?) {
+    func setProperties(_ object: MissionInfo?) {
         guard let object = object else { return }
         self.colorLabel.backgroundColor = object.section.missionColor
         self.titleLabel.text = object.title

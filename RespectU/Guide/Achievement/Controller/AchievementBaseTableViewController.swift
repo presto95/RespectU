@@ -11,39 +11,14 @@ import RealmSwift
 
 class AchievementBaseTableViewController: BaseTableViewController {
 
-    var results: AchievementResponse?
+    var results: Results<AchievementInfo>?
     var stages = [Int]()
     let cellIdentifier = "achievementCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showIndicator()
         self.tableView.rowHeight = 40
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveAchievements(_:)), name: .didReceiveAchievements, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveAchievements(_:)), name: .errorReceiveAchievements, object: nil)
-    }
-    
-    @objc func didReceiveAchievements(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["achievements"] as? AchievementResponse else { return }
-        self.results = userInfo
-        generateStageCounts()
-        DispatchQueue.main.async { [weak self] in
-            self?.hideIndicator()
-            self?.tableView.reloadData()
-        }
-        NotificationCenter.default.removeObserver(self, name: .didReceiveAchievements, object: nil)
-    }
-    
-    @objc func errorReceiveAchievements(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        UIAlertController
-            .alert(title: "", message: error)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
-                self?.hideIndicator()
-                self?.parent?.dismiss(animated: true, completion: nil)
-            }
-            .present(to: self)
     }
 }
 
@@ -54,9 +29,9 @@ extension AchievementBaseTableViewController {
         var count = 0
         var tempTitle = ""
         var isFirst = true
-        for item in results.achievements {
-            if tempTitle != item.section.english {
-                tempTitle = item.section.english
+        for result in results {
+            if tempTitle != result.localizedSection {
+                tempTitle = result.localizedSection
                 if isFirst {
                     isFirst = false
                 } else {

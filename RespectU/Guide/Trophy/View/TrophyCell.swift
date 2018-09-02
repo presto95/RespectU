@@ -28,7 +28,7 @@ class TrophyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: TrophyResponse.Trophy?) {
+    func setProperties(_ object: TrophyInfo?) {
         guard let object = object else { return }
         let imageUrl = "\(API.baseUrl)/images/\(object.series)/\(object.image).png"
         guard let url = URL(string: imageUrl) else { return }

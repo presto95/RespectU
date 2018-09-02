@@ -92,7 +92,7 @@ class SongViewController: BaseViewController {
         let myBpm = UserDefaults.standard.double(forKey: "bpm")
         let speed = recommendedSpeed(by: myBpm / Double(object.bpm))
         var message = "\(object.series.uppercased())\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
-        if let _ = object.subBpm {
+        if let _ = object.subBpm.value {
             message += "\n" + "(SPEED Variation)".localized
         }
         UIAlertController
@@ -108,105 +108,105 @@ class SongViewController: BaseViewController {
 
 extension SongViewController {
     private func sort(difficulty: String, isAscending: Bool) {
-        for viewController in songViewControllers {
-            switch favoriteButton {
-            case Buttons.button4:
-                switch difficulty {
-                case Difficulty.normal:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button4.normal < $1.button4.normal }
-                    } else {
-                        viewController.songResults?.sort { $0.button4.normal > $1.button4.normal }
-                    }
-                case Difficulty.hard:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button4.hard < $1.button4.hard }
-                    } else {
-                        viewController.songResults?.sort { $0.button4.hard > $1.button4.hard }
-                    }
-                case Difficulty.maximum:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button4.maximum < $1.button4.maximum }
-                    } else {
-                        viewController.songResults?.sort { $0.button4.maximum > $1.button4.maximum }
-                    }
-                default:
-                    break
-                }
-            case Buttons.button5:
-                switch difficulty {
-                case Difficulty.normal:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button5.normal < $1.button5.normal }
-                    } else {
-                        viewController.songResults?.sort { $0.button5.normal > $1.button5.normal }
-                    }
-                case Difficulty.hard:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button5.hard < $1.button5.hard }
-                    } else {
-                        viewController.songResults?.sort { $0.button5.hard > $1.button5.hard }
-                    }
-                case Difficulty.maximum:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button5.maximum < $1.button5.maximum }
-                    } else {
-                        viewController.songResults?.sort { $0.button5.maximum > $1.button5.maximum }
-                    }
-                default:
-                    break
-                }
-            case Buttons.button6:
-                switch difficulty {
-                case Difficulty.normal:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button6.normal < $1.button6.normal }
-                    } else {
-                        viewController.songResults?.sort { $0.button6.normal > $1.button6.normal }
-                    }
-                case Difficulty.hard:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button6.hard < $1.button6.hard }
-                    } else {
-                        viewController.songResults?.sort { $0.button6.hard > $1.button6.hard }
-                    }
-                case Difficulty.maximum:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button6.maximum < $1.button6.maximum }
-                    } else {
-                        viewController.songResults?.sort { $0.button6.maximum > $1.button6.maximum }
-                    }
-                default:
-                    break
-                }
-            case Buttons.button8:
-                switch difficulty {
-                case Difficulty.normal:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button8.normal < $1.button8.normal }
-                    } else {
-                        viewController.songResults?.sort { $0.button8.normal > $1.button8.normal }
-                    }
-                case Difficulty.hard:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button8.hard < $1.button8.hard }
-                    } else {
-                        viewController.songResults?.sort { $0.button8.hard > $1.button8.hard }
-                    }
-                case Difficulty.maximum:
-                    if isAscending {
-                        viewController.songResults?.sort { $0.button8.maximum < $1.button8.maximum }
-                    } else {
-                        viewController.songResults?.sort { $0.button8.maximum > $1.button8.maximum }
-                    }
-                default:
-                    break
-                }
-            default:
-                break
-            }
-        }
-        reloadAllTableViews()
+//        for viewController in songViewControllers {
+//            switch favoriteButton {
+//            case Buttons.button4:
+//                switch difficulty {
+//                case Difficulty.normal:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button4.normal < $1.button4.normal }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button4.normal > $1.button4.normal }
+//                    }
+//                case Difficulty.hard:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button4.hard < $1.button4.hard }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button4.hard > $1.button4.hard }
+//                    }
+//                case Difficulty.maximum:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button4.maximum < $1.button4.maximum }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button4.maximum > $1.button4.maximum }
+//                    }
+//                default:
+//                    break
+//                }
+//            case Buttons.button5:
+//                switch difficulty {
+//                case Difficulty.normal:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button5.normal < $1.button5.normal }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button5.normal > $1.button5.normal }
+//                    }
+//                case Difficulty.hard:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button5.hard < $1.button5.hard }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button5.hard > $1.button5.hard }
+//                    }
+//                case Difficulty.maximum:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button5.maximum < $1.button5.maximum }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button5.maximum > $1.button5.maximum }
+//                    }
+//                default:
+//                    break
+//                }
+//            case Buttons.button6:
+//                switch difficulty {
+//                case Difficulty.normal:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button6.normal < $1.button6.normal }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button6.normal > $1.button6.normal }
+//                    }
+//                case Difficulty.hard:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button6.hard < $1.button6.hard }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button6.hard > $1.button6.hard }
+//                    }
+//                case Difficulty.maximum:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button6.maximum < $1.button6.maximum }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button6.maximum > $1.button6.maximum }
+//                    }
+//                default:
+//                    break
+//                }
+//            case Buttons.button8:
+//                switch difficulty {
+//                case Difficulty.normal:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button8.normal < $1.button8.normal }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button8.normal > $1.button8.normal }
+//                    }
+//                case Difficulty.hard:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button8.hard < $1.button8.hard }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button8.hard > $1.button8.hard }
+//                    }
+//                case Difficulty.maximum:
+//                    if isAscending {
+//                        viewController.songResults?.sort { $0.button8.maximum < $1.button8.maximum }
+//                    } else {
+//                        viewController.songResults?.sort { $0.button8.maximum > $1.button8.maximum }
+//                    }
+//                default:
+//                    break
+//                }
+//            default:
+//                break
+//            }
+//        }
+//        reloadAllTableViews()
     }
 }
 

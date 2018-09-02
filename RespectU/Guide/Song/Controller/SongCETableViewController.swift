@@ -11,9 +11,9 @@ import XLPagerTabStrip
 
 class SongCETableViewController: SongBaseTableViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        API.requestSongs(of: "ce")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.songResults = self.songResults?.filter(key: "series", value: Series.ce, method: FilterOperator.equal)
     }
 }
 

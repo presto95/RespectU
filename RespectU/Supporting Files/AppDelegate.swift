@@ -17,16 +17,25 @@ import FirebaseCore
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
-    var realm: Realm?
 
-    //realm 마이그레이션
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //Realm.Configuration.defaultConfiguration = config
         window = UIWindow(frame: UIScreen.main.bounds)
-
-        try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-        
-        realm = try! Realm()
+        do {
+            try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+        } catch {
+            print(error.localizedDescription)
+        }
+        if SongInfo.fetch().count != 0 {
+            let storyboard = UIStoryboard(name: "Performance", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "PerformanceViewController")
+            window?.rootViewController = controller
+        } else {
+            try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+            let storyboard = UIStoryboard(name: "Init", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "InitViewController")
+            window?.rootViewController = controller
+        }
+        window?.makeKeyAndVisible()
 //        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
 //            do {
 //                try FileManager.default.removeItem(at: fileURL)
@@ -46,12 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         UIApplication.shared.isStatusBarHidden = false
-        
-        let storyboard = UIStoryboard(name: "Start", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "StartViewController")
-        window?.rootViewController = controller
-        window?.makeKeyAndVisible()
-        
         return true
     }
     

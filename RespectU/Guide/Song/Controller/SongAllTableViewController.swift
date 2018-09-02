@@ -11,10 +11,7 @@ import XLPagerTabStrip
 
 class SongAllTableViewController: SongBaseTableViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        API.requestSongs()
-    }
+    
 }
 
 extension SongAllTableViewController: IndicatorInfoProvider {

@@ -11,9 +11,9 @@ import RealmSwift
 
 class SongBaseTableViewController: BaseTableViewController {
 
-    var songResults: [SongResponse.Song]?
-    var achievementResults: AchievementResponse?
-    var missionResults: MissionResponse?
+    var songResults: Results<SongInfo>?
+    var missionResults: Results<MissionInfo>?
+    var achievementResults: Results<AchievementInfo>?
     var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
     let myBPM = UserDefaults.standard.double(forKey: "bpm")
     let cellIdentifier = "songCell"
@@ -24,35 +24,6 @@ class SongBaseTableViewController: BaseTableViewController {
         self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
         //도전과제 : type == music
         //미션 : reward == music
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSongs(_:)), name: .errorReceiveSongs, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        showIndicator()
-    }
-    
-    @objc func didReceiveSongs(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
-        let sorted = userInfo.songs.sorted { $0.localizedLowercase < $1.localizedLowercase }
-        self.songResults = sorted
-        DispatchQueue.main.async { [weak self] in
-            self?.hideIndicator()
-            self?.tableView.reloadData()
-        }
-    }
-    
-    @objc func errorReceiveSongs(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        UIAlertController
-            .alert(title: "", message: error)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
-                self?.hideIndicator()
-                self?.parent?.dismiss(animated: true, completion: nil)
-            }
-            .present(to: self)
     }
 }
 

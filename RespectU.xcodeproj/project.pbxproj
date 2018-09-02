@@ -110,8 +110,8 @@
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
 		1950D885212D6F92004ED086 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950D884212D6F92004ED086 /* Language.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
-		19585868213B0E76000C78C4 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19585867213B0E76000C78C4 /* Start.storyboard */; };
-		1958586A213B0E81000C78C4 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19585869213B0E81000C78C4 /* StartViewController.swift */; };
+		19585868213B0E76000C78C4 /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19585867213B0E76000C78C4 /* Init.storyboard */; };
+		1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19585869213B0E81000C78C4 /* InitViewController.swift */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
 		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
 		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
@@ -305,8 +305,8 @@
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
 		1950D884212D6F92004ED086 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
-		19585867213B0E76000C78C4 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
-		19585869213B0E81000C78C4 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		19585867213B0E76000C78C4 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
+		19585869213B0E81000C78C4 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
 		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
 		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
@@ -550,6 +550,15 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		19A3D858213B3F7E000D9A89 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				19585867213B0E76000C78C4 /* Init.storyboard */,
+				19585869213B0E81000C78C4 /* InitViewController.swift */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
 		19B6CFDF1F7953640097B86B = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +585,7 @@
 				19A258182133FAD700C3A3AC /* Response */,
 				191275DE2111F7150046AA3E /* Constants */,
 				191275EE21120B380046AA3E /* Base */,
+				19A3D858213B3F7E000D9A89 /* Init */,
 				19E767CC20EE51A5008C9F9D /* Start */,
 				19E767B420EE49B4008C9F9D /* Performance */,
 				19E767B520EE49BC008C9F9D /* Guide */,
@@ -804,8 +814,6 @@
 		19E767CC20EE51A5008C9F9D /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				19585867213B0E76000C78C4 /* Start.storyboard */,
-				19585869213B0E81000C78C4 /* StartViewController.swift */,
 				193C285D213674F7001EB7F3 /* View */,
 				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
 				19012FB32048342F0061EF21 /* Login.storyboard */,
@@ -1083,7 +1091,7 @@
 				198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */,
 				193C28672136E522001EB7F3 /* Download.storyboard in Resources */,
 				1999920F2049641A00C74697 /* MissionCell.xib in Resources */,
-				19585868213B0E76000C78C4 /* Start.storyboard in Resources */,
+				19585868213B0E76000C78C4 /* Init.storyboard in Resources */,
 				191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
 				1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */,
@@ -1260,7 +1268,7 @@
 				193E402D204C23F40063A440 /* Ranking5BTableViewController.swift in Sources */,
 				197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */,
 				1939C973212BFF1900A6F8E3 /* Network.swift in Sources */,
-				1958586A213B0E81000C78C4 /* StartViewController.swift in Sources */,
+				1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */,
 				193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */,
 				199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */,
 				19D67ECC20744F1700FD9EC7 /* RecordRespectTableViewController.swift in Sources */,

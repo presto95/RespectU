@@ -13,7 +13,7 @@ class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.requestTrophies(of: "technika1")
+        self.results = TrophyInfo.fetch(of: Series.technika1)
     }
 }
 

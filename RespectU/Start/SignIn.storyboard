@@ -75,11 +75,17 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
+                                        <rect key="frame" x="271" y="188" width="33" height="30"/>
+                                        <state key="normal" title="SKIP"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="GIg-ms-CvI" firstAttribute="centerY" secondItem="gGW-1W-Mwd" secondAttribute="centerY" id="LPV-oG-28Z"/>
                                     <constraint firstItem="GIg-ms-CvI" firstAttribute="centerX" secondItem="gGW-1W-Mwd" secondAttribute="centerX" id="UbL-ad-BOI"/>
+                                    <constraint firstAttribute="trailing" secondItem="RUQ-PS-SoV" secondAttribute="trailing" constant="16" id="a6P-OP-WDo"/>
+                                    <constraint firstAttribute="bottom" secondItem="RUQ-PS-SoV" secondAttribute="bottom" constant="16" id="u9e-tq-93a"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8V-8A-IY5">
@@ -123,6 +129,7 @@
                         <outlet property="passwordTextField" destination="8y2-HI-WdD" id="TIx-US-uYa"/>
                         <outlet property="signInButton" destination="K0G-so-iPG" id="Uda-Lo-li9"/>
                         <outlet property="signUpButton" destination="gVW-U5-5u1" id="vBn-QQ-v1X"/>
+                        <outlet property="skipButton" destination="RUQ-PS-SoV" id="IDK-pB-EQU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qab-tk-qd7" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -22,8 +22,10 @@ class TipInfo: Object {
     static func add(_ tipInfo: TipResponse.Tip) {
         let realm = try! Realm()
         let object = TipInfo()
-        object.title?.english = tipInfo.title.english
-        object.title?.korean = tipInfo.title.korean
+        let languageInfo = LanguageInfo()
+        languageInfo.english = tipInfo.title.english
+        languageInfo.korean = tipInfo.title.korean
+        object.title = languageInfo
         try! realm.write {
             realm.add(object)
         }
@@ -34,24 +36,3 @@ class TipInfo: Object {
         return tipInfo
     }
 }
-
-//class TipInfo: Object {
-//
-//    @objc dynamic var tip: String = ""
-//
-//    //CREATE
-//    static func add(_ tip: String) {
-//        let realm = try! Realm()
-//        let tipInfo = TipInfo()
-//        tipInfo.tip = tip
-//        try! realm.write{
-//            realm.add(tipInfo)
-//        }
-//    }
-//
-//    //READ
-//    static func get() -> Results<TipInfo> {
-//        let result = try! Realm().objects(TipInfo.self)
-//        return result
-//    }
-//}

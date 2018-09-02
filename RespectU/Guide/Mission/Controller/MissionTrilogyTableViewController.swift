@@ -13,7 +13,7 @@ class MissionTrilogyTableViewController: MissionBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.requestMissions(of: "trilogy")
+        self.results = MissionInfo.fetch(of: Series.trilogy)
     }
 }
 

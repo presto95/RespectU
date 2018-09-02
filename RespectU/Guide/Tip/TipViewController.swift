@@ -13,37 +13,13 @@ class TipViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var indexes = [Int]()
-    var tips: TipResponse?
+    var results: Results<TipInfo>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.requestTips()
-        showIndicator()
-        setupTableView()
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTips), name: .didReceiveTips, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
-    }
-    
-    @objc func didReceiveTips(_ notification: Notification) {
-        guard let tips = notification.userInfo?["tips"] as? TipResponse else { return }
-        self.tips = tips
+        self.results = TipInfo.fetch()
         generateRandomNumbers()
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-            self?.hideIndicator()
-        }
-        NotificationCenter.default.removeObserver(self, name: .didReceiveTips, object: nil)
-    }
-    
-    @objc func errorReceiveTips(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        UIAlertController
-            .alert(title: "", message: error)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
-                self?.hideIndicator()
-                self?.dismiss(animated: true, completion: nil)
-            }
-            .present(to: self)
+        setupTableView()
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -53,7 +29,7 @@ class TipViewController: UIViewController {
 
 extension TipViewController {
     private func generateRandomNumbers() {
-        guard let tips = self.tips else { return }
+        guard let tips = self.results else { return }
         var randomNumber = arc4random_uniform(UInt32((tips.count)))
         for _ in 0..<tips.count {
             while indexes.contains(Int(randomNumber)) {
@@ -73,12 +49,12 @@ extension TipViewController {
 extension TipViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tipCell") else { return UITableViewCell() }
-        cell.textLabel?.text = self.tips?[indexes[indexPath.row]].localizedTitle
+        cell.textLabel?.text = self.results?[indexes[indexPath.row]].localizedTitle
         return cell    
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tips?.count ?? 0
+        return self.results?.count ?? 0
     }
 }
 

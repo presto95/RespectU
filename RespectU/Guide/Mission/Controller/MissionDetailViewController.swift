@@ -10,7 +10,7 @@ import UIKit
 
 class MissionDetailViewController: UIViewController {
 
-    var object: MissionResponse.Mission!
+    var object: MissionInfo!
     let myBPM = UserDefaults.standard.double(forKey: "bpm")
     let random = "RANDOM"
     
@@ -114,7 +114,7 @@ class MissionDetailViewController: UIViewController {
         }
     }
 
-    static func instantiate(_ object: MissionResponse.Mission?) -> MissionDetailViewController? {
+    static func instantiate(_ object: MissionInfo?) -> MissionDetailViewController? {
         guard let viewController = UIStoryboard(name: "Mission", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? MissionDetailViewController else { return nil }
         viewController.object = object
         return viewController

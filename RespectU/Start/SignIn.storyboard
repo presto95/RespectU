@@ -75,29 +75,32 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
-                                        <rect key="frame" x="295" y="253" width="64" height="16"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
+                                        <rect key="frame" x="309" y="238" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="pzR-zl-rJF"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="SKIP">
                                             <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="로그인하여 더 많은 기능을 사용하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-6c-0zT">
-                                        <rect key="frame" x="16" y="253" width="248" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인하여 더 많은 기능을 사용하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-6c-0zT">
+                                        <rect key="frame" x="16" y="244.5" width="285" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="RUQ-PS-SoV" firstAttribute="leading" secondItem="ecd-6c-0zT" secondAttribute="trailing" constant="8" id="3Ro-uM-g6R"/>
                                     <constraint firstItem="GIg-ms-CvI" firstAttribute="centerY" secondItem="gGW-1W-Mwd" secondAttribute="centerY" id="LPV-oG-28Z"/>
                                     <constraint firstItem="GIg-ms-CvI" firstAttribute="centerX" secondItem="gGW-1W-Mwd" secondAttribute="centerX" id="UbL-ad-BOI"/>
-                                    <constraint firstAttribute="trailing" secondItem="RUQ-PS-SoV" secondAttribute="trailing" constant="16" id="Uoo-eP-wCI"/>
-                                    <constraint firstAttribute="bottom" secondItem="RUQ-PS-SoV" secondAttribute="bottom" constant="16" id="bkA-cf-WCK"/>
+                                    <constraint firstAttribute="bottom" secondItem="RUQ-PS-SoV" secondAttribute="bottom" constant="16" id="gUB-lg-Nds"/>
                                     <constraint firstItem="ecd-6c-0zT" firstAttribute="leading" secondItem="gGW-1W-Mwd" secondAttribute="leading" constant="16" id="hW8-n3-hmn"/>
-                                    <constraint firstItem="ecd-6c-0zT" firstAttribute="centerY" secondItem="RUQ-PS-SoV" secondAttribute="centerY" id="scj-e6-naE"/>
+                                    <constraint firstItem="RUQ-PS-SoV" firstAttribute="leading" secondItem="ecd-6c-0zT" secondAttribute="trailing" constant="8" id="kJN-b4-1IH"/>
+                                    <constraint firstAttribute="trailing" secondItem="RUQ-PS-SoV" secondAttribute="trailing" constant="16" id="q4k-Rl-aU1"/>
+                                    <constraint firstItem="ecd-6c-0zT" firstAttribute="centerY" secondItem="RUQ-PS-SoV" secondAttribute="centerY" id="zS3-aj-CpP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8V-8A-IY5">
@@ -147,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qab-tk-qd7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.60000000000002" y="148.87556221889056"/>
+            <point key="canvasLocation" x="306" y="149"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="XUj-Ue-JNb">
@@ -205,8 +208,13 @@
                                 <rect key="frame" x="0.0" y="413.5" width="375" height="253.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2Q-9Z-BhA" customClass="SignInButton" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="94" y="112" width="187.5" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="94" y="107" width="187.5" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lxG-f2-RsY"/>
+                                        </constraints>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -225,27 +233,32 @@
                                             <constraint firstAttribute="width" secondItem="EhY-EY-XJT" secondAttribute="height" multiplier="1:1" id="ANH-hn-oGm"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruo-kd-eme">
+                                        <rect key="frame" x="16" y="16" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Wkv-zj-75s"/>
+                                            <constraint firstAttribute="height" constant="40" id="kLf-8h-ATt"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="backButton"/>
+                                        <connections>
+                                            <action selector="touchUpPreviousButton:" destination="HZS-sC-RdR" eventType="touchUpInside" id="Qep-Xg-heN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="EhY-EY-XJT" firstAttribute="height" secondItem="B9k-MV-z8g" secondAttribute="height" multiplier="0.7" id="Csu-7r-nhi"/>
+                                    <constraint firstItem="Ruo-kd-eme" firstAttribute="leading" secondItem="B9k-MV-z8g" secondAttribute="leading" constant="16" id="Nz2-b7-0aY"/>
                                     <constraint firstItem="EhY-EY-XJT" firstAttribute="centerY" secondItem="B9k-MV-z8g" secondAttribute="centerY" id="WsD-MZ-26r"/>
+                                    <constraint firstItem="Ruo-kd-eme" firstAttribute="top" secondItem="B9k-MV-z8g" secondAttribute="top" constant="16" id="b5i-Dg-g2I"/>
                                     <constraint firstItem="EhY-EY-XJT" firstAttribute="centerX" secondItem="B9k-MV-z8g" secondAttribute="centerX" id="jlL-j0-ky4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruo-kd-eme">
-                                <rect key="frame" x="16" y="20" width="25" height="25"/>
-                                <state key="normal" image="backButton"/>
-                                <connections>
-                                    <action selector="touchUpPreviousButton:" destination="HZS-sC-RdR" eventType="touchUpInside" id="Qep-Xg-heN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ruo-kd-eme" firstAttribute="leading" secondItem="bXB-uR-IN5" secondAttribute="leading" constant="16" id="2Tv-hz-pmp"/>
                             <constraint firstItem="PJ2-3O-YtA" firstAttribute="width" secondItem="EEt-Pu-vQ6" secondAttribute="width" multiplier="0.8" id="80C-7C-gE1"/>
-                            <constraint firstItem="Ruo-kd-eme" firstAttribute="top" secondItem="EEt-Pu-vQ6" secondAttribute="top" constant="20" id="Njb-lZ-UX1"/>
                             <constraint firstItem="bXB-uR-IN5" firstAttribute="trailing" secondItem="Ast-5f-WdI" secondAttribute="trailing" id="SGe-0o-mTG"/>
                             <constraint firstItem="Ast-5f-WdI" firstAttribute="top" secondItem="PJ2-3O-YtA" secondAttribute="bottom" id="VEn-4l-cko"/>
                             <constraint firstItem="B9k-MV-z8g" firstAttribute="top" secondItem="bXB-uR-IN5" secondAttribute="top" id="WRm-yP-S10"/>
@@ -273,7 +286,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Yq1-dC-2hn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Cz4-hh-pgG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="Cz4-hh-pgG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sWT-GV-LYv">

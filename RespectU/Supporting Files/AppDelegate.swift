@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let existsSession: Bool = false
         if existsSession {
             if TipInfo.fetch().count != 0 {
-                let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "NavigationController")
+                let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController")
                 window?.rootViewController = controller
             } else {
                 do {
@@ -43,7 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 window?.rootViewController = controller
             }
         } else {
-            let controller = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignInViewController")
+            do {
+                try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+            } catch {
+                print(error.localizedDescription)
+            }
+            let controller = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignNavigationController")
             window?.rootViewController = controller
         }
         window?.makeKeyAndVisible()

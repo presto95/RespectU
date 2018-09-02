@@ -32,7 +32,6 @@ class SummaryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.recordResults = RecordInfo.fetch()
         self.songResults = SongInfo.fetch()
         for result in recordResults {

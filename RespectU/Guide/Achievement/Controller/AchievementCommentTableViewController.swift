@@ -14,6 +14,7 @@ class AchievementCommentTableViewController: AchievementBaseTableViewController 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.results = AchievementInfo.fetch(of: "comment")
+        generateStageCounts()
     }
 }
 

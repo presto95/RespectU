@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
 
@@ -28,9 +29,11 @@ class SignInViewController: UIViewController {
         self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
         self.skipButton.addTarget(self, action: #selector(touchUpSkipButton(_:)), for: .touchUpInside)
     }
-    
+}
+
+extension SignInViewController {
     @objc func touchUpSignInButton(_ sender: UIButton) {
-        
+        //세션 생성, 아이디는 키체인에 저장
     }
     
     @objc func touchUpSignUpButton(_ sender: UIButton) {
@@ -40,6 +43,31 @@ class SignInViewController: UIViewController {
     
     @objc func touchUpSkipButton(_ sender: UIButton) {
         guard let next = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
-        UIApplication.shared.keyWindow?.rootViewController = next
+        next.modalTransitionStyle = .crossDissolve
+        self.present(next, animated: true, completion: nil)
+    }
+}
+
+extension SignInViewController {
+    private func presentSuccessAlert() {
+        UIAlertController
+            .alert(title: "", message: "Log In Succeeded")
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                if TipInfo.fetch().count != 0 {
+                    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
+                    controller.modalTransitionStyle = .crossDissolve
+                    self?.present(controller, animated: true, completion: nil)
+                } else {
+                    guard let controller = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
+                    controller.modalTransitionStyle = .crossDissolve
+                    self?.present(controller, animated: true, completion: nil)
+                }
+            }
+            .present(to: self)
+    }
+    
+    private func presentFailureAlert() {
+        UIAlertController
+            .alert(title: "", message: "Log In Failed")
     }
 }

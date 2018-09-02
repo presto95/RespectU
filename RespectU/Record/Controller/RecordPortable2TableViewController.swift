@@ -13,7 +13,7 @@ class RecordPortable2TableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.requestSongs(of: "portable2")
+        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.portable2, method: FilterOperator.equal).sorted { $0.localizedLowercase < $1.localizedLowercase }
     }
 }
 

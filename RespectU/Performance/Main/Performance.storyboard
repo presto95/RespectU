@@ -14,7 +14,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZUH-fT-47t">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="vdG-DE-auq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PerformanceNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="vdG-DE-auq" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VI4-qc-QLR">

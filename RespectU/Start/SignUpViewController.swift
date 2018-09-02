@@ -25,7 +25,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func touchUpSignUpButton(_ sender: UIButton) {
-        
+        //user 디비에 저장
     }
     
     @IBAction func touchUpPreviousButton(_ sender: UIButton) {

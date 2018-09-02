@@ -14,6 +14,7 @@ class AchievementNoteTableViewController: AchievementBaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.results = AchievementInfo.fetch(of: "note")
+        generateStageCounts()
     }
 }
 

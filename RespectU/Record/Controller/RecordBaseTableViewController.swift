@@ -16,16 +16,15 @@ class RecordBaseTableViewController: BaseTableViewController {
         return parent
     }
     let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
-    var songResults: [SongResponse.Song]?
+    var tempSongResults: Results<SongInfo>?
+    var songResults: [SongInfo]?
     var recordView: RecordView!
     let cellIdentifier = "recordCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showIndicator()
+        self.tempSongResults = SongInfo.fetch()
         self.tableView.register(UINib(nibName: "RecordCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSongs(_:)), name: .errorReceiveSongs, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -36,28 +35,6 @@ class RecordBaseTableViewController: BaseTableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         dismissRecordViewIfExists()
-    }
-    
-    @objc func didReceiveSongs(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
-        let sorted = userInfo.songs.sorted { $0.localizedLowercase < $1.localizedLowercase }
-        self.songResults = sorted
-        DispatchQueue.main.async { [weak self] in
-            self?.hideIndicator()
-            self?.tableView.reloadData()
-        }
-        NotificationCenter.default.removeObserver(self, name: .didReceiveSongs, object: nil)
-    }
-    
-    @objc func errorReceiveSongs(_ notification: Notification) {
-        guard let error = notification.userInfo?["error"] as? String else { return }
-        UIAlertController
-            .alert(title: "", message: error)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
-                self?.hideIndicator()
-                self?.parent?.dismiss(animated: true, completion: nil)
-            }
-            .present(to: self)
     }
 }
 

@@ -13,7 +13,7 @@ class RecordTrilogyTableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        API.requestSongs(of: "trilogy")
+        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.trilogy, method: FilterOperator.equal).sorted { $0.localizedLowercase < $1.localizedLowercase }
     }
 }
 

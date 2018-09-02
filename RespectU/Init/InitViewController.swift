@@ -48,6 +48,11 @@ class InitViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @objc func didReceiveSongs(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
         for song in userInfo.songs {
@@ -153,15 +158,16 @@ class InitViewController: UIViewController {
                     recordInfo.button8 = recordButton
                     RecordInfo.add(recordInfo)
                 }
-                guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "NavigationController") else { return }
-                UIApplication.shared.keyWindow?.rootViewController = next
+                guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
+                next.modalTransitionStyle = .crossDissolve
+                self.present(next, animated: true, completion: nil)
             }
             .present(to: self)
     }
     
     func presentFailureAlert() {
         UIAlertController
-            .alert(title: "", message: "Network Error.")
+            .alert(title: "", message: "Network Error".localized)
             .defaultAction(title: "OK".localized) { [weak self] _ in
                 self?.count = 0
             }

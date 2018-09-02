@@ -30,14 +30,7 @@ class TrophyCell: UITableViewCell {
     
     func setProperties(_ object: TrophyInfo?) {
         guard let object = object else { return }
-        let imageUrl = "\(API.baseUrl)/images/\(object.series)/\(object.image).png"
-        guard let url = URL(string: imageUrl) else { return }
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else { return }
-            DispatchQueue.main.async {
-                self.trophyImageView.image = UIImage(data: imageData, scale: 0.5)
-            }
-        }
+        self.trophyImageView.image = UIImage(named: object.image)
         self.titleLabel.text = object.localizedTitle
         self.contentLabel.text = object.localizedContent
         switch object.rating {

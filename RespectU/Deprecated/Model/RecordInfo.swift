@@ -8,30 +8,13 @@
 
 import RealmSwift
 
-class DifficultyRecord: Object {
-    @objc dynamic var rank: String = ""
-    @objc dynamic var rate: Double = 0
-    @objc dynamic var note: String = ""
-    @objc dynamic var skillPoint: Double = 0
-}
-
-class RecordButton: Object {
-    @objc dynamic var normal: DifficultyRecord?
-    @objc dynamic var hard: DifficultyRecord?
-    @objc dynamic var maximum: DifficultyRecord?
-    @objc dynamic var highestSkillPoint: Double = 0
-    @objc dynamic var highestSkillPointDifficulty: String = ""
-    @objc dynamic var highestSkillPointNote: String = ""
-    @objc dynamic var highestSkillPointRate: Double = 0
-}
-
 class RecordInfo: Object {
     @objc dynamic var title: LanguageInfo?
     @objc dynamic var series: String = ""
-    @objc dynamic var button4: RecordButton?
-    @objc dynamic var button5: RecordButton?
-    @objc dynamic var button6: RecordButton?
-    @objc dynamic var button8: RecordButton?
+    @objc dynamic var button4: RecordButtonInfo?
+    @objc dynamic var button5: RecordButtonInfo?
+    @objc dynamic var button6: RecordButtonInfo?
+    @objc dynamic var button8: RecordButtonInfo?
     
     var localizedTitle: String {
         if Locale.current.regionCode == "KR", let korean = title?.korean {

@@ -88,7 +88,7 @@ extension SummaryDetailViewController {
             let difficulties = ["normal", "hard", "maximum"]
             for i in 0..<4 {
                 let buttonKey = buttons[i]
-                guard let button = result.value(forKey: buttonKey) as? SongButton else { return }
+                guard let button = result.value(forKey: buttonKey) as? SongButtonInfo else { return }
                 for difficulty in difficulties {
                     guard let difficulty = button.value(forKey: difficulty) as? Int else { return }
                     if difficulty != 0 {
@@ -109,11 +109,11 @@ extension SummaryDetailViewController {
             }
         }
     }
-    private func setButtonArrayExceptTotalPatterns(_ button: RecordButton?, to array: inout [Int]) {
+    private func setButtonArrayExceptTotalPatterns(_ button: RecordButtonInfo?, to array: inout [Int]) {
         guard let button = button else { return }
         let difficulties = ["normal", "hard", "maximum"]
         for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? DifficultyRecord else { return }
+            guard let difficulty = button.value(forKey: difficulty) as? RecordPerformanceInfo else { return }
             switch difficulty.rate {
             case 99.8...100:
                 array[0] += 1
@@ -147,11 +147,11 @@ extension SummaryDetailViewController {
             }
         }
     }
-    private func setRateArray(_ button: RecordButton?, to value: inout Double) {
+    private func setRateArray(_ button: RecordButtonInfo?, to value: inout Double) {
         guard let button = button else { return }
         let difficulties = ["normal", "hard", "maximum"]
         for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? DifficultyRecord else { return }
+            guard let difficulty = button.value(forKey: difficulty) as? RecordPerformanceInfo else { return }
             value += difficulty.rate
         }
     }

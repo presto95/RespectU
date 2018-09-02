@@ -135,7 +135,6 @@ class InitViewController: UIViewController {
     
     func presentSuccessAlert() {
         let results = SongInfo.fetch()
-        print(results.count)
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
             .defaultAction(title: "OK".localized) { _ in
@@ -143,8 +142,8 @@ class InitViewController: UIViewController {
                     let recordInfo = RecordInfo()
                     recordInfo.title = result.title
                     recordInfo.series = result.series
-                    let recordButton = RecordButton()
-                    let difficultyRecord = DifficultyRecord()
+                    let recordButton = RecordButtonInfo()
+                    let difficultyRecord = RecordPerformanceInfo()
                     recordButton.normal = difficultyRecord
                     recordButton.hard = difficultyRecord
                     recordButton.maximum = difficultyRecord

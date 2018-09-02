@@ -127,17 +127,17 @@ class MissionDetailViewController: UIViewController {
     @IBAction func touchUpMoreButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            presentMoreAlert(title: object.stage1?.localizedTitle, button: object.stage1?.button, difficulty: object.stage1?.difficulty)
+            presentMoreAlert(title: object.stage1?.title?.english, button: object.stage1?.button, difficulty: object.stage1?.difficulty)
         case 1:
-            presentMoreAlert(title: object.stage2?.localizedTitle, button: object.stage2?.button, difficulty: object.stage2?.difficulty)
+            presentMoreAlert(title: object.stage2?.title?.english, button: object.stage2?.button, difficulty: object.stage2?.difficulty)
         case 2:
-            presentMoreAlert(title: object.stage3?.localizedTitle, button: object.stage3?.button, difficulty: object.stage3?.difficulty)
+            presentMoreAlert(title: object.stage3?.title?.english, button: object.stage3?.button, difficulty: object.stage3?.difficulty)
         case 3:
-            presentMoreAlert(title: object.stage4?.localizedTitle, button: object.stage4?.button, difficulty: object.stage4?.difficulty)
+            presentMoreAlert(title: object.stage4?.title?.english, button: object.stage4?.button, difficulty: object.stage4?.difficulty)
         case 4:
-            presentMoreAlert(title: object.stage5?.localizedTitle, button: object.stage5?.button, difficulty: object.stage5?.difficulty)
+            presentMoreAlert(title: object.stage5?.title?.english, button: object.stage5?.button, difficulty: object.stage5?.difficulty)
         case 5:
-            presentMoreAlert(title: object.stage6?.localizedTitle, button: object.stage6?.button, difficulty: object.stage6?.difficulty)
+            presentMoreAlert(title: object.stage6?.title?.english, button: object.stage6?.button, difficulty: object.stage6?.difficulty)
         default:
             break
         }
@@ -146,70 +146,30 @@ class MissionDetailViewController: UIViewController {
 
 extension MissionDetailViewController {
     ///더보기 버튼 눌렀을 때 UIAlertController 띄우기
-    private func presentMoreAlert(title: String?, button: String?, difficulty: String?){
+    private func presentMoreAlert(title: String?, button: String?, difficulty: String?) {
         guard let title = title, let button = button, let difficulty = difficulty else { return }
         var level: Int?
         var bpm: Int = 0
         var changesSpeed: Bool = false
-        if let object = SongInfo.fetch(by: title).first {
+        if let object = SongInfo.fetch(by: title) {
             if let subBpm = object.subBpm.value {
                 bpm = subBpm
                 changesSpeed = true
             } else {
                 bpm = object.bpm
             }
-            let buttonResult: SongButton?
-            switch button {
-            case Buttons.button4:
-                buttonResult = object.button4
+            if let buttonKeyPath = button.buttonExpansion {
+                guard let buttonResult = object.value(forKeyPath: buttonKeyPath) as? SongButtonInfo else { return }
                 switch difficulty {
                 case Difficulty.normal:
-                    level = buttonResult?.normal
+                    level = buttonResult.normal
                 case Difficulty.hard:
-                    level = buttonResult?.hard
+                    level = buttonResult.hard
                 case Difficulty.maximum:
-                    level = buttonResult?.maximum
+                    level = buttonResult.maximum
                 default:
                     break
                 }
-            case Buttons.button5:
-                buttonResult = object.button5
-                switch difficulty {
-                case Difficulty.normal:
-                    level = buttonResult?.normal
-                case Difficulty.hard:
-                    level = buttonResult?.hard
-                case Difficulty.maximum:
-                    level = buttonResult?.maximum
-                default:
-                    break
-                }
-            case Buttons.button6:
-                buttonResult = object.button6
-                switch difficulty {
-                case Difficulty.normal:
-                    level = buttonResult?.normal
-                case Difficulty.hard:
-                    level = buttonResult?.hard
-                case Difficulty.maximum:
-                    level = buttonResult?.maximum
-                default:
-                    break
-                }
-            case Buttons.button8:
-                buttonResult = object.button8
-                switch difficulty {
-                case Difficulty.normal:
-                    level = buttonResult?.normal
-                case Difficulty.hard:
-                    level = buttonResult?.hard
-                case Difficulty.maximum:
-                    level = buttonResult?.maximum
-                default:
-                    break
-                }
-            default:
-                break
             }
         }
         let speedString = { () -> String in
@@ -225,7 +185,7 @@ extension MissionDetailViewController {
             } else {
                 return "??"
             }
-        }
+        }()
         var message = "\(button.uppercased()) \(difficulty.uppercased())\n\n" + "Level".localized + "\n\(levelString)\n\n" + "SPEED Recommendation".localized + "\n\(speedString)"
         if changesSpeed {
             message += "\n" + "(SPEED Variation)".localized

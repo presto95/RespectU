@@ -46,7 +46,7 @@ class Skill {
         var max: Double = 0
         var top50Difficulties = [Int]()
         for result in results {
-            let buttonResult: SongButton?
+            let buttonResult: SongButtonInfo?
             switch button {
             case Buttons.button4:
                 buttonResult = result.button4
@@ -57,7 +57,7 @@ class Skill {
             case Buttons.button8:
                 buttonResult = result.button8
             default:
-                buttonResult = SongButton()
+                buttonResult = SongButtonInfo()
                 break
             }
             guard let bindedButtonResult = buttonResult else { return 0 }
@@ -134,8 +134,8 @@ class Skill {
             guard let songResult = songResults.filter(key: "localizedTitle", value: recordResult.localizedTitle, method: FilterOperator.equal).first else { return }
             let buttons = ["button4", "button5", "button6", "button8"]
             for button in buttons {
-                guard let recordButtonResult = recordResult.value(forKey: button) as? RecordButton else { return }
-                guard let songButtonResult = songResult.value(forKey: button) as? SongButton else { return }
+                guard let recordButtonResult = recordResult.value(forKey: button) as? RecordButtonInfo else { return }
+                guard let songButtonResult = songResult.value(forKey: button) as? SongButtonInfo else { return }
                 let recordNormal = recordButtonResult.normal
                 let recordHard = recordButtonResult.hard
                 let recordMaximum = recordButtonResult.maximum
@@ -151,20 +151,20 @@ class Skill {
                 case normalSkillPoint:
                     RecordInfo.update(recordResult, with: [
                         "\(button).highestSkillPointDifficulty": Difficulty.normal,
-                        "\(button).highestSkillPointRate": recordNormal?.rate,
-                        "\(button).highestSkillPointNote": recordNormal?.note
+                        "\(button).highestSkillPointRate": recordNormal?.rate ?? 0,
+                        "\(button).highestSkillPointNote": recordNormal?.note ?? Note.none
                         ])
                 case hardSkillPoint:
                     RecordInfo.update(recordResult, with: [
                         "\(button).highestSkillPointDifficulty": Difficulty.hard,
-                        "\(button).highestSkillPointRate": recordHard?.rate,
-                        "\(button).highestSkillPointNote": recordHard?.note
+                        "\(button).highestSkillPointRate": recordHard?.rate ?? 0,
+                        "\(button).highestSkillPointNote": recordHard?.note ?? Note.none
                         ])
                 case maximumSkillPoint:
                     RecordInfo.update(recordResult, with: [
                         "\(button).highestSkillPointDifficulty": Difficulty.maximum,
-                        "\(button).highestSkillPointRate": recordMaximum?.rate,
-                        "\(button).highestSkillPointNote": recordMaximum?.note
+                        "\(button).highestSkillPointRate": recordMaximum?.rate ?? 0,
+                        "\(button).highestSkillPointNote": recordMaximum?.note ?? Note.none
                         ])
                 default:
                     break
@@ -221,8 +221,8 @@ class Skill {
         let recordResults = RecordInfo.fetch()
         let songResults = SongInfo.fetch()
         for result in recordResults {
-            let buttonResult: RecordButton?
-            let songResult: SongButton?
+            let buttonResult: RecordButtonInfo?
+            let songResult: SongButtonInfo?
             guard let filteredSong = songResults.filter(key: "localizedTitle", value: result.localizedTitle, method: FilterOperator.equal).first else { return 0 }
             switch button {
             case Buttons.button4:
@@ -238,8 +238,8 @@ class Skill {
                 buttonResult = result.button8
                 songResult = filteredSong.button8
             default:
-                buttonResult = RecordButton()
-                songResult = SongButton()
+                buttonResult = RecordButtonInfo()
+                songResult = SongButtonInfo()
             }
             if songResult?.normal != 0 {
                 counts[0] += 1

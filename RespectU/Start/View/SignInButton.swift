@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class SignInButton: UIButton {
 
     @IBInspectable var cornerRadius: CGFloat = 10

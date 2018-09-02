@@ -38,7 +38,7 @@ class SongCell: UITableViewCell {
         self.titleLabel.text = object.localizedTitle
         self.composerLabel.text = object.composer
         self.bpmLabel.text = object.bpmToString
-        var buttons: SongButton?
+        var buttons: SongButtonInfo?
         switch favoriteButton {
         case Buttons.button4:
             buttons = object.button4

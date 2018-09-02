@@ -59,7 +59,7 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
 extension GuideViewController {
     private func presentNetworkAlert() {
         UIAlertController
-            .alert(title: "Notice".localized, message: "Check your network status.".localized)
+            .alert(title: "", message: "Check your network status.".localized)
             .defaultAction(title: "OK".localized)
             .present(to: self)
     }
@@ -161,6 +161,7 @@ extension GuideViewController: UICollectionViewDelegate {
                         .present(to: self)
                 }
             case 1:
+                
                 let message = "Current".localized + " : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n" + "It becomes standard of Speed Recommendation.".localized
                 let alert = UIAlertController
                     .alert(title: "BPM Default Setting".localized, message: message)

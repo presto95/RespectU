@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,19 +17,19 @@
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D5X-wq-Lx0" customClass="SignInViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NLm-cT-CVg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ztu-dU-n1K">
-                                <rect key="frame" x="32" y="234" width="256" height="100"/>
+                                <rect key="frame" x="37.5" y="283.5" width="300" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e07-KU-sgZ" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cwT-P6-dXc"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
@@ -37,12 +37,12 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8y2-HI-WdD" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="256" height="40"/>
+                                        <rect key="frame" x="0.0" y="60" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GjU-JB-JwE"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                         <connections>
@@ -52,13 +52,13 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-1W-Mwd">
-                                <rect key="frame" x="0.0" y="334" width="320" height="234"/>
+                                <rect key="frame" x="0.0" y="383.5" width="375" height="283.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GIg-ms-CvI">
-                                        <rect key="frame" x="80" y="71.5" width="160" height="92"/>
+                                        <rect key="frame" x="94" y="96.5" width="187.5" height="92"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-so-iPG" customClass="SignInButton" customModule="RespectU" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="36"/>
                                                 <color key="backgroundColor" red="0.92398041490000005" green="0.64237487319999997" blue="0.20982709529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <state key="normal" title="Sign In">
@@ -66,7 +66,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVW-U5-5u1" customClass="SignInButton" customModule="RespectU" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="160" height="36"/>
+                                                <rect key="frame" x="0.0" y="56" width="187.5" height="36"/>
                                                 <color key="backgroundColor" red="0.92398041490000005" green="0.64237487319999997" blue="0.20982709529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <state key="normal" title="Sign Up">
@@ -75,24 +75,36 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
-                                        <rect key="frame" x="271" y="188" width="33" height="30"/>
-                                        <state key="normal" title="SKIP"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
+                                        <rect key="frame" x="295" y="253" width="64" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="SKIP">
+                                            <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="로그인하여 더 많은 기능을 사용하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-6c-0zT">
+                                        <rect key="frame" x="16" y="253" width="248" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="RUQ-PS-SoV" firstAttribute="leading" secondItem="ecd-6c-0zT" secondAttribute="trailing" constant="8" id="3Ro-uM-g6R"/>
                                     <constraint firstItem="GIg-ms-CvI" firstAttribute="centerY" secondItem="gGW-1W-Mwd" secondAttribute="centerY" id="LPV-oG-28Z"/>
                                     <constraint firstItem="GIg-ms-CvI" firstAttribute="centerX" secondItem="gGW-1W-Mwd" secondAttribute="centerX" id="UbL-ad-BOI"/>
-                                    <constraint firstAttribute="trailing" secondItem="RUQ-PS-SoV" secondAttribute="trailing" constant="16" id="a6P-OP-WDo"/>
-                                    <constraint firstAttribute="bottom" secondItem="RUQ-PS-SoV" secondAttribute="bottom" constant="16" id="u9e-tq-93a"/>
+                                    <constraint firstAttribute="trailing" secondItem="RUQ-PS-SoV" secondAttribute="trailing" constant="16" id="Uoo-eP-wCI"/>
+                                    <constraint firstAttribute="bottom" secondItem="RUQ-PS-SoV" secondAttribute="bottom" constant="16" id="bkA-cf-WCK"/>
+                                    <constraint firstItem="ecd-6c-0zT" firstAttribute="leading" secondItem="gGW-1W-Mwd" secondAttribute="leading" constant="16" id="hW8-n3-hmn"/>
+                                    <constraint firstItem="ecd-6c-0zT" firstAttribute="centerY" secondItem="RUQ-PS-SoV" secondAttribute="centerY" id="scj-e6-naE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8V-8A-IY5">
-                                <rect key="frame" x="0.0" y="20" width="320" height="214"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="263.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-gS-mYa">
-                                        <rect key="frame" x="85.5" y="32" width="149.5" height="150"/>
+                                        <rect key="frame" x="95.5" y="39.5" width="184.5" height="184.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccH-gS-mYa" secondAttribute="height" multiplier="1:1" id="5M2-SH-dtL"/>
                                         </constraints>
@@ -125,6 +137,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="JSV-F2-LTY"/>
                     <connections>
+                        <outlet property="descriptionLabel" destination="ecd-6c-0zT" id="R56-d7-3nN"/>
                         <outlet property="idTextField" destination="e07-KU-sgZ" id="LA5-Za-EkC"/>
                         <outlet property="passwordTextField" destination="8y2-HI-WdD" id="TIx-US-uYa"/>
                         <outlet property="signInButton" destination="K0G-so-iPG" id="Uda-Lo-li9"/>
@@ -134,26 +147,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qab-tk-qd7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="149"/>
+            <point key="canvasLocation" x="325.60000000000002" y="148.87556221889056"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="XUj-Ue-JNb">
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HZS-sC-RdR" customClass="SignUpViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EEt-Pu-vQ6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PJ2-3O-YtA">
-                                <rect key="frame" x="32" y="204" width="256" height="160"/>
+                                <rect key="frame" x="37.5" y="253.5" width="300" height="160"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-lE-xWh" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="crS-Ok-4HY"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
@@ -161,12 +174,12 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gor-EV-v6g" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="256" height="40"/>
+                                        <rect key="frame" x="0.0" y="60" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="p6X-6M-Irs"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                         <connections>
@@ -174,12 +187,12 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKi-2H-TZ7" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="256" height="40"/>
+                                        <rect key="frame" x="0.0" y="120" width="300" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="kFZ-no-O49"/>
                                         </constraints>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <connections>
@@ -189,10 +202,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-5f-WdI">
-                                <rect key="frame" x="0.0" y="364" width="320" height="204"/>
+                                <rect key="frame" x="0.0" y="413.5" width="375" height="253.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2Q-9Z-BhA" customClass="SignInButton" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="87" width="160" height="30"/>
+                                        <rect key="frame" x="94" y="112" width="187.5" height="30"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -204,10 +217,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9k-MV-z8g">
-                                <rect key="frame" x="0.0" y="20" width="320" height="184"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="233.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-EY-XJT">
-                                        <rect key="frame" x="95.5" y="27.5" width="129" height="129"/>
+                                        <rect key="frame" x="105.5" y="35" width="164" height="163.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EhY-EY-XJT" secondAttribute="height" multiplier="1:1" id="ANH-hn-oGm"/>
                                         </constraints>

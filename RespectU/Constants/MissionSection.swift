@@ -6,8 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-enum Mission {
-    enum Respect {
+enum MissionSection {
+    enum respect {
         static let departure = "Departure"
         static let clubRoad645 = "CLUB Road645"
         static let maxTheater = "MAX Theater"
@@ -19,23 +19,23 @@ enum Mission {
         static let developers = "D-VELOPERS"
         static let destination = "Destination"
     }
-    enum Trilogy {
+    enum trilogy {
         static let tSide = "T-SIDE"
         static let rSide = "R-SIDE"
     }
-    enum CE {
+    enum ce {
         static let electronicCity = "Electronic City"
         static let metropolis = "Metropolis"
     }
-    enum Technika1 {
+    enum technika1 {
         static let platinumMixing = "Platinum Mixing"
         static let technicalMixing = "Technical Mixing"
     }
-    enum BS {
+    enum bs {
         static let stylishPerformance = "Stylish Performance"
         static let absoluteSound = "Absolute Sound"
     }
-    enum LinkDisk {
+    enum linkdisk {
         static let whiteDisk = "WHITE DISK"
         static let blackDisk = "BLACK DISK"
     }

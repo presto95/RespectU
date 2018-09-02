@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presto_95" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcF-fH-PJm" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="54" y="11" width="67.5" height="17"/>
+                        <rect key="frame" x="54" y="11" width="188" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -61,6 +61,7 @@
                     <constraint firstItem="P7k-mr-mdr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Eqd-8A-pnB"/>
                     <constraint firstItem="ei7-ln-PsG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aGO-U8-4Ag"/>
                     <constraint firstItem="vcF-fH-PJm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pbd-6S-YTH"/>
+                    <constraint firstItem="ei7-ln-PsG" firstAttribute="leading" secondItem="vcF-fH-PJm" secondAttribute="trailing" constant="8" id="ruH-3Q-szA"/>
                     <constraint firstItem="vcF-fH-PJm" firstAttribute="leading" secondItem="P7k-mr-mdr" secondAttribute="trailing" constant="8" id="ygM-Io-50A"/>
                 </constraints>
             </tableViewCellContentView>

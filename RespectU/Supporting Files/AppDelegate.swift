@@ -20,19 +20,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        do {
-            try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-        } catch {
-            print(error.localizedDescription)
-        }
-        if SongInfo.fetch().count != 0 {
-            let storyboard = UIStoryboard(name: "Performance", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "PerformanceViewController")
-            window?.rootViewController = controller
+        /**
+         * 로그인(회원가입) -> 데이터가져오기 -> 퍼포먼스뷰컨
+         * 세션 만료시간은 무한으로
+         * 아이디는 키체인에 저장
+         * 세션이 없으면 로그인 화면부터
+         * 있으면 데이터 있으면 퍼포먼스뷰컨으로, 없으면 데이터가져오기 뷰컨으로
+         */
+        let existsSession: Bool = false
+        if existsSession {
+            if TipInfo.fetch().count != 0 {
+                let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "NavigationController")
+                window?.rootViewController = controller
+            } else {
+                do {
+                    try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+                } catch {
+                    print(error.localizedDescription)
+                }
+                UserDefaults.standard.set(450, forKey: "bpm")
+                let controller = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController")
+                window?.rootViewController = controller
+            }
         } else {
-            try! FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-            let storyboard = UIStoryboard(name: "Init", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "InitViewController")
+            let controller = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignInViewController")
             window?.rootViewController = controller
         }
         window?.makeKeyAndVisible()

@@ -8,20 +8,6 @@
 
 import RealmSwift
 
-class Stage: Object {
-    @objc dynamic var title: LanguageInfo?
-    @objc dynamic var difficulty: String = ""
-    @objc dynamic var button: String = ""
-    
-    var localizedTitle: String {
-        if Locale.current.regionCode == "KR", let korean = title?.korean {
-            return korean
-        } else {
-            return title?.english ?? ""
-        }
-    }
-}
-
 class MissionInfo: Object {
     @objc dynamic var series: String = ""
     @objc dynamic var section: String = ""
@@ -33,12 +19,12 @@ class MissionInfo: Object {
     @objc dynamic var `break`: Int = 0
     @objc dynamic var effector: String = ""
     @objc dynamic var reward: LanguageInfo?
-    @objc dynamic var stage1: Stage?
-    @objc dynamic var stage2: Stage?
-    @objc dynamic var stage3: Stage?
-    @objc dynamic var stage4: Stage?
-    @objc dynamic var stage5: Stage?
-    @objc dynamic var stage6: Stage?
+    @objc dynamic var stage1: MissionStageInfo?
+    @objc dynamic var stage2: MissionStageInfo?
+    @objc dynamic var stage3: MissionStageInfo?
+    @objc dynamic var stage4: MissionStageInfo?
+    @objc dynamic var stage5: MissionStageInfo?
+    @objc dynamic var stage6: MissionStageInfo?
     
     var localizedReward: String {
         if Locale.current.regionCode == "KR", let korean = reward?.korean {
@@ -63,53 +49,65 @@ class MissionInfo: Object {
         rewardInfo.english = missionInfo.reward.english
         rewardInfo.korean = missionInfo.reward.korean
         object.reward = rewardInfo
-        if let stage = object.stage1 {
+        if let stage = missionInfo.stage1 {
+            let stageInfo = MissionStageInfo()
             let titleInfo = LanguageInfo()
-            titleInfo.english = missionInfo.stage1?.title.english ?? ""
-            titleInfo.korean = missionInfo.stage1?.title.korean
-            stage.title = titleInfo
-            stage.difficulty = missionInfo.stage1?.difficulty ?? ""
-            stage.button = missionInfo.stage1?.button ?? ""
+            titleInfo.english = stage.title.english
+            titleInfo.korean = stage.title.korean
+            stageInfo.title = titleInfo
+            stageInfo.difficulty = stage.difficulty
+            stageInfo.button = stage.button
+            object.stage1 = stageInfo
         }
-        if let stage = object.stage2 {
+        if let stage = missionInfo.stage2 {
+            let stageInfo = MissionStageInfo()
             let titleInfo = LanguageInfo()
-            titleInfo.english = missionInfo.stage2?.title.english ?? ""
-            titleInfo.korean = missionInfo.stage2?.title.korean
-            stage.title = titleInfo
-            stage.difficulty = missionInfo.stage2?.difficulty ?? ""
-            stage.button = missionInfo.stage2?.button ?? ""
+            titleInfo.english = stage.title.english
+            titleInfo.korean = stage.title.korean
+            stageInfo.title = titleInfo
+            stageInfo.difficulty = stage.difficulty
+            stageInfo.button = stage.button
+            object.stage2 = stageInfo
         }
-        if let stage = object.stage3 {
+        if let stage = missionInfo.stage3 {
+            let stageInfo = MissionStageInfo()
             let titleInfo = LanguageInfo()
-            titleInfo.english = missionInfo.stage3?.title.english ?? ""
-            titleInfo.korean = missionInfo.stage3?.title.korean
-            stage.title = titleInfo
-            stage.difficulty = missionInfo.stage3?.difficulty ?? ""
-            stage.button = missionInfo.stage3?.button ?? ""
+            titleInfo.english = stage.title.english
+            titleInfo.korean = stage.title.korean
+            stageInfo.title = titleInfo
+            stageInfo.difficulty = stage.difficulty
+            stageInfo.button = stage.button
+            object.stage3 = stageInfo
         }
-        if let stage = object.stage4 {
+        if let stage = missionInfo.stage4 {
+            let stageInfo = MissionStageInfo()
             let titleInfo = LanguageInfo()
-            titleInfo.english = missionInfo.stage4?.title.english ?? ""
-            titleInfo.korean = missionInfo.stage4?.title.korean
-            stage.title = titleInfo
-            stage.difficulty = missionInfo.stage4?.difficulty ?? ""
-            stage.button = missionInfo.stage4?.button ?? ""
+            titleInfo.english = stage.title.english
+            titleInfo.korean = stage.title.korean
+            stageInfo.title = titleInfo
+            stageInfo.difficulty = stage.difficulty
+            stageInfo.button = stage.button
+            object.stage4 = stageInfo
         }
-        if let stage = object.stage5 {
+        if let stage = missionInfo.stage5 {
+            let stageInfo = MissionStageInfo()
             let titleInfo = LanguageInfo()
-            titleInfo.english = missionInfo.stage5?.title.english ?? ""
-            titleInfo.korean = missionInfo.stage5?.title.korean
-            stage.title = titleInfo
-            stage.difficulty = missionInfo.stage5?.difficulty ?? ""
-            stage.button = missionInfo.stage5?.button ?? ""
+            titleInfo.english = stage.title.english
+            titleInfo.korean = stage.title.korean
+            stageInfo.title = titleInfo
+            stageInfo.difficulty = stage.difficulty
+            stageInfo.button = stage.button
+            object.stage5 = stageInfo
         }
-        if let stage = object.stage6 {
+        if let stage = missionInfo.stage6 {
+            let stageInfo = MissionStageInfo()
             let titleInfo = LanguageInfo()
-            titleInfo.english = missionInfo.stage6?.title.english ?? ""
-            titleInfo.korean = missionInfo.stage6?.title.korean
-            stage.title = titleInfo
-            stage.difficulty = missionInfo.stage6?.difficulty ?? ""
-            stage.button = missionInfo.stage6?.button ?? ""
+            titleInfo.english = stage.title.english
+            titleInfo.korean = stage.title.korean
+            stageInfo.title = titleInfo
+            stageInfo.difficulty = stage.difficulty
+            stageInfo.button = stage.button
+            object.stage6 = stageInfo
         }
         try! realm.write {
             realm.add(object)

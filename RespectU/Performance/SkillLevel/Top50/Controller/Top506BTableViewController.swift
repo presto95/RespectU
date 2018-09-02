@@ -26,6 +26,6 @@ class Top506BTableViewController: Top50BaseTableViewController {
 
 extension Top506BTableViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: Buttons.button6)
+        return IndicatorInfo(title: Buttons.button6.uppercased())
     }
 }

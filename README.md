@@ -3,9 +3,9 @@
 
 
 
-**RespectU for DJMAX RESPECT (iOS)**
+### RespectU : Guide for DJMAX RESPECT (iOS)
 
-국산 리듬게임 *디제이맥스 리스펙트* 의 가이드 애플리케이션
+국산 리듬게임 **[디제이맥스 리스펙트](https://www.djmaxrespect.com/#)** 의 가이드 애플리케이션
 
 
 
@@ -17,7 +17,23 @@
 
 ### 사용한 라이브러리
 
-Realm / Firebase / GoogleSignIn / SwiftKeychainWrapper / GaugeKit / MarqueeLabel/Swift / XLPagerTabStrip / DZNEmptyDataSet / AKPickerView-Swift
+[Realm](https://cocoapods.org/pods/RealmSwift)
+
+[Firebase](https://cocoapods.org/pods/Firebase) 
+
+[GoogleSignIn](https://cocoapods.org/pods/GoogleSignIn) 
+
+[SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper) 
+
+[GaugeKit](https://cocoapods.org/pods/GaugeKit)
+
+[MarqueeLabel/Swift](https://cocoapods.org/pods/MarqueeLabel)
+
+[XLPagerTabStrip](https://cocoapods.org/pods/XLPagerTabStrip)
+
+[DZNEmptyDataSet](https://cocoapods.org/pods/DZNEmptyDataSet)
+
+[AKPickerView-Swift](https://cocoapods.org/pods/AKPickerView-Swift)
 
 
 
@@ -38,12 +54,13 @@ Realm / Firebase / GoogleSignIn / SwiftKeychainWrapper / GaugeKit / MarqueeLabel
 
 1. Realm 모델
    - 서버와의 연동을 위해 데이터베이스 정규화를 진행하였고, 그 과정에서 Realm 모델 정의에 대해 어려움을 겪음
-   - *RespectU* 프로젝트에서 `try! Realm()` 에서 에러가 났으나 에러 메세지를 보여주지 않았고, 다른 프로젝트에서 모델을 옮겨서 실행하니 에러 메세지를 보여주어서 이를 참고하였다.
-   - Realm 공식 문서도 참고하였다.
-     - 계산 프로퍼티는 Realm 모델에서 자동적으로 제외된다.
-     - `String` , `Date` , `Data` 를 제외한 타입을 옵셔널로 선언하려면 Realm에서 제공하는 타입을 사용해야 한다.
-       - 예를 들어, `Int?` == `RealmOptional<Int>` . `value` 프로퍼티를 사용하여 값에 접근한다. `let` 키워드를 사용하여 선언해야 한다.
-     - **중첩 타입을 지원하지 않는다.** 이것이 에러 메세지에서 확인한 내용이다.
+   - `try! Realm()` 에서 에러가 났으나 에러 메세지를 보여주지 않았고, 다른 프로젝트에서 모델을 옮겨서 실행하니 에러 메세지를 보여주어서 이를 참고함
+   - Realm 공식 문서를 참고하는 것이 Realm에서 사용할 수 있는 모델을 작성하는 것에 큰 도움을 줌
+     - 계산 프로퍼티는 Realm 모델에서 자동적으로 제외됨
+     - 계산 프로퍼티는 `sorted()` 나 `filter()` 의 key나 keyPath로 사용할 수 없음
+     - `String` , `Date` , `Data` 를 제외한 타입을 옵셔널로 선언하려면 Realm에서 제공하는 타입을 사용해야 함
+       - 예를 들어, `Int?` == `RealmOptional<Int>` . `value` 프로퍼티를 사용하여 값에 접근함, `let` 키워드를 사용하여 선언해야 함
+     - **중첩 타입을 지원하지 않음**
 2. 서버 데이터베이스와 로컬 데이터베이스(Realm)와의 동기화
    - Firebase를 통해 하고 있는 인증 / 데이터베이스 기능을 Node.js로 작성한 서버로 이전
    - 서버에서 데이터를 가져와 로컬 데이터베이스에 저장하여 앱 내에서 사용하고, 백업 느낌으로 서버로 데이터를 내보내는 기능을 구현하려고 함

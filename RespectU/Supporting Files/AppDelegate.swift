@@ -16,15 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        if UserDefaults.standard.string(forKey: "serverVersion") == nil {
-            do {
-                try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-                UserDefaults.standard.set("1.00", forKey: "serverVersion")
-            } catch {
-                print(error.localizedDescription)
-            }
+        var config = Realm.Configuration()
+        if let fileURL = config.fileURL {
+            config.fileURL = fileURL.deletingLastPathComponent().appendingPathComponent("new.realm")
+            Realm.Configuration.defaultConfiguration = config
         }
+        window = UIWindow(frame: UIScreen.main.bounds)
+//        if UserDefaults.standard.string(forKey: "serverVersion") == nil {
+//            do {
+//                try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+//                UserDefaults.standard.set("1.00", forKey: "serverVersion")
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if !id.isEmpty {
             if TipInfo.fetch().count != 0 {

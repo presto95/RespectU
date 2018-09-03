@@ -17,7 +17,7 @@
 
 ### 사용한 라이브러리
 
-[Realm](https://cocoapods.org/pods/RealmSwift)
+[RealmSwift](https://cocoapods.org/pods/RealmSwift)
 
 [SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper)
 
@@ -43,7 +43,7 @@
 
 - 세 번째 개인 프로젝트
 - App Store에 업로드한 첫 번째 애플리케이션
-  - 참고 부문 iPad 최고 14위, iPhone 최고 90위 달성
+  - 참고 부문 iPad 최고 14위, iPhone 최고 90위
   - 다운로드 수 900+ (Android까지 합하여 2500+)
 - 사용자들의 다양한 피드백에 대응하며 기능 추가, 버그 수정
 - 공부해온 것들을 활용하여 지속적으로 유지보수 중

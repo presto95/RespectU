@@ -163,24 +163,84 @@ extension InitViewController {
 extension InitViewController {
     private func presentSuccessAlert() {
         let results = SongInfo.fetch()
+        let oldResults = RecordInfo.get()
+        print(oldResults.count)
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
             .defaultAction(title: "OK".localized) { _ in
                 for result in results {
-                    let recordInfo = RecordInfo()
+                    let recordInfo = PerformanceInfo()
                     recordInfo.title = result.title
                     recordInfo.series = result.series
-                    let recordButton = RecordButtonInfo()
-                    let difficultyRecord = RecordPerformanceInfo()
-                    recordButton.normal = difficultyRecord
-                    recordButton.hard = difficultyRecord
-                    recordButton.maximum = difficultyRecord
-                    recordInfo.button4 = recordButton
-                    recordInfo.button5 = recordButton
-                    recordInfo.button6 = recordButton
-                    recordInfo.button8 = recordButton
-                    RecordInfo.add(recordInfo)
+                    if let oldRecord = oldResults.filter("title = %@ OR title = %@", result.title?.english ?? "", result.title?.korean ?? "").first {
+                        let buttonRecord = PerformanceButtonInfo()
+                        let difficultyRecord = PerformanceRecordInfo()
+                        difficultyRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
+                        difficultyRecord.rate = oldRecord.nm4Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.nm4Note == "-" ? "" : oldRecord.nm4Note
+                        buttonRecord.normal = difficultyRecord
+                        difficultyRecord.rank = oldRecord.hd4Rank == "-" ? "" : oldRecord.hd4Rank
+                        difficultyRecord.rate = oldRecord.hd4Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.hd4Note == "-" ? "" : oldRecord.hd4Note
+                        buttonRecord.hard = difficultyRecord
+                        difficultyRecord.rank = oldRecord.mx4Rank == "-" ? "" : oldRecord.mx4Rank
+                        difficultyRecord.rate = oldRecord.mx4Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.mx4Note == "-" ? "" : oldRecord.mx4Note
+                        buttonRecord.maximum = difficultyRecord
+                        recordInfo.button4 = buttonRecord
+                        difficultyRecord.rank = oldRecord.nm5Rank == "-" ? "" : oldRecord.nm5Rank
+                        difficultyRecord.rate = oldRecord.nm5Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.nm5Note == "-" ? "" : oldRecord.nm5Note
+                        buttonRecord.normal = difficultyRecord
+                        difficultyRecord.rank = oldRecord.hd5Rank == "-" ? "" : oldRecord.hd5Rank
+                        difficultyRecord.rate = oldRecord.hd5Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.hd5Note == "-" ? "" : oldRecord.hd5Note
+                        buttonRecord.hard = difficultyRecord
+                        difficultyRecord.rank = oldRecord.mx5Rank == "-" ? "" : oldRecord.mx5Rank
+                        difficultyRecord.rate = oldRecord.mx5Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.mx5Note == "-" ? "" : oldRecord.mx5Note
+                        buttonRecord.maximum = difficultyRecord
+                        recordInfo.button5 = buttonRecord
+                        difficultyRecord.rank = oldRecord.nm6Rank == "-" ? "" : oldRecord.nm6Rank
+                        difficultyRecord.rate = oldRecord.nm6Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.nm6Note == "-" ? "" : oldRecord.nm6Note
+                        buttonRecord.normal = difficultyRecord
+                        difficultyRecord.rank = oldRecord.hd6Rank == "-" ? "" : oldRecord.hd6Rank
+                        difficultyRecord.rate = oldRecord.hd6Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.hd6Note == "-" ? "" : oldRecord.hd6Note
+                        buttonRecord.hard = difficultyRecord
+                        difficultyRecord.rank = oldRecord.mx6Rank == "-" ? "" : oldRecord.mx6Rank
+                        difficultyRecord.rate = oldRecord.mx6Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.mx6Note == "-" ? "" : oldRecord.mx6Note
+                        buttonRecord.maximum = difficultyRecord
+                        recordInfo.button6 = buttonRecord
+                        difficultyRecord.rank = oldRecord.nm8Rank == "-" ? "" : oldRecord.nm8Rank
+                        difficultyRecord.rate = oldRecord.nm8Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.nm8Note == "-" ? "" : oldRecord.nm8Note
+                        buttonRecord.normal = difficultyRecord
+                        difficultyRecord.rank = oldRecord.hd8Rank == "-" ? "" : oldRecord.hd8Rank
+                        difficultyRecord.rate = oldRecord.hd8Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.hd8Note == "-" ? "" : oldRecord.hd8Note
+                        buttonRecord.hard = difficultyRecord
+                        difficultyRecord.rank = oldRecord.mx8Rank == "-" ? "" : oldRecord.mx8Rank
+                        difficultyRecord.rate = oldRecord.mx8Rate.rateConvertToDouble
+                        difficultyRecord.note = oldRecord.mx8Note == "-" ? "" : oldRecord.mx8Note
+                        buttonRecord.maximum = difficultyRecord
+                        recordInfo.button8 = buttonRecord
+                    } else {
+                        let recordButton = PerformanceButtonInfo()
+                        let difficultyRecord = PerformanceRecordInfo()
+                        recordButton.normal = difficultyRecord
+                        recordButton.hard = difficultyRecord
+                        recordButton.maximum = difficultyRecord
+                        recordInfo.button4 = recordButton
+                        recordInfo.button5 = recordButton
+                        recordInfo.button6 = recordButton
+                        recordInfo.button8 = recordButton
+                    }
+                    PerformanceInfo.add(recordInfo)
                 }
+                print(PerformanceInfo.fetch())
                 guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                 next.modalTransitionStyle = .crossDissolve
                 self.present(next, animated: true, completion: nil)

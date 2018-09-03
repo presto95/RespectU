@@ -8,9 +8,8 @@
 
 import RealmSwift
 
-class RecordPerformanceInfo: Object {
+class PerformanceRecordInfo: Object {
     @objc dynamic var rank: String = ""
     @objc dynamic var rate: Double = 0
     @objc dynamic var note: String = ""
-    @objc dynamic var skillPoint: Double = 0
 }

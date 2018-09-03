@@ -108,6 +108,13 @@ extension String{
             return nil
         }
     }
+    
+    var rateConvertToDouble: Double {
+        if let value = self.split(separator: "%").first?.description {
+            return Double(value) ?? 0
+        }
+        return 0
+    }
 }
 
 

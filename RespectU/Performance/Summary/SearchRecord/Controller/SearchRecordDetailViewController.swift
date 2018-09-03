@@ -19,10 +19,10 @@ class SearchRecordDetailViewController: UIViewController {
     var lowerRange: Double = 0
     var upperRange: Double = 0
     var detailType: Int = 0
-    var levelResults: Results<RecordInfo>!
-    var noteResults: Results<RecordInfo>!
-    var tempRateResults: LazyFilterCollection<Results<RecordInfo>>!
-    var rateResults: [RecordInfo]!
+    var levelResults: Results<PerformanceInfo>!
+    var noteResults: Results<PerformanceInfo>!
+    var tempRateResults: LazyFilterCollection<Results<PerformanceInfo>>!
+    var rateResults: [PerformanceInfo]!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {

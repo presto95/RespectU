@@ -8,10 +8,10 @@
 
 import RealmSwift
 
-class RecordButtonInfo: Object {
-    @objc dynamic var normal: RecordPerformanceInfo?
-    @objc dynamic var hard: RecordPerformanceInfo?
-    @objc dynamic var maximum: RecordPerformanceInfo?
+class PerformanceButtonInfo: Object {
+    @objc dynamic var normal: PerformanceRecordInfo?
+    @objc dynamic var hard: PerformanceRecordInfo?
+    @objc dynamic var maximum: PerformanceRecordInfo?
     @objc dynamic var highestSkillPoint: Double = 0
     @objc dynamic var highestSkillPointDifficulty: String = ""
     @objc dynamic var highestSkillPointNote: String = ""

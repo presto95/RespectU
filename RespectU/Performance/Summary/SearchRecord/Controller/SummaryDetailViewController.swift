@@ -21,7 +21,7 @@ class SummaryDetailViewController: UIViewController {
     @IBOutlet weak var button6StackView: UIStackView!
     @IBOutlet weak var button8StackView: UIStackView!
     @IBOutlet weak var allStackView: UIStackView!
-    var recordResults: Results<RecordInfo>!
+    var recordResults: Results<PerformanceInfo>!
     var songResults: Results<SongInfo>!
     var button4Array = Array(repeating: 0, count: 12)
     var button5Array = Array(repeating: 0, count: 12)
@@ -32,7 +32,7 @@ class SummaryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.recordResults = RecordInfo.fetch()
+        self.recordResults = PerformanceInfo.fetch()
         self.songResults = SongInfo.fetch()
         for result in recordResults {
             setButtonArrayWithTotalPatterns(songResults)
@@ -108,11 +108,11 @@ extension SummaryDetailViewController {
             }
         }
     }
-    private func setButtonArrayExceptTotalPatterns(_ button: RecordButtonInfo?, to array: inout [Int]) {
+    private func setButtonArrayExceptTotalPatterns(_ button: PerformanceButtonInfo?, to array: inout [Int]) {
         guard let button = button else { return }
         let difficulties = ["normal", "hard", "maximum"]
         for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? RecordPerformanceInfo else { return }
+            guard let difficulty = button.value(forKey: difficulty) as? PerformanceRecordInfo else { return }
             switch difficulty.rate {
             case 99.8...100:
                 array[0] += 1
@@ -146,11 +146,11 @@ extension SummaryDetailViewController {
             }
         }
     }
-    private func setRateArray(_ button: RecordButtonInfo?, to value: inout Double) {
+    private func setRateArray(_ button: PerformanceButtonInfo?, to value: inout Double) {
         guard let button = button else { return }
         let difficulties = ["normal", "hard", "maximum"]
         for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? RecordPerformanceInfo else { return }
+            guard let difficulty = button.value(forKey: difficulty) as? PerformanceRecordInfo else { return }
             value += difficulty.rate
         }
     }

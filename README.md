@@ -21,15 +21,17 @@
 
 [SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper)
 
-[GaugeKit](https://cocoapods.org/pods/GaugeKit)
-
-[MarqueeLabel/Swift](https://cocoapods.org/pods/MarqueeLabel)
+[CryptoSwift](https://cocoapods.org/pods/CryptoSwift)
 
 [XLPagerTabStrip](https://cocoapods.org/pods/XLPagerTabStrip)
+
+[GaugeKit](https://cocoapods.org/pods/GaugeKit)
 
 [DZNEmptyDataSet](https://cocoapods.org/pods/DZNEmptyDataSet)
 
 [AKPickerView-Swift](https://cocoapods.org/pods/AKPickerView-Swift)
+
+[MarqueeLabel/Swift](https://cocoapods.org/pods/MarqueeLabel)
 
 [~~Firebase~~](https://cocoapods.org/pods/Firebase) 
 
@@ -269,3 +271,4 @@
 **1.00**
 
 - 배포
+

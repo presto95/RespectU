@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,13 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        /**
-         * 로그인(회원가입) -> 데이터가져오기 -> 퍼포먼스뷰컨
-         * 세션 만료시간은 무한으로
-         * 아이디는 키체인에 저장
-         * 키체인에 정보가 없으면 로그인 화면부터
-         * 있으면 데이터 있으면 퍼포먼스뷰컨으로, 없으면 데이터가져오기 뷰컨으로
-         */
         if UserDefaults.standard.string(forKey: "serverVersion") == nil {
             do {
                 try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
@@ -31,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        let existsSession: Bool = false
-        if existsSession {
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        if !id.isEmpty {
             if TipInfo.fetch().count != 0 {
                 let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController")
                 window?.rootViewController = controller
@@ -46,21 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = controller
         }
         window?.makeKeyAndVisible()
-//        if let fileURL = Realm.Configuration.defaultConfiguration.fileURL {
-//            do {
-//                try FileManager.default.removeItem(at: fileURL)
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
-//        let config = Realm.Configuration(
-//            schemaVersion: 12,  //Increment this each time your schema changes
-//            migrationBlock: { migration, oldSchemaVersion in
-//                if (oldSchemaVersion < 1) {
-//                    //If you need to transfer any data
-//                    //(in your case you don't right now) you will transfer here
-//                }
-//        })
         UIApplication.shared.isStatusBarHidden = false
         return true
     }

@@ -418,7 +418,6 @@
 		19012FAA204808010061EF21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				19CA98DE213D107B003371DB /* VersionInfo.swift */,
 				193C28632136CB73001EB7F3 /* LanguageInfo.swift */,
 				19CC664A213C0E090004239E /* SongButtonInfo.swift */,
 				19012FC520484C080061EF21 /* SongInfo.swift */,
@@ -430,6 +429,7 @@
 				19CC664E213C0E340004239E /* RecordPerformanceInfo.swift */,
 				19CC6650213C0E3B0004239E /* RecordButtonInfo.swift */,
 				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
+				19CA98DE213D107B003371DB /* VersionInfo.swift */,
 			);
 			name = Model;
 			path = Deprecated/Model;
@@ -1145,6 +1145,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AKPickerView-Swift/AKPickerView_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
@@ -1156,6 +1157,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKPickerView_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",

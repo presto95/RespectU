@@ -117,11 +117,7 @@
 "Detail" = "상세 정보 확인";
 "Performance Record" = "성과 기록하기";
 "Calculator" = "계산기";
-"A lot of information to help game play such as Speed Recommendation, Unlocks for notice." = "초보자를 위한 추천 배속, 해금 등 게임 플레이에 도움을 주는 여러 정보.";
-"Skill Level System for skilled people and opportunity to improve skills." = "숙련자를 위한 스킬 레벨 시스템과 실력 향상의 기회.";
-"Enjoy DJMAX RESPECT with RespectU!" = "RespectU와 함께 DJMAX RESPECT를 즐기세요!";
 "Manual" = "매뉴얼";
-"Rate this app" = "앱 평가하기";
 "Out of Rank" = "순위 밖";
 " Recorded" = " 기록됨";
 "Select Button" = "버튼 선택";
@@ -150,3 +146,6 @@
 "Sign in to get more features." = "로그인하여 더 많은 기능을 사용하세요.";
 "Select the button type." = "버튼 종류를 선택하세요.";
 "Select the sort method." = "정렬 방법을 선택하세요.";
+"Rate This App" = "앱 평가하기";
+"Download" = "다운로드";
+"Download data to start the application." = "애플리케이션을 시작하기 위해 데이터를 다운로드합니다.";

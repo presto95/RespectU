@@ -53,8 +53,11 @@ extension SignInViewController {
                     .alert(title: "", message: "Log In Succeeded".localized)
                     .defaultAction(title: "OK".localized, handler: { _ in
                         KeychainWrapper.standard.set(self?.id ?? "", forKey: "id")
-                        print(KeychainWrapper.standard.string(forKey: "id"))
-                        self?.goToNextViewController()
+                        if self?.presentingViewController is UINavigationController {
+                            self?.dismiss(animated: true, completion: nil)
+                        } else {
+                            self?.goToNextViewController()
+                        }
                     })
                     .present(to: self)
             }
@@ -97,7 +100,11 @@ extension SignInViewController {
     }
     
     @objc func touchUpSkipButton(_ sender: UIButton) {
-        goToNextViewController()
+        if self.presentingViewController is UINavigationController {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            self.goToNextViewController()
+        }
     }
 }
 

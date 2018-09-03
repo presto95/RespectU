@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 import MessageUI
 
 class GuideViewController: UIViewController {
 
-    private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favorite"], ["radio", "email", "credit"]]
+    private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favorite"], ["download", "upload", "email", "radio", "credit", "rate"]]
     private let sectionHeaderTitles = ["Guide for DJMAX RESPECT", "Personal Setting", "More"]
-    private let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["DJMAX Radio Station", "Send Email to Developer", "Credit"]]
+    private let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["Download From Server", "Upload To Server", "Send Email to Developer", "DJMAX Radio Station", "Credit", "Rate This App"]]
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var recordButton: UIButton!
     
@@ -40,16 +41,16 @@ class GuideViewController: UIViewController {
         }
     }
     
-    private func rateApp(appId: String, completion: @escaping ((_ success: Bool) -> ())){
+    private func rateApp(appId: String, completion: ((_ success: Bool) -> ())? = nil){
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/" + appId) else {
-            completion(false)
+            completion?(false)
             return
         }
         guard #available(iOS 10, *) else {
-            completion(UIApplication.shared.openURL(url))
+            completion?(UIApplication.shared.openURL(url))
             return
         }
-        UIApplication.shared.open(url, options: [ : ], completionHandler: completion)
+        UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
 }
 
@@ -83,7 +84,7 @@ extension GuideViewController: UICollectionViewDataSource {
         case 1:
             return 3
         case 2:
-            return 3
+            return 6
         default:
             return 0
         }
@@ -140,24 +141,18 @@ extension GuideViewController: UICollectionViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-                break
-//                if Auth.auth().currentUser == nil {
-//                    GIDSignIn.sharedInstance().signIn()
-//                    UIAlertController
-//                        .alert(title: "Notice".localized, message: "You have been logged in.".localized)
-//                        .defaultAction(title: "OK".localized)
-//                        .present(to: self)
-//                } else {
-//                    do {
-//                        try Auth.auth().signOut()
-//                    } catch {
-//                        print(error.localizedDescription)
-//                    }
-//                    UIAlertController
-//                        .alert(title: "Notice".localized, message: "You have been logged out.".localized)
-//                        .defaultAction(title: "OK".localized)
-//                        .present(to: self)
-//                }
+                let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+                if !id.isEmpty {
+                    KeychainWrapper.standard.set("", forKey: "id")
+                    UIAlertController
+                        .alert(title: "", message: "Log Out Completed")
+                        .defaultAction(title: "OK".localized)
+                        .present(to: self)
+                } else {
+                    guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignNavigationController") else { return }
+                    next.modalTransitionStyle = .crossDissolve
+                    self.present(next, animated: true, completion: nil)
+                }
             case 1:
                 
                 let message = "Current".localized + " : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n" + "It becomes standard of Speed Recommendation.".localized
@@ -204,26 +199,32 @@ extension GuideViewController: UICollectionViewDelegate {
         case 2:
             switch indexPath.row {
             case 0:
+                guard let next = UIViewController.instantiate(storyboard: "Download", identifier: "DownloadViewController") else { return }
+                self.present(next, animated: true, completion: nil)
+            case 1:
+                guard let next = UIViewController.instantiate(storyboard: "Upload", identifier: "UploadViewController") else { return }
+                self.present(next, animated: true, completion: nil)
+            case 2:
+                sendEmail()
+            case 3:
                 if !Reachability.isConnectedToNetwork() {
                     presentNetworkAlert()
                 } else {
                     guard let vc = UIViewController.instantiate(storyboard: "Radio", identifier: RadioViewController.classNameToString) as? RadioViewController else { return }
                     self.present(vc, animated: true)
                 }
-            case 1:
-                sendEmail()
-            case 2:
-                let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT 1.16\nRespectU \(version)\n\nApp icon by icons8"
+            case 4:
+                guard let versionInfo = VersionInfo.fetch().first else { return }
+                let clientversion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+                let gameVersion = versionInfo.gameVersion
+                let serverVersion = versionInfo.serverVersion
+                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT \(gameVersion)\nRespectU (iOS) \(clientversion)\nRespectU (Server) \(serverVersion)\n\nApp icon by icons8"
                 UIAlertController
                     .alert(title: "CREDITS".localized, message: message)
-                    .defaultAction(title: "Rate this app".localized) { [unowned self] (action) in
-                        self.rateApp(appId: "id1291664067", completion: { (isSuccess) in
-                            print("RateApp \(isSuccess)")
-                        })
-                    }
-                    .cancelAction(title: "OK".localized)
+                    .defaultAction(title: "OK".localized)
                     .present(to: self)
+            case 5:
+                self.rateApp(appId: "id1291664067")
             default:
                 break
             }
@@ -241,7 +242,7 @@ extension GuideViewController: UICollectionViewDelegateFlowLayout {
         return 5
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 100)
+        return CGSize(width: 80, height: 120)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)

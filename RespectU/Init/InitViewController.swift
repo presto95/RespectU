@@ -10,14 +10,17 @@ import UIKit
 
 class InitViewController: UIViewController {
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     var finishesSong: Bool = false
     var finishesMission: Bool = false
     var finishesTrophy: Bool = false
     var finishesAchievement: Bool = false
     var finishesTip: Bool = false
+    var finishesVersion: Bool = false
     var count = 0 {
         didSet {
-            if count == 5 {
+            if count == 6 {
                 hideIndicator()
                 if finishesAll {
                     presentSuccessAlert()
@@ -28,7 +31,7 @@ class InitViewController: UIViewController {
         }
     }
     var finishesAll: Bool {
-        if finishesSong, finishesMission, finishesTrophy, finishesAchievement, finishesTip {
+        if finishesSong, finishesMission, finishesTrophy, finishesAchievement, finishesTip, finishesVersion {
             return true
         }
         return false
@@ -36,6 +39,9 @@ class InitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.descriptionLabel.text = "Download data to start the application.".localized
+        self.startButton.setTitle("Download".localized, for: [])
+        self.startButton.addTarget(self, action: #selector(touchUpDownloadButton(_:)), for: .touchUpInside)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMissions(_:)), name: .didReceiveMissions, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophies(_:)), name: .didReceiveTrophies, object: nil)
@@ -46,22 +52,34 @@ class InitViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTrophies(_:)), name: .errorReceiveTrophies, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveAchievements(_:)), name: .errorReceiveAchievements, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersions(_:)), name: .didReceiveVersions, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersions(_:)), name: .errorReceiveVersions, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
-    
+
+    @objc func touchUpDownloadButton(_ sender: UIButton) {
+        showIndicator()
+        API.requestSongs()
+        API.requestMissions()
+        API.requestTrophies()
+        API.requestAchievements()
+        API.requestTips()
+        API.requestVersions()
+    }
+}
+
+extension InitViewController {
     @objc func didReceiveSongs(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
         for song in userInfo.songs {
             SongInfo.add(song)
         }
         finishesSong = true
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func didReceiveMissions(_ notification: Notification) {
@@ -70,9 +88,7 @@ class InitViewController: UIViewController {
             MissionInfo.add(mission)
         }
         finishesMission = true
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func didReceiveTrophies(_ notification: Notification) {
@@ -91,9 +107,7 @@ class InitViewController: UIViewController {
             }
         }
         finishesTrophy = true
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func didReceiveAchievements(_ notification: Notification) {
@@ -102,9 +116,7 @@ class InitViewController: UIViewController {
             AchievementInfo.add(achievement)
         }
         finishesAchievement = true
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func didReceiveTips(_ notification: Notification) {
@@ -113,42 +125,43 @@ class InitViewController: UIViewController {
             TipInfo.add(tip)
         }
         finishesTip = true
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
+    }
+    
+    @objc func didReceiveVersions(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
+        VersionInfo.add(userInfo)
+        finishesVersion = true
+        plusCount()
     }
     
     @objc func errorReceiveSongs(_ notification: Notification) {
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func errorReceiveMissions(_ notification: Notification) {
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func errorReceiveTrophies(_ notification: Notification) {
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func errorReceiveAchievements(_ notification: Notification) {
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
     @objc func errorReceiveTips(_ notification: Notification) {
-        DispatchQueue.main.sync {
-            count += 1
-        }
+        plusCount()
     }
     
-    func presentSuccessAlert() {
+    @objc func errorReceiveVersions(_ notification: Notification) {
+        plusCount()
+    }
+}
+
+extension InitViewController {
+    private func presentSuccessAlert() {
         let results = SongInfo.fetch()
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
@@ -175,7 +188,7 @@ class InitViewController: UIViewController {
             .present(to: self)
     }
     
-    func presentFailureAlert() {
+    private func presentFailureAlert() {
         UIAlertController
             .alert(title: "", message: "Network Error".localized)
             .defaultAction(title: "OK".localized) { [weak self] _ in
@@ -184,13 +197,9 @@ class InitViewController: UIViewController {
             .present(to: self)
     }
     
-
-    @IBAction func touchUpDownloadButton(_ sender: UIButton) {
-        showIndicator()
-        API.requestSongs()
-        API.requestMissions()
-        API.requestTrophies()
-        API.requestAchievements()
-        API.requestTips()
+    private func plusCount() {
+        DispatchQueue.main.sync { [weak self] in
+            self?.count += 1
+        }
     }
 }

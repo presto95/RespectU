@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,8 +35,8 @@
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-vt-GSG">
-                                        <rect key="frame" x="145.5" y="118" width="52" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oL2-vt-GSG" customClass="SignInButton" customModule="RespectU" customModuleProvider="target">
+                                        <rect key="frame" x="78" y="118" width="187.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0Jg-tJ-2Ly"/>
                                         </constraints>
@@ -43,9 +44,6 @@
                                         <state key="normal" title="시작하기">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <action selector="touchUpDownloadButton:" destination="nFJ-hj-6kw" eventType="touchUpInside" id="00z-Sa-y0f"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -56,10 +54,15 @@
                             <constraint firstItem="33l-xW-QFG" firstAttribute="leading" secondItem="jFE-q1-kXZ" secondAttribute="leading" constant="16" id="OQG-vF-YSO"/>
                             <constraint firstItem="FQA-Wo-Swr" firstAttribute="top" secondItem="jFE-q1-kXZ" secondAttribute="top" id="Whi-np-674"/>
                             <constraint firstItem="FQA-Wo-Swr" firstAttribute="centerX" secondItem="cU0-jJ-DFh" secondAttribute="centerX" id="fNx-Qn-15U"/>
+                            <constraint firstItem="oL2-vt-GSG" firstAttribute="width" secondItem="cU0-jJ-DFh" secondAttribute="width" multiplier="0.5" id="lQy-hU-aOj"/>
                             <constraint firstItem="33l-xW-QFG" firstAttribute="centerY" secondItem="cU0-jJ-DFh" secondAttribute="centerY" id="yTN-hc-LJh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jFE-q1-kXZ"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="vZc-BJ-q7l" id="59f-BT-zFO"/>
+                        <outlet property="startButton" destination="oL2-vt-GSG" id="0hY-e9-aH7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXu-Qp-6rc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

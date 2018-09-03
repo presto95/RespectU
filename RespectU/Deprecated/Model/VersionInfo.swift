@@ -11,4 +11,19 @@ import RealmSwift
 class VersionInfo: Object {
     @objc dynamic var serverVersion: String = ""
     @objc dynamic var gameVersion: String = ""
+    
+    static func fetch() -> Results<VersionInfo> {
+        let versionInfo = try! Realm().objects(VersionInfo.self)
+        return versionInfo
+    }
+    
+    static func add(_ versionInfo: VersionResponse) {
+        let realm = try! Realm()
+        let object = VersionInfo()
+        object.serverVersion = versionInfo.serverVersion
+        object.gameVersion = versionInfo.gameVersion
+        try! realm.write {
+            realm.add(object)
+        }
+    }
 }

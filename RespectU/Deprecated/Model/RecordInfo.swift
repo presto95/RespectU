@@ -42,7 +42,7 @@ class RecordInfo: Object {
         if title.isEmpty {
             return recordInfo
         } else {
-            let filtered = recordInfo.filter(key: "title", value: title, method: FilterOperator.equal)
+            let filtered = recordInfo.filter(key: "title", value: title, method: "=")
             return filtered
         }
     }

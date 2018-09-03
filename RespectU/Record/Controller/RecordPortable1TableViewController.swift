@@ -12,7 +12,7 @@ class RecordPortable1TableViewController: RecordBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.portable1, method: FilterOperator.equal).sorted { $0.localizedLowercase < $1.localizedLowercase }
+        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.portable1, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
     }
 }
 

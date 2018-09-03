@@ -18,7 +18,7 @@ class Ranking8BTableViewController: RankingBaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
-        Firebase.fetch(Skill.button8SkillPoint)
+        //Firebase.fetch(Skill.button8SkillPoint)
     }
 }
 

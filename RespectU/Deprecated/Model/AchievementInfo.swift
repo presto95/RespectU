@@ -52,7 +52,7 @@ class AchievementInfo: Object {
         if type.isEmpty {
             return achievementInfo
         } else {
-            let filtered = achievementInfo.filter(key: "type", value: type, method: FilterOperator.equal)
+            let filtered = achievementInfo.filter(key: "type", value: type, method: "=")
             return filtered
         }
     }

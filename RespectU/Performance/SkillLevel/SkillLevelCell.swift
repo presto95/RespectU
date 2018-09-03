@@ -9,8 +9,6 @@
 import UIKit
 import GaugeKit
 import RealmSwift
-import FirebaseAuth
-import FirebaseDatabase
 
 protocol SkillLevelCellDelegate {
     func touchUpTop50Button(_ sender: UIButton)

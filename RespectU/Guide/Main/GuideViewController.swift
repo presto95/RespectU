@@ -8,10 +8,8 @@
 
 import UIKit
 import MessageUI
-import FirebaseAuth
-import GoogleSignIn
 
-class GuideViewController: UIViewController, GIDSignInUIDelegate {
+class GuideViewController: UIViewController {
 
     private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favorite"], ["radio", "email", "credit"]]
     private let sectionHeaderTitles = ["Guide for DJMAX RESPECT", "Personal Setting", "More"]
@@ -21,7 +19,6 @@ class GuideViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
         self.recordButton.setTitle("Performance Record".localized, for: .normal)
     }
     
@@ -143,23 +140,24 @@ extension GuideViewController: UICollectionViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-                if Auth.auth().currentUser == nil {
-                    GIDSignIn.sharedInstance().signIn()
-                    UIAlertController
-                        .alert(title: "Notice".localized, message: "You have been logged in.".localized)
-                        .defaultAction(title: "OK".localized)
-                        .present(to: self)
-                } else {
-                    do {
-                        try Auth.auth().signOut()
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                    UIAlertController
-                        .alert(title: "Notice".localized, message: "You have been logged out.".localized)
-                        .defaultAction(title: "OK".localized)
-                        .present(to: self)
-                }
+                break
+//                if Auth.auth().currentUser == nil {
+//                    GIDSignIn.sharedInstance().signIn()
+//                    UIAlertController
+//                        .alert(title: "Notice".localized, message: "You have been logged in.".localized)
+//                        .defaultAction(title: "OK".localized)
+//                        .present(to: self)
+//                } else {
+//                    do {
+//                        try Auth.auth().signOut()
+//                    } catch {
+//                        print(error.localizedDescription)
+//                    }
+//                    UIAlertController
+//                        .alert(title: "Notice".localized, message: "You have been logged out.".localized)
+//                        .defaultAction(title: "OK".localized)
+//                        .present(to: self)
+//                }
             case 1:
                 
                 let message = "Current".localized + " : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n" + "It becomes standard of Speed Recommendation.".localized

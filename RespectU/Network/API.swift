@@ -93,6 +93,18 @@ extension API {
     }
 }
 
+//MARK:- Sign In
+extension API {
+    static func requestSignIn(id: String, password: String) {
+        let parameters = ["id": id, "password": password]
+        Network.post("\(baseUrl)/users/signin", parameters: parameters, successHandler: { (data, statusCode) in
+            NotificationCenter.default.post(name: .didReceiveSignIn, object: nil, userInfo: ["statusCode": statusCode])
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveSignIn, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+}
+
 //MARK:- Sign Up
 extension API {
     static func requestSignUp(id: String, password: String, nickname: String) {

@@ -23,7 +23,7 @@ class SongBaseTableViewController: BaseTableViewController {
         self.songResults = SongInfo.fetch().sorted { $0.localizedLowercase < $1.localizedLowercase }
         let predicate = NSPredicate(format: "%K LIKE %@", #keyPath(MissionInfo.reward.english), "Music*")
         self.missionResults = MissionInfo.fetch().filter(predicate)
-        self.achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: FilterOperator.equal)
+        self.achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: "=")
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }

@@ -17,6 +17,17 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
+    var isAllEntered: Bool {
+        guard let isIdTextFieldEmpty = idTextField.text?.isEmpty else { return true }
+        guard let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty else { return true }
+        return !(isIdTextFieldEmpty || isPasswordTextFieldEmpty)
+    }
+    var id: String {
+        return idTextField.text ?? ""
+    }
+    var password: String {
+        return passwordTextField.text ?? ""
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +39,56 @@ class SignInViewController: UIViewController {
         self.signInButton.addTarget(self, action: #selector(touchUpSignInButton(_:)), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
         self.skipButton.addTarget(self, action: #selector(touchUpSkipButton(_:)), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSignIn(_:)), name: .didReceiveSignIn, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSignIn(_:)), name: .errorReceiveSignIn, object: nil)
+    }
+}
+
+extension SignInViewController {
+    @objc func didReceiveSignIn(_ notification: Notification) {
+        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+        if statusCode == 200 {
+            DispatchQueue.main.async { [weak self] in
+                UIAlertController
+                    .alert(title: "", message: "Log In Succeeded".localized)
+                    .defaultAction(title: "OK".localized, handler: { _ in
+                        KeychainWrapper.standard.set(self?.id ?? "", forKey: "id")
+                        print(KeychainWrapper.standard.string(forKey: "id"))
+                        self?.goToNextViewController()
+                    })
+                    .present(to: self)
+            }
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                UIAlertController
+                    .alert(title: "", message: "Log In Failure".localized)
+                    .defaultAction(title: "OK".localized)
+                    .present(to: self)
+            }
+        }
+    }
+    
+    @objc func errorReceiveSignIn(_ notification: Notification) {
+        guard let error = notification.userInfo?["error"] as? String else { return }
+        DispatchQueue.main.async { [weak self] in
+            UIAlertController
+                .alert(title: "", message: error)
+                .defaultAction(title: "OK".localized)
+                .present(to: self)
+        }
     }
 }
 
 extension SignInViewController {
     @objc func touchUpSignInButton(_ sender: UIButton) {
-        //세션 생성, 아이디는 키체인에 저장
+        if isAllEntered {
+            API.requestSignIn(id: id, password: password)
+        } else {
+            UIAlertController
+                .alert(title: "", message: "모두 입력하세요.".localized)
+                .defaultAction(title: "OK".localized)
+                .present(to: self)
+        }
     }
     
     @objc func touchUpSignUpButton(_ sender: UIButton) {
@@ -42,6 +97,12 @@ extension SignInViewController {
     }
     
     @objc func touchUpSkipButton(_ sender: UIButton) {
+        goToNextViewController()
+    }
+}
+
+extension SignInViewController {
+    private func goToNextViewController() {
         if TipInfo.fetch().count == 0 {
             guard let next = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
             next.modalTransitionStyle = .crossDissolve
@@ -51,11 +112,8 @@ extension SignInViewController {
             next.modalTransitionStyle = .crossDissolve
             self.present(next, animated: true, completion: nil)
         }
-        
     }
-}
-
-extension SignInViewController {
+    
     private func presentSuccessAlert() {
         UIAlertController
             .alert(title: "", message: "Log In Succeeded")

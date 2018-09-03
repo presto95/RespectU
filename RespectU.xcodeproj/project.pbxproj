@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19012FB42048342F0061EF21 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19012FB32048342F0061EF21 /* Login.storyboard */; };
 		19012FB62048344F0061EF21 /* Performance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19012FB52048344F0061EF21 /* Performance.storyboard */; };
 		19012FB82048345B0061EF21 /* Guide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19012FB72048345B0061EF21 /* Guide.storyboard */; };
-		19012FBA204835180061EF21 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FB9204835180061EF21 /* LoginViewController.swift */; };
 		19012FBC204837040061EF21 /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FBB204837040061EF21 /* PerformanceViewController.swift */; };
 		19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FBD2048370C0061EF21 /* GuideViewController.swift */; };
 		19012FC220484BFA0061EF21 /* RecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FC120484BFA0061EF21 /* RecordInfo.swift */; };
@@ -125,7 +123,6 @@
 		197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */; };
 		197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */; };
 		1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */; };
-		19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19801B472112FE3400CDAAB1 /* FilterOperator.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
@@ -206,10 +203,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		19012FB32048342F0061EF21 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		19012FB52048344F0061EF21 /* Performance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Performance.storyboard; sourceTree = "<group>"; };
 		19012FB72048345B0061EF21 /* Guide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Guide.storyboard; sourceTree = "<group>"; };
-		19012FB9204835180061EF21 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		19012FBB204837040061EF21 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		19012FBD2048370C0061EF21 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		19012FC120484BFA0061EF21 /* RecordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInfo.swift; sourceTree = "<group>"; };
@@ -324,7 +319,6 @@
 		197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
 		1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
-		19801B472112FE3400CDAAB1 /* FilterOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOperator.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
@@ -436,7 +430,6 @@
 				19CC664E213C0E340004239E /* RecordPerformanceInfo.swift */,
 				19CC6650213C0E3B0004239E /* RecordButtonInfo.swift */,
 				19012FC120484BFA0061EF21 /* RecordInfo.swift */,
-				198B6C4F2113913C0058DE49 /* Skill.swift */,
 			);
 			name = Model;
 			path = Deprecated/Model;
@@ -481,7 +474,6 @@
 				193E3FF8204BCFB20063A440 /* Difficulty.swift */,
 				192DF89E2111DAC80016F386 /* TrophyGrade.swift */,
 				192DF89C2111DA640016F386 /* Buttons.swift */,
-				19801B472112FE3400CDAAB1 /* FilterOperator.swift */,
 				198B6C5B211443C70058DE49 /* Rank.swift */,
 				198B6C51211392CA0058DE49 /* Note.swift */,
 				198B6C552113E5A60058DE49 /* SkillLevel.swift */,
@@ -593,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				19012FAA204808010061EF21 /* Model */,
+				19CA98E2213D4A74003371DB /* Utility */,
 				1939C971212BFF1000A6F8E3 /* Network */,
 				19A258182133FAD700C3A3AC /* Response */,
 				191275DE2111F7150046AA3E /* Constants */,
@@ -606,6 +599,14 @@
 				19012FAE204808120061EF21 /* Supporting Files */,
 			);
 			path = RespectU;
+			sourceTree = "<group>";
+		};
+		19CA98E2213D4A74003371DB /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				198B6C4F2113913C0058DE49 /* Skill.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		19E767B420EE49B4008C9F9D /* Performance */ = {
@@ -826,10 +827,8 @@
 		19E767CC20EE51A5008C9F9D /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				193C285D213674F7001EB7F3 /* View */,
 				19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */,
-				19012FB32048342F0061EF21 /* Login.storyboard */,
-				19012FB9204835180061EF21 /* LoginViewController.swift */,
+				193C285D213674F7001EB7F3 /* View */,
 				193C285321366C1B001EB7F3 /* SignIn.storyboard */,
 				193C285521366C28001EB7F3 /* SignInViewController.swift */,
 				193C285B213674B1001EB7F3 /* SignUpViewController.swift */,
@@ -1107,7 +1106,6 @@
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
 				1997B09A2012551E0072EED9 /* GoogleService-Info.plist in Resources */,
 				193E403B204C2EB60063A440 /* RankingCell.xib in Resources */,
-				19012FB42048342F0061EF21 /* Login.storyboard in Resources */,
 				1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */,
 				193C28602136C8E7001EB7F3 /* Upload.storyboard in Resources */,
 				196818492048F6820007F4D7 /* Radio.storyboard in Resources */,
@@ -1179,7 +1177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				198B6C52211392CA0058DE49 /* Note.swift in Sources */,
-				19012FBA204835180061EF21 /* LoginViewController.swift in Sources */,
 				194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */,
 				19012FCD20484C260061EF21 /* TrophyInfo.swift in Sources */,
 				199EFFE62067D51B00A6068F /* SearchByRateView.swift in Sources */,
@@ -1212,7 +1209,6 @@
 				19D67EC820744F0700FD9EC7 /* RecordPortable2TableViewController.swift in Sources */,
 				193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */,
 				19D67EC620744EEB00FD9EC7 /* RecordAllTableViewController.swift in Sources */,
-				19801B482112FE3400CDAAB1 /* FilterOperator.swift in Sources */,
 				19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */,
 				191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */,
 				19892A8820662F83009D01F8 /* SearchByLevelView.swift in Sources */,

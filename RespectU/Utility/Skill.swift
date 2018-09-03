@@ -131,7 +131,7 @@ class Skill {
         let recordResults = RecordInfo.fetch()
         let songResults = SongInfo.fetch()
         for recordResult in recordResults {
-            guard let songResult = songResults.filter(key: "localizedTitle", value: recordResult.localizedTitle, method: FilterOperator.equal).first else { return }
+            guard let songResult = songResults.filter(key: "localizedTitle", value: recordResult.localizedTitle, method: "=").first else { return }
             let buttons = ["button4", "button5", "button6", "button8"]
             for button in buttons {
                 guard let recordButtonResult = recordResult.value(forKey: button) as? RecordButtonInfo else { return }
@@ -223,7 +223,7 @@ class Skill {
         for result in recordResults {
             let buttonResult: RecordButtonInfo?
             let songResult: SongButtonInfo?
-            guard let filteredSong = songResults.filter(key: "localizedTitle", value: result.localizedTitle, method: FilterOperator.equal).first else { return 0 }
+            guard let filteredSong = songResults.filter(key: "localizedTitle", value: result.localizedTitle, method: "=").first else { return 0 }
             switch button {
             case Buttons.button4:
                 buttonResult = result.button4

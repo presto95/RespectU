@@ -119,7 +119,7 @@ class MissionInfo: Object {
         if series.isEmpty {
             return missionInfo
         } else {
-            let filtered = missionInfo.filter(key: "series", value: series, method: FilterOperator.equal)
+            let filtered = missionInfo.filter(key: "series", value: series, method: "=")
             return filtered
         }
     }

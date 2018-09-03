@@ -18,7 +18,7 @@ class RankingPPTableViewController: RankingBaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showIndicator()
-        Firebase.fetch("countPerfectPlay")
+        //Firebase.fetch("countPerfectPlay")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

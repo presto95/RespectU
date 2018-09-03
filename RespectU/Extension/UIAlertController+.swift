@@ -53,7 +53,7 @@ extension UIAlertController {
     }
     
     //present
-    func present(to viewController: UIViewController) {
-        viewController.present(self, animated: true, completion: nil)
+    func present(to viewController: UIViewController?) {
+        viewController?.present(self, animated: true, completion: nil)
     }
 }

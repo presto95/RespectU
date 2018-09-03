@@ -54,7 +54,7 @@ class TrophyInfo: Object {
         if series.isEmpty {
             return trophyInfo
         } else {
-            let filtered = trophyInfo.filter(key: "series", value: series, method: FilterOperator.equal)
+            let filtered = trophyInfo.filter(key: "series", value: series, method: "=")
             return filtered
         }
     }

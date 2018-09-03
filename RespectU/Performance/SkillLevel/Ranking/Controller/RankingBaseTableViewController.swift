@@ -8,20 +8,18 @@
 
 import UIKit
 import RealmSwift
-import FirebaseAuth
-import FirebaseDatabase
 
 class RankingBaseTableViewController: BaseTableViewController {
     
     var sortedDic = [(key: String, value: Double)]()
-    let nickname = UserDefaults.standard.string(forKey: "nickname") ?? (Auth.auth().currentUser?.email)!
+    let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     let cellIdentifier = "rankingCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 40
         self.tableView.register(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveFirebaseFetch(_:)), name: .didReceiveFirebaseFetch, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(didReceiveFirebaseFetch(_:)), name: .didReceiveFirebaseFetch, object: nil)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,12 +32,12 @@ class RankingBaseTableViewController: BaseTableViewController {
         return self.sortedDic.count
     }
     
-    @objc func didReceiveFirebaseFetch(_ notification: Notification) {
-        guard let dictionary = notification.userInfo?["dictionary"] as? [(key: String, value: Double)] else { return }
-        self.sortedDic = dictionary
-        hideIndicator()
-        DispatchQueue.main.async {
-            self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
-        }
-    }
+//    @objc func didReceiveFirebaseFetch(_ notification: Notification) {
+//        guard let dictionary = notification.userInfo?["dictionary"] as? [(key: String, value: Double)] else { return }
+//        self.sortedDic = dictionary
+//        hideIndicator()
+//        DispatchQueue.main.async {
+//            self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+//        }
+//    }
 }

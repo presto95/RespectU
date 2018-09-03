@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import GoogleSignIn
 import RealmSwift
 import StoreKit
 
@@ -25,10 +23,6 @@ class PerformanceViewController: UIViewController {
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         recordButton.setTitle("Performance Record".localized, for: .normal)
-//        if Auth.auth().currentUser == nil {
-//            guard let loginViewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
-//            self.present(loginViewController, animated: true)
-//        }
 //        if #available(iOS 10.3, *) {
 //            let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
 //            UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
@@ -234,7 +228,7 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                     self.present(vc, animated: true)
                 }
                 .defaultAction(title: "Upload".localized) { action in
-                    Firebase.upload()
+                    //Firebase.upload()
                 }
                 .cancelAction(title: "Cancel".localized)
                 .present(to: self)

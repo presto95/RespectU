@@ -88,7 +88,7 @@ class SongInfo: Object {
         if series.isEmpty {
             return songInfo
         } else {
-            let filtered = songInfo.filter(key: "series", value: series, method: FilterOperator.equal)
+            let filtered = songInfo.filter(key: "series", value: series, method: "=")
             return filtered
         }
     }

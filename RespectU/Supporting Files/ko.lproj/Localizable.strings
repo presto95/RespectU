@@ -90,14 +90,14 @@
 "Personal Setting" = "개인 설정";
 "More" = "더보기";
 "It becomes standard of Speed Recommendation." = "추천 배속의 기준값이 됩니다.";
-"Select the button type." = "버튼 종류를 선택하세요.";
+
 "Notice" = "알림";
 "You have been logged in." = "로그인 되었습니다.";
 "You have been logged out." = "로그아웃 되었습니다.";
 "Add to Favorite" = "즐겨찾기에 추가";
 "No Favorites" = "즐겨찾기된 곡이 없습니다.";
 "Add songs to your favorites." = "즐겨찾기에 곡을 추가하세요.";
-"Select the sort method" = "정렬 방법을 선택하세요.";
+
 "NORMAL / ASC" = "NORMAL / 오름차순";
 "NORMAL / DESC" = "NORMAL / 내림차순";
 "HARD / ASC" = "HARD / 오름차순";
@@ -148,3 +148,5 @@
 "Network Error" = "통신 실패";
 "Level" = "난이도";
 "Sign in to get more features." = "로그인하여 더 많은 기능을 사용하세요.";
+"Select the button type." = "버튼 종류를 선택하세요.";
+"Select the sort method." = "정렬 방법을 선택하세요.";

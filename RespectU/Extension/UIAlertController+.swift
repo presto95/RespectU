@@ -11,14 +11,14 @@ import RealmSwift
 
 extension UIAlertController {
     //alert
-    static func alert(title: String, message: String) -> UIAlertController {
+    static func alert(title: String?, message: String?) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         return alert
     }
     
     //action
     @discardableResult
-    func defaultAction(title: String, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+    func defaultAction(title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
         let action = UIAlertAction(title: title, style: .default) { (action) in
             handler?(action)
         }
@@ -27,7 +27,7 @@ extension UIAlertController {
     }
     
     @discardableResult
-    func cancelAction(title: String, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+    func cancelAction(title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
         let action = UIAlertAction(title: title, style: .cancel) { (action) in
             handler?(action)
         }
@@ -36,7 +36,7 @@ extension UIAlertController {
     }
     
     @discardableResult
-    func destructiveAction(title: String, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+    func destructiveAction(title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
         let action = UIAlertAction(title: title, style: .destructive) { (action) in
             handler?(action)
         }

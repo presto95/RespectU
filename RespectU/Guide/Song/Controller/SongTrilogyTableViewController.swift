@@ -13,7 +13,7 @@ class SongTrilogyTableViewController: SongBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.songResults = self.songResults?.filter(key: "series", value: Series.trilogy, method: FilterOperator.equal)
+        self.songResults = self.songResults?.filter { $0.series == Series.trilogy }
     }
 }
 

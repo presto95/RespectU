@@ -30,7 +30,11 @@ class TrophyCell: UITableViewCell {
     
     func setProperties(_ object: TrophyInfo?) {
         guard let object = object else { return }
-        self.trophyImageView.image = UIImage(named: object.image)
+        if let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("\(object.image).png").path {
+            if FileManager.default.fileExists(atPath: filePath) {
+                self.trophyImageView.image = UIImage(contentsOfFile: filePath)
+            }
+        }
         self.titleLabel.text = object.localizedTitle
         self.contentLabel.text = object.localizedContent
         switch object.rating {

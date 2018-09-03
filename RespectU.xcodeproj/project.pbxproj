@@ -166,6 +166,8 @@
 		19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF51F7953640097B86B /* Assets.xcassets */; };
 		19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B6CFF71F7953640097B86B /* LaunchScreen.storyboard */; };
 		19C9216B1F810DE600774E3E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9216A1F810DE600774E3E /* MessageUI.framework */; };
+		19CA98DF213D107B003371DB /* VersionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA98DE213D107B003371DB /* VersionInfo.swift */; };
+		19CA98E1213D416D003371DB /* VersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CA98E0213D416D003371DB /* VersionResponse.swift */; };
 		19CC664B213C0E090004239E /* SongButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CC664A213C0E090004239E /* SongButtonInfo.swift */; };
 		19CC664D213C0E1C0004239E /* MissionStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CC664C213C0E1C0004239E /* MissionStageInfo.swift */; };
 		19CC664F213C0E340004239E /* RecordPerformanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CC664E213C0E340004239E /* RecordPerformanceInfo.swift */; };
@@ -368,6 +370,8 @@
 		19B6CFF81F7953640097B86B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B6CFFA1F7953640097B86B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19C9216A1F810DE600774E3E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		19CA98DE213D107B003371DB /* VersionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfo.swift; sourceTree = "<group>"; };
+		19CA98E0213D416D003371DB /* VersionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionResponse.swift; sourceTree = "<group>"; };
 		19CC664A213C0E090004239E /* SongButtonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongButtonInfo.swift; sourceTree = "<group>"; };
 		19CC664C213C0E1C0004239E /* MissionStageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionStageInfo.swift; sourceTree = "<group>"; };
 		19CC664E213C0E340004239E /* RecordPerformanceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPerformanceInfo.swift; sourceTree = "<group>"; };
@@ -422,6 +426,7 @@
 		19012FAA204808010061EF21 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				19CA98DE213D107B003371DB /* VersionInfo.swift */,
 				193C28632136CB73001EB7F3 /* LanguageInfo.swift */,
 				19CC664A213C0E090004239E /* SongButtonInfo.swift */,
 				19012FC520484C080061EF21 /* SongInfo.swift */,
@@ -555,6 +560,7 @@
 				1939C96F212BFD9200A6F8E3 /* UserResponse.swift */,
 				19FD9CED21355E110014A0D4 /* RecordResponse.swift */,
 				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
+				19CA98E0213D416D003371DB /* VersionResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1266,6 +1272,7 @@
 				191275F021120B530046AA3E /* BaseTableViewController.swift in Sources */,
 				193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */,
 				198B6C4E211382C70058DE49 /* RankingBaseTableViewController.swift in Sources */,
+				19CA98E1213D416D003371DB /* VersionResponse.swift in Sources */,
 				196F82492074A788000DF337 /* RecordPortable1TableViewController.swift in Sources */,
 				19CC664F213C0E340004239E /* RecordPerformanceInfo.swift in Sources */,
 				198B6C502113913C0058DE49 /* Skill.swift in Sources */,
@@ -1342,6 +1349,7 @@
 				198B6C4C211382BD0058DE49 /* Top50BaseTableViewController.swift in Sources */,
 				199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */,
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
+				19CA98DF213D107B003371DB /* VersionInfo.swift in Sources */,
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,
 				192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */,
 				193C28622136C8F0001EB7F3 /* UploadViewController.swift in Sources */,

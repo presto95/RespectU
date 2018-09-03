@@ -42,9 +42,16 @@ extension SignInViewController {
     }
     
     @objc func touchUpSkipButton(_ sender: UIButton) {
-        guard let next = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
-        next.modalTransitionStyle = .crossDissolve
-        self.present(next, animated: true, completion: nil)
+        if TipInfo.fetch().count == 0 {
+            guard let next = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
+            next.modalTransitionStyle = .crossDissolve
+            self.present(next, animated: true, completion: nil)
+        } else {
+            guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
+            next.modalTransitionStyle = .crossDissolve
+            self.present(next, animated: true, completion: nil)
+        }
+        
     }
 }
 
@@ -69,5 +76,7 @@ extension SignInViewController {
     private func presentFailureAlert() {
         UIAlertController
             .alert(title: "", message: "Log In Failed")
+            .defaultAction(title: "OK".localized)
+            .present(to: self)
     }
 }

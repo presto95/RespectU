@@ -93,6 +93,34 @@ extension API {
     }
 }
 
+//MARK:- Sign Up
+extension API {
+    static func requestSignUp(id: String, password: String, nickname: String) {
+        let parameters = ["id": id, "password": password, "nickname": nickname]
+        Network.post("\(baseUrl)/users/signup", parameters: parameters, successHandler: { (data, statusCode) in
+            NotificationCenter.default.post(name: .didReceiveSignUp, object: nil, userInfo: ["statusCode": statusCode])
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveSignUp, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+}
+
+//MARK:- Version
+extension API {
+    static func requestVersions() {
+        Network.get("\(baseUrl)/version", successHandler: { (data) in
+            do {
+                let results = try jsonDecoder.decode(VersionResponse.self, from: data)
+                NotificationCenter.default.post(name: .didReceiveVersions, object: nil, userInfo: ["versions": results])
+            } catch {
+                NotificationCenter.default.post(name: .errorReceiveVersions, object: nil, userInfo: ["error": error.localizedDescription])
+            }
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveVersions, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+}
+
 //MARK:- Ranking
 extension API {
     static func requestRankings() {

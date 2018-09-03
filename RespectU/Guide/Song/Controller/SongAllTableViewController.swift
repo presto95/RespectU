@@ -11,7 +11,9 @@ import XLPagerTabStrip
 
 class SongAllTableViewController: SongBaseTableViewController {
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
 
 extension SongAllTableViewController: IndicatorInfoProvider {

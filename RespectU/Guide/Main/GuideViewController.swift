@@ -182,7 +182,7 @@ extension GuideViewController: UICollectionViewDelegate {
                 .present(to: self)
             case 2:
                 let key = "favoriteButton"
-                let favorite = UserDefaults.standard.string(forKey: "favoriteButton")
+                let favorite = UserDefaults.standard.string(forKey: key)
                 let message = "Current".localized + " : \(favorite ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
                 UIAlertController
                     .alert(title: "My Favorite Button".localized, message: message)

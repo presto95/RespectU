@@ -11,26 +11,28 @@ import RealmSwift
 
 class SongBaseTableViewController: BaseTableViewController {
 
-    var songResults: Results<SongInfo>?
+    var songResults: [SongInfo]?
     var missionResults: Results<MissionInfo>?
     var achievementResults: Results<AchievementInfo>?
-    var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+    var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b"
     let myBPM = UserDefaults.standard.double(forKey: "bpm")
     let cellIdentifier = "songCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.songResults = SongInfo.fetch().sorted { $0.localizedLowercase < $1.localizedLowercase }
+        let predicate = NSPredicate(format: "%K LIKE %@", #keyPath(MissionInfo.reward.english), "Music*")
+        self.missionResults = MissionInfo.fetch().filter(predicate)
+        self.achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: FilterOperator.equal)
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        //도전과제 : type == music
-        //미션 : reward == music
     }
 }
 
 extension SongBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? SongCell else { return UITableViewCell() }
-        let object = songResults?[indexPath.row]
+        let object = self.songResults?[indexPath.row]
         cell.setProperties(object, favoriteButton: favoriteButton)
         return cell
     }
@@ -41,35 +43,44 @@ extension SongBaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let object = self.songResults?[indexPath.row]
-//        let speed = recommendedSpeed(by: myBPM / object.bpm.bpmToDouble)
-//        let unlockAchievement = "Unlock (ACHIEVEMENT)".localized
-//        let unlockMission = "Unlock (MISSION)".localized
-//        var unlockInfo = ""
-//        for result in achievementResults {
-//            if result.item == object.title {
-//                unlockInfo += "\n\n\(unlockAchievement)\n\(result.title.localized) Stage \(result.level)"
-//                break
-//            }
-//        }
-//        for result in missionResults {
-//            guard let last = result.reward.localized.split(separator: ":").last?.description.trimmingCharacters(in: .whitespaces) else { return }
-//            if last == object.title {
-//                unlockInfo += "\n\n\(unlockMission)\n\(result.section) - \(result.title)"
-//                break
-//            }
-//        }
-//        let message = "SPEED Recommendation".localized + "\n\(speed)" + unlockInfo
-//        UIAlertController
-//            .alert(title: object.title, message: message)
-//            .defaultAction(title: "Add to Favorite".localized) { action in
-//                let query = NSPredicate(format: "title = %@", object.title)
-//                if PlaylistInfo.get().filter(query).isEmpty {
-//                    PlaylistInfo.add(series: object.series, title: object.title, composer: object.composer, bpm: object.bpm, nm4: object.nm4, hd4: object.hd4, mx4: object.mx4, nm5: object.nm5, hd5: object.hd5, mx5: object.mx5, nm6: object.nm6, hd6: object.hd6, mx6: object.mx6, nm8: object.nm8, hd8: object.hd8, mx8: object.mx8)
-//                }
-//            }
-//            .cancelAction(title: "OK".localized)
-//            .present(to: self)
+        guard let object = self.songResults?[indexPath.row] else { return }
+        var changesSpeed: Bool = false
+        let bpm: Int
+        if let subBpm = object.subBpm.value {
+            bpm = subBpm
+            changesSpeed = true
+        } else {
+            bpm = object.bpm
+        }
+        let speed = recommendedSpeed(by: myBPM / Double(bpm))
+        let unlockAchievement = "Unlock (ACHIEVEMENT)".localized
+        let unlockMission = "Unlock (MISSION)".localized
+        var unlockInfo = ""
+        if let bindedAchievementResults = achievementResults {
+            for result in bindedAchievementResults {
+                if result.localizedItem == object.localizedTitle {
+                    unlockInfo += "\n\n\(unlockAchievement)\n\(result.localizedSection) Stage \(result.level)"
+                    break
+                }
+            }
+        }
+        if let bindedMissionResults = missionResults {
+            for result in bindedMissionResults {
+                guard let last = result.localizedReward.split(separator: ":").last?.description.trimmingCharacters(in: .whitespaces) else { return }
+                if last == object.localizedTitle {
+                    unlockInfo += "\n\n\(unlockMission)\n\(result.section) - \(result.title)"
+                    break
+                }
+            }
+        }
+        var message: String = "SPEED Recommendation".localized + "\n\(speed)" + unlockInfo
+        if changesSpeed {
+            message += "\n" + "(SPEED Variation)".localized
+        }
+        UIAlertController
+            .alert(title: object.localizedTitle, message: message)
+            .defaultAction(title: "OK".localized)
+            .present(to: self)
     }
     
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

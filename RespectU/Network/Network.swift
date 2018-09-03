@@ -23,7 +23,7 @@ class Network {
         task.resume()
     }
     
-    static func post(_ urlPath: String, parameters: [String: Any], successHandler: ((Data) -> Void)? = nil, errorHandler: ((Error) -> Void)? = nil) {
+    static func post(_ urlPath: String, parameters: [String: Any], successHandler: ((Data, Int) -> Void)? = nil, errorHandler: ((Error) -> Void)? = nil) {
         let session = URLSession(configuration: .default)
         guard let url = URL(string: urlPath) else { return }
         var request = URLRequest(url: url)
@@ -37,7 +37,8 @@ class Network {
                 return
             }
             guard let data = data else { return }
-            successHandler?(data)
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+            successHandler?(data, statusCode)
         }
         task.resume()
     }

@@ -25,12 +25,12 @@ class SongViewController: BaseViewController {
         return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController]
     }()
     var favoriteButton: String {
-        return selectedButtonLabel.text ?? ""
+        return selectedButtonLabel.text ?? "4b"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedButtonLabel.text = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+        self.selectedButtonLabel.text = (UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b").uppercased()
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -40,19 +40,19 @@ class SongViewController: BaseViewController {
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Search".localized, message: "Select the button type.".localized)
-            .defaultAction(title: Buttons.button4) { [weak self] action in
+            .defaultAction(title: Buttons.button4.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button4)
                 self?.reloadAllTableViews()
             }
-            .defaultAction(title: Buttons.button5) { [weak self] action in
+            .defaultAction(title: Buttons.button5.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button5)
                 self?.reloadAllTableViews()
             }
-            .defaultAction(title: Buttons.button6) { [weak self] action in
+            .defaultAction(title: Buttons.button6.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button6)
                 self?.reloadAllTableViews()
             }
-            .defaultAction(title: Buttons.button8) { [weak self] action in
+            .defaultAction(title: Buttons.button8.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button8)
                 self?.reloadAllTableViews()
             }
@@ -62,23 +62,23 @@ class SongViewController: BaseViewController {
     
     @IBAction func touchUpSortButton(_ sender: UIButton) {
         UIAlertController
-            .alert(title: "Sort".localized, message: "Select the sort method".localized)
-            .defaultAction(title: "\(Difficulty.normal) / ASC".localized) { [weak self] action in
+            .alert(title: "Sort".localized, message: "Select the sort method.".localized)
+            .defaultAction(title: "\(Difficulty.normal.uppercased()) / ASC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.normal, isAscending: true)
             }
-            .defaultAction(title: "\(Difficulty.normal) / DESC".localized) { [weak self] action in
+            .defaultAction(title: "\(Difficulty.normal.uppercased()) / DESC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.normal, isAscending: false)
             }
-            .defaultAction(title: "\(Difficulty.hard) / ASC".localized) { [weak self] action in
+            .defaultAction(title: "\(Difficulty.hard.uppercased()) / ASC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.hard, isAscending: true)
             }
-            .defaultAction(title: "\(Difficulty.hard) / DESC".localized) { [weak self] action in
+            .defaultAction(title: "\(Difficulty.hard.uppercased()) / DESC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.hard, isAscending: false)
             }
-            .defaultAction(title: "\(Difficulty.maximum) / ASC".localized) { [weak self] action in
+            .defaultAction(title: "\(Difficulty.maximum.uppercased()) / ASC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.maximum, isAscending: true)
             }
-            .defaultAction(title: "\(Difficulty.maximum) / DESC".localized) { [weak self] action in
+            .defaultAction(title: "\(Difficulty.maximum.uppercased()) / DESC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.maximum, isAscending: false)
             }
             .cancelAction(title: "Cancel".localized)
@@ -108,105 +108,19 @@ class SongViewController: BaseViewController {
 
 extension SongViewController {
     private func sort(difficulty: String, isAscending: Bool) {
-//        for viewController in songViewControllers {
-//            switch favoriteButton {
-//            case Buttons.button4:
-//                switch difficulty {
-//                case Difficulty.normal:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button4.normal < $1.button4.normal }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button4.normal > $1.button4.normal }
-//                    }
-//                case Difficulty.hard:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button4.hard < $1.button4.hard }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button4.hard > $1.button4.hard }
-//                    }
-//                case Difficulty.maximum:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button4.maximum < $1.button4.maximum }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button4.maximum > $1.button4.maximum }
-//                    }
-//                default:
-//                    break
-//                }
-//            case Buttons.button5:
-//                switch difficulty {
-//                case Difficulty.normal:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button5.normal < $1.button5.normal }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button5.normal > $1.button5.normal }
-//                    }
-//                case Difficulty.hard:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button5.hard < $1.button5.hard }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button5.hard > $1.button5.hard }
-//                    }
-//                case Difficulty.maximum:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button5.maximum < $1.button5.maximum }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button5.maximum > $1.button5.maximum }
-//                    }
-//                default:
-//                    break
-//                }
-//            case Buttons.button6:
-//                switch difficulty {
-//                case Difficulty.normal:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button6.normal < $1.button6.normal }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button6.normal > $1.button6.normal }
-//                    }
-//                case Difficulty.hard:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button6.hard < $1.button6.hard }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button6.hard > $1.button6.hard }
-//                    }
-//                case Difficulty.maximum:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button6.maximum < $1.button6.maximum }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button6.maximum > $1.button6.maximum }
-//                    }
-//                default:
-//                    break
-//                }
-//            case Buttons.button8:
-//                switch difficulty {
-//                case Difficulty.normal:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button8.normal < $1.button8.normal }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button8.normal > $1.button8.normal }
-//                    }
-//                case Difficulty.hard:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button8.hard < $1.button8.hard }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button8.hard > $1.button8.hard }
-//                    }
-//                case Difficulty.maximum:
-//                    if isAscending {
-//                        viewController.songResults?.sort { $0.button8.maximum < $1.button8.maximum }
-//                    } else {
-//                        viewController.songResults?.sort { $0.button8.maximum > $1.button8.maximum }
-//                    }
-//                default:
-//                    break
-//                }
-//            default:
-//                break
-//            }
-//        }
-//        reloadAllTableViews()
+        for viewController in songViewControllers {
+            viewController.songResults?.sort(by: { (first, second) -> Bool in
+                guard let button = favoriteButton.lowercased().buttonExpansion else { return false }
+                guard let firstValue = first.value(forKeyPath: "\(button).\(difficulty)") as? Int else { return false }
+                guard let secondValue = second.value(forKeyPath: "\(button).\(difficulty)") as? Int else { return false }
+                if isAscending {
+                    return firstValue < secondValue
+                } else {
+                    return firstValue > secondValue
+                }
+            })
+        reloadAllTableViews()
+        }
     }
 }
 
@@ -219,8 +133,11 @@ extension SongViewController {
     }
     
     private func reloadAllTableViews() {
-        for viewController in songViewControllers {
-            viewController.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+        DispatchQueue.main.async { [weak self] in
+            guard let viewControllers = self?.songViewControllers else { return }
+            for viewController in viewControllers {
+                viewController.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+            }
         }
     }
 }

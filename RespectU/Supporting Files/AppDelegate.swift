@@ -24,30 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
          * 로그인(회원가입) -> 데이터가져오기 -> 퍼포먼스뷰컨
          * 세션 만료시간은 무한으로
          * 아이디는 키체인에 저장
-         * 세션이 없으면 로그인 화면부터
+         * 키체인에 정보가 없으면 로그인 화면부터
          * 있으면 데이터 있으면 퍼포먼스뷰컨으로, 없으면 데이터가져오기 뷰컨으로
          */
+        if UserDefaults.standard.string(forKey: "serverVersion") == nil {
+            do {
+                try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+                UserDefaults.standard.set("1.00", forKey: "serverVersion")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
         let existsSession: Bool = false
         if existsSession {
             if TipInfo.fetch().count != 0 {
                 let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController")
                 window?.rootViewController = controller
             } else {
-                do {
-                    try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-                } catch {
-                    print(error.localizedDescription)
-                }
                 UserDefaults.standard.set(450, forKey: "bpm")
                 let controller = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController")
                 window?.rootViewController = controller
             }
         } else {
-            do {
-                try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-            } catch {
-                print(error.localizedDescription)
-            }
             let controller = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignNavigationController")
             window?.rootViewController = controller
         }

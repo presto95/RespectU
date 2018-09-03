@@ -141,7 +141,6 @@
 		198B6C502113913C0058DE49 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C4F2113913C0058DE49 /* Skill.swift */; };
 		198B6C52211392CA0058DE49 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C51211392CA0058DE49 /* Note.swift */; };
 		198B6C562113E5A60058DE49 /* SkillLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C552113E5A60058DE49 /* SkillLevel.swift */; };
-		198B6C58211423920058DE49 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C57211423920058DE49 /* Firebase.swift */; };
 		198B6C5A2114244B0058DE49 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C592114244B0058DE49 /* Notification.Name+.swift */; };
 		198B6C5C211443C70058DE49 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C5B211443C70058DE49 /* Rank.swift */; };
 		198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */; };
@@ -341,7 +340,6 @@
 		198B6C4F2113913C0058DE49 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		198B6C51211392CA0058DE49 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		198B6C552113E5A60058DE49 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
-		198B6C57211423920058DE49 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		198B6C592114244B0058DE49 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
 		198B6C5B211443C70058DE49 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
@@ -505,7 +503,6 @@
 			children = (
 				1939C972212BFF1900A6F8E3 /* Network.swift */,
 				1939C974212C004D00A6F8E3 /* API.swift */,
-				198B6C57211423920058DE49 /* Firebase.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1031,7 +1028,6 @@
 				19B6CFE61F7953640097B86B /* Resources */,
 				19AC39071F7C806400F170E3 /* Embed Frameworks */,
 				C9B922FB66CA15EEEF5CB728 /* [CP] Embed Pods Frameworks */,
-				C2CF86AAFBE5AD13A7703C66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1143,24 +1139,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C2CF86AAFBE5AD13A7703C66 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C9B922FB66CA15EEEF5CB728 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1170,35 +1148,23 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AKPickerView-Swift/AKPickerView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKPickerView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1320,7 +1286,6 @@
 				1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,
 				19B09E31212C5565005EE66D /* TrophyResponse.swift in Sources */,
-				198B6C58211423920058DE49 /* Firebase.swift in Sources */,
 				19CC6651213C0E3B0004239E /* RecordButtonInfo.swift in Sources */,
 				19F38C97204CC962006BB72B /* SkillLevelDetailView.swift in Sources */,
 				193C28692136E52A001EB7F3 /* DownloadViewController.swift in Sources */,

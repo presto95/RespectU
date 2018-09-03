@@ -9,9 +9,6 @@
 import Foundation
 
 extension Notification.Name {
-    static let didReceiveFirebaseFetch = Notification.Name("DidReceiveFirebaseFetch")
-    static let didReceiveFirebaseUpload = Notification.Name("DidReceiveFirebaseUpload")
-    
     static let didReceiveSongs = Notification.Name("DidReceiveSongs")
     static let errorReceiveSongs = Notification.Name("ErrorReceiveSongs")
     static let didReceiveMissions = Notification.Name("DidReceiveMissions")

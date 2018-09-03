@@ -19,10 +19,6 @@
 
 [Realm](https://cocoapods.org/pods/RealmSwift)
 
-[Firebase](https://cocoapods.org/pods/Firebase) 
-
-[GoogleSignIn](https://cocoapods.org/pods/GoogleSignIn) 
-
 [SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper) 
 
 [GaugeKit](https://cocoapods.org/pods/GaugeKit)
@@ -34,6 +30,10 @@
 [DZNEmptyDataSet](https://cocoapods.org/pods/DZNEmptyDataSet)
 
 [AKPickerView-Swift](https://cocoapods.org/pods/AKPickerView-Swift)
+
+[~~Firebase~~](https://cocoapods.org/pods/Firebase) 
+
+[~~GoogleSignIn~~](https://cocoapods.org/pods/GoogleSignIn) 
 
 
 

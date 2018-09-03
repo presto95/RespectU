@@ -10,17 +10,21 @@ import UIKit
 
 class UploadViewController: UIViewController {
 
+    @IBOutlet weak var uploadLabel: UILabel!
     @IBOutlet weak var uploadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.uploadButton.layer.cornerRadius = 10
         self.uploadButton.backgroundColor = .main
+        self.uploadLabel.text = "Store recorded performance information on the server.".localized
+        self.uploadButton.setTitle("Upload".localized, for: [])
         self.uploadButton.addTarget(self, action: #selector(touchUpUploadButton(_:)), for: .touchUpInside)
     }
     
     @objc func touchUpUploadButton(_ sender: UIButton) {
-        showIndicator()
+        //showIndicator()
+        //서버에 저장
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

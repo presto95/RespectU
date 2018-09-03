@@ -71,6 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="uploadButton" destination="PhA-jN-E4c" id="YaT-Ke-re3"/>
+                        <outlet property="uploadLabel" destination="gw9-G6-pO7" id="P2V-Gx-Iqn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymj-aZ-gZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>

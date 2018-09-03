@@ -93,7 +93,9 @@
                     </view>
                     <connections>
                         <outlet property="downloadDataButton" destination="1cc-V0-KBH" id="RwK-wo-EpZ"/>
+                        <outlet property="downloadDataLabel" destination="dWt-hn-Q39" id="IzI-UO-T7o"/>
                         <outlet property="downloadRecordButton" destination="ObD-Ia-wwY" id="F54-OY-vnP"/>
+                        <outlet property="downloadRecordLabel" destination="kNj-Lk-N7Z" id="aGY-pm-8Yw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Zz-1R-a7U" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -148,4 +148,9 @@
 "Select the sort method." = "정렬 방법을 선택하세요.";
 "Rate This App" = "앱 평가하기";
 "Download" = "다운로드";
+"Upload" = "업로드";
 "Download data to start the application." = "애플리케이션을 시작하기 위해 데이터를 다운로드합니다.";
+"Renew with latest data." = "최신 데이터로 갱신합니다.";
+"Get exported performance record data." = "내보낸 성과 기록 정보를 가져옵니다.";
+"Store recorded performance information on the server." = "기록한 성과 정보를 서버에 저장합니다.";
+

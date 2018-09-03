@@ -164,7 +164,6 @@ extension InitViewController {
     private func presentSuccessAlert() {
         let results = SongInfo.fetch()
         let oldResults = RecordInfo.get()
-        print(oldResults.count)
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
             .defaultAction(title: "OK".localized) { _ in
@@ -240,7 +239,6 @@ extension InitViewController {
                     }
                     PerformanceInfo.add(recordInfo)
                 }
-                print(PerformanceInfo.fetch())
                 guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                 next.modalTransitionStyle = .crossDissolve
                 self.present(next, animated: true, completion: nil)

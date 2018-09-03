@@ -19,7 +19,7 @@
 
 [Realm](https://cocoapods.org/pods/RealmSwift)
 
-[SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper) 
+[SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper)
 
 [GaugeKit](https://cocoapods.org/pods/GaugeKit)
 
@@ -45,6 +45,7 @@
   - 다운로드 수 900+ (Android까지 합하여 2500+)
 - 사용자들의 다양한 피드백에 대응하며 기능 추가, 버그 수정
 - 공부해온 것들을 활용하여 지속적으로 유지보수 중
+  - '18.8. 서버 연동
   - '18.7. 리팩토링
   - '18.3. 앱 구조 / 디자인 전면 수정
 
@@ -64,7 +65,7 @@
 2. 서버 데이터베이스와 로컬 데이터베이스(Realm)와의 동기화
    - Firebase를 통해 하고 있는 인증 / 데이터베이스 기능을 Node.js로 작성한 서버로 이전
    - 서버에서 데이터를 가져와 로컬 데이터베이스에 저장하여 앱 내에서 사용하고, 백업 느낌으로 서버로 데이터를 내보내는 기능을 구현하려고 함
-   - 클라이언트 단에서 수정해야 하는 코드가 너무 많고, 백엔드 이해도 부족하여 생각보다 더디게 진행중
+   - 클라이언트 단에서 수정해야 하는 코드가 매우 많음
 3. 리팩토링
    - MVC 아키텍쳐 적용
    - Swift API Guideline에 맞는 코딩 스타일

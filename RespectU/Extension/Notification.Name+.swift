@@ -29,4 +29,6 @@ extension Notification.Name {
     static let errorReceiveSignUp = Notification.Name("ErrorReceiveSignUp")
     static let didReceiveVersions = Notification.Name("DidReceiveVersions")
     static let errorReceiveVersions = Notification.Name("ErrorReceiveVersions")
+    static let didReceiveUploadNickname = Notification.Name("DidReceiveUploadNickname")
+    static let errorReceiveUploadNickname = Notification.Name("ErrorReceiveUploadNickname")
 }

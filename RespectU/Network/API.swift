@@ -134,6 +134,18 @@ extension API {
     }
 }
 
+//MARK:- Change Nickname
+extension API {
+    static func uploadNickname(_ nickname: String) {
+        let parameters = ["nickname": nickname]
+        Network.post("\(baseURL)/users/nickname", parameters: parameters, successHandler: { (data, statusCode) in
+            NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["statusCode": statusCode])
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+}
+
 //MARK:- Record
 extension API {
     static func requestRecords() {

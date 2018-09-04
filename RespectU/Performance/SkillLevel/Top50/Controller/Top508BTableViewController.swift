@@ -13,7 +13,7 @@ class Top508BTableViewController: Top50BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = self.results.sorted(byKeyPath: "button8.highestSkillPoint", ascending: false)
+        self.results = self.tempResults.sorted { $0.button8?.skillPoint ?? 0 > $1.button8?.skillPoint ?? 0 }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

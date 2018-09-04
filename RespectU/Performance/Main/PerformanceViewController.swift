@@ -24,6 +24,7 @@ class PerformanceViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         recordButton.setTitle("Performance Record".localized, for: .normal)
         API.requestVersions()
+        //NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersion(_:)), name: .didReceiveVersions, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersion(_:)), name: .errorReceiveVersions, object: nil)
     }
@@ -46,6 +47,7 @@ class PerformanceViewController: UIViewController {
     }
     
     @IBAction func touchUpNicknameButton(_ sender: UIButton) {
+        //서버로 닉네임 갱신
         let alert = UIAlertController.alert(title: "Nickname Setting".localized, message: "Enter your nickname.".localized)
         alert.textField { textField in
             textField.placeholder = "Nickname".localized
@@ -96,6 +98,10 @@ extension PerformanceViewController {
     }
     
     @objc func errorReceiveVersion(_ notification: Notification) {}
+    
+    @objc func didReceiveUploadNickname(_ notification: Notification) {
+        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+    }
 }
 
 extension PerformanceViewController: UITableViewDataSource {

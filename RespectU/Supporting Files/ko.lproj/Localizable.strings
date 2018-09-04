@@ -148,10 +148,12 @@
 "Rate This App" = "앱 평가하기";
 "Download" = "다운로드";
 "Upload" = "업로드";
+"Download From Server" = "서버에서 다운로드하기";
+"Upload To Server" = "서버로 업로드하기";
 "Download data to start the application." = "애플리케이션을 시작하기 위해 데이터를 다운로드합니다.";
-"Renew with latest data." = "최신 데이터로 갱신합니다.";
+"트" = "최신 데이터로 업데이트합니다.";
 "Get exported performance record data." = "내보낸 성과 기록 정보를 가져옵니다.";
 "Store recorded performance information on the server." = "기록한 성과 정보를 서버에 저장합니다.";
 "If there is no data on the server, the recorded performance information can be initialized." = "서버에 데이터가 없는 경우 기록한 성과 정보가 초기화될 수 있습니다.";
 "Warning" = "경고";
-
+"There is new data.\nGo to \"Downloading from the server\" and update to the latest data." = "새로운 데이터가 있습니다.\n\"서버에서 다운로드하기\"로 이동하여 최신 데이터로 업데이트하세요.";

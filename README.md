@@ -21,8 +21,6 @@
 
 [SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper)
 
-[CryptoSwift](https://cocoapods.org/pods/CryptoSwift)
-
 [XLPagerTabStrip](https://cocoapods.org/pods/XLPagerTabStrip)
 
 [GaugeKit](https://cocoapods.org/pods/GaugeKit)

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,7 +44,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cc-V0-KBH">
-                                        <rect key="frame" x="135" y="86" width="73" height="40"/>
+                                        <rect key="frame" x="78" y="86" width="187.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="81x-yQ-QuD"/>
                                         </constraints>
@@ -64,7 +65,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObD-Ia-wwY">
-                                        <rect key="frame" x="135" y="68" width="73" height="40"/>
+                                        <rect key="frame" x="78" y="68" width="187.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="AeS-Um-VvA"/>
                                         </constraints>
@@ -87,7 +88,9 @@
                             <constraint firstItem="TzZ-Ag-K1l" firstAttribute="bottom" secondItem="XT1-mL-Lm5" secondAttribute="centerY" constant="-30" id="GEV-FP-max"/>
                             <constraint firstItem="dIZ-kT-oVj" firstAttribute="top" secondItem="NeK-AR-YQI" secondAttribute="top" id="HMq-d1-hci"/>
                             <constraint firstItem="YcY-aD-0kx" firstAttribute="leading" secondItem="NeK-AR-YQI" secondAttribute="leading" constant="16" id="Nbm-xP-1Ha"/>
+                            <constraint firstItem="1cc-V0-KBH" firstAttribute="width" secondItem="XT1-mL-Lm5" secondAttribute="width" multiplier="0.5" id="Wp4-bX-S5P"/>
                             <constraint firstItem="dIZ-kT-oVj" firstAttribute="centerX" secondItem="XT1-mL-Lm5" secondAttribute="centerX" id="cqp-eo-MQq"/>
+                            <constraint firstItem="ObD-Ia-wwY" firstAttribute="width" secondItem="XT1-mL-Lm5" secondAttribute="width" multiplier="0.5" id="p9F-0F-afw"/>
                             <constraint firstItem="NeK-AR-YQI" firstAttribute="trailing" secondItem="YcY-aD-0kx" secondAttribute="trailing" constant="16" id="pUO-mo-5iU"/>
                             <constraint firstItem="YcY-aD-0kx" firstAttribute="centerX" secondItem="XT1-mL-Lm5" secondAttribute="centerX" id="sSc-pp-vpA"/>
                         </constraints>

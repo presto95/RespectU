@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 class API {
     static let baseURL = "http://localhost:3000"
@@ -136,7 +137,8 @@ extension API {
 //MARK:- Record
 extension API {
     static func requestRecords() {
-        Network.get("\(baseURL)/records", successHandler: { (data) in
+        guard let id = KeychainWrapper.standard.string(forKey: "id") else { return }
+        Network.get("\(baseURL)/records/\(id)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(RecordResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveRequestRecords, object: nil, userInfo: ["records": results])
@@ -149,6 +151,7 @@ extension API {
     }
     
     static func uploadRecords(_ object: NewRecordInfo) {
+        let id = KeychainWrapper.standard.string(forKey: "id")
         let parameters: [String: Any] = [:
             
         ]

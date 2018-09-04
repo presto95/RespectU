@@ -34,4 +34,13 @@ class VersionInfo: Object {
             versionInfo.gameVersion = object.gameVersion
         }
     }
+    
+    static func update(_ object: VersionInfo, with dictionary: [String: Any]) {
+        let realm = try! Realm()
+        try! realm.write {
+            for (key, value) in dictionary {
+                object.setValue(value, forKey: key)
+            }
+        }
+    }
 }

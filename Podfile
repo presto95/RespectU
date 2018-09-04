@@ -6,7 +6,6 @@ target 'RespectU' do
   use_frameworks!
   pod 'RealmSwift'
   pod 'MarqueeLabel/Swift'
-  pod 'CryptoSwift'
   pod 'GaugeKit'
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'

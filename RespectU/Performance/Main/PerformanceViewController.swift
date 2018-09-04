@@ -23,14 +23,9 @@ class PerformanceViewController: UIViewController {
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         recordButton.setTitle("Performance Record".localized, for: .normal)
-//        if #available(iOS 10.3, *) {
-//            let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
-//            UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
-//            if UserDefaults.standard.integer(forKey: "appOpenCount") % 3 == 0 {
-//                SKStoreReviewController.requestReview()
-//                
-//            }
-//        }
+        API.requestVersions()
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersion(_:)), name: .didReceiveVersions, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersion(_:)), name: .errorReceiveVersions, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +33,11 @@ class PerformanceViewController: UIViewController {
         self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
         self.tableView.reloadData()
         self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: .normal)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presentRateView()
     }
     
     static func instantiate() -> PerformanceViewController? {
@@ -73,6 +73,32 @@ class PerformanceViewController: UIViewController {
         guard let vc = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
         self.present(vc, animated: true)
     }
+}
+
+extension PerformanceViewController {
+    @objc func didReceiveVersion(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
+        guard let versionInfo = VersionInfo.fetch().first else { return }
+        if userInfo.serverVersion != versionInfo.serverVersion {
+            DispatchQueue.main.async {
+                UIAlertController
+                    .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
+                    .defaultAction(title: "OK".localized, handler: { [weak self] (action) in
+                        NotificationCenter.default.removeObserver(self as Any)
+                        VersionInfo.update(versionInfo, with: ["serverVersion": userInfo.serverVersion])
+                        guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: "DownloadViewController") else { return }
+                        self?.present(controller, animated: true, completion: nil)
+                    })
+                    .cancelAction(title: "Cancel".localized)
+                    .present(to: self)
+            }
+        }
+        if userInfo.gameVersion != versionInfo.gameVersion {
+            VersionInfo.update(versionInfo, with: ["gameVersion": userInfo.gameVersion])
+        }
+    }
+    
+    @objc func errorReceiveVersion(_ notification: Notification) {}
 }
 
 extension PerformanceViewController: UITableViewDataSource {
@@ -245,5 +271,18 @@ extension PerformanceViewController: SummaryCellDelegate {
     func touchUpSearchButton(_ sender: UIButton) {
         guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
         self.present(vc, animated: true)
+    }
+}
+
+extension PerformanceViewController {
+    private func presentRateView() {
+        if #available(iOS 10.3, *) {
+            let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
+            UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
+            if UserDefaults.standard.integer(forKey: "appOpenCount") % 5 == 0 {
+                SKStoreReviewController.requestReview()
+                
+            }
+        }
     }
 }

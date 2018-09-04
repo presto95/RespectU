@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class DownloadViewController: UIViewController {
 
@@ -30,6 +31,7 @@ class DownloadViewController: UIViewController {
                 } else {
                     presentFailureAlert()
                 }
+                dataCount = 0
             }
         }
     }
@@ -42,6 +44,7 @@ class DownloadViewController: UIViewController {
                 } else {
                     presentFailureAlert()
                 }
+                recordCount = 0
             }
         }
     }
@@ -58,7 +61,7 @@ class DownloadViewController: UIViewController {
         self.downloadDataButton.backgroundColor = .main
         self.downloadRecordButton.layer.cornerRadius = 10
         self.downloadRecordButton.backgroundColor = .main
-        self.downloadDataLabel.text = "Renew with latest data.".localized
+        self.downloadDataLabel.text = "Update with latest data.".localized
         self.downloadRecordLabel.text = "Get exported performance record data.".localized
         self.downloadDataButton.setTitle("Download".localized, for: [])
         self.downloadRecordButton.setTitle("Download", for: [])
@@ -94,12 +97,20 @@ class DownloadViewController: UIViewController {
         UIAlertController
             .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
             .destructiveAction(title: "OK".localized, handler: { [weak self] _ in
-                DispatchQueue.main.async {
-                    self?.showIndicator()
+                if KeychainWrapper.standard.string(forKey: "id") == nil {
+                    UIAlertController
+                        .alert(title: "", message: "Log In First.".localized)
+                        .defaultAction(title: "OK".localized)
+                        .present(to: self)
+                } else {
+                    DispatchQueue.main.async {
+                        self?.showIndicator()
+                    }
+                    API.requestRecords()
                 }
-                API.requestRecords()
             })
             .cancelAction(title: "Cancel".localized)
+            .present(to: self)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -135,6 +146,8 @@ extension DownloadViewController {
                 
             }
         }
+        finishesSong = true
+        plusDataCount()
     }
     
     @objc func didReceiveMissions(_ notification: Notification) {
@@ -149,6 +162,8 @@ extension DownloadViewController {
                 MissionInfo.add(downloadedMission)
             }
         }
+        finishesMission = true
+        plusDataCount()
     }
     
     @objc func didReceiveTrophies(_ notification: Notification) {
@@ -163,6 +178,8 @@ extension DownloadViewController {
                 TrophyInfo.add(downloadedTrophy)
             }
         }
+        finishesTrophy = true
+        plusDataCount()
     }
     
     @objc func didReceiveAchievements(_ notification: Notification) {
@@ -177,6 +194,8 @@ extension DownloadViewController {
                 AchievementInfo.add(downloadedAchievement)
             }
         }
+        finishesAchievement = true
+        plusDataCount()
     }
     
     @objc func didReceiveTips(_ notification: Notification) {
@@ -191,6 +210,8 @@ extension DownloadViewController {
                 TipInfo.add(downloadedTip)
             }
         }
+        finishesTip = true
+        plusDataCount()
     }
     
     @objc func didReceiveVersions(_ notification: Notification) {
@@ -207,6 +228,7 @@ extension DownloadViewController {
     @objc func didReceiveRecords(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
         //성과기록 데이터베이스 갱신.
+        print("?")
         finishesRecord = true
         plusRecordCount()
     }

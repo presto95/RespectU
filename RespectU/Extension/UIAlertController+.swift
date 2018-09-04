@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 extension UIAlertController {
     //alert

@@ -180,16 +180,16 @@ extension GuideViewController: UICollectionViewDelegate {
                 UIAlertController
                     .alert(title: "My Favorite Button".localized, message: message)
                     .defaultAction(title: Buttons.button4) { (action) in
-                        UserDefaults.standard.set(Buttons.button4, forKey: key)
+                        UserDefaults.standard.set(Buttons.button4.uppercased(), forKey: key)
                     }
                     .defaultAction(title: Buttons.button5) { (action) in
-                        UserDefaults.standard.set(Buttons.button5, forKey: key)
+                        UserDefaults.standard.set(Buttons.button5.uppercased(), forKey: key)
                     }
                     .defaultAction(title: Buttons.button6) { (action) in
-                        UserDefaults.standard.set(Buttons.button6, forKey: key)
+                        UserDefaults.standard.set(Buttons.button6.uppercased(), forKey: key)
                     }
                     .defaultAction(title: Buttons.button8) { (action) in
-                        UserDefaults.standard.set(Buttons.button8, forKey: key)
+                        UserDefaults.standard.set(Buttons.button8.uppercased(), forKey: key)
                     }
                     .cancelAction(title: "Cancel".localized)
                     .present(to: self)

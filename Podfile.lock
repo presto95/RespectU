@@ -1,6 +1,5 @@
 PODS:
   - AKPickerView-Swift (2.0.1)
-  - CryptoSwift (0.11.0)
   - DZNEmptyDataSet (1.8.1)
   - GaugeKit (0.4.5)
   - MarqueeLabel/Swift (3.1.6)
@@ -14,7 +13,6 @@ PODS:
 
 DEPENDENCIES:
   - AKPickerView-Swift (from `https://github.com/Akkyie/AKPickerView-Swift.git`)
-  - CryptoSwift
   - DZNEmptyDataSet
   - GaugeKit
   - MarqueeLabel/Swift
@@ -24,7 +22,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - CryptoSwift
     - DZNEmptyDataSet
     - GaugeKit
     - MarqueeLabel
@@ -44,7 +41,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AKPickerView-Swift: 4969de689bee54f720dd64700f7aaab02a8f2ddc
-  CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   GaugeKit: 7872069a8aed2d26b17fca110fe1ab59722f8a33
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
@@ -53,6 +49,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: b74ec794b1d844d9c4cb5cd549787781a54dd720
+PODFILE CHECKSUM: 6df07032ec13b78d2d610c874f4659e5428cbdf5
 
 COCOAPODS: 1.5.3

@@ -20,18 +20,33 @@ class UploadViewController: UIViewController {
         self.uploadLabel.text = "Store recorded performance information on the server.".localized
         self.uploadButton.setTitle("Upload".localized, for: [])
         self.uploadButton.addTarget(self, action: #selector(touchUpUploadButton(_:)), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadRecords(_:)), name: .errorReceiveUploadRecords, object: nil)
+    }
+    
+    @objc func errorReceiveUploadRecords(_ notification: Notification) {
+        presentFailureAlert()
     }
     
     @objc func touchUpUploadButton(_ sender: UIButton) {
         showIndicator()
         let results = NewRecordInfo.fetch()
         for result in results {
-            
+            API.uploadRecords(result)
         }
-        //서버에 저장
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension UploadViewController {
+    private func presentFailureAlert() {
+        UIAlertController
+            .alert(title: "", message: "Network Error".localized)
+            .defaultAction(title: "OK".localized) { [weak self] _ in
+                self?.hideIndicator()
+            }
+            .present(to: self)
     }
 }

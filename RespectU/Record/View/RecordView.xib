@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바람에게 부탁해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czI-hY-l1D">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바람에게 부탁해" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czI-hY-l1D" customClass="MarqueeLabel" customModule="MarqueeLabel">
                     <rect key="frame" x="84" y="20" width="207" height="18"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                     <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -257,10 +257,6 @@
                         </label>
                     </subviews>
                 </stackView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yF4-cb-24F">
-                    <rect key="frame" x="169" y="82" width="37" height="37"/>
-                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </activityIndicatorView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fPo-ga-5ZA">
                     <rect key="frame" x="204.5" y="116" width="59" height="64"/>
                     <subviews>
@@ -324,7 +320,6 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EiC-fL-VqD" secondAttribute="trailing" constant="16" id="85B-lz-COl"/>
                 <constraint firstItem="0C5-29-eUs" firstAttribute="centerY" secondItem="cag-UQ-UXo" secondAttribute="centerY" id="92k-qf-gLb"/>
                 <constraint firstItem="EiC-fL-VqD" firstAttribute="leading" secondItem="czI-hY-l1D" secondAttribute="trailing" constant="8" id="9xS-Wq-Nt4"/>
-                <constraint firstItem="yF4-cb-24F" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B5y-rA-l1G"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="HMd-kf-q7R" secondAttribute="bottom" constant="20" id="DLD-iD-pAv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VQg-q5-Nz4" secondAttribute="bottom" constant="20" id="DZ3-mI-2ca"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mCX-9E-J7I" secondAttribute="bottom" constant="20" id="E2R-Et-Fkz"/>
@@ -336,7 +331,6 @@
                 <constraint firstItem="t3f-up-ilY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Ncv-lB-gae"/>
                 <constraint firstItem="cag-UQ-UXo" firstAttribute="trailing" secondItem="t3f-up-ilY" secondAttribute="trailing" id="NuO-5a-Cgx"/>
                 <constraint firstItem="cag-UQ-UXo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="PtQ-gt-YE2"/>
-                <constraint firstItem="yF4-cb-24F" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="afj-mh-Dn8"/>
                 <constraint firstItem="cag-UQ-UXo" firstAttribute="leading" secondItem="t3f-up-ilY" secondAttribute="leading" id="apX-bE-pqw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bnL-eT-IcP" secondAttribute="trailing" constant="16" id="bsy-uc-DDJ"/>
                 <constraint firstItem="f0A-Yf-jbG" firstAttribute="centerX" secondItem="sYa-ao-4WZ" secondAttribute="centerX" id="gAH-ou-Ids"/>
@@ -360,7 +354,6 @@
                 <outlet property="hardNoteButton" destination="tO8-6c-8L8" id="vNn-Mh-cps"/>
                 <outlet property="hardRankButton" destination="rvc-ZE-hRu" id="9xt-p5-fHR"/>
                 <outlet property="hardRateButton" destination="ZcF-Qd-Qic" id="bMm-EN-75j"/>
-                <outlet property="indicatorView" destination="yF4-cb-24F" id="Jvb-hr-j6Q"/>
                 <outlet property="maximumLabel" destination="w22-Jl-2eo" id="dmR-Co-QS9"/>
                 <outlet property="maximumNoteButton" destination="QFb-9T-Wfx" id="mdb-6c-6cK"/>
                 <outlet property="maximumRankButton" destination="ZMK-Hk-1KC" id="Cqx-sk-XpD"/>
@@ -369,7 +362,7 @@
                 <outlet property="normalNoteButton" destination="F7c-pn-Vk1" id="SKj-U6-xw5"/>
                 <outlet property="normalRankButton" destination="DWH-jG-e7j" id="YCP-53-0la"/>
                 <outlet property="normalRateButton" destination="UC9-Gg-H4p" id="jm6-t2-S4u"/>
-                <outlet property="rankLabel" destination="t3f-up-ilY" id="qNz-0G-JnA"/>
+                <outlet property="rankingLabel" destination="t3f-up-ilY" id="qNz-0G-JnA"/>
                 <outlet property="skillPointLabel" destination="bnL-eT-IcP" id="ZdP-IF-OLZ"/>
                 <outlet property="titleLabel" destination="czI-hY-l1D" id="XYO-Sj-sPf"/>
             </connections>

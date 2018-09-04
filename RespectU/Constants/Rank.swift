@@ -12,5 +12,5 @@ enum Rank {
     static let a = "A"
     static let b = "B"
     static let c = "C"
-    static let none = "-"
+    static let none = ""
 }

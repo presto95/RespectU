@@ -9,5 +9,5 @@
 enum Note {
     static let maxCombo = "MC"
     static let perfectPlay = "PP"
-    static let none = "-"
+    static let none = ""
 }

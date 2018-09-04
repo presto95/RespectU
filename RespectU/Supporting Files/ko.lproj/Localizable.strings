@@ -77,7 +77,6 @@
 "Duplicate nickname" = "닉네임 중복";
 "Next" = "다음";
 
-"You must be logged in to use the ranking system." = "랭킹 시스템을 사용하려면 로그인 해야 합니다.";
 "SKIP" = "건너뛰기";
 "Mission" = "미션";
 "Trophy" = "트로피";
@@ -89,13 +88,6 @@
 "Personal Setting" = "개인 설정";
 "More" = "더보기";
 "It becomes standard of Speed Recommendation." = "추천 배속의 기준값이 됩니다.";
-
-"Notice" = "알림";
-"You have been logged in." = "로그인 되었습니다.";
-"You have been logged out." = "로그아웃 되었습니다.";
-"Add to Favorite" = "즐겨찾기에 추가";
-"No Favorites" = "즐겨찾기된 곡이 없습니다.";
-"Add songs to your favorites." = "즐겨찾기에 곡을 추가하세요.";
 
 "NORMAL / ASC" = "NORMAL / 오름차순";
 "NORMAL / DESC" = "NORMAL / 내림차순";
@@ -157,3 +149,9 @@
 "If there is no data on the server, the recorded performance information can be initialized." = "서버에 데이터가 없는 경우 기록한 성과 정보가 초기화될 수 있습니다.";
 "Warning" = "경고";
 "There is new data.\nGo to \"Downloading from the server\" and update to the latest data." = "새로운 데이터가 있습니다.\n\"서버에서 다운로드하기\"로 이동하여 최신 데이터로 업데이트하세요.";
+"Rank" = "랭크";
+"Rate" = "정확도";
+"Note" = "비고";
+"Select the note." = "비고를 선택하세요.";
+"Select the rank." = "랭크를 선택하세요.";
+"Enter the rate.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n초기화하려면 아무 값도 입력하지 마세요.";

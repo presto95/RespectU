@@ -85,16 +85,13 @@ extension PerformanceViewController {
                     .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
                     .defaultAction(title: "OK".localized, handler: { [weak self] (action) in
                         NotificationCenter.default.removeObserver(self as Any)
-                        VersionInfo.update(versionInfo, with: ["serverVersion": userInfo.serverVersion])
                         guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: "DownloadViewController") else { return }
-                        self?.present(controller, animated: true, completion: nil)
+                        self?.present(controller, animated: true, completion: {
+                        })
                     })
                     .cancelAction(title: "Cancel".localized)
                     .present(to: self)
             }
-        }
-        if userInfo.gameVersion != versionInfo.gameVersion {
-            VersionInfo.update(versionInfo, with: ["gameVersion": userInfo.gameVersion])
         }
     }
     

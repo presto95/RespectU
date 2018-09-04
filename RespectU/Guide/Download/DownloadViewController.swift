@@ -96,11 +96,11 @@ class DownloadViewController: UIViewController {
     @objc func touchUpDownloadRecordButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
-            .destructiveAction(title: "OK".localized, handler: { [weak self] _ in
+            .action(.destructive, title: "OK".localized, handler: { [weak self] _ in
                 if KeychainWrapper.standard.string(forKey: "id") == nil {
                     UIAlertController
                         .alert(title: "", message: "Log In First.".localized)
-                        .defaultAction(title: "OK".localized)
+                        .action(title: "OK".localized)
                         .present(to: self)
                 } else {
                     DispatchQueue.main.async {
@@ -109,7 +109,7 @@ class DownloadViewController: UIViewController {
                     API.requestRecords()
                 }
             })
-            .cancelAction(title: "Cancel".localized)
+            .action(.cancel, title: "Cancel".localized)
             .present(to: self)
     }
     
@@ -266,7 +266,7 @@ extension DownloadViewController {
     private func presentSuccessAlert() {
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
+            .action(title: "OK".localized) { [weak self] _ in
                 self?.parent?.dismiss(animated: true, completion: nil)
             }
             .present(to: self)
@@ -275,7 +275,7 @@ extension DownloadViewController {
     private func presentFailureAlert() {
         UIAlertController
             .alert(title: "", message: "Network Error".localized)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
+            .action(title: "OK".localized) { [weak self] _ in
                 self?.dataCount = 0
             }
             .present(to: self)

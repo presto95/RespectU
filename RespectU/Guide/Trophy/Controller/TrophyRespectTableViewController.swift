@@ -38,7 +38,7 @@ extension TrophyRespectTableViewController {
         if !title.isEmpty {
             UIAlertController
                 .alert(title: title, message: message)
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }

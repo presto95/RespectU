@@ -41,7 +41,7 @@ class SkillLevelDetailView: UIView {
         default:
             skillLevel = nil
         }
-        self.buttonLabel.text = button
+        self.buttonLabel.text = button.uppercased()
         self.skillLevelLabel.text = skillLevel
         self.skillPointLabel.text = "\((sum * 100).rounded() / 100) " + "Point".localized
         self.gauge.maxValue = CGFloat(maxSkillPoint)

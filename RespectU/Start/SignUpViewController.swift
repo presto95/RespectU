@@ -56,7 +56,7 @@ class SignUpViewController: UIViewController {
         DispatchQueue.main.async {
             UIAlertController
                 .alert(title: "", message: message)
-                .defaultAction(title: "OK".localized) { [weak self] (action) in
+                .action(title: "OK".localized) { [weak self] (action) in
                     if !isRegistered {
                         self?.navigationController?.popViewController(animated: true)
                     }
@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController {
         DispatchQueue.main.async {
             UIAlertController
                 .alert(title: "", message: userInfo)
-                .defaultAction(title: "OK".localized) { [weak self] _ in
+                .action(title: "OK".localized) { [weak self] _ in
                     self?.hideIndicator()
                 }
                 .present(to: self)
@@ -83,7 +83,7 @@ class SignUpViewController: UIViewController {
         } else {
             UIAlertController
                 .alert(title: "", message: "모두 입력하세요.".localized)
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }

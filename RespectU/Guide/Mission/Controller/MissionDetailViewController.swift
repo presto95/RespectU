@@ -190,10 +190,12 @@ extension MissionDetailViewController {
         if changesSpeed {
             message += "\n" + "(SPEED Variation)".localized
         }
-        UIAlertController
-            .alert(title: title, message: message)
-            .defaultAction(title: "OK".localized)
-            .present(to: self)
+        DispatchQueue.main.async { [weak self] in
+            UIAlertController
+                .alert(title: title, message: message)
+                .action(title: "OK".localized)
+                .present(to: self)
+        }
     }
     
     ///뷰들의 가시성 초기 설정

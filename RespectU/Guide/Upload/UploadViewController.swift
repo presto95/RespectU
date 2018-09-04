@@ -44,7 +44,7 @@ extension UploadViewController {
     private func presentFailureAlert() {
         UIAlertController
             .alert(title: "", message: "Network Error".localized)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
+            .action(title: "OK".localized) { [weak self] _ in
                 self?.hideIndicator()
             }
             .present(to: self)

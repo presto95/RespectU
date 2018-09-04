@@ -16,7 +16,7 @@ class PerformanceViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var nicknameButton: UIButton!
-    var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+    var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class PerformanceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
+        self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
         self.tableView.reloadData()
         self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: [])
     }
@@ -53,7 +53,7 @@ class PerformanceViewController: UIViewController {
         if id.isEmpty {
             UIAlertController
                 .alert(title: "", message: "Log In First.".localized)
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
             return
         }
@@ -61,7 +61,7 @@ class PerformanceViewController: UIViewController {
         alert.textField { textField in
             textField.placeholder = "Nickname".localized
             }
-            .defaultAction(title: "OK".localized) { [unowned self] action in
+            .action(title: "OK".localized) { [unowned self] action in
                 if let input = alert.textFields?.first?.text {
                     if !input.isEmpty {
                         API.uploadNickname(id: id, nickname: input)
@@ -72,7 +72,7 @@ class PerformanceViewController: UIViewController {
                     }
                 }
             }
-            .cancelAction(title: "Cancel".localized)
+            .action(.cancel, title: "Cancel".localized)
             .present(to: self)
     }
     
@@ -95,13 +95,13 @@ extension PerformanceViewController {
             DispatchQueue.main.async {
                 UIAlertController
                     .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
-                    .defaultAction(title: "OK".localized, handler: { [weak self] (action) in
+                    .action(title: "OK".localized, handler: { [weak self] (action) in
                         NotificationCenter.default.removeObserver(self as Any)
                         guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: "DownloadViewController") else { return }
                         self?.present(controller, animated: true, completion: {
                         })
                     })
-                    .cancelAction(title: "Cancel".localized)
+                    .action(.cancel, title: "Cancel".localized)
                     .present(to: self)
             }
         }
@@ -114,7 +114,7 @@ extension PerformanceViewController {
         DispatchQueue.main.async {
             UIAlertController
                 .alert(title: "", message: "Succeeded to change nickname".localized)
-                .defaultAction(title: "OK".localized, handler: { [weak self] _ in
+                .action(title: "OK".localized, handler: { [weak self] _ in
                     self?.nicknameButton.setTitle(nickname.nickname, for: [])
                 })
         }
@@ -124,7 +124,7 @@ extension PerformanceViewController {
         DispatchQueue.main.async {
             UIAlertController
                 .alert(title: "", message: "Failed to change nickname".localized)
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }
@@ -148,12 +148,14 @@ extension PerformanceViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         header.backgroundView?.backgroundColor = UIColor.main
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
@@ -164,6 +166,7 @@ extension PerformanceViewController: UITableViewDataSource {
             return nil
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -174,9 +177,11 @@ extension PerformanceViewController: UITableViewDataSource {
             return 0
         }
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -193,9 +198,11 @@ extension PerformanceViewController: UITableViewDelegate {
             break
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
     }
@@ -225,43 +232,43 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                 textField.placeholder = "Rate".localized
                 textField.keyboardType = .decimalPad
         }
-        alert.defaultAction(title: "\(Note.maxCombo) Failure".localized) { action in
+        alert.action(title: "\(Note.maxCombo) Failure".localized) { action in
             if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
                 let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.none)
                 UIAlertController
                     .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                    .defaultAction(title: "OK".localized)
+                    .action(title: "OK".localized)
                     .present(to: self)
             } else {
                 UIAlertController
                     .alert(title: "Error".localized, message: "Enter a valid value.".localized)
-                    .defaultAction(title: "OK".localized)
+                    .action(title: "OK".localized)
                     .present(to: self)
             }
         }
-        .defaultAction(title: "\(Note.maxCombo) / \(Note.perfectPlay)") { action in
+        .action(title: "\(Note.maxCombo) / \(Note.perfectPlay)") { action in
             if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
                 if rate == 100 {
                     let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.perfectPlay)
                     UIAlertController
                         .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                        .defaultAction(title: "OK".localized)
+                        .action(title: "OK".localized)
                         .present(to: self)
                 } else {
                     let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.maxCombo)
                     UIAlertController
                         .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                        .defaultAction(title: "OK".localized)
+                        .action(title: "OK".localized)
                         .present(to: self)
                 }
             } else {
                 UIAlertController
                     .alert(title: "Error".localized, message: "Enter a valid value.".localized)
-                    .defaultAction(title: "OK".localized)
+                    .action(title: "OK".localized)
                     .present(to: self)
             }
         }
-        .cancelAction(title: "Cancel".localized)
+        .action(.cancel, title: "Cancel".localized)
         .present(to: self)
         
     }
@@ -270,24 +277,33 @@ extension PerformanceViewController: SkillLevelCellDelegate {
         self.present(vc, animated: true)
     }
     func touchUpRankingButton(_ sender: UIButton) {
-        if !Reachability.isConnectedToNetwork() {
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        if id.isEmpty {
             UIAlertController
-                .alert(title: "Notice".localized, message: "Check your network status.".localized)
-                .defaultAction(title: "OK".localized)
+                .alert(title: "", message: "Log In First.".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         } else {
-            UIAlertController
-                .alert(title: "Ranking".localized, message: "")
-                .defaultAction(title: "Ranking".localized) { action in
-                    guard let vc = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) as? RankingViewController else { return }
-                    self.present(vc, animated: true)
-                }
-                .defaultAction(title: "Upload".localized) { action in
-                    //Firebase.upload()
-                }
-                .cancelAction(title: "Cancel".localized)
-                .present(to: self)
+            
         }
+//        if !Reachability.isConnectedToNetwork() {
+//            UIAlertController
+//                .alert(title: "Notice".localized, message: "Check your network status.".localized)
+//                .defaultAction(title: "OK".localized)
+//                .present(to: self)
+//        } else {
+//            UIAlertController
+//                .alert(title: "Ranking".localized, message: "")
+//                .defaultAction(title: "Ranking".localized) { action in
+//                    guard let vc = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) as? RankingViewController else { return }
+//                    self.present(vc, animated: true)
+//                }
+//                .defaultAction(title: "Upload".localized) { action in
+//                    //Firebase.upload()
+//                }
+//                .cancelAction(title: "Cancel".localized)
+//                .present(to: self)
+//        }
     }
 }
 

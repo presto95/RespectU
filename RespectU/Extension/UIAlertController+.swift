@@ -17,26 +17,8 @@ extension UIAlertController {
     
     //action
     @discardableResult
-    func defaultAction(title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
-        let action = UIAlertAction(title: title, style: .default) { (action) in
-            handler?(action)
-        }
-        self.addAction(action)
-        return self
-    }
-    
-    @discardableResult
-    func cancelAction(title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
-        let action = UIAlertAction(title: title, style: .cancel) { (action) in
-            handler?(action)
-        }
-        self.addAction(action)
-        return self
-    }
-    
-    @discardableResult
-    func destructiveAction(title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
-        let action = UIAlertAction(title: title, style: .destructive) { (action) in
+    func action(_ style: UIAlertActionStyle = .default, title: String?, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
+        let action = UIAlertAction(title: title, style: style) { (action) in
             handler?(action)
         }
         self.addAction(action)

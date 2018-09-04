@@ -1011,22 +1011,6 @@
                                     <constraint firstAttribute="height" constant="60" id="DGg-4Y-OuH"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWf-hj-mE4" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
-                                <rect key="frame" x="16" y="88" width="150" height="267"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCW-s1-JgA" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
-                                <rect key="frame" x="209" y="88" width="150" height="267"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWm-iJ-SqU" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
-                                <rect key="frame" x="16" y="380" width="150" height="267"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6G-I6-ScU" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
-                                <rect key="frame" x="209" y="380" width="150" height="267"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ly9-G9-Kcc">
                                 <rect key="frame" x="16" y="30" width="40" height="40"/>
                                 <constraints>
@@ -1039,31 +1023,50 @@
                                     <action selector="touchUpShareButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-WS-1a2">
+                                <rect key="frame" x="16" y="96" width="343" height="555"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="QLI-vP-Nxk">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="269.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWf-hj-mE4" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="269.5"/>
+                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCW-s1-JgA" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
+                                                <rect key="frame" x="179.5" y="0.0" width="163.5" height="269.5"/>
+                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jzK-KO-VNW">
+                                        <rect key="frame" x="0.0" y="285.5" width="343" height="269.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWm-iJ-SqU" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="269.5"/>
+                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6G-I6-ScU" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
+                                                <rect key="frame" x="179.5" y="0.0" width="163.5" height="269.5"/>
+                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ntk-Rz-Bu3" firstAttribute="top" secondItem="e3Z-Uv-Rmz" secondAttribute="top" id="3fT-bZ-YGR"/>
-                            <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="bottom" secondItem="gWm-iJ-SqU" secondAttribute="bottom" constant="20" id="5hN-CQ-I4a"/>
-                            <constraint firstItem="gWm-iJ-SqU" firstAttribute="height" secondItem="pWf-hj-mE4" secondAttribute="height" id="7Si-e5-OuY"/>
+                            <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="bottom" secondItem="gmq-WS-1a2" secondAttribute="bottom" constant="16" id="46x-4P-OJu"/>
+                            <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="trailing" secondItem="gmq-WS-1a2" secondAttribute="trailing" constant="16" id="HvK-VV-QHc"/>
                             <constraint firstItem="Ly9-G9-Kcc" firstAttribute="centerY" secondItem="ntk-Rz-Bu3" secondAttribute="centerY" id="Kkt-GC-Gdc"/>
-                            <constraint firstItem="pWf-hj-mE4" firstAttribute="top" secondItem="ntk-Rz-Bu3" secondAttribute="bottom" constant="8" id="NxX-9V-2pD"/>
                             <constraint firstItem="8WQ-Dj-Olm" firstAttribute="centerY" secondItem="ntk-Rz-Bu3" secondAttribute="centerY" id="R9G-eP-pbV"/>
-                            <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="trailing" secondItem="N6G-I6-ScU" secondAttribute="trailing" constant="16" id="SbX-eZ-bSe"/>
+                            <constraint firstItem="gmq-WS-1a2" firstAttribute="top" secondItem="ntk-Rz-Bu3" secondAttribute="bottom" constant="16" id="SFx-fn-m0V"/>
                             <constraint firstItem="ntk-Rz-Bu3" firstAttribute="centerX" secondItem="MXM-ID-ayp" secondAttribute="centerX" id="Xp7-ti-xjW"/>
                             <constraint firstItem="Ly9-G9-Kcc" firstAttribute="leading" secondItem="e3Z-Uv-Rmz" secondAttribute="leading" constant="16" id="YUk-um-T3V"/>
-                            <constraint firstItem="pWf-hj-mE4" firstAttribute="height" secondItem="MXM-ID-ayp" secondAttribute="height" multiplier="0.4" id="ZsV-c9-SjB"/>
-                            <constraint firstItem="N6G-I6-ScU" firstAttribute="height" secondItem="aCW-s1-JgA" secondAttribute="height" id="Ztd-yc-3EL"/>
+                            <constraint firstItem="gmq-WS-1a2" firstAttribute="leading" secondItem="e3Z-Uv-Rmz" secondAttribute="leading" constant="16" id="b2g-ek-sec"/>
                             <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="trailing" secondItem="8WQ-Dj-Olm" secondAttribute="trailing" constant="16" id="en3-Z7-3OU"/>
-                            <constraint firstItem="pWf-hj-mE4" firstAttribute="leading" secondItem="e3Z-Uv-Rmz" secondAttribute="leading" constant="16" id="fLO-x0-0kw"/>
-                            <constraint firstItem="pWf-hj-mE4" firstAttribute="width" secondItem="MXM-ID-ayp" secondAttribute="width" multiplier="0.4" id="fhk-RR-gH7"/>
-                            <constraint firstItem="gWm-iJ-SqU" firstAttribute="width" secondItem="pWf-hj-mE4" secondAttribute="width" id="gGB-vb-CCA"/>
-                            <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="bottom" secondItem="N6G-I6-ScU" secondAttribute="bottom" constant="20" id="gId-zg-c0o"/>
-                            <constraint firstItem="aCW-s1-JgA" firstAttribute="height" secondItem="pWf-hj-mE4" secondAttribute="height" id="jeR-VE-4Mg"/>
-                            <constraint firstItem="aCW-s1-JgA" firstAttribute="width" secondItem="pWf-hj-mE4" secondAttribute="width" id="jsh-NN-XY8"/>
-                            <constraint firstItem="aCW-s1-JgA" firstAttribute="top" secondItem="ntk-Rz-Bu3" secondAttribute="bottom" constant="8" id="mcJ-yb-dnP"/>
-                            <constraint firstItem="gWm-iJ-SqU" firstAttribute="leading" secondItem="e3Z-Uv-Rmz" secondAttribute="leading" constant="16" id="tVY-WS-suG"/>
-                            <constraint firstItem="N6G-I6-ScU" firstAttribute="width" secondItem="aCW-s1-JgA" secondAttribute="width" id="vVe-A7-ScE"/>
-                            <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="trailing" secondItem="aCW-s1-JgA" secondAttribute="trailing" constant="16" id="zvo-63-vsN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e3Z-Uv-Rmz"/>
                     </view>

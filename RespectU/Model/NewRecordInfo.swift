@@ -28,6 +28,7 @@ class NewRecordInfo: Object {
         let realm = try! Realm()
         let object = NewRecordInfo()
         object.title = recordInfo.title
+        object.series = recordInfo.series
         object.button4 = recordInfo.button4
         object.button5 = recordInfo.button5
         object.button6 = recordInfo.button6

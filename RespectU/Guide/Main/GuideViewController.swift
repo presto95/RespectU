@@ -58,7 +58,7 @@ extension GuideViewController {
     private func presentNetworkAlert() {
         UIAlertController
             .alert(title: "", message: "Check your network status.".localized)
-            .defaultAction(title: "OK".localized)
+            .action(title: "OK".localized)
             .present(to: self)
     }
 }
@@ -146,7 +146,7 @@ extension GuideViewController: UICollectionViewDelegate {
                     KeychainWrapper.standard.set("", forKey: "id")
                     UIAlertController
                         .alert(title: "", message: "Log Out Completed")
-                        .defaultAction(title: "OK".localized)
+                        .action(title: "OK".localized)
                         .present(to: self)
                 } else {
                     guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignNavigationController") else { return }
@@ -162,7 +162,7 @@ extension GuideViewController: UICollectionViewDelegate {
                         textField.placeholder = "BPM"
                         textField.keyboardType = .numberPad
                     }
-                alert.defaultAction(title: "OK".localized) { (action) in
+                alert.action(title: "OK".localized) { (action) in
                     if let input = alert.textFields?.first?.text {
                         if !input.isEmpty {
                             guard let value = Double(input) else { return }
@@ -171,27 +171,27 @@ extension GuideViewController: UICollectionViewDelegate {
                         }
                     }
                 }
-                .cancelAction(title: "Cancel".localized)
+                .action(.cancel, title: "Cancel".localized)
                 .present(to: self)
             case 2:
                 let key = "favoriteButton"
                 let favorite = UserDefaults.standard.string(forKey: key)
-                let message = "Current".localized + " : \(favorite ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
+                let message = "Current".localized + " : \(favorite?.buttonExpansion ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
                 UIAlertController
                     .alert(title: "My Favorite Button".localized, message: message)
-                    .defaultAction(title: Buttons.button4) { (action) in
-                        UserDefaults.standard.set(Buttons.button4.uppercased(), forKey: key)
+                    .action(title: Buttons.button4.uppercased()) { (action) in
+                        UserDefaults.standard.set(Buttons.button4, forKey: key)
                     }
-                    .defaultAction(title: Buttons.button5) { (action) in
-                        UserDefaults.standard.set(Buttons.button5.uppercased(), forKey: key)
+                    .action(title: Buttons.button5.uppercased()) { (action) in
+                        UserDefaults.standard.set(Buttons.button5, forKey: key)
                     }
-                    .defaultAction(title: Buttons.button6) { (action) in
-                        UserDefaults.standard.set(Buttons.button6.uppercased(), forKey: key)
+                    .action(title: Buttons.button6.uppercased()) { (action) in
+                        UserDefaults.standard.set(Buttons.button6, forKey: key)
                     }
-                    .defaultAction(title: Buttons.button8) { (action) in
-                        UserDefaults.standard.set(Buttons.button8.uppercased(), forKey: key)
+                    .action(title: Buttons.button8.uppercased()) { (action) in
+                        UserDefaults.standard.set(Buttons.button8, forKey: key)
                     }
-                    .cancelAction(title: "Cancel".localized)
+                    .action(.cancel, title: "Cancel".localized)
                     .present(to: self)
             default:
                 break
@@ -221,7 +221,7 @@ extension GuideViewController: UICollectionViewDelegate {
                 let message = "PSN ID : Presto_95\n\nDJMAX RESPECT \(gameVersion)\nRespectU (iOS) \(clientversion)\nRespectU (Server) \(serverVersion)\n\nApp icon by icons8"
                 UIAlertController
                     .alert(title: "CREDITS".localized, message: message)
-                    .defaultAction(title: "OK".localized)
+                    .action(title: "OK".localized)
                     .present(to: self)
             case 5:
                 self.rateApp(appId: "id1291664067")

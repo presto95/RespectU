@@ -24,7 +24,7 @@ extension TrophyCETableViewController {
         if row == 6 {
             UIAlertController
                 .alert(title: "Hidden BGA".localized, message: "First Kiss")
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }

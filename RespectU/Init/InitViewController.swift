@@ -157,7 +157,7 @@ extension InitViewController {
         let oldResults = RecordInfo.get()
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
-            .defaultAction(title: "OK".localized) { _ in
+            .action(title: "OK".localized) { _ in
                 for result in results {
                     let recordInfo = NewRecordInfo()
                     recordInfo.title = result.title
@@ -240,7 +240,7 @@ extension InitViewController {
     private func presentFailureAlert() {
         UIAlertController
             .alert(title: "", message: "Network Error".localized)
-            .defaultAction(title: "OK".localized) { [weak self] _ in
+            .action(title: "OK".localized) { [weak self] _ in
                 self?.count = 0
             }
             .present(to: self)

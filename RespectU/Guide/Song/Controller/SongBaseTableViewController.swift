@@ -79,7 +79,7 @@ extension SongBaseTableViewController {
         }
         UIAlertController
             .alert(title: object.localizedTitle, message: message)
-            .defaultAction(title: "OK".localized)
+            .action(title: "OK".localized)
             .present(to: self)
     }
     

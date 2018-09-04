@@ -53,7 +53,7 @@ extension SignInViewController {
             DispatchQueue.main.async { [weak self] in
                 UIAlertController
                     .alert(title: "", message: "Log In Succeeded".localized)
-                    .defaultAction(title: "OK".localized, handler: { _ in
+                    .action(title: "OK".localized, handler: { _ in
                         KeychainWrapper.standard.set(self?.id ?? "", forKey: "id")
                         DispatchQueue.main.async {
                             if self?.presentingViewController is UINavigationController {
@@ -71,7 +71,7 @@ extension SignInViewController {
             DispatchQueue.main.async { [weak self] in
                 UIAlertController
                     .alert(title: "", message: "Log In Failure".localized)
-                    .defaultAction(title: "OK".localized)
+                    .action(title: "OK".localized)
                     .present(to: self)
             }
         }
@@ -82,7 +82,7 @@ extension SignInViewController {
         DispatchQueue.main.async { [weak self] in
             UIAlertController
                 .alert(title: "", message: error)
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }
@@ -106,7 +106,7 @@ extension SignInViewController {
         } else {
             UIAlertController
                 .alert(title: "", message: "모두 입력하세요.".localized)
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }
@@ -141,7 +141,7 @@ extension SignInViewController {
     private func presentSuccessAlert() {
         UIAlertController
             .alert(title: "", message: "Log In Succeeded")
-            .defaultAction(title: "OK".localized) { [weak self] _ in
+            .action(title: "OK".localized) { [weak self] _ in
                 if TipInfo.fetch().count != 0 {
                     guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                     controller.modalTransitionStyle = .crossDissolve
@@ -158,7 +158,7 @@ extension SignInViewController {
     private func presentFailureAlert() {
         UIAlertController
             .alert(title: "", message: "Log In Failed")
-            .defaultAction(title: "OK".localized)
+            .action(title: "OK".localized)
             .present(to: self)
     }
 }

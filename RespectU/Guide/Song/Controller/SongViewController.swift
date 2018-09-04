@@ -40,48 +40,48 @@ class SongViewController: BaseViewController {
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Search".localized, message: "Select the button type.".localized)
-            .defaultAction(title: Buttons.button4.uppercased()) { [weak self] action in
+            .action(title: Buttons.button4.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button4)
                 self?.reloadAllTableViews()
             }
-            .defaultAction(title: Buttons.button5.uppercased()) { [weak self] action in
+            .action(title: Buttons.button5.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button5)
                 self?.reloadAllTableViews()
             }
-            .defaultAction(title: Buttons.button6.uppercased()) { [weak self] action in
+            .action(title: Buttons.button6.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button6)
                 self?.reloadAllTableViews()
             }
-            .defaultAction(title: Buttons.button8.uppercased()) { [weak self] action in
+            .action(title: Buttons.button8.uppercased()) { [weak self] action in
                 self?.setFavoriteButton(Buttons.button8)
                 self?.reloadAllTableViews()
             }
-            .cancelAction(title: "Cancel".localized)
+            .action(.cancel, title: "Cancel".localized)
             .present(to: self)
     }
     
     @IBAction func touchUpSortButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Sort".localized, message: "Select the sort method.".localized)
-            .defaultAction(title: "\(Difficulty.normal.uppercased()) / ASC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.normal.uppercased()) / ASC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.normal, isAscending: true)
             }
-            .defaultAction(title: "\(Difficulty.normal.uppercased()) / DESC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.normal.uppercased()) / DESC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.normal, isAscending: false)
             }
-            .defaultAction(title: "\(Difficulty.hard.uppercased()) / ASC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.hard.uppercased()) / ASC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.hard, isAscending: true)
             }
-            .defaultAction(title: "\(Difficulty.hard.uppercased()) / DESC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.hard.uppercased()) / DESC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.hard, isAscending: false)
             }
-            .defaultAction(title: "\(Difficulty.maximum.uppercased()) / ASC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.maximum.uppercased()) / ASC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.maximum, isAscending: true)
             }
-            .defaultAction(title: "\(Difficulty.maximum.uppercased()) / DESC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.maximum.uppercased()) / DESC".localized) { [weak self] action in
                 self?.sort(difficulty: Difficulty.maximum, isAscending: false)
             }
-            .cancelAction(title: "Cancel".localized)
+            .action(.cancel, title: "Cancel".localized)
             .present(to: self)
     }
     
@@ -97,7 +97,7 @@ class SongViewController: BaseViewController {
         }
         UIAlertController
             .alert(title: object.localizedTitle, message: message)
-            .defaultAction(title: "OK".localized)
+            .action(title: "OK".localized)
             .present(to: self)
     }
     

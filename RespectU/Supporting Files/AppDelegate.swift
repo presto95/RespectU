@@ -22,14 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Realm.Configuration.defaultConfiguration = config
         }
         window = UIWindow(frame: UIScreen.main.bounds)
-//        if UserDefaults.standard.string(forKey: "serverVersion") == nil {
-//            do {
-//                try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
-//                UserDefaults.standard.set("1.00", forKey: "serverVersion")
-//            } catch {
-//                print(error.localizedDescription)
-//            }
-//        }
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if !id.isEmpty {
             if TipInfo.fetch().count != 0 {

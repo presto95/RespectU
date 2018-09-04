@@ -24,7 +24,7 @@ extension TrophyTrilogyTableViewController {
         if row == 6 {
             UIAlertController
                 .alert(title: "Hidden BGA".localized, message: "STOP")
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }

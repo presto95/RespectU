@@ -24,7 +24,7 @@ extension TrophyTechnika1TableViewController {
         if row == 9 {
             UIAlertController
                 .alert(title: "Hidden BGA", message: "Thor")
-                .defaultAction(title: "OK".localized)
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }

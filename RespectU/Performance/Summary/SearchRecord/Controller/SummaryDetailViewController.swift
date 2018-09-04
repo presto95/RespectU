@@ -21,8 +21,8 @@ class SummaryDetailViewController: UIViewController {
     @IBOutlet weak var button6StackView: UIStackView!
     @IBOutlet weak var button8StackView: UIStackView!
     @IBOutlet weak var allStackView: UIStackView!
-    var recordResults: Results<NewRecordInfo>!
     var songResults: Results<SongInfo>!
+    var recordResults: Results<NewRecordInfo>!
     var button4Array = Array(repeating: 0, count: 12)
     var button5Array = Array(repeating: 0, count: 12)
     var button6Array = Array(repeating: 0, count: 12)
@@ -32,23 +32,152 @@ class SummaryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.recordResults = NewRecordInfo.fetch()
+        let buttons = ["button4", "button5", "button6", "button8"]
+        let difficulties = ["normal", "hard", "maximum"]
         self.songResults = SongInfo.fetch()
-        for result in recordResults {
-            setButtonArrayWithTotalPatterns(songResults)
-            setButtonArrayExceptTotalPatterns(result.button4, to: &button4Array)
-            setButtonArrayExceptTotalPatterns(result.button5, to: &button5Array)
-            setButtonArrayExceptTotalPatterns(result.button6, to: &button6Array)
-            setButtonArrayExceptTotalPatterns(result.button8, to: &button8Array)
-            setRateArray(result.button4, to: &rateArray[0])
-            setRateArray(result.button5, to: &rateArray[1])
-            setRateArray(result.button6, to: &rateArray[2])
-            setRateArray(result.button8, to: &rateArray[3])
+        self.recordResults = NewRecordInfo.fetch()
+        for recordResult in recordResults {
+            let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), recordResult.title?.english ?? "")
+            guard let songResult = self.songResults.filter(predicate).first else { return }
+            for index in 0..<4 {
+                let button = buttons[index]
+                guard let songButtonKeyPath = songResult.value(forKeyPath: button) as? SongButtonInfo else { return }
+                guard let recordButtonKeyPath = recordResult.value(forKeyPath: button) as? NewRecordButtonInfo else { return }
+                for difficulty in difficulties {
+                    guard let level = songButtonKeyPath.value(forKeyPath: difficulty) as? Int else { return }
+                    if level != 0 {
+                        guard let recordKeyPath = recordButtonKeyPath.value(forKeyPath: difficulty) as? NewRecordDifficultyInfo else { return }
+                        if !recordKeyPath.rank.isEmpty {
+                            switch index {
+                            case 0:
+                                button4Array[11] += 1
+                            case 1:
+                                button5Array[11] += 1
+                            case 2:
+                                button6Array[11] += 1
+                            case 3:
+                                button8Array[11] += 1
+                            default:
+                                break
+                            }
+                        }
+                        switch recordKeyPath.rate {
+                        case 99.8...100:
+                            switch index {
+                            case 0:
+                                button4Array[0] += 1
+                            case 1:
+                                button5Array[0] += 1
+                            case 2:
+                                button6Array[0] += 1
+                            case 3:
+                                button8Array[0] += 1
+                            default:
+                                break
+                            }
+                        case 99.5..<99.8:
+                            switch index {
+                            case 0:
+                                button4Array[1] += 1
+                            case 1:
+                                button5Array[1] += 1
+                            case 2:
+                                button6Array[1] += 1
+                            case 3:
+                                button8Array[1] += 1
+                            default:
+                                break
+                            }
+                        case 99..<99.5:
+                            switch index {
+                            case 0:
+                                button4Array[2] += 1
+                            case 1:
+                                button5Array[2] += 1
+                            case 2:
+                                button6Array[2] += 1
+                            case 3:
+                                button8Array[2] += 1
+                            default:
+                                break
+                            }
+                        case 98.5..<99:
+                            switch index {
+                            case 0:
+                                button4Array[3] += 1
+                            case 1:
+                                button5Array[3] += 1
+                            case 2:
+                                button6Array[3] += 1
+                            case 3:
+                                button8Array[3] += 1
+                            default:
+                                break
+                            }
+                        case 98..<98.5:
+                            switch index {
+                            case 0:
+                                button4Array[4] += 1
+                            case 1:
+                                button5Array[4] += 1
+                            case 2:
+                                button6Array[4] += 1
+                            case 3:
+                                button8Array[4] += 1
+                            default:
+                                break
+                            }
+                        case 95..<98:
+                            switch index {
+                            case 0:
+                                button4Array[5] += 1
+                            case 1:
+                                button5Array[5] += 1
+                            case 2:
+                                button6Array[5] += 1
+                            case 3:
+                                button8Array[5] += 1
+                            default:
+                                break
+                            }
+                        case 90..<95:
+                            switch index {
+                            case 0:
+                                button4Array[6] += 1
+                            case 1:
+                                button5Array[6] += 1
+                            case 2:
+                                button6Array[6] += 1
+                            case 3:
+                                button8Array[6] += 1
+                            default:
+                                break
+                            }
+                        case ..<90:
+                            switch index {
+                            case 0:
+                                button4Array[7] += 1
+                            case 1:
+                                button5Array[7] += 1
+                            case 2:
+                                button6Array[7] += 1
+                            case 3:
+                                button8Array[7] += 1
+                            default:
+                                break
+                            }
+                        default:
+                            break
+                        }
+                    }
+                }
+            }
         }
-        for i in 0..<allArray.count {
+        totalPatterns()
+        for i in 0..<12 {
             allArray[i] = button4Array[i] + button5Array[i] + button6Array[i] + button8Array[i]
         }
-        rateArray[4] = rateArray[0] + rateArray[1] + rateArray[2] + rateArray[3]
+        rateArray[4] = (rateArray[0] + rateArray[1] + rateArray[2] + rateArray[3]) / 4
         let count = button4StackView.arrangedSubviews.count
         for index in 1..<count - 1 {
             guard let button4Label = button4StackView.arrangedSubviews[index] as? UILabel else { return }
@@ -80,26 +209,29 @@ class SummaryDetailViewController: UIViewController {
 }
 
 extension SummaryDetailViewController {
-    private func setButtonArrayWithTotalPatterns(_ results: Results<SongInfo>?) {
-        guard let results = results else { return }
-        for result in results {
+    private func totalPatterns() {
+        var button4: Int = 0
+        var button5: Int = 0
+        var button6: Int = 0
+        var button8: Int = 0
+        for result in self.songResults {
             let buttons = ["button4", "button5", "button6", "button8"]
             let difficulties = ["normal", "hard", "maximum"]
-            for i in 0..<4 {
-                let buttonKey = buttons[i]
-                guard let button = result.value(forKey: buttonKey) as? SongButtonInfo else { return }
+            for index in 0..<4 {
+                let button = buttons[index]
+                guard let buttonKeyPath = result.value(forKeyPath: button) as? SongButtonInfo else { return }
                 for difficulty in difficulties {
-                    guard let difficulty = button.value(forKey: difficulty) as? Int else { return }
-                    if difficulty != 0 {
-                        switch i {
+                    guard let level = buttonKeyPath.value(forKeyPath: difficulty) as? Int else { return }
+                    if level != 0 {
+                        switch index {
                         case 0:
-                            button4Array[10] += 1
+                            button4 += 1
                         case 1:
-                            button5Array[10] += 1
+                            button5 += 1
                         case 2:
-                            button6Array[10] += 1
+                            button6 += 1
                         case 3:
-                            button8Array[10] += 1
+                            button8 += 1
                         default:
                             break
                         }
@@ -107,51 +239,9 @@ extension SummaryDetailViewController {
                 }
             }
         }
-    }
-    private func setButtonArrayExceptTotalPatterns(_ button: NewRecordButtonInfo?, to array: inout [Int]) {
-        guard let button = button else { return }
-        let difficulties = ["normal", "hard", "maximum"]
-        for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? NewRecordDifficultyInfo else { return }
-            switch difficulty.rate {
-            case 99.8...100:
-                array[0] += 1
-            case 99.5..<99.8:
-                array[1] += 1
-            case 99..<99.5:
-                array[2] += 1
-            case 98.5..<99:
-                array[3] += 1
-            case 98..<98.5:
-                array[4] += 1
-            case 95..<98:
-                array[5] += 1
-            case 90..<95:
-                array[6] += 1
-            case ..<90:
-                array[7] += 1
-            default:
-                break
-            }
-            switch difficulty.note {
-            case "MC":
-                array[8] += 1
-            case "PP":
-                array[9] += 1
-            default:
-                break
-            }
-            if !difficulty.rank.isEmpty {
-                array[11] += 1
-            }
-        }
-    }
-    private func setRateArray(_ button: NewRecordButtonInfo?, to value: inout Double) {
-        guard let button = button else { return }
-        let difficulties = ["normal", "hard", "maximum"]
-        for difficulty in difficulties {
-            guard let difficulty = button.value(forKey: difficulty) as? NewRecordDifficultyInfo else { return }
-            value += difficulty.rate
-        }
+        self.button4Array[10] = button4
+        self.button5Array[10] = button5
+        self.button6Array[10] = button6
+        self.button8Array[10] = button8
     }
 }

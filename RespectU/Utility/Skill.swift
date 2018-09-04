@@ -31,7 +31,7 @@ class Skill {
         } else {
             skillPoint = Double(weight * rate * 5.0) / 8.0
         }
-        if note == "-" {
+        if note.isEmpty {
             skillPoint *= 0.9
         } else if note == Note.perfectPlay {
             skillPoint *= 1.05
@@ -110,16 +110,16 @@ class Skill {
         let results: Results<NewRecordInfo>?
         switch button {
         case Buttons.button4:
-            results = NewRecordInfo.fetch().sorted(byKeyPath: "button4.skillPoint")
+            results = NewRecordInfo.fetch().sorted(byKeyPath: "button4.skillPoint", ascending: false)
             return sumAndHighestSeries(results, button: Buttons.button4)
         case Buttons.button5:
-            results = NewRecordInfo.fetch().sorted(byKeyPath: "button5.skillPoint")
+            results = NewRecordInfo.fetch().sorted(byKeyPath: "button5.skillPoint", ascending: false)
             return sumAndHighestSeries(results, button: Buttons.button5)
         case Buttons.button6:
-            results = NewRecordInfo.fetch().sorted(byKeyPath: "button6.skillPoint")
+            results = NewRecordInfo.fetch().sorted(byKeyPath: "button6.skillPoint", ascending: false)
             return sumAndHighestSeries(results, button: Buttons.button6)
         case Buttons.button8:
-            results = NewRecordInfo.fetch().sorted(byKeyPath: "button8.skillPoint")
+            results = NewRecordInfo.fetch().sorted(byKeyPath: "button8.skillPoint", ascending: false)
             return sumAndHighestSeries(results, button: Buttons.button8)
         default:
             return (0, "")

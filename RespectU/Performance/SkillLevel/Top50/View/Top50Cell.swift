@@ -32,9 +32,9 @@ class Top50Cell: UITableViewCell {
         self.titleLabel.text = object.localizedTitle
         guard let buttonExpansion = button.buttonExpansion else { return }
         guard let button = object.value(forKeyPath: buttonExpansion) as? NewRecordButtonInfo else { return }
-        self.difficultyLabel.text = button.skillPointDifficulty.isEmpty ? "-" : button.skillPointDifficulty
+        self.difficultyLabel.text = button.skillPointDifficulty.isEmpty ? "-" : button.skillPointDifficulty.uppercased()
         self.noteLabel.text = button.skillPointNote.isEmpty ? "-" : button.skillPointNote.noteExpansion
-        self.rateLabel.text = "\(button.skillPointRate)%"
+        self.rateLabel.text = button.skillPointRate == 0 ? "-" : "\(button.skillPointRate)%"
         self.skillPointLabel.text = String(format: "%05.2f", button.skillPoint)
     }
 }

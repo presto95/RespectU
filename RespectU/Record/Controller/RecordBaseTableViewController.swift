@@ -241,7 +241,6 @@ extension RecordBaseTableViewController {
         NewRecordInfo.update(object, with: [keyPath: note])
         setSkillPoint(object, button: button)
         recordView.updateRankingAndSkillPointLabel(object, button: button)
-        print(NewRecordInfo.fetch().filter(NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), "2Nite")))
     }
     
     private func setSkillPoint(_ object: NewRecordInfo, button: String) {

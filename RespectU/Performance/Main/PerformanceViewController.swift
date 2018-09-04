@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import StoreKit
+import SwiftKeychainWrapper
 
 class PerformanceViewController: UIViewController {
   
@@ -24,7 +25,8 @@ class PerformanceViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         recordButton.setTitle("Performance Record".localized, for: .normal)
         API.requestVersions()
-        //NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUploadNickname(_:)), name: .didReceiveUploadNickname, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadNickname(_:)), name: .errorReceiveUploadNickname, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersion(_:)), name: .didReceiveVersions, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersion(_:)), name: .errorReceiveVersions, object: nil)
     }
@@ -33,7 +35,7 @@ class PerformanceViewController: UIViewController {
         super.viewWillAppear(true)
         self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4B"
         self.tableView.reloadData()
-        self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: .normal)
+        self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: [])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,7 +49,14 @@ class PerformanceViewController: UIViewController {
     }
     
     @IBAction func touchUpNicknameButton(_ sender: UIButton) {
-        //서버로 닉네임 갱신
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        if id.isEmpty {
+            UIAlertController
+                .alert(title: "", message: "Log In First.".localized)
+                .defaultAction(title: "OK".localized)
+                .present(to: self)
+            return
+        }
         let alert = UIAlertController.alert(title: "Nickname Setting".localized, message: "Enter your nickname.".localized)
         alert.textField { textField in
             textField.placeholder = "Nickname".localized
@@ -55,6 +64,7 @@ class PerformanceViewController: UIViewController {
             .defaultAction(title: "OK".localized) { [unowned self] action in
                 if let input = alert.textFields?.first?.text {
                     if !input.isEmpty {
+                        API.uploadNickname(id: id, nickname: input)
                         let nickname = input.trimmingCharacters(in: .whitespaces)
                         UserDefaults.standard.set(nickname, forKey: "nickname")
                         UserDefaults.standard.synchronize()
@@ -100,7 +110,23 @@ extension PerformanceViewController {
     @objc func errorReceiveVersion(_ notification: Notification) {}
     
     @objc func didReceiveUploadNickname(_ notification: Notification) {
-        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+        guard let nickname = notification.userInfo?["nickname"] as? NicknameResponse else { return }
+        DispatchQueue.main.async {
+            UIAlertController
+                .alert(title: "", message: "Succeeded to change nickname".localized)
+                .defaultAction(title: "OK".localized, handler: { [weak self] _ in
+                    self?.nicknameButton.setTitle(nickname.nickname, for: [])
+                })
+        }
+    }
+    
+    @objc func errorReceiveUploadNickname(_ notification: Notification) {
+        DispatchQueue.main.async {
+            UIAlertController
+                .alert(title: "", message: "Failed to change nickname".localized)
+                .defaultAction(title: "OK".localized)
+                .present(to: self)
+        }
     }
 }
 

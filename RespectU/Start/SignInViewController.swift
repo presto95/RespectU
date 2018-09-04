@@ -39,6 +39,8 @@ class SignInViewController: UIViewController {
         self.signInButton.addTarget(self, action: #selector(touchUpSignInButton(_:)), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
         self.skipButton.addTarget(self, action: #selector(touchUpSkipButton(_:)), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNickname(_:)), name: .didReceiveNickname, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveNickname(_:)), name: .errorReceiveNickname, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSignIn(_:)), name: .didReceiveSignIn, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSignIn(_:)), name: .errorReceiveSignIn, object: nil)
     }
@@ -53,11 +55,15 @@ extension SignInViewController {
                     .alert(title: "", message: "Log In Succeeded".localized)
                     .defaultAction(title: "OK".localized, handler: { _ in
                         KeychainWrapper.standard.set(self?.id ?? "", forKey: "id")
-                        if self?.presentingViewController is UINavigationController {
-                            self?.dismiss(animated: true, completion: nil)
-                        } else {
-                            self?.goToNextViewController()
+                        DispatchQueue.main.async {
+                            if self?.presentingViewController is UINavigationController {
+                                self?.dismiss(animated: true, completion: nil)
+                            } else {
+                                self?.goToNextViewController()
+                            }
                         }
+                        API.requestNickname()
+                        
                     })
                     .present(to: self)
             }
@@ -79,6 +85,17 @@ extension SignInViewController {
                 .defaultAction(title: "OK".localized)
                 .present(to: self)
         }
+    }
+    
+    @objc func didReceiveNickname(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["nickname"] as? NicknameResponse else { return }
+        UserDefaults.standard.set(userInfo.nickname, forKey: "nickname")
+        UserDefaults.standard.synchronize()
+    }
+    
+    @objc func errorReceiveNickname(_ notification: Notification) {
+        UserDefaults.standard.set(nil, forKey: "nickname")
+        UserDefaults.standard.synchronize()
     }
 }
 

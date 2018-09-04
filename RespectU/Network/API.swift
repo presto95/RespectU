@@ -134,12 +134,33 @@ extension API {
     }
 }
 
-//MARK:- Change Nickname
+//MARK:- Nickname
 extension API {
-    static func uploadNickname(_ nickname: String) {
-        let parameters = ["nickname": nickname]
+    static func requestNickname() {
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        if id.isEmpty { return }
+        Network.get("\(baseURL)/users/nickname/\(id)", successHandler: { (data) in
+            do {
+                let results = try jsonDecoder.decode(NicknameResponse.self, from: data)
+                NotificationCenter.default.post(name: .didReceiveNickname, object: nil, userInfo: ["nickname": results])
+            } catch {
+                NotificationCenter.default.post(name: .errorReceiveNickname, object: nil, userInfo: ["error": error.localizedDescription])
+            }
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveNickname, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+    
+    static func uploadNickname(id: String, nickname: String) {
+        let parameters = ["id": id, "nickname": nickname]
         Network.post("\(baseURL)/users/nickname", parameters: parameters, successHandler: { (data, statusCode) in
-            NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["statusCode": statusCode])
+            do {
+                let results = try jsonDecoder.decode(NicknameResponse.self, from: data)
+                NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["nickname": results])
+            } catch {
+                NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])
+            }
+            
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])
         }
@@ -149,7 +170,8 @@ extension API {
 //MARK:- Record
 extension API {
     static func requestRecords() {
-        guard let id = KeychainWrapper.standard.string(forKey: "id") else { return }
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        if id.isEmpty { return }
         Network.get("\(baseURL)/records/\(id)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(RecordResponse.self, from: data)

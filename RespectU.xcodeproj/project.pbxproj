@@ -109,6 +109,7 @@
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
 		1968185120490C730007F4D7 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185020490C730007F4D7 /* TipViewController.swift */; };
 		1968185320490D300007F4D7 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185220490D300007F4D7 /* UIColor+.swift */; };
+		1968F785213E7295003C026B /* NicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968F784213E7295003C026B /* NicknameResponse.swift */; };
 		196F82492074A788000DF337 /* RecordPortable1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F82482074A787000DF337 /* RecordPortable1TableViewController.swift */; };
 		196F824D2074A91B000DF337 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 196F824B2074A91B000DF337 /* RecordCell.xib */; };
 		196F824F2074AD49000DF337 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196F824E2074AD49000DF337 /* RecordCell.swift */; };
@@ -305,6 +306,7 @@
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
 		1968185020490C730007F4D7 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		1968185220490D300007F4D7 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		1968F784213E7295003C026B /* NicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameResponse.swift; sourceTree = "<group>"; };
 		196F82482074A787000DF337 /* RecordPortable1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPortable1TableViewController.swift; sourceTree = "<group>"; };
 		196F824B2074A91B000DF337 /* RecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
 		196F824E2074AD49000DF337 /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 				19FD9CED21355E110014A0D4 /* RecordResponse.swift */,
 				1939C96D212BFD8500A6F8E3 /* RankingResponse.swift */,
 				19CA98E0213D416D003371DB /* VersionResponse.swift */,
+				1968F784213E7295003C026B /* NicknameResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -1278,6 +1281,7 @@
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
+				1968F785213E7295003C026B /* NicknameResponse.swift in Sources */,
 				1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */,
 				19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */,
 				19B09E31212C5565005EE66D /* TrophyResponse.swift in Sources */,

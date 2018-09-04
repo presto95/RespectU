@@ -98,4 +98,6 @@ class SongInfo: Object {
         let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), title)
         return try! Realm().objects(SongInfo.self).filter(predicate).first
     }
+    
+    static func update(_ object: SongResponse, )
 }

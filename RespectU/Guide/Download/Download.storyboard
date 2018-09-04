@@ -33,43 +33,43 @@
                                     <action selector="touchUpCancelButton:" destination="dTC-iU-lXN" eventType="touchUpInside" id="P5d-lT-lC9"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="TzZ-Ag-K1l">
-                                <rect key="frame" x="16" y="236.5" width="163.5" height="194"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="TzZ-Ag-K1l">
+                                <rect key="frame" x="16" y="177.5" width="343" height="126"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJMAX RESPECT의 업데이트에 따른 데이터를 가져옵니다." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWt-hn-Q39">
-                                        <rect key="frame" x="4.5" y="0.0" width="154.5" height="54"/>
+                                        <rect key="frame" x="11" y="0.0" width="321.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cc-V0-KBH">
-                                        <rect key="frame" x="34.5" y="154" width="95" height="40"/>
+                                        <rect key="frame" x="135" y="86" width="73" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="81x-yQ-QuD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="데이터 가져오기">
+                                        <state key="normal" title="Download">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="YcY-aD-0kx">
-                                <rect key="frame" x="195.5" y="245.5" width="163.5" height="176"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="YcY-aD-0kx">
+                                <rect key="frame" x="16" y="363.5" width="343" height="108"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내보낸 성과 기록 정보를 가져옵니다." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNj-Lk-N7Z">
-                                        <rect key="frame" x="9.5" y="0.0" width="145" height="36"/>
+                                        <rect key="frame" x="64" y="0.0" width="215" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObD-Ia-wwY">
-                                        <rect key="frame" x="34.5" y="136" width="95" height="40"/>
+                                        <rect key="frame" x="135" y="68" width="73" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="AeS-Um-VvA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="데이터 가져오기">
+                                        <state key="normal" title="Download">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
@@ -78,16 +78,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YcY-aD-0kx" firstAttribute="centerY" secondItem="XT1-mL-Lm5" secondAttribute="centerY" id="1TO-al-7hD"/>
+                            <constraint firstItem="TzZ-Ag-K1l" firstAttribute="leading" secondItem="NeK-AR-YQI" secondAttribute="leading" constant="16" id="1Qe-5Z-FuZ"/>
+                            <constraint firstItem="NeK-AR-YQI" firstAttribute="trailing" secondItem="TzZ-Ag-K1l" secondAttribute="trailing" constant="16" id="1UJ-92-VCi"/>
                             <constraint firstItem="GWM-AA-YQm" firstAttribute="centerY" secondItem="dIZ-kT-oVj" secondAttribute="centerY" id="2SG-st-vyf"/>
+                            <constraint firstItem="TzZ-Ag-K1l" firstAttribute="centerX" secondItem="XT1-mL-Lm5" secondAttribute="centerX" id="47x-d7-Zbv"/>
                             <constraint firstItem="NeK-AR-YQI" firstAttribute="trailing" secondItem="GWM-AA-YQm" secondAttribute="trailing" constant="16" id="BxY-Jy-Ngq"/>
+                            <constraint firstItem="YcY-aD-0kx" firstAttribute="top" secondItem="XT1-mL-Lm5" secondAttribute="centerY" constant="30" id="F5t-Py-r9f"/>
+                            <constraint firstItem="TzZ-Ag-K1l" firstAttribute="bottom" secondItem="XT1-mL-Lm5" secondAttribute="centerY" constant="-30" id="GEV-FP-max"/>
                             <constraint firstItem="dIZ-kT-oVj" firstAttribute="top" secondItem="NeK-AR-YQI" secondAttribute="top" id="HMq-d1-hci"/>
-                            <constraint firstItem="TzZ-Ag-K1l" firstAttribute="centerY" secondItem="XT1-mL-Lm5" secondAttribute="centerY" id="Nmh-xm-sYS"/>
-                            <constraint firstItem="YcY-aD-0kx" firstAttribute="leading" secondItem="NeK-AR-YQI" secondAttribute="centerX" constant="8" id="RA4-mX-Ydh"/>
-                            <constraint firstItem="TzZ-Ag-K1l" firstAttribute="leading" secondItem="NeK-AR-YQI" secondAttribute="leading" constant="16" id="ZJ0-k1-PrI"/>
+                            <constraint firstItem="YcY-aD-0kx" firstAttribute="leading" secondItem="NeK-AR-YQI" secondAttribute="leading" constant="16" id="Nbm-xP-1Ha"/>
                             <constraint firstItem="dIZ-kT-oVj" firstAttribute="centerX" secondItem="XT1-mL-Lm5" secondAttribute="centerX" id="cqp-eo-MQq"/>
-                            <constraint firstAttribute="centerX" secondItem="TzZ-Ag-K1l" secondAttribute="trailing" constant="8" id="eFe-7x-Wvq"/>
-                            <constraint firstAttribute="trailing" secondItem="YcY-aD-0kx" secondAttribute="trailing" constant="16" id="vgO-g9-gEf"/>
+                            <constraint firstItem="NeK-AR-YQI" firstAttribute="trailing" secondItem="YcY-aD-0kx" secondAttribute="trailing" constant="16" id="pUO-mo-5iU"/>
+                            <constraint firstItem="YcY-aD-0kx" firstAttribute="centerX" secondItem="XT1-mL-Lm5" secondAttribute="centerX" id="sSc-pp-vpA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NeK-AR-YQI"/>
                     </view>

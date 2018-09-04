@@ -95,7 +95,7 @@ extension InitViewController {
         guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
         for trophy in userInfo.trophies {
             TrophyInfo.add(trophy)
-            let imageURL = "\(API.baseUrl)/images/\(trophy.series)/\(trophy.image).png"
+            let imageURL = "\(API.baseURL)/images/\(trophy.series)/\(trophy.image).png"
             guard let url = URL(string: imageURL) else { return }
             guard let imageData = try? Data(contentsOf: url) else { return }
             guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }

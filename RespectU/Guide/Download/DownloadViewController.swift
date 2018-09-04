@@ -20,11 +20,12 @@ class DownloadViewController: UIViewController {
     var finishesAchievement: Bool = false
     var finishesTip: Bool = false
     var finishesVersion: Bool = false
-    var count = 0 {
+    var finishesRecord: Bool = false
+    var dataCount = 0 {
         didSet {
-            if count == 6 {
+            if dataCount == 6 {
                 hideIndicator()
-                if finishesAll {
+                if finishesDataAll {
                     presentSuccessAlert()
                 } else {
                     presentFailureAlert()
@@ -32,7 +33,19 @@ class DownloadViewController: UIViewController {
             }
         }
     }
-    var finishesAll: Bool {
+    var recordCount = 0 {
+        didSet {
+            if recordCount == 1 {
+                hideIndicator()
+                if finishesRecord {
+                    presentSuccessAlert()
+                } else {
+                    presentFailureAlert()
+                }
+            }
+        }
+    }
+    var finishesDataAll: Bool {
         if finishesSong, finishesMission, finishesTrophy, finishesAchievement, finishesTip, finishesVersion {
             return true
         }
@@ -63,9 +76,12 @@ class DownloadViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveAchievements(_:)), name: .errorReceiveAchievements, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersions(_:)), name: .errorReceiveVersions, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRecords(_:)), name: .didReceiveRecords, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveRecords(_:)), name: .errorReceiveRecords, object: nil)
     }
     
     @objc func touchUpDownloadDataButton(_ sender: UIButton) {
+        showIndicator()
         API.requestSongs()
         API.requestMissions()
         API.requestTrophies()
@@ -75,7 +91,8 @@ class DownloadViewController: UIViewController {
     }
     
     @objc func touchUpDownloadRecordButton(_ sender: UIButton) {
-        
+        showIndicator()
+        API.requestRecords()
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -123,31 +140,42 @@ extension DownloadViewController {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
         VersionInfo.add(userInfo)
         finishesVersion = true
-        plusCount()
+        plusDataCount()
+    }
+    
+    @objc func didReceiveRecords(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
+        //
+        finishesRecord = true
+        plusRecordCount()
     }
     
     @objc func errorReceiveSongs(_ notification: Notification) {
-        plusCount()
+        plusDataCount()
     }
     
     @objc func errorReceiveMissions(_ notification: Notification) {
-        plusCount()
+        plusDataCount()
     }
     
     @objc func errorReceiveTrophies(_ notification: Notification) {
-        plusCount()
+        plusDataCount()
     }
     
     @objc func errorReceiveAchievements(_ notification: Notification) {
-        plusCount()
+        plusDataCount()
     }
     
     @objc func errorReceiveTips(_ notification: Notification) {
-        plusCount()
+        plusDataCount()
     }
     
     @objc func errorReceiveVersions(_ notification: Notification) {
-        plusCount()
+        plusDataCount()
+    }
+    
+    @objc func errorReceiveRecords(_ notification: Notification) {
+        plusRecordCount()
     }
 }
 
@@ -165,14 +193,20 @@ extension DownloadViewController {
         UIAlertController
             .alert(title: "", message: "Network Error".localized)
             .defaultAction(title: "OK".localized) { [weak self] _ in
-                self?.count = 0
+                self?.dataCount = 0
             }
             .present(to: self)
     }
     
-    private func plusCount() {
+    private func plusDataCount() {
         DispatchQueue.main.sync { [weak self] in
-            self?.count += 1
+            self?.dataCount += 1
+        }
+    }
+    
+    private func plusRecordCount() {
+        DispatchQueue.main.sync { [weak self] in
+            self?.recordCount += 1
         }
     }
 }

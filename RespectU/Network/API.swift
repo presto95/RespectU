@@ -9,14 +9,14 @@
 import Foundation
 
 class API {
-    static let baseUrl = "http://localhost:3000"
+    static let baseURL = "http://localhost:3000"
     private static let jsonDecoder = JSONDecoder()
 }
 
 //MARK:- Song
 extension API {
     static func requestSongs(of series: String = "") {
-        Network.get("\(baseUrl)/songs/\(series)", successHandler: { (data) in
+        Network.get("\(baseURL)/songs/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(SongResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveSongs, object: nil, userInfo: ["songs": results])
@@ -32,7 +32,7 @@ extension API {
 //MARK:- Mission
 extension API {
     static func requestMissions(of series: String = "") {
-        Network.get("\(baseUrl)/missions/\(series)", successHandler: { (data) in
+        Network.get("\(baseURL)/missions/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(MissionResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveMissions, object: nil, userInfo: ["missions": results])
@@ -48,7 +48,7 @@ extension API {
 //MARK:- Trophy
 extension API {
     static func requestTrophies(of series: String = "") {
-        Network.get("\(baseUrl)/trophies/\(series)", successHandler: { (data) in
+        Network.get("\(baseURL)/trophies/\(series)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(TrophyResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveTrophies, object: nil, userInfo: ["trophies": results])
@@ -64,7 +64,7 @@ extension API {
 //MARK:- Achievement
 extension API {
     static func requestAchievements(of type: String = "") {
-        Network.get("\(baseUrl)/achievements/\(type)", successHandler: { (data) in
+        Network.get("\(baseURL)/achievements/\(type)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(AchievementResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveAchievements, object: nil, userInfo: ["achievements": results])
@@ -80,7 +80,7 @@ extension API {
 //MARK:- Tip
 extension API {
     static func requestTips() {
-        Network.get("\(baseUrl)/tips", successHandler: { (data) in
+        Network.get("\(baseURL)/tips", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(TipResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveTips, object: nil, userInfo: ["tips": results])
@@ -97,7 +97,7 @@ extension API {
 extension API {
     static func requestSignIn(id: String, password: String) {
         let parameters = ["id": id, "password": password]
-        Network.post("\(baseUrl)/users/signin", parameters: parameters, successHandler: { (data, statusCode) in
+        Network.post("\(baseURL)/users/signin", parameters: parameters, successHandler: { (data, statusCode) in
             NotificationCenter.default.post(name: .didReceiveSignIn, object: nil, userInfo: ["statusCode": statusCode])
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveSignIn, object: nil, userInfo: ["error": error.localizedDescription])
@@ -109,7 +109,7 @@ extension API {
 extension API {
     static func requestSignUp(id: String, password: String, nickname: String) {
         let parameters = ["id": id, "password": password, "nickname": nickname]
-        Network.post("\(baseUrl)/users/signup", parameters: parameters, successHandler: { (data, statusCode) in
+        Network.post("\(baseURL)/users/signup", parameters: parameters, successHandler: { (data, statusCode) in
             NotificationCenter.default.post(name: .didReceiveSignUp, object: nil, userInfo: ["statusCode": statusCode])
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveSignUp, object: nil, userInfo: ["error": error.localizedDescription])
@@ -120,7 +120,7 @@ extension API {
 //MARK:- Version
 extension API {
     static func requestVersions() {
-        Network.get("\(baseUrl)/version", successHandler: { (data) in
+        Network.get("\(baseURL)/version", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(VersionResponse.self, from: data)
                 NotificationCenter.default.post(name: .didReceiveVersions, object: nil, userInfo: ["versions": results])
@@ -133,10 +133,26 @@ extension API {
     }
 }
 
+//MARK:- Record
+extension API {
+    static func requestRecords() {
+        Network.get("\(baseURL)/records", successHandler: { (data) in
+            do {
+                let results = try jsonDecoder.decode(RecordResponse.self, from: data)
+                NotificationCenter.default.post(name: .didReceiveRecords, object: nil, userInfo: ["records": results])
+            } catch {
+                NotificationCenter.default.post(name: .errorReceiveRecords, object: nil, userInfo: ["error": error.localizedDescription])
+            }
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveRecords, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+}
+
 //MARK:- Ranking
 extension API {
     static func requestRankings() {
-        Network.get("\(baseUrl)/records", successHandler: { (data) in
+        Network.get("\(baseURL)/records", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(RankingResponse.self, from: data)
                 print(results)

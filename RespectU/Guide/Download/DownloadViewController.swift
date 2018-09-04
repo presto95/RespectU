@@ -76,8 +76,8 @@ class DownloadViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveAchievements(_:)), name: .errorReceiveAchievements, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersions(_:)), name: .errorReceiveVersions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRecords(_:)), name: .didReceiveRecords, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveRecords(_:)), name: .errorReceiveRecords, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRecords(_:)), name: .didReceiveRequestRecords, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveRecords(_:)), name: .errorReceiveRequestRecords, object: nil)
     }
     
     @objc func touchUpDownloadDataButton(_ sender: UIButton) {
@@ -91,8 +91,15 @@ class DownloadViewController: UIViewController {
     }
     
     @objc func touchUpDownloadRecordButton(_ sender: UIButton) {
-        showIndicator()
-        API.requestRecords()
+        UIAlertController
+            .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
+            .destructiveAction(title: "OK".localized, handler: { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.showIndicator()
+                }
+                API.requestRecords()
+            })
+            .cancelAction(title: "Cancel".localized)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -111,6 +118,21 @@ extension DownloadViewController {
                 SongInfo.update(downloadedSong, to: result)
             } else {
                 SongInfo.add(downloadedSong)
+                let recordInfo = NewRecordInfo()
+                recordInfo.title?.english = downloadedSong.title.english
+                recordInfo.title?.korean = downloadedSong.title.korean
+                recordInfo.series = downloadedSong.series
+                let recordButton = NewRecordButtonInfo()
+                let difficultyRecord = NewRecordDifficultyInfo()
+                recordButton.normal = difficultyRecord
+                recordButton.hard = difficultyRecord
+                recordButton.maximum = difficultyRecord
+                recordInfo.button4 = recordButton
+                recordInfo.button5 = recordButton
+                recordInfo.button6 = recordButton
+                recordInfo.button8 = recordButton
+                NewRecordInfo.add(recordInfo)
+                
             }
         }
     }
@@ -184,7 +206,7 @@ extension DownloadViewController {
     
     @objc func didReceiveRecords(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
-        //
+        //성과기록 데이터베이스 갱신.
         finishesRecord = true
         plusRecordCount()
     }

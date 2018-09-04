@@ -22,7 +22,7 @@ class SummaryCollectionCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
     }
     
-    func setProperties(_ results: Results<PerformanceInfo>, at item: Int) {
+    func setProperties(_ results: Results<NewRecordInfo>, at item: Int) {
         let buttons = ["button4", "button5", "button6", "button8"]
         let difficulties = ["normal", "hard", "maximum"]
         var count: Int = 0
@@ -32,9 +32,9 @@ class SummaryCollectionCell: UICollectionViewCell {
             self.valueLabel.text = {
                 for result in results {
                     for button in buttons {
-                        guard let buttonResult = result.value(forKey: button) as? PerformanceButtonInfo else { return nil }
+                        guard let buttonResult = result.value(forKey: button) as? NewRecordButtonInfo else { return nil }
                         for difficulty in difficulties {
-                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? PerformanceRecordInfo else { return nil }
+                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? NewRecordDifficultyInfo else { return nil }
                             if difficultyResult.rank == self.contents[item] {
                                 count += 1
                             }
@@ -47,9 +47,9 @@ class SummaryCollectionCell: UICollectionViewCell {
             self.valueLabel.text = {
                 for result in results {
                     for button in buttons {
-                        guard let buttonResult = result.value(forKey: button) as? PerformanceButtonInfo else { return nil }
+                        guard let buttonResult = result.value(forKey: button) as? NewRecordButtonInfo else { return nil }
                         for difficulty in difficulties {
-                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? PerformanceRecordInfo else { return nil }
+                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? NewRecordDifficultyInfo else { return nil }
                             if difficultyResult.note == self.contents[item] {
                                 count += 1
                             }
@@ -62,9 +62,9 @@ class SummaryCollectionCell: UICollectionViewCell {
             self.valueLabel.text = {
                 for result in results {
                     for button in buttons {
-                        guard let buttonResult = result.value(forKey: button) as? PerformanceButtonInfo else { return nil }
+                        guard let buttonResult = result.value(forKey: button) as? NewRecordButtonInfo else { return nil }
                         for difficulty in difficulties {
-                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? PerformanceRecordInfo else { return nil }
+                            guard let difficultyResult = buttonResult.value(forKey: difficulty) as? NewRecordDifficultyInfo else { return nil }
                             if difficultyResult.note == self.contents[4] || difficultyResult.note == self.contents[5] {
                                 count += 1
                             }

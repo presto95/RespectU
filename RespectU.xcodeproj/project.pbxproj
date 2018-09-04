@@ -166,7 +166,7 @@
 		19E02ACC2049199C0070D72B /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E02ACB2049199C0070D72B /* AchievementViewController.swift */; };
 		19E4DAF4213D896100837A95 /* SongButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE6213D896100837A95 /* SongButtonInfo.swift */; };
 		19E4DAF5213D896100837A95 /* MissionStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE7213D896100837A95 /* MissionStageInfo.swift */; };
-		19E4DAF6213D896100837A95 /* PerformanceButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE8213D896100837A95 /* PerformanceButtonInfo.swift */; };
+		19E4DAF6213D896100837A95 /* NewRecordButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE8213D896100837A95 /* NewRecordButtonInfo.swift */; };
 		19E4DAF7213D896100837A95 /* MissionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE9213D896100837A95 /* MissionInfo.swift */; };
 		19E4DAF8213D896100837A95 /* RecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEA213D896100837A95 /* RecordInfo.swift */; };
 		19E4DAF9213D896100837A95 /* TipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEB213D896100837A95 /* TipInfo.swift */; };
@@ -174,8 +174,8 @@
 		19E4DAFB213D896100837A95 /* VersionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAED213D896100837A95 /* VersionInfo.swift */; };
 		19E4DAFC213D896100837A95 /* SongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEE213D896100837A95 /* SongInfo.swift */; };
 		19E4DAFD213D896100837A95 /* TrophyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEF213D896100837A95 /* TrophyInfo.swift */; };
-		19E4DAFE213D896100837A95 /* PerformanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAF0213D896100837A95 /* PerformanceInfo.swift */; };
-		19E4DB00213D896100837A95 /* PerformanceRecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAF2213D896100837A95 /* PerformanceRecordInfo.swift */; };
+		19E4DAFE213D896100837A95 /* NewRecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAF0213D896100837A95 /* NewRecordInfo.swift */; };
+		19E4DB00213D896100837A95 /* NewRecordDifficultyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAF2213D896100837A95 /* NewRecordDifficultyInfo.swift */; };
 		19E4DB01213D896100837A95 /* AchievementInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAF3213D896100837A95 /* AchievementInfo.swift */; };
 		19ECEE68205EBBA3000D742E /* SearchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */; };
 		19F13FBA2112ED87003E622E /* Results+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F13FB92112ED87003E622E /* Results+.swift */; };
@@ -366,7 +366,7 @@
 		19E02ACB2049199C0070D72B /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
 		19E4DAE6213D896100837A95 /* SongButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongButtonInfo.swift; sourceTree = "<group>"; };
 		19E4DAE7213D896100837A95 /* MissionStageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionStageInfo.swift; sourceTree = "<group>"; };
-		19E4DAE8213D896100837A95 /* PerformanceButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceButtonInfo.swift; sourceTree = "<group>"; };
+		19E4DAE8213D896100837A95 /* NewRecordButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordButtonInfo.swift; sourceTree = "<group>"; };
 		19E4DAE9213D896100837A95 /* MissionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionInfo.swift; sourceTree = "<group>"; };
 		19E4DAEA213D896100837A95 /* RecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInfo.swift; sourceTree = "<group>"; };
 		19E4DAEB213D896100837A95 /* TipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInfo.swift; sourceTree = "<group>"; };
@@ -374,8 +374,8 @@
 		19E4DAED213D896100837A95 /* VersionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionInfo.swift; sourceTree = "<group>"; };
 		19E4DAEE213D896100837A95 /* SongInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongInfo.swift; sourceTree = "<group>"; };
 		19E4DAEF213D896100837A95 /* TrophyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyInfo.swift; sourceTree = "<group>"; };
-		19E4DAF0213D896100837A95 /* PerformanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceInfo.swift; sourceTree = "<group>"; };
-		19E4DAF2213D896100837A95 /* PerformanceRecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceRecordInfo.swift; sourceTree = "<group>"; };
+		19E4DAF0213D896100837A95 /* NewRecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordInfo.swift; sourceTree = "<group>"; };
+		19E4DAF2213D896100837A95 /* NewRecordDifficultyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordDifficultyInfo.swift; sourceTree = "<group>"; };
 		19E4DAF3213D896100837A95 /* AchievementInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementInfo.swift; sourceTree = "<group>"; };
 		19ECEE67205EBBA3000D742E /* SearchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordViewController.swift; sourceTree = "<group>"; };
 		19F13FB92112ED87003E622E /* Results+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+.swift"; sourceTree = "<group>"; };
@@ -599,9 +599,9 @@
 				19E4DAEF213D896100837A95 /* TrophyInfo.swift */,
 				19E4DAF3213D896100837A95 /* AchievementInfo.swift */,
 				19E4DAEB213D896100837A95 /* TipInfo.swift */,
-				19E4DAF2213D896100837A95 /* PerformanceRecordInfo.swift */,
-				19E4DAE8213D896100837A95 /* PerformanceButtonInfo.swift */,
-				19E4DAF0213D896100837A95 /* PerformanceInfo.swift */,
+				19E4DAF2213D896100837A95 /* NewRecordDifficultyInfo.swift */,
+				19E4DAE8213D896100837A95 /* NewRecordButtonInfo.swift */,
+				19E4DAF0213D896100837A95 /* NewRecordInfo.swift */,
 				19E4DAED213D896100837A95 /* VersionInfo.swift */,
 				19E4DAEA213D896100837A95 /* RecordInfo.swift */,
 			);
@@ -1195,7 +1195,7 @@
 				192DF89B2111D92B0016F386 /* Series.swift in Sources */,
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
-				19E4DB00213D896100837A95 /* PerformanceRecordInfo.swift in Sources */,
+				19E4DB00213D896100837A95 /* NewRecordDifficultyInfo.swift in Sources */,
 				1950D885212D6F92004ED086 /* Language.swift in Sources */,
 				193E3FF7204BB1060063A440 /* RecordView.swift in Sources */,
 				199992172049654E00C74697 /* MissionCETableViewController.swift in Sources */,
@@ -1241,7 +1241,7 @@
 				196F82492074A788000DF337 /* RecordPortable1TableViewController.swift in Sources */,
 				19E4DAFA213D896100837A95 /* LanguageInfo.swift in Sources */,
 				198B6C502113913C0058DE49 /* Skill.swift in Sources */,
-				19E4DAF6213D896100837A95 /* PerformanceButtonInfo.swift in Sources */,
+				19E4DAF6213D896100837A95 /* NewRecordButtonInfo.swift in Sources */,
 				19320FD0204956940075BD86 /* TrophyTrilogyTableViewController.swift in Sources */,
 				19E4DAF9213D896100837A95 /* TipInfo.swift in Sources */,
 				198B6C562113E5A60058DE49 /* SkillLevel.swift in Sources */,
@@ -1295,7 +1295,7 @@
 				19E02ACC2049199C0070D72B /* AchievementViewController.swift in Sources */,
 				19320FC2204942590075BD86 /* AchievementGalleryTableViewController.swift in Sources */,
 				19B6CFEC1F7953640097B86B /* AppDelegate.swift in Sources */,
-				19E4DAFE213D896100837A95 /* PerformanceInfo.swift in Sources */,
+				19E4DAFE213D896100837A95 /* NewRecordInfo.swift in Sources */,
 				19B09E2F212C555F005EE66D /* MissionResponse.swift in Sources */,
 				191275EB211206790046AA3E /* NSObject+.swift in Sources */,
 				193E4038204C27220063A440 /* RankingCell.swift in Sources */,

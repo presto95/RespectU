@@ -23,7 +23,11 @@ class UploadViewController: UIViewController {
     }
     
     @objc func touchUpUploadButton(_ sender: UIButton) {
-        //showIndicator()
+        showIndicator()
+        let results = NewRecordInfo.fetch()
+        for result in results {
+            
+        }
         //서버에 저장
     }
     

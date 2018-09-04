@@ -27,12 +27,12 @@ class Top50Cell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ object: PerformanceInfo, button: String) {
+    func setProperties(_ object: NewRecordInfo, button: String) {
         self.colorLabel.backgroundColor = object.series.seriesColor
         self.titleLabel.text = object.localizedTitle
-        guard let button = object.value(forKeyPath: button) as? PerformanceButtonInfo else { return }
-        self.difficultyLabel.text = button.highestSkillPointDifficulty
-        self.noteLabel.text = button.highestSkillPointNote.noteExpansion
-        self.rateLabel.text = "\(button.highestSkillPointRate)%"
+        guard let button = object.value(forKeyPath: button) as? NewRecordButtonInfo else { return }
+        self.difficultyLabel.text = button.skillPointDifficulty
+        self.noteLabel.text = button.skillPointNote.noteExpansion
+        self.rateLabel.text = "\(button.skillPointRate)%"
     }
 }

@@ -95,6 +95,7 @@ extension InitViewController {
         guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
         for trophy in userInfo.trophies {
             TrophyInfo.add(trophy)
+
         }
         finishesTrophy = true
         plusCount()
@@ -158,12 +159,12 @@ extension InitViewController {
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
             .defaultAction(title: "OK".localized) { _ in
                 for result in results {
-                    let recordInfo = PerformanceInfo()
+                    let recordInfo = NewRecordInfo()
                     recordInfo.title = result.title
                     recordInfo.series = result.series
                     if let oldRecord = oldResults.filter("title = %@ OR title = %@", result.title?.english ?? "", result.title?.korean ?? "").first {
-                        let buttonRecord = PerformanceButtonInfo()
-                        let difficultyRecord = PerformanceRecordInfo()
+                        let buttonRecord = NewRecordButtonInfo()
+                        let difficultyRecord = NewRecordDifficultyInfo()
                         difficultyRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
                         difficultyRecord.rate = oldRecord.nm4Rate.rateConvertToDouble
                         difficultyRecord.note = oldRecord.nm4Note == "-" ? "" : oldRecord.nm4Note
@@ -217,8 +218,8 @@ extension InitViewController {
                         buttonRecord.maximum = difficultyRecord
                         recordInfo.button8 = buttonRecord
                     } else {
-                        let recordButton = PerformanceButtonInfo()
-                        let difficultyRecord = PerformanceRecordInfo()
+                        let recordButton = NewRecordButtonInfo()
+                        let difficultyRecord = NewRecordDifficultyInfo()
                         recordButton.normal = difficultyRecord
                         recordButton.hard = difficultyRecord
                         recordButton.maximum = difficultyRecord
@@ -227,7 +228,7 @@ extension InitViewController {
                         recordInfo.button6 = recordButton
                         recordInfo.button8 = recordButton
                     }
-                    PerformanceInfo.add(recordInfo)
+                    NewRecordInfo.add(recordInfo)
                 }
                 guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                 next.modalTransitionStyle = .crossDissolve

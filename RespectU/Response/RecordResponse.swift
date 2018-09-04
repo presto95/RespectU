@@ -15,17 +15,17 @@ struct RecordResponse: Codable {
                 let rank: String
                 let rate: Double
                 let note: String
-                let skillPoint: Double
             }
             let normal: Difficulty
             let hard: Difficulty
             let maximum: Difficulty
-            let highestSkillPoint: Double
-            let highestSkillPointDifficulty: String
-            let highestSkillPointNote: String
-            let highestSillPointRate: Double
+            let skillPoint: Double
+            let skillPointDifficulty: String
+            let skillPointNote: String
+            let skillPointRate: Double
         }
         let title: Language
+        let series: String
         let button4: Button
         let button5: Button
         let button6: Button
@@ -38,7 +38,7 @@ struct RecordResponse: Codable {
             }
         }
     }
-    let uid: String
+    let id: String
     let records: [Record]
     let perfectPlays: Int
 }

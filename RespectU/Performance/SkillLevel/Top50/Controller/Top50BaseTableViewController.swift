@@ -12,12 +12,12 @@ import RealmSwift
 
 class Top50BaseTableViewController: BaseTableViewController {
 
-    var results: Results<PerformanceInfo>!
+    var results: Results<NewRecordInfo>!
     let cellIdentifier = "top50Cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = PerformanceInfo.fetch()
+        self.results = NewRecordInfo.fetch()
         self.tableView.rowHeight = 60
         self.tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }

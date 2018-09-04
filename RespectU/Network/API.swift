@@ -139,12 +139,23 @@ extension API {
         Network.get("\(baseURL)/records", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(RecordResponse.self, from: data)
-                NotificationCenter.default.post(name: .didReceiveRecords, object: nil, userInfo: ["records": results])
+                NotificationCenter.default.post(name: .didReceiveRequestRecords, object: nil, userInfo: ["records": results])
             } catch {
-                NotificationCenter.default.post(name: .errorReceiveRecords, object: nil, userInfo: ["error": error.localizedDescription])
+                NotificationCenter.default.post(name: .errorReceiveRequestRecords, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }) { (error) in
-            NotificationCenter.default.post(name: .errorReceiveRecords, object: nil, userInfo: ["error": error.localizedDescription])
+            NotificationCenter.default.post(name: .errorReceiveRequestRecords, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+    
+    static func uploadRecords(_ object: NewRecordInfo) {
+        let parameters: [String: Any] = [:
+            
+        ]
+        Network.post("\(baseURL)/records", parameters: parameters, successHandler: { (data, statusCode) in
+            NotificationCenter.default.post(name: .didReceiveUploadRecords, object: nil, userInfo: ["statusCode": statusCode])
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveUploadRecords, object: nil, userInfo: ["error": error.localizedDescription])
         }
     }
 }

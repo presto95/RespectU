@@ -95,16 +95,6 @@ extension InitViewController {
         guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
         for trophy in userInfo.trophies {
             TrophyInfo.add(trophy)
-            let imageURL = "\(API.baseURL)/images/\(trophy.series)/\(trophy.image).png"
-            guard let url = URL(string: imageURL) else { return }
-            guard let imageData = try? Data(contentsOf: url) else { return }
-            guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-            let fileURL = documentURL.appendingPathComponent("\(trophy.image).png")
-            do {
-                try imageData.write(to: fileURL, options: .atomic)
-            } catch {
-                print(error.localizedDescription)
-            }
         }
         finishesTrophy = true
         plusCount()

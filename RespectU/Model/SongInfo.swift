@@ -99,5 +99,30 @@ class SongInfo: Object {
         return try! Realm().objects(SongInfo.self).filter(predicate).first
     }
     
-    static func update(_ object: SongResponse, )
+    ///타이틀로 필터링한 내부 데이터베이스 갱신
+    static func update(_ object: SongResponse.Song, to songInfo: SongInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            songInfo.title?.english = object.title.english
+            songInfo.title?.korean = object.title.korean
+            songInfo.lowercase?.english = object.lowercase.english
+            songInfo.lowercase?.korean = object.lowercase.korean
+            songInfo.series = object.series
+            songInfo.composer = object.composer
+            songInfo.bpm = object.bpm
+            songInfo.subBpm.value = object.subBpm
+            songInfo.button4?.normal = object.button4.normal
+            songInfo.button4?.hard = object.button4.hard
+            songInfo.button4?.maximum = object.button4.maximum
+            songInfo.button5?.normal = object.button5.normal
+            songInfo.button5?.hard = object.button5.hard
+            songInfo.button5?.maximum = object.button5.maximum
+            songInfo.button6?.normal = object.button6.normal
+            songInfo.button6?.hard = object.button6.hard
+            songInfo.button6?.maximum = object.button6.maximum
+            songInfo.button8?.normal = object.button8.normal
+            songInfo.button8?.hard = object.button8.hard
+            songInfo.button8?.maximum = object.button8.maximum
+        }
+    }
 }

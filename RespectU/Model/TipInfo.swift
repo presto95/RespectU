@@ -35,4 +35,12 @@ class TipInfo: Object {
         let tipInfo = try! Realm().objects(TipInfo.self)
         return tipInfo
     }
+    
+    static func update(_ object: TipResponse.Tip, to tipInfo: TipInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            tipInfo.title?.english = object.title.english
+            tipInfo.title?.korean = object.title.korean
+        }
+    }
 }

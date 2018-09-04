@@ -26,4 +26,12 @@ class VersionInfo: Object {
             realm.add(object)
         }
     }
+    
+    static func update(_ object: VersionResponse, to versionInfo: VersionInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            versionInfo.serverVersion = object.serverVersion
+            versionInfo.gameVersion = object.gameVersion
+        }
+    }
 }

@@ -56,4 +56,16 @@ class AchievementInfo: Object {
             return filtered
         }
     }
+    
+    static func update(_ object: AchievementResponse.Achievement, to achievementInfo: AchievementInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            achievementInfo.type = object.type
+            achievementInfo.level = object.level
+            achievementInfo.section?.english = object.section.english
+            achievementInfo.section?.korean = object.section.korean
+            achievementInfo.item?.english = object.item.english
+            achievementInfo.item?.korean = object.item.korean
+        }
+    }
 }

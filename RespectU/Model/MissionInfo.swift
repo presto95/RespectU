@@ -123,4 +123,23 @@ class MissionInfo: Object {
             return filtered
         }
     }
+    
+    ///타이틀로 필터링한 내부 데이터베이스 갱신
+    static func update(_ object: MissionResponse.Mission, to missionInfo: MissionInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            missionInfo.series = object.series
+            missionInfo.section = object.section
+            missionInfo.title = object.title
+            missionInfo.score = object.score
+            missionInfo.fever = object.fever
+            missionInfo.combo = object.combo
+            missionInfo.rate = object.rate
+            missionInfo.break = object.break
+            missionInfo.effector = object.effector
+            missionInfo.reward?.english = object.reward.english
+            missionInfo.reward?.korean = object.reward.korean
+            
+        }
+    }
 }

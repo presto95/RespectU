@@ -103,42 +103,81 @@ class DownloadViewController: UIViewController {
 extension DownloadViewController {
     @objc func didReceiveSongs(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
-        for song in userInfo.songs {
-            SongInfo.add(song)
+        let downloadedSongs = userInfo.songs
+        let results = SongInfo.fetch()
+        for downloadedSong in downloadedSongs {
+            let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), downloadedSong.title.english)
+            if let result = results.filter(predicate).first {
+                SongInfo.update(downloadedSong, to: result)
+            } else {
+                SongInfo.add(downloadedSong)
+            }
         }
     }
     
     @objc func didReceiveMissions(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["missions"] as? MissionResponse else { return }
-        for mission in userInfo.missions {
-            MissionInfo.add(mission)
+        let downloadedMissions = userInfo.missions
+        let results = MissionInfo.fetch()
+        for downloadedMission in downloadedMissions {
+            let predicate = NSPredicate(format: "%K == %@", #keyPath(MissionInfo.title), downloadedMission.title)
+            if let result = results.filter(predicate).first {
+                MissionInfo.update(downloadedMission, to: result)
+            } else {
+                MissionInfo.add(downloadedMission)
+            }
         }
     }
     
     @objc func didReceiveTrophies(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
-        for trophy in userInfo.trophies {
-            TrophyInfo.add(trophy)
+        let downloadedTrophies = userInfo.trophies
+        let results = TrophyInfo.fetch()
+        for downloadedTrophy in downloadedTrophies {
+            let predicate = NSPredicate(format: "%K == %@", #keyPath(TrophyInfo.image), downloadedTrophy.image)
+            if let result = results.filter(predicate).first {
+                TrophyInfo.update(downloadedTrophy, to: result)
+            } else {
+                TrophyInfo.add(downloadedTrophy)
+            }
         }
     }
     
     @objc func didReceiveAchievements(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["achievements"] as? AchievementResponse else { return }
-        for achievement in userInfo.achievements {
-            AchievementInfo.add(achievement)
+        let downloadedAchievements = userInfo.achievements
+        let results = AchievementInfo.fetch()
+        for downloadedAchievement in downloadedAchievements {
+            let predicate = NSPredicate(format: "%K == %@ AND %K == %@", #keyPath(AchievementInfo.item.english), downloadedAchievement.item.english, #keyPath(AchievementInfo.type), downloadedAchievement.type)
+            if let result = results.filter(predicate).first {
+                AchievementInfo.update(downloadedAchievement, to: result)
+            } else {
+                AchievementInfo.add(downloadedAchievement)
+            }
         }
     }
     
     @objc func didReceiveTips(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["tips"] as? TipResponse else { return }
-        for tip in userInfo.tips {
-            TipInfo.add(tip)
+        let downloadedTips = userInfo.tips
+        let results = TipInfo.fetch()
+        for downloadedTip in downloadedTips {
+            let predicate = NSPredicate(format: "%K == %@", #keyPath(TipInfo.title.english), downloadedTip.title.english)
+            if let result = results.filter(predicate).first {
+                TipInfo.update(downloadedTip, to: result)
+            } else {
+                TipInfo.add(downloadedTip)
+            }
         }
     }
     
     @objc func didReceiveVersions(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
-        VersionInfo.add(userInfo)
+        if let result = VersionInfo.fetch().first {
+            VersionInfo.update(userInfo, to: result)
+        } else {
+            VersionInfo.add(userInfo)
+        }
         finishesVersion = true
         plusDataCount()
     }

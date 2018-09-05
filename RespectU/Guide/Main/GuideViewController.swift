@@ -204,11 +204,15 @@ extension GuideViewController: UICollectionViewDelegate {
         case 2:
             switch indexPath.row {
             case 0:
-                guard let next = UIViewController.instantiate(storyboard: "Download", identifier: "DownloadViewController") else { return }
+                guard let next = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
                 self.present(next, animated: true, completion: nil)
             case 1:
-                guard let next = UIViewController.instantiate(storyboard: "Upload", identifier: "UploadViewController") else { return }
-                self.present(next, animated: true, completion: nil)
+                UIAlertController
+                    .alert(title: "", message: "Coming soon.".localized)
+                    .action(title: "OK".localized)
+                    .present(to: self)
+//                guard let next = UIViewController.instantiate(storyboard: "Upload", identifier: UploadViewController.classNameToString) else { return }
+//                self.present(next, animated: true, completion: nil)
             case 2:
                 sendEmail()
             case 3:

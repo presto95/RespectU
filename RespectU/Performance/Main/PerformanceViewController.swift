@@ -282,28 +282,12 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                 .present(to: self)
         } else {
             UIAlertController
-                .alert(title: "", message: "In Progress".localized)
+                .alert(title: "", message: "Coming soon.".localized)
                 .action(title: "OK".localized)
                 .present(to: self)
         }
-//        if !Reachability.isConnectedToNetwork() {
-//            UIAlertController
-//                .alert(title: "Notice".localized, message: "Check your network status.".localized)
-//                .defaultAction(title: "OK".localized)
-//                .present(to: self)
-//        } else {
-//            UIAlertController
-//                .alert(title: "Ranking".localized, message: "")
-//                .defaultAction(title: "Ranking".localized) { action in
-//                    guard let vc = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) as? RankingViewController else { return }
-//                    self.present(vc, animated: true)
-//                }
-//                .defaultAction(title: "Upload".localized) { action in
-//                    //Firebase.upload()
-//                }
-//                .cancelAction(title: "Cancel".localized)
-//                .present(to: self)
-//        }
+//        guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
+//        self.present(next, animated: true)
     }
     
     func touchUpTop50Button(_ sender: UIButton) {
@@ -319,8 +303,12 @@ extension PerformanceViewController: SummaryCellDelegate {
     }
     
     func touchUpSearchButton(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
-        self.present(vc, animated: true)
+        UIAlertController
+            .alert(title: "", message: "Coming soon.".localized)
+            .action(title: "OK".localized)
+            .present(to: self)
+//        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
+//        self.present(vc, animated: true)
     }
 }
 

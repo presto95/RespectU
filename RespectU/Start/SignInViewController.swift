@@ -162,3 +162,15 @@ extension SignInViewController {
             .present(to: self)
     }
 }
+
+extension SignInViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0 {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else {
+            textField.endEditing(true)
+        }
+        return true
+    }
+}

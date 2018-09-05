@@ -95,22 +95,26 @@ class DownloadViewController: UIViewController {
     
     @objc func touchUpDownloadRecordButton(_ sender: UIButton) {
         UIAlertController
-            .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
-            .action(.destructive, title: "OK".localized, handler: { [weak self] _ in
-                if KeychainWrapper.standard.string(forKey: "id") == nil {
-                    UIAlertController
-                        .alert(title: "", message: "Log In First.".localized)
-                        .action(title: "OK".localized)
-                        .present(to: self)
-                } else {
-                    DispatchQueue.main.async {
-                        self?.showIndicator()
-                    }
-                    API.requestRecords()
-                }
-            })
-            .action(.cancel, title: "Cancel".localized)
+            .alert(title: "", message: "Coming soon.".localized)
+            .action(title: "OK".localized)
             .present(to: self)
+//        UIAlertController
+//            .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
+//            .action(.destructive, title: "OK".localized, handler: { [weak self] _ in
+//                if KeychainWrapper.standard.string(forKey: "id") == nil {
+//                    UIAlertController
+//                        .alert(title: "", message: "Log In First.".localized)
+//                        .action(title: "OK".localized)
+//                        .present(to: self)
+//                } else {
+//                    DispatchQueue.main.async {
+//                        self?.showIndicator()
+//                    }
+//                    API.requestRecords()
+//                }
+//            })
+//            .action(.cancel, title: "Cancel".localized)
+//            .present(to: self)
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {
@@ -248,9 +252,8 @@ extension DownloadViewController {
     }
     
     @objc func didReceiveRecords(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
+        //guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
         //성과기록 데이터베이스 갱신.
-        print("?")
         finishesRecord = true
         plusRecordCount()
     }

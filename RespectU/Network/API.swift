@@ -185,7 +185,7 @@ extension API {
     }
     
     static func uploadRecords(_ object: NewRecordInfo) {
-        let id = KeychainWrapper.standard.string(forKey: "id")
+        //let id = KeychainWrapper.standard.string(forKey: "id")
         let parameters: [String: Any] = [:
             
         ]
@@ -193,22 +193,6 @@ extension API {
             NotificationCenter.default.post(name: .didReceiveUploadRecords, object: nil, userInfo: ["statusCode": statusCode])
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadRecords, object: nil, userInfo: ["error": error.localizedDescription])
-        }
-    }
-}
-
-//MARK:- Ranking
-extension API {
-    static func requestRankings() {
-        Network.get("\(baseURL)/records", successHandler: { (data) in
-            do {
-                let results = try jsonDecoder.decode(RankingResponse.self, from: data)
-                print(results)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }) { (error) in
-            print(error.localizedDescription)
         }
     }
 }

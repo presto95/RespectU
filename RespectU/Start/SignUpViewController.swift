@@ -92,3 +92,18 @@ class SignUpViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.tag == 0 {
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if textField.tag == 1 {
+            textField.resignFirstResponder()
+            nicknameTextField.becomeFirstResponder()
+        } else {
+            textField.endEditing(true)
+        }
+        return true
+    }
+}

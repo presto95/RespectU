@@ -84,9 +84,6 @@
 "BPM Default Setting" = "BPM 기본값 설정";
 "Send Email to Developer" = "개발자에게 이메일 보내기";
 "Credit" = "크레딧";
-"Guide for DJMAX RESPECT" = "DJMAX RESPECT 가이드";
-"Personal Setting" = "개인 설정";
-"More" = "더보기";
 "It becomes standard of Speed Recommendation." = "추천 배속의 기준값이 됩니다.";
 
 "NORMAL / ASC" = "NORMAL / 오름차순";
@@ -155,3 +152,6 @@
 "Select the note." = "비고를 선택하세요.";
 "Select the rank." = "랭크를 선택하세요.";
 "Enter the rate.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n초기화하려면 아무 값도 입력하지 마세요.";
+"GUIDE FOR DJMAX RESPECT" = "DJMAX RESPECT 가이드";
+"PERSONAL SETTING" = "개인 설정";
+"MORE" = "더보기";

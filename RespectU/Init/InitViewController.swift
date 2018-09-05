@@ -162,71 +162,92 @@ extension InitViewController {
                     let recordInfo = NewRecordInfo()
                     recordInfo.title = result.title
                     recordInfo.series = result.series
+                    let button4Record = NewRecordButtonInfo()
+                    let button5Record = NewRecordButtonInfo()
+                    let button6Record = NewRecordButtonInfo()
+                    let button8Record = NewRecordButtonInfo()
+                    let button4NormalRecord = NewRecordDifficultyInfo()
+                    let button4HardRecord = NewRecordDifficultyInfo()
+                    let button4MaximumRecord = NewRecordDifficultyInfo()
+                    let button5NormalRecord = NewRecordDifficultyInfo()
+                    let button5HardRecord = NewRecordDifficultyInfo()
+                    let button5MaximumRecord = NewRecordDifficultyInfo()
+                    let button6NormalRecord = NewRecordDifficultyInfo()
+                    let button6HardRecord = NewRecordDifficultyInfo()
+                    let button6MaximumRecord = NewRecordDifficultyInfo()
+                    let button8NormalRecord = NewRecordDifficultyInfo()
+                    let button8HardRecord = NewRecordDifficultyInfo()
+                    let button8MaximumRecord = NewRecordDifficultyInfo()
                     if let oldRecord = oldResults.filter("title = %@ OR title = %@", result.title?.english ?? "", result.title?.korean ?? "").first {
-                        let buttonRecord = NewRecordButtonInfo()
-                        let difficultyRecord = NewRecordDifficultyInfo()
-                        difficultyRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
-                        difficultyRecord.rate = oldRecord.nm4Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.nm4Note == "-" ? "" : oldRecord.nm4Note
-                        buttonRecord.normal = difficultyRecord
-                        difficultyRecord.rank = oldRecord.hd4Rank == "-" ? "" : oldRecord.hd4Rank
-                        difficultyRecord.rate = oldRecord.hd4Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.hd4Note == "-" ? "" : oldRecord.hd4Note
-                        buttonRecord.hard = difficultyRecord
-                        difficultyRecord.rank = oldRecord.mx4Rank == "-" ? "" : oldRecord.mx4Rank
-                        difficultyRecord.rate = oldRecord.mx4Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.mx4Note == "-" ? "" : oldRecord.mx4Note
-                        buttonRecord.maximum = difficultyRecord
-                        recordInfo.button4 = buttonRecord
-                        difficultyRecord.rank = oldRecord.nm5Rank == "-" ? "" : oldRecord.nm5Rank
-                        difficultyRecord.rate = oldRecord.nm5Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.nm5Note == "-" ? "" : oldRecord.nm5Note
-                        buttonRecord.normal = difficultyRecord
-                        difficultyRecord.rank = oldRecord.hd5Rank == "-" ? "" : oldRecord.hd5Rank
-                        difficultyRecord.rate = oldRecord.hd5Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.hd5Note == "-" ? "" : oldRecord.hd5Note
-                        buttonRecord.hard = difficultyRecord
-                        difficultyRecord.rank = oldRecord.mx5Rank == "-" ? "" : oldRecord.mx5Rank
-                        difficultyRecord.rate = oldRecord.mx5Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.mx5Note == "-" ? "" : oldRecord.mx5Note
-                        buttonRecord.maximum = difficultyRecord
-                        recordInfo.button5 = buttonRecord
-                        difficultyRecord.rank = oldRecord.nm6Rank == "-" ? "" : oldRecord.nm6Rank
-                        difficultyRecord.rate = oldRecord.nm6Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.nm6Note == "-" ? "" : oldRecord.nm6Note
-                        buttonRecord.normal = difficultyRecord
-                        difficultyRecord.rank = oldRecord.hd6Rank == "-" ? "" : oldRecord.hd6Rank
-                        difficultyRecord.rate = oldRecord.hd6Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.hd6Note == "-" ? "" : oldRecord.hd6Note
-                        buttonRecord.hard = difficultyRecord
-                        difficultyRecord.rank = oldRecord.mx6Rank == "-" ? "" : oldRecord.mx6Rank
-                        difficultyRecord.rate = oldRecord.mx6Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.mx6Note == "-" ? "" : oldRecord.mx6Note
-                        buttonRecord.maximum = difficultyRecord
-                        recordInfo.button6 = buttonRecord
-                        difficultyRecord.rank = oldRecord.nm8Rank == "-" ? "" : oldRecord.nm8Rank
-                        difficultyRecord.rate = oldRecord.nm8Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.nm8Note == "-" ? "" : oldRecord.nm8Note
-                        buttonRecord.normal = difficultyRecord
-                        difficultyRecord.rank = oldRecord.hd8Rank == "-" ? "" : oldRecord.hd8Rank
-                        difficultyRecord.rate = oldRecord.hd8Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.hd8Note == "-" ? "" : oldRecord.hd8Note
-                        buttonRecord.hard = difficultyRecord
-                        difficultyRecord.rank = oldRecord.mx8Rank == "-" ? "" : oldRecord.mx8Rank
-                        difficultyRecord.rate = oldRecord.mx8Rate.rateConvertToDouble
-                        difficultyRecord.note = oldRecord.mx8Note == "-" ? "" : oldRecord.mx8Note
-                        buttonRecord.maximum = difficultyRecord
-                        recordInfo.button8 = buttonRecord
+                        button4NormalRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
+                        button4NormalRecord.rate = oldRecord.nm4Rate.rateConvertToDouble
+                        button4NormalRecord.note = oldRecord.nm4Note == "-" ? "" : oldRecord.nm4Note
+                        button4Record.normal = button4NormalRecord
+                        button4HardRecord.rank = oldRecord.hd4Rank == "-" ? "" : oldRecord.hd4Rank
+                        button4HardRecord.rate = oldRecord.hd4Rate.rateConvertToDouble
+                        button4HardRecord.note = oldRecord.hd4Note == "-" ? "" : oldRecord.hd4Note
+                        button4Record.hard = button4HardRecord
+                        button4MaximumRecord.rank = oldRecord.mx4Rank == "-" ? "" : oldRecord.mx4Rank
+                        button4MaximumRecord.rate = oldRecord.mx4Rate.rateConvertToDouble
+                        button4MaximumRecord.note = oldRecord.mx4Note == "-" ? "" : oldRecord.mx4Note
+                        button4Record.maximum = button4MaximumRecord
+                        recordInfo.button4 = button4Record
+                        button5NormalRecord.rank = oldRecord.nm5Rank == "-" ? "" : oldRecord.nm5Rank
+                        button5NormalRecord.rate = oldRecord.nm5Rate.rateConvertToDouble
+                        button5NormalRecord.note = oldRecord.nm5Note == "-" ? "" : oldRecord.nm5Note
+                        button5Record.normal = button5NormalRecord
+                        button5HardRecord.rank = oldRecord.hd5Rank == "-" ? "" : oldRecord.hd5Rank
+                        button5HardRecord.rate = oldRecord.hd5Rate.rateConvertToDouble
+                        button5HardRecord.note = oldRecord.hd5Note == "-" ? "" : oldRecord.hd5Note
+                        button5Record.hard = button5HardRecord
+                        button5MaximumRecord.rank = oldRecord.mx5Rank == "-" ? "" : oldRecord.mx5Rank
+                        button5MaximumRecord.rate = oldRecord.mx5Rate.rateConvertToDouble
+                        button5MaximumRecord.note = oldRecord.mx5Note == "-" ? "" : oldRecord.mx5Note
+                        button5Record.maximum = button5MaximumRecord
+                        recordInfo.button5 = button5Record
+                        button6NormalRecord.rank = oldRecord.nm6Rank == "-" ? "" : oldRecord.nm6Rank
+                        button6NormalRecord.rate = oldRecord.nm6Rate.rateConvertToDouble
+                        button6NormalRecord.note = oldRecord.nm6Note == "-" ? "" : oldRecord.nm6Note
+                        button6Record.normal = button6NormalRecord
+                        button6HardRecord.rank = oldRecord.hd6Rank == "-" ? "" : oldRecord.hd6Rank
+                        button6HardRecord.rate = oldRecord.hd6Rate.rateConvertToDouble
+                        button6HardRecord.note = oldRecord.hd6Note == "-" ? "" : oldRecord.hd6Note
+                        button6Record.hard = button6HardRecord
+                        button6MaximumRecord.rank = oldRecord.mx6Rank == "-" ? "" : oldRecord.mx6Rank
+                        button6MaximumRecord.rate = oldRecord.mx6Rate.rateConvertToDouble
+                        button6MaximumRecord.note = oldRecord.mx6Note == "-" ? "" : oldRecord.mx6Note
+                        button6Record.maximum = button6MaximumRecord
+                        recordInfo.button6 = button6Record
+                        button8NormalRecord.rank = oldRecord.nm8Rank == "-" ? "" : oldRecord.nm8Rank
+                        button8NormalRecord.rate = oldRecord.nm8Rate.rateConvertToDouble
+                        button8NormalRecord.note = oldRecord.nm8Note == "-" ? "" : oldRecord.nm8Note
+                        button8Record.normal = button8NormalRecord
+                        button8HardRecord.rank = oldRecord.hd8Rank == "-" ? "" : oldRecord.hd8Rank
+                        button8HardRecord.rate = oldRecord.hd8Rate.rateConvertToDouble
+                        button8HardRecord.note = oldRecord.hd8Note == "-" ? "" : oldRecord.hd8Note
+                        button8Record.hard = button8HardRecord
+                        button8MaximumRecord.rank = oldRecord.mx8Rank == "-" ? "" : oldRecord.mx8Rank
+                        button8MaximumRecord.rate = oldRecord.mx8Rate.rateConvertToDouble
+                        button8MaximumRecord.note = oldRecord.mx8Note == "-" ? "" : oldRecord.mx8Note
+                        button8Record.maximum = button8MaximumRecord
+                        recordInfo.button8 = button8Record
                     } else {
-                        let recordButton = NewRecordButtonInfo()
-                        let difficultyRecord = NewRecordDifficultyInfo()
-                        recordButton.normal = difficultyRecord
-                        recordButton.hard = difficultyRecord
-                        recordButton.maximum = difficultyRecord
-                        recordInfo.button4 = recordButton
-                        recordInfo.button5 = recordButton
-                        recordInfo.button6 = recordButton
-                        recordInfo.button8 = recordButton
+                        button4Record.normal = button4NormalRecord
+                        button4Record.hard = button4HardRecord
+                        button4Record.maximum = button4MaximumRecord
+                        button5Record.normal = button5NormalRecord
+                        button5Record.hard = button5HardRecord
+                        button5Record.maximum = button5MaximumRecord
+                        button6Record.normal = button6NormalRecord
+                        button6Record.hard = button6HardRecord
+                        button6Record.maximum = button6MaximumRecord
+                        button8Record.normal = button8NormalRecord
+                        button8Record.hard = button8HardRecord
+                        button8Record.maximum = button8MaximumRecord
+                        recordInfo.button4 = button4Record
+                        recordInfo.button5 = button5Record
+                        recordInfo.button6 = button6Record
+                        recordInfo.button8 = button8Record
                     }
                     NewRecordInfo.add(recordInfo)
                 }

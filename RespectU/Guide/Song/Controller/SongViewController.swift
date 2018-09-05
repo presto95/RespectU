@@ -129,7 +129,7 @@ extension SongViewController {
         for viewController in songViewControllers {
             viewController.favoriteButton = button
         }
-        self.selectedButtonLabel.text = button
+        self.selectedButtonLabel.text = button.uppercased()
     }
     
     private func reloadAllTableViews() {

@@ -272,10 +272,7 @@ extension PerformanceViewController: SkillLevelCellDelegate {
         .present(to: self)
         
     }
-    func touchUpTop50Button(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
-        self.present(vc, animated: true)
-    }
+    
     func touchUpRankingButton(_ sender: UIButton) {
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if id.isEmpty {
@@ -284,7 +281,10 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                 .action(title: "OK".localized)
                 .present(to: self)
         } else {
-            
+            UIAlertController
+                .alert(title: "", message: "In Progress".localized)
+                .action(title: "OK".localized)
+                .present(to: self)
         }
 //        if !Reachability.isConnectedToNetwork() {
 //            UIAlertController
@@ -305,6 +305,11 @@ extension PerformanceViewController: SkillLevelCellDelegate {
 //                .present(to: self)
 //        }
     }
+    
+    func touchUpTop50Button(_ sender: UIButton) {
+        guard let vc = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
+        self.present(vc, animated: true)
+    }
 }
 
 extension PerformanceViewController: SummaryCellDelegate {
@@ -324,7 +329,7 @@ extension PerformanceViewController {
         if #available(iOS 10.3, *) {
             let appOpenCount = UserDefaults.standard.integer(forKey: "appOpenCount")
             UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
-            if UserDefaults.standard.integer(forKey: "appOpenCount") % 5 == 0 {
+            if UserDefaults.standard.integer(forKey: "appOpenCount") % 10 == 0 {
                 SKStoreReviewController.requestReview()
                 
             }

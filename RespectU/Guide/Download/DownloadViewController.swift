@@ -133,17 +133,39 @@ extension DownloadViewController {
                 recordInfo.title?.english = downloadedSong.title.english
                 recordInfo.title?.korean = downloadedSong.title.korean
                 recordInfo.series = downloadedSong.series
-                let recordButton = NewRecordButtonInfo()
-                let difficultyRecord = NewRecordDifficultyInfo()
-                recordButton.normal = difficultyRecord
-                recordButton.hard = difficultyRecord
-                recordButton.maximum = difficultyRecord
-                recordInfo.button4 = recordButton
-                recordInfo.button5 = recordButton
-                recordInfo.button6 = recordButton
-                recordInfo.button8 = recordButton
+                let button4Record = NewRecordButtonInfo()
+                let button5Record = NewRecordButtonInfo()
+                let button6Record = NewRecordButtonInfo()
+                let button8Record = NewRecordButtonInfo()
+                let button4NormalRecord = NewRecordDifficultyInfo()
+                let button4HardRecord = NewRecordDifficultyInfo()
+                let button4MaximumRecord = NewRecordDifficultyInfo()
+                let button5NormalRecord = NewRecordDifficultyInfo()
+                let button5HardRecord = NewRecordDifficultyInfo()
+                let button5MaximumRecord = NewRecordDifficultyInfo()
+                let button6NormalRecord = NewRecordDifficultyInfo()
+                let button6HardRecord = NewRecordDifficultyInfo()
+                let button6MaximumRecord = NewRecordDifficultyInfo()
+                let button8NormalRecord = NewRecordDifficultyInfo()
+                let button8HardRecord = NewRecordDifficultyInfo()
+                let button8MaximumRecord = NewRecordDifficultyInfo()
+                button4Record.normal = button4NormalRecord
+                button4Record.hard = button4HardRecord
+                button4Record.maximum = button4MaximumRecord
+                button5Record.normal = button5NormalRecord
+                button5Record.hard = button5HardRecord
+                button5Record.maximum = button5MaximumRecord
+                button6Record.normal = button6NormalRecord
+                button6Record.hard = button6HardRecord
+                button6Record.maximum = button6MaximumRecord
+                button8Record.normal = button8NormalRecord
+                button8Record.hard = button8HardRecord
+                button8Record.maximum = button8MaximumRecord
+                recordInfo.button4 = button4Record
+                recordInfo.button5 = button5Record
+                recordInfo.button6 = button6Record
+                recordInfo.button8 = button8Record
                 NewRecordInfo.add(recordInfo)
-                
             }
         }
         finishesSong = true

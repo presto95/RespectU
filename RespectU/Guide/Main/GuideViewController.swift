@@ -13,7 +13,7 @@ import MessageUI
 class GuideViewController: UIViewController {
 
     private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favorite"], ["download", "upload", "email", "radio", "credit", "rate"]]
-    private let sectionHeaderTitles = ["Guide for DJMAX RESPECT", "Personal Setting", "More"]
+    private let sectionHeaderTitles = ["GUIDE FOR DJMAX RESPECT", "PERSONAL SETTING", "MORE"]
     private let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["Download From Server", "Upload To Server", "Send Email to Developer", "DJMAX Radio Station", "Credit", "Rate This App"]]
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var recordButton: UIButton!
@@ -77,6 +77,7 @@ extension GuideViewController: UICollectionViewDataSource {
         cell.setProperties(icon, description)
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(section){
         case 0:
@@ -89,11 +90,13 @@ extension GuideViewController: UICollectionViewDataSource {
             return 0
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "guideSection", for: indexPath) as? GuideReusableView else { return UICollectionReusableView() }
         sectionHeader.setProperties(self.sectionHeaderTitles[indexPath.section].localized)
         return sectionHeader
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -104,10 +107,12 @@ extension GuideViewController: UICollectionViewDelegate {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GuideCell else { return }
         cell.becomeHighlighted()
     }
+    
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? GuideCell else { return }
         cell.becomeUnhighlighted()
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         switch indexPath.section {
@@ -238,12 +243,15 @@ extension GuideViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 80, height: 120)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }

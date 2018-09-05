@@ -64,7 +64,7 @@ class DownloadViewController: UIViewController {
         self.downloadDataLabel.text = "Update with latest data.".localized
         self.downloadRecordLabel.text = "Get exported performance record data.".localized
         self.downloadDataButton.setTitle("Download".localized, for: [])
-        self.downloadRecordButton.setTitle("Download", for: [])
+        self.downloadRecordButton.setTitle("Download".localized, for: [])
         self.downloadDataButton.addTarget(self, action: #selector(touchUpDownloadDataButton(_:)), for: .touchUpInside)
         self.downloadRecordButton.addTarget(self, action: #selector(touchUpDownloadRecordButton(_:)), for: .touchUpInside)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
@@ -172,6 +172,7 @@ extension DownloadViewController {
                 NewRecordInfo.add(recordInfo)
             }
         }
+        Skill.refresh()
         finishesSong = true
         plusDataCount()
     }

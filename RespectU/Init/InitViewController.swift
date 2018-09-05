@@ -181,55 +181,71 @@ extension InitViewController {
                     if let oldRecord = oldResults.filter("title = %@ OR title = %@", result.title?.english ?? "", result.title?.korean ?? "").first {
                         button4NormalRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
                         button4NormalRecord.rate = oldRecord.nm4Rate.rateConvertToDouble
-                        button4NormalRecord.note = oldRecord.nm4Note == "-" ? "" : oldRecord.nm4Note
+                        button4NormalRecord.note = oldRecord.nm4Note.noteAbbreviation
                         button4Record.normal = button4NormalRecord
                         button4HardRecord.rank = oldRecord.hd4Rank == "-" ? "" : oldRecord.hd4Rank
                         button4HardRecord.rate = oldRecord.hd4Rate.rateConvertToDouble
-                        button4HardRecord.note = oldRecord.hd4Note == "-" ? "" : oldRecord.hd4Note
+                        button4HardRecord.note = oldRecord.hd4Note.noteAbbreviation
                         button4Record.hard = button4HardRecord
                         button4MaximumRecord.rank = oldRecord.mx4Rank == "-" ? "" : oldRecord.mx4Rank
                         button4MaximumRecord.rate = oldRecord.mx4Rate.rateConvertToDouble
-                        button4MaximumRecord.note = oldRecord.mx4Note == "-" ? "" : oldRecord.mx4Note
+                        button4MaximumRecord.note = oldRecord.mx4Note.noteAbbreviation
                         button4Record.maximum = button4MaximumRecord
+                        button4Record.skillPoint = oldRecord.button4SkillPoint
+                        button4Record.skillPointDifficulty = oldRecord.button4HighestSkillPointDifficulty.lowercased()
+                        button4Record.skillPointRate = oldRecord.button4HighestSkillPointRate.rateConvertToDouble
+                        button4Record.skillPointNote = oldRecord.button4HighestSkillPointNote.noteAbbreviation
                         recordInfo.button4 = button4Record
                         button5NormalRecord.rank = oldRecord.nm5Rank == "-" ? "" : oldRecord.nm5Rank
                         button5NormalRecord.rate = oldRecord.nm5Rate.rateConvertToDouble
-                        button5NormalRecord.note = oldRecord.nm5Note == "-" ? "" : oldRecord.nm5Note
+                        button5NormalRecord.note = oldRecord.nm5Note.noteAbbreviation
                         button5Record.normal = button5NormalRecord
                         button5HardRecord.rank = oldRecord.hd5Rank == "-" ? "" : oldRecord.hd5Rank
                         button5HardRecord.rate = oldRecord.hd5Rate.rateConvertToDouble
-                        button5HardRecord.note = oldRecord.hd5Note == "-" ? "" : oldRecord.hd5Note
+                        button5HardRecord.note = oldRecord.hd5Note.noteAbbreviation
                         button5Record.hard = button5HardRecord
                         button5MaximumRecord.rank = oldRecord.mx5Rank == "-" ? "" : oldRecord.mx5Rank
                         button5MaximumRecord.rate = oldRecord.mx5Rate.rateConvertToDouble
-                        button5MaximumRecord.note = oldRecord.mx5Note == "-" ? "" : oldRecord.mx5Note
+                        button5MaximumRecord.note = oldRecord.mx5Note.noteAbbreviation
                         button5Record.maximum = button5MaximumRecord
+                        button5Record.skillPoint = oldRecord.button5SkillPoint
+                        button5Record.skillPointDifficulty = oldRecord.button5HighestSkillPointDifficulty.lowercased()
+                        button5Record.skillPointRate = oldRecord.button5HighestSkillPointRate.rateConvertToDouble
+                        button5Record.skillPointNote = oldRecord.button5HighestSkillPointNote.noteAbbreviation
                         recordInfo.button5 = button5Record
                         button6NormalRecord.rank = oldRecord.nm6Rank == "-" ? "" : oldRecord.nm6Rank
                         button6NormalRecord.rate = oldRecord.nm6Rate.rateConvertToDouble
-                        button6NormalRecord.note = oldRecord.nm6Note == "-" ? "" : oldRecord.nm6Note
+                        button6NormalRecord.note = oldRecord.nm6Note.noteAbbreviation
                         button6Record.normal = button6NormalRecord
                         button6HardRecord.rank = oldRecord.hd6Rank == "-" ? "" : oldRecord.hd6Rank
                         button6HardRecord.rate = oldRecord.hd6Rate.rateConvertToDouble
-                        button6HardRecord.note = oldRecord.hd6Note == "-" ? "" : oldRecord.hd6Note
+                        button6HardRecord.note = oldRecord.hd6Note.noteAbbreviation
                         button6Record.hard = button6HardRecord
                         button6MaximumRecord.rank = oldRecord.mx6Rank == "-" ? "" : oldRecord.mx6Rank
                         button6MaximumRecord.rate = oldRecord.mx6Rate.rateConvertToDouble
-                        button6MaximumRecord.note = oldRecord.mx6Note == "-" ? "" : oldRecord.mx6Note
+                        button6MaximumRecord.note = oldRecord.mx6Note.noteAbbreviation
                         button6Record.maximum = button6MaximumRecord
+                        button6Record.skillPoint = oldRecord.button6SkillPoint
+                        button6Record.skillPointDifficulty = oldRecord.button6HighestSkillPointDifficulty.lowercased()
+                        button6Record.skillPointRate = oldRecord.button6HighestSkillPointRate.rateConvertToDouble
+                        button6Record.skillPointNote = oldRecord.button6HighestSkillPointNote.noteAbbreviation
                         recordInfo.button6 = button6Record
                         button8NormalRecord.rank = oldRecord.nm8Rank == "-" ? "" : oldRecord.nm8Rank
                         button8NormalRecord.rate = oldRecord.nm8Rate.rateConvertToDouble
-                        button8NormalRecord.note = oldRecord.nm8Note == "-" ? "" : oldRecord.nm8Note
+                        button8NormalRecord.note = oldRecord.nm8Note.noteAbbreviation
                         button8Record.normal = button8NormalRecord
                         button8HardRecord.rank = oldRecord.hd8Rank == "-" ? "" : oldRecord.hd8Rank
                         button8HardRecord.rate = oldRecord.hd8Rate.rateConvertToDouble
-                        button8HardRecord.note = oldRecord.hd8Note == "-" ? "" : oldRecord.hd8Note
+                        button8HardRecord.note = oldRecord.hd8Note.noteAbbreviation
                         button8Record.hard = button8HardRecord
                         button8MaximumRecord.rank = oldRecord.mx8Rank == "-" ? "" : oldRecord.mx8Rank
                         button8MaximumRecord.rate = oldRecord.mx8Rate.rateConvertToDouble
-                        button8MaximumRecord.note = oldRecord.mx8Note == "-" ? "" : oldRecord.mx8Note
+                        button8MaximumRecord.note = oldRecord.mx8Note.noteAbbreviation
                         button8Record.maximum = button8MaximumRecord
+                        button8Record.skillPoint = oldRecord.button8SkillPoint
+                        button8Record.skillPointDifficulty = oldRecord.button8HighestSkillPointDifficulty.lowercased()
+                        button8Record.skillPointRate = oldRecord.button8HighestSkillPointRate.rateConvertToDouble
+                        button8Record.skillPointNote = oldRecord.button8HighestSkillPointNote.noteAbbreviation
                         recordInfo.button8 = button8Record
                     } else {
                         button4Record.normal = button4NormalRecord
@@ -251,6 +267,7 @@ extension InitViewController {
                     }
                     NewRecordInfo.add(recordInfo)
                 }
+                Skill.refresh()
                 guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                 next.modalTransitionStyle = .crossDissolve
                 self.present(next, animated: true, completion: nil)

@@ -10,7 +10,7 @@ import Foundation
 import SwiftKeychainWrapper
 
 class API {
-    static let baseURL = "http://localhost:3000"
+    static let baseURL = "http://13.209.166.210:3000"
     private static let jsonDecoder = JSONDecoder()
 }
 
@@ -154,12 +154,7 @@ extension API {
     static func uploadNickname(id: String, nickname: String) {
         let parameters = ["id": id, "nickname": nickname]
         Network.post("\(baseURL)/users/nickname", parameters: parameters, successHandler: { (data, statusCode) in
-            do {
-                let results = try jsonDecoder.decode(NicknameResponse.self, from: data)
-                NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["nickname": results])
-            } catch {
-                NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])
-            }
+            NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["statusCode": statusCode])
             
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])

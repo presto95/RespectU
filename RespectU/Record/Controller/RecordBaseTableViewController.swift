@@ -81,6 +81,7 @@ extension RecordBaseTableViewController {
             bottomConstraint = self.recordView.bottomAnchor.constraint(equalTo: recordViewController.view.bottomAnchor, constant: -20)
         }
         NSLayoutConstraint.activate([widthConstraint, heightConstraint, centerXConstraint, bottomConstraint])
+        self.recordView.updateRankingAndSkillPointLabel(object, button: favoriteButton)
         self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
         recordViewController.scrollViewBottomConstraint.constant += 210
         recordViewController.view.layoutIfNeeded()
@@ -199,19 +200,16 @@ extension RecordBaseTableViewController: RecordViewDelegate {
             .action(title: "-") { [weak self] _ in
                 self?.setNote(object, note: Note.none, difficulty: difficulty, button: button)
                 self?.recordView.reloadButtonsAndLabels(object, button: button)
-                print(object)
             }
             .action(title: Note.maxCombo) { [weak self] _ in
                 self?.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
                 self?.recordView.reloadButtonsAndLabels(object, button: button)
-                print(object)
             }
             .action(title: Note.perfectPlay) { [weak self] _ in
                 self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
                 self?.setRate(object, rate: 100, difficulty: difficulty, button: button)
                 self?.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)
                 self?.recordView.reloadButtonsAndLabels(object, button: button)
-                print(object)
             }
             .action(.cancel, title: "Cancel".localized)
             .present(to: self)

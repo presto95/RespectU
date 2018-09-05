@@ -21,6 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             config.fileURL = fileURL.deletingLastPathComponent().appendingPathComponent("new.realm")
             Realm.Configuration.defaultConfiguration = config
         }
+        //개발용
+//        KeychainWrapper.standard.set("", forKey: "id")
+//        do {
+//            try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
         window = UIWindow(frame: UIScreen.main.bounds)
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if !id.isEmpty {
@@ -29,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window?.rootViewController = controller
             } else {
                 UserDefaults.standard.set(450, forKey: "bpm")
-                let controller = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController")
+                let controller = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.classNameToString)
                 window?.rootViewController = controller
             }
         } else {
@@ -38,6 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         window?.makeKeyAndVisible()
         UIApplication.shared.isStatusBarHidden = false
+        if UserDefaults.standard.double(forKey: "bpm") == 0 {
+            UserDefaults.standard.set(450, forKey: "bpm")
+        }
+        if let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") {
+            UserDefaults.standard.set(favoriteButton.lowercased(), forKey: "favoriteButton")
+        }
         return true
     }
 

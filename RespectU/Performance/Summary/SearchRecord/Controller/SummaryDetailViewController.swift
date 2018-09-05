@@ -51,15 +51,49 @@ class SummaryDetailViewController: UIViewController {
                             switch index {
                             case 0:
                                 button4Array[11] += 1
+                                rateArray[0] += recordKeyPath.rate
                             case 1:
                                 button5Array[11] += 1
+                                rateArray[1] += recordKeyPath.rate
                             case 2:
                                 button6Array[11] += 1
+                                rateArray[2] += recordKeyPath.rate
                             case 3:
                                 button8Array[11] += 1
+                                rateArray[3] += recordKeyPath.rate
                             default:
                                 break
                             }
+                        }
+                        switch recordKeyPath.note {
+                        case Note.maxCombo:
+                            switch index {
+                            case 0:
+                                button4Array[8] += 1
+                            case 1:
+                                button5Array[8] += 1
+                            case 2:
+                                button6Array[8] += 1
+                            case 3:
+                                button8Array[8] += 1
+                            default:
+                                break
+                            }
+                        case Note.perfectPlay:
+                            switch index {
+                            case 0:
+                                button4Array[9] += 1
+                            case 1:
+                                button5Array[9] += 1
+                            case 2:
+                                button6Array[9] += 1
+                            case 3:
+                                button8Array[9] += 1
+                            default:
+                                break
+                            }
+                        default:
+                            break
                         }
                         switch recordKeyPath.rate {
                         case 99.8...100:
@@ -177,6 +211,10 @@ class SummaryDetailViewController: UIViewController {
         for i in 0..<12 {
             allArray[i] = button4Array[i] + button5Array[i] + button6Array[i] + button8Array[i]
         }
+        rateArray[0] = rateArray[0] / Double(button4Array[11])
+        rateArray[1] = rateArray[1] / Double(button5Array[11])
+        rateArray[2] = rateArray[2] / Double(button6Array[11])
+        rateArray[3] = rateArray[3] / Double(button8Array[11])
         rateArray[4] = (rateArray[0] + rateArray[1] + rateArray[2] + rateArray[3]) / 4
         let count = button4StackView.arrangedSubviews.count
         for index in 1..<count - 1 {
@@ -196,11 +234,11 @@ class SummaryDetailViewController: UIViewController {
         guard let button6AverageLabel = button6StackView.arrangedSubviews.last as? UILabel else { return }
         guard let button8AverageLabel = button8StackView.arrangedSubviews.last as? UILabel else { return }
         guard let allAverageLabel = allStackView.arrangedSubviews.last as? UILabel else { return }
-        button4AverageLabel.text = "\(rateArray[0])%"
-        button5AverageLabel.text = "\(rateArray[1])%"
-        button6AverageLabel.text = "\(rateArray[2])%"
-        button8AverageLabel.text = "\(rateArray[3])%"
-        allAverageLabel.text = "\(rateArray[4])%"
+        button4AverageLabel.text = String(format: "%05.2f%%", rateArray[0])
+        button5AverageLabel.text = String(format: "%05.2f%%", rateArray[1])
+        button6AverageLabel.text = String(format: "%05.2f%%", rateArray[2])
+        button8AverageLabel.text = String(format: "%05.2f%%", rateArray[3])
+        allAverageLabel.text = String(format: "%05.2f%%", rateArray[4])
     }
     
     @IBAction func touchUpCancelButton(_ sender: UIButton) {

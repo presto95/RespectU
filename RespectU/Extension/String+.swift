@@ -94,6 +94,16 @@ extension String{
         }
     }
     
+    var noteAbbreviation: String {
+        if self == "PERFECT PLAY" {
+            return Note.perfectPlay
+        } else if self == "MAX COMBO" {
+            return Note.maxCombo
+        } else {
+            return ""
+        }
+    }
+    
     var buttonExpansion: String? {
         switch self {
         case Buttons.button4:

@@ -156,3 +156,11 @@
 "PERSONAL SETTING" = "개인 설정";
 "MORE" = "더보기";
 "Coming soon." = "준비중입니다.";
+"Update with latest data." = "최신 데이터로 갱신합니다.";
+"Login / Logout" = "로그인 / 로그아웃";
+"Log In Succeeded" = "로그인 성공";
+"Log Out Completed" = "로그아웃 완료";
+"Log In Failure" = "로그인 실패";
+"Enter All." = "모두 입력하세요.";
+"It is registered." = "등록된 사용자입니다.";
+"The information related to the set value is displayed first." = "설정값과 관련된 정보가 먼저 표시됩니다.";

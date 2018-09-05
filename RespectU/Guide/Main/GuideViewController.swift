@@ -150,7 +150,7 @@ extension GuideViewController: UICollectionViewDelegate {
                 if !id.isEmpty {
                     KeychainWrapper.standard.set("", forKey: "id")
                     UIAlertController
-                        .alert(title: "", message: "Log Out Completed")
+                        .alert(title: "", message: "Log Out Completed".localized)
                         .action(title: "OK".localized)
                         .present(to: self)
                 } else {
@@ -181,7 +181,7 @@ extension GuideViewController: UICollectionViewDelegate {
             case 2:
                 let key = "favoriteButton"
                 let favorite = UserDefaults.standard.string(forKey: key)
-                let message = "Current".localized + " : \(favorite?.buttonExpansion ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
+                let message = "Current".localized + " : \(favorite?.uppercased() ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
                 UIAlertController
                     .alert(title: "My Favorite Button".localized, message: message)
                     .action(title: Buttons.button4.uppercased()) { (action) in

@@ -37,8 +37,20 @@ class SignUpViewController: UIViewController {
         self.nicknameTextField.placeholder = "Nickname".localized
         self.signUpButton.setTitle("Sign Up".localized, for: [])
         self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpSuperView(_:)))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSignUp(_:)), name: .didReceiveSignUp, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSignUp(_:)), name: .errorReceiveSignUp, object: nil)
+    }
+    
+    @IBAction func touchUpPreviousButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension SignUpViewController {
+    @objc func touchUpSuperView(_ recognizer: UIGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     @objc func didReceiveSignUp(_ notification: Notification) {
@@ -48,7 +60,7 @@ class SignUpViewController: UIViewController {
         if statusCode == 201 {
             message = "Success".localized
         } else if statusCode == 409 {
-            message = "등록된 사용자입니다.".localized
+            message = "It is registered.".localized
             isRegistered = true
         } else {
             message = ""
@@ -82,14 +94,10 @@ class SignUpViewController: UIViewController {
             API.requestSignUp(id: id, password: password, nickname: nickname)
         } else {
             UIAlertController
-                .alert(title: "", message: "모두 입력하세요.".localized)
+                .alert(title: "", message: "Enter All.".localized)
                 .action(title: "OK".localized)
                 .present(to: self)
         }
-    }
-    
-    @IBAction func touchUpPreviousButton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
     }
 }
 

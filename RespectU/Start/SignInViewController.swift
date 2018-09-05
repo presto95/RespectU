@@ -39,6 +39,8 @@ class SignInViewController: UIViewController {
         self.signInButton.addTarget(self, action: #selector(touchUpSignInButton(_:)), for: .touchUpInside)
         self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
         self.skipButton.addTarget(self, action: #selector(touchUpSkipButton(_:)), for: .touchUpInside)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpSuperView(_:)))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNickname(_:)), name: .didReceiveNickname, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveNickname(_:)), name: .errorReceiveNickname, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSignIn(_:)), name: .didReceiveSignIn, object: nil)
@@ -47,6 +49,10 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController {
+    @objc func touchUpSuperView(_ recognizer: UIGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     @objc func didReceiveSignIn(_ notification: Notification) {
         guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
         if statusCode == 200 {
@@ -105,14 +111,14 @@ extension SignInViewController {
             API.requestSignIn(id: id, password: password)
         } else {
             UIAlertController
-                .alert(title: "", message: "모두 입력하세요.".localized)
+                .alert(title: "", message: "Enter All.".localized)
                 .action(title: "OK".localized)
                 .present(to: self)
         }
     }
     
     @objc func touchUpSignUpButton(_ sender: UIButton) {
-        guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignUpViewController") else { return }
+        guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: SignUpViewController.classNameToString) else { return }
         self.navigationController?.pushViewController(next, animated: true)
     }
     
@@ -128,7 +134,7 @@ extension SignInViewController {
 extension SignInViewController {
     private func goToNextViewController() {
         if TipInfo.fetch().count == 0 {
-            guard let next = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
+            guard let next = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.classNameToString) else { return }
             next.modalTransitionStyle = .crossDissolve
             self.present(next, animated: true, completion: nil)
         } else {
@@ -147,7 +153,7 @@ extension SignInViewController {
                     controller.modalTransitionStyle = .crossDissolve
                     self?.present(controller, animated: true, completion: nil)
                 } else {
-                    guard let controller = UIViewController.instantiate(storyboard: "Init", identifier: "InitViewController") else { return }
+                    guard let controller = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.classNameToString) else { return }
                     controller.modalTransitionStyle = .crossDissolve
                     self?.present(controller, animated: true, completion: nil)
                 }

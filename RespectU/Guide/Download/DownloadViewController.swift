@@ -270,8 +270,7 @@ extension DownloadViewController {
     
     @objc func didReceiveVersion(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
-        let clientVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-        if userInfo.clientVersion != clientVersion {
+        if userInfo.clientVersion != version {
             DispatchQueue.main.async {
                 UIAlertController
                     .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)

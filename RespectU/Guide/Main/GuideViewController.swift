@@ -224,10 +224,9 @@ extension GuideViewController: UICollectionViewDelegate {
                 }
             case 4:
                 guard let versionInfo = VersionInfo.fetch().first else { return }
-                let clientversion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
                 let gameVersion = versionInfo.gameVersion
                 let serverVersion = versionInfo.serverVersion
-                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT \(gameVersion)\nRespectU (iOS) \(clientversion)\nRespectU (Server) \(serverVersion)\n\nApp icon by icons8"
+                let message = "PSN ID : Presto_95\n\nDJMAX RESPECT \(gameVersion)\nRespectU (iOS) \(version)\nRespectU (Server) \(serverVersion)\n\nApp icon by icons8"
                 UIAlertController
                     .alert(title: "CREDITS".localized, message: message)
                     .action(title: "OK".localized)

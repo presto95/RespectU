@@ -9,7 +9,6 @@
 import RealmSwift
 
 class VersionInfo: Object {
-    @objc dynamic var clientVersion: String = ""
     @objc dynamic var serverVersion: String = ""
     @objc dynamic var gameVersion: String = ""
     
@@ -21,7 +20,6 @@ class VersionInfo: Object {
     static func add(_ versionInfo: VersionResponse) {
         let realm = try! Realm()
         let object = VersionInfo()
-        object.clientVersion = versionInfo.clientVersion
         object.serverVersion = versionInfo.serverVersion
         object.gameVersion = versionInfo.gameVersion
         try! realm.write {
@@ -32,7 +30,6 @@ class VersionInfo: Object {
     static func update(_ object: VersionResponse, to versionInfo: VersionInfo) {
         let realm = try! Realm()
         try! realm.write {
-            versionInfo.clientVersion = object.clientVersion
             versionInfo.serverVersion = object.serverVersion
             versionInfo.gameVersion = object.gameVersion
         }

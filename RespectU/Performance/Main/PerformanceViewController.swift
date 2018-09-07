@@ -91,8 +91,7 @@ extension PerformanceViewController {
     @objc func didReceiveVersion(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
         guard let versionInfo = VersionInfo.fetch().first else { return }
-        let clientVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-        if clientVersion != userInfo.clientVersion {
+        if version != userInfo.clientVersion {
             DispatchQueue.main.async {
                 UIAlertController
                     .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)

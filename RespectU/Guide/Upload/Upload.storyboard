@@ -27,7 +27,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwk-7Z-4Mb">
-                                <rect key="frame" x="334" y="38" width="25" height="25"/>
+                                <rect key="frame" x="319" y="30.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="18r-XX-Fp1"/>
+                                    <constraint firstAttribute="width" constant="40" id="fd9-jn-cSY"/>
+                                </constraints>
                                 <state key="normal" image="fail"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="aAu-1X-pQK" eventType="touchUpInside" id="Byl-G7-8Eb"/>

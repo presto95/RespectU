@@ -201,11 +201,11 @@ extension RecordBaseTableViewController: RecordViewDelegate {
                 self?.setNote(object, note: Note.none, difficulty: difficulty, button: button)
                 self?.recordView.reloadButtonsAndLabels(object, button: button)
             }
-            .action(title: Note.maxCombo) { [weak self] _ in
+            .action(title: Note.maxCombo.noteExpansion) { [weak self] _ in
                 self?.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
                 self?.recordView.reloadButtonsAndLabels(object, button: button)
             }
-            .action(title: Note.perfectPlay) { [weak self] _ in
+            .action(title: Note.perfectPlay.noteExpansion) { [weak self] _ in
                 self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
                 self?.setRate(object, rate: 100, difficulty: difficulty, button: button)
                 self?.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)

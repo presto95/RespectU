@@ -91,23 +91,46 @@ extension PerformanceViewController {
     @objc func didReceiveVersion(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
         guard let versionInfo = VersionInfo.fetch().first else { return }
-        if userInfo.serverVersion != versionInfo.serverVersion {
+        let clientVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+        if clientVersion != userInfo.clientVersion {
             DispatchQueue.main.async {
                 UIAlertController
-                    .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
-                    .action(title: "OK".localized, handler: { [weak self] (action) in
-                        NotificationCenter.default.removeObserver(self as Any)
-                        guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: "DownloadViewController") else { return }
-                        self?.present(controller, animated: true, completion: {
-                        })
+                    .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)
+                    .action(title: "Update".localized, handler: { (action) in
+                        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1291664067") else { return }
+                        guard #available(iOS 10, *) else {
+                            UIApplication.shared.openURL(url)
+                            return
+                        }
+                        UIApplication.shared.open(url, options: [:])
                     })
                     .action(.cancel, title: "Cancel".localized)
                     .present(to: self)
             }
+        } else {
+            if userInfo.serverVersion != versionInfo.serverVersion {
+                DispatchQueue.main.async {
+                    UIAlertController
+                        .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
+                        .action(title: "OK".localized, handler: { [weak self] (action) in
+                            NotificationCenter.default.removeObserver(self as Any)
+                            guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
+                            self?.present(controller, animated: true, completion: {
+                            })
+                        })
+                        .action(.cancel, title: "Cancel".localized)
+                        .present(to: self)
+                }
+            }
         }
+        NotificationCenter.default.removeObserver(self, name: .didReceiveVersions, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .errorReceiveVersions, object: nil)
     }
     
-    @objc func errorReceiveVersion(_ notification: Notification) {}
+    @objc func errorReceiveVersion(_ notification: Notification) {
+        NotificationCenter.default.removeObserver(self, name: .didReceiveVersions, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .errorReceiveVersions, object: nil)
+    }
     
     @objc func didReceiveUploadNickname(_ notification: Notification) {
         guard let nickname = notification.userInfo?["nickname"] as? NicknameResponse else { return }

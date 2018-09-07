@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var config = Realm.Configuration()
         if let fileURL = config.fileURL {
             config.fileURL = fileURL.deletingLastPathComponent().appendingPathComponent("new.realm")
+            config.schemaVersion = 1
+            config.migrationBlock = { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    
+                }
+            }
             Realm.Configuration.defaultConfiguration = config
         }
         //개발용

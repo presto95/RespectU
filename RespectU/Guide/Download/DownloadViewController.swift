@@ -15,6 +15,18 @@ class DownloadViewController: UIViewController {
     @IBOutlet weak var downloadDataButton: UIButton!
     @IBOutlet weak var downloadRecordLabel: UILabel!
     @IBOutlet weak var downloadRecordButton: UIButton!
+    var isValidVersion: Bool = false {
+        didSet {
+            if isValidVersion {
+                showIndicator()
+                API.requestSongs()
+                API.requestMissions()
+                API.requestTrophies()
+                API.requestAchievements()
+                API.requestTips()
+            }
+        }
+    }
     var finishesSong: Bool = false
     var finishesMission: Bool = false
     var finishesTrophy: Bool = false
@@ -65,8 +77,11 @@ class DownloadViewController: UIViewController {
         self.downloadRecordLabel.text = "Get exported performance record data.".localized
         self.downloadDataButton.setTitle("Download".localized, for: [])
         self.downloadRecordButton.setTitle("Download".localized, for: [])
+        
         self.downloadDataButton.addTarget(self, action: #selector(touchUpDownloadDataButton(_:)), for: .touchUpInside)
         self.downloadRecordButton.addTarget(self, action: #selector(touchUpDownloadRecordButton(_:)), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersion(_:)), name: .didReceiveVersions, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersion(_:)), name: .errorReceiveVersions, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMissions(_:)), name: .didReceiveMissions, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophies(_:)), name: .didReceiveTrophies, object: nil)
@@ -84,12 +99,6 @@ class DownloadViewController: UIViewController {
     }
     
     @objc func touchUpDownloadDataButton(_ sender: UIButton) {
-        showIndicator()
-        API.requestSongs()
-        API.requestMissions()
-        API.requestTrophies()
-        API.requestAchievements()
-        API.requestTips()
         API.requestVersions()
     }
     
@@ -259,6 +268,29 @@ extension DownloadViewController {
         plusRecordCount()
     }
     
+    @objc func didReceiveVersion(_ notification: Notification) {
+        guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
+        let clientVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+        if userInfo.clientVersion != clientVersion {
+            DispatchQueue.main.async {
+                UIAlertController
+                    .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)
+                    .action(title: "Update".localized, handler: { (action) in
+                        guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1291664067") else { return }
+                        guard #available(iOS 10, *) else {
+                            UIApplication.shared.openURL(url)
+                            return
+                        }
+                        UIApplication.shared.open(url, options: [:])
+                    })
+                    .action(.cancel, title: "Cancel".localized)
+                    .present(to: self)
+            }
+        } else {
+            isValidVersion = true
+        }
+    }
+    
     @objc func errorReceiveSongs(_ notification: Notification) {
         plusDataCount()
     }
@@ -285,6 +317,10 @@ extension DownloadViewController {
     
     @objc func errorReceiveRecords(_ notification: Notification) {
         plusRecordCount()
+    }
+    
+    @objc func errorReceiveVersion(_ notification: Notification) {
+        
     }
 }
 

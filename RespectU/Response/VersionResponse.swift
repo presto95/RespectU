@@ -9,6 +9,7 @@
 import Foundation
 
 struct VersionResponse: Codable {
+    let clientVersion: String
     let serverVersion: String
     let gameVersion: String
 }

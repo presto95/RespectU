@@ -14,17 +14,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchByNoteView" customModule="RespectU" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Detail Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4u-Gt-0PQ">
-                    <rect key="frame" x="16" y="0.0" width="129" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-F5-8OJ">
-                    <rect key="frame" x="209" y="31" width="150" height="40"/>
+                    <rect key="frame" x="209" y="0.0" width="150" height="40"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                     <state key="normal" title="PERFECT PLAYs">
                         <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,9 +34,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F5-e6-CVH">
-                    <rect key="frame" x="16" y="31" width="150" height="40"/>
+                    <rect key="frame" x="16" y="0.0" width="150" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="fFN-ga-c4t"/>
+                        <constraint firstAttribute="height" constant="40" id="qdt-p7-80P"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                     <state key="normal" title="No MAX COMBOs">
@@ -61,24 +55,21 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="2F5-e6-CVH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="8g9-Uf-p2u"/>
-                <constraint firstItem="2F5-e6-CVH" firstAttribute="top" secondItem="u4u-Gt-0PQ" secondAttribute="bottom" constant="13" id="A7o-F7-8Lc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fnz-F5-8OJ" secondAttribute="trailing" constant="16" id="AES-qO-lte"/>
-                <constraint firstItem="fnz-F5-8OJ" firstAttribute="height" secondItem="2F5-e6-CVH" secondAttribute="height" id="J9d-fX-84d"/>
-                <constraint firstItem="2F5-e6-CVH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="O2M-NR-VYv"/>
-                <constraint firstItem="fnz-F5-8OJ" firstAttribute="top" secondItem="2F5-e6-CVH" secondAttribute="top" id="Yjr-Mt-LZo"/>
-                <constraint firstItem="u4u-Gt-0PQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YrV-vT-vfI"/>
-                <constraint firstItem="u4u-Gt-0PQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="fxF-ST-gaZ"/>
-                <constraint firstItem="fnz-F5-8OJ" firstAttribute="width" secondItem="2F5-e6-CVH" secondAttribute="width" id="sG2-X5-noJ"/>
+                <constraint firstItem="fnz-F5-8OJ" firstAttribute="bottom" secondItem="2F5-e6-CVH" secondAttribute="bottom" id="8xs-Si-1oz"/>
+                <constraint firstItem="2F5-e6-CVH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="CTN-Hg-4EL"/>
+                <constraint firstItem="fnz-F5-8OJ" firstAttribute="width" secondItem="2F5-e6-CVH" secondAttribute="width" id="Gas-93-gcw"/>
+                <constraint firstItem="2F5-e6-CVH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="MZY-co-TgX"/>
+                <constraint firstItem="fnz-F5-8OJ" firstAttribute="top" secondItem="2F5-e6-CVH" secondAttribute="top" id="SgY-gF-VI8"/>
+                <constraint firstItem="2F5-e6-CVH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ulf-sH-NYh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fnz-F5-8OJ" secondAttribute="trailing" constant="16" id="pHe-4y-Gs8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="label" destination="u4u-Gt-0PQ" id="42x-SS-gCP"/>
                 <outlet property="noMaxComboButton" destination="2F5-e6-CVH" id="raO-Lm-tlF"/>
                 <outlet property="perfectPlayButton" destination="fnz-F5-8OJ" id="eoy-pQ-BMI"/>
             </connections>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="24.5" y="31"/>
         </view>
     </objects>
 </document>

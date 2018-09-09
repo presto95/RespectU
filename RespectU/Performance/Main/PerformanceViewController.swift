@@ -325,12 +325,12 @@ extension PerformanceViewController: SummaryCellDelegate {
     }
     
     func touchUpSearchButton(_ sender: UIButton) {
-        UIAlertController
-            .alert(title: "", message: "Coming soon.".localized)
-            .action(title: "OK".localized)
-            .present(to: self)
-//        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
-//        self.present(vc, animated: true)
+//        UIAlertController
+//            .alert(title: "", message: "Coming soon.".localized)
+//            .action(title: "OK".localized)
+//            .present(to: self)
+        guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
+        self.present(controller, animated: true)
     }
 }
 

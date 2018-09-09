@@ -13,9 +13,8 @@ protocol SearchByRateViewDelegate {
 }
 
 class SearchByRateView: UIView {
-
+    
     var delegate: SearchByRateViewDelegate?
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var lowerRateTextField: UITextField!
     @IBOutlet weak var upperRateTextField: UITextField!
     lazy var textFields: [UITextField] = {
@@ -24,7 +23,6 @@ class SearchByRateView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.text = "Rate Range (%)".localized
         lowerRateTextField.placeholder = "More Than".localized
         upperRateTextField.placeholder = "Below".localized
         for textField in textFields {

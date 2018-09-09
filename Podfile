@@ -9,7 +9,6 @@ target 'RespectU' do
   pod 'GaugeKit'
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'
-  pod 'AKPickerView-Swift', :git => 'https://github.com/Akkyie/AKPickerView-Swift.git'
   pod 'SwiftKeychainWrapper'
   # Pods for RespectU
 

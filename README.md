@@ -27,9 +27,9 @@
 
 [DZNEmptyDataSet](https://cocoapods.org/pods/DZNEmptyDataSet)
 
-[AKPickerView-Swift](https://cocoapods.org/pods/AKPickerView-Swift)
-
 [MarqueeLabel/Swift](https://cocoapods.org/pods/MarqueeLabel)
+
+[~~AKPickerView-Swift~~](https://cocoapods.org/pods/AKPickerView-Swift)
 
 [~~Firebase~~](https://cocoapods.org/pods/Firebase) 
 

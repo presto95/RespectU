@@ -15,13 +15,11 @@ protocol SearchByNoteViewDelegate {
 class SearchByNoteView: UIView {
 
     var delegate: SearchByNoteViewDelegate?
-    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var noMaxComboButton: UIButton!
     @IBOutlet weak var perfectPlayButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        label.text = "Select Detail Note".localized
         noMaxComboButton.setTitle("No MAX COMBOs".localized, for: .normal)
         perfectPlayButton.setTitle("PERFECT PLAYs".localized, for: .normal)
         initializeButtons()
@@ -34,7 +32,7 @@ class SearchByNoteView: UIView {
         perfectPlayButton.isSelected = false
         sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
-            sender.backgroundColor = UIColor.main
+            sender.backgroundColor = .main
         }
     }
     

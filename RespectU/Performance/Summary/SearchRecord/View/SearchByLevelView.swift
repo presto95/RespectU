@@ -7,23 +7,15 @@
 //
 
 import UIKit
-import AKPickerView_Swift
 
 class SearchByLevelView: UIView {
-
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var pickerView: AKPickerView!
+    
+    @IBOutlet weak var pickerView: UIPickerView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        pickerView.pickerViewStyle = .wheel
-        pickerView.selectItem(0)
+        pickerView.selectRow(0, inComponent: 0, animated: true)
         pickerView.layer.borderWidth = 2
         pickerView.layer.borderColor = UIColor.main.cgColor
-        pickerView.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        pickerView.highlightedFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        pickerView.viewDepth = UIScreen.main.bounds.width
-        pickerView.reloadData()
-        label.text = "Select Level".localized
     }
 }

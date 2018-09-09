@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -146,96 +145,6 @@
                                     <constraint firstAttribute="height" constant="60" id="h5x-8z-DUV"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLa-8u-u9K">
-                                <rect key="frame" x="16" y="88" width="97" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Search Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrC-Pp-4jJ">
-                                <rect key="frame" x="16" y="166" width="138" height="18"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-0v-GnB">
-                                <rect key="frame" x="17" y="116" width="60" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="7DF-vo-KMh"/>
-                                    <constraint firstAttribute="height" constant="30" id="Qej-fk-p4v"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="4B">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="1Y8-qT-f6J"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-j5-plt">
-                                <rect key="frame" x="145" y="194" width="85" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Rate">
-                                    <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-OB-QQS">
-                                <rect key="frame" x="110.5" y="116" width="60" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="5B">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="IKP-lz-BzA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-6L-E83">
-                                <rect key="frame" x="298" y="116" width="60" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="8B">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="wYL-fV-TKn"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-To-bk3">
-                                <rect key="frame" x="0.0" y="234" width="375" height="111"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="111" id="kXb-s7-Lza"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-BU-IYD">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,102 +159,160 @@
                                     <action selector="touchUpSearchButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b1m-ig-QlE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-BL-3Y0">
-                                <rect key="frame" x="204.5" y="116" width="60" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="6B">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b8K-JZ-Bzz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qr-we-q7b">
-                                <rect key="frame" x="270" y="194" width="85" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Note">
-                                    <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="5Of-Q2-SiK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-ll-1DY">
-                                <rect key="frame" x="20" y="194" width="85" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z39-WJ-AgN">
+                                <rect key="frame" x="16" y="150" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-ll-1DY">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Level">
+                                            <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-j5-plt">
+                                        <rect key="frame" x="117" y="0.0" width="109" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Rate">
+                                            <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qr-we-q7b">
+                                        <rect key="frame" x="234" y="0.0" width="109" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Note">
+                                            <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="5Of-Q2-SiK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5u3-WO-kt5">
+                                <rect key="frame" x="16" y="100" width="343" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-0v-GnB">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="4B">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="1Y8-qT-f6J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-OB-QQS">
+                                        <rect key="frame" x="88" y="0.0" width="79.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="5B">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="IKP-lz-BzA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-BL-3Y0">
+                                        <rect key="frame" x="175.5" y="0.0" width="80" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="6B">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b8K-JZ-Bzz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-6L-E83">
+                                        <rect key="frame" x="263.5" y="0.0" width="79.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="8B">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="wYL-fV-TKn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-To-bk3">
+                                <rect key="frame" x="0.0" y="200" width="375" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RFq-Gs-ucL"/>
-                                    <constraint firstAttribute="width" constant="85" id="dLF-rO-Nz5"/>
+                                    <constraint firstAttribute="height" constant="100" id="scF-DE-5OQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Level">
-                                    <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="disabled">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="selected">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Qdm-6L-E83" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="7:8" id="0PS-xH-UqT"/>
-                            <constraint firstItem="xfo-BL-3Y0" firstAttribute="height" secondItem="mmk-0v-GnB" secondAttribute="height" id="1eQ-fI-R1B"/>
-                            <constraint firstItem="8Qr-we-q7b" firstAttribute="centerY" secondItem="jJs-ll-1DY" secondAttribute="centerY" id="4Qs-wn-yCM"/>
-                            <constraint firstItem="Qdm-6L-E83" firstAttribute="centerY" secondItem="mmk-0v-GnB" secondAttribute="centerY" id="6sO-Vp-po2"/>
-                            <constraint firstItem="qVD-j5-plt" firstAttribute="height" secondItem="jJs-ll-1DY" secondAttribute="height" id="7kM-kh-H50"/>
                             <constraint firstItem="yjc-5l-UM4" firstAttribute="top" secondItem="qPJ-87-AMa" secondAttribute="top" id="9p7-sP-fAt"/>
-                            <constraint firstItem="vrC-Pp-4jJ" firstAttribute="top" secondItem="mmk-0v-GnB" secondAttribute="bottom" constant="20" id="BEf-sf-Ug5"/>
+                            <constraint firstItem="qPJ-87-AMa" firstAttribute="trailing" secondItem="z39-WJ-AgN" secondAttribute="trailing" constant="16" id="DDG-CU-Z6M"/>
                             <constraint firstItem="HxS-hG-2VH" firstAttribute="centerY" secondItem="yjc-5l-UM4" secondAttribute="centerY" id="DEO-2b-I23"/>
+                            <constraint firstItem="qPJ-87-AMa" firstAttribute="trailing" secondItem="5u3-WO-kt5" secondAttribute="trailing" constant="16" id="EnS-ZX-f4v"/>
                             <constraint firstItem="qPJ-87-AMa" firstAttribute="trailing" secondItem="HxS-hG-2VH" secondAttribute="trailing" constant="16" id="HMC-rn-zQp"/>
                             <constraint firstItem="bSc-BU-IYD" firstAttribute="bottom" secondItem="qPJ-87-AMa" secondAttribute="bottom" id="HQJ-fz-1Ja"/>
-                            <constraint firstItem="qVD-j5-plt" firstAttribute="width" secondItem="jJs-ll-1DY" secondAttribute="width" id="Hlx-6U-H8I"/>
-                            <constraint firstItem="8Qr-we-q7b" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="5:6" id="Hrl-13-r2f"/>
-                            <constraint firstItem="mmk-0v-GnB" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="1:8" id="KvV-0S-huw"/>
-                            <constraint firstItem="qVD-j5-plt" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="3:6" id="Lcf-W4-uwQ"/>
-                            <constraint firstItem="vrC-Pp-4jJ" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" constant="16" id="LsA-bt-i0V"/>
-                            <constraint firstItem="2dk-OB-QQS" firstAttribute="centerY" secondItem="mmk-0v-GnB" secondAttribute="centerY" id="Lwq-ht-M7b"/>
-                            <constraint firstItem="8Qr-we-q7b" firstAttribute="height" secondItem="jJs-ll-1DY" secondAttribute="height" id="MQ0-j3-avx"/>
-                            <constraint firstItem="8Qr-we-q7b" firstAttribute="width" secondItem="jJs-ll-1DY" secondAttribute="width" id="N3n-CJ-nEP"/>
+                            <constraint firstItem="D8w-To-bk3" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" id="HnH-VR-3sy"/>
                             <constraint firstItem="bSc-BU-IYD" firstAttribute="trailing" secondItem="qPJ-87-AMa" secondAttribute="trailing" id="NlV-Wr-ayU"/>
                             <constraint firstItem="bSc-BU-IYD" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" id="O28-tG-4vD"/>
-                            <constraint firstItem="jJs-ll-1DY" firstAttribute="top" secondItem="vrC-Pp-4jJ" secondAttribute="bottom" constant="10" id="PkM-bS-X7a"/>
-                            <constraint firstItem="Qdm-6L-E83" firstAttribute="width" secondItem="mmk-0v-GnB" secondAttribute="width" id="QvJ-sp-fsC"/>
-                            <constraint firstItem="xfo-BL-3Y0" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="5:8" id="RwS-BH-tdT"/>
-                            <constraint firstItem="2dk-OB-QQS" firstAttribute="height" secondItem="mmk-0v-GnB" secondAttribute="height" id="ShZ-Z0-x6G"/>
-                            <constraint firstItem="xfo-BL-3Y0" firstAttribute="centerY" secondItem="mmk-0v-GnB" secondAttribute="centerY" id="Tve-VJ-bnW"/>
                             <constraint firstItem="yjc-5l-UM4" firstAttribute="centerX" secondItem="JAT-64-9sS" secondAttribute="centerX" id="VYH-wf-Dh9"/>
-                            <constraint firstItem="2dk-OB-QQS" firstAttribute="width" secondItem="mmk-0v-GnB" secondAttribute="width" id="XCL-i7-5qG"/>
-                            <constraint firstItem="D8w-To-bk3" firstAttribute="top" secondItem="qVD-j5-plt" secondAttribute="bottom" constant="10" id="aA3-UT-u7g"/>
-                            <constraint firstItem="xfo-BL-3Y0" firstAttribute="width" secondItem="mmk-0v-GnB" secondAttribute="width" id="cMu-d1-MqQ"/>
-                            <constraint firstItem="Qdm-6L-E83" firstAttribute="height" secondItem="mmk-0v-GnB" secondAttribute="height" id="dIp-It-lcA"/>
-                            <constraint firstItem="mmk-0v-GnB" firstAttribute="top" secondItem="LLa-8u-u9K" secondAttribute="bottom" constant="10" id="kPJ-ie-NEV"/>
-                            <constraint firstItem="jJs-ll-1DY" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="1:6" id="kSU-ng-lx1"/>
-                            <constraint firstItem="D8w-To-bk3" firstAttribute="trailing" secondItem="qPJ-87-AMa" secondAttribute="trailing" id="kkK-fc-Gkk"/>
-                            <constraint firstItem="LLa-8u-u9K" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" constant="16" id="nd7-kB-5sf"/>
-                            <constraint firstItem="D8w-To-bk3" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" id="oiV-g4-GV3"/>
-                            <constraint firstItem="2dk-OB-QQS" firstAttribute="centerX" secondItem="qPJ-87-AMa" secondAttribute="trailing" multiplier="3:8" id="pIh-Zx-GVu"/>
-                            <constraint firstItem="qVD-j5-plt" firstAttribute="centerY" secondItem="jJs-ll-1DY" secondAttribute="centerY" id="rSG-wj-Qyg"/>
-                            <constraint firstItem="LLa-8u-u9K" firstAttribute="top" secondItem="yjc-5l-UM4" secondAttribute="bottom" constant="8" id="sBK-J2-EUh"/>
+                            <constraint firstItem="z39-WJ-AgN" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" constant="16" id="W4H-tb-sed"/>
+                            <constraint firstItem="D8w-To-bk3" firstAttribute="top" secondItem="z39-WJ-AgN" secondAttribute="bottom" constant="20" id="e1C-QX-gif"/>
+                            <constraint firstItem="z39-WJ-AgN" firstAttribute="top" secondItem="5u3-WO-kt5" secondAttribute="bottom" constant="20" id="hc7-jM-6WY"/>
+                            <constraint firstItem="5u3-WO-kt5" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" constant="16" id="lJ7-ov-TUa"/>
+                            <constraint firstItem="D8w-To-bk3" firstAttribute="trailing" secondItem="qPJ-87-AMa" secondAttribute="trailing" id="nfD-IR-ZGQ"/>
+                            <constraint firstItem="5u3-WO-kt5" firstAttribute="top" secondItem="yjc-5l-UM4" secondAttribute="bottom" constant="20" id="uHn-x6-aIg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qPJ-87-AMa"/>
                     </view>
@@ -354,13 +321,11 @@
                         <outlet property="button5Button" destination="2dk-OB-QQS" id="Gnf-wg-Dd7"/>
                         <outlet property="button6Button" destination="xfo-BL-3Y0" id="Oag-9c-XA8"/>
                         <outlet property="button8Button" destination="Qdm-6L-E83" id="DCe-x1-SW5"/>
-                        <outlet property="buttonLabel" destination="LLa-8u-u9K" id="XPw-on-ZfA"/>
                         <outlet property="searchButton" destination="bSc-BU-IYD" id="N00-xO-Nwe"/>
                         <outlet property="searchByLevelButton" destination="jJs-ll-1DY" id="IAn-UT-ZiM"/>
                         <outlet property="searchByNoteButton" destination="8Qr-we-q7b" id="g2y-In-6qd"/>
                         <outlet property="searchByRateButton" destination="qVD-j5-plt" id="HK6-7o-YFy"/>
                         <outlet property="subView" destination="D8w-To-bk3" id="eHm-3H-6js"/>
-                        <outlet property="typeLabel" destination="vrC-Pp-4jJ" id="KLW-xn-peo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dch-FR-bsU" userLabel="First Responder" sceneMemberID="firstResponder"/>

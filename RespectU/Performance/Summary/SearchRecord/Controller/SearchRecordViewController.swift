@@ -42,7 +42,7 @@ class SearchRecordViewController: UIViewController {
     
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordDetailViewController.classNameToString) as? SearchRecordDetailViewController else { return }
-        controller.button = { () -> Int in
+        controller.buttonIndex = { () -> Int in
             for i in 0..<4 {
                 guard let button = buttonButtons[i] else { return -1 }
                 if button.isSelected {
@@ -51,7 +51,7 @@ class SearchRecordViewController: UIViewController {
             }
             return -1
         }()
-        controller.searchType = { () -> Int in
+        controller.methodIndex = { () -> Int in
             for i in 0..<3 {
                 guard let button = methodButtons[i] else { return -1 }
                 if button.isSelected {
@@ -61,7 +61,7 @@ class SearchRecordViewController: UIViewController {
             return -1
         }()
         if searchByLevelButton.isSelected {
-            controller.level = selectedLevelIndex
+            controller.levelIndex = selectedLevelIndex
         } else if searchByRateButton.isSelected {
             guard let rateView = subView.subviews.first as? SearchByRateView else { return }
             let lowerRate = Double(rateView.lowerRateTextField.text ?? "") ?? 0
@@ -70,7 +70,7 @@ class SearchRecordViewController: UIViewController {
             controller.upperRange = upperRate
         } else if searchByNoteButton.isSelected {
             guard let noteView = subView.subviews.first as? SearchByNoteView else { return }
-            controller.detailType = { () -> Int in
+            controller.noteDetailIndex = { () -> Int in
                 if noteView.noMaxComboButton.isSelected {
                     return 0
                 } else {
@@ -131,8 +131,9 @@ class SearchRecordViewController: UIViewController {
             newView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 newView.topAnchor.constraint(equalTo: subView.topAnchor),
-                newView.leftAnchor.constraint(equalTo: subView.leftAnchor),
-                newView.rightAnchor.constraint(equalTo: subView.rightAnchor)
+                newView.leftAnchor.constraint(equalTo: subView.leftAnchor, constant: 16),
+                newView.rightAnchor.constraint(equalTo: subView.rightAnchor, constant: -16),
+                newView.heightAnchor.constraint(equalToConstant: 100)
                 ])
         case 1:
             selectedMethodIndex = 1
@@ -145,7 +146,8 @@ class SearchRecordViewController: UIViewController {
             NSLayoutConstraint.activate([
                 newView.topAnchor.constraint(equalTo: subView.topAnchor),
                 newView.leftAnchor.constraint(equalTo: subView.leftAnchor),
-                newView.rightAnchor.constraint(equalTo: subView.rightAnchor)
+                newView.rightAnchor.constraint(equalTo: subView.rightAnchor),
+                newView.heightAnchor.constraint(equalToConstant: 100)
                 ])
         case 2:
             selectedMethodIndex = 2
@@ -158,7 +160,8 @@ class SearchRecordViewController: UIViewController {
             NSLayoutConstraint.activate([
                 newView.topAnchor.constraint(equalTo: subView.topAnchor),
                 newView.leftAnchor.constraint(equalTo: subView.leftAnchor),
-                newView.rightAnchor.constraint(equalTo: subView.rightAnchor)
+                newView.rightAnchor.constraint(equalTo: subView.rightAnchor),
+                newView.heightAnchor.constraint(equalToConstant: 100)
                 ])
         default:
             break

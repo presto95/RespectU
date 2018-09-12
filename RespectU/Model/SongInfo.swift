@@ -21,14 +21,14 @@ class SongInfo: Object {
     @objc dynamic var button8: SongButtonInfo?
     
     var localizedTitle: String {
-        if Locale.current.regionCode == "KR", let korean = title?.korean {
+        if regionCode == "KR", let korean = title?.korean {
             return korean
         } else {
             return title?.english ?? ""
         }
     }
     var localizedLowercase: String {
-        if Locale.current.regionCode == "KR", let korean = lowercase?.korean {
+        if regionCode == "KR", let korean = lowercase?.korean {
             return korean
         } else {
             return lowercase?.english ?? ""

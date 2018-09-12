@@ -10,32 +10,86 @@ import UIKit
 import RealmSwift
 import DZNEmptyDataSet
 
+struct SearchRecordDetail {
+    let series: String
+    let title: String
+    let difficulty: String
+    let rate: Double
+}
+
 class SearchRecordDetailViewController: UIViewController {
 
+    var results: [SearchRecordDetail] = []
     var executesFirst = false
-    var searchType: Int = 0
-    var button: Int = 0
-    var level: Int = 0
+    var methodIndex: Int = 0
+    var buttonIndex: Int = 0
+    var levelIndex: Int = 0
     var lowerRange: Double = 0
     var upperRange: Double = 0
-    var detailType: Int = 0
-    var levelResults: Results<NewRecordInfo>!
-    var noteResults: Results<NewRecordInfo>!
-    var tempRateResults: LazyFilterCollection<Results<NewRecordInfo>>!
-    var rateResults: [NewRecordInfo]!
+    var noteDetailIndex: Int = 0
+//    var levelResults: Results<NewRecordInfo>!
+//    var noteResults: Results<NewRecordInfo>!
+//    var tempRateResults: LazyFilterCollection<Results<NewRecordInfo>>!
+//    var rateResults: [NewRecordInfo]!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 40
+        tableView.separatorColor = .main
+        tableView.layer.borderColor = UIColor.main.cgColor
+        tableView.layer.borderWidth = 3
+        tableView.layer.cornerRadius = 10
+        tableView.register(UINib(nibName: "SearchRecordDetailCell", bundle: nil), forCellReuseIdentifier: "searchRecordDetailCell")
+        let recordResults = NewRecordInfo.fetch()
+        switch buttonIndex {
+        case 0:
+            switch methodIndex {
+            case 0:
+//                let songResults = SongInfo.fetch()
+//                let level = levelIndex + 1
+//                let predicate = NSPredicate(format: "%K = %d OR %K = %d OR %K = %d", #keyPath(SongInfo.button4.normal), level, #keyPath(SongInfo.button4.hard), level, #keyPath(SongInfo.button4.maximum), level)
+//                let filtered = songResults.filter(predicate)
+//                print(filtered)
+                break
+            case 1:
+                let range = lowerRange...upperRange
+                let predicate = NSPredicate(format: "%K BETWEEN {\(lowerRange), \(upperRange)} OR %K BETWEEN {\(lowerRange), \(upperRange)} OR %K BETWEEN {\(lowerRange), \(upperRange)}", #keyPath(NewRecordInfo.button4.normal.rate), #keyPath(NewRecordInfo.button4.hard.rate), #keyPath(NewRecordInfo.button4.maximum.rate))
+                let filtered = recordResults.filter(predicate)
+                for result in filtered {
+                    if range.contains(result.button4?.normal?.rate ?? 0) {
+                        let object = SearchRecordDetail(series: result.series, title: result.localizedTitle, difficulty: Difficulty.normal, rate: result.button4?.normal?.rate ?? 0)
+                        self.results.append(object)
+                    }
+                    if range.contains(result.button4?.hard?.rate ?? 0) {
+                        let object = SearchRecordDetail(series: result.series, title: result.localizedTitle, difficulty: Difficulty.hard, rate: result.button4?.hard?.rate ?? 0)
+                        self.results.append(object)
+                    }
+                    if range.contains(result.button4?.maximum?.rate ?? 0) {
+                        let object = SearchRecordDetail(series: result.series, title: result.localizedTitle, difficulty: Difficulty.maximum, rate: result.button4?.maximum?.rate ?? 0)
+                        self.results.append(object)
+                    }
+                }
+                self.results.sort { $0.title < $1.title }
+            case 2:
+                break
+            default:
+                break
+            }
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            break
+        default:
+            break
+        }
+        
+        
 //        let baseResults = RecordInfo.fetch()
 //        noteResults = baseResults.sorted(byKeyPath: "localizedTitle")
 //        levelResults = baseResults.sorted(byKeyPath: "localizedTitle")
-//        tableView.rowHeight = 80
-//        tableView.separatorColor = UIColor.main
-//        tableView.layer.borderColor = UIColor.main.cgColor
-//        tableView.layer.borderWidth = 3
-//        tableView.layer.cornerRadius = 10
-//        tableView.register(UINib(nibName: "SearchRecordDetailCell", bundle: nil), forCellReuseIdentifier: "searchRecordDetailCell")
 //        if searchType == 0 {
 //            let query: NSPredicate
 //            switch button {
@@ -136,6 +190,8 @@ class SearchRecordDetailViewController: UIViewController {
 extension SearchRecordDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "searchRecordDetailCell") as? SearchRecordDetailCell else { return UITableViewCell() }
+        cell.setProperties(self.results[indexPath.row])
+        return cell
 //        if searchType == 0 {
 //            let object = levelResults[indexPath.row]
 //            cell.titleLabel.text = object.localizedTitle
@@ -526,16 +582,10 @@ extension SearchRecordDetailViewController: UITableViewDataSource {
 //                }
 //            }
 //        }
-        return cell
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchType == 0 {
-            return levelResults.count
-        } else if searchType == 1 {
-            return rateResults.count
-        } else {
-            return noteResults.count
-        }
+        return self.results.count
     }
 }
 extension SearchRecordDetailViewController: UITableViewDelegate {
@@ -548,20 +598,25 @@ extension SearchRecordDetailViewController: DZNEmptyDataSetSource {
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
         return nil
     }
+    
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return NSAttributedString(string: "No Results".localized, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .bold)])
     }
+    
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return nil
     }
 }
+
 extension SearchRecordDetailViewController: DZNEmptyDataSetDelegate {
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
         return false
     }
+    
     func emptyDataSetWillAppear(_ scrollView: UIScrollView!) {
         tableView.separatorStyle = .none
     }
+    
     func emptyDataSetWillDisappear(_ scrollView: UIScrollView!) {
         if !executesFirst {
             executesFirst = true

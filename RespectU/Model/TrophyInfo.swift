@@ -16,14 +16,14 @@ class TrophyInfo: Object {
     @objc dynamic var content: LanguageInfo?
     
     var localizedTitle: String {
-        if Locale.current.regionCode == "KR", let korean = title?.korean {
+        if regionCode == "KR", let korean = title?.korean {
             return korean
         } else {
             return title?.english ?? ""
         }
     }
     var localizedContent: String {
-        if Locale.current.regionCode == "KR", let korean = content?.korean {
+        if regionCode == "KR", let korean = content?.korean {
             return korean
         } else {
             return content?.english ?? ""

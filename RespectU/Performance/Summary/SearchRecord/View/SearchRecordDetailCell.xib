@@ -85,6 +85,7 @@
             <connections>
                 <outlet property="colorLabel" destination="dnQ-71-Fpa" id="8xt-dW-fYP"/>
                 <outlet property="difficultyLabel" destination="61J-Mx-sXp" id="OjG-V8-sR1"/>
+                <outlet property="rateLabel" destination="cJw-O0-Qk1" id="1Tc-Ki-N5T"/>
                 <outlet property="titleLabel" destination="dNe-1e-U2Z" id="RC4-3C-Hrh"/>
             </connections>
             <point key="canvasLocation" x="25" y="50"/>

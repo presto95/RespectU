@@ -27,7 +27,7 @@ class MissionInfo: Object {
     @objc dynamic var stage6: MissionStageInfo?
     
     var localizedReward: String {
-        if Locale.current.regionCode == "KR", let korean = reward?.korean {
+        if regionCode == "KR", let korean = reward?.korean {
             return korean
         } else {
             return reward?.english ?? ""

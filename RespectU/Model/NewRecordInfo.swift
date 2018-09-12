@@ -17,7 +17,7 @@ class NewRecordInfo: Object {
     @objc dynamic var button8: NewRecordButtonInfo?
     
     var localizedTitle: String {
-        if Locale.current.regionCode == "KR", let korean = title?.korean {
+        if regionCode == "KR", let korean = title?.korean {
             return korean
         } else {
             return title?.english ?? ""

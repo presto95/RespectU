@@ -15,14 +15,14 @@ class AchievementInfo: Object {
     @objc dynamic var item: LanguageInfo?
     
     var localizedSection: String {
-        if Locale.current.regionCode == "KR", let korean = section?.korean {
+        if regionCode == "KR", let korean = section?.korean {
             return korean
         } else {
             return section?.english ?? ""
         }
     }
     var localizedItem: String {
-        if Locale.current.regionCode == "KR", let korean = item?.korean {
+        if regionCode == "KR", let korean = item?.korean {
             return korean
         } else {
             return item?.english ?? ""

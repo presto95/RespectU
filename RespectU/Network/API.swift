@@ -181,7 +181,6 @@ extension API {
     }
     
     static func uploadRecords(_ object: NewRecordInfo) {
-        //let id = KeychainWrapper.standard.string(forKey: "id")
         let parameters: [String: Any] = [:
             
         ]

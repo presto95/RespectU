@@ -10,8 +10,8 @@ import Foundation
 import SwiftKeychainWrapper
 
 class API {
-    static let baseURL = "http://13.209.166.210:3000"
-    //static let baseURL = "http://localhost:3000"
+    //static let baseURL = "http://13.209.166.210:3000"
+    static let baseURL = "http://localhost:3000"
     private static let jsonDecoder = JSONDecoder()
 }
 
@@ -165,9 +165,7 @@ extension API {
 
 //MARK:- Record
 extension API {
-    static func requestRecords() {
-        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
-        if id.isEmpty { return }
+    static func requestRecords(_ id: String) {
         Network.get("\(baseURL)/records/\(id)", successHandler: { (data) in
             do {
                 let results = try jsonDecoder.decode(RecordResponse.self, from: data)
@@ -180,11 +178,8 @@ extension API {
         }
     }
     
-    static func uploadRecords(_ object: NewRecordInfo) {
-        let parameters: [String: Any] = [:
-            
-        ]
-        Network.post("\(baseURL)/records", parameters: parameters, successHandler: { (data, statusCode) in
+    static func uploadRecords(_ object: Data) {
+        Network.upload("\(baseURL)/records", data: object, succesHandler: { (data, statusCode) in
             NotificationCenter.default.post(name: .didReceiveUploadRecords, object: nil, userInfo: ["statusCode": statusCode])
         }) { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadRecords, object: nil, userInfo: ["error": error.localizedDescription])

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class UploadViewController: UIViewController {
 
@@ -28,10 +29,40 @@ class UploadViewController: UIViewController {
     }
     
     @objc func touchUpUploadButton(_ sender: UIButton) {
-        showIndicator()
-        let results = NewRecordInfo.fetch()
-        for result in results {
-            API.uploadRecords(result)
+        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
+        if id.isEmpty {
+            UIAlertController
+                .alert(title: "", message: "First Log In.".localized)
+                .action(title: "OK".localized)
+                .present(to: self)
+        } else {
+            //showIndicator()
+            let results = NewRecordInfo.fetch()
+            var records = [RecordResponse.Record]()
+            for result in results {
+                let button4Normal = RecordResponse.Record.Button.Difficulty(rank: result.button4?.normal?.rank ?? "", rate: result.button4?.normal?.rate ?? 0, note: result.button4?.normal?.note ?? "")
+                let button4Hard = RecordResponse.Record.Button.Difficulty(rank: result.button4?.hard?.rank ?? "", rate: result.button4?.hard?.rate ?? 0, note: result.button4?.hard?.note ?? "")
+                let button4Maximum = RecordResponse.Record.Button.Difficulty(rank: result.button4?.maximum?.rank ?? "", rate: result.button4?.maximum?.rate ?? 0, note: result.button4?.maximum?.note ?? "")
+                let button4 = RecordResponse.Record.Button(normal: button4Normal, hard: button4Hard, maximum: button4Maximum, skillPoint: result.button4?.skillPoint ?? 0, skillPointDifficulty: result.button4?.skillPointDifficulty ?? "", skillPointNote: result.button4?.skillPointNote ?? "", skillPointRate: result.button4?.skillPointRate ?? 0)
+                let button5Normal = RecordResponse.Record.Button.Difficulty(rank: result.button5?.normal?.rank ?? "", rate: result.button5?.normal?.rate ?? 0, note: result.button5?.normal?.note ?? "")
+                let button5Hard = RecordResponse.Record.Button.Difficulty(rank: result.button5?.hard?.rank ?? "", rate: result.button5?.hard?.rate ?? 0, note: result.button5?.hard?.note ?? "")
+                let button5Maximum = RecordResponse.Record.Button.Difficulty(rank: result.button5?.maximum?.rank ?? "", rate: result.button5?.maximum?.rate ?? 0, note: result.button5?.maximum?.note ?? "")
+                let button5 = RecordResponse.Record.Button(normal: button5Normal, hard: button5Hard, maximum: button5Maximum, skillPoint: result.button5?.skillPoint ?? 0, skillPointDifficulty: result.button5?.skillPointDifficulty ?? "", skillPointNote: result.button5?.skillPointNote ?? "", skillPointRate: result.button5?.skillPointRate ?? 0)
+                let button6Normal = RecordResponse.Record.Button.Difficulty(rank: result.button6?.normal?.rank ?? "", rate: result.button6?.normal?.rate ?? 0, note: result.button6?.normal?.note ?? "")
+                let button6Hard = RecordResponse.Record.Button.Difficulty(rank: result.button6?.hard?.rank ?? "", rate: result.button6?.hard?.rate ?? 0, note: result.button6?.hard?.note ?? "")
+                let button6Maximum = RecordResponse.Record.Button.Difficulty(rank: result.button6?.maximum?.rank ?? "", rate: result.button6?.maximum?.rate ?? 0, note: result.button6?.maximum?.note ?? "")
+                let button6 = RecordResponse.Record.Button(normal: button6Normal, hard: button6Hard, maximum: button6Maximum, skillPoint: result.button6?.skillPoint ?? 0, skillPointDifficulty: result.button6?.skillPointDifficulty ?? "", skillPointNote: result.button6?.skillPointNote ?? "", skillPointRate: result.button6?.skillPointRate ?? 0)
+                let button8Normal = RecordResponse.Record.Button.Difficulty(rank: result.button8?.normal?.rank ?? "", rate: result.button8?.normal?.rate ?? 0, note: result.button8?.normal?.note ?? "")
+                let button8Hard = RecordResponse.Record.Button.Difficulty(rank: result.button8?.hard?.rank ?? "", rate: result.button8?.hard?.rate ?? 0, note: result.button8?.hard?.note ?? "")
+                let button8Maximum = RecordResponse.Record.Button.Difficulty(rank: result.button8?.maximum?.rank ?? "", rate: result.button8?.maximum?.rate ?? 0, note: result.button8?.maximum?.note ?? "")
+                let button8 = RecordResponse.Record.Button(normal: button8Normal, hard: button8Hard, maximum: button8Maximum, skillPoint: result.button8?.skillPoint ?? 0, skillPointDifficulty: result.button8?.skillPointDifficulty ?? "", skillPointNote: result.button8?.skillPointNote ?? "", skillPointRate: result.button8?.skillPointRate ?? 0)
+                let title = Language(english: result.title?.english ?? "", korean: result.title?.korean)
+                let record = RecordResponse.Record(title: title, series: result.series, button4: button4, button5: button5, button6: button6, button8: button8)
+                records.append(record)
+            }
+            let recordResponse = RecordResponse(id: id, records: records)
+            guard let uploadData = try? JSONEncoder().encode(recordResponse) else { return }
+            API.uploadRecords(uploadData)
         }
     }
     

@@ -30,15 +30,7 @@ struct RecordResponse: Codable {
         let button5: Button
         let button6: Button
         let button8: Button
-        var localizedTitle: String {
-            if Locale.current.regionCode == "KR", let korean = title.korean {
-                return korean
-            } else {
-                return title.english
-            }
-        }
     }
     let id: String
     let records: [Record]
-    let perfectPlays: Int
 }

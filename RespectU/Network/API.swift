@@ -10,8 +10,8 @@ import Foundation
 import SwiftKeychainWrapper
 
 class API {
-    //static let baseURL = "http://13.209.166.210:3000"
-    static let baseURL = "http://localhost:3000"
+    static let baseURL = "http://13.209.166.210:3000"
+    //static let baseURL = "http://localhost:3000"
     private static let jsonDecoder = JSONDecoder()
 }
 

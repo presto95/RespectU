@@ -110,27 +110,20 @@ class DownloadViewController: UIViewController {
                 .action(title: "OK".localized)
                 .present(to: self)
         } else {
+//            UIAlertController
+//                .alert(title: "", message: "Coming soon.".localized)
+//                .action(title: "OK".localized)
+//                .present(to: self)
             UIAlertController
-                .alert(title: "", message: "Coming soon.".localized)
-                .action(title: "OK".localized)
+                .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
+                .action(.destructive, title: "OK".localized, handler: { [weak self] _ in
+                    DispatchQueue.main.async {
+                        self?.showIndicator()
+                    }
+                    API.requestRecords(id)
+                })
+                .action(.cancel, title: "Cancel".localized)
                 .present(to: self)
-            //        UIAlertController
-            //            .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
-            //            .action(.destructive, title: "OK".localized, handler: { [weak self] _ in
-            //                if KeychainWrapper.standard.string(forKey: "id") == nil {
-            //                    UIAlertController
-            //                        .alert(title: "", message: "Log In First.".localized)
-            //                        .action(title: "OK".localized)
-            //                        .present(to: self)
-            //                } else {
-            //                    DispatchQueue.main.async {
-            //                        self?.showIndicator()
-            //                    }
-            //                    API.requestRecords()
-            //                }
-            //            })
-            //            .action(.cancel, title: "Cancel".localized)
-            //            .present(to: self)
         }
     }
     
@@ -270,7 +263,14 @@ extension DownloadViewController {
     }
     
     @objc func didReceiveRecords(_ notification: Notification) {
-        //guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
+        guard let userInfo = notification.userInfo?["records"] as? RecordResponse else { return }
+        let results = NewRecordInfo.fetch()
+        let records = userInfo.records
+        for record in records {
+            let predicate = NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), record.title.english)
+            guard let result = results.filter(predicate).first else { continue }
+            NewRecordInfo.update(record, to: result)
+        }
         //성과기록 데이터베이스 갱신.
         finishesRecord = true
         plusRecordCount()

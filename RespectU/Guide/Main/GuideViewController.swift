@@ -207,10 +207,6 @@ extension GuideViewController: UICollectionViewDelegate {
                 guard let next = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
                 self.present(next, animated: true, completion: nil)
             case 1:
-//                UIAlertController
-//                    .alert(title: "", message: "Coming soon.".localized)
-//                    .action(title: "OK".localized)
-//                    .present(to: self)
                 guard let next = UIViewController.instantiate(storyboard: "Upload", identifier: UploadViewController.classNameToString) else { return }
                 self.present(next, animated: true, completion: nil)
             case 2:

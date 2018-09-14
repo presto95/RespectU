@@ -21,7 +21,12 @@ class UploadViewController: UIViewController {
         self.uploadLabel.text = "Store recorded performance information on the server.".localized
         self.uploadButton.setTitle("Upload".localized, for: [])
         self.uploadButton.addTarget(self, action: #selector(touchUpUploadButton(_:)), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUploadRecords(_:)), name: .didReceiveUploadRecords, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadRecords(_:)), name: .errorReceiveUploadRecords, object: nil)
+    }
+    
+    @objc func didReceiveUploadRecords(_ notification: Notification) {
+        presentSuccessAlert()
     }
     
     @objc func errorReceiveUploadRecords(_ notification: Notification) {
@@ -36,7 +41,6 @@ class UploadViewController: UIViewController {
                 .action(title: "OK".localized)
                 .present(to: self)
         } else {
-            //showIndicator()
             let results = NewRecordInfo.fetch()
             var records = [RecordResponse.Record]()
             for result in results {
@@ -62,6 +66,7 @@ class UploadViewController: UIViewController {
             }
             let recordResponse = RecordResponse(id: id, records: records)
             guard let uploadData = try? JSONEncoder().encode(recordResponse) else { return }
+            showIndicator()
             API.uploadRecords(uploadData)
         }
     }
@@ -72,12 +77,25 @@ class UploadViewController: UIViewController {
 }
 
 extension UploadViewController {
+    private func presentSuccessAlert() {
+        DispatchQueue.main.async { [weak self] in
+            self?.hideIndicator()
+            UIAlertController
+                .alert(title: "", message: "Your data has been successfully uploaded.".localized)
+                .action(title: "OK".localized)
+                .present(to: self)
+        }
+    }
+    
     private func presentFailureAlert() {
-        UIAlertController
-            .alert(title: "", message: "Network Error".localized)
-            .action(title: "OK".localized) { [weak self] _ in
-                self?.hideIndicator()
-            }
-            .present(to: self)
+        DispatchQueue.main.async { [weak self] in
+            self?.hideIndicator()
+            UIAlertController
+                .alert(title: "", message: "Network Error".localized)
+                .action(title: "OK".localized) { [weak self] _ in
+                    self?.hideIndicator()
+                }
+                .present(to: self)
+        }
     }
 }

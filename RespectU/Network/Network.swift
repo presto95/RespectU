@@ -51,13 +51,12 @@ class Network {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let task = session.uploadTask(with: request, from: data) { (data, response, error) in
             if let error = error {
-                print(error.localizedDescription)
+                errorHandler?(error)
                 return
             }
-            guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-                return
-            }
-            //성공
+            guard let data = data else { return }
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
+            succesHandler?(data, statusCode)
         }
         task.resume()
     }

@@ -12,7 +12,7 @@ class RankingCell: UITableViewCell {
 
     @IBOutlet weak var rankingLabel: UILabel!
     @IBOutlet weak var nicknameLabel: UILabel!
-    @IBOutlet weak var skillPointLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,12 +25,12 @@ class RankingCell: UITableViewCell {
     func setProperties(_ dictionary: [(key: String, value: Double)], at row: Int, isPerfect: Bool) {
         self.rankingLabel.text = "\(row + 1)"
         self.nicknameLabel.text = dictionary[row].key
-        self.skillPointLabel.text = isPerfect ? "\(Int(dictionary[row].value))" : "\(dictionary[row].value)"
+        self.valueLabel.text = isPerfect ? "\(Int(dictionary[row].value))" : "\(dictionary[row].value)"
     }
     
     func setProperties(_ dictionary: [(key: String, value: Int)], at row: Int) {
         self.rankingLabel.text = "\(row + 1)"
         self.nicknameLabel.text = dictionary[row].key
-        self.skillPointLabel.text = "\(dictionary[row].value)"
+        self.valueLabel.text = "\(dictionary[row].value)"
     }
 }

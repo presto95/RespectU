@@ -90,26 +90,6 @@
             </objects>
             <point key="canvasLocation" x="1189" y="-1451"/>
         </scene>
-        <!--RankingPP Table View Controller-->
-        <scene sceneID="jqA-kO-JLV">
-            <objects>
-                <tableViewController storyboardIdentifier="RankingPPTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YXK-Y6-MVw" customClass="RankingPPTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JXY-Wr-UZt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="YXK-Y6-MVw" id="GhV-sU-eOA"/>
-                            <outlet property="delegate" destination="YXK-Y6-MVw" id="ymd-54-nn4"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="efP-LE-Bbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1909" y="-1441"/>
-        </scene>
         <!--Ranking View Controller-->
         <scene sceneID="WX1-BM-CDX">
             <objects>

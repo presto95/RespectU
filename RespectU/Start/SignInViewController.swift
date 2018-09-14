@@ -55,7 +55,7 @@ extension SignInViewController {
     
     @objc func didReceiveSignIn(_ notification: Notification) {
         guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
-        if statusCode == 200 {
+        if (200...299).contains(statusCode) {
             DispatchQueue.main.async { [weak self] in
                 UIAlertController
                     .alert(title: "", message: "Log In Succeeded".localized)

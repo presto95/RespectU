@@ -26,7 +26,12 @@ class UploadViewController: UIViewController {
     }
     
     @objc func didReceiveUploadRecords(_ notification: Notification) {
-        presentSuccessAlert()
+        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+        if (200...299).contains(statusCode) {
+            presentSuccessAlert()
+        } else {
+            presentFailureAlert()
+        }
     }
     
     @objc func errorReceiveUploadRecords(_ notification: Notification) {

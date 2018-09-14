@@ -186,3 +186,28 @@ extension API {
         }
     }
 }
+
+//MARK:- Ranking
+extension API {
+    static func requestRankings() {
+        Network.get("\(baseURL)/rankings", successHandler: { (data) in
+            do {
+                let results = try jsonDecoder.decode(RankingResponse.self, from: data)
+                NotificationCenter.default.post(name: .didReceiveRankings, object: nil, userInfo: ["rankings": results])
+            } catch {
+                NotificationCenter.default.post(name: .errorReceiveRankings, object: nil, userInfo: ["error": error.localizedDescription])
+            }
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveRankings, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+    
+    static func uploadRanking(id: String, button4: Double, button5: Double, button6: Double, button8: Double) {
+        let parameters: [String: Any] = ["id": id, "button4": button4, "button5": button5, "button6": button6, "button8": button8]
+        Network.post("\(baseURL)/rankings", parameters: parameters, successHandler: { (data, statusCode) in
+            NotificationCenter.default.post(name: .didReceiveUploadRanking, object: nil, userInfo: ["statusCode": statusCode])
+        }) { (error) in
+            NotificationCenter.default.post(name: .errorReceiveUploadRanking, object: nil, userInfo: ["error": error.localizedDescription])
+        }
+    }
+}

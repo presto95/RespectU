@@ -85,7 +85,6 @@
 		193E402D204C23F40063A440 /* Ranking5BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */; };
 		193E402F204C23FD0063A440 /* Ranking6BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */; };
 		193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4030204C24060063A440 /* Ranking8BTableViewController.swift */; };
-		193E4033204C240F0063A440 /* RankingPPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4032204C240F0063A440 /* RankingPPTableViewController.swift */; };
 		193E4035204C24180063A440 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193E4034204C24180063A440 /* Ranking.storyboard */; };
 		193E4038204C27220063A440 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4036204C27220063A440 /* RankingCell.swift */; };
 		193E403B204C2EB60063A440 /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193E403A204C2EB60063A440 /* RankingCell.xib */; };
@@ -282,7 +281,6 @@
 		193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking5BTableViewController.swift; sourceTree = "<group>"; };
 		193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking6BTableViewController.swift; sourceTree = "<group>"; };
 		193E4030204C24060063A440 /* Ranking8BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking8BTableViewController.swift; sourceTree = "<group>"; };
-		193E4032204C240F0063A440 /* RankingPPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingPPTableViewController.swift; sourceTree = "<group>"; };
 		193E4034204C24180063A440 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		193E4036204C27220063A440 /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		193E403A204C2EB60063A440 /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
@@ -927,7 +925,6 @@
 				193E402C204C23F40063A440 /* Ranking5BTableViewController.swift */,
 				193E402E204C23FD0063A440 /* Ranking6BTableViewController.swift */,
 				193E4030204C24060063A440 /* Ranking8BTableViewController.swift */,
-				193E4032204C240F0063A440 /* RankingPPTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1187,7 +1184,6 @@
 				197414C82062A94A00D72626 /* TrophyTechnika1TableViewController.swift in Sources */,
 				191275ED21120B080046AA3E /* BaseViewController.swift in Sources */,
 				19E4DAF7213D896100837A95 /* MissionInfo.swift in Sources */,
-				193E4033204C240F0063A440 /* RankingPPTableViewController.swift in Sources */,
 				19D67ED020744F3400FD9EC7 /* RecordCETableViewController.swift in Sources */,
 				19D1EF422069E9D600F2BFD5 /* AchievementPlateTableViewController.swift in Sources */,
 				191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */,

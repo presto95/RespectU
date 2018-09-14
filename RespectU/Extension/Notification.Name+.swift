@@ -33,4 +33,8 @@ extension Notification.Name {
     static let errorReceiveNickname = Notification.Name("ErrorReceiveNickname")
     static let didReceiveUploadNickname = Notification.Name("DidReceiveUploadNickname")
     static let errorReceiveUploadNickname = Notification.Name("ErrorReceiveUploadNickname")
+    static let didReceiveRankings = Notification.Name("DidReceiveRankings")
+    static let errorReceiveRankings = Notification.Name("ErrorReceiveRankings")
+    static let didReceiveUploadRanking = Notification.Name("DidReceiveUploadRanking")
+    static let errorReceiveUploadRanking = Notification.Name("ErrorReceiveUploadRanking")
 }

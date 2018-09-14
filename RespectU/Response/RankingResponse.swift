@@ -10,21 +10,11 @@ import Foundation
 
 struct RankingResponse: Codable {
     struct Ranking: Codable {
-        let uid: String
-        let userId: String
+        let id: String
         let button4: Double
         let button5: Double
         let button6: Double
         let button8: Double
-        let perfectPlay: Int
-        let createdAt: Double
-        let updatedAt: Double
-        var createdDate: Date {
-            return Date(timeIntervalSince1970: createdAt)
-        }
-        var updatedDate: Date {
-            return Date(timeIntervalSince1970: updatedAt)
-        }
     }
-    let ranking: [Ranking]
+    let rankings: [Ranking]
 }

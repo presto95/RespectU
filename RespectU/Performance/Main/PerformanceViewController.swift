@@ -29,6 +29,8 @@ class PerformanceViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadNickname(_:)), name: .errorReceiveUploadNickname, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersion(_:)), name: .didReceiveVersions, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersion(_:)), name: .errorReceiveVersions, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUploadRanking(_:)), name: .didReceiveUploadRanking, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadRanking(_:)), name: .errorReceiveUploadRanking, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +89,7 @@ class PerformanceViewController: UIViewController {
     }
 }
 
+//MARK:- Version
 extension PerformanceViewController {
     @objc func didReceiveVersion(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
@@ -130,15 +133,26 @@ extension PerformanceViewController {
         NotificationCenter.default.removeObserver(self, name: .didReceiveVersions, object: nil)
         NotificationCenter.default.removeObserver(self, name: .errorReceiveVersions, object: nil)
     }
-    
+}
+
+//MARK:- Nickname
+extension PerformanceViewController {
     @objc func didReceiveUploadNickname(_ notification: Notification) {
-        guard let nickname = notification.userInfo?["nickname"] as? NicknameResponse else { return }
-        DispatchQueue.main.async {
-            UIAlertController
-                .alert(title: "", message: "Succeeded to change nickname".localized)
-                .action(title: "OK".localized, handler: { [weak self] _ in
-                    self?.nicknameButton.setTitle(nickname.nickname, for: [])
-                })
+        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+        if (200...299).contains(statusCode) {
+            DispatchQueue.main.async {
+                UIAlertController
+                    .alert(title: "", message: "Succeeded to change nickname".localized)
+                    .action(title: "OK".localized)
+                    .present(to: self)
+            }
+        } else {
+            DispatchQueue.main.async {
+                UIAlertController
+                    .alert(title: "", message: "Failed to change nickname".localized)
+                    .action(title: "OK".localized)
+                    .present(to: self)
+            }
         }
     }
     
@@ -149,6 +163,26 @@ extension PerformanceViewController {
                 .action(title: "OK".localized)
                 .present(to: self)
         }
+    }
+}
+
+//MARK:- Ranking
+extension PerformanceViewController {
+    @objc func didReceiveUploadRanking(_ notification: Notification) {
+        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+        if (200...299).contains(statusCode) {
+            print("success")
+            DispatchQueue.main.async { [weak self] in
+                guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
+                self?.present(next, animated: true)
+            }
+        } else {
+            print("fail")
+        }
+    }
+    
+    @objc func errorReceiveUploadRanking(_ notification: Notification) {
+        print("fail")
     }
 }
 
@@ -303,10 +337,17 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                 .action(title: "OK".localized)
                 .present(to: self)
         } else {
-            UIAlertController
-                .alert(title: "", message: "Coming soon.".localized)
-                .action(title: "OK".localized)
-                .present(to: self)
+            //먼저 업로드 하고
+            //랭킹 창으로 이동
+            let button4SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button4).sum
+            let button5SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button5).sum
+            let button6SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button6).sum
+            let button8SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button8).sum
+            API.uploadRanking(id: id, button4: button4SkillPoint, button5: button5SkillPoint, button6: button6SkillPoint, button8: button8SkillPoint)
+//            UIAlertController
+//                .alert(title: "", message: "Coming soon.".localized)
+//                .action(title: "OK".localized)
+//                .present(to: self)
         }
 //        guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
 //        self.present(next, animated: true)

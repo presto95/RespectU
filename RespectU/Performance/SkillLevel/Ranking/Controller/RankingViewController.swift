@@ -15,9 +15,8 @@ class RankingViewController: BaseViewController {
     private lazy var button5TableViewController = Ranking5BTableViewController()
     private lazy var button6TableViewController = Ranking6BTableViewController()
     private lazy var button8TableViewController = Ranking8BTableViewController()
-    private lazy var perfectPlayTableViewController = RankingPPTableViewController()
     private lazy var rankingViewControllers: [RankingBaseTableViewController] = {
-        return [button4TableViewController, button5TableViewController, button6TableViewController, button8TableViewController, perfectPlayTableViewController]
+        return [button4TableViewController, button5TableViewController, button6TableViewController, button8TableViewController]
     }()
     
     override func viewDidLoad() {

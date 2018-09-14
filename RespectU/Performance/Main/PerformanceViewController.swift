@@ -171,18 +171,27 @@ extension PerformanceViewController {
     @objc func didReceiveUploadRanking(_ notification: Notification) {
         guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
         if (200...299).contains(statusCode) {
-            print("success")
             DispatchQueue.main.async { [weak self] in
                 guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
                 self?.present(next, animated: true)
             }
         } else {
-            print("fail")
+            DispatchQueue.main.async { [weak self] in
+                UIAlertController
+                    .alert(title: "", message: "Network Error".localized)
+                    .action(title: "OK".localized)
+                    .present(to: self)
+            }
         }
     }
     
     @objc func errorReceiveUploadRanking(_ notification: Notification) {
-        print("fail")
+        DispatchQueue.main.async { [weak self] in
+            UIAlertController
+                .alert(title: "", message: "Network Error".localized)
+                .action(title: "OK".localized)
+                .present(to: self)
+        }
     }
 }
 
@@ -337,20 +346,13 @@ extension PerformanceViewController: SkillLevelCellDelegate {
                 .action(title: "OK".localized)
                 .present(to: self)
         } else {
-            //먼저 업로드 하고
-            //랭킹 창으로 이동
+            let nickname = UserDefaults.standard.string(forKey: "nickname") ?? "noname"
             let button4SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button4).sum
             let button5SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button5).sum
             let button6SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button6).sum
             let button8SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button8).sum
-            API.uploadRanking(id: id, button4: button4SkillPoint, button5: button5SkillPoint, button6: button6SkillPoint, button8: button8SkillPoint)
-//            UIAlertController
-//                .alert(title: "", message: "Coming soon.".localized)
-//                .action(title: "OK".localized)
-//                .present(to: self)
+            API.uploadRanking(id: id, nickname: nickname, button4: button4SkillPoint, button5: button5SkillPoint, button6: button6SkillPoint, button8: button8SkillPoint)
         }
-//        guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
-//        self.present(next, animated: true)
     }
     
     func touchUpTop50Button(_ sender: UIButton) {

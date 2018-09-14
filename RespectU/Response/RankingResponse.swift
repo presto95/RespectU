@@ -11,6 +11,7 @@ import Foundation
 struct RankingResponse: Codable {
     struct Ranking: Codable {
         let id: String
+        let nickname: String
         let button4: Double
         let button5: Double
         let button6: Double

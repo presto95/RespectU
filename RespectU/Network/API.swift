@@ -202,8 +202,8 @@ extension API {
         }
     }
     
-    static func uploadRanking(id: String, button4: Double, button5: Double, button6: Double, button8: Double) {
-        let parameters: [String: Any] = ["id": id, "button4": button4, "button5": button5, "button6": button6, "button8": button8]
+    static func uploadRanking(id: String, nickname: String, button4: Double, button5: Double, button6: Double, button8: Double) {
+        let parameters: [String: Any] = ["id": id, "nickname": nickname, "button4": button4, "button5": button5, "button6": button6, "button8": button8]
         Network.post("\(baseURL)/rankings", parameters: parameters, successHandler: { (data, statusCode) in
             NotificationCenter.default.post(name: .didReceiveUploadRanking, object: nil, userInfo: ["statusCode": statusCode])
         }) { (error) in

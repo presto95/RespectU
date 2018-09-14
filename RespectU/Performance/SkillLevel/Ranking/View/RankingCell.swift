@@ -22,15 +22,20 @@ class RankingCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ dictionary: [(key: String, value: Double)], at row: Int, isPerfect: Bool) {
+    func setProperties(_ object: [RankingResponse.Ranking], at row: Int, button: String) {
         self.rankingLabel.text = "\(row + 1)"
-        self.nicknameLabel.text = dictionary[row].key
-        self.valueLabel.text = isPerfect ? "\(Int(dictionary[row].value))" : "\(dictionary[row].value)"
-    }
-    
-    func setProperties(_ dictionary: [(key: String, value: Int)], at row: Int) {
-        self.rankingLabel.text = "\(row + 1)"
-        self.nicknameLabel.text = dictionary[row].key
-        self.valueLabel.text = "\(dictionary[row].value)"
+        self.nicknameLabel.text = object[row].nickname
+        switch button {
+        case Buttons.button4:
+            self.valueLabel.text = "\(object[row].button4)"
+        case Buttons.button5:
+            self.valueLabel.text = "\(object[row].button5)"
+        case Buttons.button6:
+            self.valueLabel.text = "\(object[row].button6)"
+        case Buttons.button8:
+            self.valueLabel.text = "\(object[row].button8)"
+        default:
+            break
+        }
     }
 }

@@ -53,7 +53,22 @@
 
 ### 개발 이슈
 
-1. Realm 모델
+1. Memory Profiling
+   - [메모리 관리](https://www.appcoda.com/memory-management-swift/?utm_source=drip&utm_medium=email&utm_campaign=design-pattern-memory-management)에 관한 글을 읽던 중 메모리 누수 프로파일링 툴을 소개하는 문장이 있었고, 이를 통해 메모리 누수 현황을 살필 수 있었음
+   - `CFNetwork` 클래스에서 많은 누수가 일어났고, `URLSession` 을 사용하여 네트워킹을 하는 세션을 명시적으로 종료해주지 않아서 일어난 것이라는 것을 알게 됨
+   - `finishTasksAndInvalidate` 메소드를 통해 세션을 명시적으로 종료해 주었고, 초반 메모리 사용량을 약 5MB 감소시킴
+   - 이외에 메모리 누수가 일어나는 부분을 알게 되었음
+   - 프로파일링 과정
+     - 앱 실행 (닉네임 / 버전 받아오는 네트워킹 수행) -> `GuideViewController` 로드 -> `SongViewController` 로드(모든 탭 로드) -> `MissionViewController` 로드 ->  `TrophyViewController` 로드 -> `AchievementViewController` 로드 -> `DownloadViewController` 로드(성과 정보 받아오는 네트워킹 수행)
+     - 프로파일링 전 메모리 상태
+       - 시작 : 18.83MB ~ 22MB
+       - 최고 : 51MB (`SongViewController` 의 모든 탭을 로드했을 때)
+       - 끝 : 31.79MB
+     - 프로파일링 후 메모리 상태
+       - 시작 : 13.16MB ~ 24MB
+       - 최고 : 43MB (`SongViewController` 의 모든 탭을 로드했을 때)
+       - 끝 : 26.53MB
+2. Realm 모델
    - 서버와의 연동을 위해 데이터베이스 정규화를 진행하였고, 그 과정에서 Realm 모델 정의에 대해 어려움을 겪음
    - `try! Realm()` 에서 에러가 났으나 에러 메세지를 보여주지 않았고, 다른 프로젝트에서 모델을 옮겨서 실행하니 에러 메세지를 보여주어서 이를 참고함
    - Realm 공식 문서를 참고하는 것이 Realm에서 사용할 수 있는 모델을 작성하는 것에 큰 도움을 줌
@@ -62,25 +77,25 @@
      - `String` , `Date` , `Data` 를 제외한 타입을 옵셔널로 선언하려면 Realm에서 제공하는 타입을 사용해야 함
        - 예를 들어, `Int?` == `RealmOptional<Int>` . `value` 프로퍼티를 사용하여 값에 접근함, `let` 키워드를 사용하여 선언해야 함
      - **중첩 타입을 지원하지 않음**
-2. 서버 데이터베이스와 로컬 데이터베이스(Realm)와의 동기화
+3. 서버 데이터베이스와 로컬 데이터베이스(Realm)와의 동기화
    - Firebase를 통해 하고 있는 인증 / 데이터베이스 기능을 Node.js로 작성한 서버로 이전
    - 서버에서 데이터를 가져와 로컬 데이터베이스에 저장하여 앱 내에서 사용하고, 백업 느낌으로 서버로 데이터를 내보내는 기능을 구현
    - 클라이언트 단에서 수정해야 하는 코드가 매우 많았는데, 특히 모델을 변경했기 때문에 많은 코드를 수정해야 했다.
-3. 리팩토링
+4. 리팩토링
    - MVC 아키텍쳐 적용
    - Swift API Guideline에 맞는 코딩 스타일
    - OOP, 함수를 활용한 중복 코드 제거, 코드 응집력 증가
-4. XLPagerTapStrip을 사용한 View Controller 위에 View 올리기
+5. XLPagerTapStrip을 사용한 View Controller 위에 View 올리기
    - View Controller의 Life Cycle에 대해 다시 한번 공부함
-5. 메모리 사용량, 애플리케이션 용량
+6. 메모리 사용량, 애플리케이션 용량
    - 기존에 gif 파일을 로컬에 때려박아 사용하여 최대 400MB의 메모리를 차지함
      - gif 파일을 아예 없애서 현재 20MB 안팎의 메모리를 차지하고 있음
    - 기존에 이미지를 Asset에 저장해두고 사용
      - 서버 연동 이후에는 데이터 초기화 시 이미지를 URL을 통해 다운로드하여 Documents 디렉토리에 이미지를 저장
-6. L10n
+7. L10n
    - 기본 영어, 한국어 / 일본어 / 중국어 지원
    - 현재 영어, 한국어만 지원
-7. Realm Migration
+8. Realm Migration
    - Realm Object의 형태를 바꾸면 Migration이 필요함
    - 구글링 통해 해결
 

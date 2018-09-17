@@ -110,10 +110,6 @@ class DownloadViewController: UIViewController {
                 .action(title: "OK".localized)
                 .present(to: self)
         } else {
-//            UIAlertController
-//                .alert(title: "", message: "Coming soon.".localized)
-//                .action(title: "OK".localized)
-//                .present(to: self)
             UIAlertController
                 .alert(title: "Warning".localized, message: "If there is no data on the server, the recorded performance information can be initialized.".localized)
                 .action(.destructive, title: "OK".localized, handler: { [weak self] _ in

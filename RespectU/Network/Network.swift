@@ -15,10 +15,12 @@ class Network {
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 errorHandler?(error)
+                session.finishTasksAndInvalidate()
                 return
             }
             guard let data = data else { return }
             successHandler?(data)
+            session.finishTasksAndInvalidate()
         }
         task.resume()
     }
@@ -34,11 +36,13 @@ class Network {
         let task = session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 errorHandler?(error)
+                session.finishTasksAndInvalidate()
                 return
             }
             guard let data = data else { return }
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
             successHandler?(data, statusCode)
+            session.finishTasksAndInvalidate()
         }
         task.resume()
     }
@@ -52,11 +56,13 @@ class Network {
         let task = session.uploadTask(with: request, from: data) { (data, response, error) in
             if let error = error {
                 errorHandler?(error)
+                session.finishTasksAndInvalidate()
                 return
             }
             guard let data = data else { return }
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
             succesHandler?(data, statusCode)
+            session.finishTasksAndInvalidate()
         }
         task.resume()
     }

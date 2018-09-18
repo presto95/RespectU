@@ -101,6 +101,7 @@
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		19585868213B0E76000C78C4 /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19585867213B0E76000C78C4 /* Init.storyboard */; };
 		1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19585869213B0E81000C78C4 /* InitViewController.swift */; };
+		1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1958DAB52151312700D8AE41 /* .swiftlint.yml */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
 		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
 		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
@@ -297,6 +298,7 @@
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		19585867213B0E76000C78C4 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
 		19585869213B0E81000C78C4 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		1958DAB52151312700D8AE41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
 		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
 		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 		19B6CFDF1F7953640097B86B = {
 			isa = PBXGroup;
 			children = (
+				1958DAB52151312700D8AE41 /* .swiftlint.yml */,
 				19B6CFEA1F7953640097B86B /* RespectU */,
 				19B6CFE91F7953640097B86B /* Products */,
 				198391EF1F7CE21F009C7B5D /* Frameworks */,
@@ -1026,6 +1029,7 @@
 				19B6CFE61F7953640097B86B /* Resources */,
 				19AC39071F7C806400F170E3 /* Embed Frameworks */,
 				C9B922FB66CA15EEEF5CB728 /* [CP] Embed Pods Frameworks */,
+				1958DAB42151310A00D8AE41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1076,6 +1080,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */,
 				193E4009204BF37E0063A440 /* SummaryCell.xib in Resources */,
 				19892A8620662D0A009D01F8 /* SearchByLevelView.xib in Resources */,
 				1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */,
@@ -1117,6 +1122,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1958DAB42151310A00D8AE41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		ACCC095D57656A367F5A176A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

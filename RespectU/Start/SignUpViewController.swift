@@ -68,7 +68,7 @@ extension SignUpViewController {
         DispatchQueue.main.async {
             UIAlertController
                 .alert(title: "", message: message)
-                .action(title: "OK".localized) { [weak self] (action) in
+                .action(title: "OK".localized) { [weak self] _ in
                     if !isRegistered {
                         self?.navigationController?.popViewController(animated: true)
                     }

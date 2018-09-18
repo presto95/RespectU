@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol SearchByRateViewDelegate {
+protocol SearchByRateViewDelegate: class {
     func touchUpDoneButton(_ textFields: [UITextField])
 }
 
 class SearchByRateView: UIView {
     
-    var delegate: SearchByRateViewDelegate?
+    weak var delegate: SearchByRateViewDelegate?
     @IBOutlet weak var lowerRateTextField: UITextField!
     @IBOutlet weak var upperRateTextField: UITextField!
     lazy var textFields: [UITextField] = {

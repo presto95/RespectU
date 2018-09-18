@@ -18,9 +18,8 @@ class AchievementMusicTableViewController: AchievementBaseTableViewController {
     }
 }
 
-extension AchievementMusicTableViewController: IndicatorInfoProvider{
+extension AchievementMusicTableViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "MUSIC")
     }
 }
-

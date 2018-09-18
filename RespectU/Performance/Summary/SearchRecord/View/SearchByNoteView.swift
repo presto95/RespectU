@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol SearchByNoteViewDelegate {
+protocol SearchByNoteViewDelegate: class {
     func touchUpNoteButtons(_ sender: UIButton)
 }
 
 class SearchByNoteView: UIView {
 
-    var delegate: SearchByNoteViewDelegate?
+    weak var delegate: SearchByNoteViewDelegate?
     @IBOutlet weak var noMaxComboButton: UIButton!
     @IBOutlet weak var perfectPlayButton: UIButton!
     

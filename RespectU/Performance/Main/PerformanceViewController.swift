@@ -63,7 +63,7 @@ class PerformanceViewController: UIViewController {
         alert.textField { textField in
             textField.placeholder = "Nickname".localized
             }
-            .action(title: "OK".localized) { [unowned self] action in
+            .action(title: "OK".localized) { [unowned self] _ in
                 if let input = alert.textFields?.first?.text {
                     if !input.isEmpty {
                         API.uploadNickname(id: id, nickname: input)
@@ -79,17 +79,17 @@ class PerformanceViewController: UIViewController {
     }
     
     @IBAction func touchUpNextButton(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.classNameToString) as? GuideViewController else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        guard let controller = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.classNameToString) as? GuideViewController else { return }
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @IBAction func touchUpRecordButton(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
-        self.present(vc, animated: true)
+        guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
+        self.present(controller, animated: true)
     }
 }
 
-//MARK:- Version
+// MARK: - Version
 extension PerformanceViewController {
     @objc func didReceiveVersion(_ notification: Notification) {
         guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
@@ -98,7 +98,7 @@ extension PerformanceViewController {
             DispatchQueue.main.async {
                 UIAlertController
                     .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)
-                    .action(title: "Update".localized, handler: { (action) in
+                    .action(title: "Update".localized, handler: { _ in
                         guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1291664067") else { return }
                         guard #available(iOS 10, *) else {
                             UIApplication.shared.openURL(url)
@@ -114,7 +114,7 @@ extension PerformanceViewController {
                 DispatchQueue.main.async {
                     UIAlertController
                         .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
-                        .action(title: "OK".localized, handler: { [weak self] (action) in
+                        .action(title: "OK".localized, handler: { [weak self] _ in
                             NotificationCenter.default.removeObserver(self as Any)
                             guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
                             self?.present(controller, animated: true, completion: {
@@ -135,7 +135,7 @@ extension PerformanceViewController {
     }
 }
 
-//MARK:- Nickname
+// MARK: - Nickname
 extension PerformanceViewController {
     @objc func didReceiveUploadNickname(_ notification: Notification) {
         guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
@@ -166,7 +166,7 @@ extension PerformanceViewController {
     }
 }
 
-//MARK:- Ranking
+// MARK: - Ranking
 extension PerformanceViewController {
     @objc func didReceiveUploadRanking(_ notification: Notification) {
         guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
@@ -201,7 +201,7 @@ extension PerformanceViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "skillLevelCell", for: indexPath) as? SkillLevelCell else { return UITableViewCell() }
             cell.delegate = self
-            cell.setProperties(favoriteButton, max: Skill.maxSkillPoint(button: favoriteButton), my: Skill.mySkillPointAndHighestSeries(button: favoriteButton))
+            cell.setProperties(favoriteButton, max: Skill.maxSkillPoint(button: favoriteButton), myRecord: Skill.mySkillPointAndHighestSeries(button: favoriteButton))
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as? SummaryCell else { return UITableViewCell() }
@@ -257,8 +257,8 @@ extension PerformanceViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
-            guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
-            self.present(vc, animated: true)
+            guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
+            self.present(controller, animated: true)
         default:
             break
         }
@@ -275,7 +275,7 @@ extension PerformanceViewController: UITableViewDelegate {
 
 extension PerformanceViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for:  indexPath) as? SummaryCollectionCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath) as? SummaryCollectionCell else { return UICollectionViewCell() }
         cell.setProperties(NewRecordInfo.fetch(), at: indexPath.item)
         return cell
     }
@@ -356,15 +356,15 @@ extension PerformanceViewController: SkillLevelCellDelegate {
     }
     
     func touchUpTop50Button(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
-        self.present(vc, animated: true)
+        guard let controller = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
+        self.present(controller, animated: true)
     }
 }
 
 extension PerformanceViewController: SummaryCellDelegate {
     func touchUpDetailButton(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.classNameToString) as? SummaryDetailViewController else { return }
-        self.present(vc, animated: true)
+        guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.classNameToString) as? SummaryDetailViewController else { return }
+        self.present(controller, animated: true)
     }
     
     func touchUpSearchButton(_ sender: UIButton) {

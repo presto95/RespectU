@@ -10,6 +10,7 @@ target 'RespectU' do
   pod 'XLPagerTabStrip', '~>8.0'
   pod 'DZNEmptyDataSet'
   pod 'SwiftKeychainWrapper'
+  pod 'SwiftLint'
   # Pods for RespectU
 
 end

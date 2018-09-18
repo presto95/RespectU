@@ -278,7 +278,7 @@ extension DownloadViewController {
             DispatchQueue.main.async {
                 UIAlertController
                     .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)
-                    .action(title: "Update".localized, handler: { (action) in
+                    .action(title: "Update".localized, handler: { _ in
                         guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1291664067") else { return }
                         guard #available(iOS 10, *) else {
                             UIApplication.shared.openURL(url)
@@ -358,5 +358,3 @@ extension DownloadViewController {
         }
     }
 }
-
-

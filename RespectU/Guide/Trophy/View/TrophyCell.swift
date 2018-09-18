@@ -9,7 +9,6 @@
 import UIKit
 
 class TrophyCell: UITableViewCell {
-
     
     @IBOutlet weak var trophyImageView: UIImageView!
     @IBOutlet weak var colorLabel: UILabel!

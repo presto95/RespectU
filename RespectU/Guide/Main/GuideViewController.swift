@@ -28,8 +28,8 @@ class GuideViewController: UIViewController {
     }
     
     @IBAction func touchUpRecordButton(_ sender: UIButton) {
-        guard let vc = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
-        self.present(vc, animated: true)
+        guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
+        self.present(controller, animated: true)
     }
     
     private func sendEmail() {
@@ -41,7 +41,7 @@ class GuideViewController: UIViewController {
         }
     }
     
-    private func rateApp(appId: String, completion: ((_ success: Bool) -> ())? = nil){
+    private func rateApp(appId: String, completion: ((_ success: Bool) -> Void)? = nil) {
         guard let url = URL(string: "itms-apps://itunes.apple.com/app/" + appId) else {
             completion?(false)
             return
@@ -63,7 +63,7 @@ extension GuideViewController {
     }
 }
 
-extension GuideViewController: MFMailComposeViewControllerDelegate{
+extension GuideViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
     }
@@ -79,7 +79,7 @@ extension GuideViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch(section){
+        switch section {
         case 0:
             return 6
         case 1:
@@ -119,26 +119,26 @@ extension GuideViewController: UICollectionViewDelegate {
         case 0:
             switch indexPath.row {
             case 0:
-                guard let vc = UIViewController.instantiate(storyboard: "Song", identifier: SongViewController.classNameToString) as? SongViewController else { return }
-                self.present(vc, animated: true)
+                guard let controller = UIViewController.instantiate(storyboard: "Song", identifier: SongViewController.classNameToString) as? SongViewController else { return }
+                self.present(controller, animated: true)
             case 1:
-                guard let vc = UIViewController.instantiate(storyboard: "Mission", identifier: MissionViewController.classNameToString) as? MissionViewController else { return }
-                self.present(vc, animated: true)
+                guard let controller = UIViewController.instantiate(storyboard: "Mission", identifier: MissionViewController.classNameToString) as? MissionViewController else { return }
+                self.present(controller, animated: true)
             case 2:
-                guard let vc = UIViewController.instantiate(storyboard: "Trophy", identifier: TrophyViewController.classNameToString) as? TrophyViewController else { return }
-                self.present(vc, animated: true)
+                guard let controller = UIViewController.instantiate(storyboard: "Trophy", identifier: TrophyViewController.classNameToString) as? TrophyViewController else { return }
+                self.present(controller, animated: true)
             case 3:
-                guard let vc = UIViewController.instantiate(storyboard: "Achievement", identifier: AchievementViewController.classNameToString) as? AchievementViewController else { return }
-                self.present(vc, animated: true)
+                guard let controller = UIViewController.instantiate(storyboard: "Achievement", identifier: AchievementViewController.classNameToString) as? AchievementViewController else { return }
+                self.present(controller, animated: true)
             case 4:
-                guard let vc = UIViewController.instantiate(storyboard: "Tip", identifier: TipViewController.classNameToString) as? TipViewController else { return }
-                self.present(vc, animated: true)
+                guard let controller = UIViewController.instantiate(storyboard: "Tip", identifier: TipViewController.classNameToString) as? TipViewController else { return }
+                self.present(controller, animated: true)
             case 5:
                 if !Reachability.isConnectedToNetwork() {
                     presentNetworkAlert()
                 } else {
-                    guard let vc = UIViewController.instantiate(storyboard: "Manual", identifier: ManualViewController.classNameToString) as? ManualViewController else { return }
-                    self.present(vc, animated: true)
+                    guard let controller = UIViewController.instantiate(storyboard: "Manual", identifier: ManualViewController.classNameToString) as? ManualViewController else { return }
+                    self.present(controller, animated: true)
                 }
             default:
                 break
@@ -167,7 +167,7 @@ extension GuideViewController: UICollectionViewDelegate {
                         textField.placeholder = "BPM"
                         textField.keyboardType = .numberPad
                     }
-                alert.action(title: "OK".localized) { (action) in
+                alert.action(title: "OK".localized) { _ in
                     if let input = alert.textFields?.first?.text {
                         if !input.isEmpty {
                             guard let value = Double(input) else { return }
@@ -184,16 +184,16 @@ extension GuideViewController: UICollectionViewDelegate {
                 let message = "Current".localized + " : \(favorite?.uppercased() ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
                 UIAlertController
                     .alert(title: "My Favorite Button".localized, message: message)
-                    .action(title: Buttons.button4.uppercased()) { (action) in
+                    .action(title: Buttons.button4.uppercased()) { _ in
                         UserDefaults.standard.set(Buttons.button4, forKey: key)
                     }
-                    .action(title: Buttons.button5.uppercased()) { (action) in
+                    .action(title: Buttons.button5.uppercased()) { _ in
                         UserDefaults.standard.set(Buttons.button5, forKey: key)
                     }
-                    .action(title: Buttons.button6.uppercased()) { (action) in
+                    .action(title: Buttons.button6.uppercased()) { _ in
                         UserDefaults.standard.set(Buttons.button6, forKey: key)
                     }
-                    .action(title: Buttons.button8.uppercased()) { (action) in
+                    .action(title: Buttons.button8.uppercased()) { _ in
                         UserDefaults.standard.set(Buttons.button8, forKey: key)
                     }
                     .action(.cancel, title: "Cancel".localized)
@@ -215,8 +215,8 @@ extension GuideViewController: UICollectionViewDelegate {
                 if !Reachability.isConnectedToNetwork() {
                     presentNetworkAlert()
                 } else {
-                    guard let vc = UIViewController.instantiate(storyboard: "Radio", identifier: RadioViewController.classNameToString) as? RadioViewController else { return }
-                    self.present(vc, animated: true)
+                    guard let controller = UIViewController.instantiate(storyboard: "Radio", identifier: RadioViewController.classNameToString) as? RadioViewController else { return }
+                    self.present(controller, animated: true)
                 }
             case 4:
                 guard let versionInfo = VersionInfo.fetch().first else { return }
@@ -255,5 +255,3 @@ extension GuideViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
 }
-
-

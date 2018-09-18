@@ -19,7 +19,7 @@ protocol RecordViewDelegate: class {
 
 class RecordView: UIView {
 
-    var delegate: RecordViewDelegate?
+    weak var delegate: RecordViewDelegate?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
     @IBOutlet weak var buttonButton: UIButton!
@@ -198,7 +198,7 @@ extension RecordView {
     private func updateRankingLabel(title: String, button: String) {
         guard let buttonExpansion = button.buttonExpansion else { return }
         let results = NewRecordInfo.fetch().sorted(byKeyPath: "\(buttonExpansion).skillPoint", ascending: false)
-        let predicate = NSPredicate(format: "%K == %@ OR %K == %@", #keyPath(NewRecordInfo.title.english), title,  #keyPath(NewRecordInfo.title.korean), title)
+        let predicate = NSPredicate(format: "%K == %@ OR %K == %@", #keyPath(NewRecordInfo.title.english), title, #keyPath(NewRecordInfo.title.korean), title)
         guard let filtered = results.filter(predicate).first else { return }
         guard let index = results.index(of: filtered) else { return }
         if index < 50 {

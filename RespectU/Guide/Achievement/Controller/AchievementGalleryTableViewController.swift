@@ -23,4 +23,3 @@ extension AchievementGalleryTableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "GALLERY")
     }
 }
-

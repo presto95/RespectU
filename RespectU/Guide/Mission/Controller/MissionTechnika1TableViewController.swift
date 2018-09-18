@@ -22,4 +22,3 @@ extension MissionTechnika1TableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "TECHNIKA 1")
     }
 }
-

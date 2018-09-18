@@ -48,8 +48,8 @@ extension AchievementBaseTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? AchievementCell else { return UITableViewCell() }
         var rowIndex = 0
         if indexPath.section > 0 {
-            for i in 1...indexPath.section {
-                rowIndex += stages[i - 1]
+            for index in 1...indexPath.section {
+                rowIndex += stages[index - 1]
             }
         }
         rowIndex += indexPath.row
@@ -77,8 +77,8 @@ extension AchievementBaseTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section < self.stages.count {
             var index = 0
-            for i in 0...section {
-                index += stages[i]
+            for sectionIndex in 0...section {
+                index += stages[sectionIndex]
             }
             return self.results?[index - 1].localizedSection
         }

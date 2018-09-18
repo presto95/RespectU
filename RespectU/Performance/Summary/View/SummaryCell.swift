@@ -16,7 +16,7 @@ protocol SummaryCellDelegate: class {
 
 class SummaryCell: UITableViewCell {
 
-    var delegate: SummaryCellDelegate?
+    weak var delegate: SummaryCellDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!

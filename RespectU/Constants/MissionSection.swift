@@ -7,7 +7,7 @@
 //
 
 enum MissionSection {
-    enum respect {
+    enum Respect {
         static let departure = "Departure"
         static let clubRoad645 = "CLUB Road645"
         static let maxTheater = "MAX Theater"
@@ -19,23 +19,23 @@ enum MissionSection {
         static let developers = "D-VELOPERS"
         static let destination = "Destination"
     }
-    enum trilogy {
+    enum Trilogy {
         static let tSide = "T-SIDE"
         static let rSide = "R-SIDE"
     }
-    enum ce {
+    enum CE {
         static let electronicCity = "Electronic City"
         static let metropolis = "Metropolis"
     }
-    enum technika1 {
+    enum Technika1 {
         static let platinumMixing = "Platinum Mixing"
         static let technicalMixing = "Technical Mixing"
     }
-    enum bs {
+    enum BS {
         static let stylishPerformance = "Stylish Performance"
         static let absoluteSound = "Absolute Sound"
     }
-    enum linkdisk {
+    enum LinkDisk {
         static let whiteDisk = "WHITE DISK"
         static let blackDisk = "BLACK DISK"
     }

@@ -10,7 +10,7 @@ import UIKit
 import GaugeKit
 import RealmSwift
 
-protocol SkillLevelCellDelegate {
+protocol SkillLevelCellDelegate: class {
     func touchUpTop50Button(_ sender: UIButton)
     func touchUpRankingButton(_ sender: UIButton)
     func touchUpCalculatorButton(_ sender: UIButton)
@@ -18,7 +18,7 @@ protocol SkillLevelCellDelegate {
 
 class SkillLevelCell: UITableViewCell {
 
-    var delegate: SkillLevelCellDelegate?
+    weak var delegate: SkillLevelCellDelegate?
     @IBOutlet var gauge: Gauge!
     @IBOutlet weak var skillLevelLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
@@ -46,9 +46,9 @@ class SkillLevelCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProperties(_ button: String, max: Double, my: (sum: Double, highestSeries: String)) {
-        let mySkillPointSum = my.sum
-        let myHighestSeries = my.highestSeries
+    func setProperties(_ button: String, max: Double, myRecord: (sum: Double, highestSeries: String)) {
+        let mySkillPointSum = myRecord.sum
+        let myHighestSeries = myRecord.highestSeries
         let seriesColor = myHighestSeries.seriesColor ?? .clear
         self.gauge.maxValue = CGFloat(max)
         self.gauge.rate = CGFloat(mySkillPointSum)

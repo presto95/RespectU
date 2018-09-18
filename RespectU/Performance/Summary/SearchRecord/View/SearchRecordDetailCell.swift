@@ -16,7 +16,6 @@ class SearchRecordDetailCell: UITableViewCell {
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.colorLabel.layer.borderWidth = 1

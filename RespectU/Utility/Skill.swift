@@ -23,10 +23,10 @@ class Skill {
             return 0
         }
         var skillPoint: Double
-        let e = 2.71828
+        let naturalConstant = 2.71828
         let weight = Skill.weight(difficulty)
         if rate >= 80 {
-            let temp = pow((rate - 80) / 20.0, e) + 1
+            let temp = pow((rate - 80) / 20.0, naturalConstant) + 1
             skillPoint = weight * 50 * temp
         } else {
             skillPoint = Double(weight * rate * 5.0) / 8.0
@@ -58,7 +58,6 @@ class Skill {
                 buttonResult = result.button8
             default:
                 buttonResult = SongButtonInfo()
-                break
             }
             guard let bindedButtonResult = buttonResult else { return 0 }
             guard let highest = [bindedButtonResult.normal, bindedButtonResult.hard, bindedButtonResult.maximum].sorted().last else { return 0 }
@@ -252,13 +251,13 @@ class Skill {
             if songResult?.maximum != 0 {
                 counts[0] += 1
             }
-            if buttonResult?.normal?.rate != 0{
+            if buttonResult?.normal?.rate != 0 {
                 counts[1] += 1
             }
-            if buttonResult?.hard?.rate != 0{
+            if buttonResult?.hard?.rate != 0 {
                 counts[1] += 1
             }
-            if buttonResult?.maximum?.rate != 0{
+            if buttonResult?.maximum?.rate != 0 {
                 counts[1] += 1
             }
         }

@@ -38,5 +38,3 @@ class RecordViewController: BaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-

@@ -22,4 +22,3 @@ extension SongCETableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "CLAZZIQUAI")
     }
 }
-

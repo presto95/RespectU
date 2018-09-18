@@ -23,4 +23,3 @@ extension AchievementNoteTableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "NOTE SKIN")
     }
 }
-

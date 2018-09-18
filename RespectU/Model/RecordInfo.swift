@@ -79,7 +79,7 @@ class RecordInfo: Object {
     @objc dynamic var lowercase: String = ""
 
     static func get() -> Results<RecordInfo> {
-        let oldConfig = Realm.Configuration(fileURL: Realm.Configuration.defaultConfiguration.fileURL!.deletingLastPathComponent().appendingPathComponent("default.realm"), schemaVersion: 13, migrationBlock: { (migration, oldVersion) in
+        let oldConfig = Realm.Configuration(fileURL: Realm.Configuration.defaultConfiguration.fileURL!.deletingLastPathComponent().appendingPathComponent("default.realm"), schemaVersion: 13, migrationBlock: { (_, oldVersion) in
             if oldVersion < 1 {}
         })
         let result = try! Realm(configuration: oldConfig).objects(RecordInfo.self)

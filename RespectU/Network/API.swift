@@ -15,7 +15,7 @@ class API {
     private static let jsonDecoder = JSONDecoder()
 }
 
-//MARK:- Song
+// MARK: - Song
 extension API {
     static func requestSongs(of series: String = "") {
         Network.get("\(baseURL)/songs/\(series)", successHandler: { (data) in
@@ -25,13 +25,13 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveSongs, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveSongs, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Mission
+// MARK: - Mission
 extension API {
     static func requestMissions(of series: String = "") {
         Network.get("\(baseURL)/missions/\(series)", successHandler: { (data) in
@@ -41,13 +41,13 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveMissions, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveMissions, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Trophy
+// MARK: - Trophy
 extension API {
     static func requestTrophies(of series: String = "") {
         Network.get("\(baseURL)/trophies/\(series)", successHandler: { (data) in
@@ -57,13 +57,13 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveTrophies, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveTrophies, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Achievement
+// MARK: - Achievement
 extension API {
     static func requestAchievements(of type: String = "") {
         Network.get("\(baseURL)/achievements/\(type)", successHandler: { (data) in
@@ -73,13 +73,13 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveAchievements, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveAchievements, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Tip
+// MARK: - Tip
 extension API {
     static func requestTips() {
         Network.get("\(baseURL)/tips", successHandler: { (data) in
@@ -89,37 +89,37 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Sign In
+// MARK: - Sign In
 extension API {
     static func requestSignIn(id: String, password: String) {
         let parameters = ["id": id, "password": password]
-        Network.post("\(baseURL)/users/signin", parameters: parameters, successHandler: { (data, statusCode) in
+        Network.post("\(baseURL)/users/signin", parameters: parameters, successHandler: { (_, statusCode) in
             NotificationCenter.default.post(name: .didReceiveSignIn, object: nil, userInfo: ["statusCode": statusCode])
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveSignIn, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Sign Up
+// MARK: - Sign Up
 extension API {
     static func requestSignUp(id: String, password: String, nickname: String) {
         let parameters = ["id": id, "password": password, "nickname": nickname]
-        Network.post("\(baseURL)/users/signup", parameters: parameters, successHandler: { (data, statusCode) in
+        Network.post("\(baseURL)/users/signup", parameters: parameters, successHandler: { (_, statusCode) in
             NotificationCenter.default.post(name: .didReceiveSignUp, object: nil, userInfo: ["statusCode": statusCode])
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveSignUp, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Version
+// MARK: - Version
 extension API {
     static func requestVersions() {
         Network.get("\(baseURL)/version", successHandler: { (data) in
@@ -129,13 +129,13 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveVersions, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveVersions, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Nickname
+// MARK: - Nickname
 extension API {
     static func requestNickname() {
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
@@ -147,23 +147,23 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveNickname, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveNickname, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
     
     static func uploadNickname(id: String, nickname: String) {
         let parameters = ["id": id, "nickname": nickname]
-        Network.post("\(baseURL)/users/nickname", parameters: parameters, successHandler: { (data, statusCode) in
+        Network.post("\(baseURL)/users/nickname", parameters: parameters, successHandler: { (_, statusCode) in
             NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["statusCode": statusCode])
             
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Record
+// MARK: - Record
 extension API {
     static func requestRecords(_ id: String) {
         Network.get("\(baseURL)/records/\(id)", successHandler: { (data) in
@@ -173,21 +173,21 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveRequestRecords, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveRequestRecords, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
     
     static func uploadRecords(_ object: Data) {
-        Network.upload("\(baseURL)/records", data: object, succesHandler: { (data, statusCode) in
+        Network.upload("\(baseURL)/records", data: object, succesHandler: { (_, statusCode) in
             NotificationCenter.default.post(name: .didReceiveUploadRecords, object: nil, userInfo: ["statusCode": statusCode])
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadRecords, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }
 
-//MARK:- Ranking
+// MARK: - Ranking
 extension API {
     static func requestRankings() {
         Network.get("\(baseURL)/rankings", successHandler: { (data) in
@@ -197,17 +197,17 @@ extension API {
             } catch {
                 NotificationCenter.default.post(name: .errorReceiveRankings, object: nil, userInfo: ["error": error.localizedDescription])
             }
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveRankings, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
     
     static func uploadRanking(id: String, nickname: String, button4: Double, button5: Double, button6: Double, button8: Double) {
         let parameters: [String: Any] = ["id": id, "nickname": nickname, "button4": button4, "button5": button5, "button6": button6, "button8": button8]
-        Network.post("\(baseURL)/rankings", parameters: parameters, successHandler: { (data, statusCode) in
+        Network.post("\(baseURL)/rankings", parameters: parameters, successHandler: { (_, statusCode) in
             NotificationCenter.default.post(name: .didReceiveUploadRanking, object: nil, userInfo: ["statusCode": statusCode])
-        }) { (error) in
+        }, errorHandler: { (error) in
             NotificationCenter.default.post(name: .errorReceiveUploadRanking, object: nil, userInfo: ["error": error.localizedDescription])
-        }
+        })
     }
 }

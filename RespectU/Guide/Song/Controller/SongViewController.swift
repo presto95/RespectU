@@ -40,19 +40,19 @@ class SongViewController: BaseViewController {
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Search".localized, message: "Select the button type.".localized)
-            .action(title: Buttons.button4.uppercased()) { [weak self] action in
+            .action(title: Buttons.button4.uppercased()) { [weak self] _ in
                 self?.setFavoriteButton(Buttons.button4)
                 self?.reloadAllTableViews()
             }
-            .action(title: Buttons.button5.uppercased()) { [weak self] action in
+            .action(title: Buttons.button5.uppercased()) { [weak self] _ in
                 self?.setFavoriteButton(Buttons.button5)
                 self?.reloadAllTableViews()
             }
-            .action(title: Buttons.button6.uppercased()) { [weak self] action in
+            .action(title: Buttons.button6.uppercased()) { [weak self] _ in
                 self?.setFavoriteButton(Buttons.button6)
                 self?.reloadAllTableViews()
             }
-            .action(title: Buttons.button8.uppercased()) { [weak self] action in
+            .action(title: Buttons.button8.uppercased()) { [weak self] _ in
                 self?.setFavoriteButton(Buttons.button8)
                 self?.reloadAllTableViews()
             }
@@ -63,22 +63,22 @@ class SongViewController: BaseViewController {
     @IBAction func touchUpSortButton(_ sender: UIButton) {
         UIAlertController
             .alert(title: "Sort".localized, message: "Select the sort method.".localized)
-            .action(title: "\(Difficulty.normal.uppercased()) / ASC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.normal.uppercased()) / ASC".localized) { [weak self] _ in
                 self?.sort(difficulty: Difficulty.normal, isAscending: true)
             }
-            .action(title: "\(Difficulty.normal.uppercased()) / DESC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.normal.uppercased()) / DESC".localized) { [weak self] _ in
                 self?.sort(difficulty: Difficulty.normal, isAscending: false)
             }
-            .action(title: "\(Difficulty.hard.uppercased()) / ASC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.hard.uppercased()) / ASC".localized) { [weak self] _ in
                 self?.sort(difficulty: Difficulty.hard, isAscending: true)
             }
-            .action(title: "\(Difficulty.hard.uppercased()) / DESC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.hard.uppercased()) / DESC".localized) { [weak self] _ in
                 self?.sort(difficulty: Difficulty.hard, isAscending: false)
             }
-            .action(title: "\(Difficulty.maximum.uppercased()) / ASC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.maximum.uppercased()) / ASC".localized) { [weak self] _ in
                 self?.sort(difficulty: Difficulty.maximum, isAscending: true)
             }
-            .action(title: "\(Difficulty.maximum.uppercased()) / DESC".localized) { [weak self] action in
+            .action(title: "\(Difficulty.maximum.uppercased()) / DESC".localized) { [weak self] _ in
                 self?.sort(difficulty: Difficulty.maximum, isAscending: false)
             }
             .action(.cancel, title: "Cancel".localized)
@@ -92,7 +92,7 @@ class SongViewController: BaseViewController {
         let myBpm = UserDefaults.standard.double(forKey: "bpm")
         let speed = recommendedSpeed(by: myBpm / Double(object.bpm))
         var message = "\(object.series.uppercased())\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
-        if let _ = object.subBpm.value {
+        if object.subBpm.value != nil {
             message += "\n" + "(SPEED Variation)".localized
         }
         UIAlertController

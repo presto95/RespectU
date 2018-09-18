@@ -43,19 +43,19 @@ class SearchRecordViewController: UIViewController {
     @IBAction func touchUpSearchButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordDetailViewController.classNameToString) as? SearchRecordDetailViewController else { return }
         controller.buttonIndex = { () -> Int in
-            for i in 0..<4 {
-                guard let button = buttonButtons[i] else { return -1 }
+            for index in 0..<4 {
+                guard let button = buttonButtons[index] else { return -1 }
                 if button.isSelected {
-                    return i
+                    return index
                 }
             }
             return -1
         }()
         controller.methodIndex = { () -> Int in
-            for i in 0..<3 {
-                guard let button = methodButtons[i] else { return -1 }
+            for index in 0..<3 {
+                guard let button = methodButtons[index] else { return -1 }
                 if button.isSelected {
-                    return i
+                    return index
                 }
             }
             return -1
@@ -173,11 +173,11 @@ class SearchRecordViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func touchUpSearchByNoteButtons(_ sender: UIButton){
+    @objc func touchUpSearchByNoteButtons(_ sender: UIButton) {
         checkValidity()
     }
     
-    @objc func didEndEditing(_ sender: UITextField){
+    @objc func didEndEditing(_ sender: UITextField) {
         checkValidity()
     }
 }
@@ -238,8 +238,8 @@ extension SearchRecordViewController: SearchByNoteViewDelegate {
 }
 
 extension SearchRecordViewController {
-    private func initializeButtons(){
-        for button in buttonButtons{
+    private func initializeButtons() {
+        for button in buttonButtons {
             UIView.animate(withDuration: 0.3) {
                 button?.backgroundColor = .sub
             }
@@ -248,7 +248,7 @@ extension SearchRecordViewController {
         }
     }
     
-    private func initializeMethods(){
+    private func initializeMethods() {
         for button in methodButtons {
             UIView.animate(withDuration: 0.3) {
                 button?.backgroundColor = .sub
@@ -258,7 +258,7 @@ extension SearchRecordViewController {
         }
     }
     
-    private func checkValidity(){
+    private func checkValidity() {
         self.searchButton.isEnabled = false
         let view = subView.subviews.first
         switch view {

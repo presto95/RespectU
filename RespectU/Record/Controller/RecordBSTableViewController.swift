@@ -22,4 +22,3 @@ extension RecordBSTableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "BLACK SQUARE")
     }
 }
-

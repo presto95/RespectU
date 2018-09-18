@@ -73,7 +73,6 @@ class SummaryCollectionCell: UICollectionViewCell {
                 }
                 return "\(count)"
             }()
-            break
         default:
             break
         }

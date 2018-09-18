@@ -208,8 +208,8 @@ class SummaryDetailViewController: UIViewController {
             }
         }
         totalPatterns()
-        for i in 0..<12 {
-            allArray[i] = button4Array[i] + button5Array[i] + button6Array[i] + button8Array[i]
+        for index in 0..<12 {
+            allArray[index] = button4Array[index] + button5Array[index] + button6Array[index] + button8Array[index]
         }
         rateArray[0] = rateArray[0] / Double(button4Array[11])
         rateArray[1] = rateArray[1] / Double(button5Array[11])

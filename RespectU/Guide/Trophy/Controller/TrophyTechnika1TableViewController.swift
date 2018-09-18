@@ -35,4 +35,3 @@ extension TrophyTechnika1TableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "TECHNIKA 1")
     }
 }
-

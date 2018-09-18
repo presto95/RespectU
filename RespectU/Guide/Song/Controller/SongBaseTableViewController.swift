@@ -57,11 +57,9 @@ extension SongBaseTableViewController {
         let unlockMission = "Unlock (MISSION)".localized
         var unlockInfo = ""
         if let bindedAchievementResults = achievementResults {
-            for result in bindedAchievementResults {
-                if result.localizedItem == object.localizedTitle {
-                    unlockInfo += "\n\n\(unlockAchievement)\n\(result.localizedSection) Stage \(result.level)"
-                    break
-                }
+            for result in bindedAchievementResults where result.localizedItem == object.localizedTitle {
+                unlockInfo += "\n\n\(unlockAchievement)\n\(result.localizedSection) Stage \(result.level)"
+                break
             }
         }
         if let bindedMissionResults = missionResults {

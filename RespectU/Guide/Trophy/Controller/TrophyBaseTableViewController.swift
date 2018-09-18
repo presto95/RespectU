@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 
-
 class TrophyBaseTableViewController: BaseTableViewController {
 
     var results: Results<TrophyInfo>?

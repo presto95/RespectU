@@ -1,0 +1,24 @@
+disabled_rules:
+- leading_whitespace
+- trailing_whitespace
+- line_length
+included:
+excluded:
+- Pods
+- RespectU/Supporting Files/ERProgressHud.swift
+
+cyclomatic_complexity: 20
+identifier_name:
+    excluded:
+    - id
+    - ce
+    - bs
+    - xb
+    - tb
+    - fx
+    - CE
+    - BS
+    - s
+    - a
+    - b
+    - c

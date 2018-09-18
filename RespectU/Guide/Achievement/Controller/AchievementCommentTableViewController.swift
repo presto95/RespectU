@@ -23,4 +23,3 @@ extension AchievementCommentTableViewController: IndicatorInfoProvider {
         return IndicatorInfo(title: "COMMENT")
     }
 }
-

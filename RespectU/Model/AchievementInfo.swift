@@ -9,6 +9,7 @@
 import RealmSwift
 
 class AchievementInfo: Object {
+    
     @objc dynamic var type: String = ""
     @objc dynamic var level: Int = 0
     @objc dynamic var section: LanguageInfo?

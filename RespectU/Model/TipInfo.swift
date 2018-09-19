@@ -9,6 +9,7 @@
 import RealmSwift
 
 class TipInfo: Object {
+    
     @objc dynamic var title: LanguageInfo?
     
     var localizedTitle: String {

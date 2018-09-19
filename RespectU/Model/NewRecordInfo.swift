@@ -9,6 +9,7 @@
 import RealmSwift
 
 class NewRecordInfo: Object {
+    
     @objc dynamic var title: LanguageInfo?
     @objc dynamic var series: String = ""
     @objc dynamic var button4: NewRecordButtonInfo?

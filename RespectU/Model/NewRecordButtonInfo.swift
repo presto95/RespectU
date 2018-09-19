@@ -9,6 +9,7 @@
 import RealmSwift
 
 class NewRecordButtonInfo: Object {
+    
     @objc dynamic var normal: NewRecordDifficultyInfo?
     @objc dynamic var hard: NewRecordDifficultyInfo?
     @objc dynamic var maximum: NewRecordDifficultyInfo?

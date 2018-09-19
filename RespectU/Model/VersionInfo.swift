@@ -9,6 +9,7 @@
 import RealmSwift
 
 class VersionInfo: Object {
+    
     @objc dynamic var serverVersion: String = ""
     @objc dynamic var gameVersion: String = ""
     

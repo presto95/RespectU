@@ -9,6 +9,7 @@
 import RealmSwift
 
 class SongButtonInfo: Object {
+    
     @objc dynamic var normal: Int = 0
     @objc dynamic var hard: Int = 0
     @objc dynamic var maximum: Int = 0

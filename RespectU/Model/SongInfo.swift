@@ -9,6 +9,7 @@
 import RealmSwift
 
 class SongInfo: Object {
+    
     @objc dynamic var title: LanguageInfo?
     @objc dynamic var lowercase: LanguageInfo?
     @objc dynamic var series: String = ""

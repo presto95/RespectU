@@ -9,6 +9,7 @@
 import RealmSwift
 
 class MissionStageInfo: Object {
+    
     @objc dynamic var title: LanguageInfo?
     @objc dynamic var difficulty: String = ""
     @objc dynamic var button: String = ""

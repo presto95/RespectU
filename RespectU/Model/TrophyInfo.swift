@@ -9,6 +9,7 @@
 import RealmSwift
 
 class TrophyInfo: Object {
+    
     @objc dynamic var series: String = ""
     @objc dynamic var rating: String = ""
     @objc dynamic var image: String = ""
@@ -86,8 +87,8 @@ class TrophyInfo: Object {
         } catch {
             print(error.localizedDescription)
         }
-        let realm = try! Realm()
-        try! realm.write {
+        guard let realm = try? Realm() else { return }
+        try? realm.write {
             trophyInfo.series = object.series
             trophyInfo.rating = object.rating
             trophyInfo.image = object.image

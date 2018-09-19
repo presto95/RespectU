@@ -9,6 +9,7 @@
 import RealmSwift
 
 class NewRecordDifficultyInfo: Object {
+    
     @objc dynamic var rank: String = ""
     @objc dynamic var rate: Double = 0
     @objc dynamic var note: String = ""

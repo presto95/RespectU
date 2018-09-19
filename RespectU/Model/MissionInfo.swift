@@ -9,6 +9,7 @@
 import RealmSwift
 
 class MissionInfo: Object {
+    
     @objc dynamic var series: String = ""
     @objc dynamic var section: String = ""
     @objc dynamic var title: String = ""
@@ -35,7 +36,7 @@ class MissionInfo: Object {
     }
     
     static func add(_ missionInfo: MissionResponse.Mission) {
-        guard let realm = try? Realm() else { return }
+        let realm = try! Realm()
         let object = MissionInfo()
         let rewardInfo = LanguageInfo()
         object.series = missionInfo.series
@@ -109,13 +110,13 @@ class MissionInfo: Object {
             stageInfo.button = stage.button
             object.stage6 = stageInfo
         }
-        try? realm.write {
+        try! realm.write {
             realm.add(object)
         }
     }
     
     static func fetch(of series: String = "") -> Results<MissionInfo> {
-        let realm = try! realm()
+        let realm = try! Realm()
         let missionInfo = realm.objects(MissionInfo.self)
         if series.isEmpty {
             return missionInfo
@@ -127,8 +128,8 @@ class MissionInfo: Object {
     
     ///타이틀로 필터링한 내부 데이터베이스 갱신
     static func update(_ object: MissionResponse.Mission, to missionInfo: MissionInfo) {
-        guard let realm = try? Realm() else { return }
-        try? realm.write {
+        let realm = try! Realm()
+        try! realm.write {
             missionInfo.series = object.series
             missionInfo.section = object.section
             missionInfo.title = object.title

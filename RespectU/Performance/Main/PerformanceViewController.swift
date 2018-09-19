@@ -12,12 +12,12 @@ import StoreKit
 import SwiftKeychainWrapper
 
 class PerformanceViewController: UIViewController {
-  
+    // MARK: IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var nicknameButton: UIButton!
     var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
-    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
@@ -335,7 +335,6 @@ extension PerformanceViewController: SkillLevelCellDelegate {
         }
         .action(.cancel, title: "Cancel".localized)
         .present(to: self)
-        
     }
     
     func touchUpRankingButton(_ sender: UIButton) {
@@ -380,7 +379,6 @@ extension PerformanceViewController {
             UserDefaults.standard.set(appOpenCount + 1, forKey: "appOpenCount")
             if UserDefaults.standard.integer(forKey: "appOpenCount") % 10 == 0 {
                 SKStoreReviewController.requestReview()
-                
             }
         }
     }

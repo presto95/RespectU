@@ -1,6 +1,6 @@
 disabled_rules:
-- leading_whitespace
 - trailing_whitespace
+- leading_whitespace
 - line_length
 - force_try
 included:
@@ -23,3 +23,7 @@ identifier_name:
     - a
     - b
     - c
+type_name:
+    excluded:
+    - CE
+    - BS

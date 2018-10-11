@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -172,26 +171,6 @@
             </objects>
             <point key="canvasLocation" x="4646" y="-839"/>
         </scene>
-        <!--Song Favorite Table View Controller-->
-        <scene sceneID="zNr-mW-mNA">
-            <objects>
-                <tableViewController storyboardIdentifier="SongFavoriteTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QBr-ab-Pil" customClass="SongFavoriteTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RsM-2X-frl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="QBr-ab-Pil" id="YKL-YG-qQi"/>
-                            <outlet property="delegate" destination="QBr-ab-Pil" id="BNc-JM-q6d"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HWL-ey-sSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5324" y="-839"/>
-        </scene>
         <!--Song View Controller-->
         <scene sceneID="k7y-9L-JNl">
             <objects>
@@ -247,7 +226,7 @@
                                 <rect key="frame" x="16" y="20" width="142" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vhk-mB-bl3">
-                                        <rect key="frame" x="18.5" y="15" width="106" height="30"/>
+                                        <rect key="frame" x="18" y="15" width="106" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iPe-ao-XSP">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -327,12 +306,32 @@
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="-160.56971514242881"/>
         </scene>
+        <!--Song Technika2 Table View Controller-->
+        <scene sceneID="cAF-TH-2V6">
+            <objects>
+                <tableViewController storyboardIdentifier="SongTechnika2TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k3R-vS-twj" customClass="SongTechnika2TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="oKq-Z1-v7e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                        <connections>
+                            <outlet property="dataSource" destination="k3R-vS-twj" id="slq-nY-Rcd"/>
+                            <outlet property="delegate" destination="k3R-vS-twj" id="Qdo-y0-NnV"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HUC-fG-fjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5318" y="-839"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="cancelButton" width="25" height="25"/>
-        <image name="random" width="25" height="25"/>
-        <image name="respectuFlat" width="500" height="500"/>
-        <image name="search" width="25" height="25"/>
-        <image name="sort" width="25" height="25"/>
+        <image name="cancelButton" width="20" height="20"/>
+        <image name="random" width="20.809247970581055" height="20.809247970581055"/>
+        <image name="respectuFlat" width="120" height="120"/>
+        <image name="search" width="50" height="50"/>
+        <image name="sort" width="13.333333015441895" height="13.333333015441895"/>
     </resources>
 </document>

@@ -13,8 +13,8 @@ struct TrophyResponse: Codable {
         let series: String
         let rating: String
         let image: String
-        let title: Language
-        let content: Language
+        let title: LanguageResponse
+        let content: LanguageResponse
         var localizedTitle: String {
             if Locale.current.regionCode == "KR", let korean = title.korean {
                 return korean

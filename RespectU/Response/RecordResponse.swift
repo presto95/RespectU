@@ -24,7 +24,7 @@ struct RecordResponse: Codable {
             let skillPointNote: String
             let skillPointRate: Double
         }
-        let title: Language
+        let title: LanguageResponse
         let series: String
         let button4: Button
         let button5: Button

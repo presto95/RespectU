@@ -23,21 +23,12 @@ class PerformanceViewController: UIViewController {
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        recordButton.setTitle("Performance Record".localized, for: .normal)
-        API.requestVersions()
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUploadNickname(_:)), name: .didReceiveUploadNickname, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadNickname(_:)), name: .errorReceiveUploadNickname, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersion(_:)), name: .didReceiveVersions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersion(_:)), name: .errorReceiveVersions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUploadRanking(_:)), name: .didReceiveUploadRanking, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadRanking(_:)), name: .errorReceiveUploadRanking, object: nil)
+        API.requestVersions(completion: didReceiveVersions)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
-        self.tableView.reloadData()
-        self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: [])
+        setup()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,12 +36,14 @@ class PerformanceViewController: UIViewController {
         presentRateView()
     }
     
-    static func instantiate() -> PerformanceViewController? {
-        guard let viewController = UIStoryboard(name: "Performance", bundle: nil).instantiateViewController(withIdentifier: classNameToString) as? PerformanceViewController else { return nil }
-        return viewController
+    func setup() {
+        recordButton.setTitle("Performance Record".localized, for: .normal)
+        self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
+        self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: [])
+        self.tableView.reloadData()
     }
     
-    @IBAction func touchUpNicknameButton(_ sender: UIButton) {
+    @IBAction func didTouchUpNicknameButton(_ sender: UIButton) {
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if id.isEmpty {
             UIAlertController
@@ -66,7 +59,7 @@ class PerformanceViewController: UIViewController {
             .action(title: "OK".localized) { [unowned self] _ in
                 if let input = alert.textFields?.first?.text {
                     if !input.isEmpty {
-                        API.uploadNickname(id: id, nickname: input)
+                        API.uploadNickname(id: id, nickname: input, completion: self.didReceiveUploadNickname)
                         let nickname = input.trimmingCharacters(in: .whitespaces)
                         UserDefaults.standard.set(nickname, forKey: "nickname")
                         UserDefaults.standard.synchronize()
@@ -78,23 +71,27 @@ class PerformanceViewController: UIViewController {
             .present(to: self)
     }
     
-    @IBAction func touchUpNextButton(_ sender: UIButton) {
+    @IBAction func didTouchUpNextButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.classNameToString) as? GuideViewController else { return }
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    @IBAction func touchUpRecordButton(_ sender: UIButton) {
+    @IBAction func didTouchUpRecordButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
         self.present(controller, animated: true)
     }
 }
 
 // MARK: - Version
-extension PerformanceViewController {
-    @objc func didReceiveVersion(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
+private extension PerformanceViewController {
+    func didReceiveVersions(response: VersionResponse?, error: Error?) {
+        if let error = error {
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
         guard let versionInfo = VersionInfo.fetch().first else { return }
-        if version != userInfo.clientVersion {
+        if version != response.clientVersion {
             DispatchQueue.main.async {
                 UIAlertController
                     .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)
@@ -109,36 +106,30 @@ extension PerformanceViewController {
                     .action(.cancel, title: "Cancel".localized)
                     .present(to: self)
             }
-        } else {
-            if userInfo.serverVersion != versionInfo.serverVersion {
-                DispatchQueue.main.async {
-                    UIAlertController
-                        .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
-                        .action(title: "OK".localized, handler: { [weak self] _ in
-                            NotificationCenter.default.removeObserver(self as Any)
-                            guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
-                            self?.present(controller, animated: true, completion: {
-                            })
+        } else if response.serverVersion != versionInfo.serverVersion {
+            DispatchQueue.main.async {
+                UIAlertController
+                    .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
+                    .action(title: "OK".localized, handler: { [weak self] _ in
+                        NotificationCenter.default.removeObserver(self as Any)
+                        guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
+                        self?.present(controller, animated: true, completion: {
                         })
-                        .action(.cancel, title: "Cancel".localized)
-                        .present(to: self)
-                }
+                    })
+                    .action(.cancel, title: "Cancel".localized)
+                    .present(to: self)
             }
         }
-        NotificationCenter.default.removeObserver(self, name: .didReceiveVersions, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .errorReceiveVersions, object: nil)
-    }
-    
-    @objc func errorReceiveVersion(_ notification: Notification) {
-        NotificationCenter.default.removeObserver(self, name: .didReceiveVersions, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .errorReceiveVersions, object: nil)
     }
 }
-
 // MARK: - Nickname
-extension PerformanceViewController {
-    @objc func didReceiveUploadNickname(_ notification: Notification) {
-        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+private extension PerformanceViewController {
+    func didReceiveUploadNickname(statusCode: Int?, error: Error?) {
+        if let error = error {
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let statusCode = statusCode else { return }
         if (200...299).contains(statusCode) {
             DispatchQueue.main.async {
                 UIAlertController
@@ -155,21 +146,15 @@ extension PerformanceViewController {
             }
         }
     }
-    
-    @objc func errorReceiveUploadNickname(_ notification: Notification) {
-        DispatchQueue.main.async {
-            UIAlertController
-                .alert(title: "", message: "Failed to change nickname".localized)
-                .action(title: "OK".localized)
-                .present(to: self)
-        }
-    }
 }
-
 // MARK: - Ranking
 extension PerformanceViewController {
-    @objc func didReceiveUploadRanking(_ notification: Notification) {
-        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
+    func didReceiveUploadRanking(statusCode: Int?, error: Error?) {
+        if let error = error {
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let statusCode = statusCode else { return }
         if (200...299).contains(statusCode) {
             DispatchQueue.main.async { [weak self] in
                 guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
@@ -182,15 +167,6 @@ extension PerformanceViewController {
                     .action(title: "OK".localized)
                     .present(to: self)
             }
-        }
-    }
-    
-    @objc func errorReceiveUploadRanking(_ notification: Notification) {
-        DispatchQueue.main.async { [weak self] in
-            UIAlertController
-                .alert(title: "", message: "Network Error".localized)
-                .action(title: "OK".localized)
-                .present(to: self)
         }
     }
 }
@@ -218,7 +194,7 @@ extension PerformanceViewController: UITableViewDataSource {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .white
         header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        header.backgroundView?.backgroundColor = UIColor.main
+        header.backgroundView?.backgroundColor = .main
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -286,7 +262,7 @@ extension PerformanceViewController: UICollectionViewDataSource {
 }
 
 extension PerformanceViewController: SkillLevelCellDelegate {
-    func touchUpCalculatorButton(_ sender: UIButton) {
+    func didTouchUpCalculatorButton(_ sender: UIButton) {
         let alert = UIAlertController
             .alert(title: "Skill Point Calculator".localized, message: "")
             .textField { textField in
@@ -337,7 +313,7 @@ extension PerformanceViewController: SkillLevelCellDelegate {
         .present(to: self)
     }
     
-    func touchUpRankingButton(_ sender: UIButton) {
+    func didTouchUpRankingButton(_ sender: UIButton) {
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if id.isEmpty {
             UIAlertController
@@ -350,23 +326,23 @@ extension PerformanceViewController: SkillLevelCellDelegate {
             let button5SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button5).sum
             let button6SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button6).sum
             let button8SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button8).sum
-            API.uploadRanking(id: id, nickname: nickname, button4: button4SkillPoint, button5: button5SkillPoint, button6: button6SkillPoint, button8: button8SkillPoint)
+            API.uploadRanking(id: id, nickname: nickname, button4: button4SkillPoint, button5: button5SkillPoint, button6: button6SkillPoint, button8: button8SkillPoint, completion: didReceiveUploadRanking)
         }
     }
     
-    func touchUpTop50Button(_ sender: UIButton) {
+    func didTouchUpTop50Button(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
         self.present(controller, animated: true)
     }
 }
 
 extension PerformanceViewController: SummaryCellDelegate {
-    func touchUpDetailButton(_ sender: UIButton) {
+    func didTouchUpDetailButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.classNameToString) as? SummaryDetailViewController else { return }
         self.present(controller, animated: true)
     }
     
-    func touchUpSearchButton(_ sender: UIButton) {
+    func didTouchUpSearchButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
         self.present(controller, animated: true)
     }

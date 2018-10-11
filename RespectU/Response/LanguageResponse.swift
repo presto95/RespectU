@@ -6,7 +6,7 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-struct Language: Codable {
+struct LanguageResponse: Codable {
     let english: String
     let korean: String?
 }

@@ -19,22 +19,18 @@ class Top50Cell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.colorLabel.layer.borderColor = UIColor.main.cgColor
-        self.colorLabel.layer.borderWidth = 1
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        colorLabel.layer.borderColor = UIColor.main.cgColor
+        colorLabel.layer.borderWidth = 1
     }
     
     func setProperties(_ object: NewRecordInfo, button: String) {
-        self.colorLabel.backgroundColor = object.series.seriesColor
-        self.titleLabel.text = object.localizedTitle
+        colorLabel.backgroundColor = object.series.seriesColor
+        titleLabel.text = object.localizedTitle
         guard let buttonExpansion = button.buttonExpansion else { return }
         guard let button = object.value(forKeyPath: buttonExpansion) as? NewRecordButtonInfo else { return }
-        self.difficultyLabel.text = button.skillPointDifficulty.isEmpty ? "-" : button.skillPointDifficulty.uppercased()
-        self.noteLabel.text = button.skillPointNote.isEmpty ? "-" : button.skillPointNote.noteExpansion
-        self.rateLabel.text = button.skillPointRate == 0 ? "-" : "\(button.skillPointRate)%"
-        self.skillPointLabel.text = String(format: "%05.2f", button.skillPoint)
+        difficultyLabel.text = button.skillPointDifficulty.isEmpty ? "-" : button.skillPointDifficulty.uppercased()
+        noteLabel.text = button.skillPointNote.isEmpty ? "-" : button.skillPointNote.noteExpansion
+        rateLabel.text = button.skillPointRate == 0 ? "-" : "\(button.skillPointRate)%"
+        skillPointLabel.text = String(format: "%05.2f", button.skillPoint)
     }
 }

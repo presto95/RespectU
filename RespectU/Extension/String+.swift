@@ -14,22 +14,39 @@ extension String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
     
+//    static var seriesGradient: CAGradientLayer? {
+//        switch self {
+//        case Series.portable1:
+//        case Series.portable2:
+//        case Series.respect:
+//        case Series.trilogy:
+//        case Series.ce:
+//        case Series.technika1:
+//        case Series.bs:
+//        case Series.technika2:
+//        default:
+//            return nil
+//        }
+//    }
+    
     var seriesColor: UIColor? {
         switch self {
         case Series.portable1:
-            return UIColor.portable1
+            return .portable1
         case Series.portable2:
-            return UIColor.portable2
+            return .portable2
         case Series.respect:
-            return UIColor.respect
+            return .respect
         case Series.trilogy:
-            return UIColor.trilogy
+            return .trilogy
         case Series.ce:
-            return UIColor.ce
+            return .ce
         case Series.technika1:
-            return UIColor.technika1
+            return .technika1
         case Series.bs:
-            return UIColor.bs
+            return .bs
+        case Series.technika2:
+            return .technika2
         default:
             return nil
         }
@@ -77,6 +94,10 @@ extension String {
             return #colorLiteral(red: 0.7058823529, green: 0.431372549, blue: 0.4745098039, alpha: 1)
         case MissionSection.LinkDisk.blackDisk:
             return #colorLiteral(red: 0.6392156863, green: 0.6, blue: 0.4196078431, alpha: 1)
+        case MissionSection.Technika2.popMixing:
+            return nil
+        case MissionSection.Technika2.clubMixing:
+            return nil
         default:
             return nil
         }

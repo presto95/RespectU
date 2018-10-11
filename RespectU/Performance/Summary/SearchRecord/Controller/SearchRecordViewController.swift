@@ -124,7 +124,7 @@ class SearchRecordViewController: UIViewController {
         switch sender.tag {
         case 0:
             selectedMethodIndex = 0
-            guard let newView = UIView.instanceFromXib(xibName: "SearchByLevelView") as? SearchByLevelView else { return }
+            guard let newView = UIView.instantiateFromXib(xibName: "SearchByLevelView") as? SearchByLevelView else { return }
             newView.pickerView.delegate = self
             newView.pickerView.dataSource = self
             subView.addSubview(newView)
@@ -137,7 +137,7 @@ class SearchRecordViewController: UIViewController {
                 ])
         case 1:
             selectedMethodIndex = 1
-            guard let newView = UIView.instanceFromXib(xibName: "SearchByRateView") as? SearchByRateView else { return }
+            guard let newView = UIView.instantiateFromXib(xibName: "SearchByRateView") as? SearchByRateView else { return }
             newView.delegate = self
             newView.lowerRateTextField.addTarget(self, action: #selector(didEndEditing), for: .editingDidEnd)
             newView.upperRateTextField.addTarget(self, action: #selector(didEndEditing), for: .editingDidEnd)
@@ -151,7 +151,7 @@ class SearchRecordViewController: UIViewController {
                 ])
         case 2:
             selectedMethodIndex = 2
-            guard let newView = UIView.instanceFromXib(xibName: "SearchByNoteView") as? SearchByNoteView else { return }
+            guard let newView = UIView.instantiateFromXib(xibName: "SearchByNoteView") as? SearchByNoteView else { return }
             newView.delegate = self
             newView.noMaxComboButton.addTarget(self, action: #selector(touchUpSearchByNoteButtons), for: .touchUpInside)
             newView.perfectPlayButton.addTarget(self, action: #selector(touchUpSearchByNoteButtons), for: .touchUpInside)

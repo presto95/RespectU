@@ -25,7 +25,7 @@ class RadioViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.setImage(#imageLiteral(resourceName: "cancelButton"), for: .normal)
         button.frame = CGRect(x: view.frame.width - 60, y: 40, width: 40, height: 40)
-        button.addTarget(self, action: #selector(touchUpCancelButton(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTouchUpCancelButton(_:)), for: .touchUpInside)
         webView.addSubview(button)
     }
     

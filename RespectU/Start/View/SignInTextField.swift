@@ -10,11 +10,18 @@ import UIKit
 
 class SignInTextField: UITextField {
 
-    @IBInspectable var cornerRadius: CGFloat = 10
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.layer.cornerRadius = cornerRadius
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
+        self.layer.cornerRadius = 10
         self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.height))
         self.leftViewMode = .always
     }

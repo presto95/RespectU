@@ -15,8 +15,8 @@ struct SongResponse: Codable {
             let hard: Int
             let maximum: Int
         }
-        let title: Language
-        let lowercase: Language
+        let title: LanguageResponse
+        let lowercase: LanguageResponse
         let series: String
         let composer: String
         let bpm: Int

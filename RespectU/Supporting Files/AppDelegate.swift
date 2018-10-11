@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print(error.localizedDescription)
 //        }
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.tintColor = .main
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if !id.isEmpty {
             if TipInfo.fetch().count != 0 {
@@ -57,6 +58,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") {
             UserDefaults.standard.set(favoriteButton.lowercased(), forKey: "favoriteButton")
         }
+        // 전역 프로퍼티 설정
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().isTranslucent = true
+        UITableView.appearance().backgroundColor = .white
+        UITableView.appearance().separatorColor = .lightGray
+        UITableView.appearance().separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        UITableView.appearance().layer.borderColor = UIColor.main.cgColor
+        UITableView.appearance().layer.borderWidth = 3
+        UITableView.appearance().layer.cornerRadius = 10
         return true
     }
 

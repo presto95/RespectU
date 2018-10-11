@@ -1,7 +1,6 @@
 PODS:
   - DZNEmptyDataSet (1.8.1)
   - GaugeKit (0.4.5)
-  - Gradients (0.1.4)
   - MarqueeLabel/Swift (3.2.0)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
@@ -15,7 +14,6 @@ PODS:
 DEPENDENCIES:
   - DZNEmptyDataSet
   - GaugeKit
-  - Gradients
   - MarqueeLabel/Swift
   - RealmSwift
   - SwiftKeychainWrapper
@@ -26,7 +24,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DZNEmptyDataSet
     - GaugeKit
-    - Gradients
     - MarqueeLabel
     - Realm
     - RealmSwift
@@ -37,7 +34,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   GaugeKit: 7872069a8aed2d26b17fca110fe1ab59722f8a33
-  Gradients: c7152bf63168a718bb7be30f860c636ef983fc8b
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
@@ -45,6 +41,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 68ee3adeed06b9373ccafdf3f9be2172f5596503
+PODFILE CHECKSUM: 967e17f81bf34e2b4bb2c7b9689c3016794bf520
 
 COCOAPODS: 1.6.0.beta.1

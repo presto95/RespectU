@@ -11,7 +11,7 @@ import Foundation
 struct MissionResponse: Codable {
     struct Mission: Codable {
         struct Stage: Codable {
-            let title: Language
+            let title: LanguageResponse
             let difficulty: String
             let button: String
             var localizedTitle: String {
@@ -31,7 +31,7 @@ struct MissionResponse: Codable {
         let rate: Int
         let `break`: Int
         let effector: String
-        let reward: Language
+        let reward: LanguageResponse
         let stage1: Stage?
         let stage2: Stage?
         let stage3: Stage?

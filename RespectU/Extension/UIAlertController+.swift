@@ -34,7 +34,14 @@ extension UIAlertController {
     }
     
     //present
-    func present(to viewController: UIViewController?) {
-        viewController?.present(self, animated: true, completion: nil)
+    func present(to viewController: UIViewController?, handler: (() -> Void)? = nil) {
+        viewController?.present(self, animated: true, completion: handler)
+    }
+    
+    static func presentErrorAlert(to viewController: UIViewController?, error: String, handler: (() -> Void)? = nil) {
+        UIAlertController
+            .alert(title: "", message: error)
+            .action(title: "OK".localized)
+            .present(to: viewController, handler: handler)
     }
 }

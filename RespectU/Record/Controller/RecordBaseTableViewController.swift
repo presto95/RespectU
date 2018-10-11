@@ -67,7 +67,7 @@ extension RecordBaseTableViewController {
         let predicate = NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), songResult.title?.english ?? "")
         guard let object = self.recordResults?.filter(predicate).first else { return }
         cell.setColorsInSong(object.series, labels: cell.labels)
-        self.recordView = UIView.instanceFromXib(xibName: "RecordView") as? RecordView
+        self.recordView = UIView.instantiateFromXib(xibName: "RecordView") as? RecordView
         self.recordView.delegate = self
         self.recordView.translatesAutoresizingMaskIntoConstraints = false
         recordViewController.view.addSubview(recordView)

@@ -11,7 +11,6 @@ target 'RespectU' do
   pod 'DZNEmptyDataSet'
   pod 'SwiftKeychainWrapper'
   pod 'SwiftLint'
-  pod 'Gradients'
   # Pods for RespectU
 
 end

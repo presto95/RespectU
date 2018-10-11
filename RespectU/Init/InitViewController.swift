@@ -25,7 +25,7 @@ class InitViewController: UIViewController {
                 if finishesAll {
                     presentSuccessAlert()
                 } else {
-                    presentFailureAlert()
+                    UIAlertController.presentErrorAlert(to: self, error: "Network Error".localized)
                 }
             }
         }
@@ -39,114 +39,105 @@ class InitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.descriptionLabel.text = "Download data to start the application.".localized
-        self.startButton.setTitle("Download".localized, for: [])
-        self.startButton.addTarget(self, action: #selector(touchUpDownloadButton(_:)), for: .touchUpInside)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSongs(_:)), name: .didReceiveSongs, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveMissions(_:)), name: .didReceiveMissions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTrophies(_:)), name: .didReceiveTrophies, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveAchievements(_:)), name: .didReceiveAchievements, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveTips(_:)), name: .didReceiveTips, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSongs(_:)), name: .errorReceiveSongs, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveMissions(_:)), name: .errorReceiveMissions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTrophies(_:)), name: .errorReceiveTrophies, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveAchievements(_:)), name: .errorReceiveAchievements, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveTips(_:)), name: .errorReceiveTips, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveVersions(_:)), name: .didReceiveVersions, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveVersions(_:)), name: .errorReceiveVersions, object: nil)
+        setup()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+    func setup() {
+        descriptionLabel.text = "Download data to start the application.".localized
+        startButton.setTitle("Download".localized, for: [])
+        startButton.addTarget(self, action: #selector(didTouchUpDownloadButton(_:)), for: .touchUpInside)
     }
-
-    @objc func touchUpDownloadButton(_ sender: UIButton) {
+    @objc func didTouchUpDownloadButton(_ sender: UIButton) {
         showIndicator()
-        API.requestSongs()
-        API.requestMissions()
-        API.requestTrophies()
-        API.requestAchievements()
-        API.requestTips()
-        API.requestVersions()
+        API.requestSongs(completion: didReceiveSongs)
+        API.requestMissions(completion: didReceiveMissions)
+        API.requestTrophies(completion: didReceiveTrophies)
+        API.requestAchievements(completion: didReceiveAchievements)
+        API.requestTips(completion: didReceiveTips)
+        API.requestVersions(completion: didReceiveVersions)
     }
 }
 
-extension InitViewController {
-    @objc func didReceiveSongs(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["songs"] as? SongResponse else { return }
-        for song in userInfo.songs {
+private extension InitViewController {
+    func didReceiveSongs(response: SongResponse?, error: Error?) {
+        if let error = error {
+            plusCount()
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
+        for song in response.songs {
             SongInfo.add(song)
         }
         finishesSong = true
         plusCount()
     }
     
-    @objc func didReceiveMissions(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["missions"] as? MissionResponse else { return }
-        for mission in userInfo.missions {
+    func didReceiveMissions(response: MissionResponse?, error: Error?) {
+        if let error = error {
+            plusCount()
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
+        for mission in response.missions {
             MissionInfo.add(mission)
         }
         finishesMission = true
         plusCount()
     }
     
-    @objc func didReceiveTrophies(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["trophies"] as? TrophyResponse else { return }
-        for trophy in userInfo.trophies {
+    func didReceiveTrophies(response: TrophyResponse?, error: Error?) {
+        if let error = error {
+            plusCount()
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
+        for trophy in response.trophies {
             TrophyInfo.add(trophy)
-
         }
         finishesTrophy = true
         plusCount()
     }
     
-    @objc func didReceiveAchievements(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["achievements"] as? AchievementResponse else { return }
-        for achievement in userInfo.achievements {
+    func didReceiveAchievements(response: AchievementResponse?, error: Error?) {
+        if let error = error {
+            plusCount()
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
+        for achievement in response.achievements {
             AchievementInfo.add(achievement)
         }
         finishesAchievement = true
         plusCount()
     }
     
-    @objc func didReceiveTips(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["tips"] as? TipResponse else { return }
-        for tip in userInfo.tips {
+    func didReceiveTips(response: TipResponse?, error: Error?) {
+        if let error = error {
+            plusCount()
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
+        for tip in response.tips {
             TipInfo.add(tip)
         }
         finishesTip = true
         plusCount()
     }
     
-    @objc func didReceiveVersions(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["versions"] as? VersionResponse else { return }
-        VersionInfo.add(userInfo)
+    func didReceiveVersions(response: VersionResponse?, error: Error?) {
+        if let error = error {
+            plusCount()
+            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+            return
+        }
+        guard let response = response else { return }
+        VersionInfo.add(response)
         finishesVersion = true
-        plusCount()
-    }
-    
-    @objc func errorReceiveSongs(_ notification: Notification) {
-        plusCount()
-    }
-    
-    @objc func errorReceiveMissions(_ notification: Notification) {
-        plusCount()
-    }
-    
-    @objc func errorReceiveTrophies(_ notification: Notification) {
-        plusCount()
-    }
-    
-    @objc func errorReceiveAchievements(_ notification: Notification) {
-        plusCount()
-    }
-    
-    @objc func errorReceiveTips(_ notification: Notification) {
-        plusCount()
-    }
-    
-    @objc func errorReceiveVersions(_ notification: Notification) {
         plusCount()
     }
 }
@@ -158,7 +149,7 @@ extension InitViewController {
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
             .action(title: "OK".localized) { _ in
-                ERProgressHud.show()
+                IndicatorView.shared.showIndicator()
                 for result in results {
                     let recordInfo = NewRecordInfo()
                     recordInfo.title = result.title
@@ -269,19 +260,10 @@ extension InitViewController {
                     NewRecordInfo.add(recordInfo)
                 }
                 Skill.refresh()
-                ERProgressHud.hide()
+                IndicatorView.shared.hideIndicator()
                 guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                 next.modalTransitionStyle = .crossDissolve
                 self.present(next, animated: true, completion: nil)
-            }
-            .present(to: self)
-    }
-    
-    private func presentFailureAlert() {
-        UIAlertController
-            .alert(title: "", message: "Network Error".localized)
-            .action(title: "OK".localized) { [weak self] _ in
-                self?.count = 0
             }
             .present(to: self)
     }

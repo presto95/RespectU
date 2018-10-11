@@ -65,7 +65,7 @@ class UploadViewController: UIViewController {
                 let button8Hard = RecordResponse.Record.Button.Difficulty(rank: result.button8?.hard?.rank ?? "", rate: result.button8?.hard?.rate ?? 0, note: result.button8?.hard?.note ?? "")
                 let button8Maximum = RecordResponse.Record.Button.Difficulty(rank: result.button8?.maximum?.rank ?? "", rate: result.button8?.maximum?.rate ?? 0, note: result.button8?.maximum?.note ?? "")
                 let button8 = RecordResponse.Record.Button(normal: button8Normal, hard: button8Hard, maximum: button8Maximum, skillPoint: result.button8?.skillPoint ?? 0, skillPointDifficulty: result.button8?.skillPointDifficulty ?? "", skillPointNote: result.button8?.skillPointNote ?? "", skillPointRate: result.button8?.skillPointRate ?? 0)
-                let title = Language(english: result.title?.english ?? "", korean: result.title?.korean)
+                let title = LanguageResponse(english: result.title?.english ?? "", korean: result.title?.korean)
                 let record = RecordResponse.Record(title: title, series: result.series, button4: button4, button5: button5, button6: button6, button8: button8)
                 records.append(record)
             }

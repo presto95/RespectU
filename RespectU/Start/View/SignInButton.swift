@@ -9,13 +9,20 @@
 import UIKit
 
 class SignInButton: UIButton {
-
-    @IBInspectable var cornerRadius: CGFloat = 10
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
         self.backgroundColor = .main
-        self.layer.cornerRadius = cornerRadius
+        self.layer.cornerRadius = 10
         self.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         self.titleLabel?.textColor = .white
     }

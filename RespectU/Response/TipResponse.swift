@@ -10,7 +10,7 @@ import Foundation
 
 struct TipResponse: Codable {
     struct Tip: Codable {
-        let title: Language
+        let title: LanguageResponse
         var localizedTitle: String {
             if Locale.current.regionCode == "KR", let korean = title.korean {
                 return korean

@@ -63,14 +63,14 @@ extension UIViewController {
     
     func showIndicator() {
         DispatchQueue.main.async {
-            ERProgressHud.show()
+            IndicatorView.shared.showIndicator()
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
         }
     }
     
     func hideIndicator() {
         DispatchQueue.main.async {
-            ERProgressHud.hide()
+            IndicatorView.shared.hideIndicator()
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }

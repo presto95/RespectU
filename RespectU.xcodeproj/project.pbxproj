@@ -13,7 +13,6 @@
 		19012FBE2048370C0061EF21 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19012FBD2048370C0061EF21 /* GuideViewController.swift */; };
 		191275EB211206790046AA3E /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EA211206790046AA3E /* NSObject+.swift */; };
 		191275ED21120B080046AA3E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EC21120B080046AA3E /* BaseViewController.swift */; };
-		191275F021120B530046AA3E /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275EF21120B530046AA3E /* BaseTableViewController.swift */; };
 		191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F1211210610046AA3E /* SongBaseTableViewController.swift */; };
 		191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F321121B9D0046AA3E /* UIViewController+.swift */; };
 		191275F62112225E0046AA3E /* MissionBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */; };
@@ -28,6 +27,10 @@
 		192AFE2520E48AD50006397F /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */; };
 		192AFE2720E48ADF0006397F /* TrophyBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */; };
 		192AFE2920E48AE70006397F /* TrophyLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */; };
+		192CA337216F279600F37675 /* SongTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA336216F279600F37675 /* SongTechnika2TableViewController.swift */; };
+		192CA339216F27A200F37675 /* MissionTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA338216F27A200F37675 /* MissionTechnika2TableViewController.swift */; };
+		192CA33B216F27B000F37675 /* TrophyTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA33A216F27B000F37675 /* TrophyTechnika2TableViewController.swift */; };
+		192CA33F216F31E300F37675 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA33E216F31E300F37675 /* CAGradientLayer+.swift */; };
 		192DF89B2111D92B0016F386 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89A2111D92B0016F386 /* Series.swift */; };
 		192DF89D2111DA640016F386 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89C2111DA640016F386 /* Buttons.swift */; };
 		192DF89F2111DAC80016F386 /* TrophyGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89E2111DAC80016F386 /* TrophyGrade.swift */; };
@@ -88,7 +91,6 @@
 		193E4035204C24180063A440 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193E4034204C24180063A440 /* Ranking.storyboard */; };
 		193E4038204C27220063A440 /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E4036204C27220063A440 /* RankingCell.swift */; };
 		193E403B204C2EB60063A440 /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 193E403A204C2EB60063A440 /* RankingCell.xib */; };
-		193E403D204C2FB90063A440 /* ERProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193E403C204C2FB90063A440 /* ERProgressHud.swift */; };
 		194E52A6204A8F7B00B84AFA /* SongAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52A5204A8F7B00B84AFA /* SongAllTableViewController.swift */; };
 		194E52A8204A8F9900B84AFA /* SongPortable1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52A7204A8F9900B84AFA /* SongPortable1TableViewController.swift */; };
 		194E52AA204A900D00B84AFA /* SongPortable2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52A9204A900D00B84AFA /* SongPortable2TableViewController.swift */; };
@@ -97,7 +99,7 @@
 		194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52AF204A948300B84AFA /* SongCETableViewController.swift */; };
 		194E52B7204AC55900B84AFA /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E52B5204AC55900B84AFA /* SongCell.swift */; };
 		194E52B8204AC55900B84AFA /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194E52B6204AC55900B84AFA /* SongCell.xib */; };
-		1950D885212D6F92004ED086 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950D884212D6F92004ED086 /* Language.swift */; };
+		1950D885212D6F92004ED086 /* LanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1950D884212D6F92004ED086 /* LanguageResponse.swift */; };
 		19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19535F09204A8E74008C9A45 /* SongViewController.swift */; };
 		19585868213B0E76000C78C4 /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19585867213B0E76000C78C4 /* Init.storyboard */; };
 		1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19585869213B0E81000C78C4 /* InitViewController.swift */; };
@@ -212,7 +214,6 @@
 		19012FBD2048370C0061EF21 /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		191275EA211206790046AA3E /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
 		191275EC21120B080046AA3E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		191275EF21120B530046AA3E /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		191275F1211210610046AA3E /* SongBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBaseTableViewController.swift; sourceTree = "<group>"; };
 		191275F321121B9D0046AA3E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBaseTableViewController.swift; sourceTree = "<group>"; };
@@ -227,6 +228,10 @@
 		192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBSTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyLinkDiskTableViewController.swift; sourceTree = "<group>"; };
+		192CA336216F279600F37675 /* SongTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		192CA338216F27A200F37675 /* MissionTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		192CA33A216F27B000F37675 /* TrophyTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		192CA33E216F31E300F37675 /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
 		192DF89A2111D92B0016F386 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		192DF89C2111DA640016F386 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		192DF89E2111DAC80016F386 /* TrophyGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyGrade.swift; sourceTree = "<group>"; };
@@ -287,7 +292,6 @@
 		193E4034204C24180063A440 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		193E4036204C27220063A440 /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		193E403A204C2EB60063A440 /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
-		193E403C204C2FB90063A440 /* ERProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERProgressHud.swift; sourceTree = "<group>"; };
 		194E52A5204A8F7B00B84AFA /* SongAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongAllTableViewController.swift; sourceTree = "<group>"; };
 		194E52A7204A8F9900B84AFA /* SongPortable1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPortable1TableViewController.swift; sourceTree = "<group>"; };
 		194E52A9204A900D00B84AFA /* SongPortable2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPortable2TableViewController.swift; sourceTree = "<group>"; };
@@ -296,7 +300,7 @@
 		194E52AF204A948300B84AFA /* SongCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCETableViewController.swift; sourceTree = "<group>"; };
 		194E52B5204AC55900B84AFA /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		194E52B6204AC55900B84AFA /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
-		1950D884212D6F92004ED086 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		1950D884212D6F92004ED086 /* LanguageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageResponse.swift; sourceTree = "<group>"; };
 		19535F09204A8E74008C9A45 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
 		19585867213B0E76000C78C4 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
 		19585869213B0E81000C78C4 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
@@ -429,7 +433,6 @@
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
-				193E403C204C2FB90063A440 /* ERProgressHud.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
 			);
@@ -447,6 +450,7 @@
 				1928D5FC211824DF00F7901F /* UITableViewCell+.swift */,
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
+				192CA33E216F31E300F37675 /* CAGradientLayer+.swift */,
 				198B6C592114244B0058DE49 /* Notification.Name+.swift */,
 			);
 			path = Extension;
@@ -471,7 +475,6 @@
 			isa = PBXGroup;
 			children = (
 				191275EC21120B080046AA3E /* BaseViewController.swift */,
-				191275EF21120B530046AA3E /* BaseTableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -535,7 +538,7 @@
 		19A258182133FAD700C3A3AC /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				1950D884212D6F92004ED086 /* Language.swift */,
+				1950D884212D6F92004ED086 /* LanguageResponse.swift */,
 				19B09E2C212C555A005EE66D /* SongResponse.swift */,
 				19B09E2E212C555F005EE66D /* MissionResponse.swift */,
 				19B09E30212C5565005EE66D /* TrophyResponse.swift */,
@@ -706,6 +709,7 @@
 				194E52AF204A948300B84AFA /* SongCETableViewController.swift */,
 				197414C52062A77A00D72626 /* SongTechnika1TableViewController.swift */,
 				192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */,
+				192CA336216F279600F37675 /* SongTechnika2TableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -739,6 +743,7 @@
 				197414C92062A95400D72626 /* MissionTechnika1TableViewController.swift */,
 				192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */,
 				191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */,
+				192CA338216F27A200F37675 /* MissionTechnika2TableViewController.swift */,
 				19F24BB32049A62D0034D624 /* MissionDetailViewController.swift */,
 			);
 			path = Controller;
@@ -755,6 +760,7 @@
 				197414C72062A94A00D72626 /* TrophyTechnika1TableViewController.swift */,
 				192AFE2620E48ADF0006397F /* TrophyBSTableViewController.swift */,
 				192AFE2820E48AE70006397F /* TrophyLinkDiskTableViewController.swift */,
+				192CA33A216F27B000F37675 /* TrophyTechnika2TableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -927,8 +933,8 @@
 		19E767D320EE5501008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				193E4018204C05A00063A440 /* Top50Cell.swift */,
 				193E4019204C05A00063A440 /* Top50Cell.xib */,
+				193E4018204C05A00063A440 /* Top50Cell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -987,8 +993,8 @@
 		19E767DA20EE5714008C9F9D /* SkillLevel */ = {
 			isa = PBXGroup;
 			children = (
-				193E400A204BF5D60063A440 /* SkillLevelCell.swift */,
 				193E400B204BF5D60063A440 /* SkillLevelCell.xib */,
+				193E400A204BF5D60063A440 /* SkillLevelCell.swift */,
 				19E767D020EE53DB008C9F9D /* Top50 */,
 				19E767D120EE53E0008C9F9D /* Ranking */,
 			);
@@ -1181,7 +1187,6 @@
 				"${PODS_ROOT}/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Gradients/Gradients.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -1192,7 +1197,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gradients.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -1230,7 +1234,8 @@
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
 				19E4DB00213D896100837A95 /* NewRecordDifficultyInfo.swift in Sources */,
-				1950D885212D6F92004ED086 /* Language.swift in Sources */,
+				192CA337216F279600F37675 /* SongTechnika2TableViewController.swift in Sources */,
+				1950D885212D6F92004ED086 /* LanguageResponse.swift in Sources */,
 				193E3FF7204BB1060063A440 /* RecordView.swift in Sources */,
 				199992172049654E00C74697 /* MissionCETableViewController.swift in Sources */,
 				19320FC02049424D0075BD86 /* AchievementNoteTableViewController.swift in Sources */,
@@ -1248,7 +1253,6 @@
 				19F38C93204CC69A006BB72B /* SkillLevelDetailViewController.swift in Sources */,
 				191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */,
 				19892A8820662F83009D01F8 /* SearchByLevelView.swift in Sources */,
-				193E403D204C2FB90063A440 /* ERProgressHud.swift in Sources */,
 				19320FBC204942390075BD86 /* AchievementMusicTableViewController.swift in Sources */,
 				194E52AA204A900D00B84AFA /* SongPortable2TableViewController.swift in Sources */,
 				19ECEE68205EBBA3000D742E /* SearchRecordViewController.swift in Sources */,
@@ -1264,11 +1268,11 @@
 				19B660261F960E5800CCEFB5 /* String+.swift in Sources */,
 				19320FD22049569D0075BD86 /* TrophyCETableViewController.swift in Sources */,
 				19F24BB42049A62D0034D624 /* MissionDetailViewController.swift in Sources */,
+				192CA339216F27A200F37675 /* MissionTechnika2TableViewController.swift in Sources */,
 				194E52B7204AC55900B84AFA /* SongCell.swift in Sources */,
 				19E4DB01213D896100837A95 /* AchievementInfo.swift in Sources */,
 				192DF89D2111DA640016F386 /* Buttons.swift in Sources */,
 				19012FBC204837040061EF21 /* PerformanceViewController.swift in Sources */,
-				191275F021120B530046AA3E /* BaseTableViewController.swift in Sources */,
 				193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */,
 				198B6C4E211382C70058DE49 /* RankingBaseTableViewController.swift in Sources */,
 				19CA98E1213D416D003371DB /* VersionResponse.swift in Sources */,
@@ -1284,6 +1288,7 @@
 				191275F8211232180046AA3E /* TrophyBaseTableViewController.swift in Sources */,
 				19D67ECE20744F2000FD9EC7 /* RecordTrilogyTableViewController.swift in Sources */,
 				193E402D204C23F40063A440 /* Ranking5BTableViewController.swift in Sources */,
+				192CA33B216F27B000F37675 /* TrophyTechnika2TableViewController.swift in Sources */,
 				197414CA2062A95400D72626 /* MissionTechnika1TableViewController.swift in Sources */,
 				1939C973212BFF1900A6F8E3 /* Network.swift in Sources */,
 				1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */,
@@ -1346,6 +1351,7 @@
 				197414C62062A77A00D72626 /* SongTechnika1TableViewController.swift in Sources */,
 				192AFE2720E48ADF0006397F /* TrophyBSTableViewController.swift in Sources */,
 				198B6C4C211382BD0058DE49 /* Top50BaseTableViewController.swift in Sources */,
+				192CA33F216F31E300F37675 /* CAGradientLayer+.swift in Sources */,
 				199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */,
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,

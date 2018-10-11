@@ -12,8 +12,8 @@ struct AchievementResponse: Codable {
     struct Achievement: Codable {
         let type: String
         let level: Int
-        let section: Language
-        let item: Language
+        let section: LanguageResponse
+        let item: LanguageResponse
         var localizedSection: String {
             if Locale.current.regionCode == "KR", let korean = section.korean {
                 return korean

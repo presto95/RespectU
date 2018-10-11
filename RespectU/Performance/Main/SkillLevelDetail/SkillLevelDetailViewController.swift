@@ -19,10 +19,10 @@ class SkillLevelDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let button4View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
-        guard let button5View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
-        guard let button6View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
-        guard let button8View = UIView.instanceFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button4View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button5View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button6View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+        guard let button8View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
         let recordViews = [button4View, button5View, button6View, button8View]
         let backgroundViews = [button4BackgroundView!, button5BackgroundView!, button6BackgroundView!, button8BackgroundView!]
         let buttons = [Buttons.button4, Buttons.button5, Buttons.button6, Buttons.button8]
@@ -35,7 +35,7 @@ class SkillLevelDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func touchUpShareButton(_ sender: UIButton) {
+    @IBAction func didTouchUpShareButton(_ sender: UIButton) {
         let bounds = UIScreen.main.bounds
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
         self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
@@ -45,7 +45,7 @@ class SkillLevelDetailViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
-    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+    @IBAction func didTouchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 }

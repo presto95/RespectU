@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vdG-DE-auq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vdG-DE-auq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,10 +44,10 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="nextButton"/>
                                 <connections>
-                                    <action selector="touchUpNextButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="s9J-xO-ZfN"/>
+                                    <action selector="didTouchUpNextButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="s9J-xO-ZfN"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCU-tv-LQA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCU-tv-LQA">
                                 <rect key="frame" x="137.5" y="20" width="100" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="GOM-TN-K3n"/>
@@ -71,24 +71,26 @@
                                     <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchUpNicknameButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="5b2-l8-4WH"/>
+                                    <action selector="didTouchUpNicknameButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="5b2-l8-4WH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr7-0A-ZWf">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FvF-Vd-9U5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="성과 기록하기"/>
+                                <state key="normal" title="성과 기록하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="touchUpRecordButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="YtC-KX-lNs"/>
+                                    <action selector="didTouchUpRecordButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="YtC-KX-lNs"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VCU-tv-LQA" firstAttribute="top" secondItem="dyc-NR-Haw" secondAttribute="top" id="10D-pD-UNT"/>
                             <constraint firstItem="dyc-NR-Haw" firstAttribute="trailing" secondItem="w4F-Hc-c2i" secondAttribute="trailing" constant="16" id="14I-3t-ZLD"/>
@@ -138,7 +140,7 @@
                                     <action selector="touchUpCancelButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="UqT-Kk-puX"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjc-5l-UM4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjc-5l-UM4">
                                 <rect key="frame" x="157.5" y="20" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="fuw-p8-1I5"/>
@@ -295,13 +297,13 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-To-bk3">
                                 <rect key="frame" x="0.0" y="220" width="375" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="scF-DE-5OQ"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yjc-5l-UM4" firstAttribute="top" secondItem="qPJ-87-AMa" secondAttribute="top" id="9p7-sP-fAt"/>
                             <constraint firstItem="qPJ-87-AMa" firstAttribute="trailing" secondItem="z39-WJ-AgN" secondAttribute="trailing" constant="16" id="DDG-CU-Z6M"/>
@@ -358,7 +360,7 @@
                                     <action selector="touchUpCancelButton:" destination="wOT-kV-fgf" eventType="touchUpInside" id="8aT-iz-d6r"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkT-5q-mfu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkT-5q-mfu">
                                 <rect key="frame" x="157.5" y="20" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="hUH-c6-yLy"/>
@@ -384,7 +386,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eFc-XC-QdT" firstAttribute="centerY" secondItem="zkT-5q-mfu" secondAttribute="centerY" id="1h5-X6-ByB"/>
                             <constraint firstItem="bGJ-ie-bqv" firstAttribute="trailing" secondItem="eFc-XC-QdT" secondAttribute="trailing" constant="16" id="307-Hl-grl"/>
@@ -429,7 +431,7 @@
                                     <action selector="touchUpCancelButton:" destination="1h4-8I-CZJ" eventType="touchUpInside" id="lYF-YU-Wft"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoU-aR-zRY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoU-aR-zRY">
                                 <rect key="frame" x="157.5" y="20" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="SVL-6e-o2e"/>
@@ -937,7 +939,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="UoU-aR-zRY" firstAttribute="centerX" secondItem="LLw-W5-BA4" secondAttribute="centerX" id="B0e-nh-VMm"/>
                             <constraint firstItem="FFP-HA-LyI" firstAttribute="trailing" secondItem="4oI-bm-fvC" secondAttribute="trailing" constant="16" id="Cs9-Nv-4wv"/>
@@ -982,10 +984,10 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="touchUpCancelButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="hwh-4H-PK7"/>
+                                    <action selector="didTouchUpCancelButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="hwh-4H-PK7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntk-Rz-Bu3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntk-Rz-Bu3">
                                 <rect key="frame" x="137.5" y="20" width="100" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="0we-lu-See"/>
@@ -1001,7 +1003,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" image="shareButton"/>
                                 <connections>
-                                    <action selector="touchUpShareButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
+                                    <action selector="didTouchUpShareButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-WS-1a2">
@@ -1012,11 +1014,11 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWf-hj-mE4" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="163.5" height="269.5"/>
-                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCW-s1-JgA" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
                                                 <rect key="frame" x="179.5" y="0.0" width="163.5" height="269.5"/>
-                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -1025,18 +1027,18 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWm-iJ-SqU" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="163.5" height="269.5"/>
-                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6G-I6-ScU" customClass="SkillLevelDetailView" customModule="RespectU" customModuleProvider="target">
                                                 <rect key="frame" x="179.5" y="0.0" width="163.5" height="269.5"/>
-                                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ntk-Rz-Bu3" firstAttribute="top" secondItem="e3Z-Uv-Rmz" secondAttribute="top" id="3fT-bZ-YGR"/>
                             <constraint firstItem="e3Z-Uv-Rmz" firstAttribute="bottom" secondItem="gmq-WS-1a2" secondAttribute="bottom" constant="16" id="46x-4P-OJu"/>
@@ -1064,9 +1066,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancelButton" width="25" height="25"/>
-        <image name="nextButton" width="25" height="25"/>
-        <image name="respectuFlat" width="500" height="500"/>
-        <image name="shareButton" width="25" height="25"/>
+        <image name="cancelButton" width="20" height="20"/>
+        <image name="nextButton" width="20" height="20"/>
+        <image name="respectuColor" width="120" height="120"/>
+        <image name="shareButton" width="50" height="50"/>
     </resources>
 </document>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="383.5" width="375" height="283.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GIg-ms-CvI">
-                                        <rect key="frame" x="94" y="96.5" width="187.5" height="92"/>
+                                        <rect key="frame" x="94" y="96" width="187.5" height="92"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-so-iPG" customClass="SignInButton" customModule="RespectU" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="36"/>
@@ -76,7 +74,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
-                                        <rect key="frame" x="309" y="238" width="50" height="30"/>
+                                        <rect key="frame" x="309" y="237.5" width="50" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="pzR-zl-rJF"/>
                                         </constraints>
@@ -86,7 +84,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인하여 더 많은 기능을 사용하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-6c-0zT">
-                                        <rect key="frame" x="16" y="244.5" width="285" height="17"/>
+                                        <rect key="frame" x="16" y="244" width="285" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -106,8 +104,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8V-8A-IY5">
                                 <rect key="frame" x="0.0" y="20" width="375" height="263.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-gS-mYa">
-                                        <rect key="frame" x="95.5" y="39.5" width="184.5" height="184.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-gS-mYa">
+                                        <rect key="frame" x="95.5" y="39.5" width="184" height="184.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccH-gS-mYa" secondAttribute="height" multiplier="1:1" id="5M2-SH-dtL"/>
                                         </constraints>
@@ -121,7 +119,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ztu-dU-n1K" firstAttribute="top" secondItem="R8V-8A-IY5" secondAttribute="bottom" id="GYB-Gx-OaY"/>
                             <constraint firstItem="gGW-1W-Mwd" firstAttribute="leading" secondItem="B1g-C7-1vi" secondAttribute="leading" id="J1O-dp-HGs"/>
@@ -227,8 +225,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9k-MV-z8g">
                                 <rect key="frame" x="0.0" y="20" width="375" height="233.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-EY-XJT">
-                                        <rect key="frame" x="105.5" y="35" width="164" height="163.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-EY-XJT">
+                                        <rect key="frame" x="106" y="35" width="163" height="163.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EhY-EY-XJT" secondAttribute="height" multiplier="1:1" id="ANH-hn-oGm"/>
                                         </constraints>
@@ -242,7 +240,7 @@
                                         <color key="tintColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="backButton"/>
                                         <connections>
-                                            <action selector="touchUpPreviousButton:" destination="HZS-sC-RdR" eventType="touchUpInside" id="Qep-Xg-heN"/>
+                                            <action selector="didTouchUpPreviousButton:" destination="HZS-sC-RdR" eventType="touchUpInside" id="Qep-Xg-heN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -256,7 +254,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PJ2-3O-YtA" firstAttribute="width" secondItem="EEt-Pu-vQ6" secondAttribute="width" multiplier="0.8" id="80C-7C-gE1"/>
                             <constraint firstItem="bXB-uR-IN5" firstAttribute="trailing" secondItem="Ast-5f-WdI" secondAttribute="trailing" id="SGe-0o-mTG"/>
@@ -303,7 +301,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backButton" width="25" height="25"/>
-        <image name="respectuFlat" width="500" height="500"/>
+        <image name="backButton" width="50" height="50"/>
+        <image name="respectuColor" width="120" height="120"/>
     </resources>
 </document>

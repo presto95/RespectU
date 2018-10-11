@@ -28,7 +28,7 @@ class GuideCell: UICollectionViewCell {
     func becomeHighlighted() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.5, animations: { [unowned self] in
-                self.contentView.backgroundColor = UIColor.main
+                self.contentView.backgroundColor = .main
             })
         }
     }
@@ -36,7 +36,7 @@ class GuideCell: UICollectionViewCell {
     func becomeUnhighlighted() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.5, animations: { [unowned self] in
-                self.contentView.backgroundColor = UIColor.sub
+                self.contentView.backgroundColor = .sub
             })
         }
     }

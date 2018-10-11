@@ -15,4 +15,5 @@ enum Series {
     static let technika1 = "technika1"
     static let bs = "bs"
     static let linkDisk = "linkdisk"
+    static let technika2 = "technika2"
 }

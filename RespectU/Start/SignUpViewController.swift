@@ -14,7 +14,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: SignInTextField!
     @IBOutlet weak var nicknameTextField: SignInTextField!
     @IBOutlet weak var signUpButton: SignInButton!
-    var isAllEntered: Bool {
+    var entersAll: Bool {
         guard let isIdTextFieldEmpty = idTextField.text?.isEmpty else { return true }
         guard let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty else { return true }
         guard let isNicknameTextFieldEmpty = nicknameTextField.text?.isEmpty else { return true }
@@ -32,66 +32,59 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.idTextField.placeholder = "ID".localized
-        self.passwordTextField.placeholder = "Password".localized
-        self.nicknameTextField.placeholder = "Nickname".localized
-        self.signUpButton.setTitle("Sign Up".localized, for: [])
-        self.signUpButton.addTarget(self, action: #selector(touchUpSignUpButton(_:)), for: .touchUpInside)
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(touchUpSuperView(_:)))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveSignUp(_:)), name: .didReceiveSignUp, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveSignUp(_:)), name: .errorReceiveSignUp, object: nil)
+        setup()
     }
     
-    @IBAction func touchUpPreviousButton(_ sender: UIButton) {
+    func setup() {
+        idTextField.placeholder = "ID".localized
+        passwordTextField.placeholder = "Password".localized
+        nicknameTextField.placeholder = "Nickname".localized
+        signUpButton.setTitle("Sign Up".localized, for: [])
+        signUpButton.addTarget(self, action: #selector(didTouchUpSignUpButton(_:)), for: .touchUpInside)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTouchUpSuperview(_:)))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @IBAction func didTouchUpPreviousButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
 extension SignUpViewController {
-    @objc func touchUpSuperView(_ recognizer: UIGestureRecognizer) {
+    @objc func didTouchUpSuperview(_ recognizer: UIGestureRecognizer) {
         self.view.endEditing(true)
     }
     
-    @objc func didReceiveSignUp(_ notification: Notification) {
-        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
-        let message: String
-        var isRegistered: Bool = false
-        if statusCode == 201 {
-            message = "Success".localized
-        } else if statusCode == 409 {
-            message = "It is registered.".localized
-            isRegistered = true
-        } else {
-            message = ""
-        }
-        DispatchQueue.main.async {
-            UIAlertController
-                .alert(title: "", message: message)
-                .action(title: "OK".localized) { [weak self] _ in
-                    if !isRegistered {
-                        self?.navigationController?.popViewController(animated: true)
-                    }
+    @objc func didTouchUpSignUpButton(_ sender: UIButton) {
+        if entersAll {
+            API.requestSignUp(id: id, password: password, nickname: nickname) { statusCode, error in
+                if let error = error {
+                    UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+                    return
                 }
-                .present(to: self)
-        }
-    }
-    
-    @objc func errorReceiveSignUp(_ notification: Notification) {
-        guard let userInfo = notification.userInfo?["error"] as? String else { return }
-        DispatchQueue.main.async {
-            UIAlertController
-                .alert(title: "", message: userInfo)
-                .action(title: "OK".localized) { [weak self] _ in
-                    self?.hideIndicator()
+                guard let statusCode = statusCode else { return }
+                let message: String
+                var isRegistered: Bool = false
+                if statusCode == 201 {
+                    message = "Success".localized
+                } else if statusCode == 409 {
+                    message = "It is registered.".localized
+                    isRegistered = true
+                } else {
+                    message = ""
                 }
-                .present(to: self)
-        }
-    }
-    
-    @objc func touchUpSignUpButton(_ sender: UIButton) {
-        if isAllEntered {
-            API.requestSignUp(id: id, password: password, nickname: nickname)
+                DispatchQueue.main.async {
+                    UIAlertController
+                        .alert(title: "", message: message)
+                        .action(title: "OK".localized) { [weak self] _ in
+                            if !isRegistered {
+                                self?.navigationController?.popViewController(animated: true)
+                            }
+                        }
+                        .present(to: self)
+                }
+                
+            }
         } else {
             UIAlertController
                 .alert(title: "", message: "Enter All.".localized)

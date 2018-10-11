@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 protocol SummaryCellDelegate: class {
-    func touchUpDetailButton(_ sender: UIButton)
-    func touchUpSearchButton(_ sender: UIButton)
+    func didTouchUpDetailButton(_ sender: UIButton)
+    func didTouchUpSearchButton(_ sender: UIButton)
 }
 
 class SummaryCell: UITableViewCell {
@@ -29,8 +29,8 @@ class SummaryCell: UITableViewCell {
         self.searchButton.setTitle("Search by Condition".localized, for: .normal)
         self.searchButton.layer.borderWidth = 2
         self.searchButton.layer.borderColor = UIColor.main.cgColor
-        self.detailButton.addTarget(self, action: #selector(touchUpDetailButton(_:)), for: .touchUpInside)
-        self.searchButton.addTarget(self, action: #selector(touchUpSearchButton(_:)), for: .touchUpInside)
+        self.detailButton.addTarget(self, action: #selector(didTouchUpDetailButton(_:)), for: .touchUpInside)
+        self.searchButton.addTarget(self, action: #selector(didTouchUpSearchButton(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,10 +38,10 @@ class SummaryCell: UITableViewCell {
     }
     
     @objc func touchUpSearchButton(_ sender: UIButton) {
-        delegate?.touchUpSearchButton(sender)
+        delegate?.didTouchUpSearchButton(sender)
     }
     
     @objc func touchUpDetailButton(_ sender: UIButton) {
-        delegate?.touchUpDetailButton(sender)
+        delegate?.didTouchUpDetailButton(sender)
     }
 }

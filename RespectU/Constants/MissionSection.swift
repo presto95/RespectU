@@ -39,4 +39,8 @@ enum MissionSection {
         static let whiteDisk = "WHITE DISK"
         static let blackDisk = "BLACK DISK"
     }
+    enum Technika2 {
+        static let popMixing = "POP MIXING"
+        static let clubMixing = "CLUB MIXING"
+    }
 }

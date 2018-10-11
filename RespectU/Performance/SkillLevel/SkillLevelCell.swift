@@ -11,9 +11,9 @@ import GaugeKit
 import RealmSwift
 
 protocol SkillLevelCellDelegate: class {
-    func touchUpTop50Button(_ sender: UIButton)
-    func touchUpRankingButton(_ sender: UIButton)
-    func touchUpCalculatorButton(_ sender: UIButton)
+    func didTouchUpTop50Button(_ sender: UIButton)
+    func didTouchUpRankingButton(_ sender: UIButton)
+    func didTouchUpCalculatorButton(_ sender: UIButton)
 }
 
 class SkillLevelCell: UITableViewCell {
@@ -35,11 +35,11 @@ class SkillLevelCell: UITableViewCell {
             button?.layer.borderColor = UIColor.main.cgColor
             button?.layer.borderWidth = 2
         }
-        self.rankingButton.setTitle("Ranking".localized, for: .normal)
-        self.calculatorButton.setTitle("Calculator".localized, for: .normal)
-        self.top50Button.addTarget(self, action: #selector(touchUpTop50Button(_:)), for: .touchUpInside)
-        self.rankingButton.addTarget(self, action: #selector(touchUpRankingButton(_:)), for: .touchUpInside)
-        self.calculatorButton.addTarget(self, action: #selector(touchUpCalculatorButton(_:)), for: .touchUpInside)
+        rankingButton.setTitle("Ranking".localized, for: .normal)
+        calculatorButton.setTitle("Calculator".localized, for: .normal)
+        top50Button.addTarget(self, action: #selector(didTouchUpTop50Button(_:)), for: .touchUpInside)
+        rankingButton.addTarget(self, action: #selector(didTouchUpRankingButton(_:)), for: .touchUpInside)
+        calculatorButton.addTarget(self, action: #selector(didTouchUpCalculatorButton(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,12 +50,12 @@ class SkillLevelCell: UITableViewCell {
         let mySkillPointSum = myRecord.sum
         let myHighestSeries = myRecord.highestSeries
         let seriesColor = myHighestSeries.seriesColor ?? .clear
-        self.gauge.maxValue = CGFloat(max)
-        self.gauge.rate = CGFloat(mySkillPointSum)
-        self.gauge.startColor = seriesColor
-        self.gauge.bgColor = seriesColor
-        self.skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
-        self.skillLevelLabel.text = {
+        gauge.maxValue = CGFloat(max)
+        gauge.rate = CGFloat(mySkillPointSum)
+        gauge.startColor = seriesColor
+        gauge.bgColor = seriesColor
+        skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
+        skillLevelLabel.text = {
             switch button {
             case Buttons.button4:
                 return Skill.button4SkillLevel(mySkillPointSum)
@@ -67,19 +67,19 @@ class SkillLevelCell: UITableViewCell {
                 return nil
             }
         }()
-        self.nextLevelLabel.text = Skill.nextSkillLevel(of: self.skillLevelLabel.text ?? "", button: button)
-        self.percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / max)
+        nextLevelLabel.text = Skill.nextSkillLevel(of: self.skillLevelLabel.text ?? "", button: button)
+        percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / max)
     }
     
-    @objc func touchUpTop50Button(_ sender: UIButton) {
-        delegate?.touchUpTop50Button(sender)
+    @objc func didTouchUpTop50Button(_ sender: UIButton) {
+        delegate?.didTouchUpTop50Button(sender)
     }
     
-    @objc func touchUpRankingButton(_ sender: UIButton) {
-        delegate?.touchUpRankingButton(sender)
+    @objc func didTouchUpRankingButton(_ sender: UIButton) {
+        delegate?.didTouchUpRankingButton(sender)
     }
     
-    @objc func touchUpCalculatorButton(_ sender: UIButton) {
-        delegate?.touchUpCalculatorButton(sender)
+    @objc func didTouchUpCalculatorButton(_ sender: UIButton) {
+        delegate?.didTouchUpCalculatorButton(sender)
     }
 }

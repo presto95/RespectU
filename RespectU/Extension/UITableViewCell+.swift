@@ -13,26 +13,29 @@ extension UITableViewCell {
         DispatchQueue.main.async { [weak self] in
             switch series {
             case Series.portable1:
-                self?.contentView.backgroundColor = UIColor.portable1
+                self?.contentView.backgroundColor = .portable1
                 self?.setColors(of: labels, to: .white)
             case Series.portable2:
-                self?.contentView.backgroundColor = UIColor.portable2
+                self?.contentView.backgroundColor = .portable2
                 self?.setColors(of: labels, to: .white)
             case Series.respect:
-                self?.contentView.backgroundColor = UIColor.respect
+                self?.contentView.backgroundColor = .respect
                 self?.setColors(of: labels, to: .white)
             case Series.trilogy:
-                self?.contentView.backgroundColor = UIColor.trilogy
+                self?.contentView.backgroundColor = .trilogy
                 self?.setColors(of: labels, to: .white)
             case Series.ce:
-                self?.contentView.backgroundColor = UIColor.ce
+                self?.contentView.backgroundColor = .ce
                 self?.setColors(of: labels, to: .black)
             case Series.technika1:
-                self?.contentView.backgroundColor = UIColor.technika1
+                self?.contentView.backgroundColor = .technika1
                 self?.setColors(of: labels, to: .white)
             case Series.bs:
-                self?.contentView.backgroundColor = UIColor.bs
+                self?.contentView.backgroundColor = .bs
                 self?.setColors(of: labels, to: .white)
+            case Series.technika2:
+                self?.contentView.backgroundColor = .technika2
+                self?.setColors(of: labels, to: .black)
             default:
                 break
             }
@@ -82,6 +85,10 @@ extension UITableViewCell {
                 self.contentView.backgroundColor = #colorLiteral(red: 0.7058823529, green: 0.431372549, blue: 0.4745098039, alpha: 1)
             case MissionSection.LinkDisk.blackDisk:
                 self.contentView.backgroundColor = #colorLiteral(red: 0.6392156863, green: 0.6, blue: 0.4196078431, alpha: 1)
+            case MissionSection.Technika2.popMixing:
+                self.contentView.backgroundColor = .clear
+            case MissionSection.Technika2.clubMixing:
+                self.contentView.backgroundColor = .clear
             default:
                 self.contentView.backgroundColor = .clear
             }

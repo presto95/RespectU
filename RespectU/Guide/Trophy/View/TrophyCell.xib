@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,14 +20,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respect1" translatesAutoresizingMaskIntoConstraints="NO" id="dyr-m7-fRT">
-                        <rect key="frame" x="16" y="8" width="42" height="42"/>
+                        <rect key="frame" x="16" y="9" width="42" height="42"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="42" id="n7d-Gh-pU7"/>
                             <constraint firstAttribute="width" constant="42" id="spc-cZ-74h"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61H-jf-AFO">
-                        <rect key="frame" x="58" y="8" width="9" height="42"/>
+                        <rect key="frame" x="58" y="9" width="9" height="42"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="9" id="dxb-FM-wGm"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-VV-snP" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="75" y="8" width="229" height="17"/>
+                        <rect key="frame" x="75" y="9" width="229" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9E-GX-55r" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="75" y="35.5" width="229" height="14.5"/>
+                        <rect key="frame" x="75" y="36.5" width="229" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -77,7 +77,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="61H-jf-AFO" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="LdI-2h-bHJ"/>
                     <constraint firstItem="KSl-VV-snP" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="MwR-ZD-iNV"/>

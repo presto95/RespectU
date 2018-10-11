@@ -17,7 +17,7 @@ class AchievementBaseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 40
+        tableView.rowHeight = 40
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }

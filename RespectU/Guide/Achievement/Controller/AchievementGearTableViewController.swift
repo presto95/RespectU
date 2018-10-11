@@ -13,7 +13,7 @@ class AchievementGearTableViewController: AchievementBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = AchievementInfo.fetch(of: "gear")
+        results = AchievementInfo.fetch(of: "gear")
         generateStageCounts()
     }
 }

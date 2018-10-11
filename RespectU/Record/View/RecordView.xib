@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,7 +60,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0C5-29-eUs">
-                    <rect key="frame" x="108.5" y="78.5" width="250.5" height="16"/>
+                    <rect key="frame" x="108.5" y="79" width="250.5" height="16"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RANK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYa-ao-4WZ">
                             <rect key="frame" x="0.0" y="0.0" width="83.5" height="16"/>
@@ -98,7 +98,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Tjm-mC-64A"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Tjm-mC-64A"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvc-ZE-hRu">
@@ -114,7 +114,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="nqd-Ma-Ou3"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="nqd-Ma-Ou3"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-Hk-1KC">
@@ -130,7 +130,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="EQS-PX-xrK"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="EQS-PX-xrK"/>
                             </connections>
                         </button>
                     </subviews>
@@ -151,7 +151,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="ORT-Et-kVe"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="ORT-Et-kVe"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO8-6c-8L8">
@@ -167,7 +167,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="HH9-WX-vD9"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="HH9-WX-vD9"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFb-9T-Wfx">
@@ -183,13 +183,13 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jno-NA-MtM"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jno-NA-MtM"/>
                             </connections>
                         </button>
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cag-UQ-UXo">
-                    <rect key="frame" x="16" y="77.5" width="60" height="18"/>
+                    <rect key="frame" x="16" y="78" width="60" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="kcc-mK-GCf"/>
                     </constraints>
@@ -198,7 +198,7 @@
                         <color key="titleColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="touchUpTypeButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="ema-of-ncd"/>
+                        <action selector="didTouchUpTypeButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="ema-of-ncd"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiC-fL-VqD">
@@ -212,7 +212,7 @@
                         <color key="titleColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="touchUpCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="X2w-LB-0lg"/>
+                        <action selector="didTouchUpCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="X2w-LB-0lg"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스킬 포인트 : 210.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-eT-IcP">
@@ -273,7 +273,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="xUX-ZI-835"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="xUX-ZI-835"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcF-Qd-Qic">
@@ -289,7 +289,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="TiY-KQ-xI7"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="TiY-KQ-xI7"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzb-wZ-jhp">
@@ -305,13 +305,13 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="touchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sef-Rg-Y9v"/>
+                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sef-Rg-Y9v"/>
                             </connections>
                         </button>
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="bnL-eT-IcP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0fG-oy-3lk"/>
                 <constraint firstItem="EiC-fL-VqD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="3QF-1N-3LI"/>

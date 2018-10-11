@@ -29,7 +29,7 @@ class RadioViewController: UIViewController {
         webView.addSubview(button)
     }
     
-    @objc func touchUpCancelButton(_ sender: UIButton) {
+    @objc func didTouchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 }

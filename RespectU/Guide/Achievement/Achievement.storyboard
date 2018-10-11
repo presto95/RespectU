@@ -1,156 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Achievement All Table View Controller-->
-        <scene sceneID="cOu-2G-jrP">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementAllTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ib3-k2-NWw" customClass="AchievementAllTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="brW-Yo-hah">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <color key="sectionIndexBackgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="ib3-k2-NWw" id="zR0-vY-rRU"/>
-                            <outlet property="delegate" destination="ib3-k2-NWw" id="SxB-MZ-mad"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4gc-eE-amX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-276" y="-585"/>
-        </scene>
-        <!--Achievement Music Table View Controller-->
-        <scene sceneID="jXj-Tb-pch">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementMusicTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="slL-kL-aVA" customClass="AchievementMusicTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JlO-mB-uqp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="slL-kL-aVA" id="7GT-TB-JXM"/>
-                            <outlet property="delegate" destination="slL-kL-aVA" id="fa8-om-GU6"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gn2-Uf-IOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="434" y="-515"/>
-        </scene>
-        <!--Achievement Gear Table View Controller-->
-        <scene sceneID="rP3-Vn-asu">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementGearTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IfA-su-hZT" customClass="AchievementGearTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gCc-Vo-Ibf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="IfA-su-hZT" id="ILQ-OY-B4a"/>
-                            <outlet property="delegate" destination="IfA-su-hZT" id="fNu-Pe-br4"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oCe-dn-hbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1104" y="-447"/>
-        </scene>
-        <!--Achievement Note Table View Controller-->
-        <scene sceneID="C3m-S6-JGm">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementNoteTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pda-6z-768" customClass="AchievementNoteTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="DoX-uH-IIp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="pda-6z-768" id="WRo-Zj-gch"/>
-                            <outlet property="delegate" destination="pda-6z-768" id="8Hm-iY-h8m"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n1b-n1-lWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1774" y="-376"/>
-        </scene>
-        <!--Achievement Plate Table View Controller-->
-        <scene sceneID="WsX-6G-EUq">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementPlateTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t0d-bJ-qiB" customClass="AchievementPlateTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IER-5A-SPG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="t0d-bJ-qiB" id="Ych-8v-tKu"/>
-                            <outlet property="delegate" destination="t0d-bJ-qiB" id="5ay-dv-n0v"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nky-D6-1Vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2447" y="-336"/>
-        </scene>
-        <!--Achievement Gallery Table View Controller-->
-        <scene sceneID="yjL-YJ-Ieu">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementGalleryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wjz-0h-kiT" customClass="AchievementGalleryTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dPI-WE-udn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Wjz-0h-kiT" id="uZM-lY-vl7"/>
-                            <outlet property="delegate" destination="Wjz-0h-kiT" id="YLY-K7-rMH"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="odt-ts-ykg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3116" y="-290"/>
-        </scene>
-        <!--Achievement Comment Table View Controller-->
-        <scene sceneID="bzP-Wo-yUP">
-            <objects>
-                <tableViewController storyboardIdentifier="AchievementCommentTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w3u-Bd-HBI" customClass="AchievementCommentTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5ld-4y-ocN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="w3u-Bd-HBI" id="emW-rf-7lJ"/>
-                            <outlet property="delegate" destination="w3u-Bd-HBI" id="RU4-vk-zdU"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2cm-Zu-Up8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3772" y="-223"/>
-        </scene>
         <!--Achievement View Controller-->
         <scene sceneID="895-ss-2WP">
             <objects>
@@ -180,7 +39,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lFV-mv-44t" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="16" y="88" width="343" height="38"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="T8A-ZA-0sQ"/>
                                 </constraints>
@@ -194,10 +53,10 @@
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJy-iO-NkE">
                                 <rect key="frame" x="0.0" y="126" width="375" height="521"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lFV-mv-44t" firstAttribute="top" secondItem="EEi-UN-ySf" secondAttribute="bottom" constant="8" id="14b-JU-dJI"/>
                             <constraint firstItem="zL1-sF-VIR" firstAttribute="centerY" secondItem="EEi-UN-ySf" secondAttribute="centerY" id="5pt-Qi-eDI"/>
@@ -224,7 +83,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancelButton" width="25" height="25"/>
-        <image name="respectuFlat" width="500" height="500"/>
+        <image name="cancelButton" width="20" height="20"/>
+        <image name="respectuFlat" width="120" height="120"/>
     </resources>
 </document>

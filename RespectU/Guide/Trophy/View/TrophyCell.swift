@@ -17,16 +17,12 @@ class TrophyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.colorLabel.layer.borderColor = UIColor.main.cgColor
-        self.colorLabel.layer.borderWidth = 1
-        self.trophyImageView.layer.borderWidth = 1
-        self.trophyImageView.layer.borderColor = UIColor.main.cgColor
+        colorLabel.layer.borderColor = UIColor.main.cgColor
+        colorLabel.layer.borderWidth = 1
+        trophyImageView.layer.borderWidth = 1
+        trophyImageView.layer.borderColor = UIColor.main.cgColor
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func setProperties(_ object: TrophyInfo?) {
         guard let object = object else { return }
         if let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("\(object.image).png").path {
@@ -34,8 +30,8 @@ class TrophyCell: UITableViewCell {
                 self.trophyImageView.image = UIImage(contentsOfFile: filePath)
             }
         }
-        self.titleLabel.text = object.localizedTitle
-        self.contentLabel.text = object.localizedContent
+        titleLabel.text = object.localizedTitle
+        contentLabel.text = object.localizedContent
         switch object.rating {
         case TrophyGrade.platinum:
             self.colorLabel.backgroundColor = .platinum

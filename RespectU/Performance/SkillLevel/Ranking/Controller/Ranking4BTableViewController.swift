@@ -20,7 +20,7 @@ class Ranking4BTableViewController: RankingBaseTableViewController {
                 return
             }
             guard let response = response else { return }
-            results = response.rankings.sorted { $0.button4 > $1.button4 }
+            self.results = response.rankings.sorted { $0.button4 > $1.button4 }
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
                 self?.hideIndicator()

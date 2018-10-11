@@ -9,15 +9,15 @@
 import UIKit
 import RealmSwift
 
-class MissionBaseTableViewController: BaseTableViewController {
+class MissionBaseTableViewController: UITableViewController {
 
     var results: Results<MissionInfo>?
     let cellIdentifier = "missionCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 60
-        self.tableView.register(UINib(nibName: "MissionCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.rowHeight = 60
+        tableView.register(UINib(nibName: "MissionCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }
 

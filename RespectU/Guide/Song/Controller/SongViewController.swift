@@ -21,8 +21,9 @@ class SongViewController: BaseViewController {
     private lazy var ceTableViewController = SongCETableViewController()
     private lazy var technika1TableViewController = SongTechnika1TableViewController()
     private lazy var bsTableViewController = SongBSTableViewController()
+    private lazy var technika2TableViewController = SongTechnika2TableViewController()
     lazy var songViewControllers: [SongBaseTableViewController] = {
-        return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController]
+        return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, technika2TableViewController]
     }()
     var favoriteButton: String {
         return selectedButtonLabel.text ?? "4b"

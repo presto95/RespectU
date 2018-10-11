@@ -18,17 +18,13 @@ class RecordCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.colorLabel.layer.borderWidth = 1
-        self.colorLabel.layer.borderColor = UIColor.main.cgColor
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        colorLabel.layer.borderWidth = 1
+        colorLabel.layer.borderColor = UIColor.main.cgColor
     }
     
     func setProperties(_ object: SongInfo?) {
         guard let object = object else { return }
-        self.colorLabel.backgroundColor = object.series.seriesColor
-        self.titleLabel.text = object.localizedTitle
+        colorLabel.backgroundColor = object.series.seriesColor
+        titleLabel.text = object.localizedTitle
     }
 }

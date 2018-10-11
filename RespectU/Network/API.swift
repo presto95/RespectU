@@ -211,7 +211,7 @@ extension API {
 }
 // MARK: - Ranking
 extension API {
-    static func requestRankings(completion: (RankingResponse?, Error?) -> Void) {
+    static func requestRankings(completion: @escaping (RankingResponse?, Error?) -> Void) {
         Network.get("\(baseURL)/rankings", successHandler: { (data) in
             do {
                 let decoded = try jsonDecoder.decode(RankingResponse.self, from: data)

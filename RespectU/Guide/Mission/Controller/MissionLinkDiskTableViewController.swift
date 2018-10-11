@@ -13,7 +13,7 @@ class MissionLinkDiskTableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = MissionInfo.fetch(of: Series.linkDisk)
+        results = MissionInfo.fetch(of: Series.linkDisk)
     }
 }
 

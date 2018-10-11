@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class SongBaseTableViewController: BaseTableViewController {
+class SongBaseTableViewController: UITableViewController {
 
     var songResults: [SongInfo]?
     var missionResults: Results<MissionInfo>?
@@ -20,12 +20,12 @@ class SongBaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.songResults = SongInfo.fetch().sorted { $0.localizedLowercase < $1.localizedLowercase }
+        songResults = SongInfo.fetch().sorted { $0.localizedLowercase < $1.localizedLowercase }
         let predicate = NSPredicate(format: "%K LIKE %@", #keyPath(MissionInfo.reward.english), "Music*")
-        self.missionResults = MissionInfo.fetch().filter(predicate)
-        self.achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: "=")
-        self.tableView.rowHeight = 60
-        self.tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        missionResults = MissionInfo.fetch().filter(predicate)
+        achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: "=")
+        tableView.rowHeight = 60
+        tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }
 

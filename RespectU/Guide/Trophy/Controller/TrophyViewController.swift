@@ -17,8 +17,9 @@ class TrophyViewController: BaseViewController {
     private lazy var technika1TableViewController = TrophyTechnika1TableViewController()
     private lazy var bsTableViewController = TrophyBSTableViewController()
     private lazy var linkDiskTableViewController = TrophyLinkDiskTableViewController()
+    private lazy var technika2TableViewController = TrophyTechnika2TableViewController()
     lazy var trophyViewControllers: [TrophyBaseTableViewController] = {
-        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, linkDiskTableViewController]
+        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, linkDiskTableViewController, technika2TableViewController]
     }()
     
     override func viewDidLoad() {

@@ -22,8 +22,9 @@ class RecordViewController: BaseViewController {
     private lazy var ceTableViewController = RecordCETableViewController()
     private lazy var technika1TableViewController = RecordTechnika1TableViewController()
     private lazy var bsTableViewController = RecordBSTableViewController()
+    private lazy var technika2TableViewController = RecordTechnika2TableViewController()
     lazy var recordViewControllers: [RecordBaseTableViewController] = {
-        return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController]
+        return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, technika2TableViewController]
     }()
     
     override func viewDidLoad() {

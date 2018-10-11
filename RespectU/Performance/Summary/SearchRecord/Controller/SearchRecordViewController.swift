@@ -40,7 +40,7 @@ class SearchRecordViewController: UIViewController {
         initializeMethods()
     }
     
-    @IBAction func touchUpSearchButton(_ sender: UIButton) {
+    @IBAction func didTouchUpSearchButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordDetailViewController.classNameToString) as? SearchRecordDetailViewController else { return }
         controller.buttonIndex = { () -> Int in
             for index in 0..<4 {
@@ -81,7 +81,7 @@ class SearchRecordViewController: UIViewController {
         self.present(controller, animated: true)
     }
     
-    @IBAction func touchUpButtons(_ sender: UIButton) {
+    @IBAction func didTouchUpButtons(_ sender: UIButton) {
         initializeButtons()
         for button in buttonButtons {
             button?.isSelected = false
@@ -105,7 +105,7 @@ class SearchRecordViewController: UIViewController {
         checkValidity()
     }
     
-    @IBAction func touchUpMethodButtons(_ sender: UIButton) {
+    @IBAction func didTouchUpMethodButtons(_ sender: UIButton) {
         let view = subView.subviews.first
         if view is SearchByNoteView {
             selectedNoteDetailIndex = -1
@@ -169,7 +169,7 @@ class SearchRecordViewController: UIViewController {
         checkValidity()
     }
     
-    @IBAction func touchUpCancelButton(_ sender: UIButton) {
+    @IBAction func didTouchUpCancelButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RecordBaseTableViewController: BaseTableViewController {
+class RecordBaseTableViewController: UITableViewController {
 
     var recordViewController: RecordViewController {
         guard let parent = self.parent as? RecordViewController else { return RecordViewController() }
@@ -24,9 +24,9 @@ class RecordBaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tempSongResults = SongInfo.fetch()
-        self.recordResults = NewRecordInfo.fetch()
-        self.tableView.register(UINib(nibName: "RecordCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tempSongResults = SongInfo.fetch()
+        recordResults = NewRecordInfo.fetch()
+        tableView.register(UINib(nibName: "RecordCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,13 +107,13 @@ extension RecordBaseTableViewController {
 }
 
 extension RecordBaseTableViewController: RecordViewDelegate {
-    func touchUpTypeButton(_ sender: UIButton) {
+    func didTouchUpTypeButton(_ sender: UIButton) {
         let button = (sender.title(for: .normal) ?? Buttons.button4).lowercased()
         guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
         guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
         let predicate = NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), songResult.title?.english ?? "")
         guard let object = self.recordResults?.filter(predicate).first else { return }
-        recordView.changeButton(object, button: button)
+        recordView.changeButtonProperties(object, button: button)
     }
     
     func presentRankAlert(difficulty: String, button: String) {
@@ -215,7 +215,7 @@ extension RecordBaseTableViewController: RecordViewDelegate {
             .present(to: self)
     }
     
-    func touchUpCancelButton() {
+    func didTouchUpCancelButton() {
         dismissRecordViewIfExists()
         deselectTableViewIfSelected()
     }

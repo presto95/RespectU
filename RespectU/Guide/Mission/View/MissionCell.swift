@@ -22,15 +22,11 @@ class MissionCell: UITableViewCell {
         colorLabel.layer.borderColor = UIColor.main.cgColor
         colorLabel.layer.borderWidth = 1
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func setProperties(_ object: MissionInfo?) {
         guard let object = object else { return }
-        self.colorLabel.backgroundColor = object.section.missionColor
-        self.titleLabel.text = object.title
-        self.rewardLabel.text = object.localizedReward
+        colorLabel.backgroundColor = object.section.missionColor
+        titleLabel.text = object.title
+        rewardLabel.text = object.localizedReward
     }
 }

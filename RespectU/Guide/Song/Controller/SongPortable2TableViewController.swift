@@ -13,7 +13,7 @@ class SongPortable2TableViewController: SongBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.songResults = self.songResults?.filter { $0.series == Series.portable2 }
+        songResults = songResults?.filter { $0.series == Series.portable2 }
     }
 }
 

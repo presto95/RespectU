@@ -17,9 +17,9 @@ class SummaryCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderColor = UIColor.main.cgColor
-        self.layer.borderWidth = 3
-        self.layer.cornerRadius = 10
+        layer.borderColor = UIColor.main.cgColor
+        layer.borderWidth = 3
+        layer.cornerRadius = 10
     }
     
     func setProperties(_ results: Results<NewRecordInfo>, at item: Int) {

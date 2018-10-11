@@ -37,11 +37,11 @@ class SummaryCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    @objc func touchUpSearchButton(_ sender: UIButton) {
+    @objc func didTouchUpSearchButton(_ sender: UIButton) {
         delegate?.didTouchUpSearchButton(sender)
     }
     
-    @objc func touchUpDetailButton(_ sender: UIButton) {
+    @objc func didTouchUpDetailButton(_ sender: UIButton) {
         delegate?.didTouchUpDetailButton(sender)
     }
 }

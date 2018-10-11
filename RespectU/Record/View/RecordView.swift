@@ -10,11 +10,11 @@ import UIKit
 import RealmSwift
 
 protocol RecordViewDelegate: class {
-    func touchUpTypeButton(_ sender: UIButton)
+    func didTouchUpTypeButton(_ sender: UIButton)
     func presentRankAlert(difficulty: String, button: String)
     func presentRateAlert(difficulty: String, button: String)
     func presentNoteAlert(difficulty: String, button: String)
-    func touchUpCancelButton()
+    func didTouchUpCancelButton()
 }
 
 class RecordView: UIView {
@@ -59,7 +59,7 @@ class RecordView: UIView {
         self.cancelButton.addTarget(self, action: #selector(didTouchUpCancelButton(_:)), for: .touchUpInside)
     }
     
-    @IBAction func touchUpOtherButtons(_ sender: UIButton) {
+    @IBAction func didTouchUpOtherButtons(_ sender: UIButton) {
         let button = (buttonButton.title(for: .normal) ?? "4b").lowercased()
         switch sender.tag {
         case 0:
@@ -85,17 +85,17 @@ class RecordView: UIView {
         }
     }
     
-    @IBAction func touchUpTypeButton(_ sender: UIButton) {
-        delegate?.touchUpTypeButton(sender)
+    @IBAction func didTouchUpTypeButton(_ sender: UIButton) {
+        delegate?.didTouchUpTypeButton(sender)
     }
     
-    @IBAction func touchUpCancelButton(_ sender: UIButton) {
-        delegate?.touchUpCancelButton()
+    @IBAction func didTouchUpCancelButton(_ sender: UIButton) {
+        delegate?.didTouchUpCancelButton()
     }
 }
 
 extension RecordView {
-    func changeButton(_ object: NewRecordInfo, button: String) {
+    func changeButtonProperties(_ object: NewRecordInfo, button: String) {
         switch button {
         case Buttons.button4:
             self.buttonButton.setTitle(Buttons.button5.uppercased(), for: [])

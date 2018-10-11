@@ -1,5 +1,5 @@
 //
-//  TrophyTechnika2TableViewController.swift
+//  RecordTechnika2TableViewController.swift
 //  RespectU
 //
 //  Created by Presto on 11/10/2018.
@@ -9,15 +9,15 @@
 import UIKit
 import XLPagerTabStrip
 
-class TrophyTechnika2TableViewController: TrophyBaseTableViewController {
+class RecordTechnika2TableViewController: RecordBaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        results = TrophyInfo.fetch(of: Series.technika2)
+        songResults = tempSongResults?.filter(key: "series", value: Series.technika2, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
     }
 }
 
-extension TrophyTechnika2TableViewController: IndicatorInfoProvider {
+extension RecordTechnika2TableViewController: IndicatorInfoProvider {
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "TECHNIKA 2")
     }

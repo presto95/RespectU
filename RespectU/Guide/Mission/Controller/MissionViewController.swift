@@ -17,8 +17,9 @@ class MissionViewController: BaseViewController {
     private lazy var technika1TableViewController = MissionTechnika1TableViewController()
     private lazy var bsTableViewController = MissionBSTableViewController()
     private lazy var linkDiskTableViewController = MissionLinkDiskTableViewController()
+    private lazy var technika2TableViewController = MissionTechnika2TableViewController()
     lazy var missionViewControllers: [MissionBaseTableViewController] = {
-        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, linkDiskTableViewController]
+        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, linkDiskTableViewController, technika2TableViewController]
     }()
     
     override func viewDidLoad() {

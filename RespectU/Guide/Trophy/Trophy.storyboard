@@ -10,106 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Trophy Respect Table View Controller-->
-        <scene sceneID="i9z-pn-VKL">
-            <objects>
-                <tableViewController storyboardIdentifier="TrophyRespectTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UgG-Cx-Wbe" customClass="TrophyRespectTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0hw-gr-JOg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="UgG-Cx-Wbe" id="JjI-h7-Fal"/>
-                            <outlet property="delegate" destination="UgG-Cx-Wbe" id="Cuo-uv-pp0"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aK2-lB-Oa5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-278" y="-550"/>
-        </scene>
-        <!--Trophy Trilogy Table View Controller-->
-        <scene sceneID="7RC-00-DsR">
-            <objects>
-                <tableViewController storyboardIdentifier="TrophyTrilogyTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bTc-lJ-qrd" customClass="TrophyTrilogyTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d2w-Lr-Qj7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="bTc-lJ-qrd" id="nxo-Yt-B3N"/>
-                            <outlet property="delegate" destination="bTc-lJ-qrd" id="Z2p-3A-SIO"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H3M-nI-SIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="118" y="-551"/>
-        </scene>
-        <!--TrophyCE Table View Controller-->
-        <scene sceneID="DRZ-Af-VML">
-            <objects>
-                <tableViewController storyboardIdentifier="TrophyCETableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jvp-WP-moO" customClass="TrophyCETableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5hx-6K-gNN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Jvp-WP-moO" id="jOh-st-dWf"/>
-                            <outlet property="delegate" destination="Jvp-WP-moO" id="tyC-UH-eV2"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rHQ-Xv-sog" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="522" y="-552"/>
-        </scene>
-        <!--Trophy Technika1 Table View Controller-->
-        <scene sceneID="6wu-LO-PWo">
-            <objects>
-                <tableViewController storyboardIdentifier="TrophyTechnika1TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lAi-Yy-XQQ" customClass="TrophyTechnika1TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MGx-Lk-jUL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="lAi-Yy-XQQ" id="VI3-Gf-T8j"/>
-                            <outlet property="delegate" destination="lAi-Yy-XQQ" id="7T7-ZL-OzM"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qr-ff-j0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="914" y="-553"/>
-        </scene>
-        <!--TrophyBS Table View Controller-->
-        <scene sceneID="y1b-FY-esm">
-            <objects>
-                <tableViewController storyboardIdentifier="TrophyBSTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o4r-Bx-qo3" customClass="TrophyBSTableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f0J-Gs-qCG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="o4r-Bx-qo3" id="LQ8-ZP-nQg"/>
-                            <outlet property="delegate" destination="o4r-Bx-qo3" id="Ndc-YE-4bS"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ytu-Ez-r1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1327" y="-554"/>
-        </scene>
         <!--Trophy View Controller-->
         <scene sceneID="tiw-34-u8T">
             <objects>
@@ -132,7 +32,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7ko-j3-lC2" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="16" y="88" width="343" height="38"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="VtK-C9-xYd"/>
                                 </constraints>
@@ -146,9 +46,9 @@
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-PO-Wyl">
                                 <rect key="frame" x="0.0" y="126" width="375" height="521"/>
-                                <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-Vm-IaG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-Vm-IaG">
                                 <rect key="frame" x="157.5" y="20" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="r1J-sA-JJa"/>
@@ -156,7 +56,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fuY-PO-Wyl" firstAttribute="trailing" secondItem="imq-VC-mJv" secondAttribute="trailing" id="Ah0-uF-yJV"/>
                             <constraint firstItem="7ko-j3-lC2" firstAttribute="leading" secondItem="imq-VC-mJv" secondAttribute="leading" constant="16" id="C0b-la-Xfj"/>
@@ -181,29 +81,9 @@
             </objects>
             <point key="canvasLocation" x="-277.5" y="137.32394366197184"/>
         </scene>
-        <!--Trophy Technika2 Table View Controller-->
-        <scene sceneID="dO7-t9-pKb">
-            <objects>
-                <tableViewController storyboardIdentifier="TrophyTechnika2TableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UR3-BW-gvE" customClass="TrophyTechnika2TableViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UJU-3o-yFs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                        <connections>
-                            <outlet property="dataSource" destination="UR3-BW-gvE" id="bYV-31-OLO"/>
-                            <outlet property="delegate" destination="UR3-BW-gvE" id="Ytz-bT-k77"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pnC-uo-8bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1986" y="-552"/>
-        </scene>
     </scenes>
     <resources>
         <image name="cancelButton" width="20" height="20"/>
-        <image name="respectuFlat" width="120" height="120"/>
+        <image name="respectuColor" width="120" height="120"/>
     </resources>
 </document>

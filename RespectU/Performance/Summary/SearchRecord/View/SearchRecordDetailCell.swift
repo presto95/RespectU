@@ -18,18 +18,14 @@ class SearchRecordDetailCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.colorLabel.layer.borderWidth = 1
-        self.colorLabel.layer.borderColor = UIColor.main.cgColor
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        colorLabel.layer.borderWidth = 1
+        colorLabel.layer.borderColor = UIColor.main.cgColor
     }
     
     func setProperties(_ object: SearchRecordDetail) {
-        self.colorLabel.backgroundColor = object.series.seriesColor
-        self.titleLabel.text = object.title
-        self.difficultyLabel.text = object.difficulty.uppercased()
-        self.rateLabel.text = "\(object.rate)%"
+        colorLabel.backgroundColor = object.series.seriesColor
+        titleLabel.text = object.title
+        difficultyLabel.text = object.difficulty.uppercased()
+        rateLabel.text = "\(object.rate)%"
     }
 }

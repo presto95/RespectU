@@ -15,14 +15,14 @@ class GuideCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderColor = UIColor.main.cgColor
-        self.layer.borderWidth = 3
-        self.layer.cornerRadius = 10
+        layer.borderColor = UIColor.main.cgColor
+        layer.borderWidth = 3
+        layer.cornerRadius = 10
     }
     
     func setProperties(_ image: UIImage, _ description: String) {
-        self.iconImageView.image = image
-        self.descriptionLabel.text = description
+        iconImageView.image = image
+        descriptionLabel.text = description
     }
     
     func becomeHighlighted() {

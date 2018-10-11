@@ -17,7 +17,7 @@ class TipViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = TipInfo.fetch()
+        results = TipInfo.fetch()
         generateRandomNumbers()
         setupTableView()
     }
@@ -30,10 +30,10 @@ class TipViewController: UIViewController {
 extension TipViewController {
     private func generateRandomNumbers() {
         guard let tips = self.results else { return }
-        var randomNumber = arc4random_uniform(UInt32((tips.count)))
+        var randomNumber = Int.random(in: 0..<tips.count)
         for _ in 0..<tips.count {
             while indexes.contains(Int(randomNumber)) {
-                randomNumber = arc4random_uniform(UInt32((tips.count)))
+                randomNumber = Int.random(in: 0..<tips.count)
             }
             indexes.append(Int(randomNumber))
         }

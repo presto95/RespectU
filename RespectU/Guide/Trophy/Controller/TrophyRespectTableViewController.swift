@@ -13,7 +13,7 @@ class TrophyRespectTableViewController: TrophyBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = TrophyInfo.fetch(of: Series.respect)
+        results = TrophyInfo.fetch(of: Series.respect)
     }
 }
 

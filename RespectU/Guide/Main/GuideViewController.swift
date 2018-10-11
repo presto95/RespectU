@@ -23,11 +23,11 @@ class GuideViewController: UIViewController {
         self.recordButton.setTitle("Performance Record".localized, for: .normal)
     }
     
-    @IBAction func touchUpPreviousButton(_ sender: UIButton) {
+    @IBAction func didTouchUpPreviousButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func touchUpRecordButton(_ sender: UIButton) {
+    @IBAction func didTouchUpRecordButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
         self.present(controller, animated: true)
     }

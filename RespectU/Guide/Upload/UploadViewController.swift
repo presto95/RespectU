@@ -16,29 +16,18 @@ class UploadViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uploadButton.layer.cornerRadius = 10
-        self.uploadButton.backgroundColor = .main
-        self.uploadLabel.text = "Store recorded performance information on the server.".localized
-        self.uploadButton.setTitle("Upload".localized, for: [])
-        self.uploadButton.addTarget(self, action: #selector(touchUpUploadButton(_:)), for: .touchUpInside)
-        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveUploadRecords(_:)), name: .didReceiveUploadRecords, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(errorReceiveUploadRecords(_:)), name: .errorReceiveUploadRecords, object: nil)
+        setup()
     }
     
-    @objc func didReceiveUploadRecords(_ notification: Notification) {
-        guard let statusCode = notification.userInfo?["statusCode"] as? Int else { return }
-        if (200...299).contains(statusCode) {
-            presentSuccessAlert()
-        } else {
-            presentFailureAlert()
-        }
+    func setup() {
+        uploadButton.layer.cornerRadius = 10
+        uploadButton.backgroundColor = .main
+        uploadLabel.text = "Store recorded performance information on the server.".localized
+        uploadButton.setTitle("Upload".localized, for: [])
+        uploadButton.addTarget(self, action: #selector(didTouchUpUploadButton(_:)), for: .touchUpInside)
     }
     
-    @objc func errorReceiveUploadRecords(_ notification: Notification) {
-        presentFailureAlert()
-    }
-    
-    @objc func touchUpUploadButton(_ sender: UIButton) {
+    @objc func didTouchUpUploadButton(_ sender: UIButton) {
         let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
         if id.isEmpty {
             UIAlertController
@@ -72,7 +61,18 @@ class UploadViewController: UIViewController {
             let recordResponse = RecordResponse(id: id, records: records)
             guard let uploadData = try? JSONEncoder().encode(recordResponse) else { return }
             showIndicator()
-            API.uploadRecords(uploadData)
+            API.uploadRecords(uploadData) { statusCode, error in
+                if let error = error {
+                    UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+                    return
+                }
+                guard let statusCode = statusCode else { return }
+                if (200...299).contains(statusCode) {
+                    self.presentSuccessAlert()
+                } else {
+                    self.presentFailureAlert()
+                }
+            }
         }
     }
     
@@ -97,9 +97,7 @@ extension UploadViewController {
             self?.hideIndicator()
             UIAlertController
                 .alert(title: "", message: "Network Error".localized)
-                .action(title: "OK".localized) { [weak self] _ in
-                    self?.hideIndicator()
-                }
+                .action(title: "OK".localized)
                 .present(to: self)
         }
     }

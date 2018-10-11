@@ -13,7 +13,7 @@ class MissionRespectTableViewController: MissionBaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.results = MissionInfo.fetch(of: Series.respect)
+        results = MissionInfo.fetch(of: Series.respect)
     }
 }
 

@@ -141,6 +141,7 @@
 		198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */; };
 		198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */; };
 		198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */; };
+		199233D0216F743600E040D7 /* RecordTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199233CF216F743600E040D7 /* RecordTechnika2TableViewController.swift */; };
 		1999920E2049641A00C74697 /* MissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1999920C2049641A00C74697 /* MissionCell.swift */; };
 		1999920F2049641A00C74697 /* MissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1999920D2049641A00C74697 /* MissionCell.xib */; };
 		199992112049652700C74697 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992102049652700C74697 /* MissionViewController.swift */; };
@@ -342,6 +343,7 @@
 		198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
 		198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
 		198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
+		199233CF216F743600E040D7 /* RecordTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika2TableViewController.swift; sourceTree = "<group>"; };
 		1999920C2049641A00C74697 /* MissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCell.swift; sourceTree = "<group>"; };
 		1999920D2049641A00C74697 /* MissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionCell.xib; sourceTree = "<group>"; };
 		199992102049652700C74697 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
@@ -726,8 +728,8 @@
 		19E767BE20EE4A51008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1999920C2049641A00C74697 /* MissionCell.swift */,
 				1999920D2049641A00C74697 /* MissionCell.xib */,
+				1999920C2049641A00C74697 /* MissionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -768,8 +770,8 @@
 		19E767C120EE4A68008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				19320FD3204959BE0075BD86 /* TrophyCell.swift */,
 				19320FD4204959BE0075BD86 /* TrophyCell.xib */,
+				19320FD3204959BE0075BD86 /* TrophyCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -793,8 +795,8 @@
 		19E767C320EE4A7F008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				193DE8D9204922B400A829BB /* AchievementCell.swift */,
 				193DE8DA204922B400A829BB /* AchievementCell.xib */,
+				193DE8D9204922B400A829BB /* AchievementCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -882,6 +884,7 @@
 				19D67ECF20744F3300FD9EC7 /* RecordCETableViewController.swift */,
 				19D67ED120744F3D00FD9EC7 /* RecordTechnika1TableViewController.swift */,
 				191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */,
+				199233CF216F743600E040D7 /* RecordTechnika2TableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -973,10 +976,10 @@
 		19E767D720EE5626008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				193E4006204BF37E0063A440 /* SummaryCell.swift */,
 				193E4007204BF37E0063A440 /* SummaryCell.xib */,
-				198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */,
+				193E4006204BF37E0063A440 /* SummaryCell.swift */,
 				198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */,
+				198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1319,6 +1322,7 @@
 				193C285A213671F6001EB7F3 /* SignInButton.swift in Sources */,
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
+				199233D0216F743600E040D7 /* RecordTechnika2TableViewController.swift in Sources */,
 				1999920E2049641A00C74697 /* MissionCell.swift in Sources */,
 				1968F785213E7295003C026B /* NicknameResponse.swift in Sources */,
 				1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */,

@@ -18,13 +18,9 @@ class AchievementCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     func setProperties(_ object: AchievementInfo?, isAll: Bool = false) {
-        self.stageLabel.text = "\(object?.level ?? 0)"
-        self.itemLabel.text = object?.localizedItem
-        self.typeLabel.text = isAll ? object?.type.uppercased() : nil
+        stageLabel.text = "\(object?.level ?? 0)"
+        itemLabel.text = object?.localizedItem
+        typeLabel.text = isAll ? object?.type.uppercased() : nil
     }
 }

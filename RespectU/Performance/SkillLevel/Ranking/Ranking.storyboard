@@ -52,7 +52,7 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jI-eK-nLI">
-                                <rect key="frame" x="0.0" y="126" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="142" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                         </subviews>
@@ -64,7 +64,7 @@
                             <constraint firstItem="98H-KG-DFg" firstAttribute="top" secondItem="Cu9-S2-eD3" secondAttribute="bottom" constant="8" id="ESy-CH-BS9"/>
                             <constraint firstItem="Cu9-S2-eD3" firstAttribute="centerX" secondItem="bPj-1M-bO7" secondAttribute="centerX" id="WLi-9x-Ngh"/>
                             <constraint firstItem="XAY-lx-WI4" firstAttribute="trailing" secondItem="PAd-5I-8Ka" secondAttribute="trailing" constant="16" id="dIV-ku-i0e"/>
-                            <constraint firstItem="3jI-eK-nLI" firstAttribute="top" secondItem="98H-KG-DFg" secondAttribute="bottom" id="dVO-jx-ehE"/>
+                            <constraint firstItem="3jI-eK-nLI" firstAttribute="top" secondItem="98H-KG-DFg" secondAttribute="bottom" constant="16" id="dVO-jx-ehE"/>
                             <constraint firstItem="XAY-lx-WI4" firstAttribute="trailing" secondItem="98H-KG-DFg" secondAttribute="trailing" constant="16" id="eiK-XX-ymD"/>
                             <constraint firstItem="3jI-eK-nLI" firstAttribute="leading" secondItem="XAY-lx-WI4" secondAttribute="leading" id="tIX-at-kpK"/>
                             <constraint firstItem="3jI-eK-nLI" firstAttribute="trailing" secondItem="XAY-lx-WI4" secondAttribute="trailing" id="vFH-yR-vP8"/>

@@ -73,10 +73,6 @@ class DownloadViewController: UIViewController {
     }
     
     func setup() {
-        downloadDataButton.layer.cornerRadius = 10
-        downloadDataButton.backgroundColor = .main
-        downloadRecordButton.layer.cornerRadius = 10
-        downloadRecordButton.backgroundColor = .main
         downloadDataLabel.text = "Update with latest data.".localized
         downloadRecordLabel.text = "Get exported performance record data.".localized
         downloadDataButton.setTitle("Download".localized, for: [])

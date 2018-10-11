@@ -41,9 +41,5 @@ class SearchByNoteView: UIView {
             self.noMaxComboButton.backgroundColor = .white
             self.perfectPlayButton.backgroundColor = .white
         }
-        noMaxComboButton.layer.borderColor = UIColor.main.cgColor
-        perfectPlayButton.layer.borderColor = UIColor.main.cgColor
-        noMaxComboButton.layer.borderWidth = 2
-        perfectPlayButton.layer.borderWidth = 2
     }
 }

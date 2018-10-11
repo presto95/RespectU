@@ -20,8 +20,6 @@ class UploadViewController: UIViewController {
     }
     
     func setup() {
-        uploadButton.layer.cornerRadius = 10
-        uploadButton.backgroundColor = .main
         uploadLabel.text = "Store recorded performance information on the server.".localized
         uploadButton.setTitle("Upload".localized, for: [])
         uploadButton.addTarget(self, action: #selector(didTouchUpUploadButton(_:)), for: .touchUpInside)

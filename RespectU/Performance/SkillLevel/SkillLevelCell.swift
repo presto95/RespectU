@@ -13,7 +13,7 @@ import RealmSwift
 protocol SkillLevelCellDelegate: class {
     func didTouchUpTop50Button(_ sender: UIButton)
     func didTouchUpRankingButton(_ sender: UIButton)
-    func didTouchUpCalculatorButton(_ sender: UIButton)
+    func didTouchUpMoreButton(_ sender: UIButton)
 }
 
 class SkillLevelCell: UITableViewCell {
@@ -27,7 +27,7 @@ class SkillLevelCell: UITableViewCell {
     @IBOutlet weak var skillPointLabel: UILabel!
     @IBOutlet weak var top50Button: UIButton!
     @IBOutlet weak var rankingButton: UIButton!
-    @IBOutlet weak var calculatorButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var nextLevelLabel: UILabel!
     
@@ -38,11 +38,11 @@ class SkillLevelCell: UITableViewCell {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.masksToBounds = true
-        rankingButton.setTitle("Ranking".localized, for: .normal)
-        calculatorButton.setTitle("Calculator".localized, for: .normal)
+        rankingButton.setTitle("Ranking".localized, for: [])
+        moreButton.setTitle("More".localized, for: [])
         top50Button.addTarget(self, action: #selector(didTouchUpTop50Button(_:)), for: .touchUpInside)
         rankingButton.addTarget(self, action: #selector(didTouchUpRankingButton(_:)), for: .touchUpInside)
-        calculatorButton.addTarget(self, action: #selector(didTouchUpCalculatorButton(_:)), for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(didTouchUpMoreButton(_:)), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -82,7 +82,7 @@ class SkillLevelCell: UITableViewCell {
         delegate?.didTouchUpRankingButton(sender)
     }
     
-    @objc func didTouchUpCalculatorButton(_ sender: UIButton) {
-        delegate?.didTouchUpCalculatorButton(sender)
+    @objc func didTouchUpMoreButton(_ sender: UIButton) {
+        delegate?.didTouchUpMoreButton(sender)
     }
 }

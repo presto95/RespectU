@@ -27,7 +27,8 @@ class SearchByRateView: UIView {
         upperRateTextField.placeholder = "Below".localized
         for textField in textFields {
             textField.layer.borderColor = UIColor.main.cgColor
-            textField.layer.borderWidth = 2
+            textField.layer.borderWidth = 1
+            textField.layer.cornerRadius = textField.bounds.height / 2
             textField.keyboardType = .decimalPad
         }
         setToolBar()

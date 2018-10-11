@@ -16,51 +16,52 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-F5-8OJ">
-                    <rect key="frame" x="209" y="0.0" width="150" height="40"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                    <state key="normal" title="PERFECT PLAYs">
-                        <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <state key="selected">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="didTouchUpButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="BhV-pT-9IS"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F5-e6-CVH">
-                    <rect key="frame" x="16" y="0.0" width="150" height="40"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Dw0-4K-AVf">
+                    <rect key="frame" x="16" y="0.0" width="343" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2F5-e6-CVH" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="167" height="40"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="No MAX COMBOs">
+                                <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didTouchUpButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="vop-kR-Zn5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-F5-8OJ" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
+                            <rect key="frame" x="176" y="0.0" width="167" height="40"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="PERFECT PLAYs">
+                                <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didTouchUpButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="BhV-pT-9IS"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="qdt-p7-80P"/>
+                        <constraint firstAttribute="height" constant="40" id="Ifv-Jh-pgh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                    <state key="normal" title="No MAX COMBOs">
-                        <color key="titleColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <state key="selected">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <state key="highlighted">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <connections>
-                        <action selector="didTouchUpButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="vop-kR-Zn5"/>
-                    </connections>
-                </button>
+                </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnz-F5-8OJ" firstAttribute="bottom" secondItem="2F5-e6-CVH" secondAttribute="bottom" id="8xs-Si-1oz"/>
-                <constraint firstItem="2F5-e6-CVH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="CTN-Hg-4EL"/>
-                <constraint firstItem="fnz-F5-8OJ" firstAttribute="width" secondItem="2F5-e6-CVH" secondAttribute="width" id="Gas-93-gcw"/>
-                <constraint firstItem="2F5-e6-CVH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.4" id="MZY-co-TgX"/>
-                <constraint firstItem="fnz-F5-8OJ" firstAttribute="top" secondItem="2F5-e6-CVH" secondAttribute="top" id="SgY-gF-VI8"/>
-                <constraint firstItem="2F5-e6-CVH" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Ulf-sH-NYh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fnz-F5-8OJ" secondAttribute="trailing" constant="16" id="pHe-4y-Gs8"/>
+                <constraint firstItem="Dw0-4K-AVf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Hu2-8U-TZW"/>
+                <constraint firstItem="Dw0-4K-AVf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="RPg-bB-ahL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dw0-4K-AVf" secondAttribute="trailing" constant="16" id="oZr-GC-ilK"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

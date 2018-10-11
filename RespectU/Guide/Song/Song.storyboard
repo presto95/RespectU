@@ -25,7 +25,7 @@
                                     <constraint firstAttribute="height" constant="40" id="QsC-cg-Hms"/>
                                     <constraint firstAttribute="width" constant="40" id="hgv-om-OcH"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="c78-Vu-UQE" eventType="touchUpInside" id="zD7-db-7z4"/>
@@ -46,7 +46,7 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iao-6U-Kud">
-                                <rect key="frame" x="0.0" y="126" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="142" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="kh8-Zy-mCJ">
@@ -74,7 +74,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="2hl-5E-OWk"/>
                                                     <constraint firstAttribute="width" constant="30" id="8BN-kS-kcM"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="search"/>
                                                 <connections>
                                                     <action selector="touchUpSearchButton:" destination="c78-Vu-UQE" eventType="touchUpInside" id="iaa-Pv-xig"/>
@@ -86,7 +86,7 @@
                                                     <constraint firstAttribute="width" constant="30" id="Yfd-wW-pPz"/>
                                                     <constraint firstAttribute="height" constant="30" id="dpN-Jg-LaE"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="sort"/>
                                                 <connections>
                                                     <action selector="touchUpSortButton:" destination="c78-Vu-UQE" eventType="touchUpInside" id="KAL-2B-W0x"/>
@@ -98,7 +98,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="fwN-de-NTf"/>
                                                     <constraint firstAttribute="width" constant="30" id="v3n-UV-0fV"/>
                                                 </constraints>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="random"/>
                                                 <connections>
                                                     <action selector="touchUpRandomButton:" destination="c78-Vu-UQE" eventType="touchUpInside" id="Gkj-Go-dlj"/>
@@ -124,7 +124,7 @@
                             <constraint firstItem="iao-6U-Kud" firstAttribute="trailing" secondItem="bUa-vK-iDe" secondAttribute="trailing" id="HRW-36-bz6"/>
                             <constraint firstItem="Mfs-Xv-xYW" firstAttribute="trailing" secondItem="bUa-vK-iDe" secondAttribute="trailing" multiplier="0.725" id="IOk-Ow-py6"/>
                             <constraint firstItem="Mfs-Xv-xYW" firstAttribute="centerY" secondItem="kh8-Zy-mCJ" secondAttribute="centerY" id="Iph-w3-sER"/>
-                            <constraint firstItem="iao-6U-Kud" firstAttribute="top" secondItem="Dzi-8Q-KqT" secondAttribute="bottom" id="L79-p4-ffx"/>
+                            <constraint firstItem="iao-6U-Kud" firstAttribute="top" secondItem="Dzi-8Q-KqT" secondAttribute="bottom" constant="16" id="L79-p4-ffx"/>
                             <constraint firstItem="kh8-Zy-mCJ" firstAttribute="leading" secondItem="LhL-nt-1R4" secondAttribute="trailing" constant="-0.5" id="QCi-ob-zW8"/>
                             <constraint firstItem="kh8-Zy-mCJ" firstAttribute="centerX" secondItem="G7p-4y-j6h" secondAttribute="centerX" id="UtD-Mk-SJ8"/>
                             <constraint firstItem="gpy-Zv-AGh" firstAttribute="centerY" secondItem="kh8-Zy-mCJ" secondAttribute="centerY" id="YgJ-WJ-Ol7"/>

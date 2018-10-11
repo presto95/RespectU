@@ -20,9 +20,9 @@ class SkillLevelDetailView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor.main.cgColor
-        layer.borderWidth = 3
-        layer.cornerRadius = 10
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 15
     }
     
     func setProperties(button: String) {

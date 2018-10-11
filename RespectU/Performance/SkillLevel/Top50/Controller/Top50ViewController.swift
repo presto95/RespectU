@@ -26,9 +26,9 @@ class Top50ViewController: BaseViewController {
         scrollView.layer.cornerRadius = 15
         scrollView.layer.borderWidth = 1
         scrollView.layer.borderColor = UIColor.lightGray.cgColor
-        sectionView.layer.cornerRadius = sectionView.bounds.height / 2
-        sectionView.layer.borderWidth = 1
-        sectionView.layer.borderColor = UIColor.lightGray.cgColor
+//        sectionView.layer.cornerRadius = sectionView.bounds.height / 2
+//        sectionView.layer.borderWidth = 1
+//        sectionView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

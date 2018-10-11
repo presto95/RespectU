@@ -34,9 +34,9 @@ class SearchRecordDetailViewController: UIViewController {
         super.viewDidLoad()
         tableView.rowHeight = 40
         tableView.separatorColor = .main
-        tableView.layer.borderColor = UIColor.main.cgColor
-        tableView.layer.borderWidth = 3
-        tableView.layer.cornerRadius = 10
+        tableView.layer.borderColor = UIColor.lightGray.cgColor
+        tableView.layer.borderWidth = 1
+        tableView.layer.cornerRadius = 15
         tableView.register(UINib(nibName: "SearchRecordDetailCell", bundle: nil), forCellReuseIdentifier: "searchRecordDetailCell")
         let recordResults = NewRecordInfo.fetch()
         switch buttonIndex {

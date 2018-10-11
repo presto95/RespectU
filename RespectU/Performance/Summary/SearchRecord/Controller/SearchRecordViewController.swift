@@ -29,11 +29,14 @@ class SearchRecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchByLevelButton.setTitle("Level".localized, for: .normal)
-        searchByRateButton.setTitle("Rate".localized, for: .normal)
-        searchByNoteButton.setTitle("Note".localized, for: .normal)
+        searchByLevelButton.setTitle("Level".localized, for: [])
+        searchByRateButton.setTitle("Rate".localized, for: [])
+        searchByNoteButton.setTitle("Note".localized, for: [])
         searchButton.setTitle("Enter all conditions".localized, for: .disabled)
         searchButton.setTitle("Search".localized, for: .normal)
+        searchButton.layer.cornerRadius = searchButton.bounds.height / 2
+        searchButton.layer.borderColor = UIColor.main.cgColor
+        searchButton.layer.borderWidth = 1
         buttonButtons = [button4Button, button5Button, button6Button, button8Button]
         methodButtons = [searchByLevelButton, searchByRateButton, searchByNoteButton]
         initializeButtons()
@@ -246,8 +249,6 @@ extension SearchRecordViewController {
             UIView.animate(withDuration: 0.3) {
                 button?.backgroundColor = .white
             }
-            button?.layer.borderColor = UIColor.main.cgColor
-            button?.layer.borderWidth = 2
         }
     }
     
@@ -256,8 +257,6 @@ extension SearchRecordViewController {
             UIView.animate(withDuration: 0.3) {
                 button?.backgroundColor = .white
             }
-            button?.layer.borderColor = UIColor.main.cgColor
-            button?.layer.borderWidth = 2
         }
     }
     

@@ -181,12 +181,15 @@ extension GuideViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "guideFirstCell", for: indexPath) as? GuideFirstCell else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "guideSecondCell", for: indexPath) as? GuideSecondCell else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "guideThirdCell", for: indexPath) as? GuideThirdCell else { return UITableViewCell() }
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()

@@ -54,7 +54,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJMAX GRAND MASTER" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CLq-Sh-LKC">
-                                        <rect key="frame" x="106" y="16" width="213" height="18"/>
+                                        <rect key="frame" x="114" y="16" width="205" height="18"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -66,13 +66,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스킬 포인트 : 8712.52" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fB-Xz-Mgf">
-                                        <rect key="frame" x="106" y="36" width="213" height="16"/>
+                                        <rect key="frame" x="114" y="36" width="205" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음 : THE DJMAX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbL-5c-i3u">
-                                        <rect key="frame" x="106" y="69" width="213" height="16"/>
+                                        <rect key="frame" x="114" y="69" width="205" height="16"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="CLq-Sh-LKC" firstAttribute="leading" secondItem="hEE-NC-Q7d" secondAttribute="trailing" constant="8" id="3xV-nw-1qC"/>
+                                    <constraint firstItem="CLq-Sh-LKC" firstAttribute="leading" secondItem="hEE-NC-Q7d" secondAttribute="trailing" constant="16" id="3xV-nw-1qC"/>
                                     <constraint firstAttribute="trailing" secondItem="ccz-Op-ke7" secondAttribute="trailing" id="5Vq-kV-ouI"/>
                                     <constraint firstItem="hEE-NC-Q7d" firstAttribute="top" secondItem="2ZQ-8c-07l" secondAttribute="topMargin" id="AuE-pQ-hSZ"/>
                                     <constraint firstItem="Mp1-QD-YUf" firstAttribute="centerY" secondItem="hEE-NC-Q7d" secondAttribute="centerY" id="DRD-vx-f6B"/>
@@ -124,9 +124,9 @@
                                     <constraint firstItem="dbL-5c-i3u" firstAttribute="top" secondItem="hEE-NC-Q7d" secondAttribute="centerY" constant="16" id="Mn5-jB-DDO"/>
                                     <constraint firstItem="7fB-Xz-Mgf" firstAttribute="trailing" secondItem="2ZQ-8c-07l" secondAttribute="trailingMargin" id="RI2-re-PUS"/>
                                     <constraint firstItem="CLq-Sh-LKC" firstAttribute="trailing" secondItem="2ZQ-8c-07l" secondAttribute="trailingMargin" id="XBf-aT-XC4"/>
-                                    <constraint firstItem="dbL-5c-i3u" firstAttribute="leading" secondItem="hEE-NC-Q7d" secondAttribute="trailing" constant="8" id="XLU-z3-BoE"/>
+                                    <constraint firstItem="dbL-5c-i3u" firstAttribute="leading" secondItem="hEE-NC-Q7d" secondAttribute="trailing" constant="16" id="XLU-z3-BoE"/>
                                     <constraint firstItem="ccz-Op-ke7" firstAttribute="top" secondItem="hEE-NC-Q7d" secondAttribute="bottom" constant="16" id="Xgw-cN-qIj"/>
-                                    <constraint firstItem="7fB-Xz-Mgf" firstAttribute="leading" secondItem="hEE-NC-Q7d" secondAttribute="trailing" constant="8" id="ZV1-pR-J4e"/>
+                                    <constraint firstItem="7fB-Xz-Mgf" firstAttribute="leading" secondItem="hEE-NC-Q7d" secondAttribute="trailing" constant="16" id="ZV1-pR-J4e"/>
                                     <constraint firstItem="dbL-5c-i3u" firstAttribute="trailing" secondItem="2ZQ-8c-07l" secondAttribute="trailingMargin" id="ZnM-48-Bbc"/>
                                     <constraint firstAttribute="bottom" secondItem="ccz-Op-ke7" secondAttribute="bottom" constant="16" id="aY5-IC-8aE"/>
                                     <constraint firstItem="Mp1-QD-YUf" firstAttribute="centerX" secondItem="hEE-NC-Q7d" secondAttribute="centerX" id="ad8-th-p8K"/>
@@ -164,8 +164,8 @@
             <color key="backgroundColor" red="1" green="0.84023400130000003" blue="0.62124119570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="calculatorButton" destination="MvC-Jt-3jJ" id="diV-Rv-EDX"/>
                 <outlet property="gauge" destination="hEE-NC-Q7d" id="ixT-6a-SC4"/>
+                <outlet property="moreButton" destination="MvC-Jt-3jJ" id="diV-Rv-EDX"/>
                 <outlet property="nextLevelLabel" destination="dbL-5c-i3u" id="Njz-cw-gab"/>
                 <outlet property="percentLabel" destination="Mp1-QD-YUf" id="Jm6-0B-3Xp"/>
                 <outlet property="rankingButton" destination="qi9-Ld-KPD" id="BRZ-sj-btX"/>

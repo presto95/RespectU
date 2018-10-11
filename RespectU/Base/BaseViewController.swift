@@ -12,14 +12,15 @@ import XLPagerTabStrip
 class BaseViewController: ButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         setUpButtonBarPagerTabStrip()
+        super.viewDidLoad()
     }
     
     private func setUpButtonBarPagerTabStrip() {
-        settings.style.buttonBarBackgroundColor = .sub
-        settings.style.buttonBarItemBackgroundColor = .sub
-        settings.style.selectedBarBackgroundColor = .main
+        settings.style.selectedBarHeight = 1
+        settings.style.selectedBarBackgroundColor = .black
+        settings.style.buttonBarBackgroundColor = .white
+        settings.style.buttonBarItemBackgroundColor = .white
         settings.style.buttonBarItemTitleColor = .black
         settings.style.buttonBarItemsShouldFillAvailiableWidth = true
         settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)

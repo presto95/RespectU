@@ -134,7 +134,7 @@
                                     <constraint firstAttribute="width" constant="40" id="N7j-KY-1gS"/>
                                     <constraint firstAttribute="height" constant="40" id="mJ4-Yb-RWo"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="didTouchUpCancelButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="UqT-Kk-puX"/>
@@ -148,14 +148,16 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSc-BU-IYD">
-                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="8" y="607" width="359" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Gwz-eJ-e6b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="검색"/>
+                                <state key="normal" title="검색">
+                                    <color key="titleColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <state key="disabled" title="조건을 모두 입력하세요"/>
                                 <connections>
                                     <action selector="didTouchUpSearchButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b1m-ig-QlE"/>
@@ -164,7 +166,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z39-WJ-AgN">
                                 <rect key="frame" x="16" y="160" width="343" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-ll-1DY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJs-ll-1DY" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="109" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Level">
@@ -183,7 +185,7 @@
                                             <action selector="didTouchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-j5-plt">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-j5-plt" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="117" y="0.0" width="109" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Rate">
@@ -202,7 +204,7 @@
                                             <action selector="didTouchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qr-we-q7b">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qr-we-q7b" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="234" y="0.0" width="109" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Note">
@@ -226,7 +228,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5u3-WO-kt5">
                                 <rect key="frame" x="16" y="100" width="343" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-0v-GnB">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-0v-GnB" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="4B">
@@ -242,7 +244,7 @@
                                             <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="1Y8-qT-f6J"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-OB-QQS">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-OB-QQS" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="88" y="0.0" width="79.5" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="5B">
@@ -258,7 +260,7 @@
                                             <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="IKP-lz-BzA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-BL-3Y0">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-BL-3Y0" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="175.5" y="0.0" width="80" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="6B">
@@ -274,7 +276,7 @@
                                             <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b8K-JZ-Bzz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-6L-E83">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-6L-E83" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
                                         <rect key="frame" x="263.5" y="0.0" width="79.5" height="40"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="8B">
@@ -312,8 +314,8 @@
                             <constraint firstItem="qPJ-87-AMa" firstAttribute="trailing" secondItem="HxS-hG-2VH" secondAttribute="trailing" constant="16" id="HMC-rn-zQp"/>
                             <constraint firstItem="bSc-BU-IYD" firstAttribute="bottom" secondItem="qPJ-87-AMa" secondAttribute="bottom" id="HQJ-fz-1Ja"/>
                             <constraint firstItem="D8w-To-bk3" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" id="HnH-VR-3sy"/>
-                            <constraint firstItem="bSc-BU-IYD" firstAttribute="trailing" secondItem="qPJ-87-AMa" secondAttribute="trailing" id="NlV-Wr-ayU"/>
-                            <constraint firstItem="bSc-BU-IYD" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" id="O28-tG-4vD"/>
+                            <constraint firstItem="bSc-BU-IYD" firstAttribute="trailing" secondItem="qPJ-87-AMa" secondAttribute="trailing" constant="-8" id="NlV-Wr-ayU"/>
+                            <constraint firstItem="bSc-BU-IYD" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" constant="8" id="O28-tG-4vD"/>
                             <constraint firstItem="yjc-5l-UM4" firstAttribute="centerX" secondItem="JAT-64-9sS" secondAttribute="centerX" id="VYH-wf-Dh9"/>
                             <constraint firstItem="z39-WJ-AgN" firstAttribute="leading" secondItem="qPJ-87-AMa" secondAttribute="leading" constant="16" id="W4H-tb-sed"/>
                             <constraint firstItem="D8w-To-bk3" firstAttribute="top" secondItem="z39-WJ-AgN" secondAttribute="bottom" constant="20" id="e1C-QX-gif"/>
@@ -354,7 +356,7 @@
                                     <constraint firstAttribute="height" constant="40" id="GGc-fN-Mbw"/>
                                     <constraint firstAttribute="width" constant="40" id="gOp-fq-4kX"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="wOT-kV-fgf" eventType="touchUpInside" id="8aT-iz-d6r"/>
@@ -368,7 +370,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6s2-td-tfp">
-                                <rect key="frame" x="16" y="88" width="343" height="559"/>
+                                <rect key="frame" x="16" y="96" width="343" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -398,7 +400,7 @@
                             <constraint firstItem="bGJ-ie-bqv" firstAttribute="bottom" secondItem="6s2-td-tfp" secondAttribute="bottom" constant="20" id="iQS-68-F0u"/>
                             <constraint firstItem="zkT-5q-mfu" firstAttribute="centerX" secondItem="NU8-WX-KIj" secondAttribute="centerX" id="uSI-2d-1dV"/>
                             <constraint firstItem="6s2-td-tfp" firstAttribute="leading" secondItem="bGJ-ie-bqv" secondAttribute="leading" constant="16" id="whw-RG-vfB"/>
-                            <constraint firstItem="6s2-td-tfp" firstAttribute="top" secondItem="zkT-5q-mfu" secondAttribute="bottom" constant="8" id="xx9-9a-n2E"/>
+                            <constraint firstItem="6s2-td-tfp" firstAttribute="top" secondItem="zkT-5q-mfu" secondAttribute="bottom" constant="16" id="xx9-9a-n2E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bGJ-ie-bqv"/>
                     </view>
@@ -425,7 +427,7 @@
                                     <constraint firstAttribute="height" constant="40" id="RPq-ps-2ue"/>
                                     <constraint firstAttribute="width" constant="40" id="qMw-5I-d37"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="1h4-8I-CZJ" eventType="touchUpInside" id="lYF-YU-Wft"/>
@@ -981,7 +983,7 @@
                                     <constraint firstAttribute="height" constant="40" id="EmR-gR-GXJ"/>
                                     <constraint firstAttribute="width" constant="40" id="yHf-77-SFk"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="didTouchUpCancelButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="hwh-4H-PK7"/>
@@ -1000,7 +1002,7 @@
                                     <constraint firstAttribute="height" constant="40" id="QRO-tr-onc"/>
                                     <constraint firstAttribute="width" constant="40" id="uH0-Ic-TM6"/>
                                 </constraints>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="shareButton"/>
                                 <connections>
                                     <action selector="didTouchUpShareButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>

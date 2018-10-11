@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="40" id="XBl-4V-qqL"/>
                                     <constraint firstAttribute="height" constant="40" id="c2e-4q-K1f"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="7Aj-fJ-VyA"/>
@@ -45,7 +45,7 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmD-WV-sQh">
-                                <rect key="frame" x="0.0" y="133.5" width="375" height="513.5"/>
+                                <rect key="frame" x="0.0" y="149.5" width="375" height="497.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="ais-cA-GfJ">
@@ -65,7 +65,7 @@
                             <constraint firstItem="gTr-wO-q4Q" firstAttribute="leading" secondItem="vT3-WE-pwM" secondAttribute="leading" constant="16" id="OiC-kE-xmF"/>
                             <constraint firstItem="ais-cA-GfJ" firstAttribute="centerX" secondItem="SlC-53-qUi" secondAttribute="centerX" id="QFw-pc-T6S"/>
                             <constraint firstItem="gTr-wO-q4Q" firstAttribute="top" secondItem="ais-cA-GfJ" secondAttribute="bottom" constant="8" id="RIn-Fb-dr3"/>
-                            <constraint firstItem="HmD-WV-sQh" firstAttribute="top" secondItem="gTr-wO-q4Q" secondAttribute="bottom" id="bXH-dR-cCm"/>
+                            <constraint firstItem="HmD-WV-sQh" firstAttribute="top" secondItem="gTr-wO-q4Q" secondAttribute="bottom" constant="16" id="bXH-dR-cCm"/>
                             <constraint firstItem="HmD-WV-sQh" firstAttribute="leading" secondItem="vT3-WE-pwM" secondAttribute="leading" id="fcG-mS-LnY"/>
                             <constraint firstItem="vT3-WE-pwM" firstAttribute="trailing" secondItem="gTr-wO-q4Q" secondAttribute="trailing" constant="16" id="hcY-Qv-sRO"/>
                             <constraint firstItem="HmD-WV-sQh" firstAttribute="trailing" secondItem="vT3-WE-pwM" secondAttribute="trailing" id="mn9-rq-yoC"/>
@@ -95,7 +95,7 @@
                                     <constraint firstAttribute="width" constant="40" id="FNG-h3-x61"/>
                                     <constraint firstAttribute="height" constant="40" id="Zvc-XY-ci8"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="df1-gk-WVe"/>

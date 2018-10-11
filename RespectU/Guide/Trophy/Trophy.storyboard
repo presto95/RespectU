@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="40" id="3KF-LG-w75"/>
                                     <constraint firstAttribute="height" constant="40" id="fri-iJ-16O"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="Pqg-Uz-pXi" eventType="touchUpInside" id="PBF-ij-ZXh"/>
@@ -45,7 +45,7 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuY-PO-Wyl">
-                                <rect key="frame" x="0.0" y="126" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="142" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-Vm-IaG">
@@ -65,7 +65,7 @@
                             <constraint firstItem="fuY-PO-Wyl" firstAttribute="leading" secondItem="imq-VC-mJv" secondAttribute="leading" id="Lc7-J6-nBe"/>
                             <constraint firstItem="imq-VC-mJv" firstAttribute="trailing" secondItem="7ko-j3-lC2" secondAttribute="trailing" constant="16" id="X7n-0F-gGZ"/>
                             <constraint firstItem="imq-VC-mJv" firstAttribute="trailing" secondItem="6uU-LO-9TY" secondAttribute="trailing" constant="16" id="br5-An-hup"/>
-                            <constraint firstItem="fuY-PO-Wyl" firstAttribute="top" secondItem="7ko-j3-lC2" secondAttribute="bottom" id="oqx-uD-Eyo"/>
+                            <constraint firstItem="fuY-PO-Wyl" firstAttribute="top" secondItem="7ko-j3-lC2" secondAttribute="bottom" constant="16" id="oqx-uD-Eyo"/>
                             <constraint firstItem="Nci-Vm-IaG" firstAttribute="centerX" secondItem="XSJ-QE-FgU" secondAttribute="centerX" id="ujg-4G-zBM"/>
                             <constraint firstItem="Nci-Vm-IaG" firstAttribute="top" secondItem="imq-VC-mJv" secondAttribute="top" id="vrr-SK-BQD"/>
                             <constraint firstItem="imq-VC-mJv" firstAttribute="bottom" secondItem="fuY-PO-Wyl" secondAttribute="bottom" constant="20" id="wgt-I1-Hj0"/>

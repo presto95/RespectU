@@ -50,7 +50,6 @@ class GuideFirstCell: UITableViewCell {
     }
     
     @objc func didTapStackViews(_ recognizer: UITapGestureRecognizer) {
-        print(1)
         guard let stackView = recognizer.view else { return }
         switch stackView.tag {
         case 0:
@@ -69,6 +68,4 @@ class GuideFirstCell: UITableViewCell {
             break
         }
     }
-    
-    
 }

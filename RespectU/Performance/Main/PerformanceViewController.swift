@@ -207,13 +207,6 @@ extension PerformanceViewController: UITableViewDataSource {
 extension PerformanceViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch indexPath.section {
-        case 0:
-            guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
-            self.present(controller, animated: true)
-        default:
-            break
-        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -242,55 +235,9 @@ extension PerformanceViewController: UICollectionViewDataSource {
 }
 
 extension PerformanceViewController: SkillLevelCellDelegate {
-    func didTouchUpCalculatorButton(_ sender: UIButton) {
-        let alert = UIAlertController
-            .alert(title: "Skill Point Calculator".localized, message: "")
-            .textField { textField in
-                textField.placeholder = "Difficulty".localized
-                textField.keyboardType = .numberPad
-            }
-            .textField { textField in
-                textField.placeholder = "Rate".localized
-                textField.keyboardType = .decimalPad
-        }
-        alert.action(title: "\(Note.maxCombo) Failure".localized) { action in
-            if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
-                let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.none)
-                UIAlertController
-                    .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                    .action(title: "OK".localized)
-                    .present(to: self)
-            } else {
-                UIAlertController
-                    .alert(title: "Error".localized, message: "Enter a valid value.".localized)
-                    .action(title: "OK".localized)
-                    .present(to: self)
-            }
-        }
-        .action(title: "\(Note.maxCombo) / \(Note.perfectPlay)") { action in
-            if let difficulty = Int(alert.textFields?.first?.text ?? ""), let rate = Double(alert.textFields?.last?.text ?? "") {
-                if rate == 100 {
-                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.perfectPlay)
-                    UIAlertController
-                        .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                        .action(title: "OK".localized)
-                        .present(to: self)
-                } else {
-                    let skillPoint = Skill.skillPoint(difficulty: difficulty, rate: rate, note: Note.maxCombo)
-                    UIAlertController
-                        .alert(title: "Skill Point".localized, message: "\(skillPoint) " + "Point".localized)
-                        .action(title: "OK".localized)
-                        .present(to: self)
-                }
-            } else {
-                UIAlertController
-                    .alert(title: "Error".localized, message: "Enter a valid value.".localized)
-                    .action(title: "OK".localized)
-                    .present(to: self)
-            }
-        }
-        .action(.cancel, title: "Cancel".localized)
-        .present(to: self)
+    func didTouchUpMoreButton(_ sender: UIButton) {
+        guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
+        self.present(controller, animated: true)
     }
     
     func didTouchUpRankingButton(_ sender: UIButton) {

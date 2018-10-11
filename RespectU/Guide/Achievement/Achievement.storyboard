@@ -24,13 +24,13 @@
                                     <constraint firstAttribute="width" constant="40" id="G7P-UP-441"/>
                                     <constraint firstAttribute="height" constant="40" id="rY4-bW-SkD"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="Pnh-hZ-2SA" eventType="touchUpInside" id="oMX-gv-DV0"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuFlat" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-UN-ySf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="EEi-UN-ySf">
                                 <rect key="frame" x="157.5" y="20" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="SQY-XJ-Esn"/>
@@ -52,7 +52,7 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJy-iO-NkE">
-                                <rect key="frame" x="0.0" y="126" width="375" height="521"/>
+                                <rect key="frame" x="0.0" y="142" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                         </subviews>
@@ -64,7 +64,7 @@
                             <constraint firstItem="dJy-iO-NkE" firstAttribute="leading" secondItem="nbp-qU-NCi" secondAttribute="leading" id="HqZ-Lm-D6G"/>
                             <constraint firstItem="lFV-mv-44t" firstAttribute="leading" secondItem="nbp-qU-NCi" secondAttribute="leading" constant="16" id="JfY-RA-FnJ"/>
                             <constraint firstItem="nbp-qU-NCi" firstAttribute="trailing" secondItem="lFV-mv-44t" secondAttribute="trailing" constant="16" id="Lra-Qv-j3x"/>
-                            <constraint firstItem="dJy-iO-NkE" firstAttribute="top" secondItem="lFV-mv-44t" secondAttribute="bottom" id="NQD-9R-og7"/>
+                            <constraint firstItem="dJy-iO-NkE" firstAttribute="top" secondItem="lFV-mv-44t" secondAttribute="bottom" constant="16" id="NQD-9R-og7"/>
                             <constraint firstItem="nbp-qU-NCi" firstAttribute="trailing" secondItem="zL1-sF-VIR" secondAttribute="trailing" constant="16" id="XIA-0T-mEg"/>
                             <constraint firstItem="dJy-iO-NkE" firstAttribute="trailing" secondItem="nbp-qU-NCi" secondAttribute="trailing" id="d45-az-ghg"/>
                             <constraint firstItem="nbp-qU-NCi" firstAttribute="bottom" secondItem="dJy-iO-NkE" secondAttribute="bottom" constant="20" id="n89-bD-Hdl"/>
@@ -84,6 +84,6 @@
     </scenes>
     <resources>
         <image name="cancelButton" width="20" height="20"/>
-        <image name="respectuFlat" width="120" height="120"/>
+        <image name="respectuColor" width="120" height="120"/>
     </resources>
 </document>

@@ -12,12 +12,12 @@ import StoreKit
 import SwiftKeychainWrapper
 
 class PerformanceViewController: UIViewController {
-    // MARK: IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var nicknameButton: UIButton!
     var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
-    // MARK: Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")

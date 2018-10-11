@@ -102,6 +102,8 @@
 		19585868213B0E76000C78C4 /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19585867213B0E76000C78C4 /* Init.storyboard */; };
 		1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19585869213B0E81000C78C4 /* InitViewController.swift */; };
 		1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1958DAB52151312700D8AE41 /* .swiftlint.yml */; };
+		195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A6A23216F17F90072D03A /* IndicatorView.swift */; };
+		195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195A6A24216F17F90072D03A /* IndicatorView.xib */; };
 		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
 		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
 		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
@@ -299,6 +301,8 @@
 		19585867213B0E76000C78C4 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
 		19585869213B0E81000C78C4 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		1958DAB52151312700D8AE41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		195A6A23216F17F90072D03A /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
+		195A6A24216F17F90072D03A /* IndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
 		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
 		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
 		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 		19012FAE204808120061EF21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				195A6A22216F17F90072D03A /* Activity Indicator */,
 				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
@@ -505,6 +510,15 @@
 				193C28682136E52A001EB7F3 /* DownloadViewController.swift */,
 			);
 			path = Download;
+			sourceTree = "<group>";
+		};
+		195A6A22216F17F90072D03A /* Activity Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				195A6A23216F17F90072D03A /* IndicatorView.swift */,
+				195A6A24216F17F90072D03A /* IndicatorView.xib */,
+			);
+			path = "Activity Indicator";
 			sourceTree = "<group>";
 		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
@@ -1081,6 +1095,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */,
+				195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */,
 				193E4009204BF37E0063A440 /* SummaryCell.xib in Resources */,
 				19892A8620662D0A009D01F8 /* SearchByLevelView.xib in Resources */,
 				1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */,
@@ -1163,9 +1178,10 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
 				"${BUILT_PRODUCTS_DIR}/GaugeKit/GaugeKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Gradients/Gradients.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -1176,6 +1192,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GaugeKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Gradients.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -1184,7 +1201,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RespectU/Pods-RespectU-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1276,6 +1293,7 @@
 				196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */,
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
+				195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */,
 				1939C975212C004D00A6F8E3 /* API.swift in Sources */,
 				1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,

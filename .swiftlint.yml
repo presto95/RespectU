@@ -1,8 +1,9 @@
 disabled_rules:
+- line_length
 - trailing_whitespace
 - leading_whitespace
-- line_length
 - force_try
+- function_body_length
 included:
 excluded:
 - Pods
@@ -27,3 +28,5 @@ type_name:
     excluded:
     - CE
     - BS
+trailing_space:
+    

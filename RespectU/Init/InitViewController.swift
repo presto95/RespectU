@@ -158,6 +158,7 @@ extension InitViewController {
         UIAlertController
             .alert(title: "", message: "Your data has been successfully downloaded.".localized)
             .action(title: "OK".localized) { _ in
+                ERProgressHud.show()
                 for result in results {
                     let recordInfo = NewRecordInfo()
                     recordInfo.title = result.title
@@ -268,6 +269,7 @@ extension InitViewController {
                     NewRecordInfo.add(recordInfo)
                 }
                 Skill.refresh()
+                ERProgressHud.hide()
                 guard let next = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController") else { return }
                 next.modalTransitionStyle = .crossDissolve
                 self.present(next, animated: true, completion: nil)

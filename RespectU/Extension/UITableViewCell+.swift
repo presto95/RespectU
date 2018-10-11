@@ -98,7 +98,7 @@ extension UITableViewCell {
     
     func unsetColors(labels: [UILabel]) {
         DispatchQueue.main.async { [weak self] in
-            self?.contentView.backgroundColor = .sub
+            self?.contentView.backgroundColor = .white
             self?.setColors(of: labels, to: .black)
         }
     }

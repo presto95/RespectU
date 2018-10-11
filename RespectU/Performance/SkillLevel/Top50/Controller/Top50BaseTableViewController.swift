@@ -19,6 +19,7 @@ class Top50BaseTableViewController: UITableViewController {
         super.viewDidLoad()
         tempResults = NewRecordInfo.fetch()
         tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.separatorStyle = .none
         tableView.rowHeight = 60
     }
 

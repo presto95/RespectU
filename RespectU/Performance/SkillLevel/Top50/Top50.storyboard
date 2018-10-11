@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="40" id="dlg-8d-BDF"/>
                                     <constraint firstAttribute="height" constant="40" id="iEV-Da-n8q"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="bnY-3I-geb" eventType="touchUpInside" id="q3y-rd-Lel"/>
@@ -52,22 +52,22 @@
                                 <cells/>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9HY-bU-99M">
-                                <rect key="frame" x="0.0" y="126" width="375" height="521"/>
+                                <rect key="frame" x="16" y="142" width="343" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="b8w-ol-mGA" firstAttribute="centerY" secondItem="6wD-H4-lqN" secondAttribute="centerY" id="0Nf-Vl-KJw"/>
-                            <constraint firstItem="9HY-bU-99M" firstAttribute="top" secondItem="SiI-tS-bDR" secondAttribute="bottom" id="86d-7v-op3"/>
+                            <constraint firstItem="9HY-bU-99M" firstAttribute="top" secondItem="SiI-tS-bDR" secondAttribute="bottom" constant="16" id="86d-7v-op3"/>
                             <constraint firstItem="bnb-G2-aLx" firstAttribute="bottom" secondItem="9HY-bU-99M" secondAttribute="bottom" constant="20" id="A12-Cf-5hg"/>
                             <constraint firstItem="6wD-H4-lqN" firstAttribute="centerX" secondItem="e9y-Yw-IGJ" secondAttribute="centerX" id="Bfa-b9-U3g"/>
                             <constraint firstItem="bnb-G2-aLx" firstAttribute="trailing" secondItem="b8w-ol-mGA" secondAttribute="trailing" constant="16" id="EUe-Jd-esY"/>
                             <constraint firstItem="6wD-H4-lqN" firstAttribute="top" secondItem="bnb-G2-aLx" secondAttribute="top" id="M0z-vf-3KX"/>
-                            <constraint firstItem="9HY-bU-99M" firstAttribute="leading" secondItem="bnb-G2-aLx" secondAttribute="leading" id="Pov-tV-MQI"/>
+                            <constraint firstItem="9HY-bU-99M" firstAttribute="leading" secondItem="bnb-G2-aLx" secondAttribute="leading" constant="16" id="Pov-tV-MQI"/>
                             <constraint firstItem="SiI-tS-bDR" firstAttribute="leading" secondItem="bnb-G2-aLx" secondAttribute="leading" constant="16" id="RSV-s1-qHg"/>
                             <constraint firstItem="bnb-G2-aLx" firstAttribute="trailing" secondItem="SiI-tS-bDR" secondAttribute="trailing" constant="16" id="Xf7-ba-vAV"/>
-                            <constraint firstItem="9HY-bU-99M" firstAttribute="trailing" secondItem="bnb-G2-aLx" secondAttribute="trailing" id="iRe-qA-h9F"/>
+                            <constraint firstItem="9HY-bU-99M" firstAttribute="trailing" secondItem="bnb-G2-aLx" secondAttribute="trailing" constant="-16" id="iRe-qA-h9F"/>
                             <constraint firstItem="SiI-tS-bDR" firstAttribute="top" secondItem="6wD-H4-lqN" secondAttribute="bottom" constant="8" id="tSe-jw-T1H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bnb-G2-aLx"/>
@@ -75,6 +75,8 @@
                     <connections>
                         <outlet property="buttonBarView" destination="SiI-tS-bDR" id="b2x-Yc-vKl"/>
                         <outlet property="containerView" destination="9HY-bU-99M" id="B1o-Ad-ahe"/>
+                        <outlet property="scrollView" destination="9HY-bU-99M" id="mRH-LX-rpr"/>
+                        <outlet property="sectionView" destination="SiI-tS-bDR" id="GSZ-bw-mCm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJi-jE-wO2" userLabel="First Responder" sceneMemberID="firstResponder"/>

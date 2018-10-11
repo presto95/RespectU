@@ -106,8 +106,6 @@
 		1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1958DAB52151312700D8AE41 /* .swiftlint.yml */; };
 		195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A6A23216F17F90072D03A /* IndicatorView.swift */; };
 		195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195A6A24216F17F90072D03A /* IndicatorView.xib */; };
-		196818422048D32A0007F4D7 /* GuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818402048D32A0007F4D7 /* GuideCell.swift */; };
-		196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196818442048E34D0007F4D7 /* GuideReusableView.swift */; };
 		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
 		1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968184A2048F70D0007F4D7 /* RadioViewController.swift */; };
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
@@ -142,6 +140,13 @@
 		198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */; };
 		198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */; };
 		199233D0216F743600E040D7 /* RecordTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199233CF216F743600E040D7 /* RecordTechnika2TableViewController.swift */; };
+		199233D2216F85CF00E040D7 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199233D1216F85CF00E040D7 /* CommonButton.swift */; };
+		199233D9216F938D00E040D7 /* GuideFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199233D7216F938D00E040D7 /* GuideFirstCell.swift */; };
+		199233DA216F938D00E040D7 /* GuideFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199233D8216F938D00E040D7 /* GuideFirstCell.xib */; };
+		199233DD216F939A00E040D7 /* GuideSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199233DB216F939A00E040D7 /* GuideSecondCell.swift */; };
+		199233DE216F939A00E040D7 /* GuideSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199233DC216F939A00E040D7 /* GuideSecondCell.xib */; };
+		199233E1216F93A700E040D7 /* GuideThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199233DF216F93A700E040D7 /* GuideThirdCell.swift */; };
+		199233E2216F93A700E040D7 /* GuideThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199233E0216F93A700E040D7 /* GuideThirdCell.xib */; };
 		1999920E2049641A00C74697 /* MissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1999920C2049641A00C74697 /* MissionCell.swift */; };
 		1999920F2049641A00C74697 /* MissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1999920D2049641A00C74697 /* MissionCell.xib */; };
 		199992112049652700C74697 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199992102049652700C74697 /* MissionViewController.swift */; };
@@ -308,8 +313,6 @@
 		1958DAB52151312700D8AE41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		195A6A23216F17F90072D03A /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		195A6A24216F17F90072D03A /* IndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
-		196818402048D32A0007F4D7 /* GuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideCell.swift; sourceTree = "<group>"; };
-		196818442048E34D0007F4D7 /* GuideReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideReusableView.swift; sourceTree = "<group>"; };
 		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
 		1968184A2048F70D0007F4D7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
@@ -344,6 +347,13 @@
 		198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
 		198FC963204D2E9F0026BA1D /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
 		199233CF216F743600E040D7 /* RecordTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		199233D1216F85CF00E040D7 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
+		199233D7216F938D00E040D7 /* GuideFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideFirstCell.swift; sourceTree = "<group>"; };
+		199233D8216F938D00E040D7 /* GuideFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideFirstCell.xib; sourceTree = "<group>"; };
+		199233DB216F939A00E040D7 /* GuideSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSecondCell.swift; sourceTree = "<group>"; };
+		199233DC216F939A00E040D7 /* GuideSecondCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideSecondCell.xib; sourceTree = "<group>"; };
+		199233DF216F93A700E040D7 /* GuideThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideThirdCell.swift; sourceTree = "<group>"; };
+		199233E0216F93A700E040D7 /* GuideThirdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideThirdCell.xib; sourceTree = "<group>"; };
 		1999920C2049641A00C74697 /* MissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCell.swift; sourceTree = "<group>"; };
 		1999920D2049641A00C74697 /* MissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionCell.xib; sourceTree = "<group>"; };
 		199992102049652700C74697 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
@@ -437,6 +447,7 @@
 				19B6CFEB1F7953640097B86B /* AppDelegate.swift */,
 				19F2312E20156BBC00ADF825 /* Reachability.swift */,
 				19B6602B1F960FA800CCEFB5 /* Localizable.strings */,
+				199233D1216F85CF00E040D7 /* CommonButton.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -520,8 +531,8 @@
 		195A6A22216F17F90072D03A /* Activity Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				195A6A23216F17F90072D03A /* IndicatorView.swift */,
 				195A6A24216F17F90072D03A /* IndicatorView.xib */,
+				195A6A23216F17F90072D03A /* IndicatorView.swift */,
 			);
 			path = "Activity Indicator";
 			sourceTree = "<group>";
@@ -535,6 +546,19 @@
 				35C82758ABE7A6568499A7F2 /* Pods_RespectU.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		199233D3216F934000E040D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				199233D8216F938D00E040D7 /* GuideFirstCell.xib */,
+				199233D7216F938D00E040D7 /* GuideFirstCell.swift */,
+				199233DC216F939A00E040D7 /* GuideSecondCell.xib */,
+				199233DB216F939A00E040D7 /* GuideSecondCell.swift */,
+				199233E0216F93A700E040D7 /* GuideThirdCell.xib */,
+				199233DF216F93A700E040D7 /* GuideThirdCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		19A258182133FAD700C3A3AC /* Response */ = {
@@ -719,8 +743,8 @@
 		19E767BD20EE4A22008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				194E52B5204AC55900B84AFA /* SongCell.swift */,
 				194E52B6204AC55900B84AFA /* SongCell.xib */,
+				194E52B5204AC55900B84AFA /* SongCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,8 +840,7 @@
 			children = (
 				19012FB72048345B0061EF21 /* Guide.storyboard */,
 				19012FBD2048370C0061EF21 /* GuideViewController.swift */,
-				196818402048D32A0007F4D7 /* GuideCell.swift */,
-				196818442048E34D0007F4D7 /* GuideReusableView.swift */,
+				199233D3216F934000E040D7 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1105,6 +1128,7 @@
 			files = (
 				1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */,
 				195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */,
+				199233DE216F939A00E040D7 /* GuideSecondCell.xib in Resources */,
 				193E4009204BF37E0063A440 /* SummaryCell.xib in Resources */,
 				19892A8620662D0A009D01F8 /* SearchByLevelView.xib in Resources */,
 				1986CA3B205FC85A00CA43EA /* SearchRecordDetailCell.xib in Resources */,
@@ -1118,6 +1142,7 @@
 				196F824D2074A91B000DF337 /* RecordCell.xib in Resources */,
 				19320FD6204959BE0075BD86 /* TrophyCell.xib in Resources */,
 				19E02ACA204919830070D72B /* Achievement.storyboard in Resources */,
+				199233DA216F938D00E040D7 /* GuideFirstCell.xib in Resources */,
 				193E3FF1204B9C240063A440 /* Record.storyboard in Resources */,
 				19320FCA204955DC0075BD86 /* Song.storyboard in Resources */,
 				19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */,
@@ -1137,6 +1162,7 @@
 				193C28602136C8E7001EB7F3 /* Upload.storyboard in Resources */,
 				196818492048F6820007F4D7 /* Radio.storyboard in Resources */,
 				19320FC8204955D50075BD86 /* Mission.storyboard in Resources */,
+				199233E2216F93A700E040D7 /* GuideThirdCell.xib in Resources */,
 				19012FB82048345B0061EF21 /* Guide.storyboard in Resources */,
 				19320FC6204955CC0075BD86 /* Trophy.storyboard in Resources */,
 				193E401F204C07F40063A440 /* Top50.storyboard in Resources */,
@@ -1234,6 +1260,7 @@
 				19D1EF422069E9D600F2BFD5 /* AchievementPlateTableViewController.swift in Sources */,
 				191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */,
 				192DF89B2111D92B0016F386 /* Series.swift in Sources */,
+				199233D2216F85CF00E040D7 /* CommonButton.swift in Sources */,
 				193E401A204C05A00063A440 /* Top50Cell.swift in Sources */,
 				19320FCE2049568B0075BD86 /* TrophyRespectTableViewController.swift in Sources */,
 				19E4DB00213D896100837A95 /* NewRecordDifficultyInfo.swift in Sources */,
@@ -1262,7 +1289,6 @@
 				19F13FBA2112ED87003E622E /* Results+.swift in Sources */,
 				1986CA33205F544900CA43EA /* SearchByNoteView.swift in Sources */,
 				199992112049652700C74697 /* MissionViewController.swift in Sources */,
-				196818422048D32A0007F4D7 /* GuideCell.swift in Sources */,
 				1968185320490D300007F4D7 /* UIColor+.swift in Sources */,
 				19E4DAF4213D896100837A95 /* SongButtonInfo.swift in Sources */,
 				192DF89F2111DAC80016F386 /* TrophyGrade.swift in Sources */,
@@ -1298,13 +1324,14 @@
 				193DE8D8204920EF00A829BB /* AchievementAllTableViewController.swift in Sources */,
 				199992132049653900C74697 /* MissionRespectTableViewController.swift in Sources */,
 				19D67ECC20744F1700FD9EC7 /* RecordRespectTableViewController.swift in Sources */,
-				196818452048E34D0007F4D7 /* GuideReusableView.swift in Sources */,
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
 				195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */,
+				199233D9216F938D00E040D7 /* GuideFirstCell.swift in Sources */,
 				1939C975212C004D00A6F8E3 /* API.swift in Sources */,
 				1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */,
 				19320FD5204959BE0075BD86 /* TrophyCell.swift in Sources */,
+				199233E1216F93A700E040D7 /* GuideThirdCell.swift in Sources */,
 				193E4027204C09FA0063A440 /* Top508BTableViewController.swift in Sources */,
 				1939C970212BFD9200A6F8E3 /* UserResponse.swift in Sources */,
 				19B09E33212C556F005EE66D /* AchievementResponse.swift in Sources */,
@@ -1334,6 +1361,7 @@
 				19535F0A204A8E74008C9A45 /* SongViewController.swift in Sources */,
 				19320FCC2049566A0075BD86 /* TrophyViewController.swift in Sources */,
 				19E4DAF5213D896100837A95 /* MissionStageInfo.swift in Sources */,
+				199233DD216F939A00E040D7 /* GuideSecondCell.swift in Sources */,
 				192DF8A12111DAED0016F386 /* MissionSection.swift in Sources */,
 				19320FBE204942440075BD86 /* AchievementGearTableViewController.swift in Sources */,
 				193E4021204C09DB0063A440 /* Top504BTableViewController.swift in Sources */,

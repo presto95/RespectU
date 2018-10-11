@@ -19,7 +19,10 @@ protocol SkillLevelCellDelegate: class {
 class SkillLevelCell: UITableViewCell {
 
     weak var delegate: SkillLevelCellDelegate?
+    
+    @IBOutlet weak var view: UIView!
     @IBOutlet var gauge: Gauge!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var skillLevelLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
     @IBOutlet weak var top50Button: UIButton!
@@ -30,11 +33,11 @@ class SkillLevelCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let buttons = [top50Button, rankingButton, calculatorButton]
-        for button in buttons {
-            button?.layer.borderColor = UIColor.main.cgColor
-            button?.layer.borderWidth = 2
-        }
+        titleLabel.text = "My Record".localized
+        view.layer.cornerRadius = 15
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.masksToBounds = true
         rankingButton.setTitle("Ranking".localized, for: .normal)
         calculatorButton.setTitle("Calculator".localized, for: .normal)
         top50Button.addTarget(self, action: #selector(didTouchUpTop50Button(_:)), for: .touchUpInside)

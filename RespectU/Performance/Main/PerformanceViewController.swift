@@ -20,6 +20,9 @@ class PerformanceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordButton.layer.cornerRadius = recordButton.bounds.height / 2
+        recordButton.layer.borderWidth = 1
+        recordButton.layer.borderColor = UIColor.main.cgColor
         tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
         tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -177,11 +180,13 @@ extension PerformanceViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "skillLevelCell", for: indexPath) as? SkillLevelCell else { return UITableViewCell() }
             cell.delegate = self
+            cell.selectionStyle = .none
             cell.setProperties(favoriteButton, max: Skill.maxSkillPoint(button: favoriteButton), myRecord: Skill.mySkillPointAndHighestSeries(button: favoriteButton))
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "summaryCell", for: indexPath) as? SummaryCell else { return UITableViewCell() }
             cell.delegate = self
+            cell.selectionStyle = .none
             cell.collectionView.dataSource = self
             cell.collectionView.register(UINib(nibName: "SummaryCollectionCell", bundle: nil), forCellWithReuseIdentifier: "summaryCollectionCell")
             return cell
@@ -189,36 +194,7 @@ extension PerformanceViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = .white
-        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        header.backgroundView?.backgroundColor = .main
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "Skill Level".localized
-        case 1:
-            return "Summary".localized
-        default:
-            return nil
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 150
-        case 1:
-            return 130
-        default:
-            return 0
-        }
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -238,6 +214,10 @@ extension PerformanceViewController: UITableViewDelegate {
         default:
             break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

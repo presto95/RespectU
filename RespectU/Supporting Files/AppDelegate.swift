@@ -59,16 +59,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(favoriteButton.lowercased(), forKey: "favoriteButton")
         }
         // 전역 프로퍼티 설정
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().backgroundColor = .clear
-        UINavigationBar.appearance().isTranslucent = true
-        UITableView.appearance().backgroundColor = .white
-        UITableView.appearance().separatorColor = .lightGray
-        UITableView.appearance().separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        UITableView.appearance().layer.borderColor = UIColor.main.cgColor
-        UITableView.appearance().layer.borderWidth = 3
-        UITableView.appearance().layer.cornerRadius = 10
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.backgroundColor = .clear
+        navigationBar.isTranslucent = true
+        let tableView = UITableView.appearance()
+        tableView.backgroundColor = .white
+        tableView.separatorColor = .lightGray
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        tableView.layer.borderColor = UIColor.main.cgColor
+        tableView.layer.borderWidth = 3
+        tableView.layer.cornerRadius = 10
+        tableView.tableFooterView = UIView()
         return true
     }
 

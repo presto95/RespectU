@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="jUt-eL-Hcv">
-                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="w94-FL-YjZ">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="WV7-8o-53c"/>
-                                    <constraint firstAttribute="width" constant="200" id="qjz-2J-VTz"/>
+                                    <constraint firstAttribute="width" constant="100" id="FpN-rl-diE"/>
+                                    <constraint firstAttribute="height" constant="100" id="lfV-EB-pqA"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.90814238786697388" green="0.63452833890914917" blue="0.20667991042137146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="jUt-eL-Hcv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WEu-Yg-S3v"/>
-                            <constraint firstItem="jUt-eL-Hcv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kIf-XP-bVW"/>
+                            <constraint firstItem="w94-FL-YjZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="56f-hE-AYa"/>
+                            <constraint firstItem="w94-FL-YjZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="C3O-r1-DJL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

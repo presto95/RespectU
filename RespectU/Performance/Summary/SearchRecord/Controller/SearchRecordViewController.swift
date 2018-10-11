@@ -85,6 +85,9 @@ class SearchRecordViewController: UIViewController {
         initializeButtons()
         for button in buttonButtons {
             button?.isSelected = false
+//            UIView.animate(withDuration: 0.3) {
+//                button.back
+//            }
         }
         sender.isSelected = true
         UIView.animate(withDuration: 0.3) {
@@ -241,7 +244,7 @@ extension SearchRecordViewController {
     private func initializeButtons() {
         for button in buttonButtons {
             UIView.animate(withDuration: 0.3) {
-                button?.backgroundColor = .sub
+                button?.backgroundColor = .white
             }
             button?.layer.borderColor = UIColor.main.cgColor
             button?.layer.borderWidth = 2
@@ -251,7 +254,7 @@ extension SearchRecordViewController {
     private func initializeMethods() {
         for button in methodButtons {
             UIView.animate(withDuration: 0.3) {
-                button?.backgroundColor = .sub
+                button?.backgroundColor = .white
             }
             button?.layer.borderColor = UIColor.main.cgColor
             button?.layer.borderWidth = 2

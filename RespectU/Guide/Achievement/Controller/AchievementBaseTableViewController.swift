@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AchievementBaseTableViewController: BaseTableViewController {
+class AchievementBaseTableViewController: UITableViewController {
 
     var results: Results<AchievementInfo>?
     var stages = [Int]()

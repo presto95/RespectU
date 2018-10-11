@@ -17,14 +17,10 @@ class RankingCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     func setProperties(_ object: [RankingResponse.Ranking], at row: Int, button: String) {
-        self.rankingLabel.text = "\(row + 1)"
-        self.nicknameLabel.text = object[row].nickname
+        rankingLabel.text = "\(row + 1)"
+        nicknameLabel.text = object[row].nickname
         switch button {
         case Buttons.button4:
             self.valueLabel.text = "\(object[row].button4)"

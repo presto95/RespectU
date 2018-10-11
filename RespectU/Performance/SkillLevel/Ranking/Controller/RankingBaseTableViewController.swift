@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RankingBaseTableViewController: BaseTableViewController {
+class RankingBaseTableViewController: UITableViewController {
     
     let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
     let cellIdentifier = "rankingCell"
@@ -17,13 +17,13 @@ class RankingBaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 40
-        self.tableView.register(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.rowHeight = 40
     }
 }
 
 extension RankingBaseTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.results.count
+        return results.count
     }
 }

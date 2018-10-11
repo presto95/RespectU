@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class Top50BaseTableViewController: BaseTableViewController {
+class Top50BaseTableViewController: UITableViewController {
 
     var tempResults: Results<NewRecordInfo>!
     var results: [NewRecordInfo]!
@@ -17,9 +17,9 @@ class Top50BaseTableViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tempResults = NewRecordInfo.fetch()
-        self.tableView.rowHeight = 60
-        self.tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tempResults = NewRecordInfo.fetch()
+        tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.rowHeight = 60
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

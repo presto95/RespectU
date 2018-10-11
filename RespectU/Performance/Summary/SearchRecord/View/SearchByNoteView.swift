@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchByNoteViewDelegate: class {
-    func touchUpNoteButtons(_ sender: UIButton)
+    func didTouchUpNoteButtons(_ sender: UIButton)
 }
 
 class SearchByNoteView: UIView {
@@ -25,8 +25,8 @@ class SearchByNoteView: UIView {
         initializeButtons()
     }
     
-    @IBAction func touchUpButtons(_ sender: UIButton) {
-        delegate?.touchUpNoteButtons(sender)
+    @IBAction func didTouchUpButtons(_ sender: UIButton) {
+        delegate?.didTouchUpNoteButtons(sender)
         initializeButtons()
         noMaxComboButton.isSelected = false
         perfectPlayButton.isSelected = false

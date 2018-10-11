@@ -76,7 +76,7 @@ extension SignInViewController {
                                         self?.goToNextViewController()
                                     }
                                 }
-                                API.requestNickname() { response, error in
+                                API.requestNickname { response, error in
                                     if let error = error {
                                         UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
                                         UserDefaults.standard.set(nil, forKey: "nickname")

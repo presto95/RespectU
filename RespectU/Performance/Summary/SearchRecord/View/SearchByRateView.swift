@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchByRateViewDelegate: class {
-    func touchUpDoneButton(_ textFields: [UITextField])
+    func didTouchUpDoneButton(_ textFields: [UITextField])
 }
 
 class SearchByRateView: UIView {
@@ -33,8 +33,8 @@ class SearchByRateView: UIView {
         setToolBar()
     }
     
-    @objc func touchUpDoneButton() {
-        delegate?.touchUpDoneButton(textFields)
+    @objc func didTouchUpDoneButton() {
+        delegate?.didTouchUpDoneButton(textFields)
     }
 }
 
@@ -45,7 +45,7 @@ extension SearchByRateView {
         toolBar.isTranslucent = true
         toolBar.tintColor = .main
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(touchUpDoneButton))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTouchUpDoneButton))
         toolBar.setItems([flexibleSpace, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         toolBar.sizeToFit()

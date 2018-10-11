@@ -204,7 +204,7 @@ extension SearchRecordViewController: UIPickerViewDelegate {
 }
 
 extension SearchRecordViewController: SearchByRateViewDelegate {
-    func touchUpDoneButton(_ textFields: [UITextField]) {
+    func didTouchUpDoneButton(_ textFields: [UITextField]) {
         guard let lowerRateTextField = textFields.first else { return }
         guard let upperRateTextField = textFields.last else { return }
         if lowerRateTextField.isFirstResponder {
@@ -225,7 +225,7 @@ extension SearchRecordViewController: SearchByRateViewDelegate {
 }
 
 extension SearchRecordViewController: SearchByNoteViewDelegate {
-    func touchUpNoteButtons(_ sender: UIButton) {
+    func didTouchUpNoteButtons(_ sender: UIButton) {
         switch sender.tag {
         case 0:
             selectedNoteDetailIndex = 0

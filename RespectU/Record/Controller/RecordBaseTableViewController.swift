@@ -75,7 +75,6 @@ extension RecordBaseTableViewController {
         recordViewController.view.addSubview(recordView)
         let leadingConstraint = self.recordView.leadingAnchor.constraint(equalTo: recordViewController.view.leadingAnchor, constant: 8)
         let trailingConstraint = self.recordView.trailingAnchor.constraint(equalTo: recordViewController.view.trailingAnchor, constant: -8)
-//        let widthConstraint = self.recordView.widthAnchor.constraint(equalTo: recordViewController.view.widthAnchor, multiplier: 1)
         let heightConstraint = self.recordView.heightAnchor.constraint(equalToConstant: 200)
         let centerXConstraint = self.recordView.centerXAnchor.constraint(equalTo: recordViewController.view.centerXAnchor)
         let bottomConstraint: NSLayoutConstraint

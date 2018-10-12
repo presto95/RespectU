@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바람에게 부탁해" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0k-rr-rwe" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="29" y="9" width="173" height="18"/>
+                        <rect key="frame" x="29" y="9" width="173" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forte Escape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqD-JL-Vm8" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="29" y="35" width="173" height="16"/>
+                        <rect key="frame" x="29" y="30" width="173" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <color key="textColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAZ-cj-SE0">
-                        <rect key="frame" x="250" y="34.5" width="24" height="17"/>
+                        <rect key="frame" x="250" y="32" width="24" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="0YZ-2c-sNX"/>
                         </constraints>
@@ -77,7 +77,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Oz-HY-wbL">
-                        <rect key="frame" x="220" y="34.5" width="24" height="17"/>
+                        <rect key="frame" x="220" y="32" width="24" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="h7T-Zs-2RY"/>
                         </constraints>
@@ -86,7 +86,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BPM 143 ~ 174" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8w-qG-BCA">
-                        <rect key="frame" x="210" y="10.5" width="94" height="14.5"/>
+                        <rect key="frame" x="210" y="12" width="94" height="14.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="94" id="t9X-mX-dXb"/>
                         </constraints>
@@ -95,7 +95,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-WI-YhP">
-                        <rect key="frame" x="280" y="34.5" width="24" height="17"/>
+                        <rect key="frame" x="280" y="32" width="24" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="xoi-yM-WVO"/>
                         </constraints>
@@ -107,8 +107,8 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="7yX-WI-YhP" firstAttribute="centerY" secondItem="qqD-JL-Vm8" secondAttribute="centerY" id="1zd-z1-g2L"/>
-                    <constraint firstItem="G0k-rr-rwe" firstAttribute="top" secondItem="oZY-x4-BDd" secondAttribute="top" id="4we-gz-VP3"/>
-                    <constraint firstItem="qqD-JL-Vm8" firstAttribute="bottom" secondItem="oZY-x4-BDd" secondAttribute="bottom" id="HNT-bv-sfh"/>
+                    <constraint firstItem="qqD-JL-Vm8" firstAttribute="bottom" secondItem="oZY-x4-BDd" secondAttribute="bottom" id="3Ab-ze-lyc"/>
+                    <constraint firstItem="G0k-rr-rwe" firstAttribute="bottom" secondItem="oZY-x4-BDd" secondAttribute="centerY" id="QaA-Up-Auz"/>
                     <constraint firstItem="qqD-JL-Vm8" firstAttribute="leading" secondItem="oZY-x4-BDd" secondAttribute="trailing" constant="8" id="ZBX-nt-DSN"/>
                     <constraint firstItem="7yX-WI-YhP" firstAttribute="leading" secondItem="IAZ-cj-SE0" secondAttribute="trailing" constant="6" id="awV-v7-WXw"/>
                     <constraint firstAttribute="trailing" secondItem="W8w-qG-BCA" secondAttribute="trailing" constant="16" id="b1W-Qo-U7n"/>
@@ -117,10 +117,12 @@
                     <constraint firstItem="qqD-JL-Vm8" firstAttribute="width" secondItem="G0k-rr-rwe" secondAttribute="width" id="hdF-xD-ZBw"/>
                     <constraint firstItem="oZY-x4-BDd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="o23-ba-jgW"/>
                     <constraint firstItem="oZY-x4-BDd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="qOA-k9-6WS"/>
+                    <constraint firstItem="qqD-JL-Vm8" firstAttribute="top" secondItem="oZY-x4-BDd" secondAttribute="centerY" id="qV9-mr-0Lh"/>
                     <constraint firstItem="G0k-rr-rwe" firstAttribute="leading" secondItem="oZY-x4-BDd" secondAttribute="trailing" constant="8" id="rmZ-QR-nmj"/>
                     <constraint firstItem="9Oz-HY-wbL" firstAttribute="centerY" secondItem="7yX-WI-YhP" secondAttribute="centerY" id="t4w-qY-d48"/>
                     <constraint firstItem="W8w-qG-BCA" firstAttribute="leading" secondItem="G0k-rr-rwe" secondAttribute="trailing" constant="8" id="udP-0B-9ec"/>
                     <constraint firstItem="IAZ-cj-SE0" firstAttribute="leading" secondItem="9Oz-HY-wbL" secondAttribute="trailing" constant="6" id="wWS-lK-QUd"/>
+                    <constraint firstItem="G0k-rr-rwe" firstAttribute="top" secondItem="oZY-x4-BDd" secondAttribute="top" id="wzQ-vH-4d3"/>
                     <constraint firstItem="IAZ-cj-SE0" firstAttribute="centerY" secondItem="7yX-WI-YhP" secondAttribute="centerY" id="xwz-Az-5t0"/>
                 </constraints>
             </tableViewCellContentView>

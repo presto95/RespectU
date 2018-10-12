@@ -34,6 +34,7 @@ class SongBaseTableViewController: UITableViewController {
 extension SongBaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? SongCell else { return UITableViewCell() }
+        cell.contentView.backgroundColor = .clear
         let object = self.songResults?[indexPath.row]
         cell.setProperties(object, favoriteButton: favoriteButton)
         return cell

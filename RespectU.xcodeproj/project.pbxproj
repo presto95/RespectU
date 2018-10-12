@@ -30,7 +30,6 @@
 		192CA337216F279600F37675 /* SongTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA336216F279600F37675 /* SongTechnika2TableViewController.swift */; };
 		192CA339216F27A200F37675 /* MissionTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA338216F27A200F37675 /* MissionTechnika2TableViewController.swift */; };
 		192CA33B216F27B000F37675 /* TrophyTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA33A216F27B000F37675 /* TrophyTechnika2TableViewController.swift */; };
-		192CA33F216F31E300F37675 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192CA33E216F31E300F37675 /* CAGradientLayer+.swift */; };
 		192DF89B2111D92B0016F386 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89A2111D92B0016F386 /* Series.swift */; };
 		192DF89D2111DA640016F386 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89C2111DA640016F386 /* Buttons.swift */; };
 		192DF89F2111DAC80016F386 /* TrophyGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DF89E2111DAC80016F386 /* TrophyGrade.swift */; };
@@ -56,7 +55,6 @@
 		193C285421366C1B001EB7F3 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C285321366C1B001EB7F3 /* SignIn.storyboard */; };
 		193C285621366C28001EB7F3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C285521366C28001EB7F3 /* SignInViewController.swift */; };
 		193C2858213671D5001EB7F3 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C2857213671D4001EB7F3 /* SignInTextField.swift */; };
-		193C285A213671F6001EB7F3 /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C2859213671F6001EB7F3 /* SignInButton.swift */; };
 		193C285C213674B1001EB7F3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C285B213674B1001EB7F3 /* SignUpViewController.swift */; };
 		193C28602136C8E7001EB7F3 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193C285F2136C8E7001EB7F3 /* Upload.storyboard */; };
 		193C28622136C8F0001EB7F3 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193C28612136C8F0001EB7F3 /* UploadViewController.swift */; };
@@ -236,7 +234,6 @@
 		192CA336216F279600F37675 /* SongTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika2TableViewController.swift; sourceTree = "<group>"; };
 		192CA338216F27A200F37675 /* MissionTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika2TableViewController.swift; sourceTree = "<group>"; };
 		192CA33A216F27B000F37675 /* TrophyTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika2TableViewController.swift; sourceTree = "<group>"; };
-		192CA33E216F31E300F37675 /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
 		192DF89A2111D92B0016F386 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		192DF89C2111DA640016F386 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		192DF89E2111DAC80016F386 /* TrophyGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyGrade.swift; sourceTree = "<group>"; };
@@ -262,7 +259,6 @@
 		193C285321366C1B001EB7F3 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		193C285521366C28001EB7F3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		193C2857213671D4001EB7F3 /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
-		193C2859213671F6001EB7F3 /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		193C285B213674B1001EB7F3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		193C285F2136C8E7001EB7F3 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
 		193C28612136C8F0001EB7F3 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
@@ -461,7 +457,6 @@
 				1928D5FC211824DF00F7901F /* UITableViewCell+.swift */,
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
-				192CA33E216F31E300F37675 /* CAGradientLayer+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -502,7 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				193C2857213671D4001EB7F3 /* SignInTextField.swift */,
-				193C2859213671F6001EB7F3 /* SignInButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1342,7 +1336,6 @@
 				19E4DAFB213D896100837A95 /* VersionInfo.swift in Sources */,
 				193E4017204C03C50063A440 /* UIView+.swift in Sources */,
 				192AFE2920E48AE70006397F /* TrophyLinkDiskTableViewController.swift in Sources */,
-				193C285A213671F6001EB7F3 /* SignInButton.swift in Sources */,
 				193E4025204C09F20063A440 /* Top506BTableViewController.swift in Sources */,
 				193E3FF9204BCFB20063A440 /* Difficulty.swift in Sources */,
 				199233D0216F743600E040D7 /* RecordTechnika2TableViewController.swift in Sources */,
@@ -1379,7 +1372,6 @@
 				197414C62062A77A00D72626 /* SongTechnika1TableViewController.swift in Sources */,
 				192AFE2720E48ADF0006397F /* TrophyBSTableViewController.swift in Sources */,
 				198B6C4C211382BD0058DE49 /* Top50BaseTableViewController.swift in Sources */,
-				192CA33F216F31E300F37675 /* CAGradientLayer+.swift in Sources */,
 				199992152049654500C74697 /* MissionTrilogyTableViewController.swift in Sources */,
 				193E4013204C02A30063A440 /* Top50ViewController.swift in Sources */,
 				191275F2211210610046AA3E /* SongBaseTableViewController.swift in Sources */,

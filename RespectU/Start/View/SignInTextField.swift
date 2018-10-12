@@ -21,8 +21,11 @@ class SignInTextField: UITextField {
     }
     
     private func setup() {
-        self.layer.cornerRadius = 10
-        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.height))
-        self.leftViewMode = .always
+        layer.cornerRadius = bounds.height / 2
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.masksToBounds = true
+        leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: self.frame.height))
+        leftViewMode = .always
     }
 }

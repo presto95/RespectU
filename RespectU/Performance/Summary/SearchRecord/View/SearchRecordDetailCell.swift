@@ -18,8 +18,8 @@ class SearchRecordDetailCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorLabel.layer.borderWidth = 1
-        colorLabel.layer.borderColor = UIColor.main.cgColor
+        colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
+        colorLabel.layer.masksToBounds = true
     }
     
     func setProperties(_ object: SearchRecordDetail) {

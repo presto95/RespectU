@@ -13,7 +13,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var idTextField: SignInTextField!
     @IBOutlet weak var passwordTextField: SignInTextField!
     @IBOutlet weak var nicknameTextField: SignInTextField!
-    @IBOutlet weak var signUpButton: SignInButton!
+    @IBOutlet weak var signUpButton: UIButton!
     var entersAll: Bool {
         guard let isIdTextFieldEmpty = idTextField.text?.isEmpty else { return true }
         guard let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty else { return true }

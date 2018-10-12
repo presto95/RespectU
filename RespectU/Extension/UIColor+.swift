@@ -21,7 +21,7 @@ extension UIColor {
     static let ce = #colorLiteral(red: 1, green: 0.9725490196, blue: 0.8666666667, alpha: 1)
     static let technika1 = #colorLiteral(red: 0.9333333333, green: 0.1725490196, blue: 0.7411764706, alpha: 1)
     static let bs = #colorLiteral(red: 0.7882352941, green: 0.07450980392, blue: 0.1098039216, alpha: 1)
-    static let technika2 = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+    static let technika2 = #colorLiteral(red: 0.6784313725, green: 0.3450980392, blue: 0.1294117647, alpha: 1)
     //Trophy Colors
     static let platinum = #colorLiteral(red: 0.8980392157, green: 0.8941176471, blue: 0.8862745098, alpha: 1)
     static let gold = #colorLiteral(red: 0.831372549, green: 0.6862745098, blue: 0.2156862745, alpha: 1)

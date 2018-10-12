@@ -34,10 +34,12 @@ class SongCell: UITableViewCell {
     
     func setProperties(_ object: SongInfo?, favoriteButton: String) {
         guard let object = object else { return }
-        self.colorLabel.backgroundColor = object.series.seriesColor
-        self.titleLabel.text = object.localizedTitle
-        self.composerLabel.text = object.composer
-        self.bpmLabel.text = object.bpmToString
+        let gradient = object.series.seriesGradientVertical ?? CAGradientLayer()
+        gradient.frame = colorLabel.bounds
+        colorLabel.layer.addSublayer(gradient)
+        titleLabel.text = object.localizedTitle
+        composerLabel.text = object.composer
+        bpmLabel.text = object.bpmToString
         var buttons: SongButtonInfo?
         switch favoriteButton {
         case Buttons.button4:
@@ -52,8 +54,8 @@ class SongCell: UITableViewCell {
             break
         }
         guard let button = buttons else { return }
-        self.normalLabel.text = button.normal == 0 ? "-" : "\(button.normal)"
-        self.hardLabel.text = button.hard == 0 ? "-" : "\(button.hard)"
-        self.maximumLabel.text = button.maximum == 0 ? "-" : "\(button.maximum)"
+        normalLabel.text = button.normal == 0 ? "-" : "\(button.normal)"
+        hardLabel.text = button.hard == 0 ? "-" : "\(button.hard)"
+        maximumLabel.text = button.maximum == 0 ? "-" : "\(button.maximum)"
     }
 }

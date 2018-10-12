@@ -86,9 +86,9 @@ extension UITableViewCell {
             case MissionSection.LinkDisk.blackDisk:
                 self.contentView.backgroundColor = #colorLiteral(red: 0.6392156863, green: 0.6, blue: 0.4196078431, alpha: 1)
             case MissionSection.Technika2.popMixing:
-                self.contentView.backgroundColor = .clear
+                self.contentView.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.6980392157, blue: 0.3647058824, alpha: 1)
             case MissionSection.Technika2.clubMixing:
-                self.contentView.backgroundColor = .clear
+                self.contentView.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.6980392157, blue: 0.3647058824, alpha: 1)
             default:
                 self.contentView.backgroundColor = .clear
             }

@@ -25,7 +25,9 @@ class MissionCell: UITableViewCell {
     
     func setProperties(_ object: MissionInfo?) {
         guard let object = object else { return }
-        colorLabel.backgroundColor = object.section.missionColor
+        let gradient = object.section.missionGradientVertical ?? CAGradientLayer()
+        gradient.frame = colorLabel.bounds
+        colorLabel.layer.addSublayer(gradient)
         titleLabel.text = object.title
         rewardLabel.text = object.localizedReward
     }

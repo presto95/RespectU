@@ -23,7 +23,9 @@ class SearchRecordDetailCell: UITableViewCell {
     }
     
     func setProperties(_ object: SearchRecordDetail) {
-        colorLabel.backgroundColor = object.series.seriesColor
+        let gradient = object.series.seriesGradientVertical ?? CAGradientLayer()
+        gradient.frame = colorLabel.bounds
+        colorLabel.layer.addSublayer(gradient)
         titleLabel.text = object.title
         difficultyLabel.text = object.difficulty.uppercased()
         rateLabel.text = "\(object.rate)%"

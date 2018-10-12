@@ -24,7 +24,9 @@ class RecordCell: UITableViewCell {
     
     func setProperties(_ object: SongInfo?) {
         guard let object = object else { return }
-        colorLabel.backgroundColor = object.series.seriesColor
+        let gradient = object.series.seriesGradientVertical ?? CAGradientLayer()
+        gradient.frame = colorLabel.bounds
+        colorLabel.layer.addSublayer(gradient)
         titleLabel.text = object.localizedTitle
     }
 }

@@ -24,7 +24,9 @@ class Top50Cell: UITableViewCell {
     }
     
     func setProperties(_ object: NewRecordInfo, button: String) {
-        colorLabel.backgroundColor = object.series.seriesColor
+        let gradient = object.series.seriesGradientVertical ?? CAGradientLayer()
+        gradient.frame = colorLabel.bounds
+        colorLabel.layer.addSublayer(gradient)
         titleLabel.text = object.localizedTitle
         guard let buttonExpansion = button.buttonExpansion else { return }
         guard let button = object.value(forKeyPath: buttonExpansion) as? NewRecordButtonInfo else { return }

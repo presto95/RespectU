@@ -24,8 +24,8 @@ class SongCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.colorLabel.layer.borderColor = UIColor.main.cgColor
-        self.colorLabel.layer.borderWidth = 1
+        colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
+        colorLabel.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

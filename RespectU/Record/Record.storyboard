@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="40" id="Hub-Bt-Xen"/>
                                     <constraint firstAttribute="width" constant="40" id="UE2-KJ-Ehe"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
                                     <action selector="touchUpCancelButton:" destination="Sgo-is-0M5" eventType="touchUpInside" id="f3w-e0-Y10"/>
@@ -37,8 +37,8 @@
                                     <constraint firstAttribute="width" constant="60" id="vSL-K7-rYI"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87r-Ku-sj2">
-                                <rect key="frame" x="0.0" y="126" width="375" height="521"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87r-Ku-sj2">
+                                <rect key="frame" x="0.0" y="142" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YLJ-Rj-lVo" customClass="ButtonBarView" customModule="XLPagerTabStrip">
@@ -60,7 +60,7 @@
                         <constraints>
                             <constraint firstItem="87r-Ku-sj2" firstAttribute="leading" secondItem="Uhe-Wc-bK1" secondAttribute="leading" id="3iS-Sd-cgt"/>
                             <constraint firstItem="57Q-G4-O9N" firstAttribute="centerX" secondItem="WDk-uJ-gtf" secondAttribute="centerX" id="5Fn-hR-cOH"/>
-                            <constraint firstItem="87r-Ku-sj2" firstAttribute="top" secondItem="YLJ-Rj-lVo" secondAttribute="bottom" id="P4z-7O-fHP"/>
+                            <constraint firstItem="87r-Ku-sj2" firstAttribute="top" secondItem="YLJ-Rj-lVo" secondAttribute="bottom" constant="16" id="P4z-7O-fHP"/>
                             <constraint firstItem="87r-Ku-sj2" firstAttribute="trailing" secondItem="Uhe-Wc-bK1" secondAttribute="trailing" id="TP1-cb-8xg"/>
                             <constraint firstItem="YLJ-Rj-lVo" firstAttribute="top" secondItem="57Q-G4-O9N" secondAttribute="bottom" constant="8" id="cZ9-ox-T90"/>
                             <constraint firstItem="57Q-G4-O9N" firstAttribute="top" secondItem="Uhe-Wc-bK1" secondAttribute="top" id="hgm-nY-bTJ"/>

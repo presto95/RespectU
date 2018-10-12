@@ -52,9 +52,9 @@ class RecordView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderWidth = 3
-        self.layer.cornerRadius = 10
-        self.layer.borderColor = UIColor.main.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 15
+        self.layer.borderColor = UIColor.lightGray.cgColor
         self.cancelButton.setTitle("Cancel".localized, for: .normal)
         self.cancelButton.addTarget(self, action: #selector(didTouchUpCancelButton(_:)), for: .touchUpInside)
     }

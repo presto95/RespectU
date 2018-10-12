@@ -18,17 +18,9 @@ class Top50ViewController: BaseViewController {
     lazy var top50ViewControllers: [Top50BaseTableViewController] = {
         return [button4TableViewController, button5TableViewController, button6TableViewController, button8TableViewController]
     }()
-    @IBOutlet weak var sectionView: ButtonBarView!
-    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.layer.cornerRadius = 15
-        scrollView.layer.borderWidth = 1
-        scrollView.layer.borderColor = UIColor.lightGray.cgColor
-//        sectionView.layer.cornerRadius = sectionView.bounds.height / 2
-//        sectionView.layer.borderWidth = 1
-//        sectionView.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

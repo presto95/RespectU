@@ -139,7 +139,7 @@ class SearchRecordViewController: UIViewController {
                 newView.topAnchor.constraint(equalTo: subView.topAnchor),
                 newView.leftAnchor.constraint(equalTo: subView.leftAnchor, constant: 16),
                 newView.rightAnchor.constraint(equalTo: subView.rightAnchor, constant: -16),
-                newView.heightAnchor.constraint(equalToConstant: 100)
+                newView.heightAnchor.constraint(equalToConstant: 200)
                 ])
         case 1:
             selectedMethodIndex = 1

@@ -17,8 +17,10 @@ class RankingBaseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
         tableView.rowHeight = 40
+        tableView.register(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }
 

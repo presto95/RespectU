@@ -134,7 +134,6 @@
 		198B6C502113913C0058DE49 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C4F2113913C0058DE49 /* Skill.swift */; };
 		198B6C52211392CA0058DE49 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C51211392CA0058DE49 /* Note.swift */; };
 		198B6C562113E5A60058DE49 /* SkillLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C552113E5A60058DE49 /* SkillLevel.swift */; };
-		198B6C5A2114244B0058DE49 /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C592114244B0058DE49 /* Notification.Name+.swift */; };
 		198B6C5C211443C70058DE49 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198B6C5B211443C70058DE49 /* Rank.swift */; };
 		198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */; };
 		198FC962204D24BD0026BA1D /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */; };
@@ -341,7 +340,6 @@
 		198B6C4F2113913C0058DE49 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		198B6C51211392CA0058DE49 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		198B6C552113E5A60058DE49 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
-		198B6C592114244B0058DE49 /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
 		198B6C5B211443C70058DE49 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		198FC95F204D24BD0026BA1D /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
 		198FC960204D24BD0026BA1D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
 				192CA33E216F31E300F37675 /* CAGradientLayer+.swift */,
-				198B6C592114244B0058DE49 /* Notification.Name+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -981,8 +978,8 @@
 		19E767D520EE55EA008C9F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				193E4036204C27220063A440 /* RankingCell.swift */,
 				193E403A204C2EB60063A440 /* RankingCell.xib */,
+				193E4036204C27220063A440 /* RankingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1249,7 +1246,6 @@
 				194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */,
 				199EFFE62067D51B00A6068F /* SearchByRateView.swift in Sources */,
 				191A8B7E20E4FC930064F93E /* UIAlertController+.swift in Sources */,
-				198B6C5A2114244B0058DE49 /* Notification.Name+.swift in Sources */,
 				198FC964204D2E9F0026BA1D /* SummaryDetailViewController.swift in Sources */,
 				194E52A6204A8F7B00B84AFA /* SongAllTableViewController.swift in Sources */,
 				193E4029204C237B0063A440 /* RankingViewController.swift in Sources */,

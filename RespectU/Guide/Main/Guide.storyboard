@@ -38,7 +38,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-gJ-0bd">
-                                <rect key="frame" x="16" y="607" width="343" height="60"/>
+                                <rect key="frame" x="8" y="607" width="359" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="uWs-LB-L8l"/>
@@ -52,7 +52,7 @@
                                     <action selector="didTouchUpRecordButton:" destination="jIS-jF-tzf" eventType="touchUpInside" id="P3g-Cp-70b"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Suc-7n-icl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Suc-7n-icl">
                                 <rect key="frame" x="0.0" y="80" width="375" height="519"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
@@ -63,14 +63,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="trailing" secondItem="o04-IU-z3z" secondAttribute="trailing" constant="-16" id="7ef-TZ-PHG"/>
+                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="trailing" secondItem="o04-IU-z3z" secondAttribute="trailing" constant="-8" id="7ef-TZ-PHG"/>
                             <constraint firstItem="zCx-DN-hau" firstAttribute="centerX" secondItem="PNJ-EF-6jU" secondAttribute="centerX" id="D4h-SV-OMc"/>
                             <constraint firstItem="Sjq-gJ-0bd" firstAttribute="bottom" secondItem="o04-IU-z3z" secondAttribute="bottom" id="HKe-9y-krg"/>
                             <constraint firstItem="o04-IU-z3z" firstAttribute="trailing" secondItem="Suc-7n-icl" secondAttribute="trailing" id="I1z-Zd-goj"/>
                             <constraint firstItem="Suc-7n-icl" firstAttribute="top" secondItem="zCx-DN-hau" secondAttribute="bottom" id="OWq-cB-eGU"/>
                             <constraint firstItem="Suc-7n-icl" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" id="Z0J-Eg-KN5"/>
                             <constraint firstItem="dat-Sb-Vk7" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" constant="16" id="fes-OC-tTj"/>
-                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" constant="16" id="gAM-CX-kOl"/>
+                            <constraint firstItem="Sjq-gJ-0bd" firstAttribute="leading" secondItem="o04-IU-z3z" secondAttribute="leading" constant="8" id="gAM-CX-kOl"/>
                             <constraint firstItem="dat-Sb-Vk7" firstAttribute="centerY" secondItem="zCx-DN-hau" secondAttribute="centerY" id="mVS-p9-mL9"/>
                             <constraint firstItem="zCx-DN-hau" firstAttribute="top" secondItem="o04-IU-z3z" secondAttribute="top" id="uSF-64-qxc"/>
                             <constraint firstItem="Sjq-gJ-0bd" firstAttribute="top" secondItem="Suc-7n-icl" secondAttribute="bottom" constant="8" id="wdq-Uq-ryv"/>

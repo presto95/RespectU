@@ -17,6 +17,8 @@ class TrophyBaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "TrophyCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }

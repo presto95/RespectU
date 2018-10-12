@@ -31,15 +31,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESPECT FOR PLAYERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQB-Sl-IjY">
-                        <rect key="frame" x="29" y="9" width="275" height="18"/>
+                        <rect key="frame" x="29" y="9" width="275" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DJ Alpha Resigns" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-gI-o4O" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="29" y="35" width="275" height="16"/>
+                        <rect key="frame" x="29" y="30" width="275" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
-                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="trailingBuffer">
@@ -60,13 +60,15 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="fQB-Sl-IjY" secondAttribute="trailing" constant="16" id="9ac-Ah-6Tg"/>
-                    <constraint firstItem="mfY-gI-o4O" firstAttribute="bottom" secondItem="cS1-e4-YWp" secondAttribute="bottom" id="LDr-k4-Kp6"/>
-                    <constraint firstItem="fQB-Sl-IjY" firstAttribute="top" secondItem="cS1-e4-YWp" secondAttribute="top" id="PJ0-v4-YLn"/>
                     <constraint firstItem="cS1-e4-YWp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Px5-6M-At9"/>
                     <constraint firstItem="fQB-Sl-IjY" firstAttribute="leading" secondItem="cS1-e4-YWp" secondAttribute="trailing" constant="8" id="YCz-1M-FyW"/>
+                    <constraint firstItem="fQB-Sl-IjY" firstAttribute="bottom" secondItem="cS1-e4-YWp" secondAttribute="centerY" id="hyc-4I-4YR"/>
                     <constraint firstItem="cS1-e4-YWp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="l9B-uK-9oF"/>
+                    <constraint firstItem="fQB-Sl-IjY" firstAttribute="top" secondItem="cS1-e4-YWp" secondAttribute="top" id="lOI-1H-Bhq"/>
                     <constraint firstAttribute="trailing" secondItem="mfY-gI-o4O" secondAttribute="trailing" constant="16" id="p8T-hs-Hdz"/>
                     <constraint firstItem="mfY-gI-o4O" firstAttribute="leading" secondItem="cS1-e4-YWp" secondAttribute="trailing" constant="8" id="pco-3v-E92"/>
+                    <constraint firstItem="mfY-gI-o4O" firstAttribute="bottom" secondItem="cS1-e4-YWp" secondAttribute="bottom" id="qIb-qW-7ZU"/>
+                    <constraint firstItem="mfY-gI-o4O" firstAttribute="top" secondItem="cS1-e4-YWp" secondAttribute="centerY" id="xsu-m6-Sqn"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

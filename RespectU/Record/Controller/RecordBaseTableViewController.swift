@@ -26,6 +26,8 @@ class RecordBaseTableViewController: UITableViewController {
         super.viewDidLoad()
         tempSongResults = SongInfo.fetch()
         recordResults = NewRecordInfo.fetch()
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "RecordCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
     
@@ -71,7 +73,9 @@ extension RecordBaseTableViewController {
         self.recordView.delegate = self
         self.recordView.translatesAutoresizingMaskIntoConstraints = false
         recordViewController.view.addSubview(recordView)
-        let widthConstraint = self.recordView.widthAnchor.constraint(equalTo: recordViewController.view.widthAnchor, multiplier: 1)
+        let leadingConstraint = self.recordView.leadingAnchor.constraint(equalTo: recordViewController.view.leadingAnchor, constant: 8)
+        let trailingConstraint = self.recordView.trailingAnchor.constraint(equalTo: recordViewController.view.trailingAnchor, constant: -8)
+//        let widthConstraint = self.recordView.widthAnchor.constraint(equalTo: recordViewController.view.widthAnchor, multiplier: 1)
         let heightConstraint = self.recordView.heightAnchor.constraint(equalToConstant: 200)
         let centerXConstraint = self.recordView.centerXAnchor.constraint(equalTo: recordViewController.view.centerXAnchor)
         let bottomConstraint: NSLayoutConstraint
@@ -80,7 +84,7 @@ extension RecordBaseTableViewController {
         } else {
             bottomConstraint = self.recordView.bottomAnchor.constraint(equalTo: recordViewController.view.bottomAnchor, constant: -20)
         }
-        NSLayoutConstraint.activate([widthConstraint, heightConstraint, centerXConstraint, bottomConstraint])
+        NSLayoutConstraint.activate([leadingConstraint, trailingConstraint, heightConstraint, centerXConstraint, bottomConstraint])
         self.recordView.updateRankingAndSkillPointLabel(object, button: favoriteButton)
         self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
         recordViewController.scrollViewBottomConstraint.constant += 210

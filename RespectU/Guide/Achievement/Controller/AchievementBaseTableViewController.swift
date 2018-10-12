@@ -17,7 +17,10 @@ class AchievementBaseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView = UITableView(frame: tableView.bounds, style: .grouped)
         tableView.rowHeight = 40
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "AchievementCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }
@@ -88,9 +91,9 @@ extension AchievementBaseTableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
-        header.textLabel?.textColor = .white
-        header.textLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        header.backgroundView?.backgroundColor = .main
+        header.textLabel?.textColor = .black
+        header.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        header.backgroundView?.backgroundColor = .white
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

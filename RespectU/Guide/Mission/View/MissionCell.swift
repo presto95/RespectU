@@ -19,8 +19,8 @@ class MissionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorLabel.layer.borderColor = UIColor.main.cgColor
-        colorLabel.layer.borderWidth = 1
+        colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
+        colorLabel.layer.masksToBounds = true
     }
     
     func setProperties(_ object: MissionInfo?) {

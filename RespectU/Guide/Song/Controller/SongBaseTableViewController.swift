@@ -25,6 +25,8 @@ class SongBaseTableViewController: UITableViewController {
         missionResults = MissionInfo.fetch().filter(predicate)
         achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: "=")
         tableView.rowHeight = 60
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 }

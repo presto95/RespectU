@@ -27,7 +27,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61H-jf-AFO">
-                        <rect key="frame" x="58" y="9" width="9" height="42"/>
+                        <rect key="frame" x="60" y="9" width="9" height="42"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="9" id="dxb-FM-wGm"/>
@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-VV-snP" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="75" y="9" width="229" height="17"/>
+                        <rect key="frame" x="77" y="9" width="227" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,9 +57,9 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9E-GX-55r" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="75" y="36.5" width="229" height="14.5"/>
+                        <rect key="frame" x="77" y="30" width="227" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                        <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
@@ -81,15 +81,17 @@
                 <constraints>
                     <constraint firstItem="61H-jf-AFO" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="LdI-2h-bHJ"/>
                     <constraint firstItem="KSl-VV-snP" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="MwR-ZD-iNV"/>
-                    <constraint firstItem="KSl-VV-snP" firstAttribute="top" secondItem="61H-jf-AFO" secondAttribute="top" id="Srn-7c-VNO"/>
+                    <constraint firstItem="g9E-GX-55r" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="centerY" id="TTb-0Z-N5o"/>
                     <constraint firstItem="dyr-m7-fRT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b4q-JW-q6h"/>
                     <constraint firstItem="dyr-m7-fRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fh2-0P-wBx"/>
-                    <constraint firstItem="61H-jf-AFO" firstAttribute="leading" secondItem="dyr-m7-fRT" secondAttribute="trailing" id="kxI-wW-FI7"/>
-                    <constraint firstItem="g9E-GX-55r" firstAttribute="bottom" secondItem="61H-jf-AFO" secondAttribute="bottom" id="mkc-3q-1ch"/>
+                    <constraint firstItem="61H-jf-AFO" firstAttribute="leading" secondItem="dyr-m7-fRT" secondAttribute="trailing" constant="2" id="kxI-wW-FI7"/>
                     <constraint firstItem="61H-jf-AFO" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="top" id="nVe-Qe-cTY"/>
+                    <constraint firstItem="KSl-VV-snP" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="centerY" id="orz-Yv-Fcc"/>
                     <constraint firstAttribute="trailing" secondItem="KSl-VV-snP" secondAttribute="trailing" constant="16" id="pdN-Bd-dZV"/>
                     <constraint firstAttribute="trailing" secondItem="g9E-GX-55r" secondAttribute="trailing" constant="16" id="rlt-Ql-GWi"/>
                     <constraint firstItem="g9E-GX-55r" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="tvZ-BY-FPQ"/>
+                    <constraint firstItem="g9E-GX-55r" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="v2J-da-2G1"/>
+                    <constraint firstItem="KSl-VV-snP" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="top" id="zdE-xd-tFK"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

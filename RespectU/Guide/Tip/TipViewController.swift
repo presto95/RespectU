@@ -40,9 +40,9 @@ extension TipViewController {
     }
     
     private func setupTableView() {
-        self.tableView.layer.borderColor = UIColor.lightGray.cgColor
-        self.tableView.layer.borderWidth = 1
-        self.tableView.layer.cornerRadius = 15
+        tableView.layer.borderColor = UIColor.lightGray.cgColor
+        tableView.layer.borderWidth = 1
+        tableView.layer.cornerRadius = 15
     }
 }
 

@@ -17,10 +17,14 @@ class TrophyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorLabel.layer.borderColor = UIColor.main.cgColor
-        colorLabel.layer.borderWidth = 1
-        trophyImageView.layer.borderWidth = 1
-        trophyImageView.layer.borderColor = UIColor.main.cgColor
+//        colorLabel.layer.borderColor = UIColor.main.cgColor
+//        colorLabel.layer.borderWidth = 1
+//        trophyImageView.layer.borderWidth = 1
+//        trophyImageView.layer.borderColor = UIColor.main.cgColor
+        colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
+        colorLabel.layer.masksToBounds = true
+        trophyImageView.layer.cornerRadius = trophyImageView.bounds.height / 2
+        trophyImageView.layer.masksToBounds = true
     }
 
     func setProperties(_ object: TrophyInfo?) {

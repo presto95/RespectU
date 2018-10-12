@@ -193,6 +193,17 @@
 
 ### 버전 기록
 
+**3.00**
+
+![7](./images/7.png)
+
+![8](./images/8.png)
+
+- DJMAX RESPECT 1.18에 대응
+- UI 전면 수정
+
+---
+
 ![6](./images/6.png)
 
 ![5](./images/5.png)

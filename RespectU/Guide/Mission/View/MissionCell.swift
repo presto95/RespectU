@@ -25,7 +25,7 @@ class MissionCell: UITableViewCell {
     
     func setProperties(_ object: MissionInfo?) {
         guard let object = object else { return }
-        let gradient = object.section.missionGradientVertical ?? CAGradientLayer()
+        let gradient = object.section.missionGradient(.vertical) ?? CAGradientLayer()
         gradient.frame = colorLabel.bounds
         colorLabel.layer.addSublayer(gradient)
         titleLabel.text = object.title

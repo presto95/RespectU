@@ -24,6 +24,7 @@ class DownloadViewController: UIViewController {
                 API.requestTrophies(completion: didReceiveTrophies)
                 API.requestAchievements(completion: didReceiveAchievements)
                 API.requestTips(completion: didReceiveTips)
+                API.requestVersions(completion: didReceiveVersions)
             }
         }
     }
@@ -82,7 +83,7 @@ class DownloadViewController: UIViewController {
     }
     
     @objc func didTouchUpDownloadDataButton(_ sender: UIButton) {
-        API.requestVersions(completion: didReceiveVersions)
+        API.requestVersions(completion: didReceiveVersion)
     }
     
     @objc func didTouchUpDownloadRecordButton(_ sender: UIButton) {

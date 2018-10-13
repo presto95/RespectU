@@ -23,7 +23,7 @@ class SearchRecordDetailCell: UITableViewCell {
     }
     
     func setProperties(_ object: SearchRecordDetail) {
-        let gradient = object.series.seriesGradientVertical ?? CAGradientLayer()
+        let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
         gradient.frame = colorLabel.bounds
         colorLabel.layer.addSublayer(gradient)
         titleLabel.text = object.title

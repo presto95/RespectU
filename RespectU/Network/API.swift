@@ -21,14 +21,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(SongResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveSongs, object: nil, userInfo: ["songs": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveSongs, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveSongs, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -39,14 +36,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(MissionResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveMissions, object: nil, userInfo: ["missions": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveMissions, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveMissions, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -58,14 +52,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(TrophyResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveTrophies, object: nil, userInfo: ["trophies": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveTrophies, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveTrophies, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -76,14 +67,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(AchievementResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveAchievements, object: nil, userInfo: ["achievements": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveAchievements, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveAchievements, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -94,14 +82,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(TipResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveTips, object: nil, userInfo: ["tips": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveTips, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -111,10 +96,8 @@ extension API {
         let parameters = ["id": id, "password": password]
         Network.post("\(baseURL)/users/signin", parameters: parameters, successHandler: { (_, statusCode) in
             completion(statusCode, nil)
-            //NotificationCenter.default.post(name: .didReceiveSignIn, object: nil, userInfo: ["statusCode": statusCode])
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveSignIn, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -124,10 +107,8 @@ extension API {
         let parameters = ["id": id, "password": password, "nickname": nickname]
         Network.post("\(baseURL)/users/signup", parameters: parameters, successHandler: { (_, statusCode) in
             completion(statusCode, nil)
-            //NotificationCenter.default.post(name: .didReceiveSignUp, object: nil, userInfo: ["statusCode": statusCode])
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveSignUp, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -138,14 +119,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(VersionResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveVersions, object: nil, userInfo: ["versions": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveVersions, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveVersions, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -158,14 +136,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(NicknameResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveNickname, object: nil, userInfo: ["nickname": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveNickname, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveNickname, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
     
@@ -173,11 +148,9 @@ extension API {
         let parameters = ["id": id, "nickname": nickname]
         Network.post("\(baseURL)/users/nickname", parameters: parameters, successHandler: { (_, statusCode) in
             completion(statusCode, nil)
-            //NotificationCenter.default.post(name: .didReceiveUploadNickname, object: nil, userInfo: ["statusCode": statusCode])
             
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveUploadNickname, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -188,24 +161,19 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(RecordResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveRequestRecords, object: nil, userInfo: ["records": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveRequestRecords, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveRequestRecords, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
     
     static func uploadRecords(_ object: Data, completion: @escaping (Int?, Error?) -> Void) {
         Network.upload("\(baseURL)/records", data: object, succesHandler: { (_, statusCode) in
             completion(statusCode, nil)
-            //NotificationCenter.default.post(name: .didReceiveUploadRecords, object: nil, userInfo: ["statusCode": statusCode])
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveUploadRecords, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }
@@ -216,14 +184,11 @@ extension API {
             do {
                 let decoded = try jsonDecoder.decode(RankingResponse.self, from: data)
                 completion(decoded, nil)
-                //NotificationCenter.default.post(name: .didReceiveRankings, object: nil, userInfo: ["rankings": results])
             } catch {
                 completion(nil, error)
-                //NotificationCenter.default.post(name: .errorReceiveRankings, object: nil, userInfo: ["error": error.localizedDescription])
             }
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveRankings, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
     
@@ -231,10 +196,8 @@ extension API {
         let parameters: [String: Any] = ["id": id, "nickname": nickname, "button4": button4, "button5": button5, "button6": button6, "button8": button8]
         Network.post("\(baseURL)/rankings", parameters: parameters, successHandler: { (_, statusCode) in
             completion(statusCode, nil)
-            //NotificationCenter.default.post(name: .didReceiveUploadRanking, object: nil, userInfo: ["statusCode": statusCode])
         }, errorHandler: { error in
             completion(nil, error)
-            //NotificationCenter.default.post(name: .errorReceiveUploadRanking, object: nil, userInfo: ["error": error.localizedDescription])
         })
     }
 }

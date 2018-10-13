@@ -130,8 +130,10 @@ private extension DownloadViewController {
             } else {
                 SongInfo.add(downloadedSong)
                 let recordInfo = NewRecordInfo()
-                recordInfo.title?.english = downloadedSong.title.english
-                recordInfo.title?.korean = downloadedSong.title.korean
+                let titleInfo = LanguageInfo()
+                titleInfo.english = downloadedSong.title.english
+                titleInfo.korean = downloadedSong.title.korean
+                recordInfo.title = titleInfo
                 recordInfo.series = downloadedSong.series
                 let button4Record = NewRecordButtonInfo()
                 let button5Record = NewRecordButtonInfo()

@@ -26,18 +26,8 @@
                             <constraint firstAttribute="width" constant="42" id="spc-cZ-74h"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61H-jf-AFO">
-                        <rect key="frame" x="60" y="9" width="9" height="42"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="9" id="dxb-FM-wGm"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSl-VV-snP" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="77" y="9" width="227" height="21"/>
+                        <rect key="frame" x="66" y="9" width="238" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +47,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9E-GX-55r" customClass="MarqueeLabel" customModule="MarqueeLabel">
-                        <rect key="frame" x="77" y="30" width="227" height="21"/>
+                        <rect key="frame" x="66" y="30" width="238" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                         <color key="textColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -76,20 +66,24 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1wR-U2-1O7">
+                        <rect key="frame" x="30.5" y="44.5" width="13" height="12.5"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="61H-jf-AFO" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="LdI-2h-bHJ"/>
-                    <constraint firstItem="KSl-VV-snP" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="MwR-ZD-iNV"/>
+                    <constraint firstItem="KSl-VV-snP" firstAttribute="leading" secondItem="dyr-m7-fRT" secondAttribute="trailing" constant="8" id="EGP-pS-E37"/>
+                    <constraint firstItem="1wR-U2-1O7" firstAttribute="height" secondItem="dyr-m7-fRT" secondAttribute="height" multiplier="0.3" id="FVm-X9-rOl"/>
                     <constraint firstItem="g9E-GX-55r" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="centerY" id="TTb-0Z-N5o"/>
+                    <constraint firstItem="g9E-GX-55r" firstAttribute="leading" secondItem="dyr-m7-fRT" secondAttribute="trailing" constant="8" id="XGT-ka-isc"/>
+                    <constraint firstItem="1wR-U2-1O7" firstAttribute="centerY" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="aHL-hA-3oC"/>
+                    <constraint firstItem="1wR-U2-1O7" firstAttribute="width" secondItem="dyr-m7-fRT" secondAttribute="width" multiplier="0.3" id="b11-Ms-9cE"/>
                     <constraint firstItem="dyr-m7-fRT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b4q-JW-q6h"/>
+                    <constraint firstItem="1wR-U2-1O7" firstAttribute="centerX" secondItem="dyr-m7-fRT" secondAttribute="centerX" id="bbx-7t-edt"/>
                     <constraint firstItem="dyr-m7-fRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="fh2-0P-wBx"/>
-                    <constraint firstItem="61H-jf-AFO" firstAttribute="leading" secondItem="dyr-m7-fRT" secondAttribute="trailing" constant="2" id="kxI-wW-FI7"/>
-                    <constraint firstItem="61H-jf-AFO" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="top" id="nVe-Qe-cTY"/>
                     <constraint firstItem="KSl-VV-snP" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="centerY" id="orz-Yv-Fcc"/>
                     <constraint firstAttribute="trailing" secondItem="KSl-VV-snP" secondAttribute="trailing" constant="16" id="pdN-Bd-dZV"/>
                     <constraint firstAttribute="trailing" secondItem="g9E-GX-55r" secondAttribute="trailing" constant="16" id="rlt-Ql-GWi"/>
-                    <constraint firstItem="g9E-GX-55r" firstAttribute="leading" secondItem="61H-jf-AFO" secondAttribute="trailing" constant="8" id="tvZ-BY-FPQ"/>
                     <constraint firstItem="g9E-GX-55r" firstAttribute="bottom" secondItem="dyr-m7-fRT" secondAttribute="bottom" id="v2J-da-2G1"/>
                     <constraint firstItem="KSl-VV-snP" firstAttribute="top" secondItem="dyr-m7-fRT" secondAttribute="top" id="zdE-xd-tFK"/>
                 </constraints>
@@ -98,12 +92,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
             <connections>
-                <outlet property="colorLabel" destination="61H-jf-AFO" id="1Yj-hh-h3d"/>
                 <outlet property="contentLabel" destination="g9E-GX-55r" id="w0f-pa-ErW"/>
                 <outlet property="titleLabel" destination="KSl-VV-snP" id="n9p-JP-iCB"/>
-                <outlet property="trophyImageView" destination="dyr-m7-fRT" id="W0C-qr-u78"/>
+                <outlet property="trophyGradeImageView" destination="1wR-U2-1O7" id="IkD-e5-tC7"/>
+                <outlet property="trophyThumbnailImageView" destination="dyr-m7-fRT" id="W0C-qr-u78"/>
             </connections>
-            <point key="canvasLocation" x="25" y="72"/>
+            <point key="canvasLocation" x="24.375" y="71.83098591549296"/>
         </tableViewCell>
     </objects>
     <resources>

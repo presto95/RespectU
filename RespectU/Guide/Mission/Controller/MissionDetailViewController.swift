@@ -127,17 +127,23 @@ class MissionDetailViewController: UIViewController {
     @IBAction func touchUpMoreButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            presentMoreAlert(title: object.stage1?.title?.english, button: object.stage1?.button, difficulty: object.stage1?.difficulty)
+            presentMoreAlert(object.stage1)
+            //presentMoreAlert(title: object.stage1?.localizedTitle, button: object.stage1?.button, difficulty: object.stage1?.difficulty)
         case 1:
-            presentMoreAlert(title: object.stage2?.title?.english, button: object.stage2?.button, difficulty: object.stage2?.difficulty)
+            presentMoreAlert(object.stage2)
+            //presentMoreAlert(title: object.stage2?.localizedTitle, button: object.stage2?.button, difficulty: object.stage2?.difficulty)
         case 2:
-            presentMoreAlert(title: object.stage3?.title?.english, button: object.stage3?.button, difficulty: object.stage3?.difficulty)
+            presentMoreAlert(object.stage3)
+            //presentMoreAlert(title: object.stage3?.localizedTitle, button: object.stage3?.button, difficulty: object.stage3?.difficulty)
         case 3:
-            presentMoreAlert(title: object.stage4?.title?.english, button: object.stage4?.button, difficulty: object.stage4?.difficulty)
+            presentMoreAlert(object.stage4)
+            //presentMoreAlert(title: object.stage4?.localizedTitle, button: object.stage4?.button, difficulty: object.stage4?.difficulty)
         case 4:
-            presentMoreAlert(title: object.stage5?.title?.english, button: object.stage5?.button, difficulty: object.stage5?.difficulty)
+            presentMoreAlert(object.stage5)
+            //presentMoreAlert(title: object.stage5?.localizedTitle, button: object.stage5?.button, difficulty: object.stage5?.difficulty)
         case 5:
-            presentMoreAlert(title: object.stage6?.title?.english, button: object.stage6?.button, difficulty: object.stage6?.difficulty)
+            presentMoreAlert(object.stage6)
+            //presentMoreAlert(title: object.stage6?.localizedTitle, button: object.stage6?.button, difficulty: object.stage6?.difficulty)
         default:
             break
         }
@@ -145,21 +151,21 @@ class MissionDetailViewController: UIViewController {
 }
 
 extension MissionDetailViewController {
-    ///더보기 버튼 눌렀을 때 UIAlertController 띄우기
-    private func presentMoreAlert(title: String?, button: String?, difficulty: String?) {
-        guard let title = title, let button = button, let difficulty = difficulty else { return }
+    /// 더보기 버튼 눌렀을 때 UIAlertController 띄우기
+    private func presentMoreAlert(_ object: MissionStageInfo?) {
+        guard let englishTitle = object?.title?.english, let localizedTitle = object?.localizedTitle, let button = object?.button, let difficulty = object?.difficulty else { return }
         var level: Int?
         var bpm: Int = 0
         var changesSpeed: Bool = false
-        if let object = SongInfo.fetch(by: title) {
-            if let subBpm = object.subBpm.value {
+        if let songInfo = SongInfo.fetch(by: englishTitle) {
+            if let subBpm = songInfo.subBpm.value {
                 bpm = subBpm
                 changesSpeed = true
             } else {
-                bpm = object.bpm
+                bpm = songInfo.bpm
             }
             if let buttonKeyPath = button.buttonExpansion {
-                guard let buttonResult = object.value(forKeyPath: buttonKeyPath) as? SongButtonInfo else { return }
+                guard let buttonResult = songInfo.value(forKeyPath: buttonKeyPath) as? SongButtonInfo else { return }
                 switch difficulty {
                 case Difficulty.normal:
                     level = buttonResult.normal
@@ -192,13 +198,12 @@ extension MissionDetailViewController {
         }
         DispatchQueue.main.async { [weak self] in
             UIAlertController
-                .alert(title: title, message: message)
+                .alert(title: localizedTitle, message: message)
                 .action(title: "OK".localized)
                 .present(to: self)
         }
     }
-    
-    ///뷰들의 가시성 초기 설정
+    /// 뷰들의 가시성 초기 설정
     private func setVisibilityOfViews() {
         if !existsSong1 {
             song1ButtonLabel.isHidden = true

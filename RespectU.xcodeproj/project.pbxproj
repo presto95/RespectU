@@ -17,6 +17,9 @@
 		191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F321121B9D0046AA3E /* UIViewController+.swift */; };
 		191275F62112225E0046AA3E /* MissionBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */; };
 		191275F8211232180046AA3E /* TrophyBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F7211232180046AA3E /* TrophyBaseTableViewController.swift */; };
+		1913B40F2175C08700D6C93F /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913B40D2175C08700D6C93F /* HistoryCell.swift */; };
+		1913B4102175C08700D6C93F /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1913B40E2175C08700D6C93F /* HistoryCell.xib */; };
+		1913B4122175C15900D6C93F /* HistoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913B4112175C15900D6C93F /* HistoryInfo.swift */; };
 		191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */; };
 		191A8B7E20E4FC930064F93E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7D20E4FC930064F93E /* UIAlertController+.swift */; };
 		191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */; };
@@ -222,6 +225,9 @@
 		191275F321121B9D0046AA3E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBaseTableViewController.swift; sourceTree = "<group>"; };
 		191275F7211232180046AA3E /* TrophyBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBaseTableViewController.swift; sourceTree = "<group>"; };
+		1913B40D2175C08700D6C93F /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		1913B40E2175C08700D6C93F /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		1913B4112175C15900D6C93F /* HistoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfo.swift; sourceTree = "<group>"; };
 		191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBSTableViewController.swift; sourceTree = "<group>"; };
 		191A8B7D20E4FC930064F93E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
@@ -487,6 +493,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		1913B40C2175C06000D6C93F /* History */ = {
+			isa = PBXGroup;
+			children = (
+				1913B40E2175C08700D6C93F /* HistoryCell.xib */,
+				1913B40D2175C08700D6C93F /* HistoryCell.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		1939C971212BFF1000A6F8E3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,6 +660,7 @@
 				19E4DAF0213D896100837A95 /* NewRecordInfo.swift */,
 				19E4DAED213D896100837A95 /* VersionInfo.swift */,
 				19E4DAEA213D896100837A95 /* RecordInfo.swift */,
+				1913B4112175C15900D6C93F /* HistoryInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -655,6 +671,7 @@
 				19E767CD20EE528D008C9F9D /* Main */,
 				19E767DA20EE5714008C9F9D /* SkillLevel */,
 				19E767D620EE560D008C9F9D /* Summary */,
+				1913B40C2175C06000D6C93F /* History */,
 			);
 			path = Performance;
 			sourceTree = "<group>";
@@ -1139,6 +1156,7 @@
 				199233DA216F938D00E040D7 /* GuideFirstCell.xib in Resources */,
 				193E3FF1204B9C240063A440 /* Record.storyboard in Resources */,
 				19320FCA204955DC0075BD86 /* Song.storyboard in Resources */,
+				1913B4102175C08700D6C93F /* HistoryCell.xib in Resources */,
 				19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */,
 				193DE8DC204922B400A829BB /* AchievementCell.xib in Resources */,
 				193E4035204C24180063A440 /* Ranking.storyboard in Resources */,
@@ -1268,6 +1286,7 @@
 				1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */,
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
 				193C285621366C28001EB7F3 /* SignInViewController.swift in Sources */,
+				1913B4122175C15900D6C93F /* HistoryInfo.swift in Sources */,
 				19B09E35212C5576005EE66D /* TipResponse.swift in Sources */,
 				191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */,
 				19D67EC820744F0700FD9EC7 /* RecordPortable2TableViewController.swift in Sources */,
@@ -1294,6 +1313,7 @@
 				194E52B7204AC55900B84AFA /* SongCell.swift in Sources */,
 				19E4DB01213D896100837A95 /* AchievementInfo.swift in Sources */,
 				192DF89D2111DA640016F386 /* Buttons.swift in Sources */,
+				1913B40F2175C08700D6C93F /* HistoryCell.swift in Sources */,
 				19012FBC204837040061EF21 /* PerformanceViewController.swift in Sources */,
 				193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */,
 				198B6C4E211382C70058DE49 /* RankingBaseTableViewController.swift in Sources */,

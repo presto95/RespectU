@@ -15,7 +15,6 @@ class Skill {
     static let button5SkillPoint = "button5SkillPoint"
     static let button6SkillPoint = "button6SkillPoint"
     static let button8SkillPoint = "button8SkillPoint"
-    
     ///단일 스킬포인트 계산
     static func skillPoint(difficulty: Int, rate: Double?, note: String?) -> Double {
         guard let rate = rate, let note = note else { return 0 }
@@ -39,7 +38,6 @@ class Skill {
         skillPoint = (skillPoint * 100).rounded() / 100
         return skillPoint
     }
-    
     ///현재 데이터베이스로 얻을 수 있는 최대 스킬포인트 계산
     static func maxSkillPoint(button: String) -> Double {
         let results = SongInfo.fetch()
@@ -69,7 +67,6 @@ class Skill {
         }
         return max
     }
-    
     ///내 기록의 스킬포인트와 1등의 시리즈 계산
     static func mySkillPointAndHighestSeries(button: String) -> (sum: Double, highestSeries: String) {
         func sumAndHighestSeries(_ results: Results<NewRecordInfo>?, button: String) -> (sum: Double, highestSeries: String) {
@@ -124,7 +121,6 @@ class Skill {
             return (0, "")
         }
     }
-    
     ///스킬포인트 다시 계산하여 데이터베이스 갱신
     static func refresh() {
         let recordResults = NewRecordInfo.fetch()
@@ -173,7 +169,6 @@ class Skill {
             
         }
     }
-    
     ///버튼별 현재 스킬레벨의 다음 단계 가져오기
     static func nextSkillLevel(of skillLevel: String, button: String) -> String? {
         var index: Int = 0
@@ -214,7 +209,6 @@ class Skill {
         }
         return nextSkillLevel
     }
-    
     ///성과 기록 비율 계산
     static func recordRate(button: String) -> Double {
         var counts = [0, 0]
@@ -330,7 +324,6 @@ extension Skill {
             return nil
         }
     }
-    
     ///5버튼 스킬 레벨 반환
     static func button5SkillLevel(_ value: Double) -> String? {
         switch value {
@@ -396,7 +389,6 @@ extension Skill {
             return nil
         }
     }
-    
     ///6, 8버튼 스킬 레벨 반환
     static func button6And8SkillLevel(_ value: Double) -> String? {
         switch value {
@@ -462,7 +454,6 @@ extension Skill {
             return nil
         }
     }
-    
     ///스킬포인트 가중치 계산
     static func weight(_ value: Int) -> Double {
         switch value {

@@ -108,6 +108,7 @@
 		1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1958DAB52151312700D8AE41 /* .swiftlint.yml */; };
 		195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A6A23216F17F90072D03A /* IndicatorView.swift */; };
 		195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195A6A24216F17F90072D03A /* IndicatorView.xib */; };
+		1963FF04217C664900FF6FE1 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1963FF03217C664900FF6FE1 /* Date+.swift */; };
 		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
 		1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968184A2048F70D0007F4D7 /* RadioViewController.swift */; };
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
@@ -316,6 +317,7 @@
 		1958DAB52151312700D8AE41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		195A6A23216F17F90072D03A /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		195A6A24216F17F90072D03A /* IndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
+		1963FF03217C664900FF6FE1 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
 		1968184A2048F70D0007F4D7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
 				191C36662170F9B100B2594B /* CAGradientLayer+.swift */,
+				1963FF03217C664900FF6FE1 /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1283,6 +1286,7 @@
 				198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */,
 				19E4DAFC213D896100837A95 /* SongInfo.swift in Sources */,
 				19320FC4204942640075BD86 /* AchievementCommentTableViewController.swift in Sources */,
+				1963FF04217C664900FF6FE1 /* Date+.swift in Sources */,
 				1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */,
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
 				193C285621366C28001EB7F3 /* SignInViewController.swift in Sources */,

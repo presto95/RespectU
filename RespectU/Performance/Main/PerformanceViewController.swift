@@ -39,8 +39,6 @@ class PerformanceViewController: UIViewController {
         presentRateView()
     }
     
-    
-    
     func setup() {
         recordButton.setTitle("Performance Record".localized, for: .normal)
         self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4

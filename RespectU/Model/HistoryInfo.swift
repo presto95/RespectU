@@ -25,6 +25,11 @@ class HistoryInfo: Object {
             return title?.english ?? ""
         }
     }
+    var localizedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd HH:dd"
+        return dateFormatter.string(from: date)
+    }
     
     static func add(_ historyInfo: HistoryInfo) {
         let realm = try! Realm()
@@ -39,6 +44,26 @@ class HistoryInfo: Object {
         object.currentRecord = historyInfo.currentRecord
         try! realm.write {
             realm.add(object)
+        }
+    }
+    
+    static func fetch(_ date: Date) -> Results<HistoryInfo> {
+        let historyInfo = try! Realm().objects(HistoryInfo.self)
+        return historyInfo
+        
+    }
+    
+    static func remove(_ historyInfo: HistoryInfo) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(historyInfo)
+        }
+    }
+    
+    static func removeAll() {
+        let realm = try! Realm()
+        try! realm.write {
+            
         }
     }
 }

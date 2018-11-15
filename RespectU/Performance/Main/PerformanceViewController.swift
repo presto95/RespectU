@@ -150,29 +150,6 @@ private extension PerformanceViewController {
         }
     }
 }
-// MARK: - Ranking
-extension PerformanceViewController {
-    func didReceiveUploadRanking(statusCode: Int?, error: Error?) {
-        if let error = error {
-            UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
-            return
-        }
-        guard let statusCode = statusCode else { return }
-        if (200...299).contains(statusCode) {
-            DispatchQueue.main.async { [weak self] in
-                guard let next = UIViewController.instantiate(storyboard: "Ranking", identifier: RankingViewController.classNameToString) else { return }
-                self?.present(next, animated: true)
-            }
-        } else {
-            DispatchQueue.main.async { [weak self] in
-                UIAlertController
-                    .alert(title: "", message: "Network Error".localized)
-                    .action(title: "OK".localized)
-                    .present(to: self)
-            }
-        }
-    }
-}
 
 extension PerformanceViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -238,23 +215,6 @@ extension PerformanceViewController: SkillLevelCellDelegate {
     func didTouchUpMoreButton(_ sender: UIButton) {
         guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
         self.present(controller, animated: true)
-    }
-    
-    func didTouchUpRankingButton(_ sender: UIButton) {
-        let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
-        if id.isEmpty {
-            UIAlertController
-                .alert(title: "", message: "Log In First.".localized)
-                .action(title: "OK".localized)
-                .present(to: self)
-        } else {
-            let nickname = UserDefaults.standard.string(forKey: "nickname") ?? "noname"
-            let button4SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button4).sum
-            let button5SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button5).sum
-            let button6SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button6).sum
-            let button8SkillPoint = Skill.mySkillPointAndHighestSeries(button: Buttons.button8).sum
-            API.uploadRanking(id: id, nickname: nickname, button4: button4SkillPoint, button5: button5SkillPoint, button6: button6SkillPoint, button8: button8SkillPoint, completion: didReceiveUploadRanking)
-        }
     }
     
     func didTouchUpTop50Button(_ sender: UIButton) {

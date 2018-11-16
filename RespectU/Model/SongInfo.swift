@@ -83,7 +83,7 @@ class SongInfo: Object {
         }
     }
     
-    ///시리즈별 음악 가져오기
+    /// 시리즈별 음악 가져오기
     static func fetch(of series: String = "") -> Results<SongInfo> {
         let songInfo = try! Realm().objects(SongInfo.self)
         if series.isEmpty {
@@ -94,13 +94,13 @@ class SongInfo: Object {
         }
     }
     
-    ///타이틀별 음악 가져오기
+    /// 타이틀별 음악 가져오기
     static func fetch(by title: String) -> SongInfo? {
         let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), title)
         return try! Realm().objects(SongInfo.self).filter(predicate).first
     }
     
-    ///타이틀로 필터링한 내부 데이터베이스 갱신
+    /// 타이틀로 필터링한 내부 데이터베이스 갱신
     static func update(_ object: SongResponse.Song, to songInfo: SongInfo) {
         let realm = try! Realm()
         try! realm.write {

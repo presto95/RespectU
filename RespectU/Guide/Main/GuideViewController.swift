@@ -9,6 +9,7 @@
 import UIKit
 import SwiftKeychainWrapper
 import MessageUI
+import SafariServices
 
 class GuideViewController: UIViewController {
 
@@ -70,8 +71,13 @@ extension GuideViewController: GuideFirstCellDelegate {
         if !Reachability.isConnectedToNetwork() {
             presentNetworkAlert()
         } else {
-            guard let controller = UIViewController.instantiate(storyboard: "Manual", identifier: ManualViewController.classNameToString) as? ManualViewController else { return }
-            self.present(controller, animated: true)
+            guard let url = URL(string: "http://djmaxrespect.com/manual.html") else { return }
+            let config = SFSafariViewController.Configuration()
+            config.barCollapsingEnabled = true
+            let controller = SFSafariViewController(url: url, configuration: config)
+            controller.preferredControlTintColor = .main
+            controller.dismissButtonStyle = .close
+            present(controller, animated: true, completion: nil)
         }
     }
 }
@@ -155,8 +161,13 @@ extension GuideViewController: GuideThirdCellDelegate {
         if !Reachability.isConnectedToNetwork() {
             presentNetworkAlert()
         } else {
-            guard let controller = UIViewController.instantiate(storyboard: "Radio", identifier: RadioViewController.classNameToString) as? RadioViewController else { return }
-            self.present(controller, animated: true)
+            guard let url = URL(string: "https://djmax.protomox.com") else { return }
+            let config = SFSafariViewController.Configuration()
+            config.barCollapsingEnabled = true
+            let controller = SFSafariViewController(url: url, configuration: config)
+            controller.preferredControlTintColor = .main
+            controller.dismissButtonStyle = .close
+            present(controller, animated: true, completion: nil)
         }
     }
     

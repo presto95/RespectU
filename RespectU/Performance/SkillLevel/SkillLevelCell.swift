@@ -12,7 +12,6 @@ import RealmSwift
 
 protocol SkillLevelCellDelegate: class {
     func didTouchUpTop50Button(_ sender: UIButton)
-    func didTouchUpRankingButton(_ sender: UIButton)
     func didTouchUpMoreButton(_ sender: UIButton)
 }
 
@@ -26,7 +25,6 @@ class SkillLevelCell: UITableViewCell {
     @IBOutlet weak var skillLevelLabel: UILabel!
     @IBOutlet weak var skillPointLabel: UILabel!
     @IBOutlet weak var top50Button: UIButton!
-    @IBOutlet weak var rankingButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var nextLevelLabel: UILabel!
@@ -38,10 +36,8 @@ class SkillLevelCell: UITableViewCell {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.masksToBounds = true
-        rankingButton.setTitle("Ranking".localized, for: [])
         moreButton.setTitle("More".localized, for: [])
         top50Button.addTarget(self, action: #selector(didTouchUpTop50Button(_:)), for: .touchUpInside)
-        rankingButton.addTarget(self, action: #selector(didTouchUpRankingButton(_:)), for: .touchUpInside)
         moreButton.addTarget(self, action: #selector(didTouchUpMoreButton(_:)), for: .touchUpInside)
     }
 
@@ -76,10 +72,6 @@ class SkillLevelCell: UITableViewCell {
     
     @objc func didTouchUpTop50Button(_ sender: UIButton) {
         delegate?.didTouchUpTop50Button(sender)
-    }
-    
-    @objc func didTouchUpRankingButton(_ sender: UIButton) {
-        delegate?.didTouchUpRankingButton(sender)
     }
     
     @objc func didTouchUpMoreButton(_ sender: UIButton) {

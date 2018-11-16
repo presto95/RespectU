@@ -17,12 +17,13 @@
 		191275F421121B9D0046AA3E /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F321121B9D0046AA3E /* UIViewController+.swift */; };
 		191275F62112225E0046AA3E /* MissionBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */; };
 		191275F8211232180046AA3E /* TrophyBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191275F7211232180046AA3E /* TrophyBaseTableViewController.swift */; };
+		1913B40F2175C08700D6C93F /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913B40D2175C08700D6C93F /* HistoryCell.swift */; };
+		1913B4102175C08700D6C93F /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1913B40E2175C08700D6C93F /* HistoryCell.xib */; };
+		1913B4122175C15900D6C93F /* HistoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913B4112175C15900D6C93F /* HistoryInfo.swift */; };
 		191A8B7C20E4FAAC0064F93E /* RecordBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */; };
 		191A8B7E20E4FC930064F93E /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7D20E4FC930064F93E /* UIAlertController+.swift */; };
 		191A8B8020E51ACF0064F93E /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */; };
 		191C36672170F9B100B2594B /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191C36662170F9B100B2594B /* CAGradientLayer+.swift */; };
-		191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191DFEBA204E98360095E9C1 /* ManualViewController.swift */; };
-		191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 191DFEBC204E98850095E9C1 /* Manual.storyboard */; };
 		1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1928D5FC211824DF00F7901F /* UITableViewCell+.swift */; };
 		192AFE2320E48ACA0006397F /* SongBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */; };
 		192AFE2520E48AD50006397F /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */; };
@@ -105,8 +106,7 @@
 		1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1958DAB52151312700D8AE41 /* .swiftlint.yml */; };
 		195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A6A23216F17F90072D03A /* IndicatorView.swift */; };
 		195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195A6A24216F17F90072D03A /* IndicatorView.xib */; };
-		196818492048F6820007F4D7 /* Radio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196818482048F6820007F4D7 /* Radio.storyboard */; };
-		1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968184A2048F70D0007F4D7 /* RadioViewController.swift */; };
+		1963FF04217C664900FF6FE1 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1963FF03217C664900FF6FE1 /* Date+.swift */; };
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
 		1968185120490C730007F4D7 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185020490C730007F4D7 /* TipViewController.swift */; };
 		1968185320490D300007F4D7 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185220490D300007F4D7 /* UIColor+.swift */; };
@@ -222,12 +222,13 @@
 		191275F321121B9D0046AA3E /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		191275F52112225E0046AA3E /* MissionBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBaseTableViewController.swift; sourceTree = "<group>"; };
 		191275F7211232180046AA3E /* TrophyBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBaseTableViewController.swift; sourceTree = "<group>"; };
+		1913B40D2175C08700D6C93F /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		1913B40E2175C08700D6C93F /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		1913B4112175C15900D6C93F /* HistoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfo.swift; sourceTree = "<group>"; };
 		191A8B7B20E4FAAC0064F93E /* RecordBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBSTableViewController.swift; sourceTree = "<group>"; };
 		191A8B7D20E4FC930064F93E /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		191A8B7F20E51ACF0064F93E /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
 		191C36662170F9B100B2594B /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
-		191DFEBA204E98360095E9C1 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
-		191DFEBC204E98850095E9C1 /* Manual.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Manual.storyboard; sourceTree = "<group>"; };
 		1928D5FC211824DF00F7901F /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		192AFE2220E48ACA0006397F /* SongBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBSTableViewController.swift; sourceTree = "<group>"; };
 		192AFE2420E48AD50006397F /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
@@ -310,8 +311,7 @@
 		1958DAB52151312700D8AE41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		195A6A23216F17F90072D03A /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
 		195A6A24216F17F90072D03A /* IndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
-		196818482048F6820007F4D7 /* Radio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Radio.storyboard; sourceTree = "<group>"; };
-		1968184A2048F70D0007F4D7 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		1963FF03217C664900FF6FE1 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
 		1968185020490C730007F4D7 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		1968185220490D300007F4D7 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -460,6 +460,7 @@
 				191275EA211206790046AA3E /* NSObject+.swift */,
 				19F13FB92112ED87003E622E /* Results+.swift */,
 				191C36662170F9B100B2594B /* CAGradientLayer+.swift */,
+				1963FF03217C664900FF6FE1 /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -485,6 +486,15 @@
 				191275EC21120B080046AA3E /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		1913B40C2175C06000D6C93F /* History */ = {
+			isa = PBXGroup;
+			children = (
+				1913B40E2175C08700D6C93F /* HistoryCell.xib */,
+				1913B40D2175C08700D6C93F /* HistoryCell.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		1939C971212BFF1000A6F8E3 /* Network */ = {
@@ -645,6 +655,7 @@
 				19E4DAF0213D896100837A95 /* NewRecordInfo.swift */,
 				19E4DAED213D896100837A95 /* VersionInfo.swift */,
 				19E4DAEA213D896100837A95 /* RecordInfo.swift */,
+				1913B4112175C15900D6C93F /* HistoryInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -655,6 +666,7 @@
 				19E767CD20EE528D008C9F9D /* Main */,
 				19E767DA20EE5714008C9F9D /* SkillLevel */,
 				19E767D620EE560D008C9F9D /* Summary */,
+				1913B40C2175C06000D6C93F /* History */,
 			);
 			path = Performance;
 			sourceTree = "<group>";
@@ -668,8 +680,6 @@
 				19E767B820EE49CA008C9F9D /* Trophy */,
 				19E767B920EE49CE008C9F9D /* Achievement */,
 				19E767C820EE4CFE008C9F9D /* Tip */,
-				19E767CA20EE4D09008C9F9D /* Manual */,
-				19E767C920EE4D05008C9F9D /* Radio */,
 				193C285E2136C8C4001EB7F3 /* Upload */,
 				193C28652136E516001EB7F3 /* Download */,
 			);
@@ -846,24 +856,6 @@
 				1968185020490C730007F4D7 /* TipViewController.swift */,
 			);
 			path = Tip;
-			sourceTree = "<group>";
-		};
-		19E767C920EE4D05008C9F9D /* Radio */ = {
-			isa = PBXGroup;
-			children = (
-				196818482048F6820007F4D7 /* Radio.storyboard */,
-				1968184A2048F70D0007F4D7 /* RadioViewController.swift */,
-			);
-			path = Radio;
-			sourceTree = "<group>";
-		};
-		19E767CA20EE4D09008C9F9D /* Manual */ = {
-			isa = PBXGroup;
-			children = (
-				191DFEBC204E98850095E9C1 /* Manual.storyboard */,
-				191DFEBA204E98360095E9C1 /* ManualViewController.swift */,
-			);
-			path = Manual;
 			sourceTree = "<group>";
 		};
 		19E767CC20EE51A5008C9F9D /* Start */ = {
@@ -1139,6 +1131,7 @@
 				199233DA216F938D00E040D7 /* GuideFirstCell.xib in Resources */,
 				193E3FF1204B9C240063A440 /* Record.storyboard in Resources */,
 				19320FCA204955DC0075BD86 /* Song.storyboard in Resources */,
+				1913B4102175C08700D6C93F /* HistoryCell.xib in Resources */,
 				19B6CFF91F7953640097B86B /* LaunchScreen.storyboard in Resources */,
 				193DE8DC204922B400A829BB /* AchievementCell.xib in Resources */,
 				193E4035204C24180063A440 /* Ranking.storyboard in Resources */,
@@ -1149,12 +1142,10 @@
 				193C28672136E522001EB7F3 /* Download.storyboard in Resources */,
 				1999920F2049641A00C74697 /* MissionCell.xib in Resources */,
 				19585868213B0E76000C78C4 /* Init.storyboard in Resources */,
-				191DFEBD204E98850095E9C1 /* Manual.storyboard in Resources */,
 				19B6CFF61F7953640097B86B /* Assets.xcassets in Resources */,
 				193E403B204C2EB60063A440 /* RankingCell.xib in Resources */,
 				1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */,
 				193C28602136C8E7001EB7F3 /* Upload.storyboard in Resources */,
-				196818492048F6820007F4D7 /* Radio.storyboard in Resources */,
 				19320FC8204955D50075BD86 /* Mission.storyboard in Resources */,
 				199233E2216F93A700E040D7 /* GuideThirdCell.xib in Resources */,
 				19012FB82048345B0061EF21 /* Guide.storyboard in Resources */,
@@ -1265,11 +1256,11 @@
 				198FC961204D24BD0026BA1D /* SummaryCollectionCell.swift in Sources */,
 				19E4DAFC213D896100837A95 /* SongInfo.swift in Sources */,
 				19320FC4204942640075BD86 /* AchievementCommentTableViewController.swift in Sources */,
-				1968184B2048F70D0007F4D7 /* RadioViewController.swift in Sources */,
+				1963FF04217C664900FF6FE1 /* Date+.swift in Sources */,
 				193E3FF3204B9EB80063A440 /* RecordViewController.swift in Sources */,
 				193C285621366C28001EB7F3 /* SignInViewController.swift in Sources */,
+				1913B4122175C15900D6C93F /* HistoryInfo.swift in Sources */,
 				19B09E35212C5576005EE66D /* TipResponse.swift in Sources */,
-				191DFEBB204E98360095E9C1 /* ManualViewController.swift in Sources */,
 				19D67EC820744F0700FD9EC7 /* RecordPortable2TableViewController.swift in Sources */,
 				193E4031204C24060063A440 /* Ranking8BTableViewController.swift in Sources */,
 				19D67EC620744EEB00FD9EC7 /* RecordAllTableViewController.swift in Sources */,
@@ -1294,6 +1285,7 @@
 				194E52B7204AC55900B84AFA /* SongCell.swift in Sources */,
 				19E4DB01213D896100837A95 /* AchievementInfo.swift in Sources */,
 				192DF89D2111DA640016F386 /* Buttons.swift in Sources */,
+				1913B40F2175C08700D6C93F /* HistoryCell.swift in Sources */,
 				19012FBC204837040061EF21 /* PerformanceViewController.swift in Sources */,
 				193E4023204C09E70063A440 /* Top505BTableViewController.swift in Sources */,
 				198B6C4E211382C70058DE49 /* RankingBaseTableViewController.swift in Sources */,
@@ -1460,7 +1452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1514,7 +1506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1532,6 +1524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H79MF628K3;
 				INFOPLIST_FILE = "$(SRCROOT)/RespectU/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1554,6 +1547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H79MF628K3;
 				INFOPLIST_FILE = "$(SRCROOT)/RespectU/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectU;
 				PRODUCT_NAME = "$(TARGET_NAME)";

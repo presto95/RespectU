@@ -51,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = controller
         }
         window?.makeKeyAndVisible()
-        UIApplication.shared.isStatusBarHidden = false
         if UserDefaults.standard.double(forKey: "bpm") == 0 {
             UserDefaults.standard.set(450, forKey: "bpm")
         }

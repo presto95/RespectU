@@ -193,11 +193,19 @@
 
 ### 버전 기록
 
-**3.00**
+
 
 ![7](./images/7.png)
 
 ![8](./images/8.png)
+
+**3.01**
+
+- WKWebView를 SFSafariViewController로 교체
+  - 지원 최소 버전을 11.0으로 변경
+- 버그 수정
+
+**3.00**
 
 - DJMAX RESPECT 1.18에 대응
 - UI 전면 수정

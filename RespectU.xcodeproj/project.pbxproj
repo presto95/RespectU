@@ -120,6 +120,8 @@
 		1976FD05211239E600B80C4C /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */; };
 		198391F01F7CE21F009C7B5D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F11F7CE21F009C7B5D /* RealmSwift.framework */; };
 		198391F41F7CE227009C7B5D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198391F51F7CE227009C7B5D /* Realm.framework */; };
+		1984269821B7EA0A001F491C /* RespectUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1984269721B7EA0A001F491C /* RespectUUITests.swift */; };
+		198426A021B7EA3B001F491C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1984269F21B7EA3B001F491C /* SnapshotHelper.swift */; };
 		1986CA2D205F542100CA43EA /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA2C205F542100CA43EA /* SearchByRateView.xib */; };
 		1986CA31205F543F00CA43EA /* SearchByNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1986CA30205F543F00CA43EA /* SearchByNoteView.xib */; };
 		1986CA33205F544900CA43EA /* SearchByNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1986CA32205F544900CA43EA /* SearchByNoteView.swift */; };
@@ -197,6 +199,16 @@
 		19FD9CEE21355E110014A0D4 /* RecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FD9CED21355E110014A0D4 /* RecordResponse.swift */; };
 		1C0E1D5872206B8A4DABA752 /* Pods_RespectU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C82758ABE7A6568499A7F2 /* Pods_RespectU.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1984269A21B7EA0A001F491C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19B6CFE01F7953640097B86B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19B6CFE71F7953640097B86B;
+			remoteInfo = RespectU;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		19AC39071F7C806400F170E3 /* Embed Frameworks */ = {
@@ -325,6 +337,10 @@
 		1976FD04211239E600B80C4C /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
 		198391F11F7CE21F009C7B5D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		198391F51F7CE227009C7B5D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1984269521B7EA0A001F491C /* RespectUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RespectUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1984269721B7EA0A001F491C /* RespectUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespectUUITests.swift; sourceTree = "<group>"; };
+		1984269921B7EA0A001F491C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1984269F21B7EA3B001F491C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		1986CA2C205F542100CA43EA /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
 		1986CA30205F543F00CA43EA /* SearchByNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByNoteView.xib; sourceTree = "<group>"; };
 		1986CA32205F544900CA43EA /* SearchByNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNoteView.swift; sourceTree = "<group>"; };
@@ -410,6 +426,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1984269221B7EA0A001F491C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B6CFE51F7953640097B86B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,6 +575,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1984269621B7EA0A001F491C /* RespectUUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1984269721B7EA0A001F491C /* RespectUUITests.swift */,
+				1984269F21B7EA3B001F491C /* SnapshotHelper.swift */,
+				1984269921B7EA0A001F491C /* Info.plist */,
+			);
+			path = RespectUUITests;
+			sourceTree = "<group>";
+		};
 		199233D3216F934000E040D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +630,7 @@
 			children = (
 				1958DAB52151312700D8AE41 /* .swiftlint.yml */,
 				19B6CFEA1F7953640097B86B /* RespectU */,
+				1984269621B7EA0A001F491C /* RespectUUITests */,
 				19B6CFE91F7953640097B86B /* Products */,
 				198391EF1F7CE21F009C7B5D /* Frameworks */,
 				157E9212944C668B7A2097B4 /* Pods */,
@@ -607,6 +641,7 @@
 			isa = PBXGroup;
 			children = (
 				19B6CFE81F7953640097B86B /* RespectU.app */,
+				1984269521B7EA0A001F491C /* RespectUUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1051,6 +1086,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1984269421B7EA0A001F491C /* RespectUUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1984269E21B7EA0A001F491C /* Build configuration list for PBXNativeTarget "RespectUUITests" */;
+			buildPhases = (
+				1984269121B7EA0A001F491C /* Sources */,
+				1984269221B7EA0A001F491C /* Frameworks */,
+				1984269321B7EA0A001F491C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1984269B21B7EA0A001F491C /* PBXTargetDependency */,
+			);
+			name = RespectUUITests;
+			productName = RespectUUITests;
+			productReference = 1984269521B7EA0A001F491C /* RespectUUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		19B6CFE71F7953640097B86B /* RespectU */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19B6CFFD1F7953640097B86B /* Build configuration list for PBXNativeTarget "RespectU" */;
@@ -1078,10 +1131,16 @@
 		19B6CFE01F7953640097B86B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				DefaultBuildSystemTypeForWorkspace = Original;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Presto;
 				TargetAttributes = {
+					1984269421B7EA0A001F491C = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 19B6CFE71F7953640097B86B;
+					};
 					19B6CFE71F7953640097B86B = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0920;
@@ -1103,11 +1162,19 @@
 			projectRoot = "";
 			targets = (
 				19B6CFE71F7953640097B86B /* RespectU */,
+				1984269421B7EA0A001F491C /* RespectUUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1984269321B7EA0A001F491C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B6CFE61F7953640097B86B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1225,6 +1292,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1984269121B7EA0A001F491C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1984269821B7EA0A001F491C /* RespectUUITests.swift in Sources */,
+				198426A021B7EA3B001F491C /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B6CFE41F7953640097B86B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1380,6 +1456,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1984269B21B7EA0A001F491C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19B6CFE71F7953640097B86B /* RespectU */;
+			targetProxy = 1984269A21B7EA0A001F491C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		19B6602B1F960FA800CCEFB5 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
@@ -1401,6 +1485,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1984269C21B7EA0A001F491C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H79MF628K3;
+				INFOPLIST_FILE = RespectUUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectUUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RespectU;
+			};
+			name = Debug;
+		};
+		1984269D21B7EA0A001F491C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H79MF628K3;
+				INFOPLIST_FILE = RespectUUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectUUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RespectU;
+			};
+			name = Release;
+		};
 		19B6CFFB1F7953640097B86B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1562,6 +1683,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1984269E21B7EA0A001F491C /* Build configuration list for PBXNativeTarget "RespectUUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1984269C21B7EA0A001F491C /* Debug */,
+				1984269D21B7EA0A001F491C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		19B6CFE31F7953640097B86B /* Build configuration list for PBXProject "RespectU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

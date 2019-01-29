@@ -11,7 +11,7 @@ import XLPagerTabStrip
 
 class AchievementViewController: BaseViewController {
     
-    private lazy var allTableViewController = AchievementAllTableViewController()
+    private lazy var allTableViewController =  AchievementAllTableViewController()
     private lazy var musicTableViewController = AchievementMusicTableViewController()
     private lazy var gearTableViewController = AchievementGearTableViewController()
     private lazy var noteTableViewController = AchievementNoteTableViewController()

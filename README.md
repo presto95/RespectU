@@ -1,10 +1,10 @@
-# RespectU_iOS
+# RespectU
 ![logo](./images/logo.png)
 
 ![Language](https://img.shields.io/badge/swift-4.2-orange.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
 
-### RespectU : Guide for DJMAX RESPECT (iOS)
+### RespectU : Guide for DJMAX RESPECT
 
 국산 리듬게임 **[디제이맥스 리스펙트](https://www.djmaxrespect.com/#)** 의 가이드 애플리케이션
 
@@ -52,32 +52,7 @@
 
 #### SwiftLint를 통한 코드 스타일 및 컨벤션 강제
 
-   - 다양한 에러와 경고가 발생했고 빌드가 가능한 코드를 만드는 데만 해도 꽤 많은 시간이 걸렸다.
    - 수정 과정을 통해서 사람들이 많이 사용하는 코딩 컨벤션을 알 수 있었고, 더 나은 코드로 수정할 수 있었다.
-   - 그 중 몇 개를 정리한다.
-     - `for_where` 
-       - `for-in` 구문으로 컬렉션을 순회하면서 `if` 문으로 조건을 주어 작업을 처리하고 `break` 하는 코드가 있었는데, 이렇게 하기보다는 `where` 구문을 사용하여 더 나은 코드와 결과를 얻을 수 있었다.
-     - `function_parameter_count`
-       - 함수의 매개변수 개수는 5개 이하를 권장한다.
-       - 그 이상이 될 때는 구조체같은 것을 만들어서 보내주자.
-       - 어디서 매개변수 5개 까지는 레지스터에 저장되고 그 이상은 메모리에 저장되어서 속도 차가 난다고 들었던 것 같다. 이것 때문도 있겠지만 구조체 같은 것에 묶어서 보내주는 것이 여러모로 좋다.
-     - `void_return`
-       - `Void` 를 리턴하는 함수라면 `-> ()` 대신 `-> Void` 라고 작성하자.
-     - `unused_closure_parameter`
-       - 사용하지 않는 클로저 파라미터는 `_` 로 처리해주자.
-     - `notification_center_detachment`
-       - `deinit` 에서 옵저버를 제거하는 코드를 작성하자.
-     - `nesting`
-       - 응답 모델을 정의하는 곳에서 발생하였다. 중첩 타입의 뎁스를 두 개 이상으로 하는 것을 지양하자.
-     - `weak_delegate`
-       - 델리게이트 변수는 참조 순환을 피하기 위해 `weak` 로 선언되어야 한다.
-     - `class_delegate_protocol` 
-       - 델리게이트를 위한 프로토콜을 클래스만 채택할 수 있게 해야 한다. 그래야 약한 참조가 가능하다.
-       - `weak_delegate` 와 함께 실용적인 팁을 얻은 부분이다.
-     - `mark`
-       - 마크 주석 관련. `// MARK: ` 또는 `// MARK: -` 과 같은 형식을 사용한다.
-     - `multiple_closure_with_trailing_closure`
-       - 한 개 이상의 클로저를 파라미터로 넘길 때 후행 클로저 문법 사용을 지양하자.
 
 #### Memory Profiling
 

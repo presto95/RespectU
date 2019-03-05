@@ -30,18 +30,18 @@ class RespectUUITests: XCTestCase {
 
     func testExample() {
         
-        let app = XCUIApplication()
-        let window = app.children(matching: .window).element(boundBy: 0)
-        window.children(matching: .other).element.children(matching: .other).element.tap()
-        
-        let element = window.children(matching: .other).element(boundBy: 1)
-        element.tap()
-        element.tap()
-        app.alerts.buttons["OK"].tap()
-        app.buttons["nextButton"].tap()
-        snapshot("1")
-        app.buttons["backButton"].tap()
-        snapshot("2")
+//        let app = XCUIApplication()
+//        let window = app.children(matching: .window).element(boundBy: 0)
+//        window.children(matching: .other).element.children(matching: .other).element.tap()
+//
+//        let element = window.children(matching: .other).element(boundBy: 1)
+//        element.tap()
+//        element.tap()
+//        app.alerts.buttons["OK"].tap()
+//        app.buttons["nextButton"].tap()
+//        snapshot("1")
+//        app.buttons["backButton"].tap()
+//        snapshot("2")
     }
 
 }

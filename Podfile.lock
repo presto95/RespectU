@@ -8,7 +8,6 @@ PODS:
   - RealmSwift (3.11.0):
     - Realm (= 3.11.0)
   - SwiftKeychainWrapper (3.0.1)
-  - SwiftLint (0.27.0)
   - XLPagerTabStrip (8.0.1)
 
 DEPENDENCIES:
@@ -17,7 +16,6 @@ DEPENDENCIES:
   - MarqueeLabel/Swift
   - RealmSwift
   - SwiftKeychainWrapper
-  - SwiftLint
   - XLPagerTabStrip (~> 8.0)
 
 SPEC REPOS:
@@ -28,7 +26,6 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SwiftKeychainWrapper
-    - SwiftLint
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
@@ -38,9 +35,8 @@ SPEC CHECKSUMS:
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
-  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 967e17f81bf34e2b4bb2c7b9689c3016794bf520
+PODFILE CHECKSUM: 462de7f63c12067c8a45563754b43b55f29489b7
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.0

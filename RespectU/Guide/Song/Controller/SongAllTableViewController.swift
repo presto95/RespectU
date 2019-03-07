@@ -7,17 +7,19 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class SongAllTableViewController: SongBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+final class SongAllTableViewController: SongBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
 }
 
 extension SongAllTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "ALL")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "ALL")
+  }
 }

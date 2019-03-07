@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class SongBSTableViewController: SongBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songResults = songResults?.filter { $0.series == Series.bs }
-    }
+final class SongBSTableViewController: SongBaseTableViewController {
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    songResults = songResults?.filter { $0.series == Series.bs }
+  }
 }
 
 extension SongBSTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "BLACK SQUARE")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "BLACK SQUARE")
+  }
 }

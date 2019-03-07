@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class MissionLinkDiskTableViewController: MissionBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = MissionInfo.fetch(of: Series.linkDisk)
-    }
+final class MissionLinkDiskTableViewController: MissionBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = MissionInfo.fetch(of: Series.linkDisk)
+  }
 }
 
 extension MissionLinkDiskTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "LINK DISK")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "LINK DISK")
+  }
 }

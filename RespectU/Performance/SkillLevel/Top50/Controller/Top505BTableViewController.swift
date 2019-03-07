@@ -7,25 +7,27 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class Top505BTableViewController: Top50BaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = tempResults.sorted { $0.button5?.skillPoint ?? 0 > $1.button5?.skillPoint ?? 0 }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? Top50Cell else { return UITableViewCell() }
-        let object = results[indexPath.row]
-        cell.setProperties(object, button: Buttons.button5)
-        return cell
-    }
+final class Top505BTableViewController: Top50BaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = tempResults.sorted { $0.button5?.skillPoint ?? 0 > $1.button5?.skillPoint ?? 0 }
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? Top50Cell else { return UITableViewCell() }
+    let object = results[indexPath.row]
+    cell.setProperties(object, button: Buttons.button5)
+    return cell
+  }
 }
 
 extension Top505BTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: Buttons.button5.uppercased())
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: Buttons.button5.uppercased())
+  }
 }

@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class MissionTechnika1TableViewController: MissionBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = MissionInfo.fetch(of: Series.technika1)
-    }
+final class MissionTechnika1TableViewController: MissionBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = MissionInfo.fetch(of: Series.technika1)
+  }
 }
 
 extension MissionTechnika1TableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA 1")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "TECHNIKA 1")
+  }
 }

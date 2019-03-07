@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class RecordTechnika1TableViewController: RecordBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.technika1, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
-    }
+final class RecordTechnika1TableViewController: RecordBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.songResults = self.tempSongResults?.filter(key: "series", value: Series.technika1, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
+  }
 }
 
 extension RecordTechnika1TableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA 1")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "TECHNIKA 1")
+  }
 }

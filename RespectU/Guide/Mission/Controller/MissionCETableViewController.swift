@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class MissionCETableViewController: MissionBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = MissionInfo.fetch(of: Series.ce)
-    }
+final class MissionCETableViewController: MissionBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = MissionInfo.fetch(of: Series.ce)
+  }
 }
 
 extension MissionCETableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "CLAZZIQUAI")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "CLAZZIQUAI")
+  }
 }

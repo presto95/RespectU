@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
 class SongRespectTableViewController: SongBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songResults = songResults?.filter { $0.series == Series.respect }
-    }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    songResults = songResults?.filter { $0.series == Series.respect }
+  }
 }
 
 extension SongRespectTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "RESPECT")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "RESPECT")
+  }
 }

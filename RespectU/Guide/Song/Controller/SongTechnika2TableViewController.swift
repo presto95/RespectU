@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class SongTechnika2TableViewController: SongBaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songResults = songResults?.filter { $0.series == Series.technika2 }
-    }
+final class SongTechnika2TableViewController: SongBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    songResults = songResults?.filter { $0.series == Series.technika2 }
+  }
 }
 
 extension SongTechnika2TableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA 2")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "TECHNIKA 2")
+  }
 }

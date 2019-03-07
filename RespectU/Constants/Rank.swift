@@ -8,9 +8,14 @@
 
 ///랭크 열거형
 enum Rank {
-    static let s = "S"
-    static let a = "A"
-    static let b = "B"
-    static let c = "C"
-    static let none = ""
+  
+  static let s = "S"
+  
+  static let a = "A"
+  
+  static let b = "B"
+  
+  static let c = "C"
+  
+  static let none = ""
 }

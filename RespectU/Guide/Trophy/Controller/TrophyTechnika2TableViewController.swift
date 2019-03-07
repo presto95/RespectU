@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class TrophyTechnika2TableViewController: TrophyBaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = TrophyInfo.fetch(of: Series.technika2)
-    }
+final class TrophyTechnika2TableViewController: TrophyBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = TrophyInfo.fetch(of: Series.technika2)
+  }
 }
 
 extension TrophyTechnika2TableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TECHNIKA 2")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "TECHNIKA 2")
+  }
 }

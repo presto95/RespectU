@@ -7,19 +7,21 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class AchievementMusicTableViewController: AchievementBaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = AchievementInfo.fetch(of: "music")
-        generateStageCounts()
-    }
+final class AchievementMusicTableViewController: AchievementBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = AchievementInfo.fetch(of: "music")
+    generateStageCounts()
+  }
 }
 
 extension AchievementMusicTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "MUSIC")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "MUSIC")
+  }
 }

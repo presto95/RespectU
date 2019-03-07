@@ -7,25 +7,28 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class AchievementAllTableViewController: AchievementBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = AchievementInfo.fetch()
-        generateStageCounts()
-    }
+final class AchievementAllTableViewController: AchievementBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = AchievementInfo.fetch()
+    generateStageCounts()
+  }
 }
 
 extension AchievementAllTableViewController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return achievementCell(at: indexPath, isAll: true)
-    }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return achievementCell(at: indexPath, isAll: true)
+  }
 }
 
 extension AchievementAllTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "ALL")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "ALL")
+  }
 }

@@ -7,19 +7,21 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class AchievementGearTableViewController: AchievementBaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = AchievementInfo.fetch(of: "gear")
-        generateStageCounts()
-    }
+final class AchievementGearTableViewController: AchievementBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = AchievementInfo.fetch(of: "gear")
+    generateStageCounts()
+  }
 }
 
 extension AchievementGearTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "GEAR SKIN")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "GEAR SKIN")
+  }
 }

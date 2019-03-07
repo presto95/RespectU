@@ -7,19 +7,21 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class AchievementCommentTableViewController: AchievementBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = AchievementInfo.fetch(of: "comment")
-        generateStageCounts()
-    }
+final class AchievementCommentTableViewController: AchievementBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = AchievementInfo.fetch(of: "comment")
+    generateStageCounts()
+  }
 }
 
 extension AchievementCommentTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "COMMENT")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "COMMENT")
+  }
 }

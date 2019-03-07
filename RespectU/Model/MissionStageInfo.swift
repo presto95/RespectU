@@ -8,17 +8,19 @@
 
 import RealmSwift
 
-class MissionStageInfo: Object {
-    
-    @objc dynamic var title: LanguageInfo?
-    @objc dynamic var difficulty: String = ""
-    @objc dynamic var button: String = ""
-    
-    var localizedTitle: String {
-        if regionCode == "KR", let korean = title?.korean {
-            return korean
-        } else {
-            return title?.english ?? ""
-        }
+final class MissionStageInfo: Object {
+  
+  @objc dynamic var title: LanguageInfo?
+  
+  @objc dynamic var difficulty: String = ""
+  
+  @objc dynamic var button: String = ""
+  
+  var localizedTitle: String {
+    if regionCode == "KR", let korean = title?.korean {
+      return korean
+    } else {
+      return title?.english ?? ""
     }
+  }
 }

@@ -7,19 +7,21 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class AchievementPlateTableViewController: AchievementBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = AchievementInfo.fetch(of: "plate")
-        generateStageCounts()
-    }
+final class AchievementPlateTableViewController: AchievementBaseTableViewController {
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = AchievementInfo.fetch(of: "plate")
+    generateStageCounts()
+  }
 }
 
 extension AchievementPlateTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "PLATE")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "PLATE")
+  }
 }

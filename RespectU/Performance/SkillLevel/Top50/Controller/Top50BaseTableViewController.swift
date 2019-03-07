@@ -10,21 +10,23 @@ import UIKit
 import RealmSwift
 
 class Top50BaseTableViewController: UITableViewController {
-
-    var tempResults: Results<NewRecordInfo>!
-    var results: [NewRecordInfo]!
-    let cellIdentifier = "top50Cell"
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tempResults = NewRecordInfo.fetch()
-        tableView.showsVerticalScrollIndicator = false
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 60
-        tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
-    }
+  
+  var tempResults: Results<NewRecordInfo>!
+  
+  var results: [NewRecordInfo]!
+  
+  let cellIdentifier = "top50Cell"
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tempResults = NewRecordInfo.fetch()
+    tableView.showsVerticalScrollIndicator = false
+    tableView.separatorStyle = .none
+    tableView.rowHeight = 60
+    tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 50
+  }
 }

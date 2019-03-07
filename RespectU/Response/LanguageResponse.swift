@@ -7,6 +7,8 @@
 //
 
 struct LanguageResponse: Codable {
-    let english: String
-    let korean: String?
+  
+  let english: String
+  
+  let korean: String?
 }

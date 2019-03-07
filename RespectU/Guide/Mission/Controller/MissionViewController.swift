@@ -7,30 +7,38 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
 class MissionViewController: BaseViewController {
-
-    private lazy var respectTableViewController = MissionRespectTableViewController()
-    private lazy var trilogyTableViewController = MissionTrilogyTableViewController()
-    private lazy var ceTableViewController = MissionCETableViewController()
-    private lazy var technika1TableViewController = MissionTechnika1TableViewController()
-    private lazy var bsTableViewController = MissionBSTableViewController()
-    private lazy var technika2TableViewController = MissionTechnika2TableViewController()
-    private lazy var linkDiskTableViewController = MissionLinkDiskTableViewController()
-    lazy var missionViewControllers: [MissionBaseTableViewController] = {
-        return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, technika2TableViewController, linkDiskTableViewController]
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        return missionViewControllers
-    }
-    
-    @IBAction func touchUpCancelButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
+  
+  private lazy var respectTableViewController = MissionRespectTableViewController()
+  
+  private lazy var trilogyTableViewController = MissionTrilogyTableViewController()
+  
+  private lazy var ceTableViewController = MissionCETableViewController()
+  
+  private lazy var technika1TableViewController = MissionTechnika1TableViewController()
+  
+  private lazy var bsTableViewController = MissionBSTableViewController()
+  
+  private lazy var technika2TableViewController = MissionTechnika2TableViewController()
+  
+  private lazy var linkDiskTableViewController = MissionLinkDiskTableViewController()
+  
+  lazy var missionViewControllers: [MissionBaseTableViewController] = {
+    return [respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, technika2TableViewController, linkDiskTableViewController]
+  }()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+    return missionViewControllers
+  }
+  
+  @IBAction func touchUpCancelButton(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
 }

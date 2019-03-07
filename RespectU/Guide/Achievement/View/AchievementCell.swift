@@ -8,19 +8,21 @@
 
 import UIKit
 
-class AchievementCell: UITableViewCell {
-
-    @IBOutlet weak var stageLabel: UILabel!
-    @IBOutlet weak var itemLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    func setProperties(_ object: AchievementInfo?, isAll: Bool = false) {
-        stageLabel.text = "\(object?.level ?? 0)"
-        itemLabel.text = object?.localizedItem
-        typeLabel.text = isAll ? object?.type.uppercased() : nil
-    }
+final class AchievementCell: UITableViewCell {
+  
+  @IBOutlet weak var stageLabel: UILabel!
+  
+  @IBOutlet weak var itemLabel: UILabel!
+  
+  @IBOutlet weak var typeLabel: UILabel!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
+  
+  func configure(_ object: AchievementInfo?, isAll: Bool = false) {
+    stageLabel.text = "\(object?.level ?? 0)"
+    itemLabel.text = object?.localizedItem
+    typeLabel.text = isAll ? object?.type.uppercased() : nil
+  }
 }

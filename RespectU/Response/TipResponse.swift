@@ -9,21 +9,27 @@
 import Foundation
 
 struct TipResponse: Codable {
-    struct Tip: Codable {
-        let title: LanguageResponse
-        var localizedTitle: String {
-            if Locale.current.regionCode == "KR", let korean = title.korean {
-                return korean
-            } else {
-                return title.english
-            }
-        }
+  
+  struct Tip: Codable {
+    
+    let title: LanguageResponse
+    
+    var localizedTitle: String {
+      if Locale.current.regionCode == "KR", let korean = title.korean {
+        return korean
+      } else {
+        return title.english
+      }
     }
-    let tips: [Tip]
-    var count: Int {
-        return tips.count
-    }
-    subscript(index: Int) -> Tip {
-        return tips[index]
-    }
+  }
+  
+  let tips: [Tip]
+  
+  var count: Int {
+    return tips.count
+  }
+  
+  subscript(index: Int) -> Tip {
+    return tips[index]
+  }
 }

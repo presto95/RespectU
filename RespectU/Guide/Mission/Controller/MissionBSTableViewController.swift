@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class MissionBSTableViewController: MissionBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = MissionInfo.fetch(of: Series.bs)
-    }
+final class MissionBSTableViewController: MissionBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = MissionInfo.fetch(of: Series.bs)
+  }
 }
 
 extension MissionBSTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "BLACK SQUARE")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "BLACK SQUARE")
+  }
 }

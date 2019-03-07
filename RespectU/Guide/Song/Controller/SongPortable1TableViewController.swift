@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class SongPortable1TableViewController: SongBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songResults = songResults?.filter { $0.series == Series.portable1 }
-    }
+final class SongPortable1TableViewController: SongBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    songResults = songResults?.filter { $0.series == Series.portable1 }
+  }
 }
 
 extension SongPortable1TableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "PORTABLE 1")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "PORTABLE 1")
+  }
 }

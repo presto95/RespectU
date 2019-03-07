@@ -7,11 +7,17 @@
 //
 
 struct UserResponse: Codable {
-    struct User: Codable {
-        let uid: String
-        let nickname: String
-        let identifier: String
-        let password: String
-    }
-    let users: [User]
+  
+  struct User: Codable {
+    
+    let uid: String
+    
+    let nickname: String
+    
+    let identifier: String
+    
+    let password: String
+  }
+  
+  let users: [User]
 }

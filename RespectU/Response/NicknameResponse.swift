@@ -9,5 +9,6 @@
 import Foundation
 
 struct NicknameResponse: Codable {
-    let nickname: String
+  
+  let nickname: String
 }

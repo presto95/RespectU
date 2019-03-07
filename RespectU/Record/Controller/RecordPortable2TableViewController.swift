@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class RecordPortable2TableViewController: RecordBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.portable2, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
-    }
+final class RecordPortable2TableViewController: RecordBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.songResults = self.tempSongResults?.filter(key: "series", value: Series.portable2, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
+  }
 }
 
 extension RecordPortable2TableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "PORTABLE 2")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "PORTABLE 2")
+  }
 }

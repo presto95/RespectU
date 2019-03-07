@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
 class SongTrilogyTableViewController: SongBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        songResults = songResults?.filter { $0.series == Series.trilogy }
-    }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    songResults = songResults?.filter { $0.series == Series.trilogy }
+  }
 }
 
 extension SongTrilogyTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TRILOGY")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "TRILOGY")
+  }
 }

@@ -8,25 +8,27 @@
 
 import UIKit
 
-class RecordCell: UITableViewCell {
-
-    @IBOutlet weak var colorLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    lazy var labels: [UILabel] = {
-        return [colorLabel, titleLabel]
-    }()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
-        colorLabel.layer.masksToBounds = true
-    }
-    
-    func setProperties(_ object: SongInfo?) {
-        guard let object = object else { return }
-        let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
-        gradient.frame = colorLabel.bounds
-        colorLabel.layer.addSublayer(gradient)
-        titleLabel.text = object.localizedTitle
-    }
+final class RecordCell: UITableViewCell {
+  
+  @IBOutlet weak var colorLabel: UILabel!
+  
+  @IBOutlet weak var titleLabel: UILabel!
+  
+  lazy var labels: [UILabel] = {
+    return [colorLabel, titleLabel]
+  }()
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
+    colorLabel.layer.masksToBounds = true
+  }
+  
+  func configure(_ object: SongInfo?) {
+    guard let object = object else { return }
+    let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
+    gradient.frame = colorLabel.bounds
+    colorLabel.layer.addSublayer(gradient)
+    titleLabel.text = object.localizedTitle
+  }
 }

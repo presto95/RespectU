@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class TrophyBSTableViewController: TrophyBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = TrophyInfo.fetch(of: Series.bs)
-    }
+final class TrophyBSTableViewController: TrophyBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = TrophyInfo.fetch(of: Series.bs)
+  }
 }
 
 extension TrophyBSTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "BLACK SQUARE")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "BLACK SQUARE")
+  }
 }

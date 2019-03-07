@@ -104,8 +104,6 @@
 		19585868213B0E76000C78C4 /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19585867213B0E76000C78C4 /* Init.storyboard */; };
 		1958586A213B0E81000C78C4 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19585869213B0E81000C78C4 /* InitViewController.swift */; };
 		1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1958DAB52151312700D8AE41 /* .swiftlint.yml */; };
-		195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A6A23216F17F90072D03A /* IndicatorView.swift */; };
-		195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 195A6A24216F17F90072D03A /* IndicatorView.xib */; };
 		1963FF04217C664900FF6FE1 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1963FF03217C664900FF6FE1 /* Date+.swift */; };
 		1968184F20490ADA0007F4D7 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1968184E20490ADA0007F4D7 /* Tip.storyboard */; };
 		1968185120490C730007F4D7 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1968185020490C730007F4D7 /* TipViewController.swift */; };
@@ -179,7 +177,7 @@
 		19E4DAF5213D896100837A95 /* MissionStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE7213D896100837A95 /* MissionStageInfo.swift */; };
 		19E4DAF6213D896100837A95 /* NewRecordButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE8213D896100837A95 /* NewRecordButtonInfo.swift */; };
 		19E4DAF7213D896100837A95 /* MissionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAE9213D896100837A95 /* MissionInfo.swift */; };
-		19E4DAF8213D896100837A95 /* RecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEA213D896100837A95 /* RecordInfo.swift */; };
+		19E4DAF8213D896100837A95 /* OldRecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEA213D896100837A95 /* OldRecordInfo.swift */; };
 		19E4DAF9213D896100837A95 /* TipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEB213D896100837A95 /* TipInfo.swift */; };
 		19E4DAFA213D896100837A95 /* LanguageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAEC213D896100837A95 /* LanguageInfo.swift */; };
 		19E4DAFB213D896100837A95 /* VersionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E4DAED213D896100837A95 /* VersionInfo.swift */; };
@@ -321,8 +319,6 @@
 		19585867213B0E76000C78C4 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
 		19585869213B0E81000C78C4 /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		1958DAB52151312700D8AE41 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		195A6A23216F17F90072D03A /* IndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorView.swift; sourceTree = "<group>"; };
-		195A6A24216F17F90072D03A /* IndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndicatorView.xib; sourceTree = "<group>"; };
 		1963FF03217C664900FF6FE1 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		1968184E20490ADA0007F4D7 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
 		1968185020490C730007F4D7 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
@@ -402,7 +398,7 @@
 		19E4DAE7213D896100837A95 /* MissionStageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionStageInfo.swift; sourceTree = "<group>"; };
 		19E4DAE8213D896100837A95 /* NewRecordButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordButtonInfo.swift; sourceTree = "<group>"; };
 		19E4DAE9213D896100837A95 /* MissionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionInfo.swift; sourceTree = "<group>"; };
-		19E4DAEA213D896100837A95 /* RecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInfo.swift; sourceTree = "<group>"; };
+		19E4DAEA213D896100837A95 /* OldRecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldRecordInfo.swift; sourceTree = "<group>"; };
 		19E4DAEB213D896100837A95 /* TipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInfo.swift; sourceTree = "<group>"; };
 		19E4DAEC213D896100837A95 /* LanguageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
 		19E4DAED213D896100837A95 /* VersionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionInfo.swift; sourceTree = "<group>"; };
@@ -459,7 +455,6 @@
 		19012FAE204808120061EF21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				195A6A22216F17F90072D03A /* Activity Indicator */,
 				19B6CFF51F7953640097B86B /* Assets.xcassets */,
 				19A4FAD11FDE7749003FFFE6 /* RespectU-Bridging-Header.h */,
 				19B6CFFA1F7953640097B86B /* Info.plist */,
@@ -553,15 +548,6 @@
 				193C28682136E52A001EB7F3 /* DownloadViewController.swift */,
 			);
 			path = Download;
-			sourceTree = "<group>";
-		};
-		195A6A22216F17F90072D03A /* Activity Indicator */ = {
-			isa = PBXGroup;
-			children = (
-				195A6A24216F17F90072D03A /* IndicatorView.xib */,
-				195A6A23216F17F90072D03A /* IndicatorView.swift */,
-			);
-			path = "Activity Indicator";
 			sourceTree = "<group>";
 		};
 		198391EF1F7CE21F009C7B5D /* Frameworks */ = {
@@ -689,7 +675,7 @@
 				19E4DAE8213D896100837A95 /* NewRecordButtonInfo.swift */,
 				19E4DAF0213D896100837A95 /* NewRecordInfo.swift */,
 				19E4DAED213D896100837A95 /* VersionInfo.swift */,
-				19E4DAEA213D896100837A95 /* RecordInfo.swift */,
+				19E4DAEA213D896100837A95 /* OldRecordInfo.swift */,
 				1913B4112175C15900D6C93F /* HistoryInfo.swift */,
 			);
 			path = Model;
@@ -1180,7 +1166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1958DAB62151312700D8AE41 /* .swiftlint.yml in Resources */,
-				195A6A26216F17F90072D03A /* IndicatorView.xib in Resources */,
 				199233DE216F939A00E040D7 /* GuideSecondCell.xib in Resources */,
 				193E4009204BF37E0063A440 /* SummaryCell.xib in Resources */,
 				19892A8620662D0A009D01F8 /* SearchByLevelView.xib in Resources */,
@@ -1271,6 +1256,7 @@
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 			);
@@ -1281,6 +1267,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 			);
@@ -1305,7 +1292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19E4DAF8213D896100837A95 /* RecordInfo.swift in Sources */,
+				19E4DAF8213D896100837A95 /* OldRecordInfo.swift in Sources */,
 				198B6C52211392CA0058DE49 /* Note.swift in Sources */,
 				194E52B0204A948300B84AFA /* SongCETableViewController.swift in Sources */,
 				199EFFE62067D51B00A6068F /* SearchByRateView.swift in Sources */,
@@ -1387,7 +1374,6 @@
 				19D67ECC20744F1700FD9EC7 /* RecordRespectTableViewController.swift in Sources */,
 				1986CA37205FC26600CA43EA /* SearchRecordDetailViewController.swift in Sources */,
 				193E402B204C23E90063A440 /* Ranking4BTableViewController.swift in Sources */,
-				195A6A25216F17F90072D03A /* IndicatorView.swift in Sources */,
 				199233D9216F938D00E040D7 /* GuideFirstCell.swift in Sources */,
 				1939C975212C004D00A6F8E3 /* API.swift in Sources */,
 				1928D5FD211824DF00F7901F /* UITableViewCell+.swift in Sources */,

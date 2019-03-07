@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HistoryCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+final class HistoryCell: UITableViewCell {
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    // Initialization code
+  }
 }

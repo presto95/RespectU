@@ -9,37 +9,39 @@
 import UIKit
 
 protocol SearchByNoteViewDelegate: class {
-    func didTouchUpNoteButtons(_ sender: UIButton)
+  func didTouchUpNoteButtons(_ sender: UIButton)
 }
 
-class SearchByNoteView: UIView {
-
-    weak var delegate: SearchByNoteViewDelegate?
-    @IBOutlet weak var noMaxComboButton: UIButton!
-    @IBOutlet weak var perfectPlayButton: UIButton!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        noMaxComboButton.setTitle("No MAX COMBOs".localized, for: .normal)
-        perfectPlayButton.setTitle("PERFECT PLAYs".localized, for: .normal)
-        initializeButtons()
+final class SearchByNoteView: UIView {
+  
+  weak var delegate: SearchByNoteViewDelegate?
+  
+  @IBOutlet weak var noMaxComboButton: UIButton!
+  
+  @IBOutlet weak var perfectPlayButton: UIButton!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    noMaxComboButton.setTitle("No MAX COMBOs".localized, for: .normal)
+    perfectPlayButton.setTitle("PERFECT PLAYs".localized, for: .normal)
+    initializeButtons()
+  }
+  
+  @IBAction func didTouchUpButtons(_ sender: UIButton) {
+    delegate?.didTouchUpNoteButtons(sender)
+    initializeButtons()
+    noMaxComboButton.isSelected = false
+    perfectPlayButton.isSelected = false
+    sender.isSelected = true
+    UIView.animate(withDuration: 0.3) {
+      sender.backgroundColor = .main
     }
-    
-    @IBAction func didTouchUpButtons(_ sender: UIButton) {
-        delegate?.didTouchUpNoteButtons(sender)
-        initializeButtons()
-        noMaxComboButton.isSelected = false
-        perfectPlayButton.isSelected = false
-        sender.isSelected = true
-        UIView.animate(withDuration: 0.3) {
-            sender.backgroundColor = .main
-        }
+  }
+  
+  private func initializeButtons() {
+    UIView.animate(withDuration: 0.3) { [unowned self] in
+      self.noMaxComboButton.backgroundColor = .white
+      self.perfectPlayButton.backgroundColor = .white
     }
-    
-    private func initializeButtons() {
-        UIView.animate(withDuration: 0.3) { [unowned self] in
-            self.noMaxComboButton.backgroundColor = .white
-            self.perfectPlayButton.backgroundColor = .white
-        }
-    }
+  }
 }

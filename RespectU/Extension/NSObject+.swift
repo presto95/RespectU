@@ -9,19 +9,20 @@
 import Foundation
 
 extension NSObject {
-    var classNameToString: String {
-        return NSStringFromClass(type(of: self))
-    }
-    
-    static var classNameToString: String {
-        return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
-    }
-    
-    var regionCode: String {
-        return Locale.current.regionCode ?? ""
-    }
-    
-    var version: String {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-    }
+  
+  var classNameToString: String {
+    return NSStringFromClass(type(of: self))
+  }
+  
+  static var classNameToString: String {
+    return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
+  }
+  
+  var regionCode: String {
+    return Locale.current.regionCode ?? ""
+  }
+  
+  var version: String {
+    return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+  }
 }

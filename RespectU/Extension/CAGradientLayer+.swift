@@ -9,12 +9,13 @@
 import UIKit
 
 extension CAGradientLayer {
-    static func makeGradient(startPoint: CGPoint, endPoint: CGPoint, colors: [CGColor], locations: [NSNumber]) -> CAGradientLayer {
-        let gradient = CAGradientLayer()
-        gradient.startPoint = startPoint
-        gradient.endPoint = endPoint
-        gradient.colors = colors
-        gradient.locations = locations
-        return gradient
-    }
+  
+  static func makeGradient(startPoint: CGPoint, endPoint: CGPoint, colors: [CGColor], locations: [NSNumber]) -> CAGradientLayer {
+    let gradient = CAGradientLayer()
+    gradient.startPoint = startPoint
+    gradient.endPoint = endPoint
+    gradient.colors = colors
+    gradient.locations = locations
+    return gradient
+  }
 }

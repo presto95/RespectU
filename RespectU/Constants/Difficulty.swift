@@ -7,10 +7,16 @@
 //
 
 enum Difficulty {
-    static let normal = "normal"
-    static let hard = "hard"
-    static let maximum = "maximum"
-    static let fx = "fx"
-    static let special = "special"
-    static let redesign = "redesign"
+  
+  static let normal = "normal"
+  
+  static let hard = "hard"
+  
+  static let maximum = "maximum"
+  
+  static let fx = "fx"
+  
+  static let special = "special"
+  
+  static let redesign = "redesign"
 }

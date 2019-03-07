@@ -8,15 +8,15 @@
 
 import UIKit
 
-class SearchByLevelView: UIView {
-    
-    @IBOutlet weak var pickerView: UIPickerView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        pickerView.selectRow(0, inComponent: 0, animated: true)
-        pickerView.layer.borderWidth = 1
-        pickerView.layer.borderColor = UIColor.main.cgColor
-        pickerView.layer.cornerRadius = 15
-    }
+final class SearchByLevelView: UIView {
+  
+  @IBOutlet weak var pickerView: UIPickerView!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    pickerView.selectRow(0, inComponent: 0, animated: true)
+    pickerView.layer.borderWidth = 1
+    pickerView.layer.borderColor = UIColor.main.cgColor
+    pickerView.layer.cornerRadius = 15
+  }
 }

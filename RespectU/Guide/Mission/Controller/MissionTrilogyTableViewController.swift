@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class MissionTrilogyTableViewController: MissionBaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = MissionInfo.fetch(of: Series.trilogy)
-    }
+final class MissionTrilogyTableViewController: MissionBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = MissionInfo.fetch(of: Series.trilogy)
+  }
 }
 
 extension MissionTrilogyTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "TRILOGY")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "TRILOGY")
+  }
 }

@@ -7,31 +7,34 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class TrophyCETableViewController: TrophyBaseTableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = TrophyInfo.fetch(of: Series.ce)
-    }
+final class TrophyCETableViewController: TrophyBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = TrophyInfo.fetch(of: Series.ce)
+  }
 }
 
 extension TrophyCETableViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let row = indexPath.row
-        if row == 6 {
-            UIAlertController
-                .alert(title: "Hidden BGA".localized, message: "First Kiss")
-                .action(title: "OK".localized)
-                .present(to: self)
-        }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    let row = indexPath.row
+    if row == 6 {
+      UIAlertController
+        .alert(title: "Hidden BGA".localized, message: "First Kiss")
+        .action(title: "OK".localized)
+        .present(to: self)
     }
+  }
 }
 
 extension TrophyCETableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "CLAZZIQUAI")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "CLAZZIQUAI")
+  }
 }

@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class RecordCETableViewController: RecordBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.songResults = self.tempSongResults?.filter(key: "series", value: Series.ce, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
-    }
+final class RecordCETableViewController: RecordBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.songResults = self.tempSongResults?.filter(key: "series", value: Series.ce, method: "=").sorted { $0.localizedLowercase < $1.localizedLowercase }
+  }
 }
 
 extension RecordCETableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "CLAZZIQUAI")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "CLAZZIQUAI")
+  }
 }

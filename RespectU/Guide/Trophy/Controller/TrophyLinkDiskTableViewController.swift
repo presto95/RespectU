@@ -7,18 +7,20 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
-class TrophyLinkDiskTableViewController: TrophyBaseTableViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        results = TrophyInfo.fetch(of: Series.linkDisk)
-    }
+final class TrophyLinkDiskTableViewController: TrophyBaseTableViewController {
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    results = TrophyInfo.fetch(of: Series.linkDisk)
+  }
 }
 
 extension TrophyLinkDiskTableViewController: IndicatorInfoProvider {
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "LINK DISK")
-    }
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "LINK DISK")
+  }
 }

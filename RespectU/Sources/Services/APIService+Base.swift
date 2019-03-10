@@ -17,6 +17,9 @@ protocol APIServiceType: class {
   var networkManager: NetworkManagerType { get }
   
   /// The base url.
+  static var baseURL: String { get }
+  
+  /// The base url.
   var baseURL: String { get }
   
   /// The json decoder.
@@ -24,12 +27,12 @@ protocol APIServiceType: class {
   
   /// Decodes `data` to `type`.
   ///
-  /// If decoding process hsa failed, decoding error is returned.
-  /// If data is nil, passed error is returned.
+  /// If the decoding process has failed, the error throwed by the process is returned.
+  /// If the data is `nil`, passed error is returned.
   ///
   /// - Parameters:
-  ///   - type  : The type that converted. It conforms to `Decodable` protocol.
-  ///   - data  : The data to be converted to `type`.
+  ///   - type  : The type that the `data` has converted. It conforms to `Decodable` protocol.
+  ///   - data  : The `Data` to be converted to `type`.
   ///   - error : The error.
   ///
   /// - Returns: The decoded object and error.
@@ -62,7 +65,6 @@ protocol APIServiceType: class {
   /// - Parameters:
   ///   - series:     The series filtering trophies.
   ///   - completion: The completion handler.
-
   func requestTrophies(bySeries series: Series?,
                        completion: @escaping (TrophyResponse?, Error?) -> Void)
   
@@ -166,6 +168,11 @@ extension APIServiceType {
   }
   
   var baseURL: String {
+    return "http://13.209.166.210:3000"
+    // return "http://localhost:3000"
+  }
+  
+  static var baseURL: String {
     return "http://13.209.166.210:3000"
     // return "http://localhost:3000"
   }

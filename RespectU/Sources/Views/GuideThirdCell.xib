@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -178,7 +174,7 @@
                 <outlet property="downloadStackView" destination="ws7-Xh-iyV" id="JGG-Uj-gEr"/>
                 <outlet property="emailStackView" destination="XuR-K7-byd" id="U9f-9N-JR4"/>
                 <outlet property="radioStackView" destination="a7Q-T9-J27" id="DOX-6j-lvI"/>
-                <outlet property="rateStackView" destination="R8Z-jb-aSO" id="plt-Uf-Gng"/>
+                <outlet property="ratingStackView" destination="R8Z-jb-aSO" id="plt-Uf-Gng"/>
                 <outlet property="titleLabel" destination="vMa-OP-iRy" id="2l5-bA-TqV"/>
                 <outlet property="uploadStackView" destination="BK0-VW-vsM" id="n0g-6C-5pl"/>
                 <outlet property="view" destination="FuS-Vo-xSA" id="XGS-aj-fEj"/>

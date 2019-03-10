@@ -9,6 +9,7 @@ PODS:
     - Realm (= 3.11.0)
   - SVProgressHUD (2.2.5)
   - SwiftKeychainWrapper (3.0.1)
+  - Then (2.4.0)
   - XLPagerTabStrip (8.0.1)
 
 DEPENDENCIES:
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - RealmSwift
   - SVProgressHUD
   - SwiftKeychainWrapper
+  - Then
   - XLPagerTabStrip
 
 SPEC REPOS:
@@ -29,6 +31,7 @@ SPEC REPOS:
     - RealmSwift
     - SVProgressHUD
     - SwiftKeychainWrapper
+    - Then
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
@@ -39,8 +42,9 @@ SPEC CHECKSUMS:
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
-PODFILE CHECKSUM: 9ecb901a08475d03bbb575ce9962b6cf28be3403
+PODFILE CHECKSUM: cf7fbafd9f5d2062e4d97c576509dfe6e37a5e23
 
 COCOAPODS: 1.6.0

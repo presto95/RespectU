@@ -158,13 +158,19 @@ final class MissionInfo: Object {
   
   /// Fetches missions of specific `series`.
   ///
-  /// - Parameter series: The `Series` filtered by this value.
+  /// - Parameter series: The `Series` filtered by this value. The default value is `nil`.
+  ///
+  /// - Note: If `series` is `nil`, it fetches all saved missions.
   ///
   /// - Returns: The fetched missions.
-  static func fetch(bySeries series: Series) -> Results<MissionInfo> {
+  static func fetch(bySeries series: Series? = nil) -> Results<MissionInfo> {
     let realm = try! Realm()
     let missionInfo = realm.objects(MissionInfo.self)
-    return missionInfo.filter("series = \(series.rawValue)")
+    if case let series? = series {
+      return missionInfo.filter("series = \(series.rawValue)")
+    } else {
+      return missionInfo
+    }
   }
   
   /// Updates `missionInfo` to `object`.

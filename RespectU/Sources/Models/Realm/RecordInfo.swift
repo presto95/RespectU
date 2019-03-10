@@ -74,6 +74,11 @@ final class RecordInfo: Object {
     }
   }
   
+  /// Updates `object` with `dictionary`.
+  ///
+  /// - Parameters:
+  ///   - object:     The updated record information.
+  ///   - dictionary: The dictionary contains the record information.
   static func update(_ object: RecordInfo, with dictionary: [String: Any]) {
     let realm = try! Realm()
     try! realm.write {
@@ -83,6 +88,11 @@ final class RecordInfo: Object {
     }
   }
   
+  /// Updates` recordInfo` to `object`.
+  ///
+  /// - Parameters:
+  ///   - object:     The source record information.
+  ///   - recordInfo: The updated record information.
   static func update(_ object: RecordResponse.Record, to recordInfo: RecordInfo) {
     let realm = try! Realm()
     try! realm.write {
@@ -141,7 +151,6 @@ final class RecordInfo: Object {
       recordInfo.button8?.skillPointNote = object.button8.skillPointNote
       recordInfo.button8?.skillPointRate = object.button8.skillPointRate
       recordInfo.button8?.skillPointDifficulty = object.button8.skillPointDifficulty
-      
     }
   }
 }

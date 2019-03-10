@@ -10,6 +10,7 @@ target 'RespectU' do
   pod 'RealmSwift'
   pod 'SVProgressHUD'
   pod 'SwiftKeychainWrapper'
+  pod 'Then'
   pod 'XLPagerTabStrip'
   # Pods for RespectU
 

@@ -86,6 +86,6 @@ extension UIAlertController {
                              completion: ((UIAlertAction) -> Void)? = nil) -> UIAlertController {
     return UIAlertController
       .alert(title: "", message: error.localizedDescription)
-      .action(title: "OK".localized, completion: completion)
+      .action(title: L10n.ok, completion: completion)
   }
 }

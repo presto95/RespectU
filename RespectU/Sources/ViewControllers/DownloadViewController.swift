@@ -11,74 +11,89 @@ import UIKit
 import SVProgressHUD
 import SwiftKeychainWrapper
 
+/// The view controller for downloading various data.
 final class DownloadViewController: UIViewController {
   
+  // MARK: Property.
+  
+  /// The api service.
+  let apiService: APIServiceType = APIService()
+  
+  /// The 'download data' label.
   @IBOutlet weak var downloadDataLabel: UILabel!
   
+  /// The 'download data' button.
   @IBOutlet weak var downloadDataButton: UIButton!
   
+  /// The 'download record' label.
   @IBOutlet weak var downloadRecordLabel: UILabel!
   
+  /// The 'download record' button.
   @IBOutlet weak var downloadRecordButton: UIButton!
   
-  var isValidVersion: Bool = false {
+  var isVersionValid: Bool = false {
     didSet {
-      if isValidVersion {
+      if isVersionValid {
         SVProgressHUD.show()
-        APIService.requestSongs(completion: didReceiveSongs)
-        APIService.requestMissions(completion: didReceiveMissions)
-        APIService.requestTrophies(completion: didReceiveTrophies)
-        APIService.requestAchievements(completion: didReceiveAchievements)
-        APIService.requestTips(completion: didReceiveTips)
-        APIService.requestVersions(completion: didReceiveVersions)
+        apiService.requestSongs(bySeries: nil, completion: songRequestHandler)
+        apiService.requestMissions(bySeries: nil, completion: missionRequestHandler)
+        apiService.requestTrophies(bySeries: nil, completion: trophyRequestHandler)
+        apiService.requestAchievements(byType: nil, completion: achievementRequestHandler)
+        apiService.requestTips(completion: tipRequestHandler)
+        apiService.requestVersions(completion: versionRequestHandler)
       }
     }
   }
   
-  var finishesSong: Bool = false
+  var isSongRequestFinished: Bool = false
   
-  var finishesMission: Bool = false
+  var isMissionRequestFinished: Bool = false
   
-  var finishesTrophy: Bool = false
+  var isTrophyRequestFinished: Bool = false
   
-  var finishesAchievement: Bool = false
+  var isAchievementRequestFinished: Bool = false
   
-  var finishesTip: Bool = false
+  var isTipRequestFinished: Bool = false
   
-  var finishesVersion: Bool = false
+  var isVersionRequestFinished: Bool = false
   
-  var finishesRecord: Bool = false
+  var isRecordRequestFinished: Bool = false
   
-  var dataCount = 0 {
+  var numberOfRequests = 0 {
     didSet {
-      if dataCount == 6 {
+      if numberOfRequests == 6 {
         SVProgressHUD.dismiss()
         if finishesDataAll {
           presentSuccessAlert()
         } else {
           presentFailureAlert()
         }
-        dataCount = 0
+        numberOfRequests = 0
       }
     }
   }
   
-  var recordCount = 0 {
+  var numberOfRecordRequests = 0 {
     didSet {
-      if recordCount == 1 {
+      if numberOfRecordRequests == 1 {
         SVProgressHUD.dismiss()
-        if finishesRecord {
+        if isRecordRequestFinished {
           presentSuccessAlert()
         } else {
           presentFailureAlert()
         }
-        recordCount = 0
+        numberOfRecordRequests = 0
       }
     }
   }
   
   var finishesDataAll: Bool {
-    if finishesSong, finishesMission, finishesTrophy, finishesAchievement, finishesTip, finishesVersion {
+    if isSongRequestFinished,
+      isMissionRequestFinished,
+      isTrophyRequestFinished,
+      isAchievementRequestFinished,
+      isTipRequestFinished,
+      isVersionRequestFinished {
       return true
     }
     return false
@@ -86,62 +101,59 @@ final class DownloadViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setup()
+    configure()
   }
   
-  func setup() {
-    downloadDataLabel.text = "Update with latest data.".localized
-    downloadRecordLabel.text = "Get exported performance record data.".localized
-    downloadDataButton.setTitle("Download".localized, for: [])
-    downloadRecordButton.setTitle("Download".localized, for: [])
-    downloadDataButton.addTarget(self,
-                                 action: #selector(downloadDataButtonDidTap(_:)),
-                                 for: .touchUpInside)
-    downloadRecordButton.addTarget(self,
-                                   action: #selector(downloadRecordButtonDidTap(_:)),
-                                   for: .touchUpInside)
+  private func configure() {
+    downloadDataLabel.text = L10n.updateWithLatestData
+    downloadRecordLabel.text = L10n.getExportedPerformanceRecordData
+    downloadDataButton.setTitle(L10n.download, for: [])
+    downloadRecordButton.setTitle(L10n.download, for: [])
+    downloadDataButton
+      .addTarget(self, action: #selector(downloadDataButtonDidTap(_:)), for: .touchUpInside)
+    downloadRecordButton
+      .addTarget(self, action: #selector(downloadRecordButtonDidTap(_:)), for: .touchUpInside)
   }
   
   @objc func downloadDataButtonDidTap(_ sender: UIButton) {
-    APIService.requestVersions(completion: didReceiveVersion)
+    apiService.requestVersions(completion: versionCheckHandler(response:error:))
   }
   
   @objc func downloadRecordButtonDidTap(_ sender: UIButton) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if id.isEmpty {
       UIAlertController
-        .alert(title: "", message: "First Log In.".localized)
-        .action(title: "OK".localized)
+        .alert(title: "", message: L10n.logInFirst)
+        .action(title: L10n.ok)
         .present(to: self)
     } else {
-      let message = """
-      If there is no data on the server, the recorded performance information can be initialized.
-      """
+      let message
+        = L10n.ifThereIsNoDataOnTheServerTheRecordedPerformanceInformationCanBeInitialized
       UIAlertController
-        .alert(title: "Warning".localized, message: message.localized)
-        .action(.destructive, title: "OK".localized, handler: { [weak self] _ in
-          guard let `self` = self else { return }
+        .alert(title: L10n.warning, message: message)
+        .action(title: L10n.ok, style: .destructive) { [weak self] _ in
+          guard let self = self else { return }
           DispatchQueue.main.async {
             SVProgressHUD.show()
           }
-          API.requestRecords(id, completion: self.didReceiveRecords)
-        })
-        .action(.cancel, title: "Cancel".localized)
+          self.apiService.requestRecords(id: id, completion: self.recordRequestHandler)
+        }
+        .action(title: L10n.cancel, style: .cancel)
         .present(to: self)
     }
   }
   
-  @IBAction func didTouchUpCancelButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
 }
 
 private extension DownloadViewController {
   
-  func didReceiveSongs(response: SongResponse?, error: Error?) {
+  func songRequestHandler(response: SongResponse?, error: Error?) {
     if let error = error {
       plusDataCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -197,14 +209,14 @@ private extension DownloadViewController {
       }
     }
     Skill.refresh()
-    finishesSong = true
+    isSongRequestFinished = true
     plusDataCount()
   }
   
-  func didReceiveMissions(response: MissionResponse?, error: Error?) {
+  func missionRequestHandler(response: MissionResponse?, error: Error?) {
     if let error = error {
       plusDataCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -220,14 +232,14 @@ private extension DownloadViewController {
         MissionInfo.add(downloadedMission)
       }
     }
-    finishesMission = true
+    isMissionRequestFinished = true
     plusDataCount()
   }
   
-  func didReceiveTrophies(response: TrophyResponse?, error: Error?) {
+  func trophyRequestHandler(response: TrophyResponse?, error: Error?) {
     if let error = error {
       plusDataCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -243,19 +255,19 @@ private extension DownloadViewController {
         TrophyInfo.add(downloadedTrophy)
       }
     }
-    finishesTrophy = true
+    isTrophyRequestFinished = true
     plusDataCount()
   }
   
-  func didReceiveAchievements(response: AchievementResponse?, error: Error?) {
+  func achievementRequestHandler(response: AchievementResponse?, error: Error?) {
     if let error = error {
       plusDataCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
     let downloadedAchievements = response.achievements
-    let results = AchievementInfo.fetch()
+    let results = AchievementInfo.fetch(byType: .all)
     for downloadedAchievement in downloadedAchievements {
       let predicate = NSPredicate(format: "%K == %@ AND %K == %@",
                                   #keyPath(AchievementInfo.item.english),
@@ -268,14 +280,14 @@ private extension DownloadViewController {
         AchievementInfo.add(downloadedAchievement)
       }
     }
-    finishesAchievement = true
+    isAchievementRequestFinished = true
     plusDataCount()
   }
   
-  func didReceiveTips(response: TipResponse?, error: Error?) {
+  func tipRequestHandler(response: TipResponse?, error: Error?) {
     if let error = error {
       plusDataCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -291,14 +303,14 @@ private extension DownloadViewController {
         TipInfo.add(downloadedTip)
       }
     }
-    finishesTip = true
+    isTipRequestFinished = true
     plusDataCount()
   }
   
-  func didReceiveVersions(response: VersionResponse?, error: Error?) {
+  func versionRequestHandler(response: VersionResponse?, error: Error?) {
     if let error = error {
       plusDataCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -307,14 +319,14 @@ private extension DownloadViewController {
     } else {
       VersionInfo.add(response)
     }
-    finishesVersion = true
+    isVersionRequestFinished = true
     plusDataCount()
   }
   
-  func didReceiveRecords(response: RecordResponse?, error: Error?) {
+  func recordRequestHandler(response: RecordResponse?, error: Error?) {
     if let error = error {
       plusRecordCount()
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -322,29 +334,27 @@ private extension DownloadViewController {
     let records = response.records
     for record in records {
       let predicate = NSPredicate(format: "%K == %@",
-                                  #keyPath(NewRecordInfo.title.english),
+                                  #keyPath(RecordInfo.title.english),
                                   record.title.english)
       guard let result = results.filter(predicate).first else { continue }
       RecordInfo.update(record, to: result)
     }
-    finishesRecord = true
+    isRecordRequestFinished = true
     plusRecordCount()
   }
   
-  func didReceiveVersion(response: VersionResponse?, error: Error?) {
+  func versionCheckHandler(response: VersionResponse?, error: Error?) {
     if let error = error {
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
     if response.clientVersion != version {
-      let message = """
-      New version released!\nPlease use it after updating.
-      """
+      let message = L10n.newVersionReleasedPleaseUseItAfterUpdating
       DispatchQueue.main.async {
         UIAlertController
-          .alert(title: "", message: message.localized)
-          .action(title: "Update".localized, handler: { _ in
+          .alert(title: "", message: message)
+          .action(title: L10n.update) { _ in
             guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1291664067")
               else { return }
             guard #available(iOS 10, *) else {
@@ -352,12 +362,12 @@ private extension DownloadViewController {
               return
             }
             UIApplication.shared.open(url, options: [:])
-          })
-          .action(.cancel, title: "Cancel".localized)
+          }
+          .action(title: L10n.cancel, style: .cancel)
           .present(to: self)
       }
     } else {
-      isValidVersion = true
+      isVersionValid = true
     }
   }
 }
@@ -366,8 +376,8 @@ private extension DownloadViewController {
   
   func presentSuccessAlert() {
     UIAlertController
-      .alert(title: "", message: "Your data has been successfully downloaded.".localized)
-      .action(title: "OK".localized) { [weak self] _ in
+      .alert(title: "", message: L10n.yourDataHasBeenSuccessfullyUploaded)
+      .action(title: L10n.ok) { [weak self] _ in
         self?.parent?.dismiss(animated: true, completion: nil)
       }
       .present(to: self)
@@ -375,22 +385,22 @@ private extension DownloadViewController {
   
   func presentFailureAlert() {
     UIAlertController
-      .alert(title: "", message: "Network Error".localized)
-      .action(title: "OK".localized) { [weak self] _ in
-        self?.dataCount = 0
+      .alert(title: "", message: L10n.networkError)
+      .action(title: L10n.ok) { [weak self] _ in
+        self?.numberOfRequests = 0
       }
       .present(to: self)
   }
   
   func plusDataCount() {
     DispatchQueue.main.sync { [weak self] in
-      self?.dataCount += 1
+      self?.numberOfRequests += 1
     }
   }
   
   func plusRecordCount() {
     DispatchQueue.main.sync { [weak self] in
-      self?.recordCount += 1
+      self?.numberOfRecordRequests += 1
     }
   }
 }

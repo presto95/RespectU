@@ -121,7 +121,7 @@ final class SongInfo: Object {
   ///
   /// - Parameter series: The `Series` filtered by this value. The default value is `nil`.
   ///
-  /// - Note: If `series` is nil, it fetches all saved songs.
+  /// - Note: If `series` is `nil`, it fetches all saved songs.
   ///
   /// - Returns: The fetched songs.
   static func fetch(bySeries series: Series? = nil) -> Results<SongInfo> {

@@ -79,7 +79,7 @@ final class RecordView: UIView {
     self.layer.cornerRadius = 15
     self.layer.borderColor = UIColor.lightGray.cgColor
     self.cancelButton.setTitle("Cancel".localized, for: .normal)
-    self.cancelButton.addTarget(self, action: #selector(didTouchUpCancelButton(_:)), for: .touchUpInside)
+    self.cancelButton.addTarget(self, action: #selector(cancelButtonDidTap(_:)), for: .touchUpInside)
   }
   
   @IBAction func didTouchUpOtherButtons(_ sender: UIButton) {

@@ -30,7 +30,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="didTouchUpCancelButton:" destination="dTC-iU-lXN" eventType="touchUpInside" id="P5d-lT-lC9"/>
+                                    <action selector="cancelButtonDidTap:" destination="dTC-iU-lXN" eventType="touchUpInside" id="P5d-lT-lC9"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="TzZ-Ag-K1l">

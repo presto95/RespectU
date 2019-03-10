@@ -88,12 +88,18 @@ final class TrophyInfo: Object {
   
   /// Fetches trophies of specific `series`.
   ///
-  /// - Parameter series: The `Series` filtered by this value.
+  /// - Parameter series: The `Series` filtered by this value. The default value is `nil`.
+  ///
+  /// - Note: If `series` is `nil`, if fetches all saved trophies.
   ///
   /// - Returns: The fetched trophies.
-  static func fetch(bySeries series: Series) -> Results<TrophyInfo> {
+  static func fetch(bySeries series: Series? = nil) -> Results<TrophyInfo> {
     let trophyInfo = try! Realm().objects(TrophyInfo.self)
-    return trophyInfo.filter("series = \(series.rawValue)")
+    if case let series? = series {
+      return trophyInfo.filter("series = \(series.rawValue)")
+    } else {
+      return trophyInfo
+    }
   }
   
   /// Updates `trophyInfo` to `object`.

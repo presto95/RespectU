@@ -8,59 +8,92 @@
 
 import UIKit
 
+/// The `protocol` that defines delegate methods of the `GuideSecondCell`.
 protocol GuideSecondCellDelegate: class {
-  func didTapUpLogInOutStackView()
-  func didTapBPMSettingStackView()
-  func didTapFavoriteButtonStackView()
+  
+  /// Tells the delegate that the log in-out stack view is tapped.
+  func guideSecondCell(_ cell: GuideSecondCell, didTapLogInOutStackView stackView: UIStackView)
+  
+  /// Tells the delegate that the bpm setting stack view is tapped.
+  func guideSecondCell(_ cell: GuideSecondCell, didTapBPMSettingStackView stackView: UIStackView)
+  
+  /// Tells the delegate that the favorite button stack view is tapped.
+  func guideSecondCell(_ cell: GuideSecondCell,
+                       didTapFavoriteButtonStackView stackView: UIStackView)
 }
 
+/// The guide second cell table view cell.
 final class GuideSecondCell: UITableViewCell {
   
-  let titles = ["Login / Logout", "BPM Default Setting", "My Favorite Button"]
+  // MARK: Constant
   
-  let imageNames = ["log", "bpmDefault", "favorite"]
+  /// The `enum` that defines constants.
+  private enum Constant {
+    
+    /// The titles of the stack views.
+    static let titles = ["Login / Logout", "BPM Default Setting", "My Favorite Button"]
+    
+    /// The image names of the stack views.
+    static let imageNames = ["log", "bpmDefault", "favorite"]
+  }
   
+  /// The object that acts as the delegate of the guide second cell.
   weak var delegate: GuideSecondCellDelegate?
   
-  @IBOutlet weak var view: UIView!
+  /// The background view.
+  @IBOutlet private weak var view: UIView!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var logInOutStackView: UIStackView!
+  /// The stack view related to log in-out.
+  @IBOutlet private weak var logInOutStackView: UIStackView!
   
-  @IBOutlet weak var bpmSettingStackView: UIStackView!
+  /// The stack view related to bpm setting.
+  @IBOutlet private weak var bpmSettingStackView: UIStackView!
   
-  @IBOutlet weak var favoriteButtonStackView: UIStackView!
+  /// The stack view related to favorite button.
+  @IBOutlet private weak var favoriteButtonStackView: UIStackView!
+  
+  // MARK: Life Cycle
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    configure()
+  }
+  
+  // MARK: Method
+  
+  /// Configures initial settings.
+  private func configure() {
     view.layer.cornerRadius = 15
     view.layer.borderWidth = 1
     view.layer.borderColor = UIColor.lightGray.cgColor
     view.layer.masksToBounds = true
     let stackViews = [logInOutStackView, bpmSettingStackView, favoriteButtonStackView]
-    for index in 0..<stackViews.count {
+    stackViews.indices.forEach { index in
       let stackView = stackViews[index]
       stackView?
         .addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                      action: #selector(stackViewsDidTap(_:))))
       guard let imageView = stackView?.arrangedSubviews.first as? UIImageView else { return }
       guard let label = stackView?.arrangedSubviews.last as? UILabel else { return }
-      imageView.image = UIImage(named: imageNames[index])
-      label.text = titles[index].localized
+      imageView.image = UIImage(named: Constant.imageNames[index])
+      label.text = Constant.titles[index].localized
     }
-    titleLabel.text = "Personal Setting".localized
+    titleLabel.text = L10n.personalSetting
   }
   
-  @objc func stackViewsDidTap(_ recognizer: UITapGestureRecognizer) {
-    guard let stackView = recognizer.view else { return }
+  /// Tells the `recognizer` that the stack views are tapped.
+  @objc private func stackViewsDidTap(_ recognizer: UITapGestureRecognizer) {
+    guard let stackView = recognizer.view as? UIStackView else { return }
     switch stackView.tag {
     case 0:
-      delegate?.didTapUpLogInOutStackView()
+      delegate?.guideSecondCell(self, didTapLogInOutStackView: stackView)
     case 1:
-      delegate?.didTapBPMSettingStackView()
+      delegate?.guideSecondCell(self, didTapBPMSettingStackView: stackView)
     case 2:
-      delegate?.didTapFavoriteButtonStackView()
+      delegate?.guideSecondCell(self, didTapFavoriteButtonStackView: stackView)
     default:
       break
     }

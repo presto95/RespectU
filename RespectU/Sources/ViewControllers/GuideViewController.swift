@@ -11,205 +11,303 @@ import SafariServices
 import UIKit
 
 import SwiftKeychainWrapper
+import Then
 
+/// The view controller about guide.
 final class GuideViewController: UIViewController {
-
-  private let imageNames = [["song", "mission", "trophy", "achievement", "tip", "manual"], ["log", "bpmDefault", "favorite"], ["download", "upload", "email", "radio", "credit", "rate"]]
   
-  private let sectionHeaderTitles = ["GUIDE FOR DJMAX RESPECT", "PERSONAL SETTING", "MORE"]
+  // MARK: Constant
   
-  private let cellTitles = [["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"], ["Login / Logout", "BPM Default Setting", "My Favorite Button"], ["Download From Server", "Upload To Server", "Send Email to Developer", "DJMAX Radio Station", "Credit", "Rate This App"]]
+  /// The `enum` defines constants.
+  private enum Constant {
+    
+    /// The image names.
+    static let imageNames = [
+      ["song", "mission", "trophy", "achievement", "tip", "manual"],
+      ["log", "bpmDefault", "favorite"],
+      ["download", "upload", "email", "radio", "credit", "rate"]
+    ]
+    
+    /// The section header titles.
+    static let sectionHeaderTitles = ["GUIDE FOR DJMAX RESPECT", "PERSONAL SETTING", "MORE"]
+    
+    /// The cell titles.
+    static let cellTitles = [
+      ["Music", "Mission", "Trophy", "Achievement", "TIP", "Manual"],
+      ["Login / Logout", "BPM Default Setting", "My Favorite Button"],
+      [
+        "Download From Server",
+        "Upload To Server",
+        "Send Email to Developer",
+        "DJMAX Radio Station",
+        "Credit",
+        "Rate This App"
+      ]
+    ]
+  }
   
+  /// The `enum` defines cell identifiers.
+  private enum CellIdentifier {
+    
+    /// The first cell identifier of the guide table view.
+    static let first = "guideFirstCell"
+    
+    /// The second cell identifier of the guide table view.
+    static let second = "guideSecondCell"
+    
+    /// The third cell identifier of the guide table view.
+    static let third = "guideThirdCell"
+  }
+  
+  /// The table view.
   @IBOutlet weak var tableView: UITableView!
   
+  /// The 'record' button.
   @IBOutlet private weak var recordButton: UIButton!
+  
+  // MARK: Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(UINib(nibName: "GuideFirstCell", bundle: nil), forCellReuseIdentifier: "guideFirstCell")
-    tableView.register(UINib(nibName: "GuideSecondCell", bundle: nil), forCellReuseIdentifier: "guideSecondCell")
-    tableView.register(UINib(nibName: "GuideThirdCell", bundle: nil), forCellReuseIdentifier: "guideThirdCell")
+    configure()
+  }
+  
+  /// Configures initial settings.
+  private func configure() {
+    tableView.register(UINib(nibName: GuideFirstCell.classNameToString, bundle: nil),
+                       forCellReuseIdentifier: CellIdentifier.first)
+    tableView.register(UINib(nibName: GuideSecondCell.classNameToString, bundle: nil),
+                       forCellReuseIdentifier: CellIdentifier.second)
+    tableView.register(UINib(nibName: GuideThirdCell.classNameToString, bundle: nil),
+                       forCellReuseIdentifier: CellIdentifier.third)
     tableView.separatorStyle = .none
-    recordButton.setTitle("Performance Record".localized, for: .normal)
+    recordButton.setTitle(L10n.performanceRecord, for: .normal)
     recordButton.layer.cornerRadius = recordButton.bounds.height / 2
     recordButton.layer.borderWidth = 1
     recordButton.layer.borderColor = UIColor.main.cgColor
   }
   
-  @IBAction func didTouchUpPreviousButton(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+  /// Tells the `sender` that the back button is tapped.
+  @IBAction func backButtonDidTap(_ sender: UIButton) {
+    navigationController?.popViewController(animated: true)
   }
   
-  @IBAction func didTouchUpRecordButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
-    self.present(controller, animated: true)
+  /// Tells the `sender` that the record button is tapped.
+  @IBAction func recordButtonDidTap(_ sender: UIButton) {
+    let controller = StoryboardScene.Record.recordViewController.instantiate()
+    present(controller, animated: true)
   }
 }
 
+// MARK: - Conforming GuideFirstCellDelegate
+
 extension GuideViewController: GuideFirstCellDelegate {
   
-  func didTapSongStackView() {
-    guard let controller = UIViewController.instantiate(storyboard: "Song", identifier: SongViewController.classNameToString) as? SongViewController else { return }
-    self.present(controller, animated: true)
+  func guideFirstCell(_ cell: GuideFirstCell, didTapSongStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Song.songViewController.instantiate()
+    present(controller, animated: true)
   }
   
-  func didTapMissionStackView() {
-    guard let controller = UIViewController.instantiate(storyboard: "Mission", identifier: MissionViewController.classNameToString) as? MissionViewController else { return }
-    self.present(controller, animated: true)
+  func guideFirstCell(_ cell: GuideFirstCell, didTapMissionStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Mission.missionViewController.instantiate()
+    present(controller, animated: true)
   }
   
-  func didTapTrophyStackView() {
-    guard let controller = UIViewController.instantiate(storyboard: "Trophy", identifier: TrophyViewController.classNameToString) as? TrophyViewController else { return }
-    self.present(controller, animated: true)
+  func guideFirstCell(_ cell: GuideFirstCell, didTapTrophyStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Trophy.trophyViewController.instantiate()
+    present(controller, animated: true)
   }
   
-  func didTapAchievementStackView() {
-    guard let controller = UIViewController.instantiate(storyboard: "Achievement", identifier: AchievementViewController.classNameToString) as? AchievementViewController else { return }
-    self.present(controller, animated: true)
+  func guideFirstCell(_ cell: GuideFirstCell, didTapAchievementStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Achievement.achievementViewController.instantiate()
+    present(controller, animated: true)
   }
   
-  func didTapTipStackView() {
-    guard let controller = UIViewController.instantiate(storyboard: "Tip", identifier: TipViewController.classNameToString) as? TipViewController else { return }
-    self.present(controller, animated: true)
+  func guideFirstCell(_ cell: GuideFirstCell, didTapTipStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Tip.tipViewController.instantiate()
+    present(controller, animated: true)
   }
   
-  func didTapManualStackView() {
+  func guideFirstCell(_ cell: GuideFirstCell, didTapManualStackView stackView: UIStackView) {
     if !Reachability.isConnectedToNetwork() {
       presentNetworkAlert()
     } else {
       guard let url = URL(string: "http://djmaxrespect.com/manual.html") else { return }
-      let config = SFSafariViewController.Configuration()
-      config.barCollapsingEnabled = true
-      let controller = SFSafariViewController(url: url, configuration: config)
-      controller.preferredControlTintColor = .main
-      controller.dismissButtonStyle = .close
+      let config = SFSafariViewController.Configuration().then {
+        $0.barCollapsingEnabled = true
+      }
+      let controller = SFSafariViewController(url: url, configuration: config).then {
+        $0.preferredControlTintColor = .main
+        $0.dismissButtonStyle = .close
+      }
       present(controller, animated: true, completion: nil)
     }
   }
 }
 
+// MARK: - Conforming GuideSecondCellDelegate
+
 extension GuideViewController: GuideSecondCellDelegate {
   
-  func didTapUpLogInOutStackView() {
+  func guideSecondCell(_ cell: GuideSecondCell, didTapLogInOutStackView stackView: UIStackView) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if !id.isEmpty {
       KeychainWrapper.standard.set("", forKey: "id")
       UIAlertController
-        .alert(title: "", message: "Log Out Completed".localized)
-        .action(title: "OK".localized)
+        .alert(title: "", message: L10n.logOutCompleted)
+        .action(title: L10n.ok)
         .present(to: self)
     } else {
-      guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignNavigationController") else { return }
-      next.modalTransitionStyle = .crossDissolve
-      self.present(next, animated: true, completion: nil)
-    }
-  }
-  
-  func didTapBPMSettingStackView() {
-    let message = "Current".localized + " : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n" + "It becomes standard of Speed Recommendation.".localized
-    let alert = UIAlertController
-      .alert(title: "BPM Default Setting".localized, message: message)
-      .textField { (textField) in
-        textField.placeholder = "BPM"
-        textField.keyboardType = .numberPad
-    }
-    alert.action(title: "OK".localized) { _ in
-      if let input = alert.textFields?.first?.text {
-        if !input.isEmpty {
-          guard let value = Double(input) else { return }
-          UserDefaults.standard.set(value, forKey: "bpm")
-          UserDefaults.standard.synchronize()
-        }
+      let controller = StoryboardScene.SignIn.signNavigationController.instantiate().then {
+        $0.modalTransitionStyle = .crossDissolve
       }
-      }
-      .action(.cancel, title: "Cancel".localized)
-      .present(to: self)
-  }
-  
-  func didTapFavoriteButtonStackView() {
-    let key = "favoriteButton"
-    let favorite = UserDefaults.standard.string(forKey: key)
-    let message = "Current".localized + " : \(favorite?.uppercased() ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
-    UIAlertController
-      .alert(title: "My Favorite Button".localized, message: message)
-      .action(title: Button.button4.uppercased()) { _ in
-        UserDefaults.standard.set(Button.button4, forKey: key)
-      }
-      .action(title: Button.button5.uppercased()) { _ in
-        UserDefaults.standard.set(Button.button5, forKey: key)
-      }
-      .action(title: Button.button6.uppercased()) { _ in
-        UserDefaults.standard.set(Button.button6, forKey: key)
-      }
-      .action(title: Button.button8.uppercased()) { _ in
-        UserDefaults.standard.set(Button.button8, forKey: key)
-      }
-      .action(.cancel, title: "Cancel".localized)
-      .present(to: self)
-  }
-}
-
-extension GuideViewController: GuideThirdCellDelegate {
-  
-  func didTapDownloadStackView() {
-    guard let next = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
-    self.present(next, animated: true, completion: nil)
-  }
-  
-  func didTapUploadStackView() {
-    guard let next = UIViewController.instantiate(storyboard: "Upload", identifier: UploadViewController.classNameToString) else { return }
-    self.present(next, animated: true, completion: nil)
-  }
-  
-  func didTapEmailStackView() {
-    sendEmail()
-  }
-  
-  func didTapRadioStackView() {
-    if !Reachability.isConnectedToNetwork() {
-      presentNetworkAlert()
-    } else {
-      guard let url = URL(string: "https://djmax.protomox.com") else { return }
-      let config = SFSafariViewController.Configuration()
-      config.barCollapsingEnabled = true
-      let controller = SFSafariViewController(url: url, configuration: config)
-      controller.preferredControlTintColor = .main
-      controller.dismissButtonStyle = .close
       present(controller, animated: true, completion: nil)
     }
   }
   
-  func didTapCreditStackView() {
-    guard let versionInfo = VersionInfo.fetch().first else { return }
-    let gameVersion = versionInfo.gameVersion
-    let serverVersion = versionInfo.serverVersion
-    let message = "PSN ID : Presto_95\n\nDJMAX RESPECT \(gameVersion)\nRespectU (iOS) \(version)\nRespectU (Server) \(serverVersion)\n\nApp icon by icons8"
-    UIAlertController
-      .alert(title: "CREDITS".localized, message: message)
-      .action(title: "OK".localized)
+  func guideSecondCell(_ cell: GuideSecondCell, didTapBPMSettingStackView stackView: UIStackView) {
+    let message = L10n.current
+      .appending(" : BPM \(Int(UserDefaults.standard.double(forKey: "bpm")))\n\n")
+      .appending(L10n.itBecomesStandardOfSpeedRecommendation)
+    let alert = UIAlertController
+      .alert(title: L10n.bpmDefaultSetting, message: message)
+      .textField {
+        $0.placeholder = "BPM"
+        $0.keyboardType = .numberPad
+    }
+    alert.action(title: L10n.ok) { _ in
+      if let input = alert.textFields?.first?.text {
+        if !input.isEmpty {
+          guard let value = Double(input) else { return }
+          UserDefaults.standard.do {
+            $0.set(value, forKey: "bpm")
+            $0.synchronize()
+          }
+        }
+      }
+      }
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  func didTapRateStackView() {
-    self.rateApp(appId: "id1291664067")
+  func guideSecondCell(_ cell: GuideSecondCell,
+                       didTapFavoriteButtonStackView stackView: UIStackView) {
+    let key = "favoriteButton"
+    let favorite = UserDefaults.standard.string(forKey: key)
+    let message = L10n.current
+      .appending(" : \(favorite?.uppercased() ?? L10n.none)\n\n")
+      .appending(L10n.theInformationRelatedToTheSetValueIsDisplayedFirst)
+    UIAlertController
+      .alert(title: L10n.myFavoriteButton, message: message)
+      .action(title: Button.button4.rawValue.uppercased()) { _ in
+        UserDefaults.standard.do {
+          $0.set(Button.button4.rawValue, forKey: key)
+          $0.synchronize()
+        }
+      }
+      .action(title: Button.button5.rawValue.uppercased()) { _ in
+        UserDefaults.standard.do {
+          $0.set(Button.button5.rawValue, forKey: key)
+          $0.synchronize()
+        }
+      }
+      .action(title: Button.button6.rawValue.uppercased()) { _ in
+        UserDefaults.standard.do {
+          $0.set(Button.button6.rawValue, forKey: key)
+          $0.synchronize()
+        }
+      }
+      .action(title: Button.button8.rawValue.uppercased()) { _ in
+        UserDefaults.standard.do {
+          $0.set(Button.button8.rawValue, forKey: key)
+          $0.synchronize()
+        }
+      }
+      .action(title: L10n.cancel, style: .cancel)
+      .present(to: self)
   }
 }
+
+// MARK: - Conforming GuideThirdCellDelegate
+
+extension GuideViewController: GuideThirdCellDelegate {
+  
+  func guideThirdCell(_ cell: GuideThirdCell, didTapDownloadStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Download.downloadViewController.instantiate()
+    present(controller, animated: true, completion: nil)
+  }
+  
+  func guideThirdCell(_ cell: GuideThirdCell, didTapUploadStackView stackView: UIStackView) {
+    let controller = StoryboardScene.Upload.uploadViewController.instantiate()
+    present(controller, animated: true, completion: nil)
+  }
+  
+  func guideThirdCell(_ cell: GuideThirdCell, didTapEmailStackView stackView: UIStackView) {
+    presentMailComposeViewController()
+  }
+  
+  func guideThirdCell(_ cell: GuideThirdCell, didTapRadioStackView stackView: UIStackView) {
+    if !Reachability.isConnectedToNetwork() {
+      presentNetworkAlert()
+    } else {
+      guard let url = URL(string: "https://djmax.protomox.com") else { return }
+      let config = SFSafariViewController.Configuration().then {
+        $0.barCollapsingEnabled = true
+      }
+      let controller = SFSafariViewController(url: url, configuration: config).then {
+        $0.preferredControlTintColor = .main
+        $0.dismissButtonStyle = .close
+      }
+      present(controller, animated: true, completion: nil)
+    }
+  }
+  
+  func guideThirdCell(_ cell: GuideThirdCell, didTapCreditStackView stackView: UIStackView) {
+    guard let versionInfo = VersionInfo.fetch().first else { return }
+    let gameVersion = versionInfo.gameVersion
+    let serverVersion = versionInfo.serverVersion
+    let message = "PSN ID : Presto_95\n\n"
+      .appending("DJMAX RESPECT \(gameVersion)\n")
+      .appending("RespectU \(version)\n")
+      .appending("RespectU (Server) \(serverVersion)\n\n")
+      .appending("App icon by icons8")
+    UIAlertController
+      .alert(title: L10n.credits, message: message)
+      .action(title: L10n.ok)
+      .present(to: self)
+  }
+  
+  func guideThirdCell(_ cell: GuideThirdCell, didTapRateStackView stackView: UIStackView) {
+    openAppStore(appID: "id1291664067")
+  }
+}
+
+// MARK: - Conforming UITableViewDataSource
 
 extension GuideViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case 0:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "guideFirstCell", for: indexPath) as? GuideFirstCell else { return UITableViewCell() }
-      cell.delegate = self
+      let cell
+        = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.first, for: indexPath)
+      if case let firstCell as GuideFirstCell = cell {
+        firstCell.delegate = self
+      }
       return cell
     case 1:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "guideSecondCell", for: indexPath) as? GuideSecondCell else { return UITableViewCell() }
-      cell.delegate = self
+      let cell
+        = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.second, for: indexPath)
+      if case let secondCell as GuideSecondCell = cell {
+        secondCell.delegate = self
+      }
       return cell
     case 2:
-      guard let cell = tableView.dequeueReusableCell(withIdentifier: "guideThirdCell", for: indexPath) as? GuideThirdCell else { return UITableViewCell() }
-      cell.delegate = self
+      let cell
+        = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.third, for: indexPath)
+      if case let thirdCell as GuideThirdCell = cell {
+        thirdCell.delegate = self
+      }
       return cell
     default:
       return UITableViewCell()
@@ -224,6 +322,8 @@ extension GuideViewController: UITableViewDataSource {
     return 3
   }
 }
+
+// MARK: - Conforming UITableViewDelegate
 
 extension GuideViewController: UITableViewDelegate {
   
@@ -244,36 +344,39 @@ extension GuideViewController: UITableViewDelegate {
   }
 }
 
-extension GuideViewController {
-  
-  private func presentNetworkAlert() {
-    UIAlertController
-      .alert(title: "", message: "Check your network status.".localized)
-      .action(title: "OK".localized)
-      .present(to: self)
-  }
-}
+// MARK: - Conforming MFMailComposeViewControllerDelegate
 
 extension GuideViewController: MFMailComposeViewControllerDelegate {
   
-  func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+  func mailComposeController(_ controller: MFMailComposeViewController,
+                             didFinishWith result: MFMailComposeResult, error: Error?) {
     controller.dismiss(animated: true)
   }
 }
 
+// MARK: - Private Method
+
 private extension GuideViewController {
   
-  func sendEmail() {
+  func presentNetworkAlert() {
+    UIAlertController
+      .alert(title: "", message: L10n.checkYourNetworkStatus)
+      .action(title: L10n.ok)
+      .present(to: self)
+  }
+  
+  func presentMailComposeViewController() {
     if MFMailComposeViewController.canSendMail() {
-      let mail = MFMailComposeViewController()
-      mail.mailComposeDelegate = self
-      mail.setToRecipients(["yoohan95@gmail.com"])
-      self.present(mail, animated: true)
+      let mail = MFMailComposeViewController().then {
+        $0.mailComposeDelegate = self
+        $0.setToRecipients(["yoohan95@gmail.com"])
+      }
+      present(mail, animated: true)
     }
   }
   
-  func rateApp(appId: String, completion: ((_ success: Bool) -> Void)? = nil) {
-    guard let url = URL(string: "itms-apps://itunes.apple.com/app/" + appId) else {
+  func openAppStore(appID: String, completion: ((_ success: Bool) -> Void)? = nil) {
+    guard let url = URL(string: "itms-apps://itunes.apple.com/app/\(appID)") else {
       completion?(false)
       return
     }

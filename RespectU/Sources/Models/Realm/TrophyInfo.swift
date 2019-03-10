@@ -8,33 +8,55 @@
 
 import RealmSwift
 
+/// The realm object about trophy.
 final class TrophyInfo: Object {
   
+  /// The series of the trophy.
   @objc dynamic var series: String = ""
   
+  /// The rating of the trophy.
   @objc dynamic var rating: String = ""
   
+  /// The image name of the trophy.
   @objc dynamic var image: String = ""
   
+  /// The title of the trophy.
   @objc dynamic var title: LanguageInfo?
   
+  /// The content of the trophy.
   @objc dynamic var content: LanguageInfo?
   
+  /// The localized title of the trophy.
   var localizedTitle: String {
-    if regionCode == "KR", let korean = title?.korean {
+    if isInKorea, let korean = title?.korean {
       return korean
     } else {
       return title?.english ?? ""
     }
   }
+  
+  /// The localized content of the trophy.
   var localizedContent: String {
-    if regionCode == "KR", let korean = content?.korean {
+    if isInKorea, let korean = content?.korean {
       return korean
     } else {
       return content?.english ?? ""
     }
   }
   
+  /// The `Series` of the trophy.
+  var seriesEnum: Series? {
+    return Series(rawValue: series)
+  }
+  
+  /// The `TrophyGrade` of the trophy.
+  var ratingEnum: TrophyGrade? {
+    return TrophyGrade(rawValue: rating)
+  }
+  
+  /// Adds the `trophyInfo` to realm.
+  ///
+  /// - Parameter trophyInfo: The trophy information will be added.
   static func add(_ trophyInfo: TrophyResponse.Trophy) {
     let realm = try! Realm()
     let object = TrophyInfo()
@@ -43,7 +65,7 @@ final class TrophyInfo: Object {
     object.series = trophyInfo.series
     object.rating = trophyInfo.rating
     object.image = trophyInfo.image
-    let imageURL = "\(API.baseURL)/images/\(trophyInfo.series)/\(trophyInfo.image).png"
+    let imageURL = "\(APIService.baseURL)/images/\(trophyInfo.series)/\(trophyInfo.image).png"
     guard let url = URL(string: imageURL) else { return }
     guard let imageData = try? Data(contentsOf: url) else { return }
     guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
@@ -64,17 +86,21 @@ final class TrophyInfo: Object {
     }
   }
   
-  static func fetch(of series: String = "") -> Results<TrophyInfo> {
+  /// Fetches trophies of specific `series`.
+  ///
+  /// - Parameter series: The `Series` filtered by this value.
+  ///
+  /// - Returns: The fetched trophies.
+  static func fetch(bySeries series: Series) -> Results<TrophyInfo> {
     let trophyInfo = try! Realm().objects(TrophyInfo.self)
-    if series.isEmpty {
-      return trophyInfo
-    } else {
-      let filtered = trophyInfo.filter(key: "series", value: series, method: "=")
-      return filtered
-    }
+    return trophyInfo.filter("series = \(series.rawValue)")
   }
   
-  ///타이틀로 필터링한 내부 데이터베이스 갱신
+  /// Updates `trophyInfo` to `object`.
+  ///
+  /// - Parameters:
+  ///   - object:           The source trophy information.
+  ///   - achievementInfo:  The updated trophy information.
   static func update(_ object: TrophyResponse.Trophy, to trophyInfo: TrophyInfo) {
     guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
     let fileURL = documentURL.appendingPathComponent("\(trophyInfo.image).png")
@@ -83,7 +109,7 @@ final class TrophyInfo: Object {
     } catch {
       print(error.localizedDescription)
     }
-    let imageURL = "\(API.baseURL)/images/\(trophyInfo.series)/\(trophyInfo.image).png"
+    let imageURL = "\(APIService.baseURL)/images/\(trophyInfo.series)/\(trophyInfo.image).png"
     guard let url = URL(string: imageURL) else { return }
     guard let imageData = try? Data(contentsOf: url) else { return }
     do {

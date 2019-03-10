@@ -202,7 +202,7 @@ extension MissionDetailViewController {
     var bpm: Int = 0
     var changesSpeed: Bool = false
     if let songInfo = SongInfo.fetch(by: englishTitle) {
-      if let subBpm = songInfo.subBpm.value {
+      if let subBpm = songInfo.subBPM.value {
         bpm = subBpm
         changesSpeed = true
       } else {

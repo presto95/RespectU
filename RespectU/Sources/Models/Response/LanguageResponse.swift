@@ -6,9 +6,12 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+/// The response object about language.
 struct LanguageResponse: Codable {
   
+  /// The english data.
   let english: String
   
+  /// The korean data.
   let korean: String?
 }

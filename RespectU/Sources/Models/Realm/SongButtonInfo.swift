@@ -8,11 +8,15 @@
 
 import RealmSwift
 
+/// The realm object about information in the button.
 final class SongButtonInfo: Object {
   
+  /// The normal difficulty value in the button.
   @objc dynamic var normal: Int = 0
   
+  /// The hard difficulty value in the button.
   @objc dynamic var hard: Int = 0
   
+  /// The maximum difficulty value in the button.
   @objc dynamic var maximum: Int = 0
 }

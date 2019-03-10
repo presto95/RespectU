@@ -7,8 +7,10 @@
 //
 
 import UIKit
+
 import XLPagerTabStrip
 
+/// The base view controller to use button bar pager tap strip.
 class BaseViewController: ButtonBarPagerTabStripViewController {
   
   override func viewDidLoad() {

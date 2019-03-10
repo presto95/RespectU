@@ -62,12 +62,12 @@ final class InitViewController: UIViewController {
   
   @objc func didTouchUpDownloadButton(_ sender: UIButton) {
     SVProgressHUD.show()
-    API.requestSongs(completion: didReceiveSongs)
-    API.requestMissions(completion: didReceiveMissions)
-    API.requestTrophies(completion: didReceiveTrophies)
-    API.requestAchievements(completion: didReceiveAchievements)
-    API.requestTips(completion: didReceiveTips)
-    API.requestVersions(completion: didReceiveVersions)
+    APIService.requestSongs(completion: didReceiveSongs)
+    APIService.requestMissions(completion: didReceiveMissions)
+    APIService.requestTrophies(completion: didReceiveTrophies)
+    APIService.requestAchievements(completion: didReceiveAchievements)
+    APIService.requestTips(completion: didReceiveTips)
+    APIService.requestVersions(completion: didReceiveVersions)
   }
 }
 

@@ -105,7 +105,7 @@ final class SongViewController: BaseViewController {
     let myBpm = UserDefaults.standard.double(forKey: "bpm")
     let speed = recommendedSpeed(by: myBpm / Double(object.bpm))
     var message = "\(object.series.uppercased())\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
-    if object.subBpm.value != nil {
+    if object.subBPM.value != nil {
       message += "\n" + "(SPEED Variation)".localized
     }
     UIAlertController

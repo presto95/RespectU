@@ -30,7 +30,7 @@ final class PerformanceViewController: UIViewController {
     tableView.register(UINib(nibName: "SkillLevelCell", bundle: nil), forCellReuseIdentifier: "skillLevelCell")
     tableView.register(UINib(nibName: "SummaryCell", bundle: nil), forCellReuseIdentifier: "summaryCell")
     self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-    API.requestVersions(completion: didReceiveVersions)
+    APIService.requestVersions(completion: didReceiveVersions)
   }
   
   override func viewWillAppear(_ animated: Bool) {

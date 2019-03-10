@@ -8,7 +8,9 @@
 
 import Foundation
 
+/// The response object about nickname.
 struct NicknameResponse: Codable {
   
+  /// The nickname.
   let nickname: String
 }

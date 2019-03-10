@@ -17,7 +17,7 @@ final class Utils {
   ///
   /// - Returns: The converted string matching each case.
   ///
-  /// - Note: `3.14` -> `3.00 ~ 3.50`
+  /// - Note: `3.14` -> `3.00 ~ 3.25`
   static func convertToRecommendedSpeed(by speed: Double) -> String? {
     switch speed {
     case ..<0.50:

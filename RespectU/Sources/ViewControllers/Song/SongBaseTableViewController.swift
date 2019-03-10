@@ -56,7 +56,7 @@ extension SongBaseTableViewController {
     guard let object = self.songResults?[indexPath.row] else { return }
     var changesSpeed: Bool = false
     let bpm: Int
-    if let subBpm = object.subBpm.value {
+    if let subBpm = object.subBPM.value {
       bpm = subBpm
       changesSpeed = true
     } else {

@@ -8,20 +8,28 @@
 
 import Foundation
 
+/// The response object about trophy.
 struct TrophyResponse: Codable {
   
+  /// The trophy data in the trophy response object.
   struct Trophy: Codable {
     
+    /// The series of the trophy.
     let series: String
     
+    /// The rating of the trophy.
     let rating: String
     
+    /// The image name of the trophy.
     let image: String
     
+    /// The title of the trophy.
     let title: LanguageResponse
     
+    /// The content of the trophy.
     let content: LanguageResponse
     
+    /// The localized title of the trophy.
     var localizedTitle: String {
       if Locale.current.regionCode == "KR", let korean = title.korean {
         return korean
@@ -30,6 +38,7 @@ struct TrophyResponse: Codable {
       }
     }
     
+    /// The localized content of the trophy.
     var localizedContent: String {
       if Locale.current.regionCode == "KR", let korean = content.korean {
         return korean
@@ -39,12 +48,15 @@ struct TrophyResponse: Codable {
     }
   }
   
+  /// The trophies.
   let trophies: [Trophy]
   
+  /// The number of `trophies`.
   var count: Int {
     return trophies.count
   }
   
+  /// Accesses the `index`th element in `trophies`.
   subscript(index: Int) -> Trophy {
     return trophies[index]
   }

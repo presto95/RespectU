@@ -8,11 +8,15 @@
 
 import Foundation
 
+/// The response object about version.
 struct VersionResponse: Codable {
   
+  /// The client version.
   let clientVersion: String
   
+  /// The server version.
   let serverVersion: String
   
+  /// The ingame version.
   let gameVersion: String
 }

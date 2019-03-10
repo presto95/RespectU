@@ -8,50 +8,75 @@
 
 import RealmSwift
 
+/// The realm object about song.
 final class SongInfo: Object {
   
+  /// The title of the song.
   @objc dynamic var title: LanguageInfo?
   
+  /// The losercased title of the song.
   @objc dynamic var lowercase: LanguageInfo?
   
+  /// The series of the song.
   @objc dynamic var series: String = ""
   
+  /// The composer of the song.
   @objc dynamic var composer: String = ""
   
+  /// The bpm of the song.
   @objc dynamic var bpm: Int = 0
   
-  let subBpm: RealmOptional<Int> = RealmOptional<Int>()
+  /// The sub bpm of the song.
+  ///
+  /// If this value is not nil, this song has variant bpm.
+  /// In this case, `bpm` becomes the minimum bpm and `subBpm` becomes the maximum bpm.
+  let subBPM: RealmOptional<Int> = RealmOptional<Int>()
   
+  /// The information about 4B of the song.
   @objc dynamic var button4: SongButtonInfo?
   
+  /// The information about 5B of the song.
   @objc dynamic var button5: SongButtonInfo?
   
+  /// The information about 6B of the song.
   @objc dynamic var button6: SongButtonInfo?
   
+  /// The information about 8B of the song.
   @objc dynamic var button8: SongButtonInfo?
   
+  /// The localized title of the song.
   var localizedTitle: String {
-    if regionCode == "KR", let korean = title?.korean {
+    if isInKorea, let korean = title?.korean {
       return korean
     } else {
       return title?.english ?? ""
     }
   }
+  
+  /// The localized lowercased title of the song.
   var localizedLowercase: String {
-    if regionCode == "KR", let korean = lowercase?.korean {
+    if isInKorea, let korean = lowercase?.korean {
       return korean
     } else {
       return lowercase?.english ?? ""
     }
   }
+  
+  /// The string value conveted by `bpm` and `subBPM`.
+  ///
+  /// `bpm == 130, subBPM == nil` -> "BPM 130"
+  /// `bpm == 130, subBPM == 153` -> "BPM 130 ~ 153"
   var bpmToString: String {
-    if let subBpm = subBpm.value {
+    if let subBpm = subBPM.value {
       return "BPM \(bpm) ~ \(subBpm)"
     } else {
       return "BPM \(bpm)"
     }
   }
   
+  /// Adds the `songInfo` to realm.
+  ///
+  /// - Parameter songInfo: The song information will be added.
   static func add(_ songInfo: SongResponse.Song) {
     let realm = try! Realm()
     let object = SongInfo()
@@ -64,7 +89,7 @@ final class SongInfo: Object {
     object.series = songInfo.series
     object.composer = songInfo.composer
     object.bpm = songInfo.bpm
-    object.subBpm.value = songInfo.subBpm
+    object.subBPM.value = songInfo.subBpm
     titleInfo.english = songInfo.title.english
     titleInfo.korean = songInfo.title.korean
     object.title = titleInfo
@@ -92,24 +117,37 @@ final class SongInfo: Object {
     }
   }
   
-  /// 시리즈별 음악 가져오기
-  static func fetch(of series: String = "") -> Results<SongInfo> {
+  /// Fetches songs of specific `series`.
+  ///
+  /// - Parameter series: The `Series` filtered by this value. The default value is `nil`.
+  ///
+  /// - Note: If `series` is nil, it fetches all saved songs.
+  ///
+  /// - Returns: The fetched songs.
+  static func fetch(bySeries series: Series? = nil) -> Results<SongInfo> {
     let songInfo = try! Realm().objects(SongInfo.self)
-    if series.isEmpty {
-      return songInfo
+    if case let series? = series {
+      return songInfo.filter("series = \(series.rawValue)")
     } else {
-      let filtered = songInfo.filter(key: "series", value: series, method: "=")
-      return filtered
+      return songInfo
     }
   }
   
-  /// 타이틀별 음악 가져오기
-  static func fetch(by title: String) -> SongInfo? {
+  /// Fetches songs of specific `title`.
+  ///
+  /// - Parameter series: The `title` filtered by this value.
+  ///
+  /// - Returns: The fetched songs.
+  static func fetch(byTitle title: String) -> SongInfo? {
     let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), title)
     return try! Realm().objects(SongInfo.self).filter(predicate).first
   }
   
-  /// 타이틀로 필터링한 내부 데이터베이스 갱신
+  /// Updates `songInfo` to `object`.
+  ///
+  /// - Parameters:
+  ///   - object:   The source song information.
+  ///   - songInfo: The updated song information.
   static func update(_ object: SongResponse.Song, to songInfo: SongInfo) {
     let realm = try! Realm()
     try! realm.write {
@@ -120,7 +158,7 @@ final class SongInfo: Object {
       songInfo.series = object.series
       songInfo.composer = object.composer
       songInfo.bpm = object.bpm
-      songInfo.subBpm.value = object.subBpm
+      songInfo.subBPM.value = object.subBpm
       songInfo.button4?.normal = object.button4.normal
       songInfo.button4?.hard = object.button4.hard
       songInfo.button4?.maximum = object.button4.maximum

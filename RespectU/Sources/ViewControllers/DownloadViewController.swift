@@ -25,12 +25,12 @@ final class DownloadViewController: UIViewController {
     didSet {
       if isValidVersion {
         SVProgressHUD.show()
-        API.requestSongs(completion: didReceiveSongs)
-        API.requestMissions(completion: didReceiveMissions)
-        API.requestTrophies(completion: didReceiveTrophies)
-        API.requestAchievements(completion: didReceiveAchievements)
-        API.requestTips(completion: didReceiveTips)
-        API.requestVersions(completion: didReceiveVersions)
+        APIService.requestSongs(completion: didReceiveSongs)
+        APIService.requestMissions(completion: didReceiveMissions)
+        APIService.requestTrophies(completion: didReceiveTrophies)
+        APIService.requestAchievements(completion: didReceiveAchievements)
+        APIService.requestTips(completion: didReceiveTips)
+        APIService.requestVersions(completion: didReceiveVersions)
       }
     }
   }
@@ -103,7 +103,7 @@ final class DownloadViewController: UIViewController {
   }
   
   @objc func downloadDataButtonDidTap(_ sender: UIButton) {
-    API.requestVersions(completion: didReceiveVersion)
+    APIService.requestVersions(completion: didReceiveVersion)
   }
   
   @objc func downloadRecordButtonDidTap(_ sender: UIButton) {

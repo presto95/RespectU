@@ -62,7 +62,7 @@ final class UploadViewController: UIViewController {
       let recordResponse = RecordResponse(id: id, records: records)
       guard let uploadData = try? JSONEncoder().encode(recordResponse) else { return }
       SVProgressHUD.show()
-      API.uploadRecords(uploadData) { statusCode, error in
+      APIService.uploadRecords(uploadData) { statusCode, error in
         if let error = error {
           UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
           return

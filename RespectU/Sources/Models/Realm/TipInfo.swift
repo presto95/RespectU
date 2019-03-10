@@ -8,18 +8,24 @@
 
 import RealmSwift
 
+/// The realm object about tip.
 final class TipInfo: Object {
   
+  /// The title of the tip.
   @objc dynamic var title: LanguageInfo?
   
+  /// The localized title of the tip.
   var localizedTitle: String {
-    if regionCode == "KR", let korean = title?.korean {
+    if isInKorea, let korean = title?.korean {
       return korean
     } else {
       return title?.english ?? ""
     }
   }
   
+  /// Adds the `tipInfo` to realm.
+  ///
+  /// - Parameter tipInfo: The tip information will be added.
   static func add(_ tipInfo: TipResponse.Tip) {
     let realm = try! Realm()
     let object = TipInfo()
@@ -32,11 +38,20 @@ final class TipInfo: Object {
     }
   }
   
+  /// Fetches tips.
+  ///
+  /// - Returns: The fetched tips.
   static func fetch() -> Results<TipInfo> {
     let tipInfo = try! Realm().objects(TipInfo.self)
     return tipInfo
   }
   
+  /// Updates `tipInfo` to `object`.
+  ///
+  /// - Parameters:
+  ///   - object:   The source tip information.
+  ///   - tipInfo:  The updated tip information.
+
   static func update(_ object: TipResponse.Tip, to tipInfo: TipInfo) {
     let realm = try! Realm()
     try! realm.write {

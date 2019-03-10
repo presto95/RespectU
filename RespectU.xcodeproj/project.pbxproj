@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		EE5801B1F86B92BE4282BB1D1EAECC52 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4E6832F2B48BFFE29D6EE9E1BFEF /* .swiftlint.yml */; };
-		161BFACCEAB4A727A22FB62BA00A7B28 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */; };
+		991FCB8C6003D66EB3BEB59532E8A06B /* API+Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F535414A9C8D79A939A2BFF775657A36 /* API+Achievement.swift */; };
+		78C1E8E4C5879272A789D75A7A06E60C /* API+Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEDD4E016B1AA80460D6220E05E82A0 /* API+Base.swift */; };
+		0079BD6A071052F0D0183D5BAECE2CF8 /* API+Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3383BE282FE7F940AD65D3F3C7B0D6 /* API+Mission.swift */; };
+		06218D29B43C13160681F65F0EC4747B /* API+Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B210AE4234907B4760FAA04F09EECB /* API+Ranking.swift */; };
+		C356B0D808F881D9137771E85FA40DFA /* API+Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7BF8E50486A77A0322177FB8CE456F /* API+Record.swift */; };
+		43A6B3993704E4DD7CB2F324CFEBF15F /* API+Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470554A1EEB75D4700299E7FA6481EC /* API+Song.swift */; };
+		EE833134589CC0221F7349BE65AF3B5A /* API+Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809602DE14384BF3B5E82F7D5148FA87 /* API+Tip.swift */; };
+		3B49548977BE88D1C27DED1EDC192CC1 /* API+Trophy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB95E77A3A3528AF2EE3A87B357646F /* API+Trophy.swift */; };
+		53E8A706790981B27B29951BF46F4033 /* API+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871802116B0757823D1C78B864FE72A8 /* API+User.swift */; };
 		6D1619C4051B8073FDAE2D1EE0F28DF1 /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */; };
 		A368D670D9ECB37DBA7FDF40293DCC9F /* AchievementAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D208137CF7035F090957DD52BFD704BC /* AchievementAllTableViewController.swift */; };
 		9F424786F18F120DFA3B54AA97CFE58D /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF59229051F5AD6A883EFD1E5A2603E /* AchievementBaseTableViewController.swift */; };
@@ -227,7 +235,15 @@
 
 /* Begin PBXFileReference section */
 		DA5A4E6832F2B48BFFE29D6EE9E1BFEF /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F535414A9C8D79A939A2BFF775657A36 /* API+Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Achievement.swift"; sourceTree = "<group>"; };
+		1AEDD4E016B1AA80460D6220E05E82A0 /* API+Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Base.swift"; sourceTree = "<group>"; };
+		2A3383BE282FE7F940AD65D3F3C7B0D6 /* API+Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Mission.swift"; sourceTree = "<group>"; };
+		D4B210AE4234907B4760FAA04F09EECB /* API+Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Ranking.swift"; sourceTree = "<group>"; };
+		EF7BF8E50486A77A0322177FB8CE456F /* API+Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Record.swift"; sourceTree = "<group>"; };
+		6470554A1EEB75D4700299E7FA6481EC /* API+Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Song.swift"; sourceTree = "<group>"; };
+		809602DE14384BF3B5E82F7D5148FA87 /* API+Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Tip.swift"; sourceTree = "<group>"; };
+		CEB95E77A3A3528AF2EE3A87B357646F /* API+Trophy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Trophy.swift"; sourceTree = "<group>"; };
+		871802116B0757823D1C78B864FE72A8 /* API+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+User.swift"; sourceTree = "<group>"; };
 		282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
 		D208137CF7035F090957DD52BFD704BC /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
 		ECF59229051F5AD6A883EFD1E5A2603E /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
@@ -547,7 +563,15 @@
 		3E12508306EBDEC69462D36DFA6BEFEA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */,
+				F535414A9C8D79A939A2BFF775657A36 /* API+Achievement.swift */,
+				1AEDD4E016B1AA80460D6220E05E82A0 /* API+Base.swift */,
+				2A3383BE282FE7F940AD65D3F3C7B0D6 /* API+Mission.swift */,
+				D4B210AE4234907B4760FAA04F09EECB /* API+Ranking.swift */,
+				EF7BF8E50486A77A0322177FB8CE456F /* API+Record.swift */,
+				6470554A1EEB75D4700299E7FA6481EC /* API+Song.swift */,
+				809602DE14384BF3B5E82F7D5148FA87 /* API+Tip.swift */,
+				CEB95E77A3A3528AF2EE3A87B357646F /* API+Trophy.swift */,
+				871802116B0757823D1C78B864FE72A8 /* API+User.swift */,
 				E02735216DE3239EA7247F8F2E0C7F39 /* Network.swift */,
 			);
 			path = Services;
@@ -1055,7 +1079,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161BFACCEAB4A727A22FB62BA00A7B28 /* API.swift in Sources */,
+				991FCB8C6003D66EB3BEB59532E8A06B /* API+Achievement.swift in Sources */,
+				78C1E8E4C5879272A789D75A7A06E60C /* API+Base.swift in Sources */,
+				0079BD6A071052F0D0183D5BAECE2CF8 /* API+Mission.swift in Sources */,
+				06218D29B43C13160681F65F0EC4747B /* API+Ranking.swift in Sources */,
+				C356B0D808F881D9137771E85FA40DFA /* API+Record.swift in Sources */,
+				43A6B3993704E4DD7CB2F324CFEBF15F /* API+Song.swift in Sources */,
+				EE833134589CC0221F7349BE65AF3B5A /* API+Tip.swift in Sources */,
+				3B49548977BE88D1C27DED1EDC192CC1 /* API+Trophy.swift in Sources */,
+				53E8A706790981B27B29951BF46F4033 /* API+User.swift in Sources */,
 				A368D670D9ECB37DBA7FDF40293DCC9F /* AchievementAllTableViewController.swift in Sources */,
 				9F424786F18F120DFA3B54AA97CFE58D /* AchievementBaseTableViewController.swift in Sources */,
 				AD5AD544FF4F2D2C8F1B5317859CF690 /* AchievementCell.swift in Sources */,

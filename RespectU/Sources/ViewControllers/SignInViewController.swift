@@ -68,7 +68,7 @@ extension SignInViewController {
   
   @objc func didTouchUpSignInButton(_ sender: UIButton) {
     if entersAll {
-      API.requestSignIn(id: id, password: password) { statusCode, error in
+      APIService.requestSignIn(id: id, password: password) { statusCode, error in
         if let error = error {
           UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
           return

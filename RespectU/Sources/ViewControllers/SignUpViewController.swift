@@ -65,7 +65,7 @@ extension SignUpViewController {
   
   @objc func didTouchUpSignUpButton(_ sender: UIButton) {
     if entersAll {
-      API.requestSignUp(id: id, password: password, nickname: nickname) { statusCode, error in
+      APIService.requestSignUp(id: id, password: password, nickname: nickname) { statusCode, error in
         if let error = error {
           UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
           return

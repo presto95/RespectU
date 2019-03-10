@@ -16,7 +16,7 @@ class Ranking4BTableViewController: RankingBaseTableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     SVProgressHUD.show()
-    API.requestRankings { response, error in
+    APIService.requestRankings { response, error in
       if let error = error {
         UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
         return

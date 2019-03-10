@@ -10,8 +10,13 @@ import UIKit
 
 extension UIView {
   
-  static func instantiateFromXib(xibName: String) -> UIView {
-    guard let view = UINib(nibName: xibName, bundle: nil).instantiate(withOwner: nil, options: nil).first as? UIView else { return UIView() }
-    return view
+  /// Instantiates the view named `xibName`.
+  ///
+  /// - Parameter xibName: The name of xib file.
+  ///
+  /// - Returns: The instantiated view.
+  static func instantiateFromXib(xibName: String) -> UIView? {
+    return UINib(nibName: xibName, bundle: nil)
+      .instantiate(withOwner: nil, options: nil).first as? UIView
   }
 }

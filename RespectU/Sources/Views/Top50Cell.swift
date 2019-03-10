@@ -28,7 +28,7 @@ final class Top50Cell: UITableViewCell {
     colorLabel.layer.masksToBounds = true
   }
   
-  func setProperties(_ object: NewRecordInfo, button: String) {
+  func setProperties(_ object: RecordInfo, button: Button) {
     let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)

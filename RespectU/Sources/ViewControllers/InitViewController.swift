@@ -166,25 +166,25 @@ extension InitViewController {
       .action(title: "OK".localized) { _ in
         SVProgressHUD.show()
         for result in results {
-          let recordInfo = NewRecordInfo()
+          let recordInfo = RecordInfo()
           recordInfo.title = result.title
           recordInfo.series = result.series
-          let button4Record = NewRecordButtonInfo()
-          let button5Record = NewRecordButtonInfo()
-          let button6Record = NewRecordButtonInfo()
-          let button8Record = NewRecordButtonInfo()
-          let button4NormalRecord = NewRecordDifficultyInfo()
-          let button4HardRecord = NewRecordDifficultyInfo()
-          let button4MaximumRecord = NewRecordDifficultyInfo()
-          let button5NormalRecord = NewRecordDifficultyInfo()
-          let button5HardRecord = NewRecordDifficultyInfo()
-          let button5MaximumRecord = NewRecordDifficultyInfo()
-          let button6NormalRecord = NewRecordDifficultyInfo()
-          let button6HardRecord = NewRecordDifficultyInfo()
-          let button6MaximumRecord = NewRecordDifficultyInfo()
-          let button8NormalRecord = NewRecordDifficultyInfo()
-          let button8HardRecord = NewRecordDifficultyInfo()
-          let button8MaximumRecord = NewRecordDifficultyInfo()
+          let button4Record = RecordButtonInfo()
+          let button5Record = RecordButtonInfo()
+          let button6Record = RecordButtonInfo()
+          let button8Record = RecordButtonInfo()
+          let button4NormalRecord = RecordDifficultyInfo()
+          let button4HardRecord = RecordDifficultyInfo()
+          let button4MaximumRecord = RecordDifficultyInfo()
+          let button5NormalRecord = RecordDifficultyInfo()
+          let button5HardRecord = RecordDifficultyInfo()
+          let button5MaximumRecord = RecordDifficultyInfo()
+          let button6NormalRecord = RecordDifficultyInfo()
+          let button6HardRecord = RecordDifficultyInfo()
+          let button6MaximumRecord = RecordDifficultyInfo()
+          let button8NormalRecord = RecordDifficultyInfo()
+          let button8HardRecord = RecordDifficultyInfo()
+          let button8MaximumRecord = RecordDifficultyInfo()
           if let oldRecord = oldResults.filter("title = %@ OR title = %@", result.title?.english ?? "", result.title?.korean ?? "").first {
             button4NormalRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
             button4NormalRecord.rate = oldRecord.nm4Rate.rateConvertToDouble
@@ -272,7 +272,7 @@ extension InitViewController {
             recordInfo.button6 = button6Record
             recordInfo.button8 = button8Record
           }
-          NewRecordInfo.add(recordInfo)
+          RecordInfo.add(recordInfo)
         }
         Skill.refresh()
         SVProgressHUD.dismiss()

@@ -8,75 +8,190 @@
 
 import Foundation
 
+/// The `enum` that defines constants about skill level.
 enum SkillLevel {
   
-  static let beginner = "BEGINNER"
+  /// BEGINNER.
+  private static let beginner = "BEGINNER"
   
-  static let amateur4 = "AMATEUR 4"
+  /// AMATUER 4.
+  private static let amateur4 = "AMATEUR Ⅳ"
   
-  static let amateur3 = "AMATEUR 3"
+  /// AMATUER 3.
+  private static let amateur3 = "AMATEUR Ⅲ"
   
-  static let amateur2 = "AMATEUR 2"
+  /// AMATUER 2.
+  private static let amateur2 = "AMATEUR Ⅱ"
   
-  static let amateur1 = "AMATEUR 1"
+  /// AMATUER 1.
+  private static let amateur1 = "AMATEUR Ⅰ"
   
-  static let subDj4 = "SUB DJ 4"
+  /// SUB DJ 4.
+  private static let subDj4 = "SUB DJ Ⅳ"
   
-  static let subDj3 = "SUB DJ 3"
+  /// SUB DJ 3.
+  private static let subDj3 = "SUB DJ Ⅲ"
   
-  static let subDj2 = "SUB DJ 2"
+  /// SUB DJ 2.
+  private static let subDj2 = "SUB DJ Ⅱ"
   
-  static let subDj1 = "SUB DJ 1"
+  /// SUB DJ 1.
+  private static let subDj1 = "SUB DJ Ⅰ"
   
-  static let mainDj4 = "MAIN DJ 4"
+  /// MAIN DJ 4.
+  private static let mainDj4 = "MAIN DJ Ⅳ"
   
-  static let mainDj3 = "MAIN DJ 3"
+  /// MAIN DJ 3.
+  private static let mainDj3 = "MAIN DJ Ⅲ"
   
-  static let mainDj2 = "MAIN DJ 2"
+  /// MAIN DJ 2.
+  private static let mainDj2 = "MAIN DJ Ⅱ"
   
-  static let mainDj1 = "MAIN DJ 1"
+  /// MAIN DJ 1.
+  private static let mainDj1 = "MAIN DJ Ⅰ"
   
-  static let popDj4 = "POP DJ 4"
+  /// POP DJ 4.
+  private static let popDj4 = "POP DJ Ⅳ"
   
-  static let popDj3 = "POP DJ 3"
+  /// POP DJ 3.
+  private static let popDj3 = "POP DJ Ⅲ"
   
-  static let popDj2 = "POP DJ 2"
+  /// POP DJ 2.
+  private static let popDj2 = "POP DJ Ⅱ"
   
-  static let popDj1 = "POP DJ 1"
+  /// POP DJ 1.
+  private static let popDj1 = "POP DJ Ⅰ"
   
-  static let professional4 = "PROFESSIONAL 4"
+  /// PROFESSIONAL 4.
+  private static let professional4 = "PROFESSIONAL Ⅳ"
   
-  static let professional3 = "PROFESSIONAL 3"
+  /// PROFESSIONAL 3.
+  private static let professional3 = "PROFESSIONAL Ⅲ"
   
-  static let professional2 = "PROFESSIONAL 2"
+  /// PROFESSIONAL 2.
+  private static let professional2 = "PROFESSIONAL Ⅱ"
   
-  static let professional1 = "PROFESSIONAL 1"
+  /// PROFESSIONAL 1.
+  private static let professional1 = "PROFESSIONAL Ⅰ"
   
-  static let mixMaster3 = "MIX MASTER 3"
+  /// MIX MASTER 3.
+  private static let mixMaster3 = "MIX MASTER Ⅲ"
   
-  static let mixMaster2 = "MIX MASTER 2"
+  /// MIX MASTER 2.
+  private static let mixMaster2 = "MIX MASTER Ⅱ"
   
-  static let mixMaster1 = "MIX MASTER 1"
+  /// MIX MASTER 1.
+  private static let mixMaster1 = "MIX MASTER Ⅰ"
   
-  static let superstar3 = "SUPERSTAR 3"
+  /// SUPERSTAR 3.
+  private static let superstar3 = "SUPERSTAR Ⅲ"
   
-  static let superstar2 = "SUPERSTAR 2"
+  /// SUPERSTAR 2.
+  private static let superstar2 = "SUPERSTAR Ⅱ"
   
-  static let superstar1 = "SUPERSTAR 1"
+  /// SUPERSTAR 1.
+  private static let superstar1 = "SUPERSTAR Ⅰ"
   
-  static let djmaxGrandMaster = "DJMAX GRAND MASTER"
+  /// DJMAX GRAND MASTER.
+  private static let djmaxGrandMaster = "DJMAX GRAND MASTER"
   
-  static let theDjmax = "THE DJMAX"
+  /// THE DJMAX.
+  private static let theDjmax = "✨THE DJMAX"
   
-  static var button4SkillLevels: [String] {
-    return [beginner, amateur4, amateur3, amateur2, amateur1, subDj4, subDj3, subDj2, subDj1, mainDj4, mainDj3, mainDj2, mainDj1, popDj4, popDj3, popDj2, popDj1, professional3, professional2, professional1, mixMaster3, mixMaster2, mixMaster1, superstar3, superstar2, superstar1, djmaxGrandMaster, theDjmax]
-  }
+  /// Skill levels of 4 button mode.
+  static let button4SkillLevels: [String] = [
+    beginner,
+    amateur4,
+    amateur3,
+    amateur2,
+    amateur1,
+    subDj4,
+    subDj3,
+    subDj2,
+    subDj1,
+    mainDj4,
+    mainDj3,
+    mainDj2,
+    mainDj1,
+    popDj4,
+    popDj3,
+    popDj2,
+    popDj1,
+    professional3,
+    professional2,
+    professional1,
+    mixMaster3,
+    mixMaster2,
+    mixMaster1,
+    superstar3,
+    superstar2,
+    superstar1,
+    djmaxGrandMaster,
+    theDjmax
+  ]
   
-  static var button5SkillLevels: [String] {
-    return [beginner, amateur4, amateur3, amateur2, amateur1, subDj4, subDj3, subDj2, subDj1, mainDj4, mainDj3, mainDj2, mainDj1, popDj4, popDj3, popDj2, popDj1, professional3, professional2, professional1, mixMaster3, mixMaster2, mixMaster1, superstar3, superstar2, superstar1, djmaxGrandMaster, theDjmax]
-  }
-  static var button6And8SkillLevels: [String] {
-    return [beginner, amateur4, amateur3, amateur2, amateur1, subDj4, subDj3, subDj2, subDj1, mainDj4, mainDj3, mainDj2, mainDj1, popDj4, popDj3, popDj2, popDj1, professional4, professional3, professional2, professional1, mixMaster3, mixMaster2, mixMaster1, superstar3, superstar2, superstar1, djmaxGrandMaster, theDjmax]
-  }
+  /// Skill levels of 5 button mode.
+  static let button5SkillLevels: [String] = [
+    beginner,
+    amateur4,
+    amateur3,
+    amateur2,
+    amateur1,
+    subDj4,
+    subDj3,
+    subDj2,
+    subDj1,
+    mainDj4,
+    mainDj3,
+    mainDj2,
+    mainDj1,
+    popDj4,
+    popDj3,
+    popDj2,
+    popDj1,
+    professional3,
+    professional2,
+    professional1,
+    mixMaster3,
+    mixMaster2,
+    mixMaster1,
+    superstar3,
+    superstar2,
+    superstar1,
+    djmaxGrandMaster,
+    theDjmax
+  ]
   
+  /// Skill levels of 6 and 8 button mode.
+  static let button6And8SkillLevels: [String] = [
+    beginner,
+    amateur4,
+    amateur3,
+    amateur2,
+    amateur1,
+    subDj4,
+    subDj3,
+    subDj2,
+    subDj1,
+    mainDj4,
+    mainDj3,
+    mainDj2,
+    mainDj1,
+    popDj4,
+    popDj3,
+    popDj2,
+    popDj1,
+    professional4,
+    professional3,
+    professional2,
+    professional1,
+    mixMaster3,
+    mixMaster2,
+    mixMaster1,
+    superstar3,
+    superstar2,
+    superstar1,
+    djmaxGrandMaster,
+    theDjmax
+  ]
 }

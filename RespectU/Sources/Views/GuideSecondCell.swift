@@ -41,7 +41,9 @@ final class GuideSecondCell: UITableViewCell {
     let stackViews = [logInOutStackView, bpmSettingStackView, favoriteButtonStackView]
     for index in 0..<stackViews.count {
       let stackView = stackViews[index]
-      stackView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStackViews(_:))))
+      stackView?
+        .addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                     action: #selector(stackViewsDidTap(_:))))
       guard let imageView = stackView?.arrangedSubviews.first as? UIImageView else { return }
       guard let label = stackView?.arrangedSubviews.last as? UILabel else { return }
       imageView.image = UIImage(named: imageNames[index])
@@ -50,7 +52,7 @@ final class GuideSecondCell: UITableViewCell {
     titleLabel.text = "Personal Setting".localized
   }
   
-  @objc func didTapStackViews(_ recognizer: UITapGestureRecognizer) {
+  @objc func stackViewsDidTap(_ recognizer: UITapGestureRecognizer) {
     guard let stackView = recognizer.view else { return }
     switch stackView.tag {
     case 0:

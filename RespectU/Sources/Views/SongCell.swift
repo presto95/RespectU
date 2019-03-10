@@ -50,13 +50,13 @@ final class SongCell: UITableViewCell {
     bpmLabel.text = object.bpmToString
     var buttons: SongButtonInfo?
     switch favoriteButton {
-    case Buttons.button4:
+    case Button.button4:
       buttons = object.button4
-    case Buttons.button5:
+    case Button.button5:
       buttons = object.button5
-    case Buttons.button6:
+    case Button.button6:
       buttons = object.button6
-    case Buttons.button8:
+    case Button.button8:
       buttons = object.button8
     default:
       break

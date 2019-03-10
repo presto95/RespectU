@@ -10,7 +10,9 @@ import Foundation
 
 final class Network {
   
-  static func get(_ urlPath: String, successHandler: ((Data) -> Void)?, errorHandler: ((Error) -> Void)?) {
+  static func get(_ urlPath: String,
+                  successHandler: ((Data) -> Void)?,
+                  errorHandler: ((Error) -> Void)?) {
     let session = URLSession(configuration: .default)
     guard let url = URL(string: urlPath) else { return }
     let task = session.dataTask(with: url) { (data, _, error) in
@@ -26,13 +28,17 @@ final class Network {
     task.resume()
   }
   
-  static func post(_ urlPath: String, parameters: [String: Any], successHandler: ((Data, Int) -> Void)?, errorHandler: ((Error) -> Void)?) {
+  static func post(_ urlPath: String,
+                   parameters: [String: Any],
+                   successHandler: ((Data, Int) -> Void)?,
+                   errorHandler: ((Error) -> Void)?) {
     let session = URLSession(configuration: .default)
     guard let url = URL(string: urlPath) else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+    guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+      else { return }
     request.httpBody = httpBody
     let task = session.dataTask(with: request) { (data, response, error) in
       if let error = error {
@@ -48,7 +54,10 @@ final class Network {
     task.resume()
   }
   
-  static func upload(_ urlPath: String, data: Data, succesHandler: ((Data, Int) -> Void)?, errorHandler: ((Error) -> Void)?) {
+  static func upload(_ urlPath: String,
+                     data: Data,
+                     successHandler: ((Data, Int) -> Void)?,
+                     errorHandler: ((Error) -> Void)?) {
     let session = URLSession(configuration: .default)
     guard let url = URL(string: urlPath) else { return }
     var request = URLRequest(url: url)
@@ -62,7 +71,7 @@ final class Network {
       }
       guard let data = data else { return }
       guard let statusCode = (response as? HTTPURLResponse)?.statusCode else { return }
-      succesHandler?(data, statusCode)
+      successHandler?(data, statusCode)
       session.finishTasksAndInvalidate()
     }
     task.resume()

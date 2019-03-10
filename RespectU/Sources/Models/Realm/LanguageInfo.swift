@@ -8,9 +8,12 @@
 
 import RealmSwift
 
+/// The realm object about langugae.
 final class LanguageInfo: Object {
   
+  /// The english data.
   @objc dynamic var english: String = ""
   
+  /// The korean data.
   @objc dynamic var korean: String?
 }

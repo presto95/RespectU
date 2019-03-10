@@ -119,31 +119,31 @@ final class RecordView: UIView {
 
 extension RecordView {
   
-  func changeButtonProperties(_ object: NewRecordInfo, button: String) {
+  func changeButtonProperties(_ object: RecordInfo, button: String) {
     switch button {
-    case Buttons.button4:
-      self.buttonButton.setTitle(Buttons.button5.uppercased(), for: [])
-      reloadButtonsAndLabels(object, button: Buttons.button5)
-    case Buttons.button5:
-      self.buttonButton.setTitle(Buttons.button6.uppercased(), for: [])
-      reloadButtonsAndLabels(object, button: Buttons.button6)
-    case Buttons.button6:
-      self.buttonButton.setTitle(Buttons.button8.uppercased(), for: [])
-      reloadButtonsAndLabels(object, button: Buttons.button8)
-    case Buttons.button8:
-      self.buttonButton.setTitle(Buttons.button4.uppercased(), for: [])
-      reloadButtonsAndLabels(object, button: Buttons.button4)
+    case Button.button4:
+      self.buttonButton.setTitle(Button.button5.uppercased(), for: [])
+      reloadButtonsAndLabels(object, button: Button.button5)
+    case Button.button5:
+      self.buttonButton.setTitle(Button.button6.uppercased(), for: [])
+      reloadButtonsAndLabels(object, button: Button.button6)
+    case Button.button6:
+      self.buttonButton.setTitle(Button.button8.uppercased(), for: [])
+      reloadButtonsAndLabels(object, button: Button.button8)
+    case Button.button8:
+      self.buttonButton.setTitle(Button.button4.uppercased(), for: [])
+      reloadButtonsAndLabels(object, button: Button.button4)
     default:
       break
     }
   }
   
-  func updateRankingAndSkillPointLabel(_ object: NewRecordInfo, button: String) {
+  func updateRankingAndSkillPointLabel(_ object: RecordInfo, button: String) {
     updateSkillPointLabel(object, button: button)
     updateRankingLabel(title: object.localizedTitle, button: button)
   }
   
-  func reloadButtonsAndLabels(_ object: NewRecordInfo, button: String) {
+  func reloadButtonsAndLabels(_ object: RecordInfo, button: String) {
     let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), object.title?.english ?? "")
     guard let songResult = SongInfo.fetch().filter(predicate).first else { return }
     self.buttonButton.setTitle(button.uppercased(), for: [])
@@ -213,7 +213,7 @@ extension RecordView {
 
 extension RecordView {
   
-  private func updateSkillPointLabel(_ object: NewRecordInfo, button: String) {
+  private func updateSkillPointLabel(_ object: RecordInfo, button: String) {
     guard let buttonExpansion = button.buttonExpansion else { return }
     let keyPath = "\(buttonExpansion).skillPoint"
     guard let value = object.value(forKeyPath: keyPath) as? Double else { return }
@@ -222,7 +222,7 @@ extension RecordView {
   
   private func updateRankingLabel(title: String, button: String) {
     guard let buttonExpansion = button.buttonExpansion else { return }
-    let results = NewRecordInfo.fetch().sorted(byKeyPath: "\(buttonExpansion).skillPoint", ascending: false)
+    let results = RecordInfo.fetch().sorted(byKeyPath: "\(buttonExpansion).skillPoint", ascending: false)
     let predicate = NSPredicate(format: "%K == %@ OR %K == %@", #keyPath(NewRecordInfo.title.english), title, #keyPath(NewRecordInfo.title.korean), title)
     guard let filtered = results.filter(predicate).first else { return }
     guard let index = results.index(of: filtered) else { return }

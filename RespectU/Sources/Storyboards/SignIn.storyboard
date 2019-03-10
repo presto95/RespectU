@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +11,14 @@
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D5X-wq-Lx0" customClass="SignInViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NLm-cT-CVg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ztu-dU-n1K">
-                                <rect key="frame" x="37.5" y="283.5" width="300" height="100"/>
+                                <rect key="frame" x="60" y="250" width="480" height="100"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e07-KU-sgZ" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="cwT-P6-dXc"/>
@@ -35,7 +31,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8y2-HI-WdD" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="60" width="480" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="GjU-JB-JwE"/>
@@ -50,13 +46,13 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGW-1W-Mwd">
-                                <rect key="frame" x="0.0" y="383.5" width="375" height="283.5"/>
+                                <rect key="frame" x="0.0" y="350" width="600" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GIg-ms-CvI">
-                                        <rect key="frame" x="94" y="102" width="187.5" height="80"/>
+                                        <rect key="frame" x="150" y="85" width="300" height="80"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-so-iPG" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-so-iPG" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="z6v-VM-Ka4"/>
@@ -66,8 +62,8 @@
                                                     <color key="titleColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVW-U5-5u1" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="187.5" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVW-U5-5u1" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="50" width="300" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="ITU-Y1-DG1"/>
@@ -80,7 +76,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUQ-PS-SoV">
-                                        <rect key="frame" x="309" y="237.5" width="50" height="30"/>
+                                        <rect key="frame" x="534" y="204" width="50" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="pzR-zl-rJF"/>
                                         </constraints>
@@ -91,7 +87,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인하여 더 많은 기능을 사용하세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecd-6c-0zT">
-                                        <rect key="frame" x="16" y="244" width="285" height="17"/>
+                                        <rect key="frame" x="16" y="210.5" width="510" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -109,10 +105,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8V-8A-IY5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="263.5"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="230"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="ccH-gS-mYa">
-                                        <rect key="frame" x="95.5" y="39.5" width="184" height="184.5"/>
+                                        <rect key="frame" x="219.5" y="34.5" width="161" height="161"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccH-gS-mYa" secondAttribute="height" multiplier="1:1" id="5M2-SH-dtL"/>
                                         </constraints>
@@ -162,14 +158,14 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HZS-sC-RdR" customClass="SignUpViewController" customModule="RespectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EEt-Pu-vQ6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PJ2-3O-YtA">
-                                <rect key="frame" x="37.5" y="253.5" width="300" height="160"/>
+                                <rect key="frame" x="60" y="220" width="480" height="160"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-lE-xWh" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="crS-Ok-4HY"/>
@@ -182,7 +178,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gor-EV-v6g" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="60" width="480" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="p6X-6M-Irs"/>
@@ -195,7 +191,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKi-2H-TZ7" customClass="SignInTextField" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="300" height="40"/>
+                                        <rect key="frame" x="0.0" y="120" width="480" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="kFZ-no-O49"/>
@@ -210,10 +206,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ast-5f-WdI">
-                                <rect key="frame" x="0.0" y="413.5" width="375" height="253.5"/>
+                                <rect key="frame" x="0.0" y="380" width="600" height="220"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2Q-9Z-BhA" customClass="CommonButton" customModule="RespectU" customModuleProvider="target">
-                                        <rect key="frame" x="94" y="107" width="187.5" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2Q-9Z-BhA" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
+                                        <rect key="frame" x="150" y="90" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="0tm-ol-UCy"/>
                                             <constraint firstAttribute="height" constant="40" id="lxG-f2-RsY"/>
@@ -231,10 +227,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9k-MV-z8g">
-                                <rect key="frame" x="0.0" y="20" width="375" height="233.5"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-EY-XJT">
-                                        <rect key="frame" x="106" y="35" width="163" height="163.5"/>
+                                        <rect key="frame" x="230" y="30" width="140" height="140"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="EhY-EY-XJT" secondAttribute="height" multiplier="1:1" id="ANH-hn-oGm"/>
                                         </constraints>
@@ -296,6 +292,7 @@
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sWT-GV-LYv">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

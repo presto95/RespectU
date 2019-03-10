@@ -36,7 +36,7 @@ final class UploadViewController: UIViewController {
         .action(title: "OK".localized)
         .present(to: self)
     } else {
-      let results = NewRecordInfo.fetch()
+      let results = RecordInfo.fetch()
       var records = [RecordResponse.Record]()
       for result in results {
         let button4Normal = RecordResponse.Record.Button.Difficulty(rank: result.button4?.normal?.rank ?? "", rate: result.button4?.normal?.rate ?? 0, note: result.button4?.normal?.note ?? "")

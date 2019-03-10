@@ -19,7 +19,14 @@ protocol GuideThirdCellDelegate: class {
 
 final class GuideThirdCell: UITableViewCell {
   
-  let titles = ["Download From Server", "Upload To Server", "Send Email to Developer", "DJMAX Radio Station", "Credit", "Rate This App"]
+  let titles = [
+    "Download From Server",
+    "Upload To Server",
+    "Send Email to Developer",
+    "DJMAX Radio Station",
+    "Credit",
+    "Rate This App"
+  ]
   
   let imageNames = ["download", "upload", "email", "radio", "credit", "rate"]
   
@@ -47,10 +54,19 @@ final class GuideThirdCell: UITableViewCell {
     view.layer.borderWidth = 1
     view.layer.borderColor = UIColor.lightGray.cgColor
     view.layer.masksToBounds = true
-    let stackViews = [downloadStackView, uploadStackView, emailStackView, radioStackView, creditStackView, rateStackView]
+    let stackViews = [
+      downloadStackView,
+      uploadStackView,
+      emailStackView,
+      radioStackView,
+      creditStackView,
+      rateStackView
+    ]
     for index in 0..<stackViews.count {
       let stackView = stackViews[index]
-      stackView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStackViews(_:))))
+      stackView?
+        .addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                     action: #selector(stackViewsDidTap(_:))))
       guard let imageView = stackView?.arrangedSubviews.first as? UIImageView else { return }
       guard let label = stackView?.arrangedSubviews.last as? UILabel else { return }
       imageView.image = UIImage(named: imageNames[index])
@@ -59,7 +75,7 @@ final class GuideThirdCell: UITableViewCell {
     titleLabel.text = "More".localized
   }
   
-  @objc func didTapStackViews(_ recognizer: UITapGestureRecognizer) {
+  @objc func stackViewsDidTap(_ recognizer: UITapGestureRecognizer) {
     guard let stackView = recognizer.view else { return }
     switch stackView.tag {
     case 0:

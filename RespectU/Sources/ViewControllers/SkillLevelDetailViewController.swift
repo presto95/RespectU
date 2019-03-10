@@ -30,7 +30,7 @@ final class SkillLevelDetailViewController: UIViewController {
     guard let button8View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
     let recordViews = [button4View, button5View, button6View, button8View]
     let backgroundViews = [button4BackgroundView!, button5BackgroundView!, button6BackgroundView!, button8BackgroundView!]
-    let buttons = [Buttons.button4, Buttons.button5, Buttons.button6, Buttons.button8]
+    let buttons = [Button.button4, Button.button5, Button.button6, Button.button8]
     for index in 0..<recordViews.count {
       let recordView = recordViews[index]
       let backgroundView = backgroundViews[index]

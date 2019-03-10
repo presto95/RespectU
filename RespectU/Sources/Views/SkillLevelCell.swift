@@ -55,7 +55,7 @@ final class SkillLevelCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
-  func setProperties(_ button: String, max: Double, myRecord: (sum: Double, highestSeries: String)) {
+  func setProperties(_ button: Button, max: Double, myRecord: (sum: Double, highestSeries: String)) {
     let mySkillPointSum = myRecord.sum
     let myHighestSeries = myRecord.highestSeries
     let seriesColor = myHighestSeries.seriesColor ?? .clear
@@ -66,11 +66,11 @@ final class SkillLevelCell: UITableViewCell {
     skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
     skillLevelLabel.text = {
       switch button {
-      case Buttons.button4:
+      case Button.button4:
         return Skill.button4SkillLevel(mySkillPointSum)
-      case Buttons.button5:
+      case Button.button5:
         return Skill.button5SkillLevel(mySkillPointSum)
-      case Buttons.button6, Buttons.button8:
+      case Button.button6, Button.button8:
         return Skill.button6And8SkillLevel(mySkillPointSum)
       default:
         return nil

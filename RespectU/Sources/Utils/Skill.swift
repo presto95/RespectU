@@ -11,18 +11,10 @@ import Foundation
 import RealmSwift
 
 final class Skill {
-  
-  static let button4SkillPoint = "button4SkillPoint"
-  
-  static let button5SkillPoint = "button5SkillPoint"
-  
-  static let button6SkillPoint = "button6SkillPoint"
-  
-  static let button8SkillPoint = "button8SkillPoint"
-  
+
   /// 단일 스킬포인트 계산
-  static func skillPoint(difficulty: Int, rate: Double?, note: String?) -> Double {
-    guard let rate = rate, let note = note else { return 0 }
+  static func skillPoint(difficulty: Int, rate: Double?, note: Note) -> Double {
+    guard let rate = rate else { return 0 }
     if difficulty == 0 {
       return 0
     }
@@ -35,36 +27,43 @@ final class Skill {
     } else {
       skillPoint = Double(weight * rate * 5.0) / 8.0
     }
-    if note.isEmpty {
-      skillPoint *= 0.9
-    } else if note == Note.perfectPlay {
+    switch note {
+    case .none:
+      skillPoint *= 0.0
+    case .perfectPlay:
       skillPoint *= 1.05
+    default:
+      break
     }
     skillPoint = (skillPoint * 100).rounded() / 100
     return skillPoint
   }
   
   /// 현재 데이터베이스로 얻을 수 있는 최대 스킬포인트 계산
-  static func maxSkillPoint(button: String) -> Double {
+  static func maxSkillPoint(button: Button) -> Double {
     let results = SongInfo.fetch()
     var max: Double = 0
     var top50Difficulties = [Int]()
     for result in results {
       let buttonResult: SongButtonInfo?
       switch button {
-      case Buttons.button4:
+      case .button4:
         buttonResult = result.button4
-      case Buttons.button5:
+      case .button5:
         buttonResult = result.button5
-      case Buttons.button6:
+      case .button6:
         buttonResult = result.button6
-      case Buttons.button8:
+      case .button8:
         buttonResult = result.button8
       default:
         buttonResult = SongButtonInfo()
       }
       guard let bindedButtonResult = buttonResult else { return 0 }
-      guard let highest = [bindedButtonResult.normal, bindedButtonResult.hard, bindedButtonResult.maximum].sorted().last else { return 0 }
+      guard let highest = [
+        bindedButtonResult.normal,
+        bindedButtonResult.hard,
+        bindedButtonResult.maximum
+        ].sorted().last else { return 0 }
       top50Difficulties.append(highest)
     }
     top50Difficulties.sort(by: >)
@@ -75,20 +74,21 @@ final class Skill {
   }
   
   /// 내 기록의 스킬포인트와 1등의 시리즈 계산
-  static func mySkillPointAndHighestSeries(button: String) -> (sum: Double, highestSeries: String) {
-    func sumAndHighestSeries(_ results: Results<NewRecordInfo>?, button: String) -> (sum: Double, highestSeries: String) {
+  static func mySkillPointAndHighestSeries(button: Button) -> (sum: Double, highestSeries: String) {
+    func sumAndHighestSeries(_ results: Results<RecordInfo>?,
+                             button: Button) -> (sum: Double, highestSeries: String) {
       guard let results = results else { return (0, "") }
       var sum: Double = 0
       for index in 0..<50 {
         var skillPoint: Double = 0
         switch button {
-        case Buttons.button4:
+        case .button4:
           skillPoint = results[index].button4?.skillPoint ?? 0
-        case Buttons.button5:
+        case .button5:
           skillPoint = results[index].button5?.skillPoint ?? 0
-        case Buttons.button6:
+        case .button6:
           skillPoint = results[index].button6?.skillPoint ?? 0
-        case Buttons.button8:
+        case .button8:
           skillPoint = results[index].button8?.skillPoint ?? 0
         default:
           break
@@ -96,34 +96,34 @@ final class Skill {
         sum += skillPoint
       }
       switch button {
-      case Buttons.button4:
-        UserDefaults.standard.set(sum, forKey: Skill.button4SkillPoint)
-      case Buttons.button5:
-        UserDefaults.standard.set(sum, forKey: Skill.button5SkillPoint)
-      case Buttons.button6:
-        UserDefaults.standard.set(sum, forKey: Skill.button6SkillPoint)
-      case Buttons.button8:
-        UserDefaults.standard.set(sum, forKey: Skill.button8SkillPoint)
+      case .button4:
+        UserDefaults.standard.set(sum, forKey: SkillPoint.button4)
+      case .button5:
+        UserDefaults.standard.set(sum, forKey: SkillPoint.button5)
+      case .button6:
+        UserDefaults.standard.set(sum, forKey: SkillPoint.button6)
+      case .button8:
+        UserDefaults.standard.set(sum, forKey: SkillPoint.button8)
       default:
         break
       }
       UserDefaults.standard.synchronize()
       return (sum, results.first?.series ?? "")
     }
-    let results: Results<NewRecordInfo>?
+    let results: Results<RecordInfo>?
     switch button {
-    case Buttons.button4:
-      results = NewRecordInfo.fetch().sorted(byKeyPath: "button4.skillPoint", ascending: false)
-      return sumAndHighestSeries(results, button: Buttons.button4)
-    case Buttons.button5:
-      results = NewRecordInfo.fetch().sorted(byKeyPath: "button5.skillPoint", ascending: false)
-      return sumAndHighestSeries(results, button: Buttons.button5)
-    case Buttons.button6:
-      results = NewRecordInfo.fetch().sorted(byKeyPath: "button6.skillPoint", ascending: false)
-      return sumAndHighestSeries(results, button: Buttons.button6)
-    case Buttons.button8:
-      results = NewRecordInfo.fetch().sorted(byKeyPath: "button8.skillPoint", ascending: false)
-      return sumAndHighestSeries(results, button: Buttons.button8)
+    case .button4:
+      results = RecordInfo.fetch().sorted(byKeyPath: "button4.skillPoint", ascending: false)
+      return sumAndHighestSeries(results, button: .button4)
+    case .button5:
+      results = RecordInfo.fetch().sorted(byKeyPath: "button5.skillPoint", ascending: false)
+      return sumAndHighestSeries(results, button: .button5)
+    case .button6:
+      results = RecordInfo.fetch().sorted(byKeyPath: "button6.skillPoint", ascending: false)
+      return sumAndHighestSeries(results, button: .button6)
+    case .button8:
+      results = RecordInfo.fetch().sorted(byKeyPath: "button8.skillPoint", ascending: false)
+      return sumAndHighestSeries(results, button: .button8)
     default:
       return (0, "")
     }
@@ -131,41 +131,52 @@ final class Skill {
   
   /// 스킬포인트 다시 계산하여 데이터베이스 갱신
   static func refresh() {
-    let recordResults = NewRecordInfo.fetch()
+    let recordResults = RecordInfo.fetch()
     let songResults = SongInfo.fetch()
     for recordResult in recordResults {
-      let predicate = NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), recordResult.title?.english ?? "")
+      let predicate = NSPredicate(format: "%K == %@",
+                                  #keyPath(NewRecordInfo.title.english),
+                                  recordResult.title?.english ?? "")
       guard let songResult = songResults.filter(predicate).first else { return }
       let buttons = ["button4", "button5", "button6", "button8"]
       for button in buttons {
-        guard let recordButtonResult = recordResult.value(forKey: button) as? NewRecordButtonInfo else { return }
-        guard let songButtonResult = songResult.value(forKey: button) as? SongButtonInfo else { return }
+        guard let recordButtonResult = recordResult.value(forKey: button) as? RecordButtonInfo
+          else { return }
+        guard let songButtonResult = songResult.value(forKey: button) as? SongButtonInfo
+          else { return }
         let recordNormal = recordButtonResult.normal
         let recordHard = recordButtonResult.hard
         let recordMaximum = recordButtonResult.maximum
         let songNormal = songButtonResult.normal
         let songHard = songButtonResult.hard
         let songMaximum = songButtonResult.maximum
-        let normalSkillPoint = Skill.skillPoint(difficulty: songNormal, rate: recordNormal?.rate, note: recordNormal?.note)
-        let hardSkillPoint = Skill.skillPoint(difficulty: songHard, rate: recordHard?.rate, note: recordHard?.note)
-        let maximumSkillPoint = Skill.skillPoint(difficulty: songMaximum, rate: recordMaximum?.rate, note: recordMaximum?.note)
-        guard let maxSkillPoint = [normalSkillPoint, hardSkillPoint, maximumSkillPoint].sorted().last else { return }
-        NewRecordInfo.update(recordResult, with: ["\(button).skillPoint": maxSkillPoint])
+        let normalSkillPoint = Skill.skillPoint(difficulty: songNormal,
+                                                rate: recordNormal?.rate,
+                                                note: Note(rawValue: recordNormal?.note ?? "") ?? .none)
+        let hardSkillPoint = Skill.skillPoint(difficulty: songHard,
+                                              rate: recordHard?.rate,
+                                              note: Note(rawValue: recordHard?.note ?? "") ?? .none)
+        let maximumSkillPoint = Skill.skillPoint(difficulty: songMaximum,
+                                                 rate: recordMaximum?.rate,
+                                                 note: Note(rawValue: recordMaximum?.note ?? "") ?? .none)
+        guard let maxSkillPoint = [normalSkillPoint, hardSkillPoint, maximumSkillPoint]
+          .sorted().last else { return }
+        RecordInfo.update(recordResult, with: ["\(button).skillPoint": maxSkillPoint])
         switch maxSkillPoint {
         case normalSkillPoint:
-          NewRecordInfo.update(recordResult, with: [
+          RecordInfo.update(recordResult, with: [
             "\(button).skillPointDifficulty": Difficulty.normal,
             "\(button).skillPointRate": recordNormal?.rate ?? 0,
             "\(button).skillPointNote": recordNormal?.note ?? Note.none
             ])
         case hardSkillPoint:
-          NewRecordInfo.update(recordResult, with: [
+          RecordInfo.update(recordResult, with: [
             "\(button).skillPointDifficulty": Difficulty.hard,
             "\(button).skillPointRate": recordHard?.rate ?? 0,
             "\(button).skillPointNote": recordHard?.note ?? Note.none
             ])
         case maximumSkillPoint:
-          NewRecordInfo.update(recordResult, with: [
+          RecordInfo.update(recordResult, with: [
             "\(button).skillPointDifficulty": Difficulty.maximum,
             "\(button).skillPointRate": recordMaximum?.rate ?? 0,
             "\(button).skillPointNote": recordMaximum?.note ?? Note.none
@@ -179,11 +190,11 @@ final class Skill {
   }
   
   /// 버튼별 현재 스킬레벨의 다음 단계 가져오기
-  static func nextSkillLevel(of skillLevel: String, button: String) -> String? {
+  static func nextSkillLevel(of skillLevel: String, button: Button) -> String? {
     var index: Int = 0
     var nextSkillLevel = "Next".localized + " : "
     switch button {
-    case Buttons.button4:
+    case .button4:
       for element in SkillLevel.button4SkillLevels {
         if element == skillLevel { break }
         index += 1
@@ -193,7 +204,7 @@ final class Skill {
       } else {
         nextSkillLevel += SkillLevel.button4SkillLevels[index + 1]
       }
-    case Buttons.button5:
+    case .button5:
       for element in SkillLevel.button5SkillLevels {
         if element == skillLevel { break }
         index += 1
@@ -203,7 +214,7 @@ final class Skill {
       } else {
         nextSkillLevel += SkillLevel.button5SkillLevels[index + 1]
       }
-    case Buttons.button6, Buttons.button8:
+    case .button6, .button8:
       for element in SkillLevel.button6And8SkillLevels {
         if element == skillLevel { break }
         index += 1
@@ -220,30 +231,32 @@ final class Skill {
   }
   
   /// 성과 기록 비율 계산
-  static func recordRate(button: String) -> Double {
+  static func recordRate(button: Button) -> Double {
     var counts = [0, 0]
-    let recordResults = NewRecordInfo.fetch()
+    let recordResults = RecordInfo.fetch()
     let songResults = SongInfo.fetch()
     for result in recordResults {
-      let buttonResult: NewRecordButtonInfo?
+      let buttonResult: RecordButtonInfo?
       let songResult: SongButtonInfo?
-      let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), result.title?.english ?? "")
+      let predicate = NSPredicate(format: "%K == %@",
+                                  #keyPath(SongInfo.title.english),
+                                  result.title?.english ?? "")
       guard let filteredSong = songResults.filter(predicate).first else { return 0 }
       switch button {
-      case Buttons.button4:
+      case .button4:
         buttonResult = result.button4
         songResult = filteredSong.button4
-      case Buttons.button5:
+      case .button5:
         buttonResult = result.button5
         songResult = filteredSong.button5
-      case Buttons.button6:
+      case .button6:
         buttonResult = result.button6
         songResult = filteredSong.button6
-      case Buttons.button8:
+      case .button8:
         buttonResult = result.button8
         songResult = filteredSong.button8
       default:
-        buttonResult = NewRecordButtonInfo()
+        buttonResult = RecordButtonInfo()
         songResult = SongButtonInfo()
       }
       if songResult?.normal != 0 {

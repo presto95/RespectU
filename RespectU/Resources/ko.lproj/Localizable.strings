@@ -5,7 +5,8 @@
   Created by Presto on 2017. 10. 17..
   Copyright © 2017년 Presto. All rights reserved.
 */
-//영어 -> 한국어
+
+// 영어 -> 한국어
 
 "Music" = "음악";
 "OK" = "확인";
@@ -122,7 +123,7 @@
 "Enter all conditions" = "조건을 모두 입력하세요";
 "Skill Point Calculator" = "스킬포인트 계산기";
 
-//서버연동 이후
+// 서버연동 이후
 "ID" = "아이디";
 "Password" = "비밀번호";
 "Sign In" = "로그인";

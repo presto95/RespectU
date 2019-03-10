@@ -50,30 +50,50 @@ final class SearchRecordDetailViewController: UIViewController {
     tableView.layer.borderColor = UIColor.lightGray.cgColor
     tableView.layer.borderWidth = 1
     tableView.layer.cornerRadius = 15
-    tableView.register(UINib(nibName: "SearchRecordDetailCell", bundle: nil), forCellReuseIdentifier: "searchRecordDetailCell")
-    let recordResults = NewRecordInfo.fetch()
+    
+    tableView.register(UINib(nibName: SearchRecordDetailCell.classNameToString, bundle: nil),
+                       forCellReuseIdentifier: "searchRecordDetailCell")
+    let recordResults = RecordInfo.fetch()
     switch buttonIndex {
     case 0:
       switch methodIndex {
       case 0:
         let songResults = SongInfo.fetch()
         let level = levelIndex + 1
-        let predicate = NSPredicate(format: "%K = %d OR %K = %d OR %K = %d", #keyPath(SongInfo.button4.normal), level, #keyPath(SongInfo.button4.hard), level, #keyPath(SongInfo.button4.maximum), level)
+        let predicate = NSPredicate(format: "%K = %d OR %K = %d OR %K = %d",
+                                    #keyPath(SongInfo.button4.normal),
+                                    level,
+                                    #keyPath(SongInfo.button4.hard),
+                                    level,
+                                    #keyPath(SongInfo.button4.maximum),
+                                    level)
         let filtered = songResults.filter(predicate)
         for result in filtered {
-          guard let record = recordResults.filter(NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), result.title?.english ?? "")).first else { return }
+          guard let record = recordResults
+            .filter(NSPredicate(format: "%K == %@",
+                                #keyPath(NewRecordInfo.title.english),
+                                result.title?.english ?? "")).first else { return }
           if result.button4?.normal == level {
-            let object = SearchRecordDetail(series: record.series, title: record.localizedTitle, difficulty: Difficulty.normal, rate: record.button4?.normal?.rate ?? 0)
-            self.results.append(object)
+            let object = SearchRecordDetail(series: record.series,
+                                            title: record.localizedTitle,
+                                            difficulty: Difficulty.normal,
+                                            rate: record.button4?.normal?.rate ?? 0)
+            results.append(object)
             
           }
           if result.button4?.hard == level {
-            let object = SearchRecordDetail(series: record.series, title: record.localizedTitle, difficulty: Difficulty.hard, rate: record.button4?.hard?.rate ?? 0)
-            self.results.append(object)
+            let object = SearchRecordDetail(series: record.series,
+                                            title: record.localizedTitle,
+                                            difficulty: Difficulty.hard,
+                                            rate: record.button4?.hard?.rate ?? 0)
+            results.append(object)
           }
           if result.button4?.maximum == level {
-            let object = SearchRecordDetail(series: record.series, title: record.localizedTitle, difficulty: Difficulty.maximum, rate: record.button4?.maximum?.rate ?? 0)
-            self.results.append(object)
+            let object = SearchRecordDetail(series: record.series,
+                                            title: record.localizedTitle,
+                                            difficulty: Difficulty.maximum,
+                                            rate: record.button4?.maximum?.rate ?? 0)
+            results.append(object)
           }
         }
       case 1:

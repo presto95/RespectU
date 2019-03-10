@@ -7,207 +7,210 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		018B35D50D5676BBBCC54CCB3CA661C1 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8872346BBBB0B7BAFD7D7D14AB637E94 /* RecordCell.xib */; };
-		0490ED63088F1D21357115AAC50277CD /* Ranking4BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460E128E67CA72C6FADFC0EB180D544 /* Ranking4BTableViewController.swift */; };
-		05B355E7973AFF0EE06551B7F8C4B60E /* RecordTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC294B70F9E5F5C3E41C0F28B1150E /* RecordTechnika1TableViewController.swift */; };
-		067CB8ADCA8BA53E3AF6B4A7C94E5AB7 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13809AF4354422A199374B3465D8656 /* Record.storyboard */; };
-		0C0890F959D19D92DE0203EEDDFA2A61 /* AchievementNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBACAA804226CAE067FC7988FFDB705C /* AchievementNoteTableViewController.swift */; };
-		0D3BFF47081892A7905082F16AA70A1B /* MissionBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BBF52CE6E2A6AB5CFE2F51C3AC739 /* MissionBaseTableViewController.swift */; };
-		0D674D10CEFCDB7E98BAA4BAF3816632 /* AchievementMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7466184C44DF63293690F636A540006 /* AchievementMusicTableViewController.swift */; };
-		106A7A9A8EA4187880DC10E76AE24AB3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */; };
-		10F3F7B55F293DC062361F4630CA8A5D /* RankingBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F1B5CFBC5AA07E6437BB54CD85DCC /* RankingBaseTableViewController.swift */; };
-		118BC6640770180E869C61F24A9B267B /* NewRecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9645787A10911574F881AF52ABC3437 /* NewRecordInfo.swift */; };
-		14A9C0F1784C4EFB020D45285772036C /* SkillLevelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC6B551EBD0EC656F35FD74247ED8D /* SkillLevelDetailView.swift */; };
-		1557292ADCA0CF4DB668E8484F911817 /* Top50BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCD3681C300BB7277BF7AD629F437F /* Top50BaseTableViewController.swift */; };
-		15D85A72D8E253A709907E22B1B919BA /* SearchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C194554A77881C517795E91A8F23124E /* SearchRecordViewController.swift */; };
-		161BFACCEAB4A727A22FB62BA00A7B28 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */; };
-		165A0377CAE98B37ACDC3858EB682D1B /* SongTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4A203C4E9D73E8A0A84FA0CA39597 /* SongTechnika1TableViewController.swift */; };
-		2333AD6A84A933542D4B2C25E3212707 /* RecordTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386AA31944619497D098DD436CB7B844 /* RecordTechnika2TableViewController.swift */; };
-		239EFA870B218D81D6C4B1D8415CE5A1 /* RecordPortable2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7F7FF6E371C6AFBB7CF0D591B80077 /* RecordPortable2TableViewController.swift */; };
-		29004BE5963EE433AD31B998EE689AEA /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD0886E6AB67717518459D5240AA618 /* MissionBSTableViewController.swift */; };
-		2901F95B975DB2C2454906E626CEDD0E /* Top504BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7199FED9916AE8F1B2D5E8F10DD3DA85 /* Top504BTableViewController.swift */; };
-		297DFEEE2C220A5C1F47BAA6F2AC87B7 /* MissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6BC6E8EAEFF1FB31DF48435303F350 /* MissionCell.swift */; };
-		2CF9C7F2D29AC0B0A229CA393D9B5474 /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533244755DF122EF39F607955E5BECE /* RankingViewController.swift */; };
-		2EE7D5E9345E25D80F03F5351DBD4C57 /* MissionTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9EE6885471E562ABB9BCE1CAD89926 /* MissionTrilogyTableViewController.swift */; };
-		30CA59116BA612C654A2C258B541456C /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C4171732CB6DBE54C695567727956 /* Difficulty.swift */; };
-		3386E2A6131F018929F2BA4A98B3E456 /* RecordBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F4836D796EA68CF12F7E7205999111 /* RecordBaseTableViewController.swift */; };
-		33BF1BBA552FE3D67B3735594915121F /* AchievementGalleryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE12B8799245022FD19641A8A5C36FA2 /* AchievementGalleryTableViewController.swift */; };
-		34ADC537FFCD0E32831D26AB2C1DD1B9 /* MissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D0B448B5CE4F3F072A2E8F1A08173 /* MissionCell.xib */; };
-		36D90F14658E9A2386E71925147AD3B7 /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7141F43FD5DD9A34D35E2692CB721D4A /* SummaryCollectionCell.swift */; };
-		3AADDD6360A75A94FC9E23B076C8726C /* NewRecordDifficultyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8734A2D9BD6B576517DD90BED34FF3 /* NewRecordDifficultyInfo.swift */; };
-		3ACE06EAF10D0F00AB81B031AFFD4370 /* RankingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B980355224D49337F83B418D77DF9 /* RankingResponse.swift */; };
-		3B512E5473FFFA0F66D8764BAED981B3 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97E32F8C45528612A0289056855C81E /* MissionTechnika1TableViewController.swift */; };
-		3B9C2AF499E89D2A4B1386181D2E464C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */; };
-		3BB933CDB0A2F0ABF0AD9921098EB4E0 /* Guide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43CCCFC971513264AFA7256BA71653C4 /* Guide.storyboard */; };
-		3C2E4343DB314444E72BCA528356A02B /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A91E1391EB1A2505BB6E30EB1AD65 /* UploadViewController.swift */; };
-		3C3F35A5412363A606944EF0D4321CEA /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424D5323572999A7BC5B602A6D550B8D /* MissionDetailViewController.swift */; };
-		3DA152F335FBCFB88C79B81154FF9B0F /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1F0CF64225316B57F6FD2CDC7EA07 /* AchievementBaseTableViewController.swift */; };
-		3EF9E312AD18529A52002DA70ED93A65 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF088218F7A567E03D5A3106F94B80A /* SongViewController.swift */; };
-		3FC482296754D98BE86BD7B18E564694 /* SearchByNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA77CE4436FD7F1B3A85A2993A6875 /* SearchByNoteView.swift */; };
-		409ABEBD1C0ACF153D2726D4203EB120 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7897FFE7C5D2CCD0252A92D83D3A242 /* Reachability.swift */; };
-		40A958056F42EC3D295722454F5129D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */; };
-		411A370D58452A171552DFDB8AE6CDFB /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF44E865CAECD23B67EC669F4F499627 /* RankingCell.xib */; };
-		456CFC7E84339AD858F72E14C0200EAD /* TrophyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E87A2B03543FCDFA459E10DCEBCDF /* TrophyCell.swift */; };
-		4945A0D92FA68D09476BE7AFB8AE2429 /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */; };
-		4C17D5C69A95D3C1A2160AE91E036869 /* AchievementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F3BF12F13DC015494221C8902B980 /* AchievementResponse.swift */; };
-		4CB993740AF398D71E90C9EC481F995D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */; };
-		4D93915A70FFA3B0270461492B3EDBCD /* SkillLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F94B11D0652E774E5A75E6FC9875E3 /* SkillLevelCell.xib */; };
-		4E20EA2D84F42FD5DEDF9BC6105A85BE /* RecordCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372FF0ED07A548C50A4B94FB33D8E89 /* RecordCETableViewController.swift */; };
-		4E28FACC4F77EEF2A9DB7BF8BCC85376 /* RecordRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D795CBC7D043F90E4EED907BF57F6D /* RecordRespectTableViewController.swift */; };
-		4F36406F313CFACF5EB61DE26A5CB885 /* SongCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FC379A93468721C978BADB40902D36 /* SongCETableViewController.swift */; };
-		4FBF2977E66C057D1A9F1F3F19E48E8C /* NicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B34AF7A247BBB042C734DD502A4021B /* NicknameResponse.swift */; };
-		517A242865CBD69B25107A0694054C3E /* SongRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E0AAA1364E40DC6E954941F12C46ED /* SongRespectTableViewController.swift */; };
-		53DC6066E155D2567781E494547956C9 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */; };
-		54CB14A1152EBED5F62581A197D9DB51 /* Pods_RespectU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720D3E6C26142ACBA59C9F7822C204CC /* Pods_RespectU.framework */; };
-		56B103D4D21450CC4D0BC3D98286A3AF /* SearchByLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA587AC64BBF7D9615B18AE922CCA5 /* SearchByLevelView.swift */; };
-		58736705749AD1AFAB55B5AAAE9A10B2 /* AchievementCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9FBA4CF36420A1728A8CE06628BCB /* AchievementCommentTableViewController.swift */; };
-		58C3163BF0CC79CF46BE593C0642D043 /* MissionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831C3A4C9CD49BAA9461B584687A457 /* MissionSection.swift */; };
-		5A7233F8CD55096485F6137E6278A377 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */; };
-		5ADDA82FCF1FCA08FF186B19D840024D /* RecordBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276F8D6D5B4A3667EA74A74054CD9E8D /* RecordBSTableViewController.swift */; };
-		5DD021C2FA893BE6587462DA9A2A44F0 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12E3AA69AEC8526DA02450D9F486C31 /* Ranking.storyboard */; };
-		5F74C0FF12D461826448C86A14E4919D /* Top50Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C312CB6DC58847B1ACBECB8F95A8F /* Top50Cell.swift */; };
-		622FF5A14D48F871B7D1835E0F6D2A29 /* TrophyBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC70A11E9C3055140262528E1238C07 /* TrophyBSTableViewController.swift */; };
-		62DEDC1DFDC2671D8FD94252993B0104 /* SongTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9155018C1737D94DBBCF706B217644 /* SongTechnika2TableViewController.swift */; };
-		63ED27EEFEEB68018A86ADDD38CA7954 /* SongPortable1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E07AEAF9DBD85E001FBFA8E5DCD749 /* SongPortable1TableViewController.swift */; };
-		65B837BD248EF75153ED13562E7F5F5F /* VersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2731BD8B5A3E3953125EBC4F1ACA6B7 /* VersionResponse.swift */; };
-		6873CA61A5E3DCF9DCE5B8DD11436346 /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */; };
-		6882E18AB7ED3B44099C1EB2DF316B2C /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3AEF54E1F8CB4F0C230AE0F4A274D /* SummaryCell.swift */; };
-		6B55743E37BEBB24B1B5DA326BAC689B /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D37A25DCDC8B3EE48F56719264861F7 /* Init.storyboard */; };
-		6C3633F6762BD5A374A277D8F7E146FB /* TrophyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4592DA185138E2C675A2E63C84920D1 /* TrophyCell.xib */; };
-		6D1619C4051B8073FDAE2D1EE0F28DF1 /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */; };
-		6DC5DBD7A805FAB0AE5BB15306DD37D8 /* AchievementGearTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627C0189293E8E42B3F89BA4D8556D7F /* AchievementGearTableViewController.swift */; };
-		7000A30D0FE72B9E633BF472D2D12FEA /* RecordPortable1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9794B1D2A819DD78249CCEC45EEDFFA /* RecordPortable1TableViewController.swift */; };
-		71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */; };
-		72A6FC1E6A98838E96D248125AD521CB /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FF1E46F752FAB4F0923766554242F2 /* HistoryCell.swift */; };
-		736A2B7A896E83B84E13930EAA71B115 /* MissionCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AA65852A0D04C369C2C36D2F01A13 /* MissionCETableViewController.swift */; };
-		74DD787436F4A0E27647E2D3195DD901 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */; };
-		773E3FDD1DEE5F4CB711CDB6039FC8E6 /* GuideSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C214B5C6340C681D687A5837D49CB2 /* GuideSecondCell.swift */; };
-		78989219547DC155E6A2BFB50D1CE084 /* GuideFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB4DE7C46CAC769FAD64B4062EA5AC /* GuideFirstCell.swift */; };
-		795A8690E946AA858CDFA6559AC32058 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87EB605D9439B5EE296E64FC5DBF065 /* Series.swift */; };
-		7B9E2E0FE30E84D6166FBE77C171C8D9 /* SearchByLevelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447A6CDF1125075CFA6FF3AA94D38056 /* SearchByLevelView.xib */; };
-		7CAA744A443BAA4E21DFFF769BC9A3BF /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B143CCDE9CB1920C76E56DFB8E619A /* NSObject+.swift */; };
-		7CB858F1D4B7C2010CA9C6704BED6960 /* SongBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38601414280411B531B8987B6A99B4FD /* SongBaseTableViewController.swift */; };
-		7DB048302AB433149E6A95BA48133447 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCF1B33BD4D77BF5650BED697154D2 /* TipViewController.swift */; };
-		7E0990E3AE966B278DF432343CED2319 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */; };
-		7F550ED856FEE434A4289AC243725DA2 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC73FB70CC51A8AFAC0050C039CF14 /* SongCell.swift */; };
-		8195A797A997EB11E01BA33CB200032F /* SummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1D43DE39EACC238837AEAB67663B /* SummaryCell.xib */; };
-		832BAB1A651DC131F7DD567512C8F754 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */; };
-		850DD2C3B140ABFF1F77DE71377A0B8B /* HistoryInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B793D715371C54016DC2D1063E81DD /* HistoryInfo.swift */; };
-		85423FC58B37007F7D2F96AD9481ADD9 /* SongTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57EA9582A8ADAEC597AB6A4CA5B41D0 /* SongTrilogyTableViewController.swift */; };
-		86DEAB8A62F44038DA244F4B864FE1FF /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */; };
-		8A087598B8EF1B782F4BE31EA61D6609 /* TrophyTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E1B180DCCE42D6B95043266B71EB4 /* TrophyTechnika1TableViewController.swift */; };
-		8B869D1A5010363B9C57382DD11229F6 /* Top50ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63C1EC3EF6962D96105334119384DFC /* Top50ViewController.swift */; };
-		8D428E252225AAE930BF8D945401F018 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */; };
-		8D459E7659B6D367A465BF313930A8FC /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E566F2224770BCDA7139D3E7C9B1AC34 /* SongCell.xib */; };
-		8E2577604E640D270C80FBB4295515A7 /* SongResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7267843D0764A20BFC44647A8069076 /* SongResponse.swift */; };
-		8E46243F171B5DE4C8636DE0C7C4BC09 /* Download.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C18E5F5E8BB5540D91968DDECE31869A /* Download.storyboard */; };
-		8FB4812E5C759FEF3BD39304092A2DDA /* AchievementPlateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8294C5047A2BEC5D65CDF3D21EACE681 /* AchievementPlateTableViewController.swift */; };
-		90AE9C19BBE72AFD47EC3E391B1EAA1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E683F525A54716C4D6BE56A96EEDCB29 /* Assets.xcassets */; };
-		90AF44D559BE00DEB63346B84D141E10 /* MissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356291260ADA8E8A175631818583AAC6 /* MissionResponse.swift */; };
-		93A2A616DC091EC01FE19DF5A8228554 /* SkillLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC69B55FC64D7C31A86A33852EAB0AC /* SkillLevelCell.swift */; };
-		93BB5AA87262F60BA521453CB5FA1517 /* SongAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632412C3BC1584B3F450B004F939C780 /* SongAllTableViewController.swift */; };
-		94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */; };
-		947B12FA1B9BEA069196FA8C3F0A93CC /* RecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CCC3BF2DFAE7E90D1AB5AE1DDA0283F /* RecordView.xib */; };
-		94C4FDF724B961541DE6EB47D3EBBBB4 /* NewRecordButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99945BC86B861561470F918542F6B60 /* NewRecordButtonInfo.swift */; };
-		956AB4AC68AAE08C8B1027E71234A7D6 /* Trophy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D08ADAD88BBB07FBB95CF8CD62CB6ED /* Trophy.storyboard */; };
-		986310414206F5E413A447766B2A36D0 /* TrophyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703F75E9D1960A0BAA7CFC8240AE541 /* TrophyInfo.swift */; };
-		988AF066A3BF24543A103298E129F719 /* TrophyTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AFB65F04E333283E839AFA459B348 /* TrophyTrilogyTableViewController.swift */; };
-		98E58C3EB574E700F5D75FCB04F4FC44 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02735216DE3239EA7247F8F2E0C7F39 /* Network.swift */; };
-		9C5BD16964B01CE4E826C0714E7BFB7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437358F63E7EFA7C3FA6E22357580622 /* AppDelegate.swift */; };
-		9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */; };
-		9DB272CDB091ACF835E7C0D863D117F8 /* TrophyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A426486B63E886A1D72A62EC230A4D /* TrophyResponse.swift */; };
-		9E93FD8E5248FEAC12520317AE75E78F /* Song.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F70C67599FC388CA2F8CD0D50622CAF /* Song.storyboard */; };
-		9E9FE3ABBD6C4A909DBF694107A99CF3 /* TrophyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4E00E50818EB6E5CEFC189EB61A24 /* TrophyViewController.swift */; };
-		A0FBA089C7AF58F69FC8307BB3EFE949 /* TrophyCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EF3F08A01B2E9DAC0A57CDD4B05592 /* TrophyCETableViewController.swift */; };
-		A1D24F6E660A1AB2EB33616C3EB5E0DE /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6F278314CCBAFC8DD80108CFDC5B48D /* SummaryCollectionCell.xib */; };
-		A2E0EC32E2A84BD99F4DD5111640C7B1 /* Ranking6BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49700D8387BF461DCDC78837F99DC9C4 /* Ranking6BTableViewController.swift */; };
-		A355C78EC61F119CC6EBBA3E16B5AA0A /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8A42FD9DBB28DB007F737E8557BB7 /* PerformanceViewController.swift */; };
-		A6CF37762CAA065A967E3883E5957CB3 /* GuideThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C849886AF9CEC2084D57D6610826D0 /* GuideThirdCell.swift */; };
-		A8F637AB2D98571955E28ED50F2EFE00 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2991773C4B90001F83182265FA5298FA /* RecordCell.swift */; };
-		AA8DD4E886BEABB74CF925D0F4F11A07 /* AchievementAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F876F84919FC4AB4E3AFBD13AFC807D /* AchievementAllTableViewController.swift */; };
-		AD5AD544FF4F2D2C8F1B5317859CF690 /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623DBE7ABE62C6ED2C6A96D8B561D1BC /* AchievementCell.swift */; };
-		B255C1B95D64372EBE20026F66E6F259 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7D4A7210DBE5C6BF5E8E60901CEC24 /* Realm.framework */; };
-		B31CCEEC9631C86B5EF02174D9260574 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319B5B08CC94B87A5BD97034671725 /* Buttons.swift */; };
-		B4C010F3E08C60C1830E3D8C5449D925 /* RecordAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D90D693FCE5D01C20BB6A165C8F3B17 /* RecordAllTableViewController.swift */; };
-		B5FA99B079C83D0EB38B3214877D0B5F /* TrophyGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BEF4EBE00D4D956A95FC60EED6936C /* TrophyGrade.swift */; };
-		B75932AA1467B03CA35BC9004011A315 /* Ranking5BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822964D9AE10C76C32804846BD408D70 /* Ranking5BTableViewController.swift */; };
-		B8B11751AD0B80290C2BD90E08516F00 /* SkillLevelDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D06706BBF1BDD733B678B932EBBB7D5 /* SkillLevelDetailView.xib */; };
-		BC160FABF64677F137254937D3713224 /* MissionTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392E0563DB3EF689D6DF0AADF0A18512 /* MissionTechnika2TableViewController.swift */; };
-		BEC7D1F3799FA6E0EEDB0980E345F689 /* MissionStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */; };
-		C0D81815E12F8E9C9E2A5D50A298249D /* Ranking8BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA27B0844DFE553DBBDB855D1BE66A80 /* Ranking8BTableViewController.swift */; };
-		C1B3B41863D44653D87A7A70DF46CF4C /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877A8038CD5557C3CC265DE729A1C679 /* MissionLinkDiskTableViewController.swift */; };
-		C2B828CD011EB99FA479BF670FEE7A4C /* TipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B397154AED8CE46A5D63ACC715A8F1 /* TipInfo.swift */; };
-		C2E8F29F1DC6CE924DC66758994B7356 /* SearchRecordDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D538492B9D665E6049971A842544B8F0 /* SearchRecordDetailCell.xib */; };
-		C32B59D468373A5BFC77DC16826DBC78 /* TrophyBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3008BA18D3CC6D3D12FFCF3E5E3626 /* TrophyBaseTableViewController.swift */; };
-		C49BDBE7974F6333739B639CFBC5DB8A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */; };
-		C63B141C37BB8917CCE32F7C5D8F5F71 /* RespectUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3230BF7F50DFA3CB1B358E28D08E4FC0 /* RespectUUITests.swift */; };
-		C663E15915C31A522FC58453C8860335 /* LanguageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */; };
-		C67050AEEA3E9FEFEEF6609848CABF49 /* SongButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93D99DBE3AD0EB3D9A0617867ED07 /* SongButtonInfo.swift */; };
-		C81038227EB1F76F10B393EF9F1E4352 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA39A1ECB2391413A9FC0C7C4183741 /* HistoryCell.xib */; };
-		C86374E3E25A9D8B40E03568CB353DCE /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F49E6EA3E0B9F118A59BCD1C399A9 /* Upload.storyboard */; };
-		C8ADDE7416A86CE84CD4823CC47833DC /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D899C6158365DC40A43EFA3FBD53860 /* RecordView.swift */; };
-		C901A043E201D80F7AD41DCA311F210F /* MissionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2056D7C4194815BBE52A3F13FAF7125 /* MissionInfo.swift */; };
-		CB15DCA04201968492D23A68EA665442 /* RecordTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6B3A541F4D25010F3F35A9A67792 /* RecordTrilogyTableViewController.swift */; };
-		CD286290C91049CAB1AC71B914F91DE7 /* SkillLevelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ED1030BF0FF71A1E556B9468CD078 /* SkillLevelDetailViewController.swift */; };
-		CD55E0CB7597D32784C77016C147A6AD /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A63669D5CF070426162547AE2374EB /* GuideViewController.swift */; };
-		CD61A2743707AB4D81D63B0316B24996 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85879716D357DCA16AE7BE7B43A66610 /* Note.swift */; };
-		CDD90E6F9A84C3037845D5DEB4542235 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3967E03121C5D373852596130FBEF3CF /* AchievementViewController.swift */; };
-		CDE5CA37598ACDCB586EBEF4699A9A20 /* TrophyLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC73C87600C9F6E08FAA711546EDAA45 /* TrophyLinkDiskTableViewController.swift */; };
-		CF652EC9A502638F95140E9BBD58327D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A085D0FCAAED86B5EF798D2FF4C4EE5E /* SignIn.storyboard */; };
-		CFE06C37E505ADA86B782D6F9315B62A /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C88266B26501A7D7D0FBB1595FED8E /* RecordViewController.swift */; };
-		D169E524F4D2EAE96CF748473077DED9 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1623CE4A41E243954BD9284984D01FB7 /* CommonButton.swift */; };
-		D5BAC3FE4BFE449319B1FF768BEA4DA9 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */; };
-		D5F72F3C2F85C879DA08951E8E516A4F /* GuideThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87BC688E45E35568921856EA90F48939 /* GuideThirdCell.xib */; };
-		D60684D01227D743425A5926A21FD850 /* RecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE876B3189C89826136B421C811E381 /* RecordResponse.swift */; };
-		D79F2B22E63E56750A75E8E85F5A2106 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AD21635BD128711534875F3BED05B9 /* Date+.swift */; };
-		DA56608DD5FB0DE29D1BF82728E52081 /* VersionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49DC68ED49BE1C95E3D0C553CB3C0D0 /* VersionInfo.swift */; };
-		DC8239DAEF1700D671C8ADC1F04121DA /* OldRecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26CA6823B048ECBE5ED32FB0E8A9AD /* OldRecordInfo.swift */; };
-		DDCD94A6CE2796C37A75BB76264A42D7 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD36253B6A78D45161CCC968C55E4403 /* MissionViewController.swift */; };
-		DF0ADF3EC056D01E0F7C2285EE9C8587 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45291D32AD99A8C491E4A69A15AB4D44 /* UserResponse.swift */; };
-		DFA7343544B17FDE10800CFA2D95474E /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC6B20F4435BC55F0363155B189EA9 /* RankingCell.swift */; };
-		E0045A82AD56B280294AD01E55A8F38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF8FE8E83D48C24E4B183637AC73A8 /* LaunchScreen.storyboard */; };
-		E05BB8184D6100C19BF655CED0E83C6B /* SongPortable2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B417168DEC8C7CE3CFF3167E2BD91D5 /* SongPortable2TableViewController.swift */; };
-		E0EDFB525D4882309B4E8E08CC6118CF /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55900F26C3996946BE4F93D6DA3621 /* AchievementCell.xib */; };
-		E17C2EFC3BE85116F8799D84AC7F9A9C /* Top508BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A9E705AE5738C03AE3AC0B49148503 /* Top508BTableViewController.swift */; };
-		E1BA221CFFF61F520AD65F33AA99A1FB /* GuideFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8345DDA3C2BB8226C719046C36C1C125 /* GuideFirstCell.xib */; };
-		E1CBFF554215B6EE966299F65FC12C15 /* AchievementInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D72B837CDF13537B08A21962C780D70 /* AchievementInfo.swift */; };
-		E2645C255A26C0BF58FE7B6C8F543B10 /* Results+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50878402B628C50E20D355FE6EFEC0CE /* Results+.swift */; };
-		E2D8AEB2117CBC267BE26D6F4BFA9CB7 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08640281899B112DEB6A0A0A56A169B7 /* String+.swift */; };
-		E3AAFB991E79A9FEC8829E4089C1A987 /* MissionRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07F5ADDDE226713D08E378DE77DA76 /* MissionRespectTableViewController.swift */; };
-		E49C4A33514DB94D1E07267D61B4AF25 /* SongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296CBA384CF912A9F2429A941DFB482D /* SongInfo.swift */; };
-		E63A464BD8F09B2C3DC2B77F582DCF15 /* SkillLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */; };
-		E6EDD3323AAEBEB6A807729A32F10D20 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C913905A8FC3BD6FF7298C9E2D1F4 /* SnapshotHelper.swift */; };
-		E8AC5E159FA0754BC70508BDEDA438B2 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = D8DDC6393F8E75DB389B0B80A6930D30 /* swiftgen.yml */; };
-		E909A0D435DE1970F26D9E69E991ED41 /* SearchRecordDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E6B6B900C98599DF992D190397ED8 /* SearchRecordDetailCell.swift */; };
-		EA0B5AD4D8A85E87C374E6E1DDDE5F70 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2F7C71C65B7A0C884FA0D3FEEC488B /* Rank.swift */; };
-		EA1752A5D1D32B7E68ED6F87A95DC83F /* Top50Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329CE7FE589A94E7D6F4B0D771A64AE /* Top50Cell.xib */; };
-		EB500C397294D1867BE4A5323F2B399E /* SearchRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54A2548B3BB3E75F221CEAFB441651 /* SearchRecordDetailViewController.swift */; };
-		EC915038C96954FF4B4502B9245CF3D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B30E23955E630DE10DDEE4E073034629 /* Localizable.strings */; };
-		ECCEFF52FC66948EE5E02EBB2B8DD164 /* Top506BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C8F701F9B8601D124094F2E7BD192 /* Top506BTableViewController.swift */; };
 		EE5801B1F86B92BE4282BB1D1EAECC52 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = DA5A4E6832F2B48BFFE29D6EE9E1BFEF /* .swiftlint.yml */; };
-		EE71722AABACD4B3CA0F4730F95231FF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */; };
-		EF1D0308F7D611050180B8F605CFC826 /* TrophyRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534A50ABBAEA97783B003B5468E7A223 /* TrophyRespectTableViewController.swift */; };
-		F0A88013498D8F407A0A6BAC3DEA8640 /* Top505BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F889634072866BE4A38CC952D5778BB /* Top505BTableViewController.swift */; };
-		F2510C6CE3EB733695848E79C13CA0ED /* Top50.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721D3123DF4906650661109B36D4EFC2 /* Top50.storyboard */; };
-		F312FA83FF2B64E98E689A06342FA7FC /* SongBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E16497B90231561FD081BD385DDCD5E /* SongBSTableViewController.swift */; };
-		F5FFD36CB7ABB20DBB14EADA3DF1E89F /* SearchByNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB408736A795C68EBA417CAF1C9391F9 /* SearchByNoteView.xib */; };
-		F6D1D8AF11816178C53F140AB9BF06DE /* TrophyTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F41884111936561D35948740DB95A /* TrophyTechnika2TableViewController.swift */; };
-		FA269EB89C42EEF82524955630812EA2 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1371C9E28AB4CD6449FA7FD0074E25 /* Tip.storyboard */; };
-		FBA69F596B504E30711FBB8CA0653F81 /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1695D071CC7554C3FA877BC12B245 /* SummaryDetailViewController.swift */; };
+		161BFACCEAB4A727A22FB62BA00A7B28 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */; };
+		6D1619C4051B8073FDAE2D1EE0F28DF1 /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */; };
+		A368D670D9ECB37DBA7FDF40293DCC9F /* AchievementAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D208137CF7035F090957DD52BFD704BC /* AchievementAllTableViewController.swift */; };
+		9F424786F18F120DFA3B54AA97CFE58D /* AchievementBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF59229051F5AD6A883EFD1E5A2603E /* AchievementBaseTableViewController.swift */; };
+		AD5AD544FF4F2D2C8F1B5317859CF690 /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623DBE7ABE62C6ED2C6A96D8B561D1BC /* AchievementCell.swift */; };
+		E0EDFB525D4882309B4E8E08CC6118CF /* AchievementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A55900F26C3996946BE4F93D6DA3621 /* AchievementCell.xib */; };
+		77A3641A412E2281169BC43A482D1E91 /* AchievementCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07507A73DE0099DC9CFB4ABA9FB0DC0C /* AchievementCommentTableViewController.swift */; };
+		51224183DF5D5EE431F19419618869BD /* AchievementGalleryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB2A66DC82F6391EEEF838491861F33 /* AchievementGalleryTableViewController.swift */; };
+		79411DF6AB24D237EE95FD55E977CAEA /* AchievementGearTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0CEB91040D7176F26D4F0FDD21D28 /* AchievementGearTableViewController.swift */; };
+		E1CBFF554215B6EE966299F65FC12C15 /* AchievementInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D72B837CDF13537B08A21962C780D70 /* AchievementInfo.swift */; };
+		EDDF63E5EFFCFFE2BAEED87EF03CA87B /* AchievementMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728DBB0614587CD2759E53BD1A65882 /* AchievementMusicTableViewController.swift */; };
+		B6352BF809F83287D010471DA3CE8ACC /* AchievementNoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18449AAA9B8578063135A1485D123683 /* AchievementNoteTableViewController.swift */; };
+		21210F283185F19A775BAC369EA72133 /* AchievementPlateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F04BA7E15EC807F3B9CAA3AEF98239 /* AchievementPlateTableViewController.swift */; };
+		4C17D5C69A95D3C1A2160AE91E036869 /* AchievementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F3BF12F13DC015494221C8902B980 /* AchievementResponse.swift */; };
+		B4CB2D7CBA623EA489565AB780044FE6 /* AchievementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8609566688513F20D56F71E8C2A73E /* AchievementType.swift */; };
+		A85CA7512FCCF5A4CD116BCDCD8795A1 /* AchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEACD594FBA67A330D104F816D4D968 /* AchievementViewController.swift */; };
+		9C5BD16964B01CE4E826C0714E7BFB7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437358F63E7EFA7C3FA6E22357580622 /* AppDelegate.swift */; };
+		BE9081C6FD851727989460A4D055C02E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB665B16E2FF2F0BE095960FFA33E /* Assets.swift */; };
+		90AE9C19BBE72AFD47EC3E391B1EAA1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E683F525A54716C4D6BE56A96EEDCB29 /* Assets.xcassets */; };
+		C49BDBE7974F6333739B639CFBC5DB8A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */; };
+		16E72F47E46466C1D0F72348BC1734D2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7994394D253D83388739913632BF52F4 /* Button.swift */; };
+		94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */; };
+		36105E909ADA369CB7D0D1B675FED1F4 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */; };
+		8E46243F171B5DE4C8636DE0C7C4BC09 /* Download.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C18E5F5E8BB5540D91968DDECE31869A /* Download.storyboard */; };
+		53DC6066E155D2567781E494547956C9 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */; };
+		38C447D6D1AE123FA0B3D40D21AEE863 /* GradientDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */; };
+		3BB933CDB0A2F0ABF0AD9921098EB4E0 /* Guide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43CCCFC971513264AFA7256BA71653C4 /* Guide.storyboard */; };
+		78989219547DC155E6A2BFB50D1CE084 /* GuideFirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EB4DE7C46CAC769FAD64B4062EA5AC /* GuideFirstCell.swift */; };
+		E1BA221CFFF61F520AD65F33AA99A1FB /* GuideFirstCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8345DDA3C2BB8226C719046C36C1C125 /* GuideFirstCell.xib */; };
+		773E3FDD1DEE5F4CB711CDB6039FC8E6 /* GuideSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C214B5C6340C681D687A5837D49CB2 /* GuideSecondCell.swift */; };
 		FC8FBD22093105C52F038E7D50AE6834 /* GuideSecondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B3098AC1D795D61653C34864ED20F9 /* GuideSecondCell.xib */; };
+		A6CF37762CAA065A967E3883E5957CB3 /* GuideThirdCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C849886AF9CEC2084D57D6610826D0 /* GuideThirdCell.swift */; };
+		D5F72F3C2F85C879DA08951E8E516A4F /* GuideThirdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87BC688E45E35568921856EA90F48939 /* GuideThirdCell.xib */; };
+		CD55E0CB7597D32784C77016C147A6AD /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A63669D5CF070426162547AE2374EB /* GuideViewController.swift */; };
+		6B55743E37BEBB24B1B5DA326BAC689B /* Init.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D37A25DCDC8B3EE48F56719264861F7 /* Init.storyboard */; };
+		7E0990E3AE966B278DF432343CED2319 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */; };
+		C663E15915C31A522FC58453C8860335 /* LanguageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */; };
+		9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */; };
+		E0045A82AD56B280294AD01E55A8F38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF8FE8E83D48C24E4B183637AC73A8 /* LaunchScreen.storyboard */; };
+		EC915038C96954FF4B4502B9245CF3D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B30E23955E630DE10DDEE4E073034629 /* Localizable.strings */; };
+		3B9C2AF499E89D2A4B1386181D2E464C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */; };
+		6873CA61A5E3DCF9DCE5B8DD11436346 /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */; };
+		07E412854081E98BAA9EC7826338343C /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */; };
+		9DCD5A88AE046BE67E43FDE46C8F33C3 /* MissionBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41D0D4CFC2F1ABFC1D38C42335BAB6C /* MissionBaseTableViewController.swift */; };
+		8007E7D37842446EFC1FDF6AFC2639EC /* MissionCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30DD51658A0E07C8F795B59D8C5A930 /* MissionCETableViewController.swift */; };
+		297DFEEE2C220A5C1F47BAA6F2AC87B7 /* MissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6BC6E8EAEFF1FB31DF48435303F350 /* MissionCell.swift */; };
+		34ADC537FFCD0E32831D26AB2C1DD1B9 /* MissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 274D0B448B5CE4F3F072A2E8F1A08173 /* MissionCell.xib */; };
+		0179E468A4893A10BE09245347B49401 /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1D1400F4F8A5579A4BD339D8661CC6 /* MissionDetailViewController.swift */; };
+		C901A043E201D80F7AD41DCA311F210F /* MissionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2056D7C4194815BBE52A3F13FAF7125 /* MissionInfo.swift */; };
+		99897C2ED7674E739230DED65BDC06D2 /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB4F2D81091EAC8D197F1D737EA41B9 /* MissionLinkDiskTableViewController.swift */; };
+		80F2294D348F4A43E2CB8F35028D0423 /* MissionRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1936880A3D30B8BC49B8587F6778EEA /* MissionRespectTableViewController.swift */; };
+		90AF44D559BE00DEB63346B84D141E10 /* MissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356291260ADA8E8A175631818583AAC6 /* MissionResponse.swift */; };
+		AC365183A54C207B12519696FFF64C67 /* MissionSection.BS+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */; };
+		0380D257C2F539A6344259BF2EFED65A /* MissionSection.CE+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */; };
+		BEC2CC592CAB4198746262C55D73DBA0 /* MissionSection.LinkDisk+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */; };
+		8DD62325C32CFDD11403EF407197E9A9 /* MissionSection.Respect+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D0FEC3D95CCD8ECE16CBDA7084FFA /* MissionSection.Respect+Gradient.swift */; };
+		87EE66478A51CBA1A1A9F26347694685 /* MissionSection.Technika1+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7A5F0799CF86A96D301D82B8B1090 /* MissionSection.Technika1+Gradient.swift */; };
+		72713E32C8FA38F681A9C4F075A7D08B /* MissionSection.Technika2+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */; };
+		5A54507509E4E4DC3181C3FCB74FBBC0 /* MissionSection.Technika3+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF7FCA66B507564BF411BB82D824394 /* MissionSection.Technika3+Gradient.swift */; };
+		9F579ACF8BFC762F49A03A837BCCF7ED /* MissionSection.Trilogy+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59269E3AB75988A25F6D4EF5088A20 /* MissionSection.Trilogy+Gradient.swift */; };
+		F551680129D8E83F451174BE5B4DBF5D /* MissionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */; };
+		BEC7D1F3799FA6E0EEDB0980E345F689 /* MissionStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */; };
+		D4F4FB7D6DFADE1F54AEEDDEEE9BF681 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3127AC853734E65CD8EDD6BD1D9AEB68 /* MissionTechnika1TableViewController.swift */; };
+		7C37CAC5FB61061C9FCB133E803A0423 /* MissionTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21A9793161E13A8605689D97FBCC60 /* MissionTechnika2TableViewController.swift */; };
+		532E0449B68A85440B2A1E3F2BAF63B4 /* MissionTechnika3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1E98FB695B66D5FA11980E8C7618DA /* MissionTechnika3TableViewController.swift */; };
+		D7D51512AABF833025D3FB78AB1C0C3F /* MissionTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1C93791BC6091924D5E9BEA314201C /* MissionTrilogyTableViewController.swift */; };
+		ED9D59C06C9E0047119BE8AE0BBC1A97 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192054BD8E7E46E36A43659F1D2131A /* MissionViewController.swift */; };
+		7CAA744A443BAA4E21DFFF769BC9A3BF /* NSObject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B143CCDE9CB1920C76E56DFB8E619A /* NSObject+.swift */; };
+		98E58C3EB574E700F5D75FCB04F4FC44 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02735216DE3239EA7247F8F2E0C7F39 /* Network.swift */; };
+		4FBF2977E66C057D1A9F1F3F19E48E8C /* NicknameResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B34AF7A247BBB042C734DD502A4021B /* NicknameResponse.swift */; };
+		1D5A93ADB7E0551D8265EC21D90E8114 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF510989C994AF286BAC6EFC98F3D86 /* Note.swift */; };
+		DC8239DAEF1700D671C8ADC1F04121DA /* OldRecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26CA6823B048ECBE5ED32FB0E8A9AD /* OldRecordInfo.swift */; };
 		FCFE1C1D08C5F261AD3D0C70A4B69522 /* Performance.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A75068DE95C7555DB599931ED8AEDE /* Performance.storyboard */; };
+		A355C78EC61F119CC6EBBA3E16B5AA0A /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC8A42FD9DBB28DB007F737E8557BB7 /* PerformanceViewController.swift */; };
+		54CB14A1152EBED5F62581A197D9DB51 /* Pods_RespectU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720D3E6C26142ACBA59C9F7822C204CC /* Pods_RespectU.framework */; };
+		C295B902F2B60D1CF3FA2B1334479A65 /* RUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B229B6B9B7142C2A461D7DEB2A7113 /* RUButton.swift */; };
+		9F02A015FDD5629384099D02332F9AF8 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B1BD7EAB31E7E51B602AF90FC5C2AE /* Rank.swift */; };
+		5DD021C2FA893BE6587462DA9A2A44F0 /* Ranking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E12E3AA69AEC8526DA02450D9F486C31 /* Ranking.storyboard */; };
+		48175A5C8370F8ED872DDDAD970867BB /* Ranking4BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA4615ADDF5106D45E6C157F9935FE /* Ranking4BTableViewController.swift */; };
+		79D274160965FE8BA5A394E6C353BA65 /* Ranking5BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57D6592351D9AD16368506EE4633557 /* Ranking5BTableViewController.swift */; };
+		EEA6DE9B2B98EA38E69EB963C636C520 /* Ranking6BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8059779D1985F721E78B753EC4D776 /* Ranking6BTableViewController.swift */; };
+		4A98A06417A0097FB957083613E33F09 /* Ranking8BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A61C0A29FAF3BAFDEA230CF7D855312 /* Ranking8BTableViewController.swift */; };
+		A315E94EE38B5C79959A6DEF81671063 /* RankingBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9306E0C24359552A85518112EFCC9D /* RankingBaseTableViewController.swift */; };
+		DFA7343544B17FDE10800CFA2D95474E /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC6B20F4435BC55F0363155B189EA9 /* RankingCell.swift */; };
+		411A370D58452A171552DFDB8AE6CDFB /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF44E865CAECD23B67EC669F4F499627 /* RankingCell.xib */; };
+		3ACE06EAF10D0F00AB81B031AFFD4370 /* RankingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1B980355224D49337F83B418D77DF9 /* RankingResponse.swift */; };
+		7858348DB87AE1F57E6EDE96DC86385B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656538575F3D4D03C665378FB2C6E482 /* RankingViewController.swift */; };
+		409ABEBD1C0ACF153D2726D4203EB120 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7897FFE7C5D2CCD0252A92D83D3A242 /* Reachability.swift */; };
+		B255C1B95D64372EBE20026F66E6F259 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7D4A7210DBE5C6BF5E8E60901CEC24 /* Realm.framework */; };
+		74DD787436F4A0E27647E2D3195DD901 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */; };
+		067CB8ADCA8BA53E3AF6B4A7C94E5AB7 /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13809AF4354422A199374B3465D8656 /* Record.storyboard */; };
+		6AB28858EC6AF5E90E28E90FEB28EB45 /* RecordAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBD21C11306FD9C54E163A20FF8FA24 /* RecordAllTableViewController.swift */; };
+		6A51A5566ED5C9A050238B3B86CDFF28 /* RecordBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101CE93B365835BBA1D7A917C71B524B /* RecordBSTableViewController.swift */; };
+		A7666C7BFF582CE3D2E5AEFB30A1973A /* RecordBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646CCC720C494D646FECAB5677C1E21 /* RecordBaseTableViewController.swift */; };
+		0AD398A653F247BBD797BF1C08117411 /* RecordButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D774173D345CCDC64F1E65BA46CC48A /* RecordButtonInfo.swift */; };
+		B2C7292410B72D6239C9419EFD99F720 /* RecordCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0B9C9329B63A84146A68B44211AF /* RecordCETableViewController.swift */; };
+		A8F637AB2D98571955E28ED50F2EFE00 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2991773C4B90001F83182265FA5298FA /* RecordCell.swift */; };
+		018B35D50D5676BBBCC54CCB3CA661C1 /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8872346BBBB0B7BAFD7D7D14AB637E94 /* RecordCell.xib */; };
+		02686C509DF00D9696587DEEA60DA1AD /* RecordDifficultyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE923EF715087FF2BBEAA80043390A02 /* RecordDifficultyInfo.swift */; };
+		C87227AE5F5C14201E4A9A2BFBA6F43C /* RecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B238705DEEA8ACF0182DF0BB41B2CB0D /* RecordInfo.swift */; };
+		402BA1696265B27378F92C7D0EFE5D9A /* RecordPortable1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CF5FBE9FE442E18A869E8FFDBB6596 /* RecordPortable1TableViewController.swift */; };
+		26708994E8417D244AFABB1922A65642 /* RecordPortable2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F75FFB849D9280269D8A4130772A059 /* RecordPortable2TableViewController.swift */; };
+		90435DAD8253B6ECD6DBBD877A50DF9F /* RecordRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7A724B52192252A0101E5F2B3DC658 /* RecordRespectTableViewController.swift */; };
+		D60684D01227D743425A5926A21FD850 /* RecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE876B3189C89826136B421C811E381 /* RecordResponse.swift */; };
+		09E17333AB311C09221D5BDD854CAAF5 /* RecordTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86C6C9262E8EB75FB7589033C1F2EC4 /* RecordTechnika1TableViewController.swift */; };
+		9B236D432A2A7BA98EDD93D1231A3AEF /* RecordTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAF7442CCE225037AD440CAED1A2F46 /* RecordTechnika2TableViewController.swift */; };
+		B87568500EAB59BC53C4C46C7DBDF37C /* RecordTechnika3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394457A6318FCBA35633C05384AA8D50 /* RecordTechnika3TableViewController.swift */; };
+		8FA7CCD9F150E47BC3E960749476A437 /* RecordTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8FDB96924415810F26D8A3D5DCC643 /* RecordTrilogyTableViewController.swift */; };
+		C8ADDE7416A86CE84CD4823CC47833DC /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D899C6158365DC40A43EFA3FBD53860 /* RecordView.swift */; };
+		947B12FA1B9BEA069196FA8C3F0A93CC /* RecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CCC3BF2DFAE7E90D1AB5AE1DDA0283F /* RecordView.xib */; };
+		6390715145BD10663A5A4D6C352868DF /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDC8CD7AE0EAE20F102844365138098 /* RecordViewController.swift */; };
+		56B103D4D21450CC4D0BC3D98286A3AF /* SearchByLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA587AC64BBF7D9615B18AE922CCA5 /* SearchByLevelView.swift */; };
+		7B9E2E0FE30E84D6166FBE77C171C8D9 /* SearchByLevelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 447A6CDF1125075CFA6FF3AA94D38056 /* SearchByLevelView.xib */; };
+		3FC482296754D98BE86BD7B18E564694 /* SearchByNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DA77CE4436FD7F1B3A85A2993A6875 /* SearchByNoteView.swift */; };
+		F5FFD36CB7ABB20DBB14EADA3DF1E89F /* SearchByNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB408736A795C68EBA417CAF1C9391F9 /* SearchByNoteView.xib */; };
+		71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */; };
+		4945A0D92FA68D09476BE7AFB8AE2429 /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */; };
+		E909A0D435DE1970F26D9E69E991ED41 /* SearchRecordDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7E6B6B900C98599DF992D190397ED8 /* SearchRecordDetailCell.swift */; };
+		C2E8F29F1DC6CE924DC66758994B7356 /* SearchRecordDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D538492B9D665E6049971A842544B8F0 /* SearchRecordDetailCell.xib */; };
+		EB500C397294D1867BE4A5323F2B399E /* SearchRecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B54A2548B3BB3E75F221CEAFB441651 /* SearchRecordDetailViewController.swift */; };
+		15D85A72D8E253A709907E22B1B919BA /* SearchRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C194554A77881C517795E91A8F23124E /* SearchRecordViewController.swift */; };
+		16217B19735F571D4F00B4E714D445A1 /* Series+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9970140918A7A61332718A9C9D8322 /* Series+UI.swift */; };
+		2440D6183CA2FD2B1771BD07553F0EA3 /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADF8D0329CDE33DD67FC75E36D63E92 /* Series.swift */; };
+		CF652EC9A502638F95140E9BBD58327D /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A085D0FCAAED86B5EF798D2FF4C4EE5E /* SignIn.storyboard */; };
+		832BAB1A651DC131F7DD567512C8F754 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */; };
+		EE71722AABACD4B3CA0F4730F95231FF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */; };
+		40A958056F42EC3D295722454F5129D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */; };
+		106A7A9A8EA4187880DC10E76AE24AB3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */; };
+		E63A464BD8F09B2C3DC2B77F582DCF15 /* SkillLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */; };
+		93A2A616DC091EC01FE19DF5A8228554 /* SkillLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC69B55FC64D7C31A86A33852EAB0AC /* SkillLevelCell.swift */; };
+		4D93915A70FFA3B0270461492B3EDBCD /* SkillLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F94B11D0652E774E5A75E6FC9875E3 /* SkillLevelCell.xib */; };
+		14A9C0F1784C4EFB020D45285772036C /* SkillLevelDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC6B551EBD0EC656F35FD74247ED8D /* SkillLevelDetailView.swift */; };
+		B8B11751AD0B80290C2BD90E08516F00 /* SkillLevelDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D06706BBF1BDD733B678B932EBBB7D5 /* SkillLevelDetailView.xib */; };
+		CD286290C91049CAB1AC71B914F91DE7 /* SkillLevelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494ED1030BF0FF71A1E556B9468CD078 /* SkillLevelDetailViewController.swift */; };
+		1E64D8217B3A29B37418024823592E66 /* SkillPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E664D69C5666D40413DD76EC3EEB905 /* SkillPoint.swift */; };
+		9E93FD8E5248FEAC12520317AE75E78F /* Song.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F70C67599FC388CA2F8CD0D50622CAF /* Song.storyboard */; };
+		FA4BEBF3791C502B996D02DE973581D8 /* SongAllTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDBA54D2C97FB9571C3176FE9BFB0F4 /* SongAllTableViewController.swift */; };
+		626DCED8FA52B65C0C03F7D940B556C5 /* SongBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D27FEA1E4484DB3A555B53E4AE9B1D /* SongBSTableViewController.swift */; };
+		799B139F9BBB3D3D23BDA509C60C29A8 /* SongBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23F5730F0C449DE84E323068105AB47 /* SongBaseTableViewController.swift */; };
+		C67050AEEA3E9FEFEEF6609848CABF49 /* SongButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD93D99DBE3AD0EB3D9A0617867ED07 /* SongButtonInfo.swift */; };
+		B8D616ADF20DEC51276762711CE93CFC /* SongCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C089EAB1BA22820E5EE21E20936E08 /* SongCETableViewController.swift */; };
+		7F550ED856FEE434A4289AC243725DA2 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AC73FB70CC51A8AFAC0050C039CF14 /* SongCell.swift */; };
+		8D459E7659B6D367A465BF313930A8FC /* SongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E566F2224770BCDA7139D3E7C9B1AC34 /* SongCell.xib */; };
+		E49C4A33514DB94D1E07267D61B4AF25 /* SongInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296CBA384CF912A9F2429A941DFB482D /* SongInfo.swift */; };
+		4153853DD9B533CEB5CB57E06BE93625 /* SongPortable1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06634141A9D0AD50CB5CF1C56489B8AB /* SongPortable1TableViewController.swift */; };
+		792780314E46E5949E03C0F5CF357DCD /* SongPortable2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE0B54506B42D2B43A668825784A336 /* SongPortable2TableViewController.swift */; };
+		30370928E902A0A1ADEBB413AFFD9019 /* SongRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72A74447C5271E64A723356FA2C76C8 /* SongRespectTableViewController.swift */; };
+		8E2577604E640D270C80FBB4295515A7 /* SongResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7267843D0764A20BFC44647A8069076 /* SongResponse.swift */; };
+		05BF8B1DD9D1CFFE3909352A0062808D /* SongTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABC647AFC387EECD6791F100EBED31D /* SongTechnika1TableViewController.swift */; };
+		A4341B45A52DE69D373AA8689A6598A8 /* SongTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED82018840FD1A5C9368EF3CB51DB1E /* SongTechnika2TableViewController.swift */; };
+		E0837D50A45691DAD8C70F03A3CC15CE /* SongTechnika3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59AA6BC0369E1C3C4B40AB8BE89DBF5A /* SongTechnika3TableViewController.swift */; };
+		95234C099163DBDCE9889D08D17289F5 /* SongTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF4E0839B1BC3BA0A3E14EA1484CB79 /* SongTrilogyTableViewController.swift */; };
+		4F6670BDD18418EB0BACC4C92FE1EA57 /* SongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FF17875A680B2300216805CB27FC73 /* SongViewController.swift */; };
+		4DB514B43FA2A583C16006541624AD81 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21F405F43A9AF49F10051F778F3FA4 /* Storyboard.swift */; };
+		E2D8AEB2117CBC267BE26D6F4BFA9CB7 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08640281899B112DEB6A0A0A56A169B7 /* String+.swift */; };
+		59A0935E9841AE2C2D2936507EBD985B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B7E2EA07502142424EC51FE1C1D182 /* Strings.swift */; };
+		6882E18AB7ED3B44099C1EB2DF316B2C /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D3AEF54E1F8CB4F0C230AE0F4A274D /* SummaryCell.swift */; };
+		8195A797A997EB11E01BA33CB200032F /* SummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC0C1D43DE39EACC238837AEAB67663B /* SummaryCell.xib */; };
+		36D90F14658E9A2386E71925147AD3B7 /* SummaryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7141F43FD5DD9A34D35E2692CB721D4A /* SummaryCollectionCell.swift */; };
+		A1D24F6E660A1AB2EB33616C3EB5E0DE /* SummaryCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6F278314CCBAFC8DD80108CFDC5B48D /* SummaryCollectionCell.xib */; };
+		FBA69F596B504E30711FBB8CA0653F81 /* SummaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1695D071CC7554C3FA877BC12B245 /* SummaryDetailViewController.swift */; };
+		FA269EB89C42EEF82524955630812EA2 /* Tip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E1371C9E28AB4CD6449FA7FD0074E25 /* Tip.storyboard */; };
+		C2B828CD011EB99FA479BF670FEE7A4C /* TipInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B397154AED8CE46A5D63ACC715A8F1 /* TipInfo.swift */; };
 		FE16B2705772147DFC33EFE0129FDD53 /* TipResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD1B3D1EB8456BE034D69FBCBB329 /* TipResponse.swift */; };
+		7DB048302AB433149E6A95BA48133447 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CCF1B33BD4D77BF5650BED697154D2 /* TipViewController.swift */; };
+		F2510C6CE3EB733695848E79C13CA0ED /* Top50.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721D3123DF4906650661109B36D4EFC2 /* Top50.storyboard */; };
+		0CEF469A149FF36E867CC3A161165AF9 /* Top504BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34EF52E48B6B9E32AE64FEDD76C088 /* Top504BTableViewController.swift */; };
+		6CC9FF520053253ACB3082AABE34CF0A /* Top505BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F70C1B0BF44B8904203164AE9B8E1B /* Top505BTableViewController.swift */; };
+		6C3977B8B2C1C1172FDBDE5D7054F4DA /* Top506BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6A7F46818C574348C01D5E9938C60 /* Top506BTableViewController.swift */; };
+		E89955CBE8C1B9AD6AF1994793683092 /* Top508BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FCD8F7C26C5E1F0B0EBF746748BBBF /* Top508BTableViewController.swift */; };
+		C3551CA001C950C2BABA8E95D6EFAAD6 /* Top50BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF5B6DC44A390FCF7DBF622AADB5833 /* Top50BaseTableViewController.swift */; };
+		5F74C0FF12D461826448C86A14E4919D /* Top50Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4C312CB6DC58847B1ACBECB8F95A8F /* Top50Cell.swift */; };
+		EA1752A5D1D32B7E68ED6F87A95DC83F /* Top50Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3329CE7FE589A94E7D6F4B0D771A64AE /* Top50Cell.xib */; };
+		3B7DE92472A1872F8D09E85383AE7E95 /* Top50ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365A3C9BFD2062AA5D08B56E995F9474 /* Top50ViewController.swift */; };
+		956AB4AC68AAE08C8B1027E71234A7D6 /* Trophy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D08ADAD88BBB07FBB95CF8CD62CB6ED /* Trophy.storyboard */; };
+		1C4D888E2BECAA7E7447EC6E493D700E /* TrophyBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2415AABC509E942301DF3589F55F8 /* TrophyBSTableViewController.swift */; };
+		554C372C44FEB3224C5EAE6E722D3D2B /* TrophyBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C865E14A01D3C67FEEE5EAF375899C7D /* TrophyBaseTableViewController.swift */; };
+		BAF7C4779D1D74F482A5C62832C9AF0C /* TrophyCETableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B09CACDD60C508B1CEBEF21A39E14C /* TrophyCETableViewController.swift */; };
+		456CFC7E84339AD858F72E14C0200EAD /* TrophyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E87A2B03543FCDFA459E10DCEBCDF /* TrophyCell.swift */; };
+		6C3633F6762BD5A374A277D8F7E146FB /* TrophyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4592DA185138E2C675A2E63C84920D1 /* TrophyCell.xib */; };
+		3B5CCA1F7AE3B3E186DCDC5466618711 /* TrophyGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298E98CCC40A6C7EFDE5510CEDED521 /* TrophyGrade.swift */; };
+		986310414206F5E413A447766B2A36D0 /* TrophyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9703F75E9D1960A0BAA7CFC8240AE541 /* TrophyInfo.swift */; };
+		D235F2870A0811AB0EE18B92C23A5E8F /* TrophyLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2852A77D854438A0267E99C8067691 /* TrophyLinkDiskTableViewController.swift */; };
+		C7C80996F1B61B44536F73D8F5ECCD34 /* TrophyRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF98B5B953A51AE19F56E640C40E2687 /* TrophyRespectTableViewController.swift */; };
+		9DB272CDB091ACF835E7C0D863D117F8 /* TrophyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A426486B63E886A1D72A62EC230A4D /* TrophyResponse.swift */; };
+		B7B47C90D8A004232DF088D28B0EA53D /* TrophyTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2B8192D8437447475180972270F1A2 /* TrophyTechnika1TableViewController.swift */; };
+		4AE97EBF1348A5516BE27E7EB403CE28 /* TrophyTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDBE69BDF91490724A4508E8150A75F /* TrophyTechnika2TableViewController.swift */; };
+		1722D64EEA474AA4DB6530A17DA20635 /* TrophyTechnika3TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A875376A5EBE583D9D47E2CCA367EB4F /* TrophyTechnika3TableViewController.swift */; };
+		C6A47F0F5710AAFCEACC3B7D1A30A484 /* TrophyTrilogyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F9848262F8DA6D81D931CC8DE5FA0A /* TrophyTrilogyTableViewController.swift */; };
+		57A9D23286BDA314BEC501224189EFE7 /* TrophyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0585B9094D54EA2EE91A30C6265FA /* TrophyViewController.swift */; };
+		8D428E252225AAE930BF8D945401F018 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */; };
+		86DEAB8A62F44038DA244F4B864FE1FF /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */; };
+		D5BAC3FE4BFE449319B1FF768BEA4DA9 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */; };
+		5A7233F8CD55096485F6137E6278A377 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */; };
+		4CB993740AF398D71E90C9EC481F995D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */; };
+		C86374E3E25A9D8B40E03568CB353DCE /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F49E6EA3E0B9F118A59BCD1C399A9 /* Upload.storyboard */; };
+		3C2E4343DB314444E72BCA528356A02B /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04A91E1391EB1A2505BB6E30EB1AD65 /* UploadViewController.swift */; };
+		DF0ADF3EC056D01E0F7C2285EE9C8587 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45291D32AD99A8C491E4A69A15AB4D44 /* UserResponse.swift */; };
+		7FADC0241104D5EF1D511F7CB55F58E5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC86C6F0F8F435FA71C29C5A32617CF /* Utils.swift */; };
+		DA56608DD5FB0DE29D1BF82728E52081 /* VersionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49DC68ED49BE1C95E3D0C553CB3C0D0 /* VersionInfo.swift */; };
+		65B837BD248EF75153ED13562E7F5F5F /* VersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2731BD8B5A3E3953125EBC4F1ACA6B7 /* VersionResponse.swift */; };
+		E8AC5E159FA0754BC70508BDEDA438B2 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = D8DDC6393F8E75DB389B0B80A6930D30 /* swiftgen.yml */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		43189C48EA7325A1ABED363E975215EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8D8F66833AEC30332B8A3A3D9FE6E49 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 53800806E58C491F36E83AB35BB564AC;
-			remoteInfo = RespectU;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		986F5D33F92011D3107756C335FC6CA9 /* Embed Frameworks */ = {
@@ -223,213 +226,217 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		005F41884111936561D35948740DB95A /* TrophyTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika2TableViewController.swift; sourceTree = "<group>"; };
-		08640281899B112DEB6A0A0A56A169B7 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		0A2F7C71C65B7A0C884FA0D3FEEC488B /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
-		0A55900F26C3996946BE4F93D6DA3621 /* AchievementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
-		0D06706BBF1BDD733B678B932EBBB7D5 /* SkillLevelDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillLevelDetailView.xib; sourceTree = "<group>"; };
-		0F1B980355224D49337F83B418D77DF9 /* RankingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingResponse.swift; sourceTree = "<group>"; };
-		117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
-		14C4A203C4E9D73E8A0A84FA0CA39597 /* SongTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika1TableViewController.swift; sourceTree = "<group>"; };
-		1623CE4A41E243954BD9284984D01FB7 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
-		16CA587AC64BBF7D9615B18AE922CCA5 /* SearchByLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByLevelView.swift; sourceTree = "<group>"; };
-		181F3BF12F13DC015494221C8902B980 /* AchievementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementResponse.swift; sourceTree = "<group>"; };
-		18F9FBA4CF36420A1728A8CE06628BCB /* AchievementCommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCommentTableViewController.swift; sourceTree = "<group>"; };
-		1B070570A49E0EE97FB9D7A7BEE9915B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1BF088218F7A567E03D5A3106F94B80A /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
-		1FD55BA517A60A14D8EC54ACB1C7B9D4 /* Pods-RespectU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.debug.xcconfig"; sourceTree = "<group>"; };
-		26A426486B63E886A1D72A62EC230A4D /* TrophyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyResponse.swift; sourceTree = "<group>"; };
-		274D0B448B5CE4F3F072A2E8F1A08173 /* MissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionCell.xib; sourceTree = "<group>"; };
-		276F8D6D5B4A3667EA74A74054CD9E8D /* RecordBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBSTableViewController.swift; sourceTree = "<group>"; };
-		27A75068DE95C7555DB599931ED8AEDE /* Performance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Performance.storyboard; sourceTree = "<group>"; };
-		27B3098AC1D795D61653C34864ED20F9 /* GuideSecondCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideSecondCell.xib; sourceTree = "<group>"; };
-		282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
-		296CBA384CF912A9F2429A941DFB482D /* SongInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongInfo.swift; sourceTree = "<group>"; };
-		2991773C4B90001F83182265FA5298FA /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
-		2AC69B55FC64D7C31A86A33852EAB0AC /* SkillLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelCell.swift; sourceTree = "<group>"; };
-		2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		3230BF7F50DFA3CB1B358E28D08E4FC0 /* RespectUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespectUUITests.swift; sourceTree = "<group>"; };
-		32C88266B26501A7D7D0FBB1595FED8E /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		3329CE7FE589A94E7D6F4B0D771A64AE /* Top50Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Top50Cell.xib; sourceTree = "<group>"; };
-		3372FF0ED07A548C50A4B94FB33D8E89 /* RecordCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCETableViewController.swift; sourceTree = "<group>"; };
-		356291260ADA8E8A175631818583AAC6 /* MissionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResponse.swift; sourceTree = "<group>"; };
-		38601414280411B531B8987B6A99B4FD /* SongBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBaseTableViewController.swift; sourceTree = "<group>"; };
-		386AA31944619497D098DD436CB7B844 /* RecordTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika2TableViewController.swift; sourceTree = "<group>"; };
-		38FF1E46F752FAB4F0923766554242F2 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
-		392E0563DB3EF689D6DF0AADF0A18512 /* MissionTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika2TableViewController.swift; sourceTree = "<group>"; };
-		3967E03121C5D373852596130FBEF3CF /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
-		3AA39A1ECB2391413A9FC0C7C4183741 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
-		3D90D693FCE5D01C20BB6A165C8F3B17 /* RecordAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAllTableViewController.swift; sourceTree = "<group>"; };
-		3E16497B90231561FD081BD385DDCD5E /* SongBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBSTableViewController.swift; sourceTree = "<group>"; };
-		3E3008BA18D3CC6D3D12FFCF3E5E3626 /* TrophyBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBaseTableViewController.swift; sourceTree = "<group>"; };
-		3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
-		40EF3F08A01B2E9DAC0A57CDD4B05592 /* TrophyCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCETableViewController.swift; sourceTree = "<group>"; };
-		423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		424D5323572999A7BC5B602A6D550B8D /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
-		42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
-		437358F63E7EFA7C3FA6E22357580622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		43CCCFC971513264AFA7256BA71653C4 /* Guide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Guide.storyboard; sourceTree = "<group>"; };
-		447A6CDF1125075CFA6FF3AA94D38056 /* SearchByLevelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByLevelView.xib; sourceTree = "<group>"; };
-		45291D32AD99A8C491E4A69A15AB4D44 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
-		48EB4DE7C46CAC769FAD64B4062EA5AC /* GuideFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideFirstCell.swift; sourceTree = "<group>"; };
-		493FFC326138371B1937E2E2D26236EA /* RespectU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RespectU.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		494ED1030BF0FF71A1E556B9468CD078 /* SkillLevelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelDetailViewController.swift; sourceTree = "<group>"; };
-		49700D8387BF461DCDC78837F99DC9C4 /* Ranking6BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking6BTableViewController.swift; sourceTree = "<group>"; };
-		4A4C312CB6DC58847B1ACBECB8F95A8F /* Top50Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50Cell.swift; sourceTree = "<group>"; };
-		4B54A2548B3BB3E75F221CEAFB441651 /* SearchRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailViewController.swift; sourceTree = "<group>"; };
-		4B8734A2D9BD6B576517DD90BED34FF3 /* NewRecordDifficultyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordDifficultyInfo.swift; sourceTree = "<group>"; };
-		4C0AFB65F04E333283E839AFA459B348 /* TrophyTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTrilogyTableViewController.swift; sourceTree = "<group>"; };
-		4D08ADAD88BBB07FBB95CF8CD62CB6ED /* Trophy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trophy.storyboard; sourceTree = "<group>"; };
-		4D284F23A18D9152EF2B5160B985146D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		4DBC294B70F9E5F5C3E41C0F28B1150E /* RecordTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika1TableViewController.swift; sourceTree = "<group>"; };
-		4EC70A11E9C3055140262528E1238C07 /* TrophyBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBSTableViewController.swift; sourceTree = "<group>"; };
-		4F889634072866BE4A38CC952D5778BB /* Top505BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top505BTableViewController.swift; sourceTree = "<group>"; };
-		50878402B628C50E20D355FE6EFEC0CE /* Results+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results+.swift"; sourceTree = "<group>"; };
-		50E07AEAF9DBD85E001FBFA8E5DCD749 /* SongPortable1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPortable1TableViewController.swift; sourceTree = "<group>"; };
-		50E0AAA1364E40DC6E954941F12C46ED /* SongRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRespectTableViewController.swift; sourceTree = "<group>"; };
-		534A50ABBAEA97783B003B5468E7A223 /* TrophyRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyRespectTableViewController.swift; sourceTree = "<group>"; };
-		56193FB5ED1B44771800EF26128FEE44 /* Pods-RespectU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.release.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.release.xcconfig"; sourceTree = "<group>"; };
-		58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
-		58F94B11D0652E774E5A75E6FC9875E3 /* SkillLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillLevelCell.xib; sourceTree = "<group>"; };
-		59AC73FB70CC51A8AFAC0050C039CF14 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
-		5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B34AF7A247BBB042C734DD502A4021B /* NicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameResponse.swift; sourceTree = "<group>"; };
-		5C7E6B6B900C98599DF992D190397ED8 /* SearchRecordDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailCell.swift; sourceTree = "<group>"; };
-		5E6BC6E8EAEFF1FB31DF48435303F350 /* MissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCell.swift; sourceTree = "<group>"; };
-		623DBE7ABE62C6ED2C6A96D8B561D1BC /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
-		627C0189293E8E42B3F89BA4D8556D7F /* AchievementGearTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementGearTableViewController.swift; sourceTree = "<group>"; };
-		632412C3BC1584B3F450B004F939C780 /* SongAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongAllTableViewController.swift; sourceTree = "<group>"; };
-		64F4836D796EA68CF12F7E7205999111 /* RecordBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBaseTableViewController.swift; sourceTree = "<group>"; };
-		675C6B3A541F4D25010F3F35A9A67792 /* RecordTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTrilogyTableViewController.swift; sourceTree = "<group>"; };
-		6D72B837CDF13537B08A21962C780D70 /* AchievementInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementInfo.swift; sourceTree = "<group>"; };
-		6D899C6158365DC40A43EFA3FBD53860 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
-		6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
-		7141F43FD5DD9A34D35E2692CB721D4A /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
-		7199FED9916AE8F1B2D5E8F10DD3DA85 /* Top504BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top504BTableViewController.swift; sourceTree = "<group>"; };
-		720D3E6C26142ACBA59C9F7822C204CC /* Pods_RespectU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RespectU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		721D3123DF4906650661109B36D4EFC2 /* Top50.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top50.storyboard; sourceTree = "<group>"; };
-		753FD1B3D1EB8456BE034D69FBCBB329 /* TipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipResponse.swift; sourceTree = "<group>"; };
-		7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
-		777AA65852A0D04C369C2C36D2F01A13 /* MissionCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCETableViewController.swift; sourceTree = "<group>"; };
-		78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		7B26CA6823B048ECBE5ED32FB0E8A9AD /* OldRecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldRecordInfo.swift; sourceTree = "<group>"; };
-		7C8E87A2B03543FCDFA459E10DCEBCDF /* TrophyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCell.swift; sourceTree = "<group>"; };
-		7E1371C9E28AB4CD6449FA7FD0074E25 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
-		808F49E6EA3E0B9F118A59BCD1C399A9 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
-		80F1F0CF64225316B57F6FD2CDC7EA07 /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
-		822964D9AE10C76C32804846BD408D70 /* Ranking5BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking5BTableViewController.swift; sourceTree = "<group>"; };
-		8294C5047A2BEC5D65CDF3D21EACE681 /* AchievementPlateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementPlateTableViewController.swift; sourceTree = "<group>"; };
-		8345DDA3C2BB8226C719046C36C1C125 /* GuideFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideFirstCell.xib; sourceTree = "<group>"; };
-		83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
-		8460E128E67CA72C6FADFC0EB180D544 /* Ranking4BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking4BTableViewController.swift; sourceTree = "<group>"; };
-		85879716D357DCA16AE7BE7B43A66610 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		877A8038CD5557C3CC265DE729A1C679 /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
-		878C4171732CB6DBE54C695567727956 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
-		87BC688E45E35568921856EA90F48939 /* GuideThirdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideThirdCell.xib; sourceTree = "<group>"; };
-		8872346BBBB0B7BAFD7D7D14AB637E94 /* RecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
-		88C214B5C6340C681D687A5837D49CB2 /* GuideSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSecondCell.swift; sourceTree = "<group>"; };
-		88FC379A93468721C978BADB40902D36 /* SongCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCETableViewController.swift; sourceTree = "<group>"; };
-		891E1B180DCCE42D6B95043266B71EB4 /* TrophyTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika1TableViewController.swift; sourceTree = "<group>"; };
-		8B9BBF52CE6E2A6AB5CFE2F51C3AC739 /* MissionBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBaseTableViewController.swift; sourceTree = "<group>"; };
-		8BE876B3189C89826136B421C811E381 /* RecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordResponse.swift; sourceTree = "<group>"; };
-		8D37A25DCDC8B3EE48F56719264861F7 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
-		8D7F7FF6E371C6AFBB7CF0D591B80077 /* RecordPortable2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPortable2TableViewController.swift; sourceTree = "<group>"; };
-		90B143CCDE9CB1920C76E56DFB8E619A /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
-		9143E2A18693E399D37E0F432BB4A9A7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		919C913905A8FC3BD6FF7298C9E2D1F4 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		91CCF1B33BD4D77BF5650BED697154D2 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
-		92BBB8BD0C86813D3C7E2DF1A3C1A920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		93A63669D5CF070426162547AE2374EB /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
-		969F85FB80779BABC75BE872685FFF85 /* RespectUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RespectUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9703F75E9D1960A0BAA7CFC8240AE541 /* TrophyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyInfo.swift; sourceTree = "<group>"; };
-		97E4E00E50818EB6E5CEFC189EB61A24 /* TrophyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyViewController.swift; sourceTree = "<group>"; };
-		9AD0886E6AB67717518459D5240AA618 /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
-		9B417168DEC8C7CE3CFF3167E2BD91D5 /* SongPortable2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPortable2TableViewController.swift; sourceTree = "<group>"; };
-		9CCC3BF2DFAE7E90D1AB5AE1DDA0283F /* RecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordView.xib; sourceTree = "<group>"; };
-		9E9155018C1737D94DBBCF706B217644 /* SongTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika2TableViewController.swift; sourceTree = "<group>"; };
-		9F70C67599FC388CA2F8CD0D50622CAF /* Song.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Song.storyboard; sourceTree = "<group>"; };
-		9F876F84919FC4AB4E3AFBD13AFC807D /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
-		9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageResponse.swift; sourceTree = "<group>"; };
-		A085D0FCAAED86B5EF798D2FF4C4EE5E /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
-		A43F1B5CFBC5AA07E6437BB54CD85DCC /* RankingBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingBaseTableViewController.swift; sourceTree = "<group>"; };
-		A49DC68ED49BE1C95E3D0C553CB3C0D0 /* VersionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionInfo.swift; sourceTree = "<group>"; };
-		A6A9E705AE5738C03AE3AC0B49148503 /* Top508BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top508BTableViewController.swift; sourceTree = "<group>"; };
-		A7267843D0764A20BFC44647A8069076 /* SongResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResponse.swift; sourceTree = "<group>"; };
-		A87EB605D9439B5EE296E64FC5DBF065 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
-		A97E32F8C45528612A0289056855C81E /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
-		AA27B0844DFE553DBBDB855D1BE66A80 /* Ranking8BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking8BTableViewController.swift; sourceTree = "<group>"; };
-		AC319B5B08CC94B87A5BD97034671725 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
-		AFC8A42FD9DBB28DB007F737E8557BB7 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
-		B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
-		B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		B6DC6B20F4435BC55F0363155B189EA9 /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
-		BB07F5ADDDE226713D08E378DE77DA76 /* MissionRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRespectTableViewController.swift; sourceTree = "<group>"; };
-		BB408736A795C68EBA417CAF1C9391F9 /* SearchByNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByNoteView.xib; sourceTree = "<group>"; };
-		C0BB5399093242E39CBBA567E841AEB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C18E5F5E8BB5540D91968DDECE31869A /* Download.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Download.storyboard; sourceTree = "<group>"; };
-		C194554A77881C517795E91A8F23124E /* SearchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordViewController.swift; sourceTree = "<group>"; };
-		C2C849886AF9CEC2084D57D6610826D0 /* GuideThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideThirdCell.swift; sourceTree = "<group>"; };
-		C3BEF4EBE00D4D956A95FC60EED6936C /* TrophyGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyGrade.swift; sourceTree = "<group>"; };
-		C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
-		C4CCD3681C300BB7277BF7AD629F437F /* Top50BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50BaseTableViewController.swift; sourceTree = "<group>"; };
-		C6F278314CCBAFC8DD80108CFDC5B48D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
-		C7897FFE7C5D2CCD0252A92D83D3A242 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		C831C3A4C9CD49BAA9461B584687A457 /* MissionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSection.swift; sourceTree = "<group>"; };
-		C9645787A10911574F881AF52ABC3437 /* NewRecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordInfo.swift; sourceTree = "<group>"; };
-		C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
-		CDD93D99DBE3AD0EB3D9A0617867ED07 /* SongButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongButtonInfo.swift; sourceTree = "<group>"; };
-		D04A91E1391EB1A2505BB6E30EB1AD65 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
-		D13809AF4354422A199374B3465D8656 /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
-		D533244755DF122EF39F607955E5BECE /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
-		D538492B9D665E6049971A842544B8F0 /* SearchRecordDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecordDetailCell.xib; sourceTree = "<group>"; };
-		D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
-		D5A1695D071CC7554C3FA877BC12B245 /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
-		D63C1EC3EF6962D96105334119384DFC /* Top50ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50ViewController.swift; sourceTree = "<group>"; };
-		D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionStageInfo.swift; sourceTree = "<group>"; };
-		D8D3AEF54E1F8CB4F0C230AE0F4A274D /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
-		D8DA77CE4436FD7F1B3A85A2993A6875 /* SearchByNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNoteView.swift; sourceTree = "<group>"; };
-		D8DDC6393F8E75DB389B0B80A6930D30 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
-		D9794B1D2A819DD78249CCEC45EEDFFA /* RecordPortable1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPortable1TableViewController.swift; sourceTree = "<group>"; };
-		D99945BC86B861561470F918542F6B60 /* NewRecordButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRecordButtonInfo.swift; sourceTree = "<group>"; };
 		DA5A4E6832F2B48BFFE29D6EE9E1BFEF /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		DBACAA804226CAE067FC7988FFDB705C /* AchievementNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementNoteTableViewController.swift; sourceTree = "<group>"; };
-		DD36253B6A78D45161CCC968C55E4403 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
-		DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByRateView.swift; sourceTree = "<group>"; };
-		DF44E865CAECD23B67EC669F4F499627 /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
-		E02735216DE3239EA7247F8F2E0C7F39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		E12E3AA69AEC8526DA02450D9F486C31 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
-		E2056D7C4194815BBE52A3F13FAF7125 /* MissionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionInfo.swift; sourceTree = "<group>"; };
-		E4592DA185138E2C675A2E63C84920D1 /* TrophyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrophyCell.xib; sourceTree = "<group>"; };
-		E566F2224770BCDA7139D3E7C9B1AC34 /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
-		E57EA9582A8ADAEC597AB6A4CA5B41D0 /* SongTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrilogyTableViewController.swift; sourceTree = "<group>"; };
-		E5AD21635BD128711534875F3BED05B9 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		E5B397154AED8CE46A5D63ACC715A8F1 /* TipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInfo.swift; sourceTree = "<group>"; };
-		E5D795CBC7D043F90E4EED907BF57F6D /* RecordRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRespectTableViewController.swift; sourceTree = "<group>"; };
+		B4BDCF6C5B951E2ECA3D66D6259A7C42 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievement.storyboard; sourceTree = "<group>"; };
+		D208137CF7035F090957DD52BFD704BC /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
+		ECF59229051F5AD6A883EFD1E5A2603E /* AchievementBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementBaseTableViewController.swift; sourceTree = "<group>"; };
+		623DBE7ABE62C6ED2C6A96D8B561D1BC /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
+		0A55900F26C3996946BE4F93D6DA3621 /* AchievementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementCell.xib; sourceTree = "<group>"; };
+		07507A73DE0099DC9CFB4ABA9FB0DC0C /* AchievementCommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCommentTableViewController.swift; sourceTree = "<group>"; };
+		8CB2A66DC82F6391EEEF838491861F33 /* AchievementGalleryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementGalleryTableViewController.swift; sourceTree = "<group>"; };
+		81A0CEB91040D7176F26D4F0FDD21D28 /* AchievementGearTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementGearTableViewController.swift; sourceTree = "<group>"; };
+		6D72B837CDF13537B08A21962C780D70 /* AchievementInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementInfo.swift; sourceTree = "<group>"; };
+		C728DBB0614587CD2759E53BD1A65882 /* AchievementMusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMusicTableViewController.swift; sourceTree = "<group>"; };
+		18449AAA9B8578063135A1485D123683 /* AchievementNoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementNoteTableViewController.swift; sourceTree = "<group>"; };
+		08F04BA7E15EC807F3B9CAA3AEF98239 /* AchievementPlateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementPlateTableViewController.swift; sourceTree = "<group>"; };
+		181F3BF12F13DC015494221C8902B980 /* AchievementResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementResponse.swift; sourceTree = "<group>"; };
+		6E8609566688513F20D56F71E8C2A73E /* AchievementType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementType.swift; sourceTree = "<group>"; };
+		AEEACD594FBA67A330D104F816D4D968 /* AchievementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewController.swift; sourceTree = "<group>"; };
+		437358F63E7EFA7C3FA6E22357580622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74BBB665B16E2FF2F0BE095960FFA33E /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		E683F525A54716C4D6BE56A96EEDCB29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EA4C8F701F9B8601D124094F2E7BD192 /* Top506BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top506BTableViewController.swift; sourceTree = "<group>"; };
-		EC0C1D43DE39EACC238837AEAB67663B /* SummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCell.xib; sourceTree = "<group>"; };
-		EC73C87600C9F6E08FAA711546EDAA45 /* TrophyLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyLinkDiskTableViewController.swift; sourceTree = "<group>"; };
+		92BBB8BD0C86813D3C7E2DF1A3C1A920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7994394D253D83388739913632BF52F4 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
+		3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		C18E5F5E8BB5540D91968DDECE31869A /* Download.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Download.storyboard; sourceTree = "<group>"; };
+		7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDirection.swift; sourceTree = "<group>"; };
+		43CCCFC971513264AFA7256BA71653C4 /* Guide.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Guide.storyboard; sourceTree = "<group>"; };
+		48EB4DE7C46CAC769FAD64B4062EA5AC /* GuideFirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideFirstCell.swift; sourceTree = "<group>"; };
+		8345DDA3C2BB8226C719046C36C1C125 /* GuideFirstCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideFirstCell.xib; sourceTree = "<group>"; };
+		88C214B5C6340C681D687A5837D49CB2 /* GuideSecondCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideSecondCell.swift; sourceTree = "<group>"; };
+		27B3098AC1D795D61653C34864ED20F9 /* GuideSecondCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideSecondCell.xib; sourceTree = "<group>"; };
+		C2C849886AF9CEC2084D57D6610826D0 /* GuideThirdCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideThirdCell.swift; sourceTree = "<group>"; };
+		87BC688E45E35568921856EA90F48939 /* GuideThirdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GuideThirdCell.xib; sourceTree = "<group>"; };
+		93A63669D5CF070426162547AE2374EB /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
+		4D284F23A18D9152EF2B5160B985146D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D37A25DCDC8B3EE48F56719264861F7 /* Init.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Init.storyboard; sourceTree = "<group>"; };
+		117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
+		C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
+		9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageResponse.swift; sourceTree = "<group>"; };
+		78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
+		2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
+		A41D0D4CFC2F1ABFC1D38C42335BAB6C /* MissionBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBaseTableViewController.swift; sourceTree = "<group>"; };
+		D30DD51658A0E07C8F795B59D8C5A930 /* MissionCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCETableViewController.swift; sourceTree = "<group>"; };
+		5E6BC6E8EAEFF1FB31DF48435303F350 /* MissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCell.swift; sourceTree = "<group>"; };
+		274D0B448B5CE4F3F072A2E8F1A08173 /* MissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionCell.xib; sourceTree = "<group>"; };
+		FB1D1400F4F8A5579A4BD339D8661CC6 /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
+		E2056D7C4194815BBE52A3F13FAF7125 /* MissionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionInfo.swift; sourceTree = "<group>"; };
+		5EB4F2D81091EAC8D197F1D737EA41B9 /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
+		D1936880A3D30B8BC49B8587F6778EEA /* MissionRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRespectTableViewController.swift; sourceTree = "<group>"; };
+		356291260ADA8E8A175631818583AAC6 /* MissionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResponse.swift; sourceTree = "<group>"; };
+		A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.BS+Gradient.swift"; sourceTree = "<group>"; };
+		91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.CE+Gradient.swift"; sourceTree = "<group>"; };
+		60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.LinkDisk+Gradient.swift"; sourceTree = "<group>"; };
+		A09D0FEC3D95CCD8ECE16CBDA7084FFA /* MissionSection.Respect+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Respect+Gradient.swift"; sourceTree = "<group>"; };
+		79D7A5F0799CF86A96D301D82B8B1090 /* MissionSection.Technika1+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika1+Gradient.swift"; sourceTree = "<group>"; };
+		241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika2+Gradient.swift"; sourceTree = "<group>"; };
+		FBF7FCA66B507564BF411BB82D824394 /* MissionSection.Technika3+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika3+Gradient.swift"; sourceTree = "<group>"; };
+		6B59269E3AB75988A25F6D4EF5088A20 /* MissionSection.Trilogy+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Trilogy+Gradient.swift"; sourceTree = "<group>"; };
+		27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSection.swift; sourceTree = "<group>"; };
+		D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionStageInfo.swift; sourceTree = "<group>"; };
+		3127AC853734E65CD8EDD6BD1D9AEB68 /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		9D21A9793161E13A8605689D97FBCC60 /* MissionTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		7E1E98FB695B66D5FA11980E8C7618DA /* MissionTechnika3TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika3TableViewController.swift; sourceTree = "<group>"; };
+		DC1C93791BC6091924D5E9BEA314201C /* MissionTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTrilogyTableViewController.swift; sourceTree = "<group>"; };
+		6192054BD8E7E46E36A43659F1D2131A /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		90B143CCDE9CB1920C76E56DFB8E619A /* NSObject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+.swift"; sourceTree = "<group>"; };
+		E02735216DE3239EA7247F8F2E0C7F39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		5B34AF7A247BBB042C734DD502A4021B /* NicknameResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameResponse.swift; sourceTree = "<group>"; };
+		9AF510989C994AF286BAC6EFC98F3D86 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		7B26CA6823B048ECBE5ED32FB0E8A9AD /* OldRecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldRecordInfo.swift; sourceTree = "<group>"; };
+		27A75068DE95C7555DB599931ED8AEDE /* Performance.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Performance.storyboard; sourceTree = "<group>"; };
+		AFC8A42FD9DBB28DB007F737E8557BB7 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
+		1FD55BA517A60A14D8EC54ACB1C7B9D4 /* Pods-RespectU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.debug.xcconfig"; sourceTree = "<group>"; };
+		56193FB5ED1B44771800EF26128FEE44 /* Pods-RespectU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RespectU.release.xcconfig"; path = "Pods/Target Support Files/Pods-RespectU/Pods-RespectU.release.xcconfig"; sourceTree = "<group>"; };
+		720D3E6C26142ACBA59C9F7822C204CC /* Pods_RespectU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RespectU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B229B6B9B7142C2A461D7DEB2A7113 /* RUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUButton.swift; sourceTree = "<group>"; };
+		A4B1BD7EAB31E7E51B602AF90FC5C2AE /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
+		E12E3AA69AEC8526DA02450D9F486C31 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
+		E9EA4615ADDF5106D45E6C157F9935FE /* Ranking4BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking4BTableViewController.swift; sourceTree = "<group>"; };
+		A57D6592351D9AD16368506EE4633557 /* Ranking5BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking5BTableViewController.swift; sourceTree = "<group>"; };
+		DA8059779D1985F721E78B753EC4D776 /* Ranking6BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking6BTableViewController.swift; sourceTree = "<group>"; };
+		2A61C0A29FAF3BAFDEA230CF7D855312 /* Ranking8BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking8BTableViewController.swift; sourceTree = "<group>"; };
+		3C9306E0C24359552A85518112EFCC9D /* RankingBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingBaseTableViewController.swift; sourceTree = "<group>"; };
+		B6DC6B20F4435BC55F0363155B189EA9 /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
+		DF44E865CAECD23B67EC669F4F499627 /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
+		0F1B980355224D49337F83B418D77DF9 /* RankingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingResponse.swift; sourceTree = "<group>"; };
+		656538575F3D4D03C665378FB2C6E482 /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		C7897FFE7C5D2CCD0252A92D83D3A242 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		ED7D4A7210DBE5C6BF5E8E60901CEC24 /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED9EE6885471E562ABB9BCE1CAD89926 /* MissionTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTrilogyTableViewController.swift; sourceTree = "<group>"; };
-		EE12B8799245022FD19641A8A5C36FA2 /* AchievementGalleryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementGalleryTableViewController.swift; sourceTree = "<group>"; };
+		5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D13809AF4354422A199374B3465D8656 /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
+		4BBD21C11306FD9C54E163A20FF8FA24 /* RecordAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAllTableViewController.swift; sourceTree = "<group>"; };
+		101CE93B365835BBA1D7A917C71B524B /* RecordBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBSTableViewController.swift; sourceTree = "<group>"; };
+		A646CCC720C494D646FECAB5677C1E21 /* RecordBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBaseTableViewController.swift; sourceTree = "<group>"; };
+		7D774173D345CCDC64F1E65BA46CC48A /* RecordButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButtonInfo.swift; sourceTree = "<group>"; };
+		164C0B9C9329B63A84146A68B44211AF /* RecordCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCETableViewController.swift; sourceTree = "<group>"; };
+		2991773C4B90001F83182265FA5298FA /* RecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
+		8872346BBBB0B7BAFD7D7D14AB637E94 /* RecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
+		FE923EF715087FF2BBEAA80043390A02 /* RecordDifficultyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordDifficultyInfo.swift; sourceTree = "<group>"; };
+		B238705DEEA8ACF0182DF0BB41B2CB0D /* RecordInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordInfo.swift; sourceTree = "<group>"; };
+		C7CF5FBE9FE442E18A869E8FFDBB6596 /* RecordPortable1TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordPortable1TableViewController.swift; sourceTree = "<group>"; };
+		5F75FFB849D9280269D8A4130772A059 /* RecordPortable2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPortable2TableViewController.swift; sourceTree = "<group>"; };
+		0A7A724B52192252A0101E5F2B3DC658 /* RecordRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRespectTableViewController.swift; sourceTree = "<group>"; };
+		8BE876B3189C89826136B421C811E381 /* RecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordResponse.swift; sourceTree = "<group>"; };
+		C86C6C9262E8EB75FB7589033C1F2EC4 /* RecordTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		4CAF7442CCE225037AD440CAED1A2F46 /* RecordTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		394457A6318FCBA35633C05384AA8D50 /* RecordTechnika3TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTechnika3TableViewController.swift; sourceTree = "<group>"; };
+		DB8FDB96924415810F26D8A3D5DCC643 /* RecordTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTrilogyTableViewController.swift; sourceTree = "<group>"; };
+		6D899C6158365DC40A43EFA3FBD53860 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		9CCC3BF2DFAE7E90D1AB5AE1DDA0283F /* RecordView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordView.xib; sourceTree = "<group>"; };
+		6CDC8CD7AE0EAE20F102844365138098 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		493FFC326138371B1937E2E2D26236EA /* RespectU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RespectU.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16CA587AC64BBF7D9615B18AE922CCA5 /* SearchByLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByLevelView.swift; sourceTree = "<group>"; };
+		447A6CDF1125075CFA6FF3AA94D38056 /* SearchByLevelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByLevelView.xib; sourceTree = "<group>"; };
+		D8DA77CE4436FD7F1B3A85A2993A6875 /* SearchByNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNoteView.swift; sourceTree = "<group>"; };
+		BB408736A795C68EBA417CAF1C9391F9 /* SearchByNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByNoteView.xib; sourceTree = "<group>"; };
+		DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByRateView.swift; sourceTree = "<group>"; };
+		D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
+		5C7E6B6B900C98599DF992D190397ED8 /* SearchRecordDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailCell.swift; sourceTree = "<group>"; };
+		D538492B9D665E6049971A842544B8F0 /* SearchRecordDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecordDetailCell.xib; sourceTree = "<group>"; };
+		4B54A2548B3BB3E75F221CEAFB441651 /* SearchRecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordDetailViewController.swift; sourceTree = "<group>"; };
+		C194554A77881C517795E91A8F23124E /* SearchRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordViewController.swift; sourceTree = "<group>"; };
+		9A9970140918A7A61332718A9C9D8322 /* Series+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Series+UI.swift"; sourceTree = "<group>"; };
+		9ADF8D0329CDE33DD67FC75E36D63E92 /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		A085D0FCAAED86B5EF798D2FF4C4EE5E /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
+		423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
+		2AC69B55FC64D7C31A86A33852EAB0AC /* SkillLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelCell.swift; sourceTree = "<group>"; };
+		58F94B11D0652E774E5A75E6FC9875E3 /* SkillLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillLevelCell.xib; sourceTree = "<group>"; };
 		F0CC6B551EBD0EC656F35FD74247ED8D /* SkillLevelDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelDetailView.swift; sourceTree = "<group>"; };
+		0D06706BBF1BDD733B678B932EBBB7D5 /* SkillLevelDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillLevelDetailView.xib; sourceTree = "<group>"; };
+		494ED1030BF0FF71A1E556B9468CD078 /* SkillLevelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelDetailViewController.swift; sourceTree = "<group>"; };
+		0E664D69C5666D40413DD76EC3EEB905 /* SkillPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillPoint.swift; sourceTree = "<group>"; };
+		9F70C67599FC388CA2F8CD0D50622CAF /* Song.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Song.storyboard; sourceTree = "<group>"; };
+		EBDBA54D2C97FB9571C3176FE9BFB0F4 /* SongAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongAllTableViewController.swift; sourceTree = "<group>"; };
+		A2D27FEA1E4484DB3A555B53E4AE9B1D /* SongBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBSTableViewController.swift; sourceTree = "<group>"; };
+		F23F5730F0C449DE84E323068105AB47 /* SongBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBaseTableViewController.swift; sourceTree = "<group>"; };
+		CDD93D99DBE3AD0EB3D9A0617867ED07 /* SongButtonInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongButtonInfo.swift; sourceTree = "<group>"; };
+		B9C089EAB1BA22820E5EE21E20936E08 /* SongCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCETableViewController.swift; sourceTree = "<group>"; };
+		59AC73FB70CC51A8AFAC0050C039CF14 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		E566F2224770BCDA7139D3E7C9B1AC34 /* SongCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongCell.xib; sourceTree = "<group>"; };
+		296CBA384CF912A9F2429A941DFB482D /* SongInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongInfo.swift; sourceTree = "<group>"; };
+		06634141A9D0AD50CB5CF1C56489B8AB /* SongPortable1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPortable1TableViewController.swift; sourceTree = "<group>"; };
+		CFE0B54506B42D2B43A668825784A336 /* SongPortable2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPortable2TableViewController.swift; sourceTree = "<group>"; };
+		D72A74447C5271E64A723356FA2C76C8 /* SongRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRespectTableViewController.swift; sourceTree = "<group>"; };
+		A7267843D0764A20BFC44647A8069076 /* SongResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongResponse.swift; sourceTree = "<group>"; };
+		8ABC647AFC387EECD6791F100EBED31D /* SongTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		EED82018840FD1A5C9368EF3CB51DB1E /* SongTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		59AA6BC0369E1C3C4B40AB8BE89DBF5A /* SongTechnika3TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTechnika3TableViewController.swift; sourceTree = "<group>"; };
+		ABF4E0839B1BC3BA0A3E14EA1484CB79 /* SongTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTrilogyTableViewController.swift; sourceTree = "<group>"; };
+		B7FF17875A680B2300216805CB27FC73 /* SongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongViewController.swift; sourceTree = "<group>"; };
+		0A21F405F43A9AF49F10051F778F3FA4 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		08640281899B112DEB6A0A0A56A169B7 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		D0B7E2EA07502142424EC51FE1C1D182 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		D8D3AEF54E1F8CB4F0C230AE0F4A274D /* SummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
+		EC0C1D43DE39EACC238837AEAB67663B /* SummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCell.xib; sourceTree = "<group>"; };
+		7141F43FD5DD9A34D35E2692CB721D4A /* SummaryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryCollectionCell.swift; sourceTree = "<group>"; };
+		C6F278314CCBAFC8DD80108CFDC5B48D /* SummaryCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryCollectionCell.xib; sourceTree = "<group>"; };
+		D5A1695D071CC7554C3FA877BC12B245 /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
+		7E1371C9E28AB4CD6449FA7FD0074E25 /* Tip.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tip.storyboard; sourceTree = "<group>"; };
+		E5B397154AED8CE46A5D63ACC715A8F1 /* TipInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipInfo.swift; sourceTree = "<group>"; };
+		753FD1B3D1EB8456BE034D69FBCBB329 /* TipResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipResponse.swift; sourceTree = "<group>"; };
+		91CCF1B33BD4D77BF5650BED697154D2 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		721D3123DF4906650661109B36D4EFC2 /* Top50.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Top50.storyboard; sourceTree = "<group>"; };
+		BB34EF52E48B6B9E32AE64FEDD76C088 /* Top504BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top504BTableViewController.swift; sourceTree = "<group>"; };
+		C1F70C1B0BF44B8904203164AE9B8E1B /* Top505BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top505BTableViewController.swift; sourceTree = "<group>"; };
+		D6C6A7F46818C574348C01D5E9938C60 /* Top506BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top506BTableViewController.swift; sourceTree = "<group>"; };
+		70FCD8F7C26C5E1F0B0EBF746748BBBF /* Top508BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top508BTableViewController.swift; sourceTree = "<group>"; };
+		BFF5B6DC44A390FCF7DBF622AADB5833 /* Top50BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50BaseTableViewController.swift; sourceTree = "<group>"; };
+		4A4C312CB6DC58847B1ACBECB8F95A8F /* Top50Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50Cell.swift; sourceTree = "<group>"; };
+		3329CE7FE589A94E7D6F4B0D771A64AE /* Top50Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Top50Cell.xib; sourceTree = "<group>"; };
+		365A3C9BFD2062AA5D08B56E995F9474 /* Top50ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top50ViewController.swift; sourceTree = "<group>"; };
+		4D08ADAD88BBB07FBB95CF8CD62CB6ED /* Trophy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trophy.storyboard; sourceTree = "<group>"; };
+		D0C2415AABC509E942301DF3589F55F8 /* TrophyBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBSTableViewController.swift; sourceTree = "<group>"; };
+		C865E14A01D3C67FEEE5EAF375899C7D /* TrophyBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyBaseTableViewController.swift; sourceTree = "<group>"; };
+		67B09CACDD60C508B1CEBEF21A39E14C /* TrophyCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCETableViewController.swift; sourceTree = "<group>"; };
+		7C8E87A2B03543FCDFA459E10DCEBCDF /* TrophyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyCell.swift; sourceTree = "<group>"; };
+		E4592DA185138E2C675A2E63C84920D1 /* TrophyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrophyCell.xib; sourceTree = "<group>"; };
+		4298E98CCC40A6C7EFDE5510CEDED521 /* TrophyGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyGrade.swift; sourceTree = "<group>"; };
+		9703F75E9D1960A0BAA7CFC8240AE541 /* TrophyInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrophyInfo.swift; sourceTree = "<group>"; };
+		FA2852A77D854438A0267E99C8067691 /* TrophyLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyLinkDiskTableViewController.swift; sourceTree = "<group>"; };
+		FF98B5B953A51AE19F56E640C40E2687 /* TrophyRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyRespectTableViewController.swift; sourceTree = "<group>"; };
+		26A426486B63E886A1D72A62EC230A4D /* TrophyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyResponse.swift; sourceTree = "<group>"; };
+		7C2B8192D8437447475180972270F1A2 /* TrophyTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika1TableViewController.swift; sourceTree = "<group>"; };
+		9DDBE69BDF91490724A4508E8150A75F /* TrophyTechnika2TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika2TableViewController.swift; sourceTree = "<group>"; };
+		A875376A5EBE583D9D47E2CCA367EB4F /* TrophyTechnika3TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTechnika3TableViewController.swift; sourceTree = "<group>"; };
+		40F9848262F8DA6D81D931CC8DE5FA0A /* TrophyTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyTrilogyTableViewController.swift; sourceTree = "<group>"; };
+		54A0585B9094D54EA2EE91A30C6265FA /* TrophyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyViewController.swift; sourceTree = "<group>"; };
+		42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
+		4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		808F49E6EA3E0B9F118A59BCD1C399A9 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
+		D04A91E1391EB1A2505BB6E30EB1AD65 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		45291D32AD99A8C491E4A69A15AB4D44 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		BBC86C6F0F8F435FA71C29C5A32617CF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A49DC68ED49BE1C95E3D0C553CB3C0D0 /* VersionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionInfo.swift; sourceTree = "<group>"; };
 		F2731BD8B5A3E3953125EBC4F1ACA6B7 /* VersionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionResponse.swift; sourceTree = "<group>"; };
-		F4B793D715371C54016DC2D1063E81DD /* HistoryInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfo.swift; sourceTree = "<group>"; };
-		F7466184C44DF63293690F636A540006 /* AchievementMusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementMusicTableViewController.swift; sourceTree = "<group>"; };
+		1B070570A49E0EE97FB9D7A7BEE9915B /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9143E2A18693E399D37E0F432BB4A9A7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D8DDC6393F8E75DB389B0B80A6930D30 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3D9B68D34ACF3094F299C59D7E364634 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		839AEC169A324E09CA1B0D14A3648128 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,16 +451,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08630D1EEB117840036FC6283995506C /* RespectUUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C0BB5399093242E39CBBA567E841AEB4 /* Info.plist */,
-				3230BF7F50DFA3CB1B358E28D08E4FC0 /* RespectUUITests.swift */,
-				919C913905A8FC3BD6FF7298C9E2D1F4 /* SnapshotHelper.swift */,
-			);
-			path = RespectUUITests;
-			sourceTree = "<group>";
-		};
 		0AF22290FFB9BA0E2E99ED1E48E897FD /* Supports */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +458,16 @@
 				C7897FFE7C5D2CCD0252A92D83D3A242 /* Reachability.swift */,
 			);
 			path = Supports;
+			sourceTree = "<group>";
+		};
+		18065202F58A802DC160A40289791915 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				74BBB665B16E2FF2F0BE095960FFA33E /* Assets.swift */,
+				0A21F405F43A9AF49F10051F778F3FA4 /* Storyboard.swift */,
+				D0B7E2EA07502142424EC51FE1C1D182 /* Strings.swift */,
+			);
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 		18D12715C996780EBFCBC812E7E8F9A5 /* Frameworks */ = {
@@ -472,6 +479,19 @@
 				5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20CD4E18015C56EA046398F6514DA8D4 /* Top50 */ = {
+			isa = PBXGroup;
+			children = (
+				BB34EF52E48B6B9E32AE64FEDD76C088 /* Top504BTableViewController.swift */,
+				C1F70C1B0BF44B8904203164AE9B8E1B /* Top505BTableViewController.swift */,
+				D6C6A7F46818C574348C01D5E9938C60 /* Top506BTableViewController.swift */,
+				70FCD8F7C26C5E1F0B0EBF746748BBBF /* Top508BTableViewController.swift */,
+				BFF5B6DC44A390FCF7DBF622AADB5833 /* Top50BaseTableViewController.swift */,
+				365A3C9BFD2062AA5D08B56E995F9474 /* Top50ViewController.swift */,
+			);
+			path = Top50;
 			sourceTree = "<group>";
 		};
 		2AA94CA525D5326C0F9292D848B27357 /* Response */ = {
@@ -495,11 +515,10 @@
 		3098D44DFD511F131146813BE30FD512 = {
 			isa = PBXGroup;
 			children = (
-				DC130C869CC4C032B6E7EDA0329E7A64 /* RespectU */,
 				18D12715C996780EBFCBC812E7E8F9A5 /* Frameworks */,
 				8C39E2F22ACC076DC42FDB206D09998B /* Pods */,
 				49A4A62F46B05C7357E7399A48C50D4D /* Products */,
-				08630D1EEB117840036FC6283995506C /* RespectUUITests */,
+				DC130C869CC4C032B6E7EDA0329E7A64 /* RespectU */,
 				DA5A4E6832F2B48BFFE29D6EE9E1BFEF /* .swiftlint.yml */,
 				D8DDC6393F8E75DB389B0B80A6930D30 /* swiftgen.yml */,
 			);
@@ -509,14 +528,13 @@
 			isa = PBXGroup;
 			children = (
 				6D72B837CDF13537B08A21962C780D70 /* AchievementInfo.swift */,
-				F4B793D715371C54016DC2D1063E81DD /* HistoryInfo.swift */,
 				C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */,
 				E2056D7C4194815BBE52A3F13FAF7125 /* MissionInfo.swift */,
 				D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */,
-				D99945BC86B861561470F918542F6B60 /* NewRecordButtonInfo.swift */,
-				4B8734A2D9BD6B576517DD90BED34FF3 /* NewRecordDifficultyInfo.swift */,
-				C9645787A10911574F881AF52ABC3437 /* NewRecordInfo.swift */,
 				7B26CA6823B048ECBE5ED32FB0E8A9AD /* OldRecordInfo.swift */,
+				7D774173D345CCDC64F1E65BA46CC48A /* RecordButtonInfo.swift */,
+				FE923EF715087FF2BBEAA80043390A02 /* RecordDifficultyInfo.swift */,
+				B238705DEEA8ACF0182DF0BB41B2CB0D /* RecordInfo.swift */,
 				CDD93D99DBE3AD0EB3D9A0617867ED07 /* SongButtonInfo.swift */,
 				296CBA384CF912A9F2429A941DFB482D /* SongInfo.swift */,
 				E5B397154AED8CE46A5D63ACC715A8F1 /* TipInfo.swift */,
@@ -535,11 +553,28 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		445B0360A0454D1B76771D8E3B21822B /* Mission */ = {
+			isa = PBXGroup;
+			children = (
+				2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */,
+				A41D0D4CFC2F1ABFC1D38C42335BAB6C /* MissionBaseTableViewController.swift */,
+				D30DD51658A0E07C8F795B59D8C5A930 /* MissionCETableViewController.swift */,
+				FB1D1400F4F8A5579A4BD339D8661CC6 /* MissionDetailViewController.swift */,
+				5EB4F2D81091EAC8D197F1D737EA41B9 /* MissionLinkDiskTableViewController.swift */,
+				D1936880A3D30B8BC49B8587F6778EEA /* MissionRespectTableViewController.swift */,
+				3127AC853734E65CD8EDD6BD1D9AEB68 /* MissionTechnika1TableViewController.swift */,
+				9D21A9793161E13A8605689D97FBCC60 /* MissionTechnika2TableViewController.swift */,
+				7E1E98FB695B66D5FA11980E8C7618DA /* MissionTechnika3TableViewController.swift */,
+				DC1C93791BC6091924D5E9BEA314201C /* MissionTrilogyTableViewController.swift */,
+				6192054BD8E7E46E36A43659F1D2131A /* MissionViewController.swift */,
+			);
+			path = Mission;
+			sourceTree = "<group>";
+		};
 		49A4A62F46B05C7357E7399A48C50D4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				493FFC326138371B1937E2E2D26236EA /* RespectU.app */,
-				969F85FB80779BABC75BE872685FFF85 /* RespectUUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -569,9 +604,16 @@
 			isa = PBXGroup;
 			children = (
 				6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */,
-				E5AD21635BD128711534875F3BED05B9 /* Date+.swift */,
+				A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */,
+				91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */,
+				60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */,
+				A09D0FEC3D95CCD8ECE16CBDA7084FFA /* MissionSection.Respect+Gradient.swift */,
+				79D7A5F0799CF86A96D301D82B8B1090 /* MissionSection.Technika1+Gradient.swift */,
+				241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */,
+				FBF7FCA66B507564BF411BB82D824394 /* MissionSection.Technika3+Gradient.swift */,
+				6B59269E3AB75988A25F6D4EF5088A20 /* MissionSection.Trilogy+Gradient.swift */,
 				90B143CCDE9CB1920C76E56DFB8E619A /* NSObject+.swift */,
-				50878402B628C50E20D355FE6EFEC0CE /* Results+.swift */,
+				9A9970140918A7A61332718A9C9D8322 /* Series+UI.swift */,
 				08640281899B112DEB6A0A0A56A169B7 /* String+.swift */,
 				42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */,
 				2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */,
@@ -589,6 +631,25 @@
 				56193FB5ED1B44771800EF26128FEE44 /* Pods-RespectU.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D8DE4462AD18D5C9FBDAE4C752104CB /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				4BBD21C11306FD9C54E163A20FF8FA24 /* RecordAllTableViewController.swift */,
+				101CE93B365835BBA1D7A917C71B524B /* RecordBSTableViewController.swift */,
+				A646CCC720C494D646FECAB5677C1E21 /* RecordBaseTableViewController.swift */,
+				164C0B9C9329B63A84146A68B44211AF /* RecordCETableViewController.swift */,
+				C7CF5FBE9FE442E18A869E8FFDBB6596 /* RecordPortable1TableViewController.swift */,
+				5F75FFB849D9280269D8A4130772A059 /* RecordPortable2TableViewController.swift */,
+				0A7A724B52192252A0101E5F2B3DC658 /* RecordRespectTableViewController.swift */,
+				C86C6C9262E8EB75FB7589033C1F2EC4 /* RecordTechnika1TableViewController.swift */,
+				4CAF7442CCE225037AD440CAED1A2F46 /* RecordTechnika2TableViewController.swift */,
+				394457A6318FCBA35633C05384AA8D50 /* RecordTechnika3TableViewController.swift */,
+				DB8FDB96924415810F26D8A3D5DCC643 /* RecordTrilogyTableViewController.swift */,
+				6CDC8CD7AE0EAE20F102844365138098 /* RecordViewController.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		8DF3A774BF43B4036BD34DF2BD579861 /* Models */ = {
@@ -619,14 +680,8 @@
 		A46844350BC9B268B02AB78EE74B6B3F /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				AC319B5B08CC94B87A5BD97034671725 /* Buttons.swift */,
-				878C4171732CB6DBE54C695567727956 /* Difficulty.swift */,
-				C831C3A4C9CD49BAA9461B584687A457 /* MissionSection.swift */,
-				85879716D357DCA16AE7BE7B43A66610 /* Note.swift */,
-				0A2F7C71C65B7A0C884FA0D3FEEC488B /* Rank.swift */,
-				A87EB605D9439B5EE296E64FC5DBF065 /* Series.swift */,
 				3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */,
-				C3BEF4EBE00D4D956A95FC60EED6936C /* TrophyGrade.swift */,
+				0E664D69C5666D40413DD76EC3EEB905 /* SkillPoint.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -634,88 +689,51 @@
 		B034FAFADF95A3BFA01844EFE7759F71 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9F876F84919FC4AB4E3AFBD13AFC807D /* AchievementAllTableViewController.swift */,
-				80F1F0CF64225316B57F6FD2CDC7EA07 /* AchievementBaseTableViewController.swift */,
-				18F9FBA4CF36420A1728A8CE06628BCB /* AchievementCommentTableViewController.swift */,
-				EE12B8799245022FD19641A8A5C36FA2 /* AchievementGalleryTableViewController.swift */,
-				627C0189293E8E42B3F89BA4D8556D7F /* AchievementGearTableViewController.swift */,
-				F7466184C44DF63293690F636A540006 /* AchievementMusicTableViewController.swift */,
-				DBACAA804226CAE067FC7988FFDB705C /* AchievementNoteTableViewController.swift */,
-				8294C5047A2BEC5D65CDF3D21EACE681 /* AchievementPlateTableViewController.swift */,
-				3967E03121C5D373852596130FBEF3CF /* AchievementViewController.swift */,
+				BCC1824A0F6A2E4EA0FF69D486DEF75B /* Achievement */,
+				445B0360A0454D1B76771D8E3B21822B /* Mission */,
+				C6235F3AD59BE4F244409868A56D0272 /* Ranking */,
+				8D8DE4462AD18D5C9FBDAE4C752104CB /* Record */,
+				FA350755E73EE6F25B8E1BC09F37C9AE /* Song */,
+				20CD4E18015C56EA046398F6514DA8D4 /* Top50 */,
+				B970CDD544097EA756329B724C3F86E1 /* Trophy */,
 				091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */,
 				7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */,
 				93A63669D5CF070426162547AE2374EB /* GuideViewController.swift */,
 				117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */,
-				9AD0886E6AB67717518459D5240AA618 /* MissionBSTableViewController.swift */,
-				8B9BBF52CE6E2A6AB5CFE2F51C3AC739 /* MissionBaseTableViewController.swift */,
-				777AA65852A0D04C369C2C36D2F01A13 /* MissionCETableViewController.swift */,
-				424D5323572999A7BC5B602A6D550B8D /* MissionDetailViewController.swift */,
-				877A8038CD5557C3CC265DE729A1C679 /* MissionLinkDiskTableViewController.swift */,
-				BB07F5ADDDE226713D08E378DE77DA76 /* MissionRespectTableViewController.swift */,
-				A97E32F8C45528612A0289056855C81E /* MissionTechnika1TableViewController.swift */,
-				392E0563DB3EF689D6DF0AADF0A18512 /* MissionTechnika2TableViewController.swift */,
-				ED9EE6885471E562ABB9BCE1CAD89926 /* MissionTrilogyTableViewController.swift */,
-				DD36253B6A78D45161CCC968C55E4403 /* MissionViewController.swift */,
 				AFC8A42FD9DBB28DB007F737E8557BB7 /* PerformanceViewController.swift */,
-				8460E128E67CA72C6FADFC0EB180D544 /* Ranking4BTableViewController.swift */,
-				822964D9AE10C76C32804846BD408D70 /* Ranking5BTableViewController.swift */,
-				49700D8387BF461DCDC78837F99DC9C4 /* Ranking6BTableViewController.swift */,
-				AA27B0844DFE553DBBDB855D1BE66A80 /* Ranking8BTableViewController.swift */,
-				A43F1B5CFBC5AA07E6437BB54CD85DCC /* RankingBaseTableViewController.swift */,
-				D533244755DF122EF39F607955E5BECE /* RankingViewController.swift */,
-				3D90D693FCE5D01C20BB6A165C8F3B17 /* RecordAllTableViewController.swift */,
-				276F8D6D5B4A3667EA74A74054CD9E8D /* RecordBSTableViewController.swift */,
-				64F4836D796EA68CF12F7E7205999111 /* RecordBaseTableViewController.swift */,
-				3372FF0ED07A548C50A4B94FB33D8E89 /* RecordCETableViewController.swift */,
-				D9794B1D2A819DD78249CCEC45EEDFFA /* RecordPortable1TableViewController.swift */,
-				8D7F7FF6E371C6AFBB7CF0D591B80077 /* RecordPortable2TableViewController.swift */,
-				E5D795CBC7D043F90E4EED907BF57F6D /* RecordRespectTableViewController.swift */,
-				4DBC294B70F9E5F5C3E41C0F28B1150E /* RecordTechnika1TableViewController.swift */,
-				386AA31944619497D098DD436CB7B844 /* RecordTechnika2TableViewController.swift */,
-				675C6B3A541F4D25010F3F35A9A67792 /* RecordTrilogyTableViewController.swift */,
-				32C88266B26501A7D7D0FBB1595FED8E /* RecordViewController.swift */,
 				4B54A2548B3BB3E75F221CEAFB441651 /* SearchRecordDetailViewController.swift */,
 				C194554A77881C517795E91A8F23124E /* SearchRecordViewController.swift */,
 				423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */,
 				D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */,
 				494ED1030BF0FF71A1E556B9468CD078 /* SkillLevelDetailViewController.swift */,
-				632412C3BC1584B3F450B004F939C780 /* SongAllTableViewController.swift */,
-				3E16497B90231561FD081BD385DDCD5E /* SongBSTableViewController.swift */,
-				38601414280411B531B8987B6A99B4FD /* SongBaseTableViewController.swift */,
-				88FC379A93468721C978BADB40902D36 /* SongCETableViewController.swift */,
-				50E07AEAF9DBD85E001FBFA8E5DCD749 /* SongPortable1TableViewController.swift */,
-				9B417168DEC8C7CE3CFF3167E2BD91D5 /* SongPortable2TableViewController.swift */,
-				50E0AAA1364E40DC6E954941F12C46ED /* SongRespectTableViewController.swift */,
-				14C4A203C4E9D73E8A0A84FA0CA39597 /* SongTechnika1TableViewController.swift */,
-				9E9155018C1737D94DBBCF706B217644 /* SongTechnika2TableViewController.swift */,
-				E57EA9582A8ADAEC597AB6A4CA5B41D0 /* SongTrilogyTableViewController.swift */,
-				1BF088218F7A567E03D5A3106F94B80A /* SongViewController.swift */,
 				D5A1695D071CC7554C3FA877BC12B245 /* SummaryDetailViewController.swift */,
 				91CCF1B33BD4D77BF5650BED697154D2 /* TipViewController.swift */,
-				7199FED9916AE8F1B2D5E8F10DD3DA85 /* Top504BTableViewController.swift */,
-				4F889634072866BE4A38CC952D5778BB /* Top505BTableViewController.swift */,
-				EA4C8F701F9B8601D124094F2E7BD192 /* Top506BTableViewController.swift */,
-				A6A9E705AE5738C03AE3AC0B49148503 /* Top508BTableViewController.swift */,
-				C4CCD3681C300BB7277BF7AD629F437F /* Top50BaseTableViewController.swift */,
-				D63C1EC3EF6962D96105334119384DFC /* Top50ViewController.swift */,
-				4EC70A11E9C3055140262528E1238C07 /* TrophyBSTableViewController.swift */,
-				3E3008BA18D3CC6D3D12FFCF3E5E3626 /* TrophyBaseTableViewController.swift */,
-				40EF3F08A01B2E9DAC0A57CDD4B05592 /* TrophyCETableViewController.swift */,
-				EC73C87600C9F6E08FAA711546EDAA45 /* TrophyLinkDiskTableViewController.swift */,
-				534A50ABBAEA97783B003B5468E7A223 /* TrophyRespectTableViewController.swift */,
-				891E1B180DCCE42D6B95043266B71EB4 /* TrophyTechnika1TableViewController.swift */,
-				005F41884111936561D35948740DB95A /* TrophyTechnika2TableViewController.swift */,
-				4C0AFB65F04E333283E839AFA459B348 /* TrophyTrilogyTableViewController.swift */,
-				97E4E00E50818EB6E5CEFC189EB61A24 /* TrophyViewController.swift */,
 				D04A91E1391EB1A2505BB6E30EB1AD65 /* UploadViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		B970CDD544097EA756329B724C3F86E1 /* Trophy */ = {
+			isa = PBXGroup;
+			children = (
+				D0C2415AABC509E942301DF3589F55F8 /* TrophyBSTableViewController.swift */,
+				C865E14A01D3C67FEEE5EAF375899C7D /* TrophyBaseTableViewController.swift */,
+				67B09CACDD60C508B1CEBEF21A39E14C /* TrophyCETableViewController.swift */,
+				FA2852A77D854438A0267E99C8067691 /* TrophyLinkDiskTableViewController.swift */,
+				FF98B5B953A51AE19F56E640C40E2687 /* TrophyRespectTableViewController.swift */,
+				7C2B8192D8437447475180972270F1A2 /* TrophyTechnika1TableViewController.swift */,
+				9DDBE69BDF91490724A4508E8150A75F /* TrophyTechnika2TableViewController.swift */,
+				A875376A5EBE583D9D47E2CCA367EB4F /* TrophyTechnika3TableViewController.swift */,
+				40F9848262F8DA6D81D931CC8DE5FA0A /* TrophyTrilogyTableViewController.swift */,
+				54A0585B9094D54EA2EE91A30C6265FA /* TrophyViewController.swift */,
+			);
+			path = Trophy;
+			sourceTree = "<group>";
+		};
 		BABB834570920E337F6C42A3A35C4EFB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18065202F58A802DC160A40289791915 /* SwiftGen */,
 				E683F525A54716C4D6BE56A96EEDCB29 /* Assets.xcassets */,
 				0FFF8FE8E83D48C24E4B183637AC73A8 /* LaunchScreen.storyboard */,
 				B30E23955E630DE10DDEE4E073034629 /* Localizable.strings */,
@@ -723,11 +741,40 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		BCC1824A0F6A2E4EA0FF69D486DEF75B /* Achievement */ = {
+			isa = PBXGroup;
+			children = (
+				D208137CF7035F090957DD52BFD704BC /* AchievementAllTableViewController.swift */,
+				ECF59229051F5AD6A883EFD1E5A2603E /* AchievementBaseTableViewController.swift */,
+				07507A73DE0099DC9CFB4ABA9FB0DC0C /* AchievementCommentTableViewController.swift */,
+				8CB2A66DC82F6391EEEF838491861F33 /* AchievementGalleryTableViewController.swift */,
+				81A0CEB91040D7176F26D4F0FDD21D28 /* AchievementGearTableViewController.swift */,
+				C728DBB0614587CD2759E53BD1A65882 /* AchievementMusicTableViewController.swift */,
+				18449AAA9B8578063135A1485D123683 /* AchievementNoteTableViewController.swift */,
+				08F04BA7E15EC807F3B9CAA3AEF98239 /* AchievementPlateTableViewController.swift */,
+				AEEACD594FBA67A330D104F816D4D968 /* AchievementViewController.swift */,
+			);
+			path = Achievement;
+			sourceTree = "<group>";
+		};
+		C6235F3AD59BE4F244409868A56D0272 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				E9EA4615ADDF5106D45E6C157F9935FE /* Ranking4BTableViewController.swift */,
+				A57D6592351D9AD16368506EE4633557 /* Ranking5BTableViewController.swift */,
+				DA8059779D1985F721E78B753EC4D776 /* Ranking6BTableViewController.swift */,
+				2A61C0A29FAF3BAFDEA230CF7D855312 /* Ranking8BTableViewController.swift */,
+				3C9306E0C24359552A85518112EFCC9D /* RankingBaseTableViewController.swift */,
+				656538575F3D4D03C665378FB2C6E482 /* RankingViewController.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
 		DC130C869CC4C032B6E7EDA0329E7A64 /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
-				972A99E7912E2E62EFC5A428100DB74D /* Sources */,
 				BABB834570920E337F6C42A3A35C4EFB /* Resources */,
+				972A99E7912E2E62EFC5A428100DB74D /* Sources */,
 				0AF22290FFB9BA0E2E99ED1E48E897FD /* Supports */,
 			);
 			path = RespectU;
@@ -744,8 +791,6 @@
 				27B3098AC1D795D61653C34864ED20F9 /* GuideSecondCell.xib */,
 				C2C849886AF9CEC2084D57D6610826D0 /* GuideThirdCell.swift */,
 				87BC688E45E35568921856EA90F48939 /* GuideThirdCell.xib */,
-				38FF1E46F752FAB4F0923766554242F2 /* HistoryCell.swift */,
-				3AA39A1ECB2391413A9FC0C7C4183741 /* HistoryCell.xib */,
 				5E6BC6E8EAEFF1FB31DF48435303F350 /* MissionCell.swift */,
 				274D0B448B5CE4F3F072A2E8F1A08173 /* MissionCell.xib */,
 				B6DC6B20F4435BC55F0363155B189EA9 /* RankingCell.swift */,
@@ -785,6 +830,7 @@
 			isa = PBXGroup;
 			children = (
 				83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */,
+				BBC86C6F0F8F435FA71C29C5A32617CF /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -793,9 +839,37 @@
 			isa = PBXGroup;
 			children = (
 				A46844350BC9B268B02AB78EE74B6B3F /* Constants */,
-				1623CE4A41E243954BD9284984D01FB7 /* CommonButton.swift */,
+				6E8609566688513F20D56F71E8C2A73E /* AchievementType.swift */,
+				7994394D253D83388739913632BF52F4 /* Button.swift */,
+				3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */,
+				9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */,
+				27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */,
+				9AF510989C994AF286BAC6EFC98F3D86 /* Note.swift */,
+				D9B229B6B9B7142C2A461D7DEB2A7113 /* RUButton.swift */,
+				A4B1BD7EAB31E7E51B602AF90FC5C2AE /* Rank.swift */,
+				9ADF8D0329CDE33DD67FC75E36D63E92 /* Series.swift */,
+				4298E98CCC40A6C7EFDE5510CEDED521 /* TrophyGrade.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		FA350755E73EE6F25B8E1BC09F37C9AE /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				EBDBA54D2C97FB9571C3176FE9BFB0F4 /* SongAllTableViewController.swift */,
+				A2D27FEA1E4484DB3A555B53E4AE9B1D /* SongBSTableViewController.swift */,
+				F23F5730F0C449DE84E323068105AB47 /* SongBaseTableViewController.swift */,
+				B9C089EAB1BA22820E5EE21E20936E08 /* SongCETableViewController.swift */,
+				06634141A9D0AD50CB5CF1C56489B8AB /* SongPortable1TableViewController.swift */,
+				CFE0B54506B42D2B43A668825784A336 /* SongPortable2TableViewController.swift */,
+				D72A74447C5271E64A723356FA2C76C8 /* SongRespectTableViewController.swift */,
+				8ABC647AFC387EECD6791F100EBED31D /* SongTechnika1TableViewController.swift */,
+				EED82018840FD1A5C9368EF3CB51DB1E /* SongTechnika2TableViewController.swift */,
+				59AA6BC0369E1C3C4B40AB8BE89DBF5A /* SongTechnika3TableViewController.swift */,
+				ABF4E0839B1BC3BA0A3E14EA1484CB79 /* SongTrilogyTableViewController.swift */,
+				B7FF17875A680B2300216805CB27FC73 /* SongViewController.swift */,
+			);
+			path = Song;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -822,24 +896,6 @@
 			productReference = 493FFC326138371B1937E2E2D26236EA /* RespectU.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8D0D0C1654CC1BF7948E073983D9CF71 /* RespectUUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3722F60C9CBC45687FC902E76A53279C /* Build configuration list for PBXNativeTarget "RespectUUITests" */;
-			buildPhases = (
-				F0B87EFCB14F570FF4ECCCFC8069AE5E /* Sources */,
-				3D9B68D34ACF3094F299C59D7E364634 /* Frameworks */,
-				0AB6D223B1E1EE5E3AB9D3930F8A4FDD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				38226685020E846FA298E3367BD56286 /* PBXTargetDependency */,
-			);
-			name = RespectUUITests;
-			productName = RespectUUITests;
-			productReference = 969F85FB80779BABC75BE872685FFF85 /* RespectUUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -855,11 +911,6 @@
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
-					};
-					8D0D0C1654CC1BF7948E073983D9CF71 = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 53800806E58C491F36E83AB35BB564AC;
 					};
 				};
 			};
@@ -877,19 +928,11 @@
 			projectRoot = "";
 			targets = (
 				53800806E58C491F36E83AB35BB564AC /* RespectU */,
-				8D0D0C1654CC1BF7948E073983D9CF71 /* RespectUUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0AB6D223B1E1EE5E3AB9D3930F8A4FDD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		72DDAEA643E90A1BCF6BA439AB5357F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -903,7 +946,6 @@
 				E1BA221CFFF61F520AD65F33AA99A1FB /* GuideFirstCell.xib in Resources */,
 				FC8FBD22093105C52F038E7D50AE6834 /* GuideSecondCell.xib in Resources */,
 				D5F72F3C2F85C879DA08951E8E516A4F /* GuideThirdCell.xib in Resources */,
-				C81038227EB1F76F10B393EF9F1E4352 /* HistoryCell.xib in Resources */,
 				6B55743E37BEBB24B1B5DA326BAC689B /* Init.storyboard in Resources */,
 				E0045A82AD56B280294AD01E55A8F38A /* LaunchScreen.storyboard in Resources */,
 				EC915038C96954FF4B4502B9245CF3D0 /* Localizable.strings in Resources */,
@@ -1009,105 +1051,106 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F0B87EFCB14F570FF4ECCCFC8069AE5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C63B141C37BB8917CCE32F7C5D8F5F71 /* RespectUUITests.swift in Sources */,
-				E6EDD3323AAEBEB6A807729A32F10D20 /* SnapshotHelper.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		FD200D377BD1038D5A4C9C58714E142F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				161BFACCEAB4A727A22FB62BA00A7B28 /* API.swift in Sources */,
-				AA8DD4E886BEABB74CF925D0F4F11A07 /* AchievementAllTableViewController.swift in Sources */,
-				3DA152F335FBCFB88C79B81154FF9B0F /* AchievementBaseTableViewController.swift in Sources */,
+				A368D670D9ECB37DBA7FDF40293DCC9F /* AchievementAllTableViewController.swift in Sources */,
+				9F424786F18F120DFA3B54AA97CFE58D /* AchievementBaseTableViewController.swift in Sources */,
 				AD5AD544FF4F2D2C8F1B5317859CF690 /* AchievementCell.swift in Sources */,
-				58736705749AD1AFAB55B5AAAE9A10B2 /* AchievementCommentTableViewController.swift in Sources */,
-				33BF1BBA552FE3D67B3735594915121F /* AchievementGalleryTableViewController.swift in Sources */,
-				6DC5DBD7A805FAB0AE5BB15306DD37D8 /* AchievementGearTableViewController.swift in Sources */,
+				77A3641A412E2281169BC43A482D1E91 /* AchievementCommentTableViewController.swift in Sources */,
+				51224183DF5D5EE431F19419618869BD /* AchievementGalleryTableViewController.swift in Sources */,
+				79411DF6AB24D237EE95FD55E977CAEA /* AchievementGearTableViewController.swift in Sources */,
 				E1CBFF554215B6EE966299F65FC12C15 /* AchievementInfo.swift in Sources */,
-				0D674D10CEFCDB7E98BAA4BAF3816632 /* AchievementMusicTableViewController.swift in Sources */,
-				0C0890F959D19D92DE0203EEDDFA2A61 /* AchievementNoteTableViewController.swift in Sources */,
-				8FB4812E5C759FEF3BD39304092A2DDA /* AchievementPlateTableViewController.swift in Sources */,
+				EDDF63E5EFFCFFE2BAEED87EF03CA87B /* AchievementMusicTableViewController.swift in Sources */,
+				B6352BF809F83287D010471DA3CE8ACC /* AchievementNoteTableViewController.swift in Sources */,
+				21210F283185F19A775BAC369EA72133 /* AchievementPlateTableViewController.swift in Sources */,
 				4C17D5C69A95D3C1A2160AE91E036869 /* AchievementResponse.swift in Sources */,
-				CDD90E6F9A84C3037845D5DEB4542235 /* AchievementViewController.swift in Sources */,
+				B4CB2D7CBA623EA489565AB780044FE6 /* AchievementType.swift in Sources */,
+				A85CA7512FCCF5A4CD116BCDCD8795A1 /* AchievementViewController.swift in Sources */,
 				9C5BD16964B01CE4E826C0714E7BFB7C /* AppDelegate.swift in Sources */,
+				BE9081C6FD851727989460A4D055C02E /* Assets.swift in Sources */,
 				C49BDBE7974F6333739B639CFBC5DB8A /* BaseViewController.swift in Sources */,
-				B31CCEEC9631C86B5EF02174D9260574 /* Buttons.swift in Sources */,
+				16E72F47E46466C1D0F72348BC1734D2 /* Button.swift in Sources */,
 				94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */,
-				D169E524F4D2EAE96CF748473077DED9 /* CommonButton.swift in Sources */,
-				D79F2B22E63E56750A75E8E85F5A2106 /* Date+.swift in Sources */,
-				30CA59116BA612C654A2C258B541456C /* Difficulty.swift in Sources */,
+				36105E909ADA369CB7D0D1B675FED1F4 /* Difficulty.swift in Sources */,
 				53DC6066E155D2567781E494547956C9 /* DownloadViewController.swift in Sources */,
+				38C447D6D1AE123FA0B3D40D21AEE863 /* GradientDirection.swift in Sources */,
 				78989219547DC155E6A2BFB50D1CE084 /* GuideFirstCell.swift in Sources */,
 				773E3FDD1DEE5F4CB711CDB6039FC8E6 /* GuideSecondCell.swift in Sources */,
 				A6CF37762CAA065A967E3883E5957CB3 /* GuideThirdCell.swift in Sources */,
 				CD55E0CB7597D32784C77016C147A6AD /* GuideViewController.swift in Sources */,
-				72A6FC1E6A98838E96D248125AD521CB /* HistoryCell.swift in Sources */,
-				850DD2C3B140ABFF1F77DE71377A0B8B /* HistoryInfo.swift in Sources */,
 				7E0990E3AE966B278DF432343CED2319 /* InitViewController.swift in Sources */,
 				C663E15915C31A522FC58453C8860335 /* LanguageInfo.swift in Sources */,
 				9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */,
-				29004BE5963EE433AD31B998EE689AEA /* MissionBSTableViewController.swift in Sources */,
-				0D3BFF47081892A7905082F16AA70A1B /* MissionBaseTableViewController.swift in Sources */,
-				736A2B7A896E83B84E13930EAA71B115 /* MissionCETableViewController.swift in Sources */,
+				07E412854081E98BAA9EC7826338343C /* MissionBSTableViewController.swift in Sources */,
+				9DCD5A88AE046BE67E43FDE46C8F33C3 /* MissionBaseTableViewController.swift in Sources */,
+				8007E7D37842446EFC1FDF6AFC2639EC /* MissionCETableViewController.swift in Sources */,
 				297DFEEE2C220A5C1F47BAA6F2AC87B7 /* MissionCell.swift in Sources */,
-				3C3F35A5412363A606944EF0D4321CEA /* MissionDetailViewController.swift in Sources */,
+				0179E468A4893A10BE09245347B49401 /* MissionDetailViewController.swift in Sources */,
 				C901A043E201D80F7AD41DCA311F210F /* MissionInfo.swift in Sources */,
-				C1B3B41863D44653D87A7A70DF46CF4C /* MissionLinkDiskTableViewController.swift in Sources */,
-				E3AAFB991E79A9FEC8829E4089C1A987 /* MissionRespectTableViewController.swift in Sources */,
+				99897C2ED7674E739230DED65BDC06D2 /* MissionLinkDiskTableViewController.swift in Sources */,
+				80F2294D348F4A43E2CB8F35028D0423 /* MissionRespectTableViewController.swift in Sources */,
 				90AF44D559BE00DEB63346B84D141E10 /* MissionResponse.swift in Sources */,
-				58C3163BF0CC79CF46BE593C0642D043 /* MissionSection.swift in Sources */,
+				AC365183A54C207B12519696FFF64C67 /* MissionSection.BS+Gradient.swift in Sources */,
+				0380D257C2F539A6344259BF2EFED65A /* MissionSection.CE+Gradient.swift in Sources */,
+				BEC2CC592CAB4198746262C55D73DBA0 /* MissionSection.LinkDisk+Gradient.swift in Sources */,
+				8DD62325C32CFDD11403EF407197E9A9 /* MissionSection.Respect+Gradient.swift in Sources */,
+				87EE66478A51CBA1A1A9F26347694685 /* MissionSection.Technika1+Gradient.swift in Sources */,
+				72713E32C8FA38F681A9C4F075A7D08B /* MissionSection.Technika2+Gradient.swift in Sources */,
+				5A54507509E4E4DC3181C3FCB74FBBC0 /* MissionSection.Technika3+Gradient.swift in Sources */,
+				9F579ACF8BFC762F49A03A837BCCF7ED /* MissionSection.Trilogy+Gradient.swift in Sources */,
+				F551680129D8E83F451174BE5B4DBF5D /* MissionSection.swift in Sources */,
 				BEC7D1F3799FA6E0EEDB0980E345F689 /* MissionStageInfo.swift in Sources */,
-				3B512E5473FFFA0F66D8764BAED981B3 /* MissionTechnika1TableViewController.swift in Sources */,
-				BC160FABF64677F137254937D3713224 /* MissionTechnika2TableViewController.swift in Sources */,
-				2EE7D5E9345E25D80F03F5351DBD4C57 /* MissionTrilogyTableViewController.swift in Sources */,
-				DDCD94A6CE2796C37A75BB76264A42D7 /* MissionViewController.swift in Sources */,
+				D4F4FB7D6DFADE1F54AEEDDEEE9BF681 /* MissionTechnika1TableViewController.swift in Sources */,
+				7C37CAC5FB61061C9FCB133E803A0423 /* MissionTechnika2TableViewController.swift in Sources */,
+				532E0449B68A85440B2A1E3F2BAF63B4 /* MissionTechnika3TableViewController.swift in Sources */,
+				D7D51512AABF833025D3FB78AB1C0C3F /* MissionTrilogyTableViewController.swift in Sources */,
+				ED9D59C06C9E0047119BE8AE0BBC1A97 /* MissionViewController.swift in Sources */,
 				7CAA744A443BAA4E21DFFF769BC9A3BF /* NSObject+.swift in Sources */,
 				98E58C3EB574E700F5D75FCB04F4FC44 /* Network.swift in Sources */,
-				94C4FDF724B961541DE6EB47D3EBBBB4 /* NewRecordButtonInfo.swift in Sources */,
-				3AADDD6360A75A94FC9E23B076C8726C /* NewRecordDifficultyInfo.swift in Sources */,
-				118BC6640770180E869C61F24A9B267B /* NewRecordInfo.swift in Sources */,
 				4FBF2977E66C057D1A9F1F3F19E48E8C /* NicknameResponse.swift in Sources */,
-				CD61A2743707AB4D81D63B0316B24996 /* Note.swift in Sources */,
+				1D5A93ADB7E0551D8265EC21D90E8114 /* Note.swift in Sources */,
 				DC8239DAEF1700D671C8ADC1F04121DA /* OldRecordInfo.swift in Sources */,
 				A355C78EC61F119CC6EBBA3E16B5AA0A /* PerformanceViewController.swift in Sources */,
-				EA0B5AD4D8A85E87C374E6E1DDDE5F70 /* Rank.swift in Sources */,
-				0490ED63088F1D21357115AAC50277CD /* Ranking4BTableViewController.swift in Sources */,
-				B75932AA1467B03CA35BC9004011A315 /* Ranking5BTableViewController.swift in Sources */,
-				A2E0EC32E2A84BD99F4DD5111640C7B1 /* Ranking6BTableViewController.swift in Sources */,
-				C0D81815E12F8E9C9E2A5D50A298249D /* Ranking8BTableViewController.swift in Sources */,
-				10F3F7B55F293DC062361F4630CA8A5D /* RankingBaseTableViewController.swift in Sources */,
+				C295B902F2B60D1CF3FA2B1334479A65 /* RUButton.swift in Sources */,
+				9F02A015FDD5629384099D02332F9AF8 /* Rank.swift in Sources */,
+				48175A5C8370F8ED872DDDAD970867BB /* Ranking4BTableViewController.swift in Sources */,
+				79D274160965FE8BA5A394E6C353BA65 /* Ranking5BTableViewController.swift in Sources */,
+				EEA6DE9B2B98EA38E69EB963C636C520 /* Ranking6BTableViewController.swift in Sources */,
+				4A98A06417A0097FB957083613E33F09 /* Ranking8BTableViewController.swift in Sources */,
+				A315E94EE38B5C79959A6DEF81671063 /* RankingBaseTableViewController.swift in Sources */,
 				DFA7343544B17FDE10800CFA2D95474E /* RankingCell.swift in Sources */,
 				3ACE06EAF10D0F00AB81B031AFFD4370 /* RankingResponse.swift in Sources */,
-				2CF9C7F2D29AC0B0A229CA393D9B5474 /* RankingViewController.swift in Sources */,
+				7858348DB87AE1F57E6EDE96DC86385B /* RankingViewController.swift in Sources */,
 				409ABEBD1C0ACF153D2726D4203EB120 /* Reachability.swift in Sources */,
-				B4C010F3E08C60C1830E3D8C5449D925 /* RecordAllTableViewController.swift in Sources */,
-				5ADDA82FCF1FCA08FF186B19D840024D /* RecordBSTableViewController.swift in Sources */,
-				3386E2A6131F018929F2BA4A98B3E456 /* RecordBaseTableViewController.swift in Sources */,
-				4E20EA2D84F42FD5DEDF9BC6105A85BE /* RecordCETableViewController.swift in Sources */,
+				6AB28858EC6AF5E90E28E90FEB28EB45 /* RecordAllTableViewController.swift in Sources */,
+				6A51A5566ED5C9A050238B3B86CDFF28 /* RecordBSTableViewController.swift in Sources */,
+				A7666C7BFF582CE3D2E5AEFB30A1973A /* RecordBaseTableViewController.swift in Sources */,
+				0AD398A653F247BBD797BF1C08117411 /* RecordButtonInfo.swift in Sources */,
+				B2C7292410B72D6239C9419EFD99F720 /* RecordCETableViewController.swift in Sources */,
 				A8F637AB2D98571955E28ED50F2EFE00 /* RecordCell.swift in Sources */,
-				7000A30D0FE72B9E633BF472D2D12FEA /* RecordPortable1TableViewController.swift in Sources */,
-				239EFA870B218D81D6C4B1D8415CE5A1 /* RecordPortable2TableViewController.swift in Sources */,
-				4E28FACC4F77EEF2A9DB7BF8BCC85376 /* RecordRespectTableViewController.swift in Sources */,
+				02686C509DF00D9696587DEEA60DA1AD /* RecordDifficultyInfo.swift in Sources */,
+				C87227AE5F5C14201E4A9A2BFBA6F43C /* RecordInfo.swift in Sources */,
+				402BA1696265B27378F92C7D0EFE5D9A /* RecordPortable1TableViewController.swift in Sources */,
+				26708994E8417D244AFABB1922A65642 /* RecordPortable2TableViewController.swift in Sources */,
+				90435DAD8253B6ECD6DBBD877A50DF9F /* RecordRespectTableViewController.swift in Sources */,
 				D60684D01227D743425A5926A21FD850 /* RecordResponse.swift in Sources */,
-				05B355E7973AFF0EE06551B7F8C4B60E /* RecordTechnika1TableViewController.swift in Sources */,
-				2333AD6A84A933542D4B2C25E3212707 /* RecordTechnika2TableViewController.swift in Sources */,
-				CB15DCA04201968492D23A68EA665442 /* RecordTrilogyTableViewController.swift in Sources */,
+				09E17333AB311C09221D5BDD854CAAF5 /* RecordTechnika1TableViewController.swift in Sources */,
+				9B236D432A2A7BA98EDD93D1231A3AEF /* RecordTechnika2TableViewController.swift in Sources */,
+				B87568500EAB59BC53C4C46C7DBDF37C /* RecordTechnika3TableViewController.swift in Sources */,
+				8FA7CCD9F150E47BC3E960749476A437 /* RecordTrilogyTableViewController.swift in Sources */,
 				C8ADDE7416A86CE84CD4823CC47833DC /* RecordView.swift in Sources */,
-				CFE06C37E505ADA86B782D6F9315B62A /* RecordViewController.swift in Sources */,
-				E2645C255A26C0BF58FE7B6C8F543B10 /* Results+.swift in Sources */,
+				6390715145BD10663A5A4D6C352868DF /* RecordViewController.swift in Sources */,
 				56B103D4D21450CC4D0BC3D98286A3AF /* SearchByLevelView.swift in Sources */,
 				3FC482296754D98BE86BD7B18E564694 /* SearchByNoteView.swift in Sources */,
 				71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRateView.swift in Sources */,
 				E909A0D435DE1970F26D9E69E991ED41 /* SearchRecordDetailCell.swift in Sources */,
 				EB500C397294D1867BE4A5323F2B399E /* SearchRecordDetailViewController.swift in Sources */,
 				15D85A72D8E253A709907E22B1B919BA /* SearchRecordViewController.swift in Sources */,
-				795A8690E946AA858CDFA6559AC32058 /* Series.swift in Sources */,
+				16217B19735F571D4F00B4E714D445A1 /* Series+UI.swift in Sources */,
+				2440D6183CA2FD2B1771BD07553F0EA3 /* Series.swift in Sources */,
 				832BAB1A651DC131F7DD567512C8F754 /* SignInTextField.swift in Sources */,
 				EE71722AABACD4B3CA0F4730F95231FF /* SignInViewController.swift in Sources */,
 				40A958056F42EC3D295722454F5129D2 /* SignUpViewController.swift in Sources */,
@@ -1116,48 +1159,53 @@
 				93A2A616DC091EC01FE19DF5A8228554 /* SkillLevelCell.swift in Sources */,
 				14A9C0F1784C4EFB020D45285772036C /* SkillLevelDetailView.swift in Sources */,
 				CD286290C91049CAB1AC71B914F91DE7 /* SkillLevelDetailViewController.swift in Sources */,
-				93BB5AA87262F60BA521453CB5FA1517 /* SongAllTableViewController.swift in Sources */,
-				F312FA83FF2B64E98E689A06342FA7FC /* SongBSTableViewController.swift in Sources */,
-				7CB858F1D4B7C2010CA9C6704BED6960 /* SongBaseTableViewController.swift in Sources */,
+				1E64D8217B3A29B37418024823592E66 /* SkillPoint.swift in Sources */,
+				FA4BEBF3791C502B996D02DE973581D8 /* SongAllTableViewController.swift in Sources */,
+				626DCED8FA52B65C0C03F7D940B556C5 /* SongBSTableViewController.swift in Sources */,
+				799B139F9BBB3D3D23BDA509C60C29A8 /* SongBaseTableViewController.swift in Sources */,
 				C67050AEEA3E9FEFEEF6609848CABF49 /* SongButtonInfo.swift in Sources */,
-				4F36406F313CFACF5EB61DE26A5CB885 /* SongCETableViewController.swift in Sources */,
+				B8D616ADF20DEC51276762711CE93CFC /* SongCETableViewController.swift in Sources */,
 				7F550ED856FEE434A4289AC243725DA2 /* SongCell.swift in Sources */,
 				E49C4A33514DB94D1E07267D61B4AF25 /* SongInfo.swift in Sources */,
-				63ED27EEFEEB68018A86ADDD38CA7954 /* SongPortable1TableViewController.swift in Sources */,
-				E05BB8184D6100C19BF655CED0E83C6B /* SongPortable2TableViewController.swift in Sources */,
-				517A242865CBD69B25107A0694054C3E /* SongRespectTableViewController.swift in Sources */,
+				4153853DD9B533CEB5CB57E06BE93625 /* SongPortable1TableViewController.swift in Sources */,
+				792780314E46E5949E03C0F5CF357DCD /* SongPortable2TableViewController.swift in Sources */,
+				30370928E902A0A1ADEBB413AFFD9019 /* SongRespectTableViewController.swift in Sources */,
 				8E2577604E640D270C80FBB4295515A7 /* SongResponse.swift in Sources */,
-				165A0377CAE98B37ACDC3858EB682D1B /* SongTechnika1TableViewController.swift in Sources */,
-				62DEDC1DFDC2671D8FD94252993B0104 /* SongTechnika2TableViewController.swift in Sources */,
-				85423FC58B37007F7D2F96AD9481ADD9 /* SongTrilogyTableViewController.swift in Sources */,
-				3EF9E312AD18529A52002DA70ED93A65 /* SongViewController.swift in Sources */,
+				05BF8B1DD9D1CFFE3909352A0062808D /* SongTechnika1TableViewController.swift in Sources */,
+				A4341B45A52DE69D373AA8689A6598A8 /* SongTechnika2TableViewController.swift in Sources */,
+				E0837D50A45691DAD8C70F03A3CC15CE /* SongTechnika3TableViewController.swift in Sources */,
+				95234C099163DBDCE9889D08D17289F5 /* SongTrilogyTableViewController.swift in Sources */,
+				4F6670BDD18418EB0BACC4C92FE1EA57 /* SongViewController.swift in Sources */,
+				4DB514B43FA2A583C16006541624AD81 /* Storyboard.swift in Sources */,
 				E2D8AEB2117CBC267BE26D6F4BFA9CB7 /* String+.swift in Sources */,
+				59A0935E9841AE2C2D2936507EBD985B /* Strings.swift in Sources */,
 				6882E18AB7ED3B44099C1EB2DF316B2C /* SummaryCell.swift in Sources */,
 				36D90F14658E9A2386E71925147AD3B7 /* SummaryCollectionCell.swift in Sources */,
 				FBA69F596B504E30711FBB8CA0653F81 /* SummaryDetailViewController.swift in Sources */,
 				C2B828CD011EB99FA479BF670FEE7A4C /* TipInfo.swift in Sources */,
 				FE16B2705772147DFC33EFE0129FDD53 /* TipResponse.swift in Sources */,
 				7DB048302AB433149E6A95BA48133447 /* TipViewController.swift in Sources */,
-				2901F95B975DB2C2454906E626CEDD0E /* Top504BTableViewController.swift in Sources */,
-				F0A88013498D8F407A0A6BAC3DEA8640 /* Top505BTableViewController.swift in Sources */,
-				ECCEFF52FC66948EE5E02EBB2B8DD164 /* Top506BTableViewController.swift in Sources */,
-				E17C2EFC3BE85116F8799D84AC7F9A9C /* Top508BTableViewController.swift in Sources */,
-				1557292ADCA0CF4DB668E8484F911817 /* Top50BaseTableViewController.swift in Sources */,
+				0CEF469A149FF36E867CC3A161165AF9 /* Top504BTableViewController.swift in Sources */,
+				6CC9FF520053253ACB3082AABE34CF0A /* Top505BTableViewController.swift in Sources */,
+				6C3977B8B2C1C1172FDBDE5D7054F4DA /* Top506BTableViewController.swift in Sources */,
+				E89955CBE8C1B9AD6AF1994793683092 /* Top508BTableViewController.swift in Sources */,
+				C3551CA001C950C2BABA8E95D6EFAAD6 /* Top50BaseTableViewController.swift in Sources */,
 				5F74C0FF12D461826448C86A14E4919D /* Top50Cell.swift in Sources */,
-				8B869D1A5010363B9C57382DD11229F6 /* Top50ViewController.swift in Sources */,
-				622FF5A14D48F871B7D1835E0F6D2A29 /* TrophyBSTableViewController.swift in Sources */,
-				C32B59D468373A5BFC77DC16826DBC78 /* TrophyBaseTableViewController.swift in Sources */,
-				A0FBA089C7AF58F69FC8307BB3EFE949 /* TrophyCETableViewController.swift in Sources */,
+				3B7DE92472A1872F8D09E85383AE7E95 /* Top50ViewController.swift in Sources */,
+				1C4D888E2BECAA7E7447EC6E493D700E /* TrophyBSTableViewController.swift in Sources */,
+				554C372C44FEB3224C5EAE6E722D3D2B /* TrophyBaseTableViewController.swift in Sources */,
+				BAF7C4779D1D74F482A5C62832C9AF0C /* TrophyCETableViewController.swift in Sources */,
 				456CFC7E84339AD858F72E14C0200EAD /* TrophyCell.swift in Sources */,
-				B5FA99B079C83D0EB38B3214877D0B5F /* TrophyGrade.swift in Sources */,
+				3B5CCA1F7AE3B3E186DCDC5466618711 /* TrophyGrade.swift in Sources */,
 				986310414206F5E413A447766B2A36D0 /* TrophyInfo.swift in Sources */,
-				CDE5CA37598ACDCB586EBEF4699A9A20 /* TrophyLinkDiskTableViewController.swift in Sources */,
-				EF1D0308F7D611050180B8F605CFC826 /* TrophyRespectTableViewController.swift in Sources */,
+				D235F2870A0811AB0EE18B92C23A5E8F /* TrophyLinkDiskTableViewController.swift in Sources */,
+				C7C80996F1B61B44536F73D8F5ECCD34 /* TrophyRespectTableViewController.swift in Sources */,
 				9DB272CDB091ACF835E7C0D863D117F8 /* TrophyResponse.swift in Sources */,
-				8A087598B8EF1B782F4BE31EA61D6609 /* TrophyTechnika1TableViewController.swift in Sources */,
-				F6D1D8AF11816178C53F140AB9BF06DE /* TrophyTechnika2TableViewController.swift in Sources */,
-				988AF066A3BF24543A103298E129F719 /* TrophyTrilogyTableViewController.swift in Sources */,
-				9E9FE3ABBD6C4A909DBF694107A99CF3 /* TrophyViewController.swift in Sources */,
+				B7B47C90D8A004232DF088D28B0EA53D /* TrophyTechnika1TableViewController.swift in Sources */,
+				4AE97EBF1348A5516BE27E7EB403CE28 /* TrophyTechnika2TableViewController.swift in Sources */,
+				1722D64EEA474AA4DB6530A17DA20635 /* TrophyTechnika3TableViewController.swift in Sources */,
+				C6A47F0F5710AAFCEACC3B7D1A30A484 /* TrophyTrilogyTableViewController.swift in Sources */,
+				57A9D23286BDA314BEC501224189EFE7 /* TrophyViewController.swift in Sources */,
 				8D428E252225AAE930BF8D945401F018 /* UIAlertController+.swift in Sources */,
 				86DEAB8A62F44038DA244F4B864FE1FF /* UIColor+.swift in Sources */,
 				D5BAC3FE4BFE449319B1FF768BEA4DA9 /* UITableViewCell+.swift in Sources */,
@@ -1165,20 +1213,13 @@
 				4CB993740AF398D71E90C9EC481F995D /* UIViewController+.swift in Sources */,
 				3C2E4343DB314444E72BCA528356A02B /* UploadViewController.swift in Sources */,
 				DF0ADF3EC056D01E0F7C2285EE9C8587 /* UserResponse.swift in Sources */,
+				7FADC0241104D5EF1D511F7CB55F58E5 /* Utils.swift in Sources */,
 				DA56608DD5FB0DE29D1BF82728E52081 /* VersionInfo.swift in Sources */,
 				65B837BD248EF75153ED13562E7F5F5F /* VersionResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		38226685020E846FA298E3367BD56286 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 53800806E58C491F36E83AB35BB564AC /* RespectU */;
-			targetProxy = 43189C48EA7325A1ABED363E975215EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0FFF8FE8E83D48C24E4B183637AC73A8 /* LaunchScreen.storyboard */ = {
@@ -1224,24 +1265,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		AEE5DAB3C0787DB8DD342A6C04CFBB2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H79MF628K3;
-				INFOPLIST_FILE = RespectUUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectUUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RespectU;
-			};
-			name = Release;
 		};
 		AFF48BDA5913283131185BA2BC4DBB47 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1319,25 +1342,6 @@
 			};
 			name = Release;
 		};
-		D018B5F059270482936116F48EFFBF45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H79MF628K3;
-				INFOPLIST_FILE = RespectUUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = presto.RespectUUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RespectU;
-			};
-			name = Debug;
-		};
 		F7741424A61C114CF4DE288CBAF48355 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1406,15 +1410,6 @@
 			buildConfigurations = (
 				F7741424A61C114CF4DE288CBAF48355 /* Debug */,
 				CC41C1C43992ADCDA1631AD975C2F3DB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3722F60C9CBC45687FC902E76A53279C /* Build configuration list for PBXNativeTarget "RespectUUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D018B5F059270482936116F48EFFBF45 /* Debug */,
-				AEE5DAB3C0787DB8DD342A6C04CFBB2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

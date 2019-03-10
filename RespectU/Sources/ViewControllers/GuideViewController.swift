@@ -132,17 +132,17 @@ extension GuideViewController: GuideSecondCellDelegate {
     let message = "Current".localized + " : \(favorite?.uppercased() ?? "None".localized)\n\n" + "The information related to the set value is displayed first.".localized
     UIAlertController
       .alert(title: "My Favorite Button".localized, message: message)
-      .action(title: Buttons.button4.uppercased()) { _ in
-        UserDefaults.standard.set(Buttons.button4, forKey: key)
+      .action(title: Button.button4.uppercased()) { _ in
+        UserDefaults.standard.set(Button.button4, forKey: key)
       }
-      .action(title: Buttons.button5.uppercased()) { _ in
-        UserDefaults.standard.set(Buttons.button5, forKey: key)
+      .action(title: Button.button5.uppercased()) { _ in
+        UserDefaults.standard.set(Button.button5, forKey: key)
       }
-      .action(title: Buttons.button6.uppercased()) { _ in
-        UserDefaults.standard.set(Buttons.button6, forKey: key)
+      .action(title: Button.button6.uppercased()) { _ in
+        UserDefaults.standard.set(Button.button6, forKey: key)
       }
-      .action(title: Buttons.button8.uppercased()) { _ in
-        UserDefaults.standard.set(Buttons.button8, forKey: key)
+      .action(title: Button.button8.uppercased()) { _ in
+        UserDefaults.standard.set(Button.button8, forKey: key)
       }
       .action(.cancel, title: "Cancel".localized)
       .present(to: self)

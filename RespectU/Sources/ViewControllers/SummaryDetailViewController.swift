@@ -30,7 +30,7 @@ final class SummaryDetailViewController: UIViewController {
   
   var songResults: Results<SongInfo>!
   
-  var recordResults: Results<NewRecordInfo>!
+  var recordResults: Results<RecordInfo>!
   
   var button4Array = Array(repeating: 0, count: 12)
   
@@ -49,18 +49,24 @@ final class SummaryDetailViewController: UIViewController {
     let buttons = ["button4", "button5", "button6", "button8"]
     let difficulties = ["normal", "hard", "maximum"]
     self.songResults = SongInfo.fetch()
-    self.recordResults = NewRecordInfo.fetch()
+    self.recordResults = RecordInfo.fetch()
     for recordResult in recordResults {
-      let predicate = NSPredicate(format: "%K == %@", #keyPath(SongInfo.title.english), recordResult.title?.english ?? "")
+      let predicate = NSPredicate(format: "%K == %@",
+                                  #keyPath(SongInfo.title.english),
+                                  recordResult.title?.english ?? "")
       guard let songResult = self.songResults.filter(predicate).first else { return }
       for index in 0..<4 {
         let button = buttons[index]
-        guard let songButtonKeyPath = songResult.value(forKeyPath: button) as? SongButtonInfo else { return }
-        guard let recordButtonKeyPath = recordResult.value(forKeyPath: button) as? NewRecordButtonInfo else { return }
+        guard let songButtonKeyPath
+          = songResult.value(forKeyPath: button) as? SongButtonInfo else { return }
+        guard let recordButtonKeyPath
+          = recordResult.value(forKeyPath: button) as? RecordButtonInfo else { return }
         for difficulty in difficulties {
           guard let level = songButtonKeyPath.value(forKeyPath: difficulty) as? Int else { return }
           if level != 0 {
-            guard let recordKeyPath = recordButtonKeyPath.value(forKeyPath: difficulty) as? NewRecordDifficultyInfo else { return }
+            guard let recordKeyPath
+              = recordButtonKeyPath.value(forKeyPath: difficulty) as? RecordDifficultyInfo
+              else { return }
             if !recordKeyPath.rank.isEmpty {
               switch index {
               case 0:
@@ -223,7 +229,8 @@ final class SummaryDetailViewController: UIViewController {
     }
     totalPatterns()
     for index in 0..<12 {
-      allArray[index] = button4Array[index] + button5Array[index] + button6Array[index] + button8Array[index]
+      allArray[index]
+        = button4Array[index] + button5Array[index] + button6Array[index] + button8Array[index]
     }
     rateArray[0] = rateArray[0] / Double(button4Array[11])
     rateArray[1] = rateArray[1] / Double(button5Array[11])
@@ -243,10 +250,14 @@ final class SummaryDetailViewController: UIViewController {
       button8Label.text = "\(button8Array[index - 1])"
       allLabel.text = "\(allArray[index - 1])"
     }
-    guard let button4AverageLabel = button4StackView.arrangedSubviews.last as? UILabel else { return }
-    guard let button5AverageLabel = button5StackView.arrangedSubviews.last as? UILabel else { return }
-    guard let button6AverageLabel = button6StackView.arrangedSubviews.last as? UILabel else { return }
-    guard let button8AverageLabel = button8StackView.arrangedSubviews.last as? UILabel else { return }
+    guard let button4AverageLabel = button4StackView.arrangedSubviews.last as? UILabel
+      else { return }
+    guard let button5AverageLabel = button5StackView.arrangedSubviews.last as? UILabel
+      else { return }
+    guard let button6AverageLabel = button6StackView.arrangedSubviews.last as? UILabel
+      else { return }
+    guard let button8AverageLabel = button8StackView.arrangedSubviews.last as? UILabel
+      else { return }
     guard let allAverageLabel = allStackView.arrangedSubviews.last as? UILabel else { return }
     button4AverageLabel.text = String(format: "%05.2f%%", rateArray[0])
     button5AverageLabel.text = String(format: "%05.2f%%", rateArray[1])
@@ -272,7 +283,8 @@ extension SummaryDetailViewController {
       let difficulties = ["normal", "hard", "maximum"]
       for index in 0..<4 {
         let button = buttons[index]
-        guard let buttonKeyPath = result.value(forKeyPath: button) as? SongButtonInfo else { return }
+        guard let buttonKeyPath = result.value(forKeyPath: button) as? SongButtonInfo
+          else { return }
         for difficulty in difficulties {
           guard let level = buttonKeyPath.value(forKeyPath: difficulty) as? Int else { return }
           if level != 0 {

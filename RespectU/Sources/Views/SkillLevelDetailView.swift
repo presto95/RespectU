@@ -31,23 +31,23 @@ final class SkillLevelDetailView: UIView {
     layer.cornerRadius = 15
   }
   
-  func setProperties(button: String) {
+  func setProperties(button: Button) {
     let recordRate = Skill.recordRate(button: button)
     let maxSkillPoint = Skill.maxSkillPoint(button: button)
     let mySkillPoint = Skill.mySkillPointAndHighestSeries(button: button)
     let sum = mySkillPoint.sum
     let skillLevel: String?
     switch button {
-    case Buttons.button4:
+    case Button.button4:
       skillLevel = Skill.button4SkillLevel(sum)
-    case Buttons.button5:
+    case Button.button5:
       skillLevel = Skill.button5SkillLevel(sum)
-    case Buttons.button6, Buttons.button8:
+    case Button.button6, Button.button8:
       skillLevel = Skill.button6And8SkillLevel(sum)
     default:
       skillLevel = nil
     }
-    buttonLabel.text = button.uppercased()
+    buttonLabel.text = button.rawValue.uppercased()
     skillLevelLabel.text = skillLevel
     skillPointLabel.text = "\((sum * 100).rounded() / 100) " + "Point".localized
     gauge.maxValue = CGFloat(maxSkillPoint)

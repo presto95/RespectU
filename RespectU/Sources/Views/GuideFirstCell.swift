@@ -47,10 +47,19 @@ final class GuideFirstCell: UITableViewCell {
     view.layer.borderWidth = 1
     view.layer.borderColor = UIColor.lightGray.cgColor
     view.layer.masksToBounds = true
-    let stackViews = [songStackView, missionStackView, trophyStackView, achievementStackView, tipStackView, manualStackView]
+    let stackViews = [
+      songStackView,
+      missionStackView,
+      trophyStackView,
+      achievementStackView,
+      tipStackView,
+      manualStackView
+    ]
     for index in 0..<stackViews.count {
       let stackView = stackViews[index]
-      stackView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStackViews(_:))))
+      stackView?
+        .addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                     action: #selector(stackViewsDidTap(_:))))
       guard let imageView = stackView?.arrangedSubviews.first as? UIImageView else { return }
       guard let label = stackView?.arrangedSubviews.last as? UILabel else { return }
       imageView.image = UIImage(named: imageNames[index])
@@ -59,7 +68,7 @@ final class GuideFirstCell: UITableViewCell {
     titleLabel.text = "Guide for DJMAX RESPECT".localized
   }
   
-  @objc func didTapStackViews(_ recognizer: UITapGestureRecognizer) {
+  @objc func stackViewsDidTap(_ recognizer: UITapGestureRecognizer) {
     guard let stackView = recognizer.view else { return }
     switch stackView.tag {
     case 0:

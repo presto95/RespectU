@@ -10,7 +10,19 @@ import UIKit
 
 extension CAGradientLayer {
   
-  static func makeGradient(startPoint: CGPoint, endPoint: CGPoint, colors: [CGColor], locations: [NSNumber]) -> CAGradientLayer {
+  /// Creates gradient layer.
+  ///
+  /// - Parameters:
+  ///   - startPoint: The start point of a gradient layer.
+  ///   - endPoint:   The end point of a gradient layer.
+  ///   - colors:     The colors of a gradient layer.
+  ///   - locations:  The locations of a gradient layer.
+  ///
+  /// - Returns: The gradient layer.
+  static func make(startPoint: CGPoint,
+                   endPoint: CGPoint,
+                   colors: [CGColor],
+                   locations: [NSNumber]) -> CAGradientLayer {
     let gradient = CAGradientLayer()
     gradient.startPoint = startPoint
     gradient.endPoint = endPoint

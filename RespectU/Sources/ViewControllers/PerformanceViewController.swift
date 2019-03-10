@@ -20,7 +20,7 @@ final class PerformanceViewController: UIViewController {
   
   @IBOutlet weak var nicknameButton: UIButton!
   
-  var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
+  var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Button.button4
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,7 +45,7 @@ final class PerformanceViewController: UIViewController {
   
   func setup() {
     recordButton.setTitle("Performance Record".localized, for: .normal)
-    self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Buttons.button4
+    self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Button.button4
     self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: [])
     self.tableView.reloadData()
   }
@@ -214,7 +214,7 @@ extension PerformanceViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath) as? SummaryCollectionCell else { return UICollectionViewCell() }
-    cell.setProperties(NewRecordInfo.fetch(), at: indexPath.item)
+    cell.setProperties(RecordInfo.fetch(), at: indexPath.item)
     return cell
   }
   

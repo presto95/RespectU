@@ -24,13 +24,13 @@ final class RankingCell: UITableViewCell {
     rankingLabel.text = "\(row + 1)"
     nicknameLabel.text = object[row].nickname
     switch button {
-    case Buttons.button4:
+    case Button.button4:
       valueLabel.text = String(format: "%4.2f", object[row].button4)
-    case Buttons.button5:
+    case Button.button5:
       valueLabel.text = String(format: "%4.2f", object[row].button5)
-    case Buttons.button6:
+    case Button.button6:
       valueLabel.text = String(format: "%4.2f", object[row].button6)
-    case Buttons.button8:
+    case Button.button8:
       valueLabel.text = String(format: "%4.2f", object[row].button8)
     default:
       break

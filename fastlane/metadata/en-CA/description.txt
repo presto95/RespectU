@@ -1,9 +1,0 @@
-It is a guide app for DJMAX RESPECT.
-- All about songs, missions, and trophies of DJMAX RESPECT
-- Mission, Achievement Clear Reward Information
-- Recommended SPEED based on standard BPM
-- Performance Record and Skill Level System
-- Favorite
-- Other useful tips that help you play the game
-
-This application is constantly updated.

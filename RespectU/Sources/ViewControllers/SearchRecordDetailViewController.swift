@@ -7,19 +7,9 @@
 //
 
 import UIKit
-import RealmSwift
-import DZNEmptyDataSet
 
-struct SearchRecordDetail {
-  
-  let series: String
-  
-  let title: String
-  
-  let difficulty: String
-  
-  let rate: Double
-}
+import DZNEmptyDataSet
+import RealmSwift
 
 final class SearchRecordDetailViewController: UIViewController {
   

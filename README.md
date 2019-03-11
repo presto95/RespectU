@@ -1,12 +1,10 @@
-# RespectU
-![logo](./images/logo.png)
+<img alt="RespectU" src="https://raw.github.com/presto95/RespectU/master/images/logo.png" style="max-width: 100%">
 
-![Language](https://img.shields.io/badge/swift-4.2-orange.svg)
-![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
+<p align="center"><img alt="Swift" src="https://img.shields.io/badge/swift-4.2-orange.svg"><img alt="Platform" src="https://img.shields.io/badge/platform-ios-lightgrey.svg"></p>
 
-### RespectU : Guide for DJMAX RESPECT
+# RespectU : Guide for DJMAX RESPECT
 
-국산 리듬게임 **[디제이맥스 리스펙트](https://www.djmaxrespect.com/#)** 의 가이드 애플리케이션
+**국산 리듬게임 [디제이맥스 리스펙트](https://www.djmaxrespect.com/#) 의 가이드 애플리케이션**
 
 ---
 
@@ -18,19 +16,21 @@
 
 ### 사용한 라이브러리
 
-[RealmSwift](https://cocoapods.org/pods/RealmSwift)
+[DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
 
-[SwiftKeychainWrapper](https://cocoapods.org/pods/SwiftKeychainWrapper)
+[GaugeKit](https://github.com/skywinder/GaugeKit
 
-[SwiftLint](https://cocoapods.org/pods/SwiftLint)
+[MarqueeLabel/Swift](https://github.com/cbpowell/MarqueeLabel
 
-[XLPagerTabStrip](https://cocoapods.org/pods/XLPagerTabStrip)
+[RealmSwift](https://github.com/realm/realm-cocoa)
 
-[GaugeKit](https://cocoapods.org/pods/GaugeKit)
+[SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD
 
-[DZNEmptyDataSet](https://cocoapods.org/pods/DZNEmptyDataSet)
+[SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper
 
-[MarqueeLabel/Swift](https://cocoapods.org/pods/MarqueeLabel)
+[Then](https://github.com/devxoul/Then
+
+[XLPagerTabStrip](https://github.com/xmartlabs/XLPagerTabStrip
 
 ---
 

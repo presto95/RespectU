@@ -17,10 +17,13 @@ final class Top505BTableViewController: Top50BaseTableViewController {
     results = tempResults.sorted { $0.button5?.skillPoint ?? 0 > $1.button5?.skillPoint ?? 0 }
   }
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? Top50Cell else { return UITableViewCell() }
-    let object = results[indexPath.row]
-    cell.setProperties(object, button: Button.button5)
+  override func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+    if case let top50Cell as Top50Cell = cell {
+      let object = results[indexPath.row]
+      top50Cell.configure(with: object, button: .button8)
+    }
     return cell
   }
 }
@@ -28,6 +31,6 @@ final class Top505BTableViewController: Top50BaseTableViewController {
 extension Top505BTableViewController: IndicatorInfoProvider {
   
   func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-    return IndicatorInfo(title: Button.button5.uppercased())
+    return IndicatorInfo(title: Button.button5.rawValue.uppercased())
   }
 }

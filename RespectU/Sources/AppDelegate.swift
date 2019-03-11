@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = controller
       } else {
         UserDefaults.standard.set(450, forKey: "bpm")
-        let controller = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.classNameToString)
+        let controller = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.name)
         window?.rootViewController = controller
       }
     } else {

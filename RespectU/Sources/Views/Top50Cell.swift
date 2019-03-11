@@ -8,36 +8,58 @@
 
 import UIKit
 
+/// The top50 table view cell.
 final class Top50Cell: UITableViewCell {
   
-  @IBOutlet weak var colorLabel: UILabel!
+  /// The color label representing the series.
+  @IBOutlet private weak var colorLabel: UILabel!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var difficultyLabel: UILabel!
+  /// The difficulty label.
+  @IBOutlet private weak var difficultyLabel: UILabel!
   
-  @IBOutlet weak var noteLabel: UILabel!
+  /// The note label.
+  @IBOutlet private weak var noteLabel: UILabel!
   
-  @IBOutlet weak var rateLabel: UILabel!
+  /// The rating label.
+  @IBOutlet private weak var ratingLabel: UILabel!
   
-  @IBOutlet weak var skillPointLabel: UILabel!
+  /// The skill point label.
+  @IBOutlet private weak var skillPointLabel: UILabel!
+  
+  // MARK: Method
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
+  }
+  
+  /// Configures initial settings.
+  private func setup() {
     colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
     colorLabel.layer.masksToBounds = true
   }
   
-  func setProperties(_ object: RecordInfo, button: Button) {
-    let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
+  /// Configures cell with `recordInfo` in specific `button`.
+  ///
+  /// - Parameters:
+  ///   - recordInfo: The record information.
+  ///   - button:     The specific button.
+  func configure(with recordInfo: RecordInfo, button: Button) {
+    let gradient = recordInfo.seriesEnum?.makeGradient(by: .vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)
-    titleLabel.text = object.localizedTitle
-    guard let buttonExpansion = button.buttonExpansion else { return }
-    guard let button = object.value(forKeyPath: buttonExpansion) as? NewRecordButtonInfo else { return }
-    difficultyLabel.text = button.skillPointDifficulty.isEmpty ? "-" : button.skillPointDifficulty.uppercased()
-    noteLabel.text = button.skillPointNote.isEmpty ? "-" : button.skillPointNote.noteExpansion
-    rateLabel.text = button.skillPointRate == 0 ? "-" : "\(button.skillPointRate)%"
+    titleLabel.text = recordInfo.localizedTitle
+    guard let buttonExpansion = button.expansion else { return }
+    guard let button = recordInfo.value(forKeyPath: buttonExpansion) as? RecordButtonInfo
+      else { return }
+    difficultyLabel.text
+      = button.skillPointDifficulty.isEmpty ? "-" : button.skillPointDifficulty.uppercased()
+    noteLabel.text
+      = button.skillPointNote.isEmpty ? "-" : Note(rawValue: button.skillPointNote)?.expansion
+    ratingLabel.text = button.skillPointRate == 0 ? "-" : "\(button.skillPointRate)%"
     skillPointLabel.text = String(format: "%05.2f", button.skillPoint)
   }
 }

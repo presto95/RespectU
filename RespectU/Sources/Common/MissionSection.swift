@@ -56,7 +56,6 @@ enum MissionSection {
   /// The `enum` that defines CLAZZIQUAI EDITION mission sections.
   enum CE: String {
     
-    
     /// CE - Electronic City.
     case electronicCity = "Electronic City"
     

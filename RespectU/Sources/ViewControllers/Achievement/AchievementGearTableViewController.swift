@@ -14,8 +14,8 @@ final class AchievementGearTableViewController: AchievementBaseTableViewControll
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = AchievementInfo.fetch(of: "gear")
-    generateStageCounts()
+    results = AchievementInfo.fetch(byType: .gearSkin)
+    makeNumberOfStages()
   }
 }
 

@@ -14,7 +14,7 @@ final class SongCETableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = songResults?.filter { $0.series == Series.ce }
+    songResults = songResults?.filter { $0.seriesEnum == .ce }
   }
 }
 

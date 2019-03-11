@@ -14,8 +14,8 @@ final class AchievementNoteTableViewController: AchievementBaseTableViewControll
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = AchievementInfo.fetch(of: "note")
-    generateStageCounts()
+    results = AchievementInfo.fetch(byType: .noteSkin)
+    makeNumberOfStages()
   }
 }
 

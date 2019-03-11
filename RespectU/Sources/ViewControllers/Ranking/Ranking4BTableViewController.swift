@@ -11,20 +11,21 @@ import UIKit
 import SVProgressHUD
 import XLPagerTabStrip
 
-class Ranking4BTableViewController: RankingBaseTableViewController {
+final class Ranking4BTableViewController: RankingBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     SVProgressHUD.show()
-    APIService.requestRankings { response, error in
+    apiService.requestRankings { [weak self] response, error in
+      guard let self = self else { return }
       if let error = error {
-        UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+        self.present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
         return
       }
       guard let response = response else { return }
       self.results = response.rankings.sorted { $0.button4 > $1.button4 }
-      DispatchQueue.main.async { [weak self] in
-        self?.tableView.reloadData()
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
         SVProgressHUD.dismiss()
       }
     }
@@ -37,7 +38,7 @@ extension Ranking4BTableViewController {
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
     if case let rankingCell as RankingCell = cell {
-      rankingCell.configure(results, at: indexPath.row, button: Button.button4)
+      rankingCell.configure(with: results, at: indexPath.row, button: .button4)
     }
     return cell
   }
@@ -46,6 +47,6 @@ extension Ranking4BTableViewController {
 extension Ranking4BTableViewController: IndicatorInfoProvider {
   
   func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-    return IndicatorInfo(title: Button.button4.uppercased())
+    return IndicatorInfo(title: Button.button4.rawValue.uppercased())
   }
 }

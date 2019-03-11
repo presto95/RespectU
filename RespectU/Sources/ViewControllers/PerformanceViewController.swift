@@ -79,12 +79,12 @@ final class PerformanceViewController: UIViewController {
   }
   
   @IBAction func didTouchUpNextButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.classNameToString) as? GuideViewController else { return }
+    guard let controller = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.name) as? GuideViewController else { return }
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
   @IBAction func didTouchUpRecordButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.classNameToString) as? RecordViewController else { return }
+    guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.name) as? RecordViewController else { return }
     self.present(controller, animated: true)
   }
 }
@@ -226,12 +226,12 @@ extension PerformanceViewController: UICollectionViewDataSource {
 extension PerformanceViewController: SkillLevelCellDelegate {
   
   func didTouchUpMoreButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.classNameToString) as? SkillLevelDetailViewController else { return }
+    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.name) as? SkillLevelDetailViewController else { return }
     self.present(controller, animated: true)
   }
   
   func didTouchUpTop50Button(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.classNameToString) as? Top50ViewController else { return }
+    guard let controller = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.name) as? Top50ViewController else { return }
     self.present(controller, animated: true)
   }
 }
@@ -239,12 +239,12 @@ extension PerformanceViewController: SkillLevelCellDelegate {
 extension PerformanceViewController: SummaryCellDelegate {
   
   func didTouchUpDetailButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.classNameToString) as? SummaryDetailViewController else { return }
+    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.name) as? SummaryDetailViewController else { return }
     self.present(controller, animated: true)
   }
   
   func didTouchUpSearchButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.classNameToString) as? SearchRecordViewController else { return }
+    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.name) as? SearchRecordViewController else { return }
     self.present(controller, animated: true)
   }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 import RealmSwift
 
+/// The base song table view controller.
 class SongBaseTableViewController: UITableViewController {
   
   var songResults: [SongInfo]?
@@ -18,7 +19,10 @@ class SongBaseTableViewController: UITableViewController {
   
   var achievementResults: Results<AchievementInfo>?
   
-  var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b"
+  var favoriteButton: Button {
+    let buttonString = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b"
+    return Button(rawValue: buttonString) ?? .button4
+  }
   
   let myBPM = UserDefaults.standard.double(forKey: "bpm")
   
@@ -26,34 +30,44 @@ class SongBaseTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
+  }
+  
+  private func setup() {
     songResults = SongInfo.fetch().sorted { $0.localizedLowercase < $1.localizedLowercase }
-    let predicate = NSPredicate(format: "%K LIKE %@", #keyPath(MissionInfo.reward.english), "Music*")
+    let predicate = NSPredicate(format: "%K LIKE %@",
+                                #keyPath(MissionInfo.reward.english),
+                                "Music*")
     missionResults = MissionInfo.fetch().filter(predicate)
-    achievementResults = AchievementInfo.fetch().filter(key: "type", value: "music", method: "=")
+    achievementResults = AchievementInfo.fetch(byType: .all).filter("type = music")
     tableView.rowHeight = 60
     tableView.showsVerticalScrollIndicator = false
     tableView.separatorStyle = .none
-    tableView.register(UINib(nibName: "SongCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    tableView.register(UINib(nibName: SongCell.name, bundle: nil),
+                       forCellReuseIdentifier: cellIdentifier)
   }
 }
 
 extension SongBaseTableViewController {
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? SongCell else { return UITableViewCell() }
+  override func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
     cell.contentView.backgroundColor = .clear
-    let object = self.songResults?[indexPath.row]
-    cell.setProperties(object, favoriteButton: favoriteButton)
+    if case let songCell as SongCell = cell {
+      let result = songResults?[indexPath.row]
+      songCell.configure(with: result, favoriteButton: favoriteButton)
+    }
     return cell
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.songResults?.count ?? 0
+    return songResults?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    guard let object = self.songResults?[indexPath.row] else { return }
+    guard let object = songResults?[indexPath.row] else { return }
     var changesSpeed: Bool = false
     let bpm: Int
     if let subBpm = object.subBPM.value {
@@ -62,9 +76,9 @@ extension SongBaseTableViewController {
     } else {
       bpm = object.bpm
     }
-    let speed = recommendedSpeed(by: myBPM / Double(bpm))
-    let unlockAchievement = "Unlock (ACHIEVEMENT)".localized
-    let unlockMission = "Unlock (MISSION)".localized
+    let speed = Utils.convertToRecommendedSpeed(by: myBPM / Double(bpm)) ?? ""
+    let unlockAchievement = L10n.unlockACHIEVEMENT
+    let unlockMission = L10n.unlockMISSION
     var unlockInfo = ""
     if let bindedAchievementResults = achievementResults {
       for result in bindedAchievementResults where result.localizedItem == object.localizedTitle {
@@ -74,28 +88,31 @@ extension SongBaseTableViewController {
     }
     if let bindedMissionResults = missionResults {
       for result in bindedMissionResults {
-        guard let last = result.localizedReward.split(separator: ":").last?.description.trimmingCharacters(in: .whitespaces) else { return }
+        guard let last = result.localizedReward
+          .split(separator: ":").last?.description
+          .trimmingCharacters(in: .whitespaces)
+          else { return }
         if last == object.localizedTitle {
           unlockInfo += "\n\n\(unlockMission)\n\(result.section) - \(result.title)"
           break
         }
       }
     }
-    var message: String = "SPEED Recommendation".localized + "\n\(speed)" + unlockInfo
+    var message: String = L10n.speedRecommendation + "\n\(speed)" + unlockInfo
     if changesSpeed {
-      message += "\n" + "(SPEED Variation)".localized
+      message += "\n" + L10n.speedVariation
     }
     UIAlertController
       .alert(title: object.localizedTitle, message: message)
-      .action(title: "OK".localized)
+      .action(title: L10n.ok)
       .present(to: self)
   }
   
   override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? SongCell else { return }
-    let object = songResults?[indexPath.row]
-    let series = object?.series ?? ""
-    cell.setColorsInSong(series, labels: cell.labels)
+    let result = songResults?[indexPath.row]
+    let series = result?.seriesEnum ?? .respect
+    cell.colorizeSubviews(in: series)
   }
   
   override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {

@@ -20,4 +20,18 @@ enum TrophyGrade: String {
   
   /// BRONZE.
   case bronze
+  
+  /// Accesses the image of each case.
+  var image: AssetImageTypeAlias {
+    switch self {
+    case .platinum:
+      return Asset.trophyPlatinum.image
+    case .gold:
+      return Asset.trophyGold.image
+    case .silver:
+      return Asset.trophySilver.image
+    case .bronze:
+      return Asset.trophyBronze.image
+    }
+  }
 }

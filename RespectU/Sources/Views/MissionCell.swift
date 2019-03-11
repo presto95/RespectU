@@ -8,30 +8,42 @@
 
 import UIKit
 
+/// The mission table view cell.
 final class MissionCell: UITableViewCell {
   
-  @IBOutlet weak var colorLabel: UILabel!
+  /// The color label representing the series.
+  @IBOutlet private weak var colorLabel: UILabel!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var rewardLabel: UILabel!
+  /// The reward label.
+  @IBOutlet private weak var rewardLabel: UILabel!
   
-  lazy var labels: [UILabel] = {
+  lazy var allLabel: [UILabel] = {
     return [titleLabel, rewardLabel]
   }()
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
+  }
+  
+  /// Configures initial settings.
+  private func setup() {
     colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
     colorLabel.layer.masksToBounds = true
   }
   
-  func setProperties(_ object: MissionInfo?) {
-    guard let object = object else { return }
-    let gradient = object.section.missionGradient(.vertical) ?? CAGradientLayer()
+  /// Configures the cell with `missionInfo`.
+  ///
+  /// - Parameter missionInfo: The mission information.
+  func configure(with missionInfo: MissionInfo?) {
+    guard let missionInfo = missionInfo else { return }
+    let gradient = missionInfo.section.missionGradient(.vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)
-    titleLabel.text = object.title
-    rewardLabel.text = object.localizedReward
+    titleLabel.text = missionInfo.title
+    rewardLabel.text = missionInfo.localizedReward
   }
 }

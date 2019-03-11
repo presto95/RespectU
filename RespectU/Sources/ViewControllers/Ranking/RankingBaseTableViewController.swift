@@ -12,6 +12,8 @@ import RealmSwift
 
 class RankingBaseTableViewController: UITableViewController {
   
+  let apiService: APIServiceType = APIService()
+  
   let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
   
   let cellIdentifier = "rankingCell"
@@ -20,10 +22,15 @@ class RankingBaseTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configure()
+  }
+  
+  private func configure() {
     tableView.showsVerticalScrollIndicator = false
     tableView.separatorStyle = .none
     tableView.rowHeight = 40
-    tableView.register(UINib(nibName: "RankingCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    tableView.register(UINib(nibName: RankingCell.name, bundle: nil),
+                       forCellReuseIdentifier: cellIdentifier)
   }
 }
 

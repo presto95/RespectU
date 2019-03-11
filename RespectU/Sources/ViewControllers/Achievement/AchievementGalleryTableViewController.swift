@@ -14,8 +14,8 @@ final class AchievementGalleryTableViewController: AchievementBaseTableViewContr
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = AchievementInfo.fetch(of: "gallery")
-    generateStageCounts()
+    results = AchievementInfo.fetch(byType: .gallery)
+    makeNumberOfStages()
   }
 }
 

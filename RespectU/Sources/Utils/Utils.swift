@@ -221,6 +221,56 @@ final class Utils {
     }
   }
   
+  /// Calculates the rate of saved records by total songs in specific `button`.
+  ///
+  /// - Parameter button: The specific button.
+  ///
+  /// - Returns: The calculated rate.
+  static func recordRate(in button: Button) -> Double {
+    var (portion, entire) = (0, 0)
+    let recordResults = RecordInfo.fetch().sorted(byKeyPath: "title.english")
+    let songResults = SongInfo.fetch().sorted(byKeyPath: "title.english")
+    zip(recordResults, songResults).forEach { recordInfo, songInfo in
+      let recordButtonInfo: RecordButtonInfo?
+      let songButtonInfo: SongButtonInfo?
+      switch button {
+      case .button4:
+        recordButtonInfo = recordInfo.button4
+        songButtonInfo = songInfo.button4
+      case .button5:
+        recordButtonInfo = recordInfo.button5
+        songButtonInfo = songInfo.button5
+      case .button6:
+        recordButtonInfo = recordInfo.button6
+        songButtonInfo = songInfo.button6
+      case .button8:
+        recordButtonInfo = recordInfo.button8
+        songButtonInfo = songInfo.button8
+      default:
+        break
+      }
+      if songButtonInfo?.normal != 0 {
+        entire += 1
+      }
+      if songButtonInfo?.hard != 0 {
+        entire += 1
+      }
+      if songButtonInfo?.maximum != 0 {
+        entire += 1
+      }
+      if recordButtonInfo?.normal?.rate != 0 {
+        portion += 1
+      }
+      if recordButtonInfo?.hard?.rate != 0 {
+        portion += 1
+      }
+      if recordButtonInfo?.maximum?.rate != 0 {
+        portion += 1
+      }
+    }
+    return Double(portion) / Double(entire)
+  }
+  
   /// Converts `speed` to the recommended speed.
   ///
   /// - Parameter speed: The `speed` value.
@@ -254,8 +304,6 @@ final class Utils {
     }
   }
   
-  
-  
   /// Converts `rate` contains percent symbol to `Double` value.
   ///
   /// - Parameter rate: The `rate` contains percent symbol.
@@ -268,6 +316,11 @@ final class Utils {
     return 0
   }
   
+  /// Fetches the skill level of 4B of `skillPoint`.
+  ///
+  /// - Parameter skillPoint: The given skill point.
+  ///
+  /// - Returns: The fetched skill level of 4B.
   static func button4SkillLevel(of skillPoint: Double) -> SkillLevel? {
     switch skillPoint {
     case 0..<1000: return .beginner
@@ -302,6 +355,11 @@ final class Utils {
     }
   }
   
+  /// Fetches the skill level of 5B of `skillPoint`.
+  ///
+  /// - Parameter skillPoint: The given skill point.
+  ///
+  /// - Returns: The fetched skill level of 5B.
   static func button5SkillLevel(of skillPoint: Double) -> SkillLevel? {
     switch skillPoint {
     case 0..<1000: return .beginner
@@ -337,6 +395,11 @@ final class Utils {
     }
   }
   
+  /// Fetches the skill level of 6B and 8B of `skillPoint`.
+  ///
+  /// - Parameter skillPoint: The given skill point.
+  ///
+  /// - Returns: The fetched skill level of 6B and 8B.
   static func button6And8SkillLevel(of skillPoint: Double) -> SkillLevel? {
     switch skillPoint {
     case 0..<1500: return .beginner
@@ -372,6 +435,11 @@ final class Utils {
     }
   }
   
+  /// Fetches the weight of specific `difficulty`.
+  ///
+  /// - Parameter difficulty: The given difficulty.
+  ///
+  /// - Returns: The weight of given `difficulty`.
   static func weight(of difficulty: Int) -> Double {
     switch difficulty {
     case 1: return 0.4

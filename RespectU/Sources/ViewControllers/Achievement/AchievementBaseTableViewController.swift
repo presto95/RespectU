@@ -20,20 +20,24 @@ class AchievementBaseTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configure()
+  }
+  
+  private func configure() {
     tableView = UITableView(frame: tableView.bounds, style: .grouped)
     tableView.rowHeight = 40
     tableView.showsVerticalScrollIndicator = false
     tableView.separatorStyle = .none
-    tableView.register(UINib(nibName: "AchievementCell", bundle: nil),
+    tableView.register(UINib(nibName: AchievementCell.name, bundle: nil),
                        forCellReuseIdentifier: cellIdentifier)
   }
 }
 
 extension AchievementBaseTableViewController {
   
-  func generateStageCounts() {
+  func makeNumberOfStages() {
     guard let results = self.results else { return }
-    self.stages.removeAll()
+    stages.removeAll()
     var count = 0
     var tempTitle = ""
     var isFirst = true

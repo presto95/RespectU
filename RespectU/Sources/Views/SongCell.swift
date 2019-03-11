@@ -10,60 +10,124 @@ import UIKit
 
 import RealmSwift
 
+/// The song table view cell.
 final class SongCell: UITableViewCell {
   
-  @IBOutlet weak var colorLabel: UILabel!
+  /// The color label representing the series.
+  @IBOutlet private weak var colorLabel: UILabel!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var composerLabel: UILabel!
+  /// The composer label.
+  @IBOutlet private weak var composerLabel: UILabel!
   
-  @IBOutlet weak var bpmLabel: UILabel!
+  /// The bpm label.
+  @IBOutlet private weak var bpmLabel: UILabel!
   
-  @IBOutlet weak var normalLabel: UILabel!
+  /// The normal difficulty label.
+  @IBOutlet private weak var normalLabel: UILabel!
   
-  @IBOutlet weak var hardLabel: UILabel!
+  /// The hard difficulty label.
+  @IBOutlet private weak var hardLabel: UILabel!
   
-  @IBOutlet weak var maximumLabel: UILabel!
+  /// The maximum difficulty label.
+  @IBOutlet private weak var maximumLabel: UILabel!
   
-  lazy var labels: [UILabel] = {
-    return [titleLabel, composerLabel, bpmLabel, normalLabel, hardLabel, maximumLabel]
-  }()
+  private var allLabel: [UILabel] {
+    return [
+      titleLabel,
+      composerLabel,
+      bpmLabel,
+      normalLabel,
+      hardLabel,
+      maximumLabel
+    ]
+  }
+  
+  // MARK: Method
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
+  }
+  
+  /// Configures initial settings.
+  private func setup() {
     colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
     colorLabel.layer.masksToBounds = true
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-  }
-  
-  func setProperties(_ object: SongInfo?, favoriteButton: String) {
-    guard let object = object else { return }
-    let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
+  /// Configures cell with `songInfo` in specific `button`.
+  ///
+  /// - Parameters:
+  ///   - songInfo: The song information.
+  ///   - button:   The specific button.
+  func configure(with songInfo: SongInfo?, favoriteButton button: Button) {
+    guard let songInfo = songInfo else { return }
+    let gradient = songInfo.seriesEnum?.makeGradient(by: .vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)
-    titleLabel.text = object.localizedTitle
-    composerLabel.text = object.composer
-    bpmLabel.text = object.bpmToString
-    var buttons: SongButtonInfo?
-    switch favoriteButton {
-    case Button.button4:
-      buttons = object.button4
-    case Button.button5:
-      buttons = object.button5
-    case Button.button6:
-      buttons = object.button6
-    case Button.button8:
-      buttons = object.button8
+    titleLabel.text = songInfo.localizedTitle
+    composerLabel.text = songInfo.composer
+    bpmLabel.text = songInfo.bpmToString
+    let buttonInfo: SongButtonInfo?
+    switch button {
+    case .button4:
+      buttonInfo = songInfo.button4
+    case .button5:
+      buttonInfo = songInfo.button5
+    case .button6:
+      buttonInfo = songInfo.button6
+    case .button8:
+      buttonInfo = songInfo.button8
     default:
       break
     }
-    guard let button = buttons else { return }
-    normalLabel.text = button.normal == 0 ? "-" : "\(button.normal)"
-    hardLabel.text = button.hard == 0 ? "-" : "\(button.hard)"
-    maximumLabel.text = button.maximum == 0 ? "-" : "\(button.maximum)"
+    normalLabel.text = buttonInfo?.normal == 0 ? "-" : "\(buttonInfo?.normal ?? 0)"
+    hardLabel.text = buttonInfo?.hard == 0 ? "-" : "\(buttonInfo?.hard ?? 0)"
+    maximumLabel.text = buttonInfo?.maximum == 0 ? "-" : "\(buttonInfo?.maximum ?? 0)"
+  }
+}
+
+extension SongCell {
+  
+  /// Colorizes subviews.
+  ///
+  /// - Parameter series: The specific series.
+  func colorizeSubviews(in series: Series) {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+      switch series {
+      case .portable1:
+        self.contentView.backgroundColor = .portable1
+        self.allLabel.forEach { $0.textColor = .white }
+      case .portable2:
+        self.contentView.backgroundColor = .portable2
+        self.allLabel.forEach { $0.textColor = .white }
+      case .respect:
+        self.contentView.backgroundColor = .respect
+        self.allLabel.forEach { $0.textColor = .white }
+      case .trilogy:
+        self.contentView.backgroundColor = .trilogy
+        self.allLabel.forEach { $0.textColor = .white }
+      case .ce:
+        self.contentView.backgroundColor = .ce
+        self.allLabel.forEach { $0.textColor = .black50 }
+      case .technika1:
+        self.contentView.backgroundColor = .technika1
+        self.allLabel.forEach { $0.textColor = .white }
+      case .bs:
+        self.contentView.backgroundColor = .bs
+        self.allLabel.forEach { $0.textColor = .white }
+      case .technika2:
+        self.contentView.backgroundColor = .technika2
+        self.allLabel.forEach { $0.textColor = .black50 }
+      case .technika3:
+        break
+      default:
+        break
+      }
+    }
   }
 }

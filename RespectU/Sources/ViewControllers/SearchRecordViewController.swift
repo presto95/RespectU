@@ -146,7 +146,7 @@ final class SearchRecordViewController: UIViewController {
     case 0:
       selectedMethodIndex = 0
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByLevelView.classNameToString) as? SearchByLevelView
+        .instantiateFromXib(xibName: SearchByLevelView.name) as? SearchByLevelView
         else { return }
       newView.pickerView.delegate = self
       newView.pickerView.dataSource = self
@@ -161,7 +161,7 @@ final class SearchRecordViewController: UIViewController {
     case 1:
       selectedMethodIndex = 1
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByRateView.classNameToString) as? SearchByRateView
+        .instantiateFromXib(xibName: SearchByRateView.name) as? SearchByRateView
         else { return }
       newView.delegate = self
       newView.lowerRateTextField
@@ -179,7 +179,7 @@ final class SearchRecordViewController: UIViewController {
     case 2:
       selectedMethodIndex = 2
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByNoteView.classNameToString) as? SearchByNoteView
+        .instantiateFromXib(xibName: SearchByNoteView.name) as? SearchByNoteView
         else { return }
       newView.delegate = self
       newView.noMaxComboButton

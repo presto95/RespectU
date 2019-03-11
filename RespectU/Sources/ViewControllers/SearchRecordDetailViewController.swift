@@ -51,7 +51,7 @@ final class SearchRecordDetailViewController: UIViewController {
     tableView.layer.borderWidth = 1
     tableView.layer.cornerRadius = 15
     
-    tableView.register(UINib(nibName: SearchRecordDetailCell.classNameToString, bundle: nil),
+    tableView.register(UINib(nibName: SearchRecordDetailCell.name, bundle: nil),
                        forCellReuseIdentifier: "searchRecordDetailCell")
     let recordResults = RecordInfo.fetch()
     switch buttonIndex {

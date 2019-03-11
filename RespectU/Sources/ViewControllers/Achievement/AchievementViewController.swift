@@ -26,7 +26,13 @@ final class AchievementViewController: BaseViewController {
   
   private lazy var commentTableViewController = AchievementCommentTableViewController()
   
-  lazy var achievementViewControllers: [AchievementBaseTableViewController] = {
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  override func viewControllers(
+    for pagerTabStripController: PagerTabStripViewController
+  ) -> [UIViewController] {
     return [
       allTableViewController,
       musicTableViewController,
@@ -36,19 +42,9 @@ final class AchievementViewController: BaseViewController {
       galleryTableViewController,
       commentTableViewController
     ]
-  }()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-  override func viewControllers(
-    for pagerTabStripController: PagerTabStripViewController
-  ) -> [UIViewController] {
-    return achievementViewControllers
   }
   
   @IBAction func cancelButtonDidTap(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 }

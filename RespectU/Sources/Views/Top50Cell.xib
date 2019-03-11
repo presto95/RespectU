@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -109,7 +105,7 @@
                 <outlet property="colorLabel" destination="KLO-3V-SWj" id="rht-CM-lvW"/>
                 <outlet property="difficultyLabel" destination="pDW-gr-fXV" id="16c-h4-Ify"/>
                 <outlet property="noteLabel" destination="kj1-oJ-7mn" id="Ac4-xb-gCg"/>
-                <outlet property="rateLabel" destination="9G0-QT-VGC" id="KhH-OU-xz0"/>
+                <outlet property="ratingLabel" destination="9G0-QT-VGC" id="KhH-OU-xz0"/>
                 <outlet property="skillPointLabel" destination="DGH-wp-90e" id="cUH-C7-02k"/>
                 <outlet property="titleLabel" destination="ctr-Ve-ugs" id="UIH-Un-vEf"/>
             </connections>

@@ -14,8 +14,8 @@ final class AchievementMusicTableViewController: AchievementBaseTableViewControl
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = AchievementInfo.fetch(of: "music")
-    generateStageCounts()
+    results = AchievementInfo.fetch(byType: .music)
+    makeNumberOfStages()
   }
 }
 

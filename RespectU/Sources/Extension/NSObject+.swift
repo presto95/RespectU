@@ -10,13 +10,13 @@ import Foundation
 
 extension NSObject {
   
-  /// The string of the class.
-  var classNameToString: String {
+  /// The type name of the class.
+  var name: String {
     return NSStringFromClass(type(of: self))
   }
   
-  /// The string of the class.
-  static var classNameToString: String {
+  /// The type name of the class.
+  static var name: String {
     return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
   }
   

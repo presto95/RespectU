@@ -14,14 +14,15 @@ final class AchievementAllTableViewController: AchievementBaseTableViewControlle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = AchievementInfo.fetch()
-    generateStageCounts()
+    results = AchievementInfo.fetch(byType: .all)
+    makeNumberOfStages()
   }
 }
 
 extension AchievementAllTableViewController {
   
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  override func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return makeAchievementCell(at: indexPath, isAll: true)
   }
 }

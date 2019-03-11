@@ -62,6 +62,11 @@ final class SongInfo: Object {
     }
   }
   
+  /// The `Series` of the song.
+  var seriesEnum: Series? {
+    return Series(rawValue: series)
+  }
+  
   /// The string value conveted by `bpm` and `subBPM`.
   ///
   /// `bpm == 130, subBPM == nil` -> "BPM 130"

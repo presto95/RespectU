@@ -26,7 +26,11 @@ final class TrophyViewController: BaseViewController {
   
   private lazy var technika2TableViewController = TrophyTechnika2TableViewController()
   
-  lazy var trophyViewControllers: [TrophyBaseTableViewController] = {
+  private lazy var technika3TableViewController = TrophyTechnika3TableViewController()
+  
+  override func viewControllers(
+    for pagerTabStripController: PagerTabStripViewController
+  ) -> [UIViewController] {
     return [
       respectTableViewController,
       trilogyTableViewController,
@@ -34,21 +38,12 @@ final class TrophyViewController: BaseViewController {
       technika1TableViewController,
       bsTableViewController,
       linkDiskTableViewController,
-      technika2TableViewController
+      technika2TableViewController,
+      technika3TableViewController
     ]
-  }()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-  override func viewControllers(
-    for pagerTabStripController: PagerTabStripViewController
-  ) -> [UIViewController] {
-    return trophyViewControllers
   }
   
   @IBAction func cancelButtonDidTap(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 }

@@ -14,7 +14,7 @@ final class RecordAllTableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.songResults = self.tempSongResults?.sorted { $0.localizedLowercase < $1.localizedLowercase }
+    songResults = tempSongResults?.sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }
 

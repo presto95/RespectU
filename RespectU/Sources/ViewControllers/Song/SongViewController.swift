@@ -33,77 +33,86 @@ final class SongViewController: BaseViewController {
   
   private lazy var technika2TableViewController = SongTechnika2TableViewController()
   
-  lazy var songViewControllers: [SongBaseTableViewController] = {
-    return [allTableViewController, portable1TableViewController, portable2TableViewController, respectTableViewController, trilogyTableViewController, ceTableViewController, technika1TableViewController, bsTableViewController, technika2TableViewController]
-  }()
-  
-  var favoriteButton: String {
-    return selectedButtonLabel.text ?? "4b"
+  var favoriteButton: Button {
+    return Button(rawValue: selectedButtonLabel.text ?? "") ?? .button4
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.selectedButtonLabel.text = (UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b").uppercased()
+    selectedButtonLabel.text
+      = (UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b").uppercased()
   }
   
-  override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-    return songViewControllers
+  override func viewControllers(
+    for pagerTabStripController: PagerTabStripViewController
+    ) -> [UIViewController] {
+    return [
+      allTableViewController,
+      portable1TableViewController,
+      portable2TableViewController,
+      respectTableViewController,
+      trilogyTableViewController,
+      ceTableViewController,
+      technika1TableViewController,
+      bsTableViewController,
+      technika2TableViewController
+    ]
   }
   
-  @IBAction func touchUpSearchButton(_ sender: UIButton) {
+  @IBAction func searchButtonDidTap(_ sender: UIButton) {
     UIAlertController
-      .alert(title: "Search".localized, message: "Select the button type.".localized)
-      .action(title: Button.button4.uppercased()) { [weak self] _ in
-        self?.setFavoriteButton(Button.button4)
+      .alert(title: L10n.search, message: L10n.selectTheButtonType)
+      .action(title: Button.button4.rawValue.uppercased()) { [weak self] _ in
+        self?.setFavoriteButton(.button4)
         self?.reloadAllTableViews()
       }
-      .action(title: Button.button5.uppercased()) { [weak self] _ in
-        self?.setFavoriteButton(Button.button5)
+      .action(title: Button.button5.rawValue.uppercased()) { [weak self] _ in
+        self?.setFavoriteButton(.button5)
         self?.reloadAllTableViews()
       }
-      .action(title: Button.button6.uppercased()) { [weak self] _ in
-        self?.setFavoriteButton(Button.button6)
+      .action(title: Button.button6.rawValue.uppercased()) { [weak self] _ in
+        self?.setFavoriteButton(.button6)
         self?.reloadAllTableViews()
       }
-      .action(title: Button.button8.uppercased()) { [weak self] _ in
-        self?.setFavoriteButton(Button.button8)
+      .action(title: Button.button8.rawValue.uppercased()) { [weak self] _ in
+        self?.setFavoriteButton(.button8)
         self?.reloadAllTableViews()
       }
-      .action(.cancel, title: "Cancel".localized)
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  @IBAction func touchUpSortButton(_ sender: UIButton) {
+  @IBAction func sortButtonDidTap(_ sender: UIButton) {
     UIAlertController
-      .alert(title: "Sort".localized, message: "Select the sort method.".localized)
-      .action(title: "\(Difficulty.normal.uppercased()) / ASC".localized) { [weak self] _ in
-        self?.sort(difficulty: Difficulty.normal, isAscending: true)
+      .alert(title: L10n.sort, message: L10n.selectTheSortMethod)
+      .action(title: "\(Difficulty.normal.rawValue.uppercased()) / ASC".localized) { [weak self] _ in
+        self?.sort(inDifficulty: .normal, ascending: true)
       }
-      .action(title: "\(Difficulty.normal.uppercased()) / DESC".localized) { [weak self] _ in
-        self?.sort(difficulty: Difficulty.normal, isAscending: false)
+      .action(title: "\(Difficulty.normal.rawValue.uppercased()) / DESC".localized) { [weak self] _ in
+        self?.sort(inDifficulty: .normal, ascending: false)
       }
-      .action(title: "\(Difficulty.hard.uppercased()) / ASC".localized) { [weak self] _ in
-        self?.sort(difficulty: Difficulty.hard, isAscending: true)
+      .action(title: "\(Difficulty.hard.rawValue.uppercased()) / ASC".localized) { [weak self] _ in
+        self?.sort(difficulty: .hard, ascending: true)
       }
-      .action(title: "\(Difficulty.hard.uppercased()) / DESC".localized) { [weak self] _ in
-        self?.sort(difficulty: Difficulty.hard, isAscending: false)
+      .action(title: "\(Difficulty.hard.rawValue.uppercased()) / DESC".localized) { [weak self] _ in
+        self?.sort(difficulty: .hard, ascending: false)
       }
-      .action(title: "\(Difficulty.maximum.uppercased()) / ASC".localized) { [weak self] _ in
-        self?.sort(difficulty: Difficulty.maximum, isAscending: true)
+      .action(title: "\(Difficulty.maximum.rawValue.uppercased()) / ASC".localized) { [weak self] _ in
+        self?.sort(difficulty: .maximum, ascending: true)
       }
-      .action(title: "\(Difficulty.maximum.uppercased()) / DESC".localized) { [weak self] _ in
-        self?.sort(difficulty: Difficulty.maximum, isAscending: false)
+      .action(title: "\(Difficulty.maximum.rawValue.uppercased()) / DESC".localized) { [weak self] _ in
+        self?.sort(difficulty: .maximum, ascending: false)
       }
-      .action(.cancel, title: "Cancel".localized)
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  @IBAction func touchUpRandomButton(_ sender: UIButton) {
+  @IBAction func randomButtonDidTap(_ sender: UIButton) {
     guard let results = allTableViewController.songResults else { return }
     let random = Int(arc4random_uniform(UInt32(results.count - 1)))
     let object = results[random]
     let myBpm = UserDefaults.standard.double(forKey: "bpm")
-    let speed = recommendedSpeed(by: myBpm / Double(object.bpm))
+    let speed = Utils.convertToRecommendedSpeed(by: myBpm / Double(object.bpm)) ?? ""
     var message = "\(object.series.uppercased())\n\n" + "SPEED Recommendation".localized + "\n\(speed)"
     if object.subBPM.value != nil {
       message += "\n" + "(SPEED Variation)".localized
@@ -114,45 +123,65 @@ final class SongViewController: BaseViewController {
       .present(to: self)
   }
   
-  @IBAction func touchUpCancelButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
 }
 
-extension SongViewController {
+// MARK: - Private Method
+
+private extension SongViewController {
   
-  private func sort(difficulty: String, isAscending: Bool) {
-    for viewController in songViewControllers {
-      viewController.songResults?.sort(by: { (first, second) -> Bool in
-        guard let button = favoriteButton.lowercased().buttonExpansion else { return false }
-        guard let firstValue = first.value(forKeyPath: "\(button).\(difficulty)") as? Int else { return false }
-        guard let secondValue = second.value(forKeyPath: "\(button).\(difficulty)") as? Int else { return false }
-        if isAscending {
-          return firstValue < secondValue
-        } else {
-          return firstValue > secondValue
+  func sort(byDifficulty difficulty: Difficulty, ascending isAscending: Bool) {
+    if let songViewControllers = viewControllers as? [SongBaseTableViewController] {
+      for viewController in songViewControllers {
+        viewController.songResults?.sort { first, second in
+          guard let button = favoriteButton.expansion else { return false }
+          guard let firstValue = first.value(forKeyPath: "\(button).\(difficulty.rawValue)") as? Int
+            else { return false }
+          guard let secondValue = second.value(forKeyPath: "\(button).\(difficulty.rawValue)") as? Int
+            else { return false }
+          return isAscending ? firstValue < secondValue : firstValue > secondValue
         }
-      })
-      reloadAllTableViews()
+      }
+      //reloadAllTableViews()
+      reloadAllTableView()
     }
   }
-}
-
-extension SongViewController {
   
-  private func setFavoriteButton(_ button: String) {
-    for viewController in songViewControllers {
-      viewController.favoriteButton = button
+  func setFavoriteButton(_ button: Button) {
+    if let songViewControllers = viewControllers as? [SongBaseTableViewController] {
+      for viewController in songViewControllers {
+        viewController.favoriteButton = button.rawValue
+      }
     }
-    self.selectedButtonLabel.text = button.uppercased()
+    selectedButtonLabel.text = button.rawValue.uppercased()
   }
   
-  private func reloadAllTableViews() {
+//  func setFavoriteButton(_ button: String) {
+//    for viewController in songViewControllers {
+//      viewController.favoriteButton = button
+//    }
+//    self.selectedButtonLabel.text = button.uppercased()
+//  }
+  
+  func reloadAllTableView() {
     DispatchQueue.main.async { [weak self] in
-      guard let viewControllers = self?.songViewControllers else { return }
-      for viewController in viewControllers {
-        viewController.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+      guard let self = self else { return }
+      if let songViewControllers = viewControllers as? [SongBaseTableViewController] {
+        for viewController in songViewControllers {
+          viewController.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+        }
       }
     }
   }
+  
+//  func reloadAllTableViews() {
+//    DispatchQueue.main.async { [weak self] in
+//      guard let viewControllers = self?.songViewControllers else { return }
+//      for viewController in viewControllers {
+//        viewController.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+//      }
+//    }
+//  }
 }

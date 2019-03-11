@@ -74,11 +74,11 @@ final class GuideViewController: UIViewController {
   
   /// Configures initial settings.
   private func configure() {
-    tableView.register(UINib(nibName: GuideFirstCell.classNameToString, bundle: nil),
+    tableView.register(UINib(nibName: GuideFirstCell.name, bundle: nil),
                        forCellReuseIdentifier: CellIdentifier.first)
-    tableView.register(UINib(nibName: GuideSecondCell.classNameToString, bundle: nil),
+    tableView.register(UINib(nibName: GuideSecondCell.name, bundle: nil),
                        forCellReuseIdentifier: CellIdentifier.second)
-    tableView.register(UINib(nibName: GuideThirdCell.classNameToString, bundle: nil),
+    tableView.register(UINib(nibName: GuideThirdCell.name, bundle: nil),
                        forCellReuseIdentifier: CellIdentifier.third)
     tableView.separatorStyle = .none
     recordButton.setTitle(L10n.performanceRecord, for: .normal)

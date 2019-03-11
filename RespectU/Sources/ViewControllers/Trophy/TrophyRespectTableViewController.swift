@@ -14,7 +14,7 @@ final class TrophyRespectTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = TrophyInfo.fetch(of: Series.respect)
+    results = TrophyInfo.fetch(bySeries: .respect)
   }
 }
 
@@ -26,19 +26,19 @@ extension TrophyRespectTableViewController {
     var title: String = ""
     var message: String = ""
     if row == 36 || row == 37 {
-      title = "Hidden BGAs".localized
+      title = L10n.hiddenBGAs
       message = "A Lie\nEnemy Storm\nNB RANGER - Virgin Force\nNever Say\nWhiteBlue\nOut Law"
     } else if row == 26 {
-      title = "777 Combos".localized
-      message = "5B NORMAL [Seeker]\n47 Combos -> BREAK -> Full Combo -> Trophy Earned".localized
+      title = L10n._777Combos
+      message = L10n._5BNORMALSeeker47CombosBREAKFullComboTrophyEarned
     } else if row == 41 {
-      title = "CREDITS".localized
-      message = "CREDITS will appear when the average accuracy of three stages are greater than 98%.".localized
+      title = L10n.credits
+      message = L10n.creditsWillAppearWhenTheAverageAccuracyOfThreeStagesAreGreaterThan98
     }
-    if !title.isEmpty {
+    if !title.isEmpty, !message.isEmpty {
       UIAlertController
         .alert(title: title, message: message)
-        .action(title: "OK".localized)
+        .action(title: L10n.ok)
         .present(to: self)
     }
   }

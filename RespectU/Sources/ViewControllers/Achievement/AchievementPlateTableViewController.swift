@@ -14,8 +14,8 @@ final class AchievementPlateTableViewController: AchievementBaseTableViewControl
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = AchievementInfo.fetch(of: "plate")
-    generateStageCounts()
+    results = AchievementInfo.fetch(byType: .plate)
+    makeNumberOfStages()
   }
 }
 

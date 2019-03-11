@@ -14,7 +14,7 @@ final class TrophyTechnika1TableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = TrophyInfo.fetch(of: Series.technika1)
+    results = TrophyInfo.fetch(bySeries: .technika1)
   }
 }
 
@@ -22,11 +22,10 @@ extension TrophyTechnika1TableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let row = indexPath.row
-    if row == 9 {
+    if indexPath.row == 9 {
       UIAlertController
-        .alert(title: "Hidden BGA", message: "Thor")
-        .action(title: "OK".localized)
+        .alert(title: L10n.hiddenBGA, message: "Thor")
+        .action(title: L10n.ok)
         .present(to: self)
     }
   }

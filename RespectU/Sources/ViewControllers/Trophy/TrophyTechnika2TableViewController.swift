@@ -14,7 +14,7 @@ final class TrophyTechnika2TableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = TrophyInfo.fetch(of: Series.technika2)
+    results = TrophyInfo.fetch(bySeries: .technika2)
   }
 }
 

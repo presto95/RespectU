@@ -14,7 +14,7 @@ final class SongBSTableViewController: SongBaseTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = songResults?.filter { $0.series == Series.bs.rawValue }
+    songResults = songResults?.filter { $0.seriesEnum == .bs }
   }
 }
 

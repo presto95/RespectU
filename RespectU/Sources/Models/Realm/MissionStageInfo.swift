@@ -28,4 +28,13 @@ final class MissionStageInfo: Object {
       return title?.english ?? ""
     }
   }
+  
+  var difficultyEnum: Difficulty? {
+    return Difficulty(rawValue: difficulty)
+  }
+  
+  /// The `Button` of the stage.
+  var buttonEnum: Button? {
+    return Button(rawValue: button)
+  }
 }

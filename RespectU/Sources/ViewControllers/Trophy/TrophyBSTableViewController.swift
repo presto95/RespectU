@@ -14,7 +14,7 @@ final class TrophyBSTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = TrophyInfo.fetch(of: Series.bs)
+    results = TrophyInfo.fetch(bySeries: .bs)
   }
 }
 

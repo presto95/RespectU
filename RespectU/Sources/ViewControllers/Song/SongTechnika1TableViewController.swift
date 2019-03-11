@@ -14,7 +14,7 @@ final class SongTechnika1TableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = songResults?.filter { $0.series == Series.technika1 }
+    songResults = songResults?.filter { $0.seriesEnum == .technika1 }
   }
 }
 

@@ -14,7 +14,7 @@ final class TrophyTrilogyTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = TrophyInfo.fetch(of: Series.trilogy)
+    results = TrophyInfo.fetch(bySeries: .trilogy)
   }
 }
 
@@ -22,11 +22,10 @@ extension TrophyTrilogyTableViewController {
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let row = indexPath.row
-    if row == 6 {
+    if indexPath.row == 6 {
       UIAlertController
-        .alert(title: "Hidden BGA".localized, message: "STOP")
-        .action(title: "OK".localized)
+        .alert(title: L10n.hiddenBGA, message: "STOP")
+        .action(title: L10n.ok)
         .present(to: self)
     }
   }

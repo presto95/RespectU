@@ -14,7 +14,8 @@ final class RecordTechnika3TableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = tempSongResults?.filter(key: "series", value: Series.technika3, method: "=")
+    songResults = tempSongResults?
+      .filter { $0.seriesEnum == .technika3 }
       .sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }

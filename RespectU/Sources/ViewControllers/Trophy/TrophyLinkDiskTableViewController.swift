@@ -14,7 +14,7 @@ final class TrophyLinkDiskTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = TrophyInfo.fetch(of: Series.linkDisk)
+    results = TrophyInfo.fetch(bySeries: .linkDisk)
   }
 }
 

@@ -120,7 +120,7 @@ extension SignInViewController {
   }
   
   @objc func didTouchUpSignUpButton(_ sender: UIButton) {
-    guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: SignUpViewController.classNameToString) else { return }
+    guard let next = UIViewController.instantiate(storyboard: "SignIn", identifier: SignUpViewController.name) else { return }
     self.navigationController?.pushViewController(next, animated: true)
   }
   
@@ -137,7 +137,7 @@ extension SignInViewController {
   
   private func goToNextViewController() {
     if TipInfo.fetch().count == 0 {
-      guard let next = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.classNameToString) else { return }
+      guard let next = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.name) else { return }
       next.modalTransitionStyle = .crossDissolve
       self.present(next, animated: true, completion: nil)
     } else {

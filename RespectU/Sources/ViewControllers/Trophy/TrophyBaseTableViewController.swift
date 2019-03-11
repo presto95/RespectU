@@ -18,10 +18,14 @@ class TrophyBaseTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    configure()
+  }
+  
+  private func configure() {
     tableView.rowHeight = 60
     tableView.showsVerticalScrollIndicator = false
     tableView.separatorStyle = .none
-    tableView.register(UINib(nibName: "TrophyCell", bundle: nil),
+    tableView.register(UINib(nibName: TrophyCell.name, bundle: nil),
                        forCellReuseIdentifier: cellIdentifier)
   }
 }
@@ -31,12 +35,11 @@ extension TrophyBaseTableViewController {
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-    guard case let trophyCell as TrophyCell = cell else { return UITableViewCell() }
-    let row = indexPath.row
-    let count = results?.count ?? 0
-    if row < count {
-      let object = self.results?[indexPath.row]
-      trophyCell.configure(object)
+    if case let trophyCell as TrophyCell = cell {
+      if indexPath.row < results?.count ?? 0 {
+        let result = results?[indexPath.row]
+        trophyCell.configure(with: result)
+      }
     }
     return cell
   }

@@ -36,15 +36,7 @@ final class RecordViewController: BaseViewController {
   
   private lazy var technika2TableViewController = RecordTechnika2TableViewController()
   
-  lazy var recordViewControllers: [RecordBaseTableViewController] = {
-    return [
-      allTableViewController,
-      portable2TableViewController,
-      trilogyTableViewController,
-      technika1TableViewController,
-      technika2TableViewController
-    ]
-  }()
+  private lazy var technika3TableViewController = RecordTechnika3TableViewController()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,10 +45,17 @@ final class RecordViewController: BaseViewController {
   override func viewControllers(
     for pagerTabStripController: PagerTabStripViewController
   ) -> [UIViewController] {
-    return recordViewControllers
+    return [
+      allTableViewController,
+      portable2TableViewController,
+      trilogyTableViewController,
+      technika1TableViewController,
+      technika2TableViewController,
+      technika3TableViewController
+    ]
   }
   
   @IBAction func cancelButtonDidTap(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
 }

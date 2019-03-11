@@ -10,11 +10,11 @@ import UIKit
 
 import XLPagerTabStrip
 
-class SongTrilogyTableViewController: SongBaseTableViewController {
+final class SongTrilogyTableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = songResults?.filter { $0.series == Series.trilogy }
+    songResults = songResults?.filter { $0.seriesEnum == .trilogy }
   }
 }
 

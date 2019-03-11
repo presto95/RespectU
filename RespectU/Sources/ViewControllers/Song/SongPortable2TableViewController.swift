@@ -14,7 +14,7 @@ final class SongPortable2TableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = songResults?.filter { $0.series == Series.portable2 }
+    songResults = songResults?.filter { $0.seriesEnum == .portable2 }
   }
 }
 

@@ -14,7 +14,8 @@ final class RecordPortable2TableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    songResults = tempSongResults?.filter(key: "series", value: Series.portable2, method: "=")
+    songResults = tempSongResults?
+      .filter { $0.seriesEnum == .portable2 }
       .sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }

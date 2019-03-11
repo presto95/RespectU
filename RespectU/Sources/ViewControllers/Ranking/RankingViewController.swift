@@ -20,22 +20,18 @@ final class RankingViewController: BaseViewController {
   
   private lazy var ranking8bTableViewController = Ranking8BTableViewController()
   
-  private lazy var rankingViewControllers: [RankingBaseTableViewController] = {
+  override func viewControllers(
+    for pagerTabStripController: PagerTabStripViewController
+  ) -> [UIViewController] {
     return [
       ranking4bTableViewController,
       ranking5bTableViewController,
       ranking6bTableViewController,
       ranking8bTableViewController
     ]
-  }()
-  
-  override func viewControllers(
-    for pagerTabStripController: PagerTabStripViewController
-  ) -> [UIViewController] {
-    return rankingViewControllers
   }
   
-  @IBAction func didTapCancelButton(_ sender: UIButton) {
+  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
 }

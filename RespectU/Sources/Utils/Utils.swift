@@ -83,17 +83,143 @@ final class Utils {
     return maxSkillPoint
   }
   
-  static func totalSkillPointAndHighestSeries(in button: Button) -> (Double, Series) {
-    
+  /// Calculates the total skill point in `button`
+  /// and returns the series of the highest skill point.
+  ///
+  /// - Parameters:
+  ///   - button: The specific button.
+  ///
+  /// - Returns: The total skill point and the highest series in specific `button`.
+  static func totalSkillPointAndHighestSeries(in button: Button) -> (Double, Series?) {
+    let results = RecordInfo.fetch()
+    switch button {
+    case .button4:
+      let sorted = results.sorted(byKeyPath: "button4.skillPoint")
+      let totalSkillPoint = sorted[0..<50].map { $0.button4?.skillPoint ?? 0 }.reduce(0, +)
+      let highestSeries = Series(rawValue: sorted.first?.series ?? "")
+      UserDefaults.standard.do {
+        $0.set(totalSkillPoint, forKey: SkillPoint.button4)
+        $0.synchronize()
+      }
+      return (totalSkillPoint, highestSeries)
+    case .button5:
+      let sorted = results.sorted(byKeyPath: "button5.skillPoint")
+      let totalSkillPoint = sorted[0..<50].map { $0.button5?.skillPoint ?? 0 }.reduce(0, +)
+      let highestSeries = Series(rawValue: sorted.first?.series ?? "")
+      UserDefaults.standard.do {
+        $0.set(totalSkillPoint, forKey: SkillPoint.button5)
+        $0.synchronize()
+      }
+      return (totalSkillPoint, highestSeries)
+    case .button6:
+      let sorted = results.sorted(byKeyPath: "button6.skillPoint")
+      let totalSkillPoint = sorted[0..<50].map { $0.button6?.skillPoint ?? 0 }.reduce(0, +)
+      let highestSeries = Series(rawValue: sorted.first?.series ?? "")
+      UserDefaults.standard.do {
+        $0.set(totalSkillPoint, forKey: SkillPoint.button6)
+        $0.synchronize()
+      }
+      return (totalSkillPoint, highestSeries)
+    case .button8:
+      let sorted = results.sorted(byKeyPath: "button8.skillPoint")
+      let totalSkillPoint = sorted[0..<50].map { $0.button8?.skillPoint ?? 0 }.reduce(0, +)
+      let highestSeries = Series(rawValue: sorted.first?.series ?? "")
+      UserDefaults.standard.do {
+        $0.set(totalSkillPoint, forKey: SkillPoint.button8)
+        $0.synchronize()
+      }
+      return (totalSkillPoint, highestSeries)
+    default:
+      return (0, nil)
+    }
   }
   
+  /// Re-calculates all skill points and updates.
   static func refresh() {
-    let recordResults = RecordInfo.fetch()
-    let songResults = SongInfo.fetch()
-    
+    let recordResults = RecordInfo.fetch().sorted(byKeyPath: "title.english")
+    let songResults = SongInfo.fetch().sorted(byKeyPath: "title.english")
+    zip(recordResults, songResults).forEach { recordInfo, songInfo in
+      let buttons = ["button4", "button5", "button6", "button8"]
+      for button in buttons {
+        guard let recordButtonInfo = recordInfo.value(forKey: button) as? RecordButtonInfo
+          else { return }
+        guard let songButtonInfo = songInfo.value(forKey: button) as? SongButtonInfo
+          else { return }
+        let normalRecord = recordButtonInfo.normal
+        let hardRecord = recordButtonInfo.hard
+        let maximumRecord = recordButtonInfo.maximum
+        let normalDifficulty = songButtonInfo.normal
+        let hardDifficulty = songButtonInfo.hard
+        let maximumDifficulty = songButtonInfo.maximum
+        let normalSkillPoint = Utils
+          .skillPoint(difficulty: normalDifficulty,
+                      rate: normalRecord?.rate,
+                      note: Note(rawValue: normalRecord?.note ?? "") ?? .none)
+        let hardSkillPoint = Utils
+          .skillPoint(difficulty: hardDifficulty,
+                      rate: hardRecord?.rate,
+                      note: Note(rawValue: hardRecord?.note ?? "") ?? .none)
+        let maximumSkillPoint = Utils
+          .skillPoint(difficulty: maximumDifficulty,
+                      rate: maximumRecord?.rate,
+                      note: Note(expansion: maximumRecord?.note ?? "") ?? .none)
+        guard let maxSkillPoint
+          = [normalSkillPoint, hardSkillPoint, maximumSkillPoint].sorted().last
+          else { return }
+        switch maxSkillPoint {
+        case normalSkillPoint:
+          RecordInfo.update(recordInfo, with: [
+            "\(button).skillPointDifficulty": Difficulty.hard.rawValue,
+            "\(button).skillPointRate": normalRecord?.rate ?? 0,
+            "\(button).skillPointNote": normalRecord?.note ?? Note.none.rawValue
+            ])
+        case hardSkillPoint:
+          RecordInfo.update(recordInfo, with: [
+            "\(button).skillPointDifficulty": Difficulty.hard.rawValue,
+            "\(button).skillPointRate": normalRecord?.rate ?? 0,
+            "\(button).skillPointNote": normalRecord?.note ?? Note.none.rawValue
+            ])
+        case maximumSkillPoint:
+          RecordInfo.update(recordInfo, with: [
+            "\(button).skillPointDifficulty": Difficulty.maximum.rawValue,
+            "\(button).skillPointRate": normalRecord?.rate ?? 0,
+            "\(button).skillPointNote": normalRecord?.note ?? Note.none.rawValue
+            ])
+        default:
+          break
+        }
+      }
+    }
   }
   
-  
+  /// Fetches next skill level of `skillLevel` in `button`.
+  ///
+  /// - Parameters:
+  ///   - skillLevel: The current skill level.
+  ///   - button:     The specific button.
+  ///
+  /// - Returns: The fetched next skill level.
+  ///
+  /// - Note: It can return `nil`. In this case, there is no next level.
+  static func nextSkillLevel(of skillLevel: SkillLevel, in button: Button) -> SkillLevel? {
+    let skillLevels: [SkillLevel]
+    switch button {
+    case .button4:
+      skillLevels = SkillLevel.button4SkillLevels
+    case .button5:
+      skillLevels = SkillLevel.button5SkillLevels
+    case .button6, .button8:
+      skillLevels = SkillLevel.button6And8SkillLevels
+    default:
+      return nil
+    }
+    let index = skillLevels.firstIndex(of: skillLevel) ?? 0
+    if index + 1 == skillLevels.count {
+      return nil
+    } else {
+      return skillLevels[index + 1]
+    }
+  }
   
   /// Converts `speed` to the recommended speed.
   ///
@@ -104,50 +230,31 @@ final class Utils {
   /// - Note: `3.14` -> `3.00 ~ 3.25`
   static func convertToRecommendedSpeed(by speed: Double) -> String? {
     switch speed {
-    case ..<0.50:
-      return "0.50"
-    case 0.50..<0.75:
-      return "0.50 ~ 0.75"
-    case 0.75..<1.00:
-      return "0.75 ~ 1.00"
-    case 1.00..<1.25:
-      return "1.00 ~ 1.25"
-    case 1.25..<1.50:
-      return "1.25 ~ 1.50"
-    case 1.50..<1.75:
-      return "1.50 ~ 1.75"
-    case 1.75..<2.00:
-      return "1.75 ~ 2.00"
-    case 2.00..<2.25:
-      return "2.00 ~ 2.25"
-    case 2.25..<2.50:
-      return "2.25 ~ 2.50"
-    case 2.50..<2.75:
-      return "2.50 ~ 2.75"
-    case 2.75..<3.00:
-      return "2.75 ~ 3.00"
-    case 3.00..<3.25:
-      return "3.00 ~ 3.25"
-    case 3.25..<3.50:
-      return "3.25 ~ 3.50"
-    case 3.50..<3.75:
-      return "3.50 ~ 3.75"
-    case 3.75..<4.00:
-      return "3.75 ~ 4.00"
-    case 4.00..<4.25:
-      return "4.00 ~ 4.25"
-    case 4.25..<4.50:
-      return "4.25 ~ 4.50"
-    case 4.50..<4.75:
-      return "4.50 ~ 4.75"
-    case 4.75..<5.00:
-      return "4.75 ~ 5.00"
-    case 5.00...:
-      return "5.00"
-    default:
-      return nil
+    case ..<0.50: return "0.50"
+    case 0.50..<0.75: return "0.50 ~ 0.75"
+    case 0.75..<1.00: return "0.75 ~ 1.00"
+    case 1.00..<1.25: return "1.00 ~ 1.25"
+    case 1.25..<1.50: return "1.25 ~ 1.50"
+    case 1.50..<1.75: return "1.50 ~ 1.75"
+    case 1.75..<2.00: return "1.75 ~ 2.00"
+    case 2.00..<2.25: return "2.00 ~ 2.25"
+    case 2.25..<2.50: return "2.25 ~ 2.50"
+    case 2.50..<2.75: return "2.50 ~ 2.75"
+    case 2.75..<3.00: return "2.75 ~ 3.00"
+    case 3.00..<3.25: return "3.00 ~ 3.25"
+    case 3.25..<3.50: return "3.25 ~ 3.50"
+    case 3.50..<3.75: return "3.50 ~ 3.75"
+    case 3.75..<4.00: return "3.75 ~ 4.00"
+    case 4.00..<4.25: return "4.00 ~ 4.25"
+    case 4.25..<4.50: return "4.25 ~ 4.50"
+    case 4.50..<4.75: return "4.50 ~ 4.75"
+    case 4.75..<5.00: return "4.75 ~ 5.00"
+    case 5.00...: return "5.00"
+    default: return nil
     }
   }
+  
+  
   
   /// Converts `rate` contains percent symbol to `Double` value.
   ///
@@ -157,239 +264,132 @@ final class Utils {
   static func convertToDouble(withPercent rate: String) -> Double {
     if case let value? = rate.components(separatedBy: "%").first {
       return Double(value) ?? 0
-    } else {
-      return 0
     }
+    return 0
   }
   
-  static func button4SkillLevel(of skillPoint: Double) -> String? {
+  static func button4SkillLevel(of skillPoint: Double) -> SkillLevel? {
     switch skillPoint {
-    case 0..<1000:
-      return SkillLevel.beginner
-    case 1000..<1500:
-      return SkillLevel.amateur4
-    case 1500..<2000:
-      return SkillLevel.amateur3
-    case 2000..<2300:
-      return SkillLevel.amateur2
-    case 2300..<2600:
-      return SkillLevel.amateur1
-    case 2600..<3000:
-      return SkillLevel.subDj4
-    case 3000..<3300:
-      return SkillLevel.subDj3
-    case 3300..<3600:
-      return SkillLevel.subDj2
-    case 3600..<4000:
-      return SkillLevel.subDj1
-    case 4000..<4300:
-      return SkillLevel.mainDj4
-    case 4300..<4600:
-      return SkillLevel.mainDj3
-    case 4600..<5000:
-      return SkillLevel.mainDj2
-    case 5000..<5300:
-      return SkillLevel.mainDj1
-    case 5300..<5600:
-      return SkillLevel.popDj4
-    case 5600..<6000:
-      return SkillLevel.popDj3
-    case 6000..<6300:
-      return SkillLevel.popDj2
-    case 6300..<6600:
-      return SkillLevel.popDj1
-    case 6600..<7000:
-      return SkillLevel.professional3
-    case 7000..<7200:
-      return SkillLevel.professional2
-    case 7200..<7400:
-      return SkillLevel.professional1
-    case 7400..<7600:
-      return SkillLevel.mixMaster3
-    case 7600..<7800:
-      return SkillLevel.mixMaster2
-    case 7800..<8000:
-      return SkillLevel.mixMaster1
-    case 8000..<8200:
-      return SkillLevel.superstar3
-    case 8200..<8400:
-      return SkillLevel.superstar2
-    case 8400..<8600:
-      return SkillLevel.superstar1
-    case 8600..<8800:
-      return SkillLevel.djmaxGrandMaster
-    case 8800...:
-      return SkillLevel.theDjmax
-    default:
-      return nil
+    case 0..<1000: return .beginner
+    case 1000..<1500: return .amateur4
+    case 1500..<2000: return .amateur3
+    case 2000..<2300: return .amateur2
+    case 2300..<2600: return .amateur1
+    case 2600..<3000: return .subDj4
+    case 3000..<3300: return .subDj3
+    case 3300..<3600: return .subDj2
+    case 3600..<4000: return .subDj1
+    case 4000..<4300: return .mainDj4
+    case 4300..<4600: return .mainDj3
+    case 4600..<5000: return .mainDj2
+    case 5000..<5300: return .mainDj1
+    case 5300..<5600: return .popDj4
+    case 5600..<6000: return .popDj3
+    case 6000..<6300: return .popDj2
+    case 6300..<6600: return .popDj1
+    case 6600..<7000: return .professional3
+    case 7000..<7200: return .professional2
+    case 7200..<7400: return .professional1
+    case 7400..<7600: return .mixMaster3
+    case 7600..<7800: return .mixMaster2
+    case 7800..<8000: return .mixMaster1
+    case 8000..<8200: return .superstar3
+    case 8200..<8400: return .superstar2
+    case 8400..<8600: return .superstar1
+    case 8600..<8800: return .djmaxGrandMaster
+    case 8800...: return .theDjmax
+    default: return nil
     }
   }
   
-  static func button5SkillLevel(of skillPoint: Double) -> String? {
-    switch value {
-    case 0..<1000:
-      return SkillLevel.beginner
-    case 1000..<1500:
-      return SkillLevel.amateur4
-    case 1500..<2000:
-      return SkillLevel.amateur3
-    case 2000..<2300:
-      return SkillLevel.amateur2
-    case 2300..<2600:
-      return SkillLevel.amateur1
-    case 2600..<3000:
-      return SkillLevel.subDj4
-    case 3000..<3300:
-      return SkillLevel.subDj3
-    case 3300..<3600:
-      return SkillLevel.subDj2
-    case 3600..<4000:
-      return SkillLevel.subDj1
-    case 4000..<4300:
-      return SkillLevel.mainDj4
-    case 4300..<4600:
-      return SkillLevel.mainDj3
-    case 4600..<5000:
-      return SkillLevel.mainDj2
-    case 5000..<5300:
-      return SkillLevel.mainDj1
-    case 5300..<5600:
-      return SkillLevel.popDj4
-    case 5600..<6000:
-      return SkillLevel.popDj3
-    case 6000..<6300:
-      return SkillLevel.popDj2
-    case 6300..<6600:
-      return SkillLevel.popDj1
-    case 6600..<7000:
-      return SkillLevel.professional4
-    case 7000..<7200:
-      return SkillLevel.professional3
-    case 7200..<7400:
-      return SkillLevel.professional2
-    case 7400..<7600:
-      return SkillLevel.professional1
-    case 7600..<7800:
-      return SkillLevel.mixMaster3
-    case 7800..<8000:
-      return SkillLevel.mixMaster2
-    case 8000..<8200:
-      return SkillLevel.mixMaster1
-    case 8200..<8400:
-      return SkillLevel.superstar3
-    case 8400..<8600:
-      return SkillLevel.superstar2
-    case 8600..<8800:
-      return SkillLevel.superstar1
-    case 8800..<9000:
-      return SkillLevel.djmaxGrandMaster
-    case 9000...:
-      return SkillLevel.theDjmax
-    default:
-      return nil
+  static func button5SkillLevel(of skillPoint: Double) -> SkillLevel? {
+    switch skillPoint {
+    case 0..<1000: return .beginner
+    case 1000..<1500: return .amateur4
+    case 1500..<2000: return .amateur3
+    case 2000..<2300: return .amateur2
+    case 2300..<2600: return .amateur1
+    case 2600..<3000: return .subDj4
+    case 3000..<3300: return .subDj3
+    case 3300..<3600: return .subDj2
+    case 3600..<4000: return .subDj1
+    case 4000..<4300: return .mainDj4
+    case 4300..<4600: return .mainDj3
+    case 4600..<5000: return .mainDj2
+    case 5000..<5300: return .mainDj1
+    case 5300..<5600: return .popDj4
+    case 5600..<6000: return .popDj3
+    case 6000..<6300: return .popDj2
+    case 6300..<6600: return .popDj1
+    case 6600..<7000: return .professional4
+    case 7000..<7200: return .professional3
+    case 7200..<7400: return .professional2
+    case 7400..<7600: return .professional1
+    case 7600..<7800: return .mixMaster3
+    case 7800..<8000: return .mixMaster2
+    case 8000..<8200: return .mixMaster1
+    case 8200..<8400: return .superstar3
+    case 8400..<8600: return .superstar2
+    case 8600..<8800: return .superstar1
+    case 8800..<9000: return .djmaxGrandMaster
+    case 9000...: return .theDjmax
+    default: return nil
     }
   }
   
-  static func button6And8SkillLevel(of skillPoint: Double) -> String? {
-    switch value {
-    case 0..<1500:
-      return SkillLevel.beginner
-    case 1500..<2000:
-      return SkillLevel.amateur4
-    case 2000..<2300:
-      return SkillLevel.amateur3
-    case 2300..<2600:
-      return SkillLevel.amateur2
-    case 2600..<3000:
-      return SkillLevel.amateur1
-    case 3000..<3300:
-      return SkillLevel.subDj4
-    case 3300..<3600:
-      return SkillLevel.subDj3
-    case 3600..<4000:
-      return SkillLevel.subDj2
-    case 4000..<4300:
-      return SkillLevel.subDj1
-    case 4300..<4600:
-      return SkillLevel.mainDj4
-    case 4600..<5000:
-      return SkillLevel.mainDj3
-    case 5000..<5300:
-      return SkillLevel.mainDj2
-    case 5300..<5600:
-      return SkillLevel.mainDj1
-    case 5600..<6000:
-      return SkillLevel.popDj4
-    case 6000..<6300:
-      return SkillLevel.popDj3
-    case 6300..<6600:
-      return SkillLevel.popDj2
-    case 6600..<7000:
-      return SkillLevel.popDj1
-    case 7000..<7200:
-      return SkillLevel.professional4
-    case 7200..<7400:
-      return SkillLevel.professional3
-    case 7400..<7600:
-      return SkillLevel.professional2
-    case 7600..<7800:
-      return SkillLevel.professional1
-    case 7800..<8000:
-      return SkillLevel.mixMaster3
-    case 8000..<8200:
-      return SkillLevel.mixMaster2
-    case 8200..<8400:
-      return SkillLevel.mixMaster1
-    case 8400..<8600:
-      return SkillLevel.superstar3
-    case 8600..<8800:
-      return SkillLevel.superstar2
-    case 8800..<9000:
-      return SkillLevel.superstar1
-    case 9000..<9200:
-      return SkillLevel.djmaxGrandMaster
-    case 9200...:
-      return SkillLevel.theDjmax
-    default:
-      return nil
+  static func button6And8SkillLevel(of skillPoint: Double) -> SkillLevel? {
+    switch skillPoint {
+    case 0..<1500: return .beginner
+    case 1500..<2000: return .amateur4
+    case 2000..<2300: return .amateur3
+    case 2300..<2600: return .amateur2
+    case 2600..<3000: return .amateur1
+    case 3000..<3300: return .subDj4
+    case 3300..<3600: return .subDj3
+    case 3600..<4000: return .subDj2
+    case 4000..<4300: return .subDj1
+    case 4300..<4600: return .mainDj4
+    case 4600..<5000: return .mainDj3
+    case 5000..<5300: return .mainDj2
+    case 5300..<5600: return .mainDj1
+    case 5600..<6000: return .popDj4
+    case 6000..<6300: return .popDj3
+    case 6300..<6600: return .popDj2
+    case 6600..<7000: return .popDj1
+    case 7000..<7200: return .professional4
+    case 7200..<7400: return .professional3
+    case 7400..<7600: return .professional2
+    case 7600..<7800: return .professional1
+    case 7800..<8000: return .mixMaster3
+    case 8000..<8200: return .mixMaster2
+    case 8200..<8400: return .mixMaster1
+    case 8400..<8600: return .superstar3
+    case 8600..<8800: return .superstar2
+    case 8800..<9000: return .superstar1
+    case 9000..<9200: return .djmaxGrandMaster
+    case 9200...: return .theDjmax
+    default: return nil
     }
   }
   
   static func weight(of difficulty: Int) -> Double {
     switch difficulty {
-    case 1:
-      return 0.4
-    case 2:
-      return 0.6
-    case 3:
-      return 0.8
-    case 4:
-      return 1
-    case 5:
-      return 1.14
-    case 6:
-      return 1.24
-    case 7:
-      return 1.33
-    case 8:
-      return 1.42
-    case 9:
-      return 1.53
-    case 10:
-      return 1.6
-    case 11:
-      return 1.68
-    case 12:
-      return 1.77
-    case 13:
-      return 1.85
-    case 14:
-      return 1.94
-    case 15:
-      return 2
-    default:
-      return 0
+    case 1: return 0.4
+    case 2: return 0.6
+    case 3: return 0.8
+    case 4: return 1
+    case 5: return 1.14
+    case 6: return 1.24
+    case 7: return 1.33
+    case 8: return 1.42
+    case 9: return 1.53
+    case 10: return 1.6
+    case 11: return 1.68
+    case 12: return 1.77
+    case 13: return 1.85
+    case 14: return 1.94
+    case 15: return 2
+    default: return 0
     }
-
   }
 }

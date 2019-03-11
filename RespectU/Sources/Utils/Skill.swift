@@ -10,8 +10,9 @@ import Foundation
 
 import RealmSwift
 
+/// The utility `class` for calculating skill points.
 final class Skill {
-
+  
   /// 단일 스킬포인트 계산
   static func skillPoint(difficulty: Int, rate: Double?, note: Note) -> Double {
     guard let rate = rate else { return 0 }
@@ -135,7 +136,7 @@ final class Skill {
     let songResults = SongInfo.fetch()
     for recordResult in recordResults {
       let predicate = NSPredicate(format: "%K == %@",
-                                  #keyPath(NewRecordInfo.title.english),
+                                  #keyPath(RecordInfo.title.english),
                                   recordResult.title?.english ?? "")
       guard let songResult = songResults.filter(predicate).first else { return }
       let buttons = ["button4", "button5", "button6", "button8"]

@@ -12,91 +12,91 @@ import Foundation
 enum SkillLevel {
   
   /// BEGINNER.
-  private static let beginner = "BEGINNER"
+  static let beginner = "BEGINNER"
   
   /// AMATUER 4.
-  private static let amateur4 = "AMATEUR Ⅳ"
+  static let amateur4 = "AMATEUR Ⅳ"
   
   /// AMATUER 3.
-  private static let amateur3 = "AMATEUR Ⅲ"
+  static let amateur3 = "AMATEUR Ⅲ"
   
   /// AMATUER 2.
-  private static let amateur2 = "AMATEUR Ⅱ"
+  static let amateur2 = "AMATEUR Ⅱ"
   
   /// AMATUER 1.
-  private static let amateur1 = "AMATEUR Ⅰ"
+  static let amateur1 = "AMATEUR Ⅰ"
   
   /// SUB DJ 4.
-  private static let subDj4 = "SUB DJ Ⅳ"
+  static let subDj4 = "SUB DJ Ⅳ"
   
   /// SUB DJ 3.
-  private static let subDj3 = "SUB DJ Ⅲ"
+  static let subDj3 = "SUB DJ Ⅲ"
   
   /// SUB DJ 2.
-  private static let subDj2 = "SUB DJ Ⅱ"
+  static let subDj2 = "SUB DJ Ⅱ"
   
   /// SUB DJ 1.
-  private static let subDj1 = "SUB DJ Ⅰ"
+  static let subDj1 = "SUB DJ Ⅰ"
   
   /// MAIN DJ 4.
-  private static let mainDj4 = "MAIN DJ Ⅳ"
+  static let mainDj4 = "MAIN DJ Ⅳ"
   
   /// MAIN DJ 3.
-  private static let mainDj3 = "MAIN DJ Ⅲ"
+  static let mainDj3 = "MAIN DJ Ⅲ"
   
   /// MAIN DJ 2.
-  private static let mainDj2 = "MAIN DJ Ⅱ"
+  static let mainDj2 = "MAIN DJ Ⅱ"
   
   /// MAIN DJ 1.
-  private static let mainDj1 = "MAIN DJ Ⅰ"
+  static let mainDj1 = "MAIN DJ Ⅰ"
   
   /// POP DJ 4.
-  private static let popDj4 = "POP DJ Ⅳ"
+  static let popDj4 = "POP DJ Ⅳ"
   
   /// POP DJ 3.
-  private static let popDj3 = "POP DJ Ⅲ"
+  static let popDj3 = "POP DJ Ⅲ"
   
   /// POP DJ 2.
-  private static let popDj2 = "POP DJ Ⅱ"
+  static let popDj2 = "POP DJ Ⅱ"
   
   /// POP DJ 1.
-  private static let popDj1 = "POP DJ Ⅰ"
+  static let popDj1 = "POP DJ Ⅰ"
   
   /// PROFESSIONAL 4.
-  private static let professional4 = "PROFESSIONAL Ⅳ"
+  static let professional4 = "PROFESSIONAL Ⅳ"
   
   /// PROFESSIONAL 3.
-  private static let professional3 = "PROFESSIONAL Ⅲ"
+  static let professional3 = "PROFESSIONAL Ⅲ"
   
   /// PROFESSIONAL 2.
-  private static let professional2 = "PROFESSIONAL Ⅱ"
+  static let professional2 = "PROFESSIONAL Ⅱ"
   
   /// PROFESSIONAL 1.
-  private static let professional1 = "PROFESSIONAL Ⅰ"
+  static let professional1 = "PROFESSIONAL Ⅰ"
   
   /// MIX MASTER 3.
-  private static let mixMaster3 = "MIX MASTER Ⅲ"
+  static let mixMaster3 = "MIX MASTER Ⅲ"
   
   /// MIX MASTER 2.
-  private static let mixMaster2 = "MIX MASTER Ⅱ"
+  static let mixMaster2 = "MIX MASTER Ⅱ"
   
   /// MIX MASTER 1.
-  private static let mixMaster1 = "MIX MASTER Ⅰ"
+  static let mixMaster1 = "MIX MASTER Ⅰ"
   
   /// SUPERSTAR 3.
-  private static let superstar3 = "SUPERSTAR Ⅲ"
+  static let superstar3 = "SUPERSTAR Ⅲ"
   
   /// SUPERSTAR 2.
-  private static let superstar2 = "SUPERSTAR Ⅱ"
+  static let superstar2 = "SUPERSTAR Ⅱ"
   
   /// SUPERSTAR 1.
-  private static let superstar1 = "SUPERSTAR Ⅰ"
+  static let superstar1 = "SUPERSTAR Ⅰ"
   
   /// DJMAX GRAND MASTER.
-  private static let djmaxGrandMaster = "DJMAX GRAND MASTER"
+  static let djmaxGrandMaster = "DJMAX GRAND MASTER"
   
   /// THE DJMAX.
-  private static let theDjmax = "✨THE DJMAX"
+  static let theDjmax = "✨THE DJMAX"
   
   /// Skill levels of 4 button mode.
   static let button4SkillLevels: [String] = [

@@ -39,6 +39,7 @@
 		16E72F47E46466C1D0F72348BC1734D2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7994394D253D83388739913632BF52F4 /* Button.swift */; };
 		94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */; };
 		36105E909ADA369CB7D0D1B675FED1F4 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */; };
+		1B7BDC0518E8261BB7E114B238485E0D /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0A70ADF02A515C554A2A7F65D04D0 /* Double+.swift */; };
 		8E46243F171B5DE4C8636DE0C7C4BC09 /* Download.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C18E5F5E8BB5540D91968DDECE31869A /* Download.storyboard */; };
 		53DC6066E155D2567781E494547956C9 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */; };
 		38C447D6D1AE123FA0B3D40D21AEE863 /* GradientDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */; };
@@ -267,6 +268,7 @@
 		7994394D253D83388739913632BF52F4 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
 		3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		00C0A70ADF02A515C554A2A7F65D04D0 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		C18E5F5E8BB5540D91968DDECE31869A /* Download.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Download.storyboard; sourceTree = "<group>"; };
 		7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientDirection.swift; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */,
+				00C0A70ADF02A515C554A2A7F65D04D0 /* Double+.swift */,
 				A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */,
 				91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */,
 				60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */,
@@ -1109,6 +1112,7 @@
 				16E72F47E46466C1D0F72348BC1734D2 /* Button.swift in Sources */,
 				94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */,
 				36105E909ADA369CB7D0D1B675FED1F4 /* Difficulty.swift in Sources */,
+				1B7BDC0518E8261BB7E114B238485E0D /* Double+.swift in Sources */,
 				53DC6066E155D2567781E494547956C9 /* DownloadViewController.swift in Sources */,
 				38C447D6D1AE123FA0B3D40D21AEE863 /* GradientDirection.swift in Sources */,
 				78989219547DC155E6A2BFB50D1CE084 /* GuideFirstCell.swift in Sources */,

@@ -14,7 +14,7 @@ final class MissionTrilogyTableViewController: MissionBaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = MissionInfo.fetch(of: Series.trilogy)
+    results = MissionInfo.fetch(bySeries: .trilogy)
   }
 }
 

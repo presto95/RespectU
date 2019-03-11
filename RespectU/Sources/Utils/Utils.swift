@@ -135,7 +135,7 @@ final class Utils {
   }
   
   /// Re-calculates all skill points and updates.
-  static func refresh() {
+  static func refreshSkillPoints() {
     let recordResults = RecordInfo.fetch().sorted(byKeyPath: "title.english")
     let songResults = SongInfo.fetch().sorted(byKeyPath: "title.english")
     zip(recordResults, songResults).forEach { recordInfo, songInfo in

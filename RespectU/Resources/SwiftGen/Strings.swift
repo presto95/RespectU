@@ -196,9 +196,9 @@ internal enum L10n {
   /// 점
   internal static let point = L10n.tr("Localizable", "Point")
   /// 랭크
-  internal static let rank = L10n.tr("Localizable", "RANK")
-  /// 랭크
   internal static let rank = L10n.tr("Localizable", "Rank")
+  /// 랭크
+  internal static let rank = L10n.tr("Localizable", "RANK")
   /// 랭킹
   internal static let ranking = L10n.tr("Localizable", "Ranking")
   /// 정확도

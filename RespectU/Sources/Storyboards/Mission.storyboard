@@ -23,7 +23,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="touchUpCancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="7Aj-fJ-VyA"/>
+                                    <action selector="cancelButtonDidTap:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="7Aj-fJ-VyA"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gTr-wO-q4Q" customClass="ButtonBarView" customModule="XLPagerTabStrip">
@@ -94,8 +94,8 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
+                                    <action selector="cancelButtonDidTap:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="df1-gk-WVe"/>
                                     <action selector="cancelButtonDidTap:" destination="16X-16-0Xg" eventType="touchUpInside" id="sOE-Zy-qLT"/>
-                                    <action selector="touchUpCancelButton:" destination="Ztk-vz-aD6" eventType="touchUpInside" id="df1-gk-WVe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9m-w0-Tev" customClass="MarqueeLabel" customModule="MarqueeLabel">

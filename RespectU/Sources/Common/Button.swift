@@ -38,16 +38,11 @@ extension Button {
   /// - Note: `4b` -> `button4` / `5b` -> `button5` / `xb` -> `nil`
   var expansion: String? {
     switch self {
-    case .button4:
-      return "button4"
-    case .button5:
-      return "button5"
-    case .button6:
-      return "button6"
-    case .button8:
-      return "button8"
-    default:
-      return nil
+    case .button4: return "button4"
+    case .button5: return "button5"
+    case .button6: return "button6"
+    case .button8: return "button8"
+    default: return nil
     }
   }
 }

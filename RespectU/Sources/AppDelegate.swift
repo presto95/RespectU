@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
       Realm.Configuration.defaultConfiguration = config
     }
-    //개발용
+    // 개발용
     //        KeychainWrapper.standard.set("", forKey: "id")
     //        do {
     //            try FileManager.default.removeItem(at: Realm.Configuration.defaultConfiguration.fileURL!)
@@ -61,28 +61,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     // 전역 프로퍼티 설정
     let navigationBar = UINavigationBar.appearance()
-    navigationBar.setBackgroundImage(UIImage(), for: .default)
-    navigationBar.shadowImage = UIImage()
+    navigationBar.setBackgroundImage(.init(), for: .default)
+    navigationBar.shadowImage = .init()
     navigationBar.backgroundColor = .clear
     navigationBar.isTranslucent = true
     let tableView = UITableView.appearance()
     tableView.backgroundColor = .white
     tableView.separatorColor = .lightGray
-    tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    tableView.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     tableView.layer.borderColor = UIColor.main.cgColor
     tableView.layer.borderWidth = 3
     tableView.layer.cornerRadius = 10
-    tableView.tableFooterView = UIView()
+    tableView.tableFooterView = .init()
     return true
   }
-  
-  func applicationWillResignActive(_ application: UIApplication) { }
-  
-  func applicationDidEnterBackground(_ application: UIApplication) { }
-  
-  func applicationWillEnterForeground(_ application: UIApplication) { }
-  
-  func applicationDidBecomeActive(_ application: UIApplication) { }
-  
-  func applicationWillTerminate(_ application: UIApplication) { }
 }

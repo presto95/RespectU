@@ -14,7 +14,7 @@ final class MissionTechnika3TableViewController: MissionBaseTableViewController 
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    results = MissionInfo.fetch(of: Series.technika3)
+    results = MissionInfo.fetch(bySeries: .technika3)
   }
 }
 

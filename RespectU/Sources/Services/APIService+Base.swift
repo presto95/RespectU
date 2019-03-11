@@ -94,7 +94,7 @@ protocol APIServiceType: class {
   /// Requests sign up.
   ///
   /// - Parameters:
-  ///   - id:         The id of an user
+  ///   - id:         The id of an user.
   ///   - password:   The password of an user.
   ///   - nickname:   The nickname of an user.
   ///   - completion: The completion handler.
@@ -193,7 +193,6 @@ extension APIServiceType {
       return (nil, error)
     }
   }
-
 }
 
 

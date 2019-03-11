@@ -144,7 +144,6 @@
 		832BAB1A651DC131F7DD567512C8F754 /* SignInTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */; };
 		EE71722AABACD4B3CA0F4730F95231FF /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */; };
 		40A958056F42EC3D295722454F5129D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */; };
-		106A7A9A8EA4187880DC10E76AE24AB3 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */; };
 		E63A464BD8F09B2C3DC2B77F582DCF15 /* SkillLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */; };
 		93A2A616DC091EC01FE19DF5A8228554 /* SkillLevelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC69B55FC64D7C31A86A33852EAB0AC /* SkillLevelCell.swift */; };
 		4D93915A70FFA3B0270461492B3EDBCD /* SkillLevelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58F94B11D0652E774E5A75E6FC9875E3 /* SkillLevelCell.xib */; };
@@ -375,7 +374,6 @@
 		C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTextField.swift; sourceTree = "<group>"; };
 		423FC743627303AF97314223CD2F8B7B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D774FFC53CC59564C3B6E8255A6FDE76 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		3FAFF4A05D2722646FFDB1A59C751CA5 /* SkillLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevel.swift; sourceTree = "<group>"; };
 		2AC69B55FC64D7C31A86A33852EAB0AC /* SkillLevelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillLevelCell.swift; sourceTree = "<group>"; };
 		58F94B11D0652E774E5A75E6FC9875E3 /* SkillLevelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SkillLevelCell.xib; sourceTree = "<group>"; };
@@ -856,7 +854,6 @@
 		F52F1EEA1BCB911FDF2367C055D146A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				83F4D29C4DA78253D6E3D1D622904D15 /* Skill.swift */,
 				BBC86C6F0F8F435FA71C29C5A32617CF /* Utils.swift */,
 			);
 			path = Utils;
@@ -1192,7 +1189,6 @@
 				832BAB1A651DC131F7DD567512C8F754 /* SignInTextField.swift in Sources */,
 				EE71722AABACD4B3CA0F4730F95231FF /* SignInViewController.swift in Sources */,
 				40A958056F42EC3D295722454F5129D2 /* SignUpViewController.swift in Sources */,
-				106A7A9A8EA4187880DC10E76AE24AB3 /* Skill.swift in Sources */,
 				E63A464BD8F09B2C3DC2B77F582DCF15 /* SkillLevel.swift in Sources */,
 				93A2A616DC091EC01FE19DF5A8228554 /* SkillLevelCell.swift in Sources */,
 				14A9C0F1784C4EFB020D45285772036C /* SkillLevelDetailView.swift in Sources */,

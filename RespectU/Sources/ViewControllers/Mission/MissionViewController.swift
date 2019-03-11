@@ -28,7 +28,9 @@ class MissionViewController: BaseViewController {
   
   private lazy var technika3TableViewController = MissionTechnika3TableViewController()
   
-  lazy var missionViewControllers: [MissionBaseTableViewController] = {
+  override func viewControllers(
+    for pagerTabStripController: PagerTabStripViewController
+  ) -> [UIViewController] {
     return [
       respectTableViewController,
       trilogyTableViewController,
@@ -39,17 +41,9 @@ class MissionViewController: BaseViewController {
       linkDiskTableViewController,
       technika3TableViewController
     ]
-  }()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
   }
   
-  override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-    return missionViewControllers
-  }
-  
-  @IBAction func touchUpCancelButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
 }

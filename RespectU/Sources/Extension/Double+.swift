@@ -10,5 +10,6 @@ import Foundation
 
 extension Double {
   
+  /// The natural constant.
   static let naturalConstant = 2.71828
 }

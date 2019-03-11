@@ -11,9 +11,6 @@ import UIKit
 /// The mission detail view controller.
 final class MissionDetailViewController: UIViewController {
   
-  /// The passed mission information.
-  var missionInfo: MissionInfo!
-  
   /// The `enum` defines constants.
   private enum Constant {
     
@@ -23,6 +20,11 @@ final class MissionDetailViewController: UIViewController {
     /// `RANDOM`.
     static let random = "RANDOM"
   }
+  
+  // MARK: Property
+  
+  /// The passed mission information.
+  var missionInfo: MissionInfo!
   
   /// The boolean value indicating whether the first song exists.
   var isSong1Exists: Bool {
@@ -150,6 +152,8 @@ final class MissionDetailViewController: UIViewController {
   /// The reward label.
   @IBOutlet private weak var rewardLabel: UILabel!
   
+  // MARK: Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setVisibilityOfSubviews()
@@ -217,9 +221,13 @@ final class MissionDetailViewController: UIViewController {
   }
 }
 
+// MARK: - Private Method
+
 extension MissionDetailViewController {
   
-  /// 더보기 버튼 눌렀을 때 UIAlertController 띄우기
+  /// Presents alert that presenting more information.
+  ///
+  /// - Parameter stageInfo: The stage information about the mission.
   private func presentMoreAlert(_ stageInfo: MissionStageInfo?) {
     guard let englishTitle = stageInfo?.title?.english,
       let localizedTitle = stageInfo?.localizedTitle,
@@ -281,7 +289,7 @@ extension MissionDetailViewController {
     }
   }
   
-  /// 뷰들의 가시성 초기 설정
+  /// Sets visibility of subviews.
   private func setVisibilityOfSubviews() {
     if !isSong1Exists {
       song1ButtonLabel.isHidden = true

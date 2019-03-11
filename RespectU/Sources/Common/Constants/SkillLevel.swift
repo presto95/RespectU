@@ -98,7 +98,7 @@ enum SkillLevel: String, CaseIterable {
   /// THE DJMAX.
   case theDjmax = "✨THE DJMAX"
   
-  /// Skill levels of 4 button mode.
+  /// The skill levels of 4 button mode.
   static let button4SkillLevels: [SkillLevel] = [
     .beginner,
     .amateur4,
@@ -130,7 +130,7 @@ enum SkillLevel: String, CaseIterable {
     .theDjmax
   ]
   
-  /// Skill levels of 5 button mode.
+  /// The skill levels of 5 button mode.
   static let button5SkillLevels: [SkillLevel] = [
     .beginner,
     .amateur4,
@@ -162,7 +162,7 @@ enum SkillLevel: String, CaseIterable {
     .theDjmax
   ]
   
-  /// Skill levels of 6 and 8 button mode.
+  /// The skill levels of 6 and 8 button mode.
   static let button6And8SkillLevels: [SkillLevel] = [
     .beginner,
     .amateur4,

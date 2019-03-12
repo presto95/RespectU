@@ -10,30 +10,32 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
   
-  @IBOutlet weak var idTextField: SignInTextField!
+  private let apiService: APIServiceType = APIService()
   
-  @IBOutlet weak var passwordTextField: SignInTextField!
+  @IBOutlet private weak var idTextField: SignInTextField!
   
-  @IBOutlet weak var nicknameTextField: SignInTextField!
+  @IBOutlet private weak var passwordTextField: SignInTextField!
   
-  @IBOutlet weak var signUpButton: UIButton!
+  @IBOutlet private weak var nicknameTextField: SignInTextField!
   
-  var entersAll: Bool {
+  @IBOutlet private weak var signUpButton: UIButton!
+  
+  private var isAllTextFieldsEntered: Bool {
     guard let isIdTextFieldEmpty = idTextField.text?.isEmpty else { return true }
     guard let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty else { return true }
     guard let isNicknameTextFieldEmpty = nicknameTextField.text?.isEmpty else { return true }
     return !(isIdTextFieldEmpty || isPasswordTextFieldEmpty || isNicknameTextFieldEmpty)
   }
   
-  var id: String {
+  private var id: String {
     return idTextField.text ?? ""
   }
   
-  var password: String {
+  private var password: String {
     return passwordTextField.text ?? ""
   }
   
-  var nickname: String {
+  private var nickname: String {
     return nicknameTextField.text ?? ""
   }
   
@@ -42,65 +44,70 @@ final class SignUpViewController: UIViewController {
     setup()
   }
   
-  func setup() {
-    idTextField.placeholder = "ID".localized
-    passwordTextField.placeholder = "Password".localized
-    nicknameTextField.placeholder = "Nickname".localized
-    signUpButton.setTitle("Sign Up".localized, for: [])
-    signUpButton.addTarget(self, action: #selector(didTouchUpSignUpButton(_:)), for: .touchUpInside)
-    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTouchUpSuperview(_:)))
-    view.addGestureRecognizer(tapGestureRecognizer)
+  private func setup() {
+    idTextField.placeholder = L10n.id
+    passwordTextField.placeholder = L10n.password
+    nicknameTextField.placeholder = L10n.nickname
+    signUpButton.setTitle(L10n.signUp, for: [])
+    signUpButton.addTarget(self, action: #selector(signUpButtonDidTap(_:)), for: .touchUpInside)
+    view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                     action: #selector(superViewDidTap(_:))))
   }
   
-  @IBAction func didTouchUpPreviousButton(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+  @IBAction func backButtonDidTap(_ sender: UIButton) {
+    navigationController?.popViewController(animated: true)
   }
-}
-
-extension SignUpViewController {
   
-  @objc func didTouchUpSuperview(_ recognizer: UIGestureRecognizer) {
+  @objc private func superViewDidTap(_ recognizer: UIGestureRecognizer) {
     self.view.endEditing(true)
   }
   
-  @objc func didTouchUpSignUpButton(_ sender: UIButton) {
-    if entersAll {
-      APIService.requestSignUp(id: id, password: password, nickname: nickname) { statusCode, error in
-        if let error = error {
-          UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
-          return
-        }
-        guard let statusCode = statusCode else { return }
-        let message: String
-        var isRegistered: Bool = false
-        if statusCode == 201 {
-          message = "Success".localized
-        } else if statusCode == 409 {
-          message = "It is registered.".localized
-          isRegistered = true
-        } else {
-          message = ""
-        }
-        DispatchQueue.main.async {
-          UIAlertController
-            .alert(title: "", message: message)
-            .action(title: "OK".localized) { [weak self] _ in
-              if !isRegistered {
-                self?.navigationController?.popViewController(animated: true)
-              }
-            }
-            .present(to: self)
-        }
-        
+  @objc private func signUpButtonDidTap(_ sender: UIButton) {
+    if isAllTextFieldsEntered {
+      apiService
+        .requestSignUp(id: id,
+                       password: password,
+                       nickname: nickname) { [weak self] statusCode, error in
+                        guard let self = self else { return }
+                        if let error = error {
+                          self.present(UIAlertController.makeErrorAlert(error),
+                                       animated: true,
+                                       completion: nil)
+                          return
+                        }
+                        guard let statusCode = statusCode else { return }
+                        let message: String
+                        var isRegistered: Bool = false
+                        if statusCode == 201 {
+                          message = L10n.success
+                        } else if statusCode == 409 {
+                          message = L10n.itIsRegistered
+                          isRegistered = true
+                        } else {
+                          message = ""
+                        }
+                        DispatchQueue.main.async {
+                          UIAlertController
+                            .alert(title: "", message: message)
+                            .action(title: L10n.ok) { [weak self] _ in
+                              if !isRegistered {
+                                self?.navigationController?.popViewController(animated: true)
+                              }
+                            }
+                            .present(to: self)
+                        }
+                        
       }
     } else {
       UIAlertController
-        .alert(title: "", message: "Enter All.".localized)
-        .action(title: "OK".localized)
+        .alert(title: "", message: L10n.enterAll)
+        .action(title: L10n.ok)
         .present(to: self)
     }
   }
 }
+
+// MARK: - Conforming UITextFieldDelegate
 
 extension SignUpViewController: UITextFieldDelegate {
   

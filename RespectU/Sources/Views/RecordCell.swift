@@ -8,11 +8,14 @@
 
 import UIKit
 
+/// The record table view cell.
 final class RecordCell: UITableViewCell {
   
-  @IBOutlet weak var colorLabel: UILabel!
+  /// The color label representing the series.
+  @IBOutlet private weak var colorLabel: UILabel!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
   lazy var labels: [UILabel] = {
     return [colorLabel, titleLabel]
@@ -20,15 +23,20 @@ final class RecordCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
+  }
+  
+  /// Configures initial settings.
+  private func setup() {
     colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
     colorLabel.layer.masksToBounds = true
   }
   
-  func configure(_ object: SongInfo?) {
-    guard let object = object else { return }
-    let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
+  func configure(with songInfo: SongInfo?) {
+    guard let songInfo = songInfo else { return }
+    let gradient = songInfo.series.seriesGradient(.vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)
-    titleLabel.text = object.localizedTitle
+    titleLabel.text = songInfo.localizedTitle
   }
 }

@@ -10,47 +10,67 @@ import UIKit
 
 import RealmSwift
 
+/// The skill level detail view controller.
 final class SkillLevelDetailViewController: UIViewController {
   
-  @IBOutlet weak var button4BackgroundView: UIView!
+  /// The background view for the 4B.
+  @IBOutlet private weak var button4BackgroundView: UIView!
   
-  @IBOutlet weak var button5BackgroundView: UIView!
+  /// The background view for the 5B.
+  @IBOutlet private weak var button5BackgroundView: UIView!
   
-  @IBOutlet weak var button6BackgroundView: UIView!
+  /// The background view for the 6B.
+  @IBOutlet private weak var button6BackgroundView: UIView!
   
-  @IBOutlet weak var button8BackgroundView: UIView!
-  
-  private let skillLevelDetailView = "SkillLevelDetailView"
+  /// The background view for the 8B.
+  @IBOutlet private weak var button8BackgroundView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    guard let button4View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
-    guard let button5View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
-    guard let button6View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
-    guard let button8View = UIView.instantiateFromXib(xibName: skillLevelDetailView) as? SkillLevelDetailView else { return }
+    configure()
+  }
+  
+  private func configure() {
+    guard let button4View
+      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      else { return }
+    guard let button5View
+      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      else { return }
+    guard let button6View
+      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      else { return }
+    guard let button8View
+      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      else { return }
     let recordViews = [button4View, button5View, button6View, button8View]
-    let backgroundViews = [button4BackgroundView!, button5BackgroundView!, button6BackgroundView!, button8BackgroundView!]
-    let buttons = [Button.button4, Button.button5, Button.button6, Button.button8]
-    for index in 0..<recordViews.count {
+    let backgroundViews = [
+      button4BackgroundView,
+      button5BackgroundView,
+      button6BackgroundView,
+      button8BackgroundView
+      ].compactMap { $0 }
+    let buttons: [Button] = [.button4, .button5, .button6, .button8]
+    recordViews.indices.forEach { index in
       let recordView = recordViews[index]
       let backgroundView = backgroundViews[index]
       recordView.frame.size = backgroundView.bounds.size
       backgroundView.addSubview(recordView)
-      recordView.configure(button: buttons[index])
+      recordView.configure(with: buttons[index])
     }
   }
   
-  @IBAction func didTouchUpShareButton(_ sender: UIButton) {
-    let bounds = UIScreen.main.bounds
-    UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
-    self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+  @IBAction func shareButtonDidTap(_ sender: UIButton) {
+    UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, true, 0.0)
+    view.drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates: false)
     guard let img = UIGraphicsGetImageFromCurrentImageContext() else { return }
     UIGraphicsEndImageContext()
-    let activityViewController = UIActivityViewController(activityItems: [img], applicationActivities: nil)
-    self.present(activityViewController, animated: true, completion: nil)
+    let activityViewController = UIActivityViewController(activityItems: [img],
+                                                          applicationActivities: nil)
+    present(activityViewController, animated: true, completion: nil)
   }
   
-  @IBAction func didTouchUpCancelButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
 }

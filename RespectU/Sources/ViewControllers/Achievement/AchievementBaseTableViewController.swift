@@ -70,7 +70,7 @@ extension AchievementBaseTableViewController {
     let count = self.results?.count ?? 0
     if rowIndex < count {
       let object = self.results?[rowIndex]
-      cell.configure(object, isAll: isAll)
+      cell.configure(with: object, isAll: isAll)
     }
     return cell
   }

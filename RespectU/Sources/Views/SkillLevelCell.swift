@@ -56,36 +56,37 @@ final class SkillLevelCell: UITableViewCell {
     moreButton.addTarget(self, action: #selector(moreButtonDidTap(_:)), for: .touchUpInside)
   }
   
-  func setProperties(_ button: Button, max: Double, myRecord: (sum: Double, highestSeries: String)) {
-    let mySkillPointSum = myRecord.sum
-    let myHighestSeries = myRecord.highestSeries
-    let seriesColor = myHighestSeries.seriesColor ?? .clear
+  func configure(inButton button: Button, max: Double, record: (Double, Series?)) {
+    let totalSkillPoint = record.0
+    let highestSeries = record.1
+    let colorOfSeries = highestSeries?.color ?? .clear
     gauge.maxValue = CGFloat(max)
-    gauge.rate = CGFloat(mySkillPointSum)
-    gauge.startColor = seriesColor
-    gauge.bgColor = seriesColor
-    skillPointLabel.text = "\((mySkillPointSum * 100).rounded() / 100) " + "Point".localized
-    skillLevelLabel.text = {
-      switch button {
-      case Button.button4:
-        return Skill.button4SkillLevel(mySkillPointSum)
-      case Button.button5:
-        return Skill.button5SkillLevel(mySkillPointSum)
-      case Button.button6, Button.button8:
-        return Skill.button6And8SkillLevel(mySkillPointSum)
-      default:
-        return nil
-      }
-    }()
-    nextLevelLabel.text = Skill.nextSkillLevel(of: self.skillLevelLabel.text ?? "", button: button)
-    percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / max)
+    gauge.rate = CGFloat(totalSkillPoint)
+    gauge.startColor = colorOfSeries
+    gauge.endColor = colorOfSeries
+    skillPointLabel.text = "\((totalSkillPoint * 100).rounded() / 100) \(L10n.point)"
+    let skillLevel: String?
+    switch button {
+    case .button4:
+      skillLevel = Utils.button4SkillLevel(of: totalSkillPoint)?.rawValue
+    case .button5:
+      skillLevel = Utils.button5SkillLevel(of: totalSkillPoint)?.rawValue
+    case .button6, .button8:
+      skillLevel = Utils.button6And8SkillLevel(of: totalSkillPoint)?.rawValue
+    default:
+      skillLevel = nil
+    }
+    skillLevelLabel.text = skillLevel
+    let skillLevelEnum = SkillLevel(rawValue: skillLevel ?? "") ?? .beginner
+    nextLevelLabel.text = Utils.nextSkillLevel(of: skillLevelEnum, in: button)?.rawValue
+    percentLabel.text = String(format: "%05.2f%%", totalSkillPoint * 100 / max)
   }
-  
-  @objc func top50ButtonDidTap(_ sender: UIButton) {
+
+  @objc private func top50ButtonDidTap(_ sender: UIButton) {
     delegate?.skillLevelCell(self, didTapTop50Button: sender)
   }
   
-  @objc func moreButtonDidTap(_ sender: UIButton) {
+  @objc private func moreButtonDidTap(_ sender: UIButton) {
     delegate?.skillLevelCell(self, didTapMoreButton: sender)
   }
 }

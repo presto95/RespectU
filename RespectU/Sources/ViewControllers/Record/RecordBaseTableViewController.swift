@@ -135,69 +135,77 @@ extension RecordBaseTableViewController {
   }
 }
 
+// MARK: - Conforming RecordViewDelegate
+
 extension RecordBaseTableViewController: RecordViewDelegate {
   
-  func didTouchUpTypeButton(_ sender: UIButton) {
+  func recordView(_ view: RecordView, didTapTypeButton button: UIButton) {
     let button = (sender.title(for: .normal) ?? Button.button4).lowercased()
     guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
-                                #keyPath(NewRecordInfo.title.english),
+                                #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
     guard let object = recordResults?.filter(predicate).first else { return }
     recordView.changeButtonProperties(object, button: button)
   }
   
-  func presentRankAlert(difficulty: String, button: String) {
+  func recordView(_ view: RecordView, didTapCancelButton button: UIButton) {
+    dismissRecordViewIfExists()
+    deselectTableViewIfSelected()
+    
+  }
+  
+  func recordView(_ view: RecordView, didTapRankRecordButton button: UIButton, inDifficulty difficulty: Difficulty, inCurrentButton currentButton: Button) {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
-                                #keyPath(NewRecordInfo.title.english),
+                                #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
-    guard let object = self.recordResults?.filter(predicate).first else { return }
+    guard let object = recordResults?.filter(predicate).first else { return }
     UIAlertController
-      .alert(title: "Rank".localized, message: "Select the rank.".localized)
+      .alert(title: L10n.rank, message: L10n.selectTheRank)
       .action(title: "-") { [weak self] _ in
         self?.setRank(object, rank: Rank.none, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(title: Rank.s) { [weak self] _ in
+      .action(title: Rank.s.rawValue.uppercased()) { [weak self] _ in
         self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(title: Rank.a) { [weak self] _ in
+      .action(title: Rank.a.rawValue.uppercased()) { [weak self] _ in
         self?.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(title: Rank.b) { [weak self] _ in
+      .action(title: Rank.b.rawValue.uppercased()) { [weak self] _ in
         self?.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(title: Rank.c) { [weak self] _ in
+      .action(title: Rank.c.rawValue.uppercased()) { [weak self] _ in
         self?.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(.cancel, title: "Cancel".localized)
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  func presentRateAlert(difficulty: String, button: String) {
+  func recordView(_ view: RecordView, didTapRatingRecordButton button: UIButton, inDifficulty difficulty: Difficulty, inCurrentButton currentButton: Button) {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
-                                #keyPath(NewRecordInfo.title.english),
+                                #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
     guard let object = recordResults?.filter(predicate).first else { return }
     let message = """
     Enter the rate.\nTo reset the value, do not enter any values.
     """
     let alert = UIAlertController
-      .alert(title: "Rate".localized, message: message.localized)
+      .alert(title: L10n.rate, message: message.localized)
     alert.textField { (textField) in
       textField.keyboardType = .decimalPad
-      textField.placeholder = "Rate".localized
+      textField.placeholder = L10n.rate
       }
-      .action(title: "OK".localized) { [weak self] _ in
+      .action(title: L10n.ok) { [weak self] _ in
         let input = alert.textFields?.first?.text ?? ""
         if input.isEmpty {
           self?.setRate(object, rate: 0, difficulty: difficulty, button: button)
@@ -225,11 +233,11 @@ extension RecordBaseTableViewController: RecordViewDelegate {
           self?.presentNoteAlert(difficulty: difficulty, button: button)
         }
       }
-      .action(.cancel, title: "Cancel".localized)
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  func presentNoteAlert(difficulty: String, button: String) {
+  func recordView(_ view: RecordView, didTapNoteRecordButton button: UIButton, inDifficulty difficulty: Difficulty, inCurrentButton currentButton: Button) {
     guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
     guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), songResult.title?.english ?? "")
@@ -250,89 +258,94 @@ extension RecordBaseTableViewController: RecordViewDelegate {
         self?.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(.cancel, title: "Cancel".localized)
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
-  }
-  
-  func didTouchUpCancelButton() {
-    dismissRecordViewIfExists()
-    deselectTableViewIfSelected()
   }
 }
 
-extension RecordBaseTableViewController {
+// MARK: - Private Method
+
+private extension RecordBaseTableViewController {
   
-  private func setRank(_ object: RecordInfo, rank: String, difficulty: String, button: String) {
-    guard let buttonExpansion = button.buttonExpansion else { return }
-    let keyPath = "\(buttonExpansion).\(difficulty).rank"
-    RecordInfo.update(object, with: [keyPath: rank])
+  func setRank(_ rank: Rank,
+               with recordInfo: RecordInfo,
+               inDifficulty difficulty: Difficulty,
+               inButton button: Button) {
+    let keyPath = "\(button.expansion ?? "").\(difficulty.rawValue).rank"
+    RecordInfo.update(recordInfo, with: [keyPath: rank.rawValue.uppercased()])
   }
   
-  private func setRate(_ object: RecordInfo, rate: Double, difficulty: String, button: String) {
-    guard let buttonExpansion = button.buttonExpansion else { return }
-    let keyPath = "\(buttonExpansion).\(difficulty).rate"
-    RecordInfo.update(object, with: [keyPath: rate])
-    setSkillPoint(object, button: button)
-    recordView.updateRankingAndSkillPointLabel(object, button: button)
+  func setRating(_ rating: Double,
+                 with recordInfo: RecordInfo,
+                 inDifficulty difficulty: Difficulty,
+                 inButton button: Button) {
+    let keyPath = "\(button.expansion ?? "").\(difficulty.rawValue).rate"
+    RecordInfo.update(recordInfo, with: [keyPath: rating])
+    updateSkillPoint(with: recordInfo, inButton: button)
+    recordView.updateRankingAndSkillPointLabel(with: recordInfo, inButton: button)
   }
   
-  private func setNote(_ object: RecordInfo, note: String, difficulty: String, button: String) {
-    guard let buttonExpansion = button.buttonExpansion else { return }
-    let keyPath = "\(buttonExpansion).\(difficulty).note"
-    RecordInfo.update(object, with: [keyPath: note])
-    setSkillPoint(object, button: button)
-    recordView.updateRankingAndSkillPointLabel(object, button: button)
+  func setNote(_ note: Note,
+               with recordInfo: RecordInfo,
+               inDifficulty difficulty: Difficulty,
+               inButton button: Button) {
+    let keyPath = "\(button.expansion ?? "").\(difficulty.rawValue).note"
+    RecordInfo.update(recordInfo, with: [keyPath: note.rawValue])
+    updateSkillPoint(with: recordInfo, inButton: button)
+    recordView.updateRankingAndSkillPointLabel(with: recordInfo, inButton: button)
   }
   
-  private func setSkillPoint(_ object: RecordInfo, button: String) {
-    guard let buttonExpansion = button.buttonExpansion else { return }
+  func updateSkillPoint(with recordInfo: RecordInfo, inButton button: Button) {
     guard let recordButtonKeyPath
-      = object.value(forKeyPath: buttonExpansion) as? NewRecordButtonInfo else { return }
+      = recordInfo.value(forKeyPath: button.expansion ?? "") as? RecordButtonInfo
+      else { return }
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(SongInfo.title.english),
-                                object.title?.english ?? "")
+                                recordInfo.title?.english ?? "")
     guard let songResult = tempSongResults?.filter(predicate).first else { return }
-    guard let songButtonKeyPath = songResult.value(forKeyPath: buttonExpansion) as? SongButtonInfo
+    guard let songButtonKeyPath
+      = songResult.value(forKeyPath: button.expansion ?? "") as? SongButtonInfo
       else { return }
-    let normal = Skill.skillPoint(difficulty: songButtonKeyPath.normal,
-                                  rate: recordButtonKeyPath.normal?.rate,
-                                  note: recordButtonKeyPath.normal?.note)
-    let hard = Skill.skillPoint(difficulty: songButtonKeyPath.hard,
-                                rate: recordButtonKeyPath.hard?.rate,
-                                note: recordButtonKeyPath.hard?.note)
-    let maximum = Skill.skillPoint(difficulty: songButtonKeyPath.maximum,
-                                   rate: recordButtonKeyPath.maximum?.rate,
-                                   note: recordButtonKeyPath.maximum?.note)
-    guard let max = [normal, hard, maximum].sorted().last else { return }
-    RecordInfo.update(object, with: ["\(buttonExpansion).skillPoint": max])
-    switch max {
-    case normal:
-      RecordInfo.update(object, with: [
-        "\(buttonExpansion).skillPointDifficulty": Difficulty.normal,
-        "\(buttonExpansion).skillPointRate": recordButtonKeyPath.normal?.rate ?? 0,
-        "\(buttonExpansion).skillPointNote": recordButtonKeyPath.normal?.note ?? ""
+    let normalSkillPoint = Utils
+      .skillPoint(difficulty: songButtonKeyPath.normal,
+                  rate: recordButtonKeyPath.normal?.rate,
+                  note: Note(rawValue: recordButtonKeyPath.normal?.note ?? "") ?? .none)
+    let hardSkillPoint = Utils
+      .skillPoint(difficulty: songButtonKeyPath.hard,
+                  rate: recordButtonKeyPath.hard?.rate,
+                  note: Note(rawValue: recordButtonKeyPath.hard?.note ?? "") ?? .none)
+    let maximumSkillPoint = Utils
+      .skillPoint(difficulty: songButtonKeyPath.maximum,
+                  rate: recordButtonKeyPath.maximum?.rate,
+                  note: Note(rawValue: recordButtonKeyPath.maximum?.note ?? "") ?? .none)
+    guard let skillPoint = [normalSkillPoint, hardSkillPoint, maximumSkillPoint].sorted().last
+      else { return }
+    RecordInfo.update(recordInfo, with: ["\(button.expansion ?? "").skillPoint": skillPoint])
+    switch skillPoint {
+    case normalSkillPoint:
+      RecordInfo.update(recordInfo, with: [
+        "\(button.expansion ?? "").skillPointDifficulty": Difficulty.normal.rawValue,
+        "\(button.expansion ?? "").skillPointRate": recordButtonKeyPath.normal?.rate ?? 0,
+        "\(button.expansion ?? "").skillPointNote": recordButtonKeyPath.normal?.note ?? ""
         ])
-    case hard:
-      RecordInfo.update(object, with: [
-        "\(buttonExpansion).skillPointDifficulty": Difficulty.hard,
-        "\(buttonExpansion).skillPointRate": recordButtonKeyPath.hard?.rate ?? 0,
-        "\(buttonExpansion).skillPointNote": recordButtonKeyPath.hard?.note ?? ""
+    case hardSkillPoint:
+      RecordInfo.update(recordInfo, with: [
+        "\(button.expansion ?? "").skillPointDifficulty": Difficulty.hard.rawValue,
+        "\(button.expansion ?? "").skillPointRate": recordButtonKeyPath.hard?.rate ?? 0,
+        "\(button.expansion ?? "").skillPointNote": recordButtonKeyPath.hard?.note ?? ""
         ])
-    case maximum:
-      RecordInfo.update(object, with: [
-        "\(buttonExpansion).skillPointDifficulty": Difficulty.maximum,
-        "\(buttonExpansion).skillPointRate": recordButtonKeyPath.maximum?.rate ?? 0,
-        "\(buttonExpansion).skillPointNote": recordButtonKeyPath.maximum?.note ?? ""
+    case maximumSkillPoint:
+      RecordInfo.update(recordInfo, with: [
+        "\(button.expansion ?? "").skillPointDifficulty": Difficulty.maximum.rawValue,
+        "\(button.expansion ?? "").skillPointRate": recordButtonKeyPath.maximum?.rate ?? 0,
+        "\(button.expansion ?? "").skillPointNote": recordButtonKeyPath.maximum?.note ?? ""
         ])
     default:
       break
     }
   }
-}
-
-extension RecordBaseTableViewController {
   
-  private func dismissRecordViewIfExists() {
+  func dismissRecordViewIfExists() {
     let lastSubview = recordViewController.view.subviews.last
     if lastSubview is RecordView {
       lastSubview?.removeFromSuperview()
@@ -340,8 +353,7 @@ extension RecordBaseTableViewController {
     }
   }
   
-  private func deselectTableViewIfSelected() {
-    
+  func deselectTableViewIfSelected() {
     if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
       guard let cell = tableView.cellForRow(at: selectedIndexPath) as? RecordCell else { return }
       tableView.deselectRow(at: selectedIndexPath, animated: true)

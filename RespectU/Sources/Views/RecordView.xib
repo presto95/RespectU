@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,7 +94,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Tjm-mC-64A"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="Tjm-mC-64A"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvc-ZE-hRu">
@@ -114,7 +110,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="nqd-Ma-Ou3"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="nqd-Ma-Ou3"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-Hk-1KC">
@@ -130,7 +126,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="EQS-PX-xrK"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="EQS-PX-xrK"/>
                             </connections>
                         </button>
                     </subviews>
@@ -151,7 +147,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="ORT-Et-kVe"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="ORT-Et-kVe"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO8-6c-8L8">
@@ -167,7 +163,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="HH9-WX-vD9"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="HH9-WX-vD9"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFb-9T-Wfx">
@@ -183,7 +179,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jno-NA-MtM"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="Jno-NA-MtM"/>
                             </connections>
                         </button>
                     </subviews>
@@ -198,7 +194,7 @@
                         <color key="titleColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="didTouchUpTypeButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="ema-of-ncd"/>
+                        <action selector="typeButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="ema-of-ncd"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiC-fL-VqD">
@@ -212,7 +208,7 @@
                         <color key="titleColor" red="0.90814238790000001" green="0.63452833890000004" blue="0.2066799104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="didTouchUpCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="X2w-LB-0lg"/>
+                        <action selector="cancelButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="X2w-LB-0lg"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스킬 포인트 : 210.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnL-eT-IcP">
@@ -273,7 +269,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="xUX-ZI-835"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="xUX-ZI-835"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcF-Qd-Qic">
@@ -289,7 +285,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="TiY-KQ-xI7"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="TiY-KQ-xI7"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzb-wZ-jhp">
@@ -305,7 +301,7 @@
                                 <color key="titleColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpOtherButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sef-Rg-Y9v"/>
+                                <action selector="recordButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="Sef-Rg-Y9v"/>
                             </connections>
                         </button>
                     </subviews>
@@ -353,15 +349,15 @@
                 <outlet property="hardLabel" destination="bbO-HZ-SrZ" id="0HR-Nx-lSm"/>
                 <outlet property="hardNoteButton" destination="tO8-6c-8L8" id="vNn-Mh-cps"/>
                 <outlet property="hardRankButton" destination="rvc-ZE-hRu" id="9xt-p5-fHR"/>
-                <outlet property="hardRateButton" destination="ZcF-Qd-Qic" id="bMm-EN-75j"/>
+                <outlet property="hardRatingButton" destination="ZcF-Qd-Qic" id="bMm-EN-75j"/>
                 <outlet property="maximumLabel" destination="w22-Jl-2eo" id="dmR-Co-QS9"/>
                 <outlet property="maximumNoteButton" destination="QFb-9T-Wfx" id="mdb-6c-6cK"/>
                 <outlet property="maximumRankButton" destination="ZMK-Hk-1KC" id="Cqx-sk-XpD"/>
-                <outlet property="maximumRateButton" destination="Lzb-wZ-jhp" id="29j-LZ-aWc"/>
+                <outlet property="maximumRatingButton" destination="Lzb-wZ-jhp" id="29j-LZ-aWc"/>
                 <outlet property="normalLabel" destination="7cZ-4b-egj" id="sAl-ts-sE7"/>
                 <outlet property="normalNoteButton" destination="F7c-pn-Vk1" id="SKj-U6-xw5"/>
                 <outlet property="normalRankButton" destination="DWH-jG-e7j" id="YCP-53-0la"/>
-                <outlet property="normalRateButton" destination="UC9-Gg-H4p" id="jm6-t2-S4u"/>
+                <outlet property="normalRatingButton" destination="UC9-Gg-H4p" id="jm6-t2-S4u"/>
                 <outlet property="rankingLabel" destination="t3f-up-ilY" id="qNz-0G-JnA"/>
                 <outlet property="skillPointLabel" destination="bnL-eT-IcP" id="ZdP-IF-OLZ"/>
                 <outlet property="titleLabel" destination="czI-hY-l1D" id="XYO-Sj-sPf"/>

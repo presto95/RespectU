@@ -986,7 +986,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="didTouchUpCancelButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="hwh-4H-PK7"/>
+                                    <action selector="cancelButtonDidTap:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="hwh-4H-PK7"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ntk-Rz-Bu3">
@@ -1005,7 +1005,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="shareButton"/>
                                 <connections>
-                                    <action selector="didTouchUpShareButton:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
+                                    <action selector="shareButtonDidTap:" destination="Ihh-mA-zZ6" eventType="touchUpInside" id="Itr-va-vvt"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-WS-1a2">

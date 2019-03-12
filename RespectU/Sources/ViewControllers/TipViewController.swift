@@ -25,8 +25,8 @@ final class TipViewController: UIViewController {
     setupTableView()
   }
   
-  @IBAction func touchUpCancelButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
 }
 

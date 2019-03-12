@@ -8,47 +8,52 @@
 
 import UIKit
 
+/// The search record view controller.
 final class SearchRecordViewController: UIViewController {
   
-  let levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  private let levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
   
-  var selectedButtonIndex: Int = -1
+  private var selectedButtonIndex: Int = -1
   
-  var selectedLevelIndex: Int = -1
+  private var selectedLevelIndex: Int = -1
   
-  var selectedNoteDetailIndex: Int = -1
+  private var selectedNoteDetailIndex: Int = -1
   
-  var selectedMethodIndex: Int = -1
+  private var selectedMethodIndex: Int = -1
   
-  @IBOutlet weak var button4Button: UIButton!
+  @IBOutlet private weak var button4Button: UIButton!
   
-  @IBOutlet weak var button5Button: UIButton!
+  @IBOutlet private weak var button5Button: UIButton!
   
-  @IBOutlet weak var button6Button: UIButton!
+  @IBOutlet private weak var button6Button: UIButton!
   
-  @IBOutlet weak var button8Button: UIButton!
+  @IBOutlet private weak var button8Button: UIButton!
   
-  @IBOutlet weak var searchByLevelButton: UIButton!
+  @IBOutlet private weak var searchByLevelButton: UIButton!
   
-  @IBOutlet weak var searchByRateButton: UIButton!
+  @IBOutlet private weak var searchByRateButton: UIButton!
   
-  @IBOutlet weak var searchByNoteButton: UIButton!
+  @IBOutlet private weak var searchByNoteButton: UIButton!
   
-  @IBOutlet weak var subView: UIView!
+  @IBOutlet private weak var subView: UIView!
   
-  @IBOutlet weak var searchButton: UIButton!
+  @IBOutlet private weak var searchButton: UIButton!
   
-  var buttonButtons = [UIButton?]()
+  private var buttonButtons = [UIButton?]()
   
-  var methodButtons = [UIButton?]()
+  private var methodButtons = [UIButton?]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    searchByLevelButton.setTitle("Level".localized, for: [])
-    searchByRateButton.setTitle("Rate".localized, for: [])
-    searchByNoteButton.setTitle("Note".localized, for: [])
-    searchButton.setTitle("Enter all conditions".localized, for: .disabled)
-    searchButton.setTitle("Search".localized, for: .normal)
+    configure()
+  }
+  
+  private func configure() {
+    searchByLevelButton.setTitle(L10n.level, for: [])
+    searchByRateButton.setTitle(L10n.rate, for: [])
+    searchByNoteButton.setTitle(L10n.note, for: [])
+    searchButton.setTitle(L10n.enterAllConditions, for: .disabled)
+    searchButton.setTitle(L10n.search, for: .normal)
     searchButton.layer.cornerRadius = searchButton.bounds.height / 2
     searchButton.layer.borderColor = UIColor.main.cgColor
     searchButton.layer.borderWidth = 1
@@ -58,7 +63,7 @@ final class SearchRecordViewController: UIViewController {
     initializeMethods()
   }
   
-  @IBAction func didTouchUpSearchButton(_ sender: UIButton) {
+  @IBAction private func searchButtonDidTap(_ sender: UIButton) {
     let controller = StoryboardScene.Performance.searchRecordDetailViewController.instantiate()
     controller.buttonIndex = { () -> Int in
       for index in 0..<4 {
@@ -81,7 +86,7 @@ final class SearchRecordViewController: UIViewController {
     if searchByLevelButton.isSelected {
       controller.levelIndex = selectedLevelIndex
     } else if searchByRateButton.isSelected {
-      guard let rateView = subView.subviews.first as? SearchByRateView else { return }
+      guard let rateView = subView.subviews.first as? SearchByRatingView else { return }
       let lowerRate = Double(rateView.lowerRateTextField.text ?? "") ?? 0
       let upperRate = Double(rateView.upperRateTextField.text ?? "") ?? 0
       controller.lowerRange = lowerRate
@@ -99,13 +104,10 @@ final class SearchRecordViewController: UIViewController {
     self.present(controller, animated: true)
   }
   
-  @IBAction func didTouchUpButtons(_ sender: UIButton) {
+  @IBAction private func buttonsDidTap(_ sender: UIButton) {
     initializeButtons()
     for button in buttonButtons {
       button?.isSelected = false
-      //            UIView.animate(withDuration: 0.3) {
-      //                button.back
-      //            }
     }
     sender.isSelected = true
     UIView.animate(withDuration: 0.3) {
@@ -126,7 +128,7 @@ final class SearchRecordViewController: UIViewController {
     checkValidity()
   }
   
-  @IBAction func didTouchUpMethodButtons(_ sender: UIButton) {
+  @IBAction private func methodButtonDidTap(_ sender: UIButton) {
     let view = subView.subviews.first
     if view is SearchByNoteView {
       selectedNoteDetailIndex = -1
@@ -161,13 +163,13 @@ final class SearchRecordViewController: UIViewController {
     case 1:
       selectedMethodIndex = 1
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByRateView.name) as? SearchByRateView
+        .instantiateFromXib(xibName: SearchByRatingView.name) as? SearchByRatingView
         else { return }
       newView.delegate = self
       newView.lowerRateTextField
-        .addTarget(self, action: #selector(didEndEditing), for: .editingDidEnd)
+        .addTarget(self, action: #selector(ratingTextFieldEditingDidEnd), for: .editingDidEnd)
       newView.upperRateTextField
-        .addTarget(self, action: #selector(didEndEditing), for: .editingDidEnd)
+        .addTarget(self, action: #selector(ratingTextFieldEditingDidEnd), for: .editingDidEnd)
       subView.addSubview(newView)
       newView.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
@@ -183,9 +185,9 @@ final class SearchRecordViewController: UIViewController {
         else { return }
       newView.delegate = self
       newView.noMaxComboButton
-        .addTarget(self, action: #selector(touchUpSearchByNoteButtons), for: .touchUpInside)
+        .addTarget(self, action: #selector(searchByNoteButtonDidTap), for: .touchUpInside)
       newView.perfectPlayButton
-        .addTarget(self, action: #selector(touchUpSearchByNoteButtons), for: .touchUpInside)
+        .addTarget(self, action: #selector(searchByNoteButtonDidTap), for: .touchUpInside)
       subView.addSubview(newView)
       newView.translatesAutoresizingMaskIntoConstraints = false
       NSLayoutConstraint.activate([
@@ -200,18 +202,20 @@ final class SearchRecordViewController: UIViewController {
     checkValidity()
   }
   
-  @IBAction func didTouchUpCancelButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
   }
   
-  @objc func touchUpSearchByNoteButtons(_ sender: UIButton) {
+  @objc private func searchByNoteButtonDidTap(_ sender: UIButton) {
     checkValidity()
   }
   
-  @objc func didEndEditing(_ sender: UITextField) {
+  @objc private func ratingTextFieldEditingDidEnd(_ sender: UITextField) {
     checkValidity()
   }
 }
+
+// MARK: - Conforming UIPickerViewDataSource
 
 extension SearchRecordViewController: UIPickerViewDataSource {
   
@@ -224,21 +228,25 @@ extension SearchRecordViewController: UIPickerViewDataSource {
   }
 }
 
+// MARK: - Conforming UIPickerViewDelegate
+
 extension SearchRecordViewController: UIPickerViewDelegate {
   
   func pickerView(_ pickerView: UIPickerView,
                   titleForRow row: Int,
                   forComponent component: Int) -> String? {
-    return "\(self.levels[row])"
+    return "\(levels[row])"
   }
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    self.selectedLevelIndex = row
+    selectedLevelIndex = row
     checkValidity()
   }
 }
 
-extension SearchRecordViewController: SearchByRateViewDelegate {
+// MARK: - Conforming SearchByRateViewDelegate
+
+extension SearchRecordViewController: SearchByRatingViewDelegate {
   
   func didTouchUpDoneButton(_ textFields: [UITextField]) {
     guard let lowerRateTextField = textFields.first else { return }
@@ -261,6 +269,8 @@ extension SearchRecordViewController: SearchByRateViewDelegate {
   }
 }
 
+// MARK: - Conforming SearchByNoteViewDelegate
+
 extension SearchRecordViewController: SearchByNoteViewDelegate {
   
   func didTouchUpNoteButtons(_ sender: UIButton) {
@@ -275,9 +285,11 @@ extension SearchRecordViewController: SearchByNoteViewDelegate {
   }
 }
 
-extension SearchRecordViewController {
+// MARK: - Private Method
+
+private extension SearchRecordViewController {
   
-  private func initializeButtons() {
+  func initializeButtons() {
     for button in buttonButtons {
       UIView.animate(withDuration: 0.3) {
         button?.backgroundColor = .white
@@ -285,7 +297,7 @@ extension SearchRecordViewController {
     }
   }
   
-  private func initializeMethods() {
+  func initializeMethods() {
     for button in methodButtons {
       UIView.animate(withDuration: 0.3) {
         button?.backgroundColor = .white
@@ -293,7 +305,7 @@ extension SearchRecordViewController {
     }
   }
   
-  private func checkValidity() {
+  func checkValidity() {
     searchButton.isEnabled = false
     let view = subView.subviews.first
     switch view {
@@ -301,8 +313,8 @@ extension SearchRecordViewController {
       if selectedLevelIndex != -1, selectedMethodIndex != -1, selectedButtonIndex != -1 {
         searchButton.isEnabled = true
       }
-    case is SearchByRateView:
-      guard let newView = view as? SearchByRateView else { return }
+    case is SearchByRatingView:
+      guard let newView = view as? SearchByRatingView else { return }
       guard let lowerText = newView.lowerRateTextField.text else { return }
       guard let upperText = newView.upperRateTextField.text else { return }
       guard let lower = Double(lowerText) else { return }

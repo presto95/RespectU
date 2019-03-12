@@ -88,12 +88,12 @@ final class GuideViewController: UIViewController {
   }
   
   /// Tells the `sender` that the back button is tapped.
-  @IBAction func backButtonDidTap(_ sender: UIButton) {
+  @IBAction private func backButtonDidTap(_ sender: UIButton) {
     navigationController?.popViewController(animated: true)
   }
   
   /// Tells the `sender` that the record button is tapped.
-  @IBAction func recordButtonDidTap(_ sender: UIButton) {
+  @IBAction private func recordButtonDidTap(_ sender: UIButton) {
     let controller = StoryboardScene.Record.recordViewController.instantiate()
     present(controller, animated: true)
   }

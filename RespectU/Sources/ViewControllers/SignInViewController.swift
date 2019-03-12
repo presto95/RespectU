@@ -74,7 +74,7 @@ final class SignInViewController: UIViewController {
             UIAlertController
               .alert(title: "", message: L10n.logInSucceeded)
               .action(title: L10n.ok) { _ in
-                KeychainWrapper.standard.set(self.id ?? "", forKey: "id")
+                KeychainWrapper.standard.set(self.id, forKey: "id")
                 DispatchQueue.main.async {
                   if self.presentingViewController is UINavigationController {
                     self.dismiss(animated: true, completion: nil)

@@ -60,7 +60,7 @@ final class SkillLevelDetailViewController: UIViewController {
     }
   }
   
-  @IBAction func shareButtonDidTap(_ sender: UIButton) {
+  @IBAction private func shareButtonDidTap(_ sender: UIButton) {
     UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, true, 0.0)
     view.drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates: false)
     guard let img = UIGraphicsGetImageFromCurrentImageContext() else { return }
@@ -70,7 +70,7 @@ final class SkillLevelDetailViewController: UIViewController {
     present(activityViewController, animated: true, completion: nil)
   }
   
-  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
 }

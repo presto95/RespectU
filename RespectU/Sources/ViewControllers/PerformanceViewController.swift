@@ -19,6 +19,8 @@ final class PerformanceViewController: UIViewController {
     
   }
   
+  private let apiService: APIServiceType = APIService()
+  
   @IBOutlet private weak var tableView: UITableView!
   
   @IBOutlet private weak var recordButton: UIButton!
@@ -55,7 +57,7 @@ final class PerformanceViewController: UIViewController {
     tableView.reloadData()
   }
   
-  @IBAction func nicknameButtonDidTap(_ sender: UIButton) {
+  @IBAction private func nicknameButtonDidTap(_ sender: UIButton) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if id.isEmpty {
       UIAlertController
@@ -64,33 +66,35 @@ final class PerformanceViewController: UIViewController {
         .present(to: self)
       return
     }
-    let alert = UIAlertController.alert(title: "Nickname Setting".localized, message: "Enter your nickname.".localized)
+    let alert = UIAlertController.alert(title: L10n.nicknameSetting, message: L10n.enterYourNickname)
     alert.textField { textField in
-      textField.placeholder = "Nickname".localized
+      textField.placeholder = L10n.nickname
       }
-      .action(title: "OK".localized) { [unowned self] _ in
+      .action(title: L10n.ok) { [weak self] _ in
         if let input = alert.textFields?.first?.text {
           if !input.isEmpty {
-            API.uploadNickname(id: id, nickname: input, completion: self.didReceiveUploadNickname)
+            apiservice.uploadNickname(id: id, nickname: input, completion: self?.didReceiveUploadNickname)
             let nickname = input.trimmingCharacters(in: .whitespaces)
-            UserDefaults.standard.set(nickname, forKey: "nickname")
-            UserDefaults.standard.synchronize()
-            self.nicknameButton.setTitle(nickname, for: .normal)
+            UserDefaults.standard.do {
+              $0.set(nickname, forKey: "nickname")
+              $0.synchronize()
+            }
+            self?.nicknameButton.setTitle(nickname, for: .normal)
           }
         }
       }
-      .action(.cancel, title: "Cancel".localized)
+      .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  @IBAction func didTouchUpNextButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Guide", identifier: GuideViewController.name) as? GuideViewController else { return }
-    self.navigationController?.pushViewController(controller, animated: true)
+  @IBAction private func nextButtonDidTap(_ sender: UIButton) {
+    let controller = StoryboardScene.Guide.guideViewController.instantiate()
+    navigationController?.pushViewController(controller, animated: true)
   }
   
-  @IBAction func didTouchUpRecordButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Record", identifier: RecordViewController.name) as? RecordViewController else { return }
-    self.present(controller, animated: true)
+  @IBAction private func recordButtonDidTap(_ sender: UIButton) {
+    let controller = StoryboardScene.Record.recordViewController.instantiate()
+    present(controller, animated: true)
   }
 }
 
@@ -100,7 +104,7 @@ private extension PerformanceViewController {
   
   func didReceiveVersions(response: VersionResponse?, error: Error?) {
     if let error = error {
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
@@ -109,15 +113,15 @@ private extension PerformanceViewController {
       DispatchQueue.main.async {
         UIAlertController
           .alert(title: "", message: "New version released!\nPlease use it after updating.".localized)
-          .action(title: "Update".localized, handler: { _ in
+          .action(title: L10n.update) { _ in
             guard let url = URL(string: "itms-apps://itunes.apple.com/app/id1291664067") else { return }
             guard #available(iOS 10, *) else {
               UIApplication.shared.openURL(url)
               return
             }
             UIApplication.shared.open(url, options: [:])
-          })
-          .action(.cancel, title: "Cancel".localized)
+          }
+          .action(title: "Cancel".localized, style: .cancel)
           .present(to: self)
       }
     } else if response.serverVersion != versionInfo.serverVersion {

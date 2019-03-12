@@ -17,10 +17,6 @@ final class RecordCell: UITableViewCell {
   /// The title label.
   @IBOutlet private weak var titleLabel: UILabel!
   
-  lazy var labels: [UILabel] = {
-    return [colorLabel, titleLabel]
-  }()
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     setup()
@@ -34,7 +30,7 @@ final class RecordCell: UITableViewCell {
   
   func configure(with songInfo: SongInfo?) {
     guard let songInfo = songInfo else { return }
-    let gradient = songInfo.series.seriesGradient(.vertical) ?? CAGradientLayer()
+    let gradient = songInfo.seriesEnum?.makeGradient(by: .vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)
     titleLabel.text = songInfo.localizedTitle

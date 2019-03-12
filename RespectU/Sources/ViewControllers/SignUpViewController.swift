@@ -54,7 +54,7 @@ final class SignUpViewController: UIViewController {
                                                      action: #selector(superViewDidTap(_:))))
   }
   
-  @IBAction func backButtonDidTap(_ sender: UIButton) {
+  @IBAction private func backButtonDidTap(_ sender: UIButton) {
     navigationController?.popViewController(animated: true)
   }
   

@@ -28,7 +28,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="vop-kR-Zn5"/>
+                                <action selector="buttonsDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="vop-kR-Zn5"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnz-F5-8OJ" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
@@ -44,7 +44,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="didTouchUpButtons:" destination="iN0-l3-epB" eventType="touchUpInside" id="BhV-pT-9IS"/>
+                                <action selector="buttonsDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="BhV-pT-9IS"/>
                             </connections>
                         </button>
                     </subviews>

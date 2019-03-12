@@ -9,7 +9,10 @@
 import UIKit
 
 protocol SearchByNoteViewDelegate: class {
-  func didTouchUpNoteButtons(_ sender: UIButton)
+  
+  func searchByNoteView(_ view: SearchByNoteView, didTapNoteButton button: UIButton)
+  
+  //func didTouchUpNoteButtons(_ sender: UIButton)
 }
 
 final class SearchByNoteView: UIView {
@@ -22,13 +25,14 @@ final class SearchByNoteView: UIView {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    noMaxComboButton.setTitle("No MAX COMBOs".localized, for: .normal)
-    perfectPlayButton.setTitle("PERFECT PLAYs".localized, for: .normal)
+    noMaxComboButton.setTitle(L10n.noMAXCOMBOs, for: .normal)
+    perfectPlayButton.setTitle(L10n.perfectplaYs, for: .normal)
     initializeButtons()
   }
   
-  @IBAction func didTouchUpButtons(_ sender: UIButton) {
-    delegate?.didTouchUpNoteButtons(sender)
+  @IBAction private func buttonsDidTap(_ sender: UIButton) {
+    delegate?.searchByNoteView(self, didTapNoteButton: sender)
+    //delegate?.didTouchUpNoteButtons(sender)
     initializeButtons()
     noMaxComboButton.isSelected = false
     perfectPlayButton.isSelected = false
@@ -39,9 +43,9 @@ final class SearchByNoteView: UIView {
   }
   
   private func initializeButtons() {
-    UIView.animate(withDuration: 0.3) { [unowned self] in
-      self.noMaxComboButton.backgroundColor = .white
-      self.perfectPlayButton.backgroundColor = .white
+    UIView.animate(withDuration: 0.3) { [weak self] in
+      self?.noMaxComboButton.backgroundColor = .white
+      self?.perfectPlayButton.backgroundColor = .white
     }
   }
 }

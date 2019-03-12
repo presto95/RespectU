@@ -44,7 +44,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="nextButton"/>
                                 <connections>
-                                    <action selector="didTouchUpNextButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="s9J-xO-ZfN"/>
+                                    <action selector="nextButtonDidTap:" destination="hj0-WW-vRs" eventType="touchUpInside" id="s9J-xO-ZfN"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VCU-tv-LQA">
@@ -86,7 +86,7 @@
                                     <color key="titleColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTouchUpRecordButton:" destination="hj0-WW-vRs" eventType="touchUpInside" id="YtC-KX-lNs"/>
+                                    <action selector="recordButtonDidTap:" destination="hj0-WW-vRs" eventType="touchUpInside" id="YtC-KX-lNs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,7 +137,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="didTouchUpCancelButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="UqT-Kk-puX"/>
+                                    <action selector="cancelButtonDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="UqT-Kk-puX"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yjc-5l-UM4">
@@ -160,7 +160,7 @@
                                 </state>
                                 <state key="disabled" title="조건을 모두 입력하세요"/>
                                 <connections>
-                                    <action selector="didTouchUpSearchButton:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b1m-ig-QlE"/>
+                                    <action selector="searchButtonDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b1m-ig-QlE"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z39-WJ-AgN">
@@ -182,7 +182,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
+                                            <action selector="methodButtonDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="uJS-SC-cfy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVD-j5-plt" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
@@ -201,7 +201,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
+                                            <action selector="methodButtonDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="3C0-Vc-hok"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qr-we-q7b" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
@@ -217,7 +217,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpMethodButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="5Of-Q2-SiK"/>
+                                            <action selector="methodButtonDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="5Of-Q2-SiK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -241,7 +241,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="1Y8-qT-f6J"/>
+                                            <action selector="buttonsDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="1Y8-qT-f6J"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dk-OB-QQS" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
@@ -257,7 +257,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="IKP-lz-BzA"/>
+                                            <action selector="buttonsDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="IKP-lz-BzA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfo-BL-3Y0" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
@@ -273,7 +273,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b8K-JZ-Bzz"/>
+                                            <action selector="buttonsDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="b8K-JZ-Bzz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-6L-E83" customClass="RUButton" customModule="RespectU" customModuleProvider="target">
@@ -289,7 +289,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didTouchUpButtons:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="wYL-fV-TKn"/>
+                                            <action selector="buttonsDidTap:" destination="JSl-Vd-FMN" eventType="touchUpInside" id="wYL-fV-TKn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -359,7 +359,7 @@
                                 <color key="tintColor" red="0.90980392160000001" green="0.63529411759999999" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="cancelButton"/>
                                 <connections>
-                                    <action selector="touchUpCancelButton:" destination="wOT-kV-fgf" eventType="touchUpInside" id="8aT-iz-d6r"/>
+                                    <action selector="cancelButtonDidTap:" destination="wOT-kV-fgf" eventType="touchUpInside" id="8aT-iz-d6r"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="respectuColor" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkT-5q-mfu">

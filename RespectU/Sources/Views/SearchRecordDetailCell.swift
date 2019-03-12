@@ -10,28 +10,38 @@ import UIKit
 
 import RealmSwift
 
+/// The search record detail table view cell.
 final class SearchRecordDetailCell: UITableViewCell {
   
-  @IBOutlet weak var colorLabel: UILabel!
+  /// The color label representing the series.
+  @IBOutlet private weak var colorLabel: UILabel!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var difficultyLabel: UILabel!
+  /// The difficulty label.
+  @IBOutlet private weak var difficultyLabel: UILabel!
   
-  @IBOutlet weak var rateLabel: UILabel!
+  /// The rating label.
+  @IBOutlet private weak var ratingLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
+  }
+  
+  private func setup() {
     colorLabel.layer.cornerRadius = colorLabel.bounds.width / 2
     colorLabel.layer.masksToBounds = true
   }
   
-  func setProperties(_ object: SearchRecordDetail) {
-    let gradient = object.series.seriesGradient(.vertical) ?? CAGradientLayer()
+  func configure(with searchRecordDetail: SearchRecordDetail) {
+    let series = Series(rawValue: searchRecordDetail.series) ?? .respect
+    let gradient = series.makeGradient(by: .vertical) ?? CAGradientLayer()
     gradient.frame = colorLabel.bounds
     colorLabel.layer.addSublayer(gradient)
-    titleLabel.text = object.title
-    difficultyLabel.text = object.difficulty.uppercased()
-    rateLabel.text = "\(object.rate)%"
+    titleLabel.text = searchRecordDetail.title
+    difficultyLabel.text = searchRecordDetail.difficulty.uppercased()
+    ratingLabel.text = "\(searchRecordDetail.rate)%"
   }
 }

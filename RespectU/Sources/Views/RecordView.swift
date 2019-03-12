@@ -112,7 +112,7 @@ final class RecordView: UIView {
     cancelButton.addTarget(self, action: #selector(cancelButtonDidTap(_:)), for: .touchUpInside)
   }
   
-  @IBAction func recordButtonDidTap(_ sender: UIButton) {
+  @IBAction private func recordButtonDidTap(_ sender: UIButton) {
     switch sender.tag {
     case 0:
       delegate?.recordView(self,
@@ -164,11 +164,11 @@ final class RecordView: UIView {
     }
   }
   
-  @IBAction func typeButtonDidTap(_ sender: UIButton) {
+  @IBAction private func typeButtonDidTap(_ sender: UIButton) {
     delegate?.recordView(self, didTapTypeButton: sender)
   }
   
-  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     delegate?.recordView(self, didTapCancelButton: sender)
   }
   

@@ -78,7 +78,7 @@ extension RecordBaseTableViewController {
     guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
     guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
-                                #keyPath(NewRecordInfo.title.english),
+                                #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
     guard let object = self.recordResults?.filter(predicate).first else { return }
     cell.setColorsInSong(object.series, labels: cell.labels)
@@ -156,7 +156,10 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     
   }
   
-  func recordView(_ view: RecordView, didTapRankRecordButton button: UIButton, inDifficulty difficulty: Difficulty, inCurrentButton currentButton: Button) {
+  func recordView(_ view: RecordView,
+                  didTapRankRecordButton button: UIButton,
+                  inDifficulty difficulty: Difficulty,
+                  inCurrentButton currentButton: Button) {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
@@ -189,7 +192,10 @@ extension RecordBaseTableViewController: RecordViewDelegate {
       .present(to: self)
   }
   
-  func recordView(_ view: RecordView, didTapRatingRecordButton button: UIButton, inDifficulty difficulty: Difficulty, inCurrentButton currentButton: Button) {
+  func recordView(_ view: RecordView,
+                  didTapRatingRecordButton button: UIButton,
+                  inDifficulty difficulty: Difficulty,
+                  inCurrentButton currentButton: Button) {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
@@ -208,25 +214,25 @@ extension RecordBaseTableViewController: RecordViewDelegate {
       .action(title: L10n.ok) { [weak self] _ in
         let input = alert.textFields?.first?.text ?? ""
         if input.isEmpty {
-          self?.setRate(object, rate: 0, difficulty: difficulty, button: button)
+          self?.setRating(0, with: object, inDifficulty: difficulty, inButton: currentButton)
         } else {
           guard let value = Double(input) else { return }
           let rate = value >= 100 ? 100 : value
-          self?.setRate(object, rate: rate, difficulty: difficulty, button: button)
+          self?.setRating(rate, with: object, inDifficulty: difficulty, inButton: currentButton)
           switch rate {
           case 98...100:
-            self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
+            self?.setRank(.s, with: object, inDifficulty: difficulty, inButton: currentButton)
           case 95..<98:
-            self?.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
+            self?.setRank(.a, with: object, inDifficulty: difficulty, inButton: currentButton)
           case 90..<95:
-            self?.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
+            self?.setRank(.b, with: object, inDifficulty: difficulty, inButton: currentButton)
           case ..<90:
-            self?.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
+            self?.setRank(.c, with: object, inDifficulty: difficulty, inButton: currentButton)
           default:
             break
           }
         }
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: currentButton)
         guard let buttonExpansion = button.buttonExpansion else { return }
         guard let note = object.value(forKeyPath: "\(buttonExpansion).\(difficulty).note") as? String else { return }
         if note != Note.maxCombo {
@@ -237,22 +243,27 @@ extension RecordBaseTableViewController: RecordViewDelegate {
       .present(to: self)
   }
   
-  func recordView(_ view: RecordView, didTapNoteRecordButton button: UIButton, inDifficulty difficulty: Difficulty, inCurrentButton currentButton: Button) {
+  func recordView(_ view: RecordView,
+                  didTapNoteRecordButton button: UIButton,
+                  inDifficulty difficulty: Difficulty,
+                  inCurrentButton currentButton: Button) {
     guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
     guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
-    let predicate = NSPredicate(format: "%K == %@", #keyPath(NewRecordInfo.title.english), songResult.title?.english ?? "")
+    let predicate = NSPredicate(format: "%K == %@",
+                                #keyPath(RecordInfo.title.english),
+                                songResult.title?.english ?? "")
     guard let object = self.recordResults?.filter(predicate).first else { return }
     UIAlertController
-      .alert(title: "Note".localized, message: "Select the note.".localized)
+      .alert(title: L10n.note, message: L10n.selectTheNote)
       .action(title: "-") { [weak self] _ in
         self?.setNote(object, note: Note.none, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(title: Note.maxCombo.noteExpansion) { [weak self] _ in
+      .action(title: Note.maxCombo.expansion) { [weak self] _ in
         self?.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
         self?.recordView.reloadButtonsAndLabels(object, button: button)
       }
-      .action(title: Note.perfectPlay.noteExpansion) { [weak self] _ in
+      .action(title: Note.perfectPlay.expansion) { [weak self] _ in
         self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
         self?.setRate(object, rate: 100, difficulty: difficulty, button: button)
         self?.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)

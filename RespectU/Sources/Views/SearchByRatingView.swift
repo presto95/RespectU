@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol SearchByRateViewDelegate: class {
+protocol SearchByRatingViewDelegate: class {
   func didTouchUpDoneButton(_ textFields: [UITextField])
 }
 
-final class SearchByRateView: UIView {
+final class SearchByRatingView: UIView {
   
-  weak var delegate: SearchByRateViewDelegate?
+  weak var delegate: SearchByRatingViewDelegate?
   
   @IBOutlet weak var lowerRateTextField: UITextField!
   
@@ -42,7 +42,7 @@ final class SearchByRateView: UIView {
   }
 }
 
-extension SearchByRateView {
+extension SearchByRatingView {
   
   private func setToolBar() {
     let toolBar = UIToolbar()

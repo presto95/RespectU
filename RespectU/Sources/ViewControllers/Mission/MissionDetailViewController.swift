@@ -197,11 +197,11 @@ final class MissionDetailViewController: UIViewController {
     }
   }
   
-  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
   
-  @IBAction func moreButtonDidTap(_ sender: UIButton) {
+  @IBAction private func moreButtonDidTap(_ sender: UIButton) {
     switch sender.tag {
     case 0:
       presentMoreAlert(missionInfo.stage1)

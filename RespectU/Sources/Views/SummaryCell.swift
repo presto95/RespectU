@@ -38,7 +38,7 @@ final class SummaryCell: UITableViewCell {
     self.detailButton.setTitle("Detail".localized, for: .normal)
     self.searchButton.setTitle("Search by Condition".localized, for: .normal)
     self.detailButton.addTarget(self, action: #selector(didTouchUpDetailButton(_:)), for: .touchUpInside)
-    self.searchButton.addTarget(self, action: #selector(didTouchUpSearchButton(_:)), for: .touchUpInside)
+    self.searchButton.addTarget(self, action: #selector(searchButtonDidTap(_:)), for: .touchUpInside)
   }
   
   override func setSelected(_ selected: Bool, animated: Bool) {

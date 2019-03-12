@@ -56,7 +56,7 @@
 		42DD4D7660CB5C856E21164943943414 /* APIService+Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6594C9F6573B04AED144F6F3F3B9AA6 /* APIService+Record.swift */; };
 		456CFC7E84339AD858F72E14C0200EAD /* TrophyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8E87A2B03543FCDFA459E10DCEBCDF /* TrophyCell.swift */; };
 		48175A5C8370F8ED872DDDAD970867BB /* Ranking4BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA4615ADDF5106D45E6C157F9935FE /* Ranking4BTableViewController.swift */; };
-		4945A0D92FA68D09476BE7AFB8AE2429 /* SearchByRateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */; };
+		4945A0D92FA68D09476BE7AFB8AE2429 /* SearchByRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRatingView.xib */; };
 		4A98A06417A0097FB957083613E33F09 /* Ranking8BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A61C0A29FAF3BAFDEA230CF7D855312 /* Ranking8BTableViewController.swift */; };
 		4AE97EBF1348A5516BE27E7EB403CE28 /* TrophyTechnika2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDBE69BDF91490724A4508E8150A75F /* TrophyTechnika2TableViewController.swift */; };
 		4C17D5C69A95D3C1A2160AE91E036869 /* AchievementResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F3BF12F13DC015494221C8902B980 /* AchievementResponse.swift */; };
@@ -89,7 +89,7 @@
 		6C3977B8B2C1C1172FDBDE5D7054F4DA /* Top506BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C6A7F46818C574348C01D5E9938C60 /* Top506BTableViewController.swift */; };
 		6CC9FF520053253ACB3082AABE34CF0A /* Top505BTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F70C1B0BF44B8904203164AE9B8E1B /* Top505BTableViewController.swift */; };
 		6D1619C4051B8073FDAE2D1EE0F28DF1 /* Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 282674A18512BC1AEFB6CE490A429E5C /* Achievement.storyboard */; };
-		71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */; };
+		71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRatingView.swift */; };
 		72713E32C8FA38F681A9C4F075A7D08B /* MissionSection.Technika2+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */; };
 		74DD787436F4A0E27647E2D3195DD901 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */; };
 		773E3FDD1DEE5F4CB711CDB6039FC8E6 /* GuideSecondCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C214B5C6340C681D687A5837D49CB2 /* GuideSecondCell.swift */; };
@@ -413,7 +413,7 @@
 		D208137CF7035F090957DD52BFD704BC /* AchievementAllTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementAllTableViewController.swift; sourceTree = "<group>"; };
 		D30DD51658A0E07C8F795B59D8C5A930 /* MissionCETableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCETableViewController.swift; sourceTree = "<group>"; };
 		D538492B9D665E6049971A842544B8F0 /* SearchRecordDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecordDetailCell.xib; sourceTree = "<group>"; };
-		D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRateView.xib; sourceTree = "<group>"; };
+		D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchByRatingView.xib; sourceTree = "<group>"; };
 		D5A1695D071CC7554C3FA877BC12B245 /* SummaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryDetailViewController.swift; sourceTree = "<group>"; };
 		D6C6A7F46818C574348C01D5E9938C60 /* Top506BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top506BTableViewController.swift; sourceTree = "<group>"; };
 		D72A74447C5271E64A723356FA2C76C8 /* SongRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRespectTableViewController.swift; sourceTree = "<group>"; };
@@ -427,7 +427,7 @@
 		DA8059779D1985F721E78B753EC4D776 /* Ranking6BTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking6BTableViewController.swift; sourceTree = "<group>"; };
 		DB8FDB96924415810F26D8A3D5DCC643 /* RecordTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTrilogyTableViewController.swift; sourceTree = "<group>"; };
 		DC1C93791BC6091924D5E9BEA314201C /* MissionTrilogyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTrilogyTableViewController.swift; sourceTree = "<group>"; };
-		DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByRateView.swift; sourceTree = "<group>"; };
+		DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchByRatingView.swift; sourceTree = "<group>"; };
 		DF44E865CAECD23B67EC669F4F499627 /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
 		E12E3AA69AEC8526DA02450D9F486C31 /* Ranking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ranking.storyboard; sourceTree = "<group>"; };
 		E2056D7C4194815BBE52A3F13FAF7125 /* MissionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionInfo.swift; sourceTree = "<group>"; };
@@ -830,8 +830,8 @@
 				447A6CDF1125075CFA6FF3AA94D38056 /* SearchByLevelView.xib */,
 				D8DA77CE4436FD7F1B3A85A2993A6875 /* SearchByNoteView.swift */,
 				BB408736A795C68EBA417CAF1C9391F9 /* SearchByNoteView.xib */,
-				DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRateView.swift */,
-				D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRateView.xib */,
+				DF1CBDA6DFA6F7DC1C8CFDE819CB27EC /* SearchByRatingView.swift */,
+				D550E00BAB0ADC8AEF6EFE91AD2134E9 /* SearchByRatingView.xib */,
 				5C7E6B6B900C98599DF992D190397ED8 /* SearchRecordDetailCell.swift */,
 				D538492B9D665E6049971A842544B8F0 /* SearchRecordDetailCell.xib */,
 				C48AF305EFDF8EDEE8CE8D136BC9FEEB /* SignInTextField.swift */,
@@ -986,7 +986,7 @@
 				947B12FA1B9BEA069196FA8C3F0A93CC /* RecordView.xib in Resources */,
 				7B9E2E0FE30E84D6166FBE77C171C8D9 /* SearchByLevelView.xib in Resources */,
 				F5FFD36CB7ABB20DBB14EADA3DF1E89F /* SearchByNoteView.xib in Resources */,
-				4945A0D92FA68D09476BE7AFB8AE2429 /* SearchByRateView.xib in Resources */,
+				4945A0D92FA68D09476BE7AFB8AE2429 /* SearchByRatingView.xib in Resources */,
 				C2E8F29F1DC6CE924DC66758994B7356 /* SearchRecordDetailCell.xib in Resources */,
 				CF652EC9A502638F95140E9BBD58327D /* SignIn.storyboard in Resources */,
 				4D93915A70FFA3B0270461492B3EDBCD /* SkillLevelCell.xib in Resources */,
@@ -1183,7 +1183,7 @@
 				6390715145BD10663A5A4D6C352868DF /* RecordViewController.swift in Sources */,
 				56B103D4D21450CC4D0BC3D98286A3AF /* SearchByLevelView.swift in Sources */,
 				3FC482296754D98BE86BD7B18E564694 /* SearchByNoteView.swift in Sources */,
-				71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRateView.swift in Sources */,
+				71B5BF74B4D1647C3AA79FC664464F6F /* SearchByRatingView.swift in Sources */,
 				E909A0D435DE1970F26D9E69E991ED41 /* SearchRecordDetailCell.swift in Sources */,
 				EB500C397294D1867BE4A5323F2B399E /* SearchRecordDetailViewController.swift in Sources */,
 				15D85A72D8E253A709907E22B1B919BA /* SearchRecordViewController.swift in Sources */,

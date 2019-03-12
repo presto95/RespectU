@@ -31,7 +31,7 @@ final class Top50ViewController: BaseViewController {
     ]
   }
   
-  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
 }

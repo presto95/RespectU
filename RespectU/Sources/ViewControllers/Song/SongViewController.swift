@@ -59,55 +59,55 @@ final class SongViewController: BaseViewController {
     ]
   }
   
-  @IBAction func searchButtonDidTap(_ sender: UIButton) {
+  @IBAction private func searchButtonDidTap(_ sender: UIButton) {
     UIAlertController
       .alert(title: L10n.search, message: L10n.selectTheButtonType)
       .action(title: Button.button4.rawValue.uppercased()) { [weak self] _ in
         self?.setFavoriteButton(.button4)
-        self?.reloadAllTableViews()
+        self?.reloadAllTableView()
       }
       .action(title: Button.button5.rawValue.uppercased()) { [weak self] _ in
         self?.setFavoriteButton(.button5)
-        self?.reloadAllTableViews()
+        self?.reloadAllTableView()
       }
       .action(title: Button.button6.rawValue.uppercased()) { [weak self] _ in
         self?.setFavoriteButton(.button6)
-        self?.reloadAllTableViews()
+        self?.reloadAllTableView()
       }
       .action(title: Button.button8.rawValue.uppercased()) { [weak self] _ in
         self?.setFavoriteButton(.button8)
-        self?.reloadAllTableViews()
+        self?.reloadAllTableView()
       }
       .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  @IBAction func sortButtonDidTap(_ sender: UIButton) {
+  @IBAction private func sortButtonDidTap(_ sender: UIButton) {
     UIAlertController
       .alert(title: L10n.sort, message: L10n.selectTheSortMethod)
-      .action(title: "\(Difficulty.normal.rawValue.uppercased()) / ASC".localized) { [weak self] _ in
-        self?.sort(inDifficulty: .normal, ascending: true)
+      .action(title: L10n.normalAsc) { [weak self] _ in
+        self?.sort(byDifficulty: .normal, ascending: true)
       }
-      .action(title: "\(Difficulty.normal.rawValue.uppercased()) / DESC".localized) { [weak self] _ in
-        self?.sort(inDifficulty: .normal, ascending: false)
+      .action(title: L10n.normalDesc) { [weak self] _ in
+        self?.sort(byDifficulty: .normal, ascending: false)
       }
-      .action(title: "\(Difficulty.hard.rawValue.uppercased()) / ASC".localized) { [weak self] _ in
-        self?.sort(difficulty: .hard, ascending: true)
+      .action(title: L10n.hardAsc) { [weak self] _ in
+        self?.sort(byDifficulty: .hard, ascending: true)
       }
-      .action(title: "\(Difficulty.hard.rawValue.uppercased()) / DESC".localized) { [weak self] _ in
-        self?.sort(difficulty: .hard, ascending: false)
+      .action(title: L10n.hardDesc) { [weak self] _ in
+        self?.sort(byDifficulty: .hard, ascending: false)
       }
-      .action(title: "\(Difficulty.maximum.rawValue.uppercased()) / ASC".localized) { [weak self] _ in
-        self?.sort(difficulty: .maximum, ascending: true)
+      .action(title: L10n.maximumAsc) { [weak self] _ in
+        self?.sort(byDifficulty: .maximum, ascending: true)
       }
-      .action(title: "\(Difficulty.maximum.rawValue.uppercased()) / DESC".localized) { [weak self] _ in
-        self?.sort(difficulty: .maximum, ascending: false)
+      .action(title: L10n.maximumDesc) { [weak self] _ in
+        self?.sort(byDifficulty: .maximum, ascending: false)
       }
       .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  @IBAction func randomButtonDidTap(_ sender: UIButton) {
+  @IBAction private func randomButtonDidTap(_ sender: UIButton) {
     guard let results = allTableViewController.songResults else { return }
     let random = Int(arc4random_uniform(UInt32(results.count - 1)))
     let object = results[random]
@@ -119,11 +119,11 @@ final class SongViewController: BaseViewController {
     }
     UIAlertController
       .alert(title: object.localizedTitle, message: message)
-      .action(title: "OK".localized)
+      .action(title: L10n.ok)
       .present(to: self)
   }
   
-  @IBAction func cancelButtonDidTap(_ sender: UIButton) {
+  @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
 }
@@ -144,7 +144,6 @@ private extension SongViewController {
           return isAscending ? firstValue < secondValue : firstValue > secondValue
         }
       }
-      //reloadAllTableViews()
       reloadAllTableView()
     }
   }
@@ -168,7 +167,7 @@ private extension SongViewController {
   func reloadAllTableView() {
     DispatchQueue.main.async { [weak self] in
       guard let self = self else { return }
-      if let songViewControllers = viewControllers as? [SongBaseTableViewController] {
+      if let songViewControllers = self.viewControllers as? [SongBaseTableViewController] {
         for viewController in songViewControllers {
           viewController.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
         }

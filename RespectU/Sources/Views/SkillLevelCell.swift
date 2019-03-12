@@ -7,52 +7,53 @@
 //
 
 import UIKit
+
 import GaugeKit
 import RealmSwift
 
 protocol SkillLevelCellDelegate: class {
   
-  func didTouchUpTop50Button(_ sender: UIButton)
+  func skillLevelCell(_ cell: SkillLevelCell, didTapTop50Button button: UIButton)
   
-  func didTouchUpMoreButton(_ sender: UIButton)
+  func skillLevelCell(_ cell: SkillLevelCell, didTapMoreButton button: UIButton)
 }
 
 final class SkillLevelCell: UITableViewCell {
   
   weak var delegate: SkillLevelCellDelegate?
   
-  @IBOutlet weak var view: UIView!
+  @IBOutlet private weak var view: UIView!
   
-  @IBOutlet var gauge: Gauge!
+  @IBOutlet private var gauge: Gauge!
   
-  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var skillLevelLabel: UILabel!
+  @IBOutlet private weak var skillLevelLabel: UILabel!
   
-  @IBOutlet weak var skillPointLabel: UILabel!
+  @IBOutlet private weak var skillPointLabel: UILabel!
   
-  @IBOutlet weak var top50Button: UIButton!
+  @IBOutlet private weak var top50Button: UIButton!
   
-  @IBOutlet weak var moreButton: UIButton!
+  @IBOutlet private weak var moreButton: UIButton!
   
-  @IBOutlet weak var percentLabel: UILabel!
+  @IBOutlet private weak var percentLabel: UILabel!
   
-  @IBOutlet weak var nextLevelLabel: UILabel!
+  @IBOutlet private weak var nextLevelLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    titleLabel.text = "My Record".localized
+    setup()
+  }
+
+  private func setup() {
+    titleLabel.text = L10n.myRecord
     view.layer.cornerRadius = 15
     view.layer.borderWidth = 1
     view.layer.borderColor = UIColor.lightGray.cgColor
     view.layer.masksToBounds = true
-    moreButton.setTitle("More".localized, for: [])
-    top50Button.addTarget(self, action: #selector(didTouchUpTop50Button(_:)), for: .touchUpInside)
-    moreButton.addTarget(self, action: #selector(didTouchUpMoreButton(_:)), for: .touchUpInside)
-  }
-  
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+    moreButton.setTitle(L10n.more, for: [])
+    top50Button.addTarget(self, action: #selector(top50ButtonDidTap(_:)), for: .touchUpInside)
+    moreButton.addTarget(self, action: #selector(moreButtonDidTap(_:)), for: .touchUpInside)
   }
   
   func setProperties(_ button: Button, max: Double, myRecord: (sum: Double, highestSeries: String)) {
@@ -80,11 +81,11 @@ final class SkillLevelCell: UITableViewCell {
     percentLabel.text = String(format: "%05.2f%%", mySkillPointSum * 100 / max)
   }
   
-  @objc func didTouchUpTop50Button(_ sender: UIButton) {
-    delegate?.didTouchUpTop50Button(sender)
+  @objc func top50ButtonDidTap(_ sender: UIButton) {
+    delegate?.skillLevelCell(self, didTapTop50Button: sender)
   }
   
-  @objc func didTouchUpMoreButton(_ sender: UIButton) {
-    delegate?.didTouchUpMoreButton(sender)
+  @objc func moreButtonDidTap(_ sender: UIButton) {
+    delegate?.skillLevelCell(self, didTapMoreButton: sender)
   }
 }

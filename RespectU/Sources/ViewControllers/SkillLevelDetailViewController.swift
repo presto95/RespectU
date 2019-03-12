@@ -36,7 +36,7 @@ final class SkillLevelDetailViewController: UIViewController {
       let backgroundView = backgroundViews[index]
       recordView.frame.size = backgroundView.bounds.size
       backgroundView.addSubview(recordView)
-      recordView.setProperties(button: buttons[index])
+      recordView.configure(button: buttons[index])
     }
   }
   

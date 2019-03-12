@@ -14,11 +14,16 @@ import SwiftKeychainWrapper
 
 final class PerformanceViewController: UIViewController {
   
-  @IBOutlet weak var tableView: UITableView!
+  private enum CellIdentifier {
+    
+    
+  }
   
-  @IBOutlet weak var recordButton: UIButton!
+  @IBOutlet private weak var tableView: UITableView!
   
-  @IBOutlet weak var nicknameButton: UIButton!
+  @IBOutlet private weak var recordButton: UIButton!
+  
+  @IBOutlet private weak var nicknameButton: UIButton!
   
   var favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Button.button4
   
@@ -43,19 +48,19 @@ final class PerformanceViewController: UIViewController {
     presentRateView()
   }
   
-  func setup() {
-    recordButton.setTitle("Performance Record".localized, for: .normal)
-    self.favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Button.button4
-    self.nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? "Nickname Setting".localized, for: [])
-    self.tableView.reloadData()
+  private func setup() {
+    recordButton.setTitle(L10n.performanceRecord, for: .normal)
+    favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? Button.button4
+    nicknameButton.setTitle(UserDefaults.standard.string(forKey: "nickname") ?? L10n.nicknameSetting, for: [])
+    tableView.reloadData()
   }
   
-  @IBAction func didTouchUpNicknameButton(_ sender: UIButton) {
+  @IBAction func nicknameButtonDidTap(_ sender: UIButton) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if id.isEmpty {
       UIAlertController
-        .alert(title: "", message: "Log In First.".localized)
-        .action(title: "OK".localized)
+        .alert(title: "", message: L10n.logInFirst)
+        .action(title: L10n.ok)
         .present(to: self)
       return
     }
@@ -119,13 +124,13 @@ private extension PerformanceViewController {
       DispatchQueue.main.async {
         UIAlertController
           .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
-          .action(title: "OK".localized, handler: { [weak self] _ in
-            NotificationCenter.default.removeObserver(self as Any)
-            guard let controller = UIViewController.instantiate(storyboard: "Download", identifier: DownloadViewController.classNameToString) else { return }
-            self?.present(controller, animated: true, completion: {
-            })
-          })
-          .action(.cancel, title: "Cancel".localized)
+          .action(title: L10n.ok) { [weak self] _ in
+            guard let self = self else { return }
+            NotificationCenter.default.removeObserver(self)
+            let controller = StoryboardScene.Download.downloadViewController.instantiate()
+            self.present(controller, animated: true, completion: nil)
+          }
+          .action(title: L10n.cancel, style: .cancel)
           .present(to: self)
       }
     }
@@ -138,7 +143,7 @@ private extension PerformanceViewController {
   
   func didReceiveUploadNickname(statusCode: Int?, error: Error?) {
     if let error = error {
-      UIAlertController.presentErrorAlert(to: self, error: error.localizedDescription)
+      present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let statusCode = statusCode else { return }
@@ -146,19 +151,21 @@ private extension PerformanceViewController {
       DispatchQueue.main.async {
         UIAlertController
           .alert(title: "", message: "Succeeded to change nickname".localized)
-          .action(title: "OK".localized)
+          .action(title: L10n.ok)
           .present(to: self)
       }
     } else {
       DispatchQueue.main.async {
         UIAlertController
           .alert(title: "", message: "Failed to change nickname".localized)
-          .action(title: "OK".localized)
+          .action(title: L10n.ok)
           .present(to: self)
       }
     }
   }
 }
+
+// MARK: - Conforming UITableViewDataSource
 
 extension PerformanceViewController: UITableViewDataSource {
   
@@ -191,6 +198,8 @@ extension PerformanceViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - Conforming UITableViewDelegate
+
 extension PerformanceViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -210,11 +219,16 @@ extension PerformanceViewController: UITableViewDelegate {
   }
 }
 
+// MARK: - Conforming UICollectionViewDataSource
+
 extension PerformanceViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath) as? SummaryCollectionCell else { return UICollectionViewCell() }
-    cell.setProperties(RecordInfo.fetch(), at: indexPath.item)
+    let cell = collectionView
+      .dequeueReusableCell(withReuseIdentifier: "summaryCollectionCell", for: indexPath)
+    if case let summaryCollectionCell as SummaryCollectionCell = cell {
+      summaryCollectionCell.setProperties(RecordInfo.fetch(), at: indexPath.item)
+    }
     return cell
   }
   
@@ -223,29 +237,33 @@ extension PerformanceViewController: UICollectionViewDataSource {
   }
 }
 
+// MARK: - Conforming SkillLevelCellDelegate
+
 extension PerformanceViewController: SkillLevelCellDelegate {
   
-  func didTouchUpMoreButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SkillLevelDetailViewController.name) as? SkillLevelDetailViewController else { return }
-    self.present(controller, animated: true)
+  func skillLevelCell(_ cell: SkillLevelCell, didTapTop50Button button: UIButton) {
+    let controller = StoryboardScene.Top50.top50ViewController.instantiate()
+    present(controller, animated: true)
   }
   
-  func didTouchUpTop50Button(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Top50", identifier: Top50ViewController.name) as? Top50ViewController else { return }
-    self.present(controller, animated: true)
+  func skillLevelCell(_ cell: SkillLevelCell, didTapMoreButton button: UIButton) {
+    let controller = StoryboardScene.Performance.skillLevelDetailViewController.instantiate()
+    present(controller, animated: true)
   }
 }
+
+// MARK: - Conforming SummaryCellDelegate
 
 extension PerformanceViewController: SummaryCellDelegate {
   
   func didTouchUpDetailButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SummaryDetailViewController.name) as? SummaryDetailViewController else { return }
-    self.present(controller, animated: true)
+    let controller = StoryboardScene.Performance.summaryDetailViewController.instantiate()
+    present(controller, animated: true)
   }
   
   func didTouchUpSearchButton(_ sender: UIButton) {
-    guard let controller = UIViewController.instantiate(storyboard: "Performance", identifier: SearchRecordViewController.name) as? SearchRecordViewController else { return }
-    self.present(controller, animated: true)
+    let controller = StoryboardScene.Performance.searchRecordViewController.instantiate()
+    present(controller, animated: true)
   }
 }
 

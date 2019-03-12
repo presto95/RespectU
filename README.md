@@ -18,19 +18,19 @@
 
 [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
 
-[GaugeKit](https://github.com/skywinder/GaugeKit
+[GaugeKit](https://github.com/skywinder/GaugeKit)
 
-[MarqueeLabel/Swift](https://github.com/cbpowell/MarqueeLabel
+[MarqueeLabel/Swift](https://github.com/cbpowell/MarqueeLabel)
 
 [RealmSwift](https://github.com/realm/realm-cocoa)
 
-[SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD
+[SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD)
 
-[SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper
+[SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
 
-[Then](https://github.com/devxoul/Then
+[Then](https://github.com/devxoul/Then)
 
-[XLPagerTabStrip](https://github.com/xmartlabs/XLPagerTabStrip
+[XLPagerTabStrip](https://github.com/xmartlabs/XLPagerTabStrip)
 
 ---
 

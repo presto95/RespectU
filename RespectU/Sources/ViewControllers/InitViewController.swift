@@ -223,143 +223,137 @@ private extension InitViewController {
       .alert(title: "", message: L10n.yourDataHasBeenSuccessfullyDownloaded)
       .action(title: L10n.ok) { [weak self] _ in
         guard let self = self else { return }
-        DispatchQueue.main.async {
-          SVProgressHUD.show()
-        }
-        DispatchQueue.global().async {
-          for result in results {
-            let recordInfo = RecordInfo()
-            recordInfo.title = result.title
-            recordInfo.series = result.series
-            let button4Record = RecordButtonInfo()
-            let button5Record = RecordButtonInfo()
-            let button6Record = RecordButtonInfo()
-            let button8Record = RecordButtonInfo()
-            let button4NormalRecord = RecordDifficultyInfo()
-            let button4HardRecord = RecordDifficultyInfo()
-            let button4MaximumRecord = RecordDifficultyInfo()
-            let button5NormalRecord = RecordDifficultyInfo()
-            let button5HardRecord = RecordDifficultyInfo()
-            let button5MaximumRecord = RecordDifficultyInfo()
-            let button6NormalRecord = RecordDifficultyInfo()
-            let button6HardRecord = RecordDifficultyInfo()
-            let button6MaximumRecord = RecordDifficultyInfo()
-            let button8NormalRecord = RecordDifficultyInfo()
-            let button8HardRecord = RecordDifficultyInfo()
-            let button8MaximumRecord = RecordDifficultyInfo()
-            if let oldRecord = oldResults.filter("title = %@ OR title = %@",
-                                                 result.title?.english ?? "",
-                                                 result.title?.korean ?? "").first {
-              button4NormalRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
-              button4NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm4Rate)
-              button4NormalRecord.note = Note(expansion: oldRecord.nm4Note)?.rawValue ?? ""
-              button4Record.normal = button4NormalRecord
-              button4HardRecord.rank = oldRecord.hd4Rank == "-" ? "" : oldRecord.hd4Rank
-              button4HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd4Rate)
-              button4HardRecord.note = Note(expansion: oldRecord.hd4Note)?.rawValue ?? ""
-              button4Record.hard = button4HardRecord
-              button4MaximumRecord.rank = oldRecord.mx4Rank == "-" ? "" : oldRecord.mx4Rank
-              button4MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx4Rate)
-              button4MaximumRecord.note = Note(expansion: oldRecord.mx4Note)?.rawValue ?? ""
-              button4Record.maximum = button4MaximumRecord
-              button4Record.skillPoint = oldRecord.button4SkillPoint
-              button4Record.skillPointDifficulty
-                = oldRecord.button4HighestSkillPointDifficulty.lowercased()
-              button4Record.skillPointRate
-                = Utils.convertToDouble(withPercent: oldRecord.button4HighestSkillPointRate)
-              button4Record.skillPointNote
-                = Note(expansion: oldRecord.button4HighestSkillPointNote)?.rawValue ?? ""
-              recordInfo.button4 = button4Record
-              button5NormalRecord.rank = oldRecord.nm5Rank == "-" ? "" : oldRecord.nm5Rank
-              button5NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm5Rate)
-              button5NormalRecord.note = Note(expansion: oldRecord.nm5Note)?.rawValue ?? ""
-              button5Record.normal = button5NormalRecord
-              button5HardRecord.rank = oldRecord.hd5Rank == "-" ? "" : oldRecord.hd5Rank
-              button5HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd5Rate)
-              button5HardRecord.note = Note(expansion: oldRecord.hd5Note)?.rawValue ?? ""
-              button5Record.hard = button5HardRecord
-              button5MaximumRecord.rank = oldRecord.mx5Rank == "-" ? "" : oldRecord.mx5Rank
-              button5MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx5Rate)
-              button5MaximumRecord.note = Note(expansion: oldRecord.mx5Note)?.rawValue ?? ""
-              button5Record.maximum = button5MaximumRecord
-              button5Record.skillPoint = oldRecord.button5SkillPoint
-              button5Record.skillPointDifficulty
-                = oldRecord.button5HighestSkillPointDifficulty.lowercased()
-              button5Record.skillPointRate
-                = Utils.convertToDouble(withPercent: oldRecord.button5HighestSkillPointRate)
-              button5Record.skillPointNote
-                = Note(expansion: oldRecord.button5HighestSkillPointNote)?.rawValue ?? ""
-              recordInfo.button5 = button5Record
-              button6NormalRecord.rank = oldRecord.nm6Rank == "-" ? "" : oldRecord.nm6Rank
-              button6NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm6Rate)
-              button6NormalRecord.note = Note(expansion: oldRecord.nm6Note)?.rawValue ?? ""
-              button6Record.normal = button6NormalRecord
-              button6HardRecord.rank = oldRecord.hd6Rank == "-" ? "" : oldRecord.hd6Rank
-              button6HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd6Rate)
-              button6HardRecord.note = Note(expansion: oldRecord.hd6Note)?.rawValue ?? ""
-              button6Record.hard = button6HardRecord
-              button6MaximumRecord.rank = oldRecord.mx6Rank == "-" ? "" : oldRecord.mx6Rank
-              button6MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx6Rate)
-              button6MaximumRecord.note = Note(expansion: oldRecord.mx6Note)?.rawValue ?? ""
-              button6Record.maximum = button6MaximumRecord
-              button6Record.skillPoint = oldRecord.button6SkillPoint
-              button6Record.skillPointDifficulty
-                = oldRecord.button6HighestSkillPointDifficulty.lowercased()
-              button6Record.skillPointRate
-                = Utils.convertToDouble(withPercent: oldRecord.button6HighestSkillPointRate)
-              button6Record.skillPointNote
-                = Note(expansion: oldRecord.button6HighestSkillPointNote)?.rawValue ?? ""
-              recordInfo.button6 = button6Record
-              button8NormalRecord.rank = oldRecord.nm8Rank == "-" ? "" : oldRecord.nm8Rank
-              button8NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm8Rate)
-              button8NormalRecord.note = Note(expansion: oldRecord.nm8Note)?.rawValue ?? ""
-              button8Record.normal = button8NormalRecord
-              button8HardRecord.rank = oldRecord.hd8Rank == "-" ? "" : oldRecord.hd8Rank
-              button8HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd8Rate)
-              button8HardRecord.note = Note(expansion: oldRecord.hd8Note)?.rawValue ?? ""
-              button8Record.hard = button8HardRecord
-              button8MaximumRecord.rank = oldRecord.mx8Rank == "-" ? "" : oldRecord.mx8Rank
-              button8MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx8Rate)
-              button8MaximumRecord.note = Note(expansion: oldRecord.mx8Note)?.rawValue ?? ""
-              button8Record.maximum = button8MaximumRecord
-              button8Record.skillPoint = oldRecord.button8SkillPoint
-              button8Record.skillPointDifficulty
-                = oldRecord.button8HighestSkillPointDifficulty.lowercased()
-              button8Record.skillPointRate
-                = Utils.convertToDouble(withPercent: oldRecord.button8HighestSkillPointRate)
-              button8Record.skillPointNote
-                = Note(expansion: oldRecord.button8HighestSkillPointNote)?.rawValue ?? ""
-              recordInfo.button8 = button8Record
-            } else {
-              button4Record.normal = button4NormalRecord
-              button4Record.hard = button4HardRecord
-              button4Record.maximum = button4MaximumRecord
-              button5Record.normal = button5NormalRecord
-              button5Record.hard = button5HardRecord
-              button5Record.maximum = button5MaximumRecord
-              button6Record.normal = button6NormalRecord
-              button6Record.hard = button6HardRecord
-              button6Record.maximum = button6MaximumRecord
-              button8Record.normal = button8NormalRecord
-              button8Record.hard = button8HardRecord
-              button8Record.maximum = button8MaximumRecord
-              recordInfo.button4 = button4Record
-              recordInfo.button5 = button5Record
-              recordInfo.button6 = button6Record
-              recordInfo.button8 = button8Record
-            }
-            RecordInfo.add(recordInfo)
+        SVProgressHUD.show()
+        for result in results {
+          let recordInfo = RecordInfo()
+          recordInfo.title = result.title
+          recordInfo.series = result.series
+          let button4Record = RecordButtonInfo()
+          let button5Record = RecordButtonInfo()
+          let button6Record = RecordButtonInfo()
+          let button8Record = RecordButtonInfo()
+          let button4NormalRecord = RecordDifficultyInfo()
+          let button4HardRecord = RecordDifficultyInfo()
+          let button4MaximumRecord = RecordDifficultyInfo()
+          let button5NormalRecord = RecordDifficultyInfo()
+          let button5HardRecord = RecordDifficultyInfo()
+          let button5MaximumRecord = RecordDifficultyInfo()
+          let button6NormalRecord = RecordDifficultyInfo()
+          let button6HardRecord = RecordDifficultyInfo()
+          let button6MaximumRecord = RecordDifficultyInfo()
+          let button8NormalRecord = RecordDifficultyInfo()
+          let button8HardRecord = RecordDifficultyInfo()
+          let button8MaximumRecord = RecordDifficultyInfo()
+          if let oldRecord = oldResults.filter("title = %@ OR title = %@",
+                                               result.title?.english ?? "",
+                                               result.title?.korean ?? "").first {
+            button4NormalRecord.rank = oldRecord.nm4Rank == "-" ? "" : oldRecord.nm4Rank
+            button4NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm4Rate)
+            button4NormalRecord.note = Note(expansion: oldRecord.nm4Note)?.rawValue ?? ""
+            button4Record.normal = button4NormalRecord
+            button4HardRecord.rank = oldRecord.hd4Rank == "-" ? "" : oldRecord.hd4Rank
+            button4HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd4Rate)
+            button4HardRecord.note = Note(expansion: oldRecord.hd4Note)?.rawValue ?? ""
+            button4Record.hard = button4HardRecord
+            button4MaximumRecord.rank = oldRecord.mx4Rank == "-" ? "" : oldRecord.mx4Rank
+            button4MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx4Rate)
+            button4MaximumRecord.note = Note(expansion: oldRecord.mx4Note)?.rawValue ?? ""
+            button4Record.maximum = button4MaximumRecord
+            button4Record.skillPoint = oldRecord.button4SkillPoint
+            button4Record.skillPointDifficulty
+              = oldRecord.button4HighestSkillPointDifficulty.lowercased()
+            button4Record.skillPointRate
+              = Utils.convertToDouble(withPercent: oldRecord.button4HighestSkillPointRate)
+            button4Record.skillPointNote
+              = Note(expansion: oldRecord.button4HighestSkillPointNote)?.rawValue ?? ""
+            recordInfo.button4 = button4Record
+            button5NormalRecord.rank = oldRecord.nm5Rank == "-" ? "" : oldRecord.nm5Rank
+            button5NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm5Rate)
+            button5NormalRecord.note = Note(expansion: oldRecord.nm5Note)?.rawValue ?? ""
+            button5Record.normal = button5NormalRecord
+            button5HardRecord.rank = oldRecord.hd5Rank == "-" ? "" : oldRecord.hd5Rank
+            button5HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd5Rate)
+            button5HardRecord.note = Note(expansion: oldRecord.hd5Note)?.rawValue ?? ""
+            button5Record.hard = button5HardRecord
+            button5MaximumRecord.rank = oldRecord.mx5Rank == "-" ? "" : oldRecord.mx5Rank
+            button5MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx5Rate)
+            button5MaximumRecord.note = Note(expansion: oldRecord.mx5Note)?.rawValue ?? ""
+            button5Record.maximum = button5MaximumRecord
+            button5Record.skillPoint = oldRecord.button5SkillPoint
+            button5Record.skillPointDifficulty
+              = oldRecord.button5HighestSkillPointDifficulty.lowercased()
+            button5Record.skillPointRate
+              = Utils.convertToDouble(withPercent: oldRecord.button5HighestSkillPointRate)
+            button5Record.skillPointNote
+              = Note(expansion: oldRecord.button5HighestSkillPointNote)?.rawValue ?? ""
+            recordInfo.button5 = button5Record
+            button6NormalRecord.rank = oldRecord.nm6Rank == "-" ? "" : oldRecord.nm6Rank
+            button6NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm6Rate)
+            button6NormalRecord.note = Note(expansion: oldRecord.nm6Note)?.rawValue ?? ""
+            button6Record.normal = button6NormalRecord
+            button6HardRecord.rank = oldRecord.hd6Rank == "-" ? "" : oldRecord.hd6Rank
+            button6HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd6Rate)
+            button6HardRecord.note = Note(expansion: oldRecord.hd6Note)?.rawValue ?? ""
+            button6Record.hard = button6HardRecord
+            button6MaximumRecord.rank = oldRecord.mx6Rank == "-" ? "" : oldRecord.mx6Rank
+            button6MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx6Rate)
+            button6MaximumRecord.note = Note(expansion: oldRecord.mx6Note)?.rawValue ?? ""
+            button6Record.maximum = button6MaximumRecord
+            button6Record.skillPoint = oldRecord.button6SkillPoint
+            button6Record.skillPointDifficulty
+              = oldRecord.button6HighestSkillPointDifficulty.lowercased()
+            button6Record.skillPointRate
+              = Utils.convertToDouble(withPercent: oldRecord.button6HighestSkillPointRate)
+            button6Record.skillPointNote
+              = Note(expansion: oldRecord.button6HighestSkillPointNote)?.rawValue ?? ""
+            recordInfo.button6 = button6Record
+            button8NormalRecord.rank = oldRecord.nm8Rank == "-" ? "" : oldRecord.nm8Rank
+            button8NormalRecord.rate = Utils.convertToDouble(withPercent: oldRecord.nm8Rate)
+            button8NormalRecord.note = Note(expansion: oldRecord.nm8Note)?.rawValue ?? ""
+            button8Record.normal = button8NormalRecord
+            button8HardRecord.rank = oldRecord.hd8Rank == "-" ? "" : oldRecord.hd8Rank
+            button8HardRecord.rate = Utils.convertToDouble(withPercent: oldRecord.hd8Rate)
+            button8HardRecord.note = Note(expansion: oldRecord.hd8Note)?.rawValue ?? ""
+            button8Record.hard = button8HardRecord
+            button8MaximumRecord.rank = oldRecord.mx8Rank == "-" ? "" : oldRecord.mx8Rank
+            button8MaximumRecord.rate = Utils.convertToDouble(withPercent: oldRecord.mx8Rate)
+            button8MaximumRecord.note = Note(expansion: oldRecord.mx8Note)?.rawValue ?? ""
+            button8Record.maximum = button8MaximumRecord
+            button8Record.skillPoint = oldRecord.button8SkillPoint
+            button8Record.skillPointDifficulty
+              = oldRecord.button8HighestSkillPointDifficulty.lowercased()
+            button8Record.skillPointRate
+              = Utils.convertToDouble(withPercent: oldRecord.button8HighestSkillPointRate)
+            button8Record.skillPointNote
+              = Note(expansion: oldRecord.button8HighestSkillPointNote)?.rawValue ?? ""
+            recordInfo.button8 = button8Record
+          } else {
+            button4Record.normal = button4NormalRecord
+            button4Record.hard = button4HardRecord
+            button4Record.maximum = button4MaximumRecord
+            button5Record.normal = button5NormalRecord
+            button5Record.hard = button5HardRecord
+            button5Record.maximum = button5MaximumRecord
+            button6Record.normal = button6NormalRecord
+            button6Record.hard = button6HardRecord
+            button6Record.maximum = button6MaximumRecord
+            button8Record.normal = button8NormalRecord
+            button8Record.hard = button8HardRecord
+            button8Record.maximum = button8MaximumRecord
+            recordInfo.button4 = button4Record
+            recordInfo.button5 = button5Record
+            recordInfo.button6 = button6Record
+            recordInfo.button8 = button8Record
           }
-          Utils.refreshSkillPoints()
-          DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            let controller
-              = StoryboardScene.Performance.performanceNavigationController.instantiate().then {
-                $0.modalTransitionStyle = .crossDissolve
-            }
-            self.present(controller, animated: true, completion: nil)
-          }
+          RecordInfo.add(recordInfo)
         }
+        Utils.refreshSkillPoints()
+        SVProgressHUD.dismiss()
+        let controller
+          = StoryboardScene.Performance.performanceNavigationController.instantiate().then {
+            $0.modalTransitionStyle = .crossDissolve
+        }
+        self.present(controller, animated: true, completion: nil)
       }
       .present(to: self)
   }

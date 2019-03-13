@@ -104,6 +104,7 @@ final class Utils {
       return (totalSkillPoint, highestSeries)
     case .button5:
       let sorted = results.sorted(byKeyPath: "button5.skillPoint", ascending: false)
+      print(sorted)
       let totalSkillPoint = sorted[0..<50].map { $0.button5?.skillPoint ?? 0 }.reduce(0, +)
       let highestSeries = Series(rawValue: sorted.first?.series ?? "")
       UserDefaults.standard.do {

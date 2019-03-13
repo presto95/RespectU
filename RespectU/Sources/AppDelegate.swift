@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       config.fileURL = fileURL.deletingLastPathComponent().appendingPathComponent("new.realm")
       config.schemaVersion = 1
       config.migrationBlock = { migration, oldSchemaVersion in
-        if oldSchemaVersion < 1 {
+        if oldSchemaVersion < 2 {
           
         }
       }

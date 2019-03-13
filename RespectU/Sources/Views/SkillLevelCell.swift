@@ -15,9 +15,17 @@ import RealmSwift
 protocol SkillLevelCellDelegate: class {
   
   /// Tells the delegate that the top50 button is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:   The cell requesting this information.
+  ///   - button: The button which is tapped.
   func skillLevelCell(_ cell: SkillLevelCell, didTapTop50Button button: UIButton)
   
   /// Tells the delegate that the more button is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:   The cell requesting this information.
+  ///   - button: The button which is tapped.
   func skillLevelCell(_ cell: SkillLevelCell, didTapMoreButton button: UIButton)
 }
 
@@ -100,7 +108,10 @@ final class SkillLevelCell: UITableViewCell {
     }
     skillLevelLabel.text = skillLevel
     let skillLevelEnum = SkillLevel(rawValue: skillLevel ?? "") ?? .beginner
-    nextLevelLabel.text = Utils.nextSkillLevel(of: skillLevelEnum, in: button)?.rawValue
+    let nextLevel = Utils.nextSkillLevel(of: skillLevelEnum, in: button) ?? .beginner
+    nextLevelLabel.text = skillLevelEnum == .theDjmax
+      ? nil
+      : "\(L10n.next) : \(nextLevel.rawValue)"
     percentLabel.text = String(format: "%05.2f%%", totalSkillPoint * 100 / max)
   }
   

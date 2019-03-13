@@ -87,6 +87,7 @@ final class SummaryDetailViewController: UIViewController {
 
 private extension SummaryDetailViewController {
   
+  /// Calculates all the values and reload sub views using that values.
   func calculateAllValuesAndReloadSubviews() {
     DispatchQueue.global().async { [weak self] in
       guard let self = self else { return }
@@ -291,41 +292,46 @@ private extension SummaryDetailViewController {
           + self.ratingValues[1]
           + self.ratingValues[2]
           + self.ratingValues[3]) / 4
-      let count = self.button4StackView.arrangedSubviews.count
-      for index in 1..<count - 1 {
-        guard let button4Label
-          = self.button4StackView.arrangedSubviews[index] as? UILabel else { return }
-        guard let button5Label = self.button5StackView.arrangedSubviews[index]
-          as? UILabel else { return }
-        guard let button6Label = self.button6StackView.arrangedSubviews[index]
-          as? UILabel else { return }
-        guard let button8Label = self.button8StackView.arrangedSubviews[index]
-          as? UILabel else { return }
-        guard let allLabel = self.allStackView.arrangedSubviews[index] as? UILabel else { return }
-        button4Label.text = "\(self.button4Values[index - 1])"
-        button5Label.text = "\(self.button5Values[index - 1])"
-        button6Label.text = "\(self.button6Values[index - 1])"
-        button8Label.text = "\(self.button8Values[index - 1])"
-        allLabel.text = "\(self.allValues[index - 1])"
+      DispatchQueue.main.async {
+        let count = self.button4StackView.arrangedSubviews.count
+        for index in 1..<count - 1 {
+          guard let button4Label
+            = self.button4StackView.arrangedSubviews[index] as? UILabel else { return }
+          guard let button5Label = self.button5StackView.arrangedSubviews[index]
+            as? UILabel else { return }
+          guard let button6Label = self.button6StackView.arrangedSubviews[index]
+            as? UILabel else { return }
+          guard let button8Label = self.button8StackView.arrangedSubviews[index]
+            as? UILabel else { return }
+          guard let allLabel = self.allStackView.arrangedSubviews[index] as? UILabel else { return }
+          button4Label.text = "\(self.button4Values[index - 1])"
+          button5Label.text = "\(self.button5Values[index - 1])"
+          button6Label.text = "\(self.button6Values[index - 1])"
+          button8Label.text = "\(self.button8Values[index - 1])"
+          allLabel.text = "\(self.allValues[index - 1])"
+        }
+        guard let button4AverageLabel = self.button4StackView.arrangedSubviews.last as? UILabel
+          else { return }
+        guard let button5AverageLabel = self.button5StackView.arrangedSubviews.last as? UILabel
+          else { return }
+        guard let button6AverageLabel = self.button6StackView.arrangedSubviews.last as? UILabel
+          else { return }
+        guard let button8AverageLabel = self.button8StackView.arrangedSubviews.last as? UILabel
+          else { return }
+        guard let allAverageLabel
+          = self.allStackView.arrangedSubviews.last as? UILabel else { return }
+        button4AverageLabel.text = String(format: Format.average, self.ratingValues[0])
+        button5AverageLabel.text = String(format: Format.average, self.ratingValues[1])
+        button6AverageLabel.text = String(format: Format.average, self.ratingValues[2])
+        button8AverageLabel.text = String(format: Format.average, self.ratingValues[3])
+        allAverageLabel.text = String(format: Format.average, self.ratingValues[4])
       }
-      guard let button4AverageLabel = self.button4StackView.arrangedSubviews.last as? UILabel
-        else { return }
-      guard let button5AverageLabel = self.button5StackView.arrangedSubviews.last as? UILabel
-        else { return }
-      guard let button6AverageLabel = self.button6StackView.arrangedSubviews.last as? UILabel
-        else { return }
-      guard let button8AverageLabel = self.button8StackView.arrangedSubviews.last as? UILabel
-        else { return }
-      guard let allAverageLabel
-        = self.allStackView.arrangedSubviews.last as? UILabel else { return }
-      button4AverageLabel.text = String(format: Format.average, self.ratingValues[0])
-      button5AverageLabel.text = String(format: Format.average, self.ratingValues[1])
-      button6AverageLabel.text = String(format: Format.average, self.ratingValues[2])
-      button8AverageLabel.text = String(format: Format.average, self.ratingValues[3])
-      allAverageLabel.text = String(format: Format.average, self.ratingValues[4])
     }
   }
   
+  /// Returns the number of total patterns of each tunes.
+  ///
+  /// - Returns: The number of total patterns of each tunes, 4B, 5B, 6B and 8B.
   func numberOfTotalPatterns() -> (Int, Int, Int, Int) {
     var (button4, button5, button6, button8) = (0, 0, 0, 0)
     for result in songResults {

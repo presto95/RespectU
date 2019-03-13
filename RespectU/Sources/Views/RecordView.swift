@@ -14,24 +14,50 @@ import RealmSwift
 protocol RecordViewDelegate: class {
   
   /// Tells the delegate that the type button is tapped.
+  ///
+  /// - Parameters:
+  ///   - view:   The view requesting this information.
+  ///   - button: The button which is tapped.
   func recordView(_ view: RecordView, didTapTypeButton button: UIButton)
   
   /// Tells the delegate that the cancel button is tapped.
+  ///
+  /// - Parameters:
+  ///   - view:   The view requesting this information.
+  ///   - button: The button which is tapped.
   func recordView(_ view: RecordView, didTapCancelButton button: UIButton)
   
   /// Tells the delegate that the rank button is tapped in `difficulty` in `currentButton`.
+  ///
+  /// - Parameters:
+  ///   - view:           The view requesting this information.
+  ///   - button:         The button which is tapped.
+  ///   - difficulty:     The specific difficulty.
+  ///   - currentButton:  The passed current button.
   func recordView(_ view: RecordView,
                   didTapRankRecordButton button: UIButton,
                   inDifficulty difficulty: Difficulty,
                   inCurrentButton currentButton: Button)
   
   /// Tells the delegate that the rating button is tapped in `difficulty` in `currentButton`.
+  ///
+  /// - Parameters:
+  ///   - view:           The view requesting this information.
+  ///   - button:         The button which is tapped.
+  ///   - difficulty:     The specific difficulty.
+  ///   - currentButton:  The passed current button.
   func recordView(_ view: RecordView,
                   didTapRatingRecordButton button: UIButton,
                   inDifficulty difficulty: Difficulty,
                   inCurrentButton currentButton: Button)
   
   /// Tells the delegate that the note button is tapped in `difficulty` in `currentButton`.
+  ///
+  /// - Parameters:
+  ///   - view:           The view requesting this information.
+  ///   - button:         The button which is tapped.
+  ///   - difficulty:     The specific difficulty.
+  ///   - currentButton:  The passed current button.
   func recordView(_ view: RecordView,
                   didTapNoteRecordButton button: UIButton,
                   inDifficulty difficulty: Difficulty,
@@ -41,8 +67,10 @@ protocol RecordViewDelegate: class {
 /// The record view.
 final class RecordView: UIView {
   
+  /// The `enum` that defines various formats.
   private enum Format {
     
+    /// The format for representing the rating.
     static let rating = "%05.2f%%"
   }
   
@@ -186,11 +214,21 @@ final class RecordView: UIView {
     delegate?.recordView(self, didTapCancelButton: sender)
   }
   
+  /// Updates ranking with `recordInfo` and `button` and update skill point labels.
+  ///
+  /// - Parameters:
+  ///   - recordInfo: The record information will be updated.
+  ///   - button:     The specific button.
   func updateRankingAndSkillPointLabel(with recordInfo: RecordInfo, inButton button: Button) {
     updateSkillPointLabel(with: recordInfo, inButton: button)
     updateRankingLabel(withTitle: recordInfo.localizedTitle, inButton: button)
   }
   
+  /// Reloads buttons and labels with `recordInfo` and `button`.
+  ///
+  /// - Parameters:
+  ///   - recordInfo: The record information.
+  ///   - button:     The specific button.
   func reloadButtonsAndLabels(with recordInfo: RecordInfo, inButton button: Button) {
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(SongInfo.title.english),
@@ -270,6 +308,11 @@ final class RecordView: UIView {
     }
   }
   
+  /// Changes properties of button with `recordInfo` and `button`.
+  ///
+  /// - Parameters:
+  ///   - recordInfo: The record information.
+  ///   - button:     The specific button.
   func changeButtonProperties(with recordInfo: RecordInfo, inButton button: Button) {
     switch button {
     case .button4:
@@ -294,6 +337,11 @@ final class RecordView: UIView {
 
 private extension RecordView {
   
+  /// Updates skill point labels with `recordInfo` and `button`.
+  ///
+  /// - Parameters:
+  ///   - recordInfo: The record information.
+  ///   - button:     The specific button.
   func updateSkillPointLabel(with recordInfo: RecordInfo, inButton button: Button) {
     let keyPath = "\(button.expansion ?? "").skillPoint"
     guard let value = recordInfo.value(forKeyPath: keyPath) as? Double else { return }

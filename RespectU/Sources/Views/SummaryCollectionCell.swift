@@ -21,10 +21,10 @@ final class SummaryCollectionCell: UICollectionViewCell {
   
   /// The content titles.
   private let contentTitles = [
-    Rank.s.rawValue,
-    Rank.a.rawValue,
-    Rank.b.rawValue,
-    Rank.c.rawValue,
+    Rank.s.rawValue.uppercased(),
+    Rank.a.rawValue.uppercased(),
+    Rank.b.rawValue.uppercased(),
+    Rank.c.rawValue.uppercased(),
     Note.maxCombo.rawValue,
     Note.perfectPlay.rawValue,
     "\(Note.maxCombo.rawValue)+\(Note.perfectPlay.rawValue)"

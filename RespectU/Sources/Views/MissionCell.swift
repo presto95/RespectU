@@ -20,6 +20,7 @@ final class MissionCell: UITableViewCell {
   /// The reward label.
   @IBOutlet private weak var rewardLabel: UILabel!
   
+  /// The all labels except the color label.
   lazy var allLabel: [UILabel] = {
     return [titleLabel, rewardLabel]
   }()
@@ -51,6 +52,7 @@ final class MissionCell: UITableViewCell {
     rewardLabel.text = missionInfo.localizedReward
   }
   
+  /// Colorizes subviews in `series` and `section`.
   func colorizeSubviews(inSeries series: Series, section: String) {
     let missionSection = MissionSection.makeSection(bySeries: series, section: section)
     DispatchQueue.main.async { [weak self] in
@@ -60,6 +62,7 @@ final class MissionCell: UITableViewCell {
     }
   }
   
+  /// Decolorizes subviews.
   func decolorizeSubviews() {
     DispatchQueue.main.async { [weak self] in
       self?.contentView.backgroundColor = .white

@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The record table view controller about the BLACK SQUARE series.
 final class SongBSTableViewController: SongBaseTableViewController {
 
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class SongBSTableViewController: SongBaseTableViewController {
     songResults = songResults?.filter { $0.seriesEnum == .bs }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension SongBSTableViewController: IndicatorInfoProvider {
   

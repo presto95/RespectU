@@ -6,8 +6,6 @@
 //  Copyright © 2019 Presto. All rights reserved.
 //
 
-import Foundation
-
 /// The `struct` using in search record detail.
 struct SearchRecordDetail {
   

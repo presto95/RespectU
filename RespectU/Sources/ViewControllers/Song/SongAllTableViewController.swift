@@ -10,7 +10,10 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The song table view controller about the all series.
 final class SongAllTableViewController: SongBaseTableViewController { }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension SongAllTableViewController: IndicatorInfoProvider {
   

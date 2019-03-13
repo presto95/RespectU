@@ -94,7 +94,7 @@ final class Utils {
     let results = RecordInfo.fetch()
     switch button {
     case .button4:
-      let sorted = results.sorted(byKeyPath: "button4.skillPoint")
+      let sorted = results.sorted(byKeyPath: "button4.skillPoint", ascending: false)
       let totalSkillPoint = sorted[0..<50].map { $0.button4?.skillPoint ?? 0 }.reduce(0, +)
       let highestSeries = Series(rawValue: sorted.first?.series ?? "")
       UserDefaults.standard.do {
@@ -103,7 +103,7 @@ final class Utils {
       }
       return (totalSkillPoint, highestSeries)
     case .button5:
-      let sorted = results.sorted(byKeyPath: "button5.skillPoint")
+      let sorted = results.sorted(byKeyPath: "button5.skillPoint", ascending: false)
       let totalSkillPoint = sorted[0..<50].map { $0.button5?.skillPoint ?? 0 }.reduce(0, +)
       let highestSeries = Series(rawValue: sorted.first?.series ?? "")
       UserDefaults.standard.do {
@@ -112,7 +112,7 @@ final class Utils {
       }
       return (totalSkillPoint, highestSeries)
     case .button6:
-      let sorted = results.sorted(byKeyPath: "button6.skillPoint")
+      let sorted = results.sorted(byKeyPath: "button6.skillPoint", ascending: false)
       let totalSkillPoint = sorted[0..<50].map { $0.button6?.skillPoint ?? 0 }.reduce(0, +)
       let highestSeries = Series(rawValue: sorted.first?.series ?? "")
       UserDefaults.standard.do {
@@ -121,7 +121,7 @@ final class Utils {
       }
       return (totalSkillPoint, highestSeries)
     case .button8:
-      let sorted = results.sorted(byKeyPath: "button8.skillPoint")
+      let sorted = results.sorted(byKeyPath: "button8.skillPoint", ascending: false)
       let totalSkillPoint = sorted[0..<50].map { $0.button8?.skillPoint ?? 0 }.reduce(0, +)
       let highestSeries = Series(rawValue: sorted.first?.series ?? "")
       UserDefaults.standard.do {

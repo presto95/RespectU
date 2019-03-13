@@ -51,7 +51,6 @@ final class TipInfo: Object {
   /// - Parameters:
   ///   - object:   The source tip information.
   ///   - tipInfo:  The updated tip information.
-
   static func update(_ object: TipResponse.Tip, to tipInfo: TipInfo) {
     let realm = try! Realm()
     try! realm.write {

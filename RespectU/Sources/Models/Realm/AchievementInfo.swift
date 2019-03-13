@@ -77,7 +77,7 @@ final class AchievementInfo: Object {
     if case .all = type {
       return achievementInfo
     } else {
-      return achievementInfo.filter("type = \(type.rawValue)")
+      return achievementInfo.filter("type = '\(type.rawValue)'")
     }
   }
   

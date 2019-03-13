@@ -12,12 +12,24 @@ import UIKit
 protocol GuideSecondCellDelegate: class {
   
   /// Tells the delegate that the log in-out stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideSecondCell(_ cell: GuideSecondCell, didTapLogInOutStackView stackView: UIStackView)
   
   /// Tells the delegate that the bpm setting stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideSecondCell(_ cell: GuideSecondCell, didTapBPMSettingStackView stackView: UIStackView)
   
   /// Tells the delegate that the favorite button stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideSecondCell(_ cell: GuideSecondCell,
                        didTapFavoriteButtonStackView stackView: UIStackView)
 }

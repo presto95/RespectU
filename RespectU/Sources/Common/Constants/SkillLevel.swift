@@ -6,8 +6,6 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
-import Foundation
-
 /// The `enum` that defines constants about skill level.
 enum SkillLevel: String, CaseIterable {
   
@@ -93,10 +91,10 @@ enum SkillLevel: String, CaseIterable {
   case superstar1 = "SUPERSTAR Ⅰ"
   
   /// DJMAX GRAND MASTER.
-  case djmaxGrandMaster = "DJMAX GRAND MASTER"
+  case djmaxGrandMaster = "🔥DJMAX GRAND MASTER🔥"
   
   /// THE DJMAX.
-  case theDjmax = "✨THE DJMAX"
+  case theDjmax = "✨THE DJMAX✨"
   
   /// The skill levels of 4 button mode.
   static let button4SkillLevels: [SkillLevel] = [

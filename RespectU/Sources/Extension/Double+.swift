@@ -6,8 +6,6 @@
 //  Copyright © 2019 Presto. All rights reserved.
 //
 
-import Foundation
-
 extension Double {
   
   /// The natural constant.

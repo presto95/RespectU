@@ -6,7 +6,6 @@
 //  Copyright © 2019 Presto. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 /// The `enum` that defines a direction of gradient layer.

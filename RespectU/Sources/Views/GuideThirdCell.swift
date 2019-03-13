@@ -12,21 +12,45 @@ import UIKit
 protocol GuideThirdCellDelegate: class {
   
   /// Tells the delegate that the download stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideThirdCell(_ cell: GuideThirdCell, didTapDownloadStackView stackView: UIStackView)
   
   /// Tells the delegate that the upload stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideThirdCell(_ cell: GuideThirdCell, didTapUploadStackView stackView: UIStackView)
   
   /// Tells the delegate that the email stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideThirdCell(_ cell: GuideThirdCell, didTapEmailStackView stackView: UIStackView)
   
   /// Tells the delegate that the radio stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideThirdCell(_ cell: GuideThirdCell, didTapRadioStackView stackView: UIStackView)
   
   /// Tells the delegate that the credit stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideThirdCell(_ cell: GuideThirdCell, didTapCreditStackView stackView: UIStackView)
   
   /// Tells the delegate that the rate stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideThirdCell(_ cell: GuideThirdCell, didTapRateStackView stackView: UIStackView)
 }
 

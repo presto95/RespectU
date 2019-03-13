@@ -61,6 +61,7 @@ final class SkillLevelDetailViewController: UIViewController {
     }
   }
   
+  /// Tells the `sender` that the share button is tapped.
   @IBAction private func shareButtonDidTap(_ sender: UIButton) {
     UIGraphicsBeginImageContextWithOptions(UIScreen.main.bounds.size, true, 0.0)
     view.drawHierarchy(in: UIScreen.main.bounds, afterScreenUpdates: false)
@@ -71,6 +72,7 @@ final class SkillLevelDetailViewController: UIViewController {
     present(activityViewController, animated: true, completion: nil)
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }

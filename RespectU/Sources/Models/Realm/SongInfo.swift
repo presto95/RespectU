@@ -132,7 +132,7 @@ final class SongInfo: Object {
   static func fetch(bySeries series: Series? = nil) -> Results<SongInfo> {
     let songInfo = try! Realm().objects(SongInfo.self)
     if case let series? = series {
-      return songInfo.filter("series = \(series.rawValue)")
+      return songInfo.filter("series = '\(series.rawValue)'")
     } else {
       return songInfo
     }

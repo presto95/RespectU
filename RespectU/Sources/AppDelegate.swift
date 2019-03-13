@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  RespectU
+//  RespectU
 //
 //  Created by Presto on 2017. 9. 26..
 //  Copyright © 2017년 Presto. All rights reserved.
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
   
   func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     var config = Realm.Configuration()
     if let fileURL = config.fileURL {
       config.fileURL = fileURL.deletingLastPathComponent().appendingPathComponent("new.realm")

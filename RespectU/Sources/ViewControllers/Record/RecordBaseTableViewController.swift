@@ -81,14 +81,14 @@ extension RecordBaseTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.songResults?.count ?? 0
+    return songResults?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
     dismissRecordViewIfExists()
-    guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-    guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
+    guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+    guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
@@ -287,12 +287,12 @@ private extension RecordBaseTableViewController {
   ///   - difficulty: The specific difficulty.
   ///   - button:     The specific button.
   func presentNoteSettingAlert(inDifficulty difficulty: Difficulty, inButton button: Button) {
-    guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
-    guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
+    guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
+    guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
-    guard let object = self.recordResults?.filter(predicate).first else { return }
+    guard let object = recordResults?.filter(predicate).first else { return }
     UIAlertController
       .alert(title: L10n.note, message: L10n.selectTheNote)
       .action(title: "-") { [weak self] _ in

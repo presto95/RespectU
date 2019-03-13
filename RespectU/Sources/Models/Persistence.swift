@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// The `struct` that defines user defaults persistence.
 struct Persistence {
   
+  /// The favorite button.
   static var favoriteButton: Button {
     get {
       let buttonString = UserDefaults.standard.string(forKey: "favoriteButton") ?? ""
@@ -23,6 +25,7 @@ struct Persistence {
     }
   }
   
+  /// The nickname.
   static var nickname: String {
     get {
       return UserDefaults.standard.string(forKey: "nickname") ?? L10n.nicknameSetting
@@ -35,6 +38,7 @@ struct Persistence {
     }
   }
   
+  /// The number of launching.
   static var numberOfLaunching: Int {
     get {
       return UserDefaults.standard.integer(forKey: "appOpenCount")
@@ -47,6 +51,7 @@ struct Persistence {
     }
   }
   
+  /// The favorite bpm.
   static var bpm: Double {
     get {
       return UserDefaults.standard.double(forKey: "bpm")

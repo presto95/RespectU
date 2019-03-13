@@ -31,7 +31,7 @@ enum Series: String {
   case bs
   
   /// LINK DISK.
-  case linkDisk
+  case linkdisk
   
   /// TECHNIKA 2 DLC.
   case technika2

@@ -210,7 +210,6 @@
 		57A9D23286BDA314BEC501224189EFE7 /* TrophyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A0585B9094D54EA2EE91A30C6265FA /* TrophyViewController.swift */; };
 		8D428E252225AAE930BF8D945401F018 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */; };
 		86DEAB8A62F44038DA244F4B864FE1FF /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */; };
-		D5BAC3FE4BFE449319B1FF768BEA4DA9 /* UITableViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */; };
 		5A7233F8CD55096485F6137E6278A377 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */; };
 		4CB993740AF398D71E90C9EC481F995D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */; };
 		C86374E3E25A9D8B40E03568CB353DCE /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808F49E6EA3E0B9F118A59BCD1C399A9 /* Upload.storyboard */; };
@@ -442,7 +441,6 @@
 		54A0585B9094D54EA2EE91A30C6265FA /* TrophyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrophyViewController.swift; sourceTree = "<group>"; };
 		42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
 		2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+.swift"; sourceTree = "<group>"; };
 		4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		808F49E6EA3E0B9F118A59BCD1C399A9 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
@@ -499,32 +497,6 @@
 				5AF72C1C7A71F43D43589C3E8792F7A9 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CA5641B4D07921D199A3C326E7E11880 /* XIBs */ = {
-			isa = PBXGroup;
-			children = (
-				F957C9D0578879C4BFDF188CC7E9DB68 /* AchievementCell.xib */,
-				4145F1EB5D7436740025D90996B48C6B /* GuideFirstCell.xib */,
-				ACAACBB2302A38B15286B2F10D57B0D2 /* GuideSecondCell.xib */,
-				570419DC99D9A09F38A4AC7F521FCA9B /* GuideThirdCell.xib */,
-				6F96CA2C329587E39822104CEF6C2C4D /* MissionCell.xib */,
-				1BD862D1F9C81B97810DC117707740FB /* RankingCell.xib */,
-				CA9B676C5D60B5CCB2663B17DFB0D19B /* RecordCell.xib */,
-				A832024764FD1738185268E528614C3A /* RecordView.xib */,
-				650873B493E00BDFE6552F230602E303 /* SearchByLevelView.xib */,
-				65A74FCC87D5D9BBBEBAE0F47B7B68DA /* SearchByNoteView.xib */,
-				B6DD826AB9C764BFEA1BFE277466B01C /* SearchByRatingView.xib */,
-				E6C14F35B2B1A8D25A221C146D1C063B /* SearchRecordDetailCell.xib */,
-				0A0189022C6BE4C949EA9505B6B3CA1C /* SkillLevelCell.xib */,
-				62A4B18F7F37F18F820CB7408C91507F /* SkillLevelDetailView.xib */,
-				CDE48D134E382F52D49F7020BDAE3546 /* SongCell.xib */,
-				EDC63C6945BBA9A7159F95B906AC4F52 /* SummaryCell.xib */,
-				DBBD5EC70A4CB6A25BE54391F562C59F /* SummaryCollectionCell.xib */,
-				1907607DB6FA22EE22397D314C25E2C6 /* Top50Cell.xib */,
-				F3C75B35A37617F2B6A9DD8208FE2AD9 /* TrophyCell.xib */,
-			);
-			path = XIBs;
 			sourceTree = "<group>";
 		};
 		20CD4E18015C56EA046398F6514DA8D4 /* Top50 */ = {
@@ -672,7 +644,6 @@
 				08640281899B112DEB6A0A0A56A169B7 /* String+.swift */,
 				42BE04F264C300B56C92EE575A854683 /* UIAlertController+.swift */,
 				2FC485CCFD9749EE1E561DFAE98EA11C /* UIColor+.swift */,
-				B0BA4578D4298BF7ECAD291A9230D5DA /* UITableViewCell+.swift */,
 				4DB6EB0A090B3EC667134B3DD24AA2A8 /* UIView+.swift */,
 				0933C1D68D4630ABCB0E824F3B06E6FA /* UIViewController+.swift */,
 			);
@@ -826,6 +797,32 @@
 			path = Ranking;
 			sourceTree = "<group>";
 		};
+		CA5641B4D07921D199A3C326E7E11880 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				F957C9D0578879C4BFDF188CC7E9DB68 /* AchievementCell.xib */,
+				4145F1EB5D7436740025D90996B48C6B /* GuideFirstCell.xib */,
+				ACAACBB2302A38B15286B2F10D57B0D2 /* GuideSecondCell.xib */,
+				570419DC99D9A09F38A4AC7F521FCA9B /* GuideThirdCell.xib */,
+				6F96CA2C329587E39822104CEF6C2C4D /* MissionCell.xib */,
+				1BD862D1F9C81B97810DC117707740FB /* RankingCell.xib */,
+				CA9B676C5D60B5CCB2663B17DFB0D19B /* RecordCell.xib */,
+				A832024764FD1738185268E528614C3A /* RecordView.xib */,
+				650873B493E00BDFE6552F230602E303 /* SearchByLevelView.xib */,
+				65A74FCC87D5D9BBBEBAE0F47B7B68DA /* SearchByNoteView.xib */,
+				B6DD826AB9C764BFEA1BFE277466B01C /* SearchByRatingView.xib */,
+				E6C14F35B2B1A8D25A221C146D1C063B /* SearchRecordDetailCell.xib */,
+				0A0189022C6BE4C949EA9505B6B3CA1C /* SkillLevelCell.xib */,
+				62A4B18F7F37F18F820CB7408C91507F /* SkillLevelDetailView.xib */,
+				CDE48D134E382F52D49F7020BDAE3546 /* SongCell.xib */,
+				EDC63C6945BBA9A7159F95B906AC4F52 /* SummaryCell.xib */,
+				DBBD5EC70A4CB6A25BE54391F562C59F /* SummaryCollectionCell.xib */,
+				1907607DB6FA22EE22397D314C25E2C6 /* Top50Cell.xib */,
+				F3C75B35A37617F2B6A9DD8208FE2AD9 /* TrophyCell.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		DC130C869CC4C032B6E7EDA0329E7A64 /* RespectU */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,7 +944,7 @@
 				TargetAttributes = {
 					53800806E58C491F36E83AB35BB564AC = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1258,7 +1255,6 @@
 				57A9D23286BDA314BEC501224189EFE7 /* TrophyViewController.swift in Sources */,
 				8D428E252225AAE930BF8D945401F018 /* UIAlertController+.swift in Sources */,
 				86DEAB8A62F44038DA244F4B864FE1FF /* UIColor+.swift in Sources */,
-				D5BAC3FE4BFE449319B1FF768BEA4DA9 /* UITableViewCell+.swift in Sources */,
 				5A7233F8CD55096485F6137E6278A377 /* UIView+.swift in Sources */,
 				4CB993740AF398D71E90C9EC481F995D /* UIViewController+.swift in Sources */,
 				3C2E4343DB314444E72BCA528356A02B /* UploadViewController.swift in Sources */,
@@ -1310,8 +1306,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1333,8 +1328,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

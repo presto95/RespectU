@@ -6,7 +6,6 @@
 //  Copyright © 2019 Presto. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension MissionSection.BS {

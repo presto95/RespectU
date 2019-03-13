@@ -27,5 +27,6 @@ enum Difficulty: String {
   /// Only in mission - REDESIGN.
   case redesign
   
+  /// The all difficulties in normal mode.
   static let all: [Difficulty] = [.normal, .hard, .maximum]
 }

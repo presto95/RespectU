@@ -70,7 +70,7 @@ final class RecordInfo: Object {
     if title.isEmpty {
       return recordInfo
     } else {
-      return recordInfo.filter("title = \(title)")
+      return recordInfo.filter("title = '\(title)'")
     }
   }
   

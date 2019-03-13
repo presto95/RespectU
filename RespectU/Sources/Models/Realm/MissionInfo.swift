@@ -167,7 +167,7 @@ final class MissionInfo: Object {
     let realm = try! Realm()
     let missionInfo = realm.objects(MissionInfo.self)
     if case let series? = series {
-      return missionInfo.filter("series = \(series.rawValue)")
+      return missionInfo.filter("series = '\(series.rawValue)'")
     } else {
       return missionInfo
     }

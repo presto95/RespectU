@@ -12,6 +12,10 @@ import UIKit
 protocol SearchByNoteViewDelegate: class {
   
   /// Tells the delegate that the note button is tapped.
+  ///
+  /// - Parameters:
+  ///   - view:   The view requesting this information.
+  ///   - button: The button which is tapped.
   func searchByNoteView(_ view: SearchByNoteView, didTapNoteButton button: UIButton)
 }
 

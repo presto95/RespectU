@@ -28,6 +28,9 @@ final class RecordCell: UITableViewCell {
     colorLabel.layer.masksToBounds = true
   }
   
+  /// Configures the cell with `songInfo`.
+  ///
+  /// - Parameter songInfo: The song information.
   func configure(with songInfo: SongInfo?) {
     guard let songInfo = songInfo else { return }
     let gradient = songInfo.seriesEnum?.makeGradient(by: .vertical) ?? CAGradientLayer()
@@ -36,7 +39,7 @@ final class RecordCell: UITableViewCell {
     titleLabel.text = songInfo.localizedTitle
   }
   
-  /// Colorizes subviews.
+  /// Colorizes subviews in `series`.
   ///
   /// - Parameter series: The specific series.
   func colorizeSubviews(in series: Series) {

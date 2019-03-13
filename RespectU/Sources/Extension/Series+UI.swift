@@ -6,7 +6,6 @@
 //  Copyright © 2019 Presto. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension Series {
@@ -32,7 +31,7 @@ extension Series {
       return Asset.technika2.color
     case .technika3:
       return Asset.technika3.color
-    case .linkDisk:
+    case .linkdisk:
       return nil
     }
   }
@@ -88,7 +87,7 @@ extension Series {
                              locations: [0, 0.2, 0.4, 0.6, 0.8, 1])
     case .technika3:
       return nil
-    case .linkDisk:
+    case .linkdisk:
       return nil
     }
   }

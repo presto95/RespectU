@@ -14,9 +14,17 @@ import RealmSwift
 protocol SummaryCellDelegate: class {
   
   /// Tells the delegate that the search button is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:   The cell requesting this information.
+  ///   - button: The button which is tapped.
   func summaryCell(_ cell: SummaryCell, didTapSearchButton button: UIButton)
   
   /// Tells the delegate that the detail button is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:   The cell requesting this information.
+  ///   - button: The button which is tapped.
   func summaryCell(_ cell: SummaryCell, didTapDetailButton button: UIButton)
 }
 

@@ -6,8 +6,6 @@
 //  Copyright © 2019 Presto. All rights reserved.
 //
 
-import Foundation
-
 /// The `enum` that defines constants about skill point.
 enum SkillPoint {
   

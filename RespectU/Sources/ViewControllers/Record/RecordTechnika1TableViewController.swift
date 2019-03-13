@@ -21,7 +21,7 @@ final class RecordTechnika1TableViewController: RecordBaseTableViewController {
   }
 }
 
-// MARK: - IndicatorInfoProvider
+// MARK: - Conforming IndicatorInfoProvider
 
 extension RecordTechnika1TableViewController: IndicatorInfoProvider {
   

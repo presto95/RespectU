@@ -12,6 +12,11 @@ import UIKit
 protocol SearchByRatingViewDelegate: class {
   
   /// Tells the delegate that the done button is tapped.
+  ///
+  /// - Parameters:
+  ///   - view:       The view requesting this information.
+  ///   - button:     The button which is tapped.
+  ///   - textFields: The text fields that the ratings are entered.
   func searchByRatingView(_ view: SearchByRatingView,
                           didTapDoneButton button: UIButton,
                           with textFields: [UITextField])

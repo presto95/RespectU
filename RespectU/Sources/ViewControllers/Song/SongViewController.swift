@@ -47,6 +47,8 @@ final class SongViewController: BaseViewController {
   /// The table view controller representing the TECHNIKA 3 series.
   private lazy var technika3TableViewController = SongTechnika3TableViewController()
   
+  private var favoriteButton = Persistence.favoriteButton
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     selectedButtonLabel.text = Persistence.favoriteButton.rawValue.uppercased()
@@ -64,7 +66,8 @@ final class SongViewController: BaseViewController {
       ceTableViewController,
       technika1TableViewController,
       bsTableViewController,
-      technika2TableViewController
+      technika2TableViewController,
+      technika3TableViewController
     ]
   }
   
@@ -73,19 +76,19 @@ final class SongViewController: BaseViewController {
     UIAlertController
       .alert(title: L10n.search, message: L10n.selectTheButtonType)
       .action(title: Button.button4.rawValue.uppercased()) { [weak self] _ in
-        Persistence.favoriteButton = .button4
+        self?.favoriteButton = .button4
         self?.reloadAllTableView()
       }
       .action(title: Button.button5.rawValue.uppercased()) { [weak self] _ in
-        Persistence.favoriteButton = .button5
+        self?.favoriteButton = .button5
         self?.reloadAllTableView()
       }
       .action(title: Button.button6.rawValue.uppercased()) { [weak self] _ in
-        Persistence.favoriteButton = .button6
+        self?.favoriteButton = .button6
         self?.reloadAllTableView()
       }
       .action(title: Button.button8.rawValue.uppercased()) { [weak self] _ in
-        Persistence.favoriteButton = .button8
+        self?.favoriteButton = .button8
         self?.reloadAllTableView()
       }
       .action(title: L10n.cancel, style: .cancel)

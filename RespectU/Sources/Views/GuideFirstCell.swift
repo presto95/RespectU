@@ -12,21 +12,45 @@ import UIKit
 protocol GuideFirstCellDelegate: class {
   
   /// Tells the delegate that the song stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideFirstCell(_ cell: GuideFirstCell, didTapSongStackView stackView: UIStackView)
   
   /// Tells the delegate that the mission stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideFirstCell(_ cell: GuideFirstCell, didTapMissionStackView stackView: UIStackView)
   
   /// Tells the delegate that the trophy stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideFirstCell(_ cell: GuideFirstCell, didTapTrophyStackView stackView: UIStackView)
   
   /// Tells the delegate that the achievement stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideFirstCell(_ cell: GuideFirstCell, didTapAchievementStackView stackView: UIStackView)
   
   /// Tells the delegate that the tip stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideFirstCell(_ cell: GuideFirstCell, didTapTipStackView stackView: UIStackView)
   
   /// Tells the delegate that the manual stack view is tapped.
+  ///
+  /// - Parameters:
+  ///   - cell:       The cell requesting this information.
+  ///   - stackView:  The stack view which is tapped.
   func guideFirstCell(_ cell: GuideFirstCell, didTapManualStackView stackView: UIStackView)
 }
 

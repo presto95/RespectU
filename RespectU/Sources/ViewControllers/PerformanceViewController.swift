@@ -222,10 +222,10 @@ extension PerformanceViewController: UITableViewDataSource {
           .register(UINib(nibName: SummaryCollectionCell.name, bundle: nil),
                     forCellWithReuseIdentifier: CellIdentifier.summaryCollection)
       }
+      return cell
     default:
       return UITableViewCell()
     }
-    return UITableViewCell()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -246,7 +246,7 @@ extension PerformanceViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableViewAutomaticDimension
+    return UITableView.automaticDimension
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

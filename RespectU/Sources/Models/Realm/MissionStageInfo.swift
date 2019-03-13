@@ -29,6 +29,7 @@ final class MissionStageInfo: Object {
     }
   }
   
+  /// The `Difficulty` of the stage.
   var difficultyEnum: Difficulty? {
     return Difficulty(rawValue: difficulty)
   }

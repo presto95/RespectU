@@ -11,8 +11,10 @@ import UIKit
 /// The ranking table view cell.
 final class RankingCell: UITableViewCell {
   
+  /// The `enum` that defines various formats.
   private enum Format {
     
+    /// The format for representing the skill point.
     static let skillPoint = "%4.2f"
   }
   

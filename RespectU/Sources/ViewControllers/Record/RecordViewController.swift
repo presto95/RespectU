@@ -19,9 +19,6 @@ final class RecordViewController: BaseViewController {
   /// The scroll view.
   @IBOutlet weak var scrollView: UIScrollView!
   
-  /// The button bar view.
-  @IBOutlet weak var buttonBar: ButtonBarView!
-  
   /// The table view controller representing the all series.
   private lazy var allTableViewController = RecordAllTableViewController()
   
@@ -52,18 +49,18 @@ final class RecordViewController: BaseViewController {
   /// The table view controller representing the TECHNIKA 3 series.
   private lazy var technika3TableViewController = RecordTechnika3TableViewController()
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
   override func viewControllers(
     for pagerTabStripController: PagerTabStripViewController
   ) -> [UIViewController] {
     return [
       allTableViewController,
+      portable1TableViewController,
       portable2TableViewController,
+      respectTableViewController,
       trilogyTableViewController,
+      ceTableViewController,
       technika1TableViewController,
+      bsTableViewController,
       technika2TableViewController,
       technika3TableViewController
     ]

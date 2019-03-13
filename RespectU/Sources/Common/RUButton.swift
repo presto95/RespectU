@@ -11,8 +11,6 @@ import UIKit
 /// The custom button used throughout the application.
 final class RUButton: UIButton {
   
-  // MARK: Initializer
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     configure()
@@ -22,8 +20,6 @@ final class RUButton: UIButton {
     super.init(coder: aDecoder)
     configure()
   }
-  
-  // MARK: Method
   
   /// Configures default settings.
   private func configure() {

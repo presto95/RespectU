@@ -33,7 +33,7 @@ final class TipViewController: UIViewController {
   /// Configures initial settings.
   private func configure() {
     results = TipInfo.fetch()
-    generateRandomNumbers()
+    makeRandomNumbers()
     setupTableView()
   }
   
@@ -72,7 +72,8 @@ extension TipViewController: UITableViewDelegate {
 
 private extension TipViewController {
   
-  func generateRandomNumbers() {
+  /// Makes random numbers to randomize the order of tips.
+  func makeRandomNumbers() {
     guard let tips = self.results else { return }
     var randomNumber = Int.random(in: 0..<tips.count)
     for _ in 0..<tips.count {
@@ -83,6 +84,7 @@ private extension TipViewController {
     }
   }
   
+  /// Sets up table view.
   func setupTableView() {
     tableView.layer.do {
       $0.borderColor = UIColor.lightGray.cgColor

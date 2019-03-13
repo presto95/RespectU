@@ -436,7 +436,7 @@ private extension DownloadViewController {
   /// Presents the alert representing the task is completed successfully.
   func presentSuccessAlert() {
     UIAlertController
-      .alert(title: "", message: L10n.yourDataHasBeenSuccessfullyUploaded)
+      .alert(title: "", message: L10n.yourDataHasBeenSuccessfullyDownloaded)
       .action(title: L10n.ok) { [weak self] _ in
         self?.parent?.dismiss(animated: true, completion: nil)
       }

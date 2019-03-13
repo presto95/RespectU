@@ -98,7 +98,7 @@ final class TrophyInfo: Object {
   static func fetch(bySeries series: Series? = nil) -> Results<TrophyInfo> {
     let trophyInfo = try! Realm().objects(TrophyInfo.self)
     if case let series? = series {
-      return trophyInfo.filter("series = \(series.rawValue)")
+      return trophyInfo.filter("series = '\(series.rawValue)'")
     } else {
       return trophyInfo
     }

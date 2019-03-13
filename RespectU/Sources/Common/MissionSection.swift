@@ -8,10 +8,17 @@
 
 import UIKit
 
+/// The `protocol` that defines mission section type.
 protocol MissionSectionType {
   
+  /// The color representing each section.
   var color: UIColor? { get }
   
+  /// Makes gradient layer by `direction`.
+  ///
+  /// - Parameter direction: The direction of the gradient layer.
+  ///
+  /// - Returns: The created gradient layer.
   func makeGradient(by direction: GradientDirection) -> CAGradientLayer?
 }
 
@@ -186,20 +193,6 @@ enum MissionSection {
     }
   }
   
-  case respect
-  
-  case trilogy
-  
-  case ce
-  
-  case technika1
-  
-  case bs
-  
-  case technika2
-  
-  case technika3
-  
   static func makeSection(bySeries series: Series, section: String) -> MissionSectionType? {
     switch series {
     case .respect:
@@ -212,6 +205,8 @@ enum MissionSection {
       return MissionSection.Technika1(rawValue: section)
     case .bs:
       return MissionSection.BS(rawValue: section)
+    case .linkdisk:
+      return MissionSection.LinkDisk(rawValue: section)
     case .technika2:
       return MissionSection.Technika2(rawValue: section)
     case .technika3:

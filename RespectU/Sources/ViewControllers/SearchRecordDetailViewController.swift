@@ -14,29 +14,37 @@ import RealmSwift
 /// The search record detail view controller.
 final class SearchRecordDetailViewController: UIViewController {
   
-  private enum CellIdentifier {
-    
-    static let searchRecordDetail = "searchRecordDetailCell"
-  }
-  
+  /// The index of the selected method.
   var methodIndex: Int = 0
   
+  /// The index of the selected button.
   var buttonIndex: Int = 0
   
+  /// The index of the selected index.
   var levelIndex: Int = 0
   
-  var lowerRange: Double = 0
-  
-  var upperRange: Double = 0
-  
+  /// The index of the selected note detail.
   var noteDetailIndex: Int = 0
   
+  /// The lower range of rating.
+  var lowerRange: Double = 0
+  
+  /// The upper range of rating.
+  var upperRange: Double = 0
+  
+  /// The search record detail object.
   private var results: [SearchRecordDetail] = []
   
+  /// The boolean value indicating whether the view controller is presented.
   private var isPresented = false
   
+  /// The cell identifier.
+  private let cellIdentifier = "searchRecordDetailCell"
+  
+  /// The results label.
   @IBOutlet private weak var resultsLabel: UILabel!
   
+  /// The table view.
   @IBOutlet private weak var tableView: UITableView!
   
   override func viewDidLoad() {
@@ -47,7 +55,7 @@ final class SearchRecordDetailViewController: UIViewController {
     tableView.layer.borderWidth = 1
     tableView.layer.cornerRadius = 15
     tableView.register(UINib(nibName: SearchRecordDetailCell.name, bundle: nil),
-                       forCellReuseIdentifier: CellIdentifier.searchRecordDetail)
+                       forCellReuseIdentifier: cellIdentifier)
     let recordResults = RecordInfo.fetch()
     switch buttonIndex {
     case 0:
@@ -676,7 +684,7 @@ final class SearchRecordDetailViewController: UIViewController {
 extension SearchRecordDetailViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.searchRecordDetail,
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                              for: indexPath)
     if case let searchRecordDetailCell as SearchRecordDetailCell = cell {
       searchRecordDetailCell.configure(with: results[indexPath.row])

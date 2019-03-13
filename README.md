@@ -132,6 +132,13 @@
 
 ![8](./images/8.png)
 
+**3.02**
+
+- DJMAX RESPECT 1.21에 대응
+- 전체 리팩토링
+  - 네이밍 등 코딩 스타일 관점
+  - 어떠한 기능의 올바른 위치 등 구조적 관점
+
 **3.01**
 
 - WKWebView를 SFSafariViewController로 교체

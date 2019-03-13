@@ -14,6 +14,11 @@ import RealmSwift
 /// The search record detail view controller.
 final class SearchRecordDetailViewController: UIViewController {
   
+  private enum CellIdentifier {
+    
+    static let searchRecordDetail = "searchRecordDetailCell"
+  }
+  
   var methodIndex: Int = 0
   
   var buttonIndex: Int = 0
@@ -42,7 +47,7 @@ final class SearchRecordDetailViewController: UIViewController {
     tableView.layer.borderWidth = 1
     tableView.layer.cornerRadius = 15
     tableView.register(UINib(nibName: SearchRecordDetailCell.name, bundle: nil),
-                       forCellReuseIdentifier: "searchRecordDetailCell")
+                       forCellReuseIdentifier: CellIdentifier.searchRecordDetail)
     let recordResults = RecordInfo.fetch()
     switch buttonIndex {
     case 0:
@@ -175,21 +180,21 @@ final class SearchRecordDetailViewController: UIViewController {
                                               title: result.localizedTitle,
                                               difficulty: Difficulty.normal.rawValue,
                                               rate: result.button4?.normal?.rate ?? 0)
-              self.results.append(object)
+              results.append(object)
             }
             if result.button4?.hard?.note == Note.perfectPlay.rawValue {
               let object = SearchRecordDetail(series: result.series,
                                               title: result.localizedTitle,
                                               difficulty: Difficulty.hard.rawValue,
                                               rate: result.button4?.hard?.rate ?? 0)
-              self.results.append(object)
+              results.append(object)
             }
             if result.button4?.maximum?.note == Note.perfectPlay.rawValue {
               let object = SearchRecordDetail(series: result.series,
                                               title: result.localizedTitle,
                                               difficulty: Difficulty.maximum.rawValue,
                                               rate: result.button4?.maximum?.rate ?? 0)
-              self.results.append(object)
+              results.append(object)
             }
           }
         }
@@ -660,16 +665,19 @@ final class SearchRecordDetailViewController: UIViewController {
     resultsLabel.text = "\(results.count)\(L10n.results)"
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
 }
 
+// MARK: - Conforming UITableViewDataSource
+
 extension SearchRecordDetailViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell
-      = tableView.dequeueReusableCell(withIdentifier: "searchRecordDetailCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.searchRecordDetail,
+                                             for: indexPath)
     if case let searchRecordDetailCell as SearchRecordDetailCell = cell {
       searchRecordDetailCell.configure(with: results[indexPath.row])
     }
@@ -681,12 +689,16 @@ extension SearchRecordDetailViewController: UITableViewDataSource {
   }
 }
 
+// MARK: - Conforming UITableViewDelegate
+
 extension SearchRecordDetailViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
 }
+
+// MARK: - Conforming DZNEmptyDataSetSource
 
 extension SearchRecordDetailViewController: DZNEmptyDataSetSource {
   
@@ -695,6 +707,8 @@ extension SearchRecordDetailViewController: DZNEmptyDataSetSource {
     return NSAttributedString(string: L10n.noResults, attributes: fontAttribute)
   }
 }
+
+// MARK: - Conforming DZNEmptyDataSetDelegate
 
 extension SearchRecordDetailViewController: DZNEmptyDataSetDelegate {
   

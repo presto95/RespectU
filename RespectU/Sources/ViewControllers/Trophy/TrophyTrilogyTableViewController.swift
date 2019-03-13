@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The trophy table view controller about the TRILOGY series.
 final class TrophyTrilogyTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class TrophyTrilogyTableViewController: TrophyBaseTableViewController {
     results = TrophyInfo.fetch(bySeries: .trilogy)
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension TrophyTrilogyTableViewController {
   
@@ -30,6 +33,8 @@ extension TrophyTrilogyTableViewController {
     }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension TrophyTrilogyTableViewController: IndicatorInfoProvider {
   

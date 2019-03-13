@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The song table view controller about the RESPECT series.
 final class SongRespectTableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class SongRespectTableViewController: SongBaseTableViewController {
     songResults = songResults?.filter { $0.seriesEnum == .respect }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension SongRespectTableViewController: IndicatorInfoProvider {
   

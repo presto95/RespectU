@@ -10,25 +10,29 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement view controller.
 final class AchievementViewController: BaseViewController {
   
+  /// The table view controller about the all types.
   private lazy var allTableViewController =  AchievementAllTableViewController()
   
+  /// The table view controller about the music type.
   private lazy var musicTableViewController = AchievementMusicTableViewController()
   
+  /// The table view controller about the gear skin type.
   private lazy var gearTableViewController = AchievementGearTableViewController()
   
+  /// The table view controller about the note skin type.
   private lazy var noteTableViewController = AchievementNoteTableViewController()
   
+  /// The table view controller about the plate type.
   private lazy var plateTableViewController = AchievementPlateTableViewController()
   
+  /// The table view controller about the gallery type.
   private lazy var galleryTableViewController = AchievementGalleryTableViewController()
   
+  /// The table view controller about the comment type.
   private lazy var commentTableViewController = AchievementCommentTableViewController()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
   
   override func viewControllers(
     for pagerTabStripController: PagerTabStripViewController
@@ -44,6 +48,7 @@ final class AchievementViewController: BaseViewController {
     ]
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }

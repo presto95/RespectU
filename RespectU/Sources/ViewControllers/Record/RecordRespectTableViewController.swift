@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The record table view controller about the RESPECT series.
 final class RecordRespectTableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
@@ -19,6 +20,8 @@ final class RecordRespectTableViewController: RecordBaseTableViewController {
       .sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension RecordRespectTableViewController: IndicatorInfoProvider {
   

@@ -44,6 +44,8 @@ internal enum Asset {
   internal static let technicalMixing = ColorAsset(name: "technicalMixing")
   internal static let clubMixing = ColorAsset(name: "clubMixing")
   internal static let starMixing = ColorAsset(name: "starMixing")
+  internal static let crewChallenge = ColorAsset(name: "crewChallenge")
+  internal static let popMixing = ColorAsset(name: "popMixing")
   internal static let rSide = ColorAsset(name: "rSide")
   internal static let tSide = ColorAsset(name: "tSide")
   internal static let portable1 = ColorAsset(name: "portable1")

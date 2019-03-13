@@ -34,7 +34,7 @@ extension APIService {
       "button6": button6,
       "button8": button8
     ]
-    networkManager.post("\(baseURL)/rankings", parameters: parameters) { data, statusCode, error in
+    networkManager.post("\(baseURL)/rankings", parameters: parameters) { _, statusCode, error in
       completion(statusCode, error)
     }
   }

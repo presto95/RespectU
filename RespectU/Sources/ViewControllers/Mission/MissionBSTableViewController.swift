@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The mission table view controller about the BLACK SQUARE series.
 final class MissionBSTableViewController: MissionBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class MissionBSTableViewController: MissionBaseTableViewController {
     results = MissionInfo.fetch(bySeries: .bs)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension MissionBSTableViewController: IndicatorInfoProvider {
   

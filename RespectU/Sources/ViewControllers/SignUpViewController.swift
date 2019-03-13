@@ -8,18 +8,25 @@
 
 import UIKit
 
+/// The sign up view controller.
 final class SignUpViewController: UIViewController {
   
+  /// The api service.
   private let apiService: APIServiceType = APIService()
   
+  /// The id text field.
   @IBOutlet private weak var idTextField: SignInTextField!
   
+  /// The password text field.
   @IBOutlet private weak var passwordTextField: SignInTextField!
   
+  /// The nickname text field.
   @IBOutlet private weak var nicknameTextField: SignInTextField!
   
+  /// The sign up button.
   @IBOutlet private weak var signUpButton: UIButton!
   
+  /// The boolean value indicating whether all the textfields have a value.
   private var isAllTextFieldsEntered: Bool {
     guard let isIdTextFieldEmpty = idTextField.text?.isEmpty else { return true }
     guard let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty else { return true }
@@ -27,24 +34,28 @@ final class SignUpViewController: UIViewController {
     return !(isIdTextFieldEmpty || isPasswordTextFieldEmpty || isNicknameTextFieldEmpty)
   }
   
+  /// The id.
   private var id: String {
     return idTextField.text ?? ""
   }
   
+  /// The password.
   private var password: String {
     return passwordTextField.text ?? ""
   }
   
+  /// The nickname.
   private var nickname: String {
     return nicknameTextField.text ?? ""
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setup()
+    configure()
   }
   
-  private func setup() {
+  /// Configures initial settings.
+  private func configure() {
     idTextField.placeholder = L10n.id
     passwordTextField.placeholder = L10n.password
     nicknameTextField.placeholder = L10n.nickname
@@ -54,14 +65,17 @@ final class SignUpViewController: UIViewController {
                                                      action: #selector(superViewDidTap(_:))))
   }
   
+  /// Tells the `sender` that the back button is tapped.
   @IBAction private func backButtonDidTap(_ sender: UIButton) {
     navigationController?.popViewController(animated: true)
   }
   
+  /// Tells the `recognizer` that the super view is tapped.
   @objc private func superViewDidTap(_ recognizer: UIGestureRecognizer) {
-    self.view.endEditing(true)
+    view.endEditing(true)
   }
   
+  /// Tells the `sender` that the sign up button is tapped.
   @objc private func signUpButtonDidTap(_ sender: UIButton) {
     if isAllTextFieldsEntered {
       apiService

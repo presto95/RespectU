@@ -10,10 +10,13 @@ import UIKit
 
 import RealmSwift
 
+/// The trophy base table view controller.
 class TrophyBaseTableViewController: UITableViewController {
   
+  /// The fetched trophy results.
   var results: Results<TrophyInfo>?
   
+  /// The cell identifier.
   let cellIdentifier = "trophyCell"
   
   override func viewDidLoad() {
@@ -21,6 +24,7 @@ class TrophyBaseTableViewController: UITableViewController {
     configure()
   }
   
+  /// Configures initial settings.
   private func configure() {
     tableView.rowHeight = 60
     tableView.showsVerticalScrollIndicator = false
@@ -29,6 +33,8 @@ class TrophyBaseTableViewController: UITableViewController {
                        forCellReuseIdentifier: cellIdentifier)
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension TrophyBaseTableViewController {
   

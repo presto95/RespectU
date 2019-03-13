@@ -10,14 +10,19 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The top50 view controller.
 final class Top50ViewController: BaseViewController {
   
+  /// The table view about the 4B.
   private lazy var button4TableViewController = Top504BTableViewController()
   
+  /// The table view about the 5B.
   private lazy var button5TableViewController = Top505BTableViewController()
   
+  /// The table view about the 6B.
   private lazy var button6TableViewController = Top506BTableViewController()
   
+  /// The table view about the 8B.
   private lazy var button8TableViewController = Top508BTableViewController()
   
   override func viewControllers(
@@ -31,6 +36,7 @@ final class Top50ViewController: BaseViewController {
     ]
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }

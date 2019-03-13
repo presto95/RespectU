@@ -33,7 +33,7 @@ final class SummaryCell: UITableViewCell {
   @IBOutlet private weak var view: UIView!
   
   /// The collection view.
-  @IBOutlet private weak var collectionView: UICollectionView!
+  @IBOutlet weak var collectionView: UICollectionView!
   
   /// The detail button.
   @IBOutlet private weak var detailButton: UIButton!

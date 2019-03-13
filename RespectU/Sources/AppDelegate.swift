@@ -59,7 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") {
       UserDefaults.standard.set(favoriteButton.lowercased(), forKey: "favoriteButton")
     }
-    // 전역 프로퍼티 설정
     UINavigationBar.appearance().do {
       $0.setBackgroundImage(.init(), for: .default)
       $0.shadowImage = .init()

@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The trophy table view controller about the BLACK SQUARE series.
 final class TrophyBSTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class TrophyBSTableViewController: TrophyBaseTableViewController {
     results = TrophyInfo.fetch(bySeries: .bs)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension TrophyBSTableViewController: IndicatorInfoProvider {
   

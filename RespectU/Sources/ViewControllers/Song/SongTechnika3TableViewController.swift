@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The song table view controller about the TECHNIKA 3 series.
 final class SongTechnika3TableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class SongTechnika3TableViewController: SongBaseTableViewController {
     songResults = songResults?.filter { $0.seriesEnum == .technika3 }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension SongTechnika3TableViewController: IndicatorInfoProvider {
   

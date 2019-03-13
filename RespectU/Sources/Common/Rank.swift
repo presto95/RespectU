@@ -20,4 +20,7 @@ enum Rank: String {
   
   /// C Rank.
   case c
+  
+  /// None.
+  case none = ""
 }

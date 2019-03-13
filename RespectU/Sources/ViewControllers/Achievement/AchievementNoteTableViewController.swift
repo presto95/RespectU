@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement table view controller about the note skin type.
 final class AchievementNoteTableViewController: AchievementBaseTableViewController {
   
   override func viewDidLoad() {
@@ -18,6 +19,8 @@ final class AchievementNoteTableViewController: AchievementBaseTableViewControll
     makeNumberOfStages()
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension AchievementNoteTableViewController: IndicatorInfoProvider {
   

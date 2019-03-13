@@ -8,6 +8,7 @@
 
 import UIKit
 
+import Then
 import XLPagerTabStrip
 
 /// The base view controller to use button bar pager tap strip.
@@ -18,6 +19,7 @@ class BaseViewController: ButtonBarPagerTabStripViewController {
     super.viewDidLoad()
   }
   
+  /// Sets up button bar pager tab strip.
   private func setUpButtonBarPagerTabStrip() {
     settings.style.selectedBarHeight = 1
     settings.style.selectedBarBackgroundColor = .black

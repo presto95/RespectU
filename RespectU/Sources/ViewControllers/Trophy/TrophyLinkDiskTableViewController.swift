@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The trophy table view controller about the LINK DISK series.
 final class TrophyLinkDiskTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class TrophyLinkDiskTableViewController: TrophyBaseTableViewController {
     results = TrophyInfo.fetch(bySeries: .linkDisk)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension TrophyLinkDiskTableViewController: IndicatorInfoProvider {
   

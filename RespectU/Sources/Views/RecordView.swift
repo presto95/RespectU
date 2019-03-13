@@ -269,11 +269,6 @@ final class RecordView: UIView {
       maximumLabel.text = "\(songButtonKeyPath.maximum)"
     }
   }
-}
-
-// MARK: - Private Method
-
-private extension RecordView {
   
   func changeButtonProperties(with recordInfo: RecordInfo, inButton button: Button) {
     switch button {
@@ -293,6 +288,11 @@ private extension RecordView {
       break
     }
   }
+}
+
+// MARK: - Private Method
+
+private extension RecordView {
   
   func updateSkillPointLabel(with recordInfo: RecordInfo, inButton button: Button) {
     let keyPath = "\(button.expansion ?? "").skillPoint"

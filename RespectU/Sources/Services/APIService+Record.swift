@@ -20,7 +20,7 @@ extension APIService {
   }
   
   func uploadRecords(_ data: Data, completion: @escaping (Int?, Error?) -> Void) {
-    networkManager.upload(data, to: "\(baseURL)/records") { data, statusCode, error in
+    networkManager.upload(data, to: "\(baseURL)/records") { _, statusCode, error in
       completion(statusCode, error)
     }
   }

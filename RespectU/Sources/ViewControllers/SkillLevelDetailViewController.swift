@@ -30,6 +30,7 @@ final class SkillLevelDetailViewController: UIViewController {
     configure()
   }
   
+  /// Configures initial settings.
   private func configure() {
     guard let button4View
       = UIView.instantiateFromXIB(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
@@ -50,7 +51,7 @@ final class SkillLevelDetailViewController: UIViewController {
       button6BackgroundView,
       button8BackgroundView
       ].compactMap { $0 }
-    let buttons: [Button] = [.button4, .button5, .button6, .button8]
+    let buttons = Button.all
     recordViews.indices.forEach { index in
       let recordView = recordViews[index]
       let backgroundView = backgroundViews[index]

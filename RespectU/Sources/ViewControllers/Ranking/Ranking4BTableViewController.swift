@@ -11,6 +11,7 @@ import UIKit
 import SVProgressHUD
 import XLPagerTabStrip
 
+/// The ranking table view controller about the 4B.
 final class Ranking4BTableViewController: RankingBaseTableViewController {
   
   override func viewDidLoad() {
@@ -32,6 +33,8 @@ final class Ranking4BTableViewController: RankingBaseTableViewController {
   }
 }
 
+// MARK: - UITableView Configuration
+
 extension Ranking4BTableViewController {
   
   override func tableView(_ tableView: UITableView,
@@ -43,6 +46,8 @@ extension Ranking4BTableViewController {
     return cell
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension Ranking4BTableViewController: IndicatorInfoProvider {
   

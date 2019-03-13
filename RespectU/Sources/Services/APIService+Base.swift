@@ -195,6 +195,5 @@ extension APIServiceType {
   }
 }
 
-
 /// The api service conforming `APIServiceType`.
 final class APIService: APIServiceType { }

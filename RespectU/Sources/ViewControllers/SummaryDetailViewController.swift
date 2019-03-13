@@ -22,8 +22,10 @@ final class SummaryDetailViewController: UIViewController {
    11 : The number of patterns that recorded
    */
   
+  /// The `enum` that defines formats.
   private enum Format {
     
+    /// The format for representing average.
     static let average = "%05.2f%%"
   }
   
@@ -75,6 +77,7 @@ final class SummaryDetailViewController: UIViewController {
     calculateAllValuesAndReloadSubviews()
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
@@ -87,8 +90,8 @@ private extension SummaryDetailViewController {
   func calculateAllValuesAndReloadSubviews() {
     DispatchQueue.global().async { [weak self] in
       guard let self = self else { return }
-      let buttons = ["button4", "button5", "button6", "button8"]
-      let difficulties = ["normal", "hard", "maximum"]
+      let buttons = Button.all.map { $0.expansion }.compactMap { $0 }
+      let difficulties = Difficulty.all.map { $0.rawValue }
       self.songResults = SongInfo.fetch().sorted(byKeyPath: "title.english")
       self.recordResults = RecordInfo.fetch().sorted(byKeyPath: "title.english")
       zip(self.songResults, self.recordResults).forEach { songResult, recordResult in
@@ -99,7 +102,9 @@ private extension SummaryDetailViewController {
           guard let recordButtonKeyPath
             = recordResult.value(forKeyPath: button) as? RecordButtonInfo else { return }
           for difficulty in difficulties {
-            guard let level = songButtonKeyPath.value(forKeyPath: difficulty) as? Int else { return }
+            guard let level
+              = songButtonKeyPath.value(forKeyPath: difficulty) as? Int
+              else { return }
             if level != 0 {
               guard let recordKeyPath
                 = recordButtonKeyPath.value(forKeyPath: difficulty) as? RecordDifficultyInfo
@@ -265,23 +270,37 @@ private extension SummaryDetailViewController {
           }
         }
       }
-      (self.button4Values[10], self.button5Values[10], self.button6Values[10], self.button8Values[10])
+      (self.button4Values[10],
+       self.button5Values[10],
+       self.button6Values[10],
+       self.button8Values[10])
         = self.numberOfTotalPatterns()
       for index in 0..<12 {
         self.allValues[index]
-          = self.button4Values[index] + self.button5Values[index] + self.button6Values[index] + self.button8Values[index]
+          = self.button4Values[index]
+          + self.button5Values[index]
+          + self.button6Values[index]
+          + self.button8Values[index]
       }
       self.ratingValues[0] = self.ratingValues[0] / Double(self.button4Values[11])
       self.ratingValues[1] = self.ratingValues[1] / Double(self.button5Values[11])
       self.ratingValues[2] = self.ratingValues[2] / Double(self.button6Values[11])
       self.ratingValues[3] = self.ratingValues[3] / Double(self.button8Values[11])
-      self.ratingValues[4] = (self.ratingValues[0] + self.ratingValues[1] + self.ratingValues[2] + self.ratingValues[3]) / 4
+      self.ratingValues[4]
+        = (self.ratingValues[0]
+          + self.ratingValues[1]
+          + self.ratingValues[2]
+          + self.ratingValues[3]) / 4
       let count = self.button4StackView.arrangedSubviews.count
       for index in 1..<count - 1 {
-        guard let button4Label = self.button4StackView.arrangedSubviews[index] as? UILabel else { return }
-        guard let button5Label = self.button5StackView.arrangedSubviews[index] as? UILabel else { return }
-        guard let button6Label = self.button6StackView.arrangedSubviews[index] as? UILabel else { return }
-        guard let button8Label = self.button8StackView.arrangedSubviews[index] as? UILabel else { return }
+        guard let button4Label
+          = self.button4StackView.arrangedSubviews[index] as? UILabel else { return }
+        guard let button5Label = self.button5StackView.arrangedSubviews[index]
+          as? UILabel else { return }
+        guard let button6Label = self.button6StackView.arrangedSubviews[index]
+          as? UILabel else { return }
+        guard let button8Label = self.button8StackView.arrangedSubviews[index]
+          as? UILabel else { return }
         guard let allLabel = self.allStackView.arrangedSubviews[index] as? UILabel else { return }
         button4Label.text = "\(self.button4Values[index - 1])"
         button5Label.text = "\(self.button5Values[index - 1])"
@@ -297,7 +316,8 @@ private extension SummaryDetailViewController {
         else { return }
       guard let button8AverageLabel = self.button8StackView.arrangedSubviews.last as? UILabel
         else { return }
-      guard let allAverageLabel = self.allStackView.arrangedSubviews.last as? UILabel else { return }
+      guard let allAverageLabel
+        = self.allStackView.arrangedSubviews.last as? UILabel else { return }
       button4AverageLabel.text = String(format: Format.average, self.ratingValues[0])
       button5AverageLabel.text = String(format: Format.average, self.ratingValues[1])
       button6AverageLabel.text = String(format: Format.average, self.ratingValues[2])
@@ -309,8 +329,8 @@ private extension SummaryDetailViewController {
   func numberOfTotalPatterns() -> (Int, Int, Int, Int) {
     var (button4, button5, button6, button8) = (0, 0, 0, 0)
     for result in songResults {
-      let buttons = ["button4", "button5", "button6", "button8"]
-      let difficulties = ["normal", "hard", "maximum"]
+      let buttons = Button.all.map { $0.expansion }.compactMap { $0 }
+      let difficulties = Difficulty.all.map { $0.rawValue }
       buttons.enumerated().forEach { index, button in
         guard let buttonKeyPath = result.value(forKeyPath: button) as? SongButtonInfo
           else { return }

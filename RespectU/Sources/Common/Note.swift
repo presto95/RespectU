@@ -31,11 +31,6 @@ enum Note: String {
       return nil
     }
   }
-}
-
-// MARK: - Extension
-
-extension Note {
   
   /// Expanded string.
   ///

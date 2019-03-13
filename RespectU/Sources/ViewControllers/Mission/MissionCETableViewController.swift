@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The mission table view controller about the CLAZZIQUAI EDITION series.
 final class MissionCETableViewController: MissionBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class MissionCETableViewController: MissionBaseTableViewController {
     results = MissionInfo.fetch(bySeries: .ce)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension MissionCETableViewController: IndicatorInfoProvider {
   

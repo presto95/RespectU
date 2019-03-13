@@ -93,13 +93,18 @@ final class InitViewController: UIViewController {
   }
 }
 
-// MARK: - Private Method
+// MARK: - Request Handler
 
 private extension InitViewController {
   
+  /// Handler for song request.
+  ///
+  /// - Parameters:
+  ///   - response: The song response.
+  ///   - error:    The passed error.
   func songRequestHandler(response: SongResponse?, error: Error?) {
     if let error = error {
-      plusCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -108,12 +113,17 @@ private extension InitViewController {
       SongInfo.add(song)
     }
     isSongRequestFinished = true
-    plusCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for mission request.
+  ///
+  /// - Parameters:
+  ///   - response: The mission response.
+  ///   - error:    The passed error.
   func missionRequestHandler(response: MissionResponse?, error: Error?) {
     if let error = error {
-      plusCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -122,12 +132,17 @@ private extension InitViewController {
       MissionInfo.add(mission)
     }
     isMissionRequestFinished = true
-    plusCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for trophy request.
+  ///
+  /// - Parameters:
+  ///   - response: The trophy response.
+  ///   - error:    The passed error.
   func trophyRequestHandler(response: TrophyResponse?, error: Error?) {
     if let error = error {
-      plusCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -136,12 +151,17 @@ private extension InitViewController {
       TrophyInfo.add(trophy)
     }
     isTrophyRequestFinished = true
-    plusCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for achievement request.
+  ///
+  /// - Parameters:
+  ///   - response: The achievement response.
+  ///   - error:    The passed error.
   func achievementRequestHandler(response: AchievementResponse?, error: Error?) {
     if let error = error {
-      plusCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -150,12 +170,17 @@ private extension InitViewController {
       AchievementInfo.add(achievement)
     }
     isAchievementRequestFinished = true
-    plusCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for tip request.
+  ///
+  /// - Parameters:
+  ///   - response: The tip response.
+  ///   - error:    The passed error.
   func tipRequestHandler(response: TipResponse?, error: Error?) {
     if let error = error {
-      plusCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -164,25 +189,31 @@ private extension InitViewController {
       TipInfo.add(tip)
     }
     isTipRequestFinished = true
-    plusCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for version request.
+  ///
+  /// - Parameters:
+  ///   - response: The version response.
+  ///   - error:    The passed error.
   func versionRequestHandler(response: VersionResponse?, error: Error?) {
     if let error = error {
-      plusCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
     guard let response = response else { return }
     VersionInfo.add(response)
     isVersionRequestFinished = true
-    plusCount()
+    incrementNumberOfRequests()
   }
 }
 
-extension InitViewController {
+private extension InitViewController {
   
-  private func presentSuccessAlert() {
+  /// Presents the alert representing the task is completed successfully.
+  func presentSuccessAlert() {
     let results = SongInfo.fetch()
     let oldResults = OldRecordInfo.get()
     UIAlertController
@@ -323,7 +354,8 @@ extension InitViewController {
       .present(to: self)
   }
   
-  private func plusCount() {
+  /// Increments number of requests.
+  func incrementNumberOfRequests() {
     DispatchQueue.main.sync { [weak self] in
       self?.numberOfRequests += 1
     }

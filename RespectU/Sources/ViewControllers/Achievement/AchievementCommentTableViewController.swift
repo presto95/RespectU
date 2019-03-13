@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement table view controller about the comment type.
 final class AchievementCommentTableViewController: AchievementBaseTableViewController {
   
   override func viewDidLoad() {
@@ -18,6 +19,8 @@ final class AchievementCommentTableViewController: AchievementBaseTableViewContr
     makeNumberOfStages()
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension AchievementCommentTableViewController: IndicatorInfoProvider {
   

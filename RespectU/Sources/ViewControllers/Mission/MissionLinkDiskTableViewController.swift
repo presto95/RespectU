@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The mission table view controller about the LINK DISK series.
 final class MissionLinkDiskTableViewController: MissionBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class MissionLinkDiskTableViewController: MissionBaseTableViewController {
     results = MissionInfo.fetch(bySeries: .linkDisk)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension MissionLinkDiskTableViewController: IndicatorInfoProvider {
   

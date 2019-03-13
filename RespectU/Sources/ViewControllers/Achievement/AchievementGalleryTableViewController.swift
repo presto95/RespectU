@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement table view controller about the gallery type.
 final class AchievementGalleryTableViewController: AchievementBaseTableViewController {
   
   override func viewDidLoad() {
@@ -18,6 +19,8 @@ final class AchievementGalleryTableViewController: AchievementBaseTableViewContr
     makeNumberOfStages()
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension AchievementGalleryTableViewController: IndicatorInfoProvider {
   

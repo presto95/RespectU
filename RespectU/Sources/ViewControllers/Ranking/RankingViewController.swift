@@ -10,14 +10,19 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The ranking view controller.
 final class RankingViewController: BaseViewController {
   
+  /// The table view controller representing the 4B.
   private lazy var ranking4bTableViewController = Ranking4BTableViewController()
   
+  /// The table view controller representing the 5B.
   private lazy var ranking5bTableViewController = Ranking5BTableViewController()
   
+  /// The table view controller representing the 6B.
   private lazy var ranking6bTableViewController = Ranking6BTableViewController()
   
+  /// The table view controller representing the 8B.
   private lazy var ranking8bTableViewController = Ranking8BTableViewController()
   
   override func viewControllers(
@@ -31,6 +36,7 @@ final class RankingViewController: BaseViewController {
     ]
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }

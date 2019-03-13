@@ -287,6 +287,7 @@ extension GuideViewController: GuideThirdCellDelegate {
 extension GuideViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     switch indexPath.section {
     case 0:
       let cell

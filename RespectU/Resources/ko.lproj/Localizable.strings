@@ -161,3 +161,6 @@
 "Guide for DJMAX RESPECT" = "DJMAX RESPECT 가이드";
 "Personal Setting" = "개인 설정";
 "More" = "더보기";
+
+"Successfully changing your nickname." = "닉네임을 변경했습니다.";
+"Failed to changing your nickname." = "닉네임을 변경하지 못했습니다.";

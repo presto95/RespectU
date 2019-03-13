@@ -12,7 +12,7 @@ import UIKit
 final class SearchByLevelView: UIView {
   
   /// The picker view.
-  @IBOutlet private weak var pickerView: UIPickerView!
+  @IBOutlet weak var pickerView: UIPickerView!
   
   override func awakeFromNib() {
     super.awakeFromNib()

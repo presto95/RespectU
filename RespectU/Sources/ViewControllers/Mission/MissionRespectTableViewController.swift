@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The mission table view controller about the RESPECT series.
 final class MissionRespectTableViewController: MissionBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class MissionRespectTableViewController: MissionBaseTableViewController {
     results = MissionInfo.fetch(bySeries: .respect)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension MissionRespectTableViewController: IndicatorInfoProvider {
   

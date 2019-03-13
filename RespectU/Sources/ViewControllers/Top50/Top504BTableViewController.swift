@@ -10,12 +10,18 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The top50 table view controller about the 4B.
 final class Top504BTableViewController: Top50BaseTableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     results = tempResults.sorted { $0.button4?.skillPoint ?? 0 > $1.button4?.skillPoint ?? 0 }
   }
+}
+
+// MARK: - UITableView Configuration
+
+extension Top504BTableViewController {
   
   override func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,6 +33,8 @@ final class Top504BTableViewController: Top50BaseTableViewController {
     return cell
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension Top504BTableViewController: IndicatorInfoProvider {
   

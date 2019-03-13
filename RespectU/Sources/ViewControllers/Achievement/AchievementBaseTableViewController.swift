@@ -10,12 +10,16 @@ import UIKit
 
 import RealmSwift
 
+/// The achievement base table view controller.
 class AchievementBaseTableViewController: UITableViewController {
   
+  /// The fetched achievement results.
   var results: Results<AchievementInfo>?
   
+  /// The stages by section.
   var stages = [Int]()
   
+  /// The cell identifier.
   let cellIdentifier = "achievementCell"
   
   override func viewDidLoad() {
@@ -23,20 +27,20 @@ class AchievementBaseTableViewController: UITableViewController {
     configure()
   }
   
+  /// Configures initial settings.
   private func configure() {
-    tableView = UITableView(frame: tableView.bounds, style: .grouped)
-    tableView.rowHeight = 40
-    tableView.showsVerticalScrollIndicator = false
-    tableView.separatorStyle = .none
-    tableView.register(UINib(nibName: AchievementCell.name, bundle: nil),
-                       forCellReuseIdentifier: cellIdentifier)
+    tableView = UITableView(frame: tableView.bounds, style: .grouped).then {
+      $0.rowHeight = 40
+      $0.showsVerticalScrollIndicator = false
+      $0.separatorStyle = .none
+      $0.register(UINib(nibName: AchievementCell.name, bundle: nil),
+                  forCellReuseIdentifier: cellIdentifier)
+    }
   }
-}
-
-extension AchievementBaseTableViewController {
   
+  /// Makes number of stages.
   func makeNumberOfStages() {
-    guard let results = self.results else { return }
+    guard let results = results else { return }
     stages.removeAll()
     var count = 0
     var tempTitle = ""
@@ -56,6 +60,12 @@ extension AchievementBaseTableViewController {
     stages.append(count)
   }
   
+  /// Makes achievement cell at `indexPath`.
+  ///
+  /// - Parameters:
+  ///   - indexPath:  The index path of the made cell.
+  ///   - isAll:      The boolean value indicating whether the type is all.
+  ///                 The default value is `false`.
   func makeAchievementCell(at indexPath: IndexPath, isAll: Bool = false) -> UITableViewCell {
     guard let cell = tableView
       .dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AchievementCell
@@ -67,14 +77,16 @@ extension AchievementBaseTableViewController {
       }
     }
     rowIndex += indexPath.row
-    let count = self.results?.count ?? 0
+    let count = results?.count ?? 0
     if rowIndex < count {
-      let object = self.results?[rowIndex]
+      let object = results?[rowIndex]
       cell.configure(with: object, isAll: isAll)
     }
     return cell
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension AchievementBaseTableViewController {
   
@@ -84,21 +96,21 @@ extension AchievementBaseTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.stages[section]
+    return stages[section]
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return self.stages.count
+    return stages.count
   }
   
   override func tableView(_ tableView: UITableView,
                           titleForHeaderInSection section: Int) -> String? {
-    if section < self.stages.count {
+    if section < stages.count {
       var index = 0
       for sectionIndex in 0...section {
         index += stages[sectionIndex]
       }
-      return self.results?[index - 1].localizedSection
+      return results?[index - 1].localizedSection
     }
     return nil
   }

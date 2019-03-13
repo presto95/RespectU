@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The mission table view controller about the TECHNIKA 2 series.
 final class MissionTechnika2TableViewController: MissionBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class MissionTechnika2TableViewController: MissionBaseTableViewController 
     results = MissionInfo.fetch(bySeries: .technika2)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension MissionTechnika2TableViewController: IndicatorInfoProvider {
   

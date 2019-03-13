@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The song table view controller about the CLAZZIQUAI EDITION series.
 final class SongCETableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class SongCETableViewController: SongBaseTableViewController {
     songResults = songResults?.filter { $0.seriesEnum == .ce }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension SongCETableViewController: IndicatorInfoProvider {
   

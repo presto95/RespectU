@@ -77,6 +77,8 @@ internal enum L10n {
   internal static let error = L10n.tr("Localizable", "Error")
   /// 실패
   internal static let fail = L10n.tr("Localizable", "Fail")
+  /// 닉네임을 변경하지 못했습니다.
+  internal static let failedToChangingYourNickname = L10n.tr("Localizable", "Failed to changing your nickname.")
   /// 내보낸 성과 기록 정보를 가져옵니다.
   internal static let getExportedPerformanceRecordData = L10n.tr("Localizable", "Get exported performance record data.")
   /// 그래프
@@ -247,6 +249,8 @@ internal enum L10n {
   internal static let storeRecordedPerformanceInformationOnTheServer = L10n.tr("Localizable", "Store recorded performance information on the server.")
   /// 성공
   internal static let success = L10n.tr("Localizable", "Success")
+  /// 닉네임을 변경했습니다.
+  internal static let successfullyChangingYourNickname = L10n.tr("Localizable", "Successfully changing your nickname.")
   /// 요약
   internal static let summary = L10n.tr("Localizable", "Summary")
   /// 설정값에 따라 첫 실행 화면에 표시되는 정보가 달라집니다.

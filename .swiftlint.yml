@@ -3,6 +3,8 @@ disabled_rules:
   - leading_whitespace
   - force_try
   - function_body_length
+  - large_tuple
+  - type_body_length
 
 excluded:
   - Pods

@@ -13,19 +13,16 @@ import RealmSwift
 /// The base song table view controller.
 class SongBaseTableViewController: UITableViewController {
   
+  /// The fetched song results.
   var songResults: [SongInfo]?
   
+  /// The fetched mission results.
   var missionResults: Results<MissionInfo>?
   
+  /// The fetched achievement results.
   var achievementResults: Results<AchievementInfo>?
   
-  var favoriteButton: Button {
-    let buttonString = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b"
-    return Button(rawValue: buttonString) ?? .button4
-  }
-  
-  let myBPM = UserDefaults.standard.double(forKey: "bpm")
-  
+  /// The cell identifier.
   let cellIdentifier = "songCell"
   
   override func viewDidLoad() {
@@ -33,6 +30,7 @@ class SongBaseTableViewController: UITableViewController {
     setup()
   }
   
+  /// Configures initial settings.
   private func setup() {
     songResults = SongInfo.fetch().sorted { $0.localizedLowercase < $1.localizedLowercase }
     let predicate = NSPredicate(format: "%K LIKE %@",
@@ -48,6 +46,8 @@ class SongBaseTableViewController: UITableViewController {
   }
 }
 
+// MARK: - UITableView Configuration
+
 extension SongBaseTableViewController {
   
   override func tableView(_ tableView: UITableView,
@@ -55,6 +55,7 @@ extension SongBaseTableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
     cell.contentView.backgroundColor = .clear
     if case let songCell as SongCell = cell {
+      let favoriteButton = Persistence.favoriteButton
       let result = songResults?[indexPath.row]
       songCell.configure(with: result, favoriteButton: favoriteButton)
     }
@@ -76,6 +77,7 @@ extension SongBaseTableViewController {
     } else {
       bpm = object.bpm
     }
+    let myBPM = Persistence.bpm
     let speed = Utils.convertToRecommendedSpeed(by: myBPM / Double(bpm)) ?? ""
     let unlockAchievement = L10n.unlockACHIEVEMENT
     let unlockMission = L10n.unlockMISSION

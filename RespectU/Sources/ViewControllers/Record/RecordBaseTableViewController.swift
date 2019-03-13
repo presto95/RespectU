@@ -13,19 +13,25 @@ import RealmSwift
 /// The record base table view controller.
 class RecordBaseTableViewController: UITableViewController {
   
+  /// The record view controller which the parent of this view controller.
   private var recordViewController: RecordViewController {
     guard let parent = parent as? RecordViewController else { return RecordViewController() }
     return parent
   }
   
+  /// The fetched temperature song results.
   var tempSongResults: Results<SongInfo>?
   
+  /// The processed song results.
   var songResults: [SongInfo]?
   
+  /// The fetched record results.
   private var recordResults: Results<RecordInfo>?
   
+  /// The record view.
   private var recordView: RecordView!
   
+  /// The cell identifier.
   private let cellIdentifier = "recordCell"
   
   override func viewDidLoad() {
@@ -43,6 +49,7 @@ class RecordBaseTableViewController: UITableViewController {
     dismissRecordViewIfExists()
   }
   
+  /// Configures initial settings.
   private func configure() {
     tempSongResults = SongInfo.fetch()
     recordResults = RecordInfo.fetch()
@@ -52,6 +59,8 @@ class RecordBaseTableViewController: UITableViewController {
                        forCellReuseIdentifier: cellIdentifier)
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension RecordBaseTableViewController {
   
@@ -63,9 +72,9 @@ extension RecordBaseTableViewController {
     recordCell.configure(with: object)
     if let selectedIndexPath = tableView.indexPathForSelectedRow {
       if selectedIndexPath == indexPath {
-        recordCell.setColorsInSong(object.series, labels: recordCell.labels)
+        recordCell.colorizeSubviews(in: object.seriesEnum ?? .respect)
       } else {
-        recordCell.unsetColors(labels: recordCell.labels)
+        recordCell.decolorizeSubviews()
       }
     }
     return cell
@@ -84,7 +93,7 @@ extension RecordBaseTableViewController {
                                 #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
     guard let object = recordResults?.filter(predicate).first else { return }
-    cell.setColorsInSong(object.series, labels: cell.labels)
+    cell.colorizeSubviews(in: object.seriesEnum ?? .respect)
     recordView = UIView.instantiateFromXIB(xibName: RecordView.name) as? RecordView
     recordView.delegate = self
     recordView.translatesAutoresizingMaskIntoConstraints = false
@@ -116,19 +125,19 @@ extension RecordBaseTableViewController {
   
   override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-    cell.unsetColors(labels: cell.labels)
+    cell.decolorizeSubviews()
   }
   
   override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
     guard let object = songResults?[indexPath.row] else { return }
-    cell.setColorsInSong(object.series, labels: cell.labels)
+    cell.colorizeSubviews(in: object.seriesEnum ?? .respect)
     
   }
   
   override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-    cell.unsetColors(labels: cell.labels)
+    cell.decolorizeSubviews()
   }
 }
 
@@ -137,14 +146,15 @@ extension RecordBaseTableViewController {
 extension RecordBaseTableViewController: RecordViewDelegate {
   
   func recordView(_ view: RecordView, didTapTypeButton button: UIButton) {
-    let button = (sender.title(for: .normal) ?? Button.button4).lowercased()
-    guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
+    let buttonTitle = button.title(for: .normal)?.lowercased() ?? ""
+    let button = Button(rawValue: buttonTitle) ?? .button4
+    guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
     guard let object = recordResults?.filter(predicate).first else { return }
-    recordView.changeButtonProperties(object, button: button)
+    recordView.changeButtonProperties(with: object, inButton: button)
   }
   
   func recordView(_ view: RecordView, didTapCancelButton button: UIButton) {
@@ -157,6 +167,34 @@ extension RecordBaseTableViewController: RecordViewDelegate {
                   didTapRankRecordButton button: UIButton,
                   inDifficulty difficulty: Difficulty,
                   inCurrentButton currentButton: Button) {
+    presentRankSettingAlert(inDifficulty: difficulty, inButton: currentButton)
+  }
+  
+  func recordView(_ view: RecordView,
+                  didTapRatingRecordButton button: UIButton,
+                  inDifficulty difficulty: Difficulty,
+                  inCurrentButton currentButton: Button) {
+    presentRatingSettingAlert(inDifficulty: difficulty, inButton: currentButton)
+  }
+  
+  func recordView(_ view: RecordView,
+                  didTapNoteRecordButton button: UIButton,
+                  inDifficulty difficulty: Difficulty,
+                  inCurrentButton currentButton: Button) {
+    presentNoteSettingAlert(inDifficulty: difficulty, inButton: currentButton)
+  }
+}
+
+// MARK: - Private Method
+
+private extension RecordBaseTableViewController {
+  
+  /// Presents the alert controller to set the rank in `difficulty` and `button`.
+  ///
+  /// - Parameters:
+  ///   - difficulty: The specific difficulty.
+  ///   - button:     The specific button.
+  func presentRankSettingAlert(inDifficulty difficulty: Difficulty, inButton button: Button) {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
@@ -166,42 +204,42 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     UIAlertController
       .alert(title: L10n.rank, message: L10n.selectTheRank)
       .action(title: "-") { [weak self] _ in
-        self?.setRank(object, rank: Rank.none, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setRank(.none, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: Rank.s.rawValue.uppercased()) { [weak self] _ in
-        self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setRank(.s, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: Rank.a.rawValue.uppercased()) { [weak self] _ in
-        self?.setRank(object, rank: Rank.a, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setRank(.a, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: Rank.b.rawValue.uppercased()) { [weak self] _ in
-        self?.setRank(object, rank: Rank.b, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setRank(.b, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: Rank.c.rawValue.uppercased()) { [weak self] _ in
-        self?.setRank(object, rank: Rank.c, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setRank(.c, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  func recordView(_ view: RecordView,
-                  didTapRatingRecordButton button: UIButton,
-                  inDifficulty difficulty: Difficulty,
-                  inCurrentButton currentButton: Button) {
+  /// Presents the alert controller to set the rating in `difficulty` and `button`.
+  ///
+  /// - Parameters:
+  ///   - difficulty: The specific difficulty.
+  ///   - button:     The specific button.
+  func presentRatingSettingAlert(inDifficulty difficulty: Difficulty, inButton button: Button) {
     guard let selectedIndexPath = tableView.indexPathForSelectedRow else { return }
     guard let songResult = songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
     guard let object = recordResults?.filter(predicate).first else { return }
-    let message = """
-    Enter the rate.\nTo reset the value, do not enter any values.
-    """
+    let message = L10n.EnterTheRate.toResetTheValueDoNotEnterAnyValues
     let alert = UIAlertController
       .alert(title: L10n.rating, message: message.localized)
     alert.textField {
@@ -211,39 +249,44 @@ extension RecordBaseTableViewController: RecordViewDelegate {
       .action(title: L10n.ok) { [weak self] _ in
         let input = alert.textFields?.first?.text ?? ""
         if input.isEmpty {
-          self?.setRating(0, with: object, inDifficulty: difficulty, inButton: currentButton)
+          self?.setRating(0, with: object, inDifficulty: difficulty, inButton: button)
         } else {
           guard let value = Double(input) else { return }
-          let rate = value >= 100 ? 100 : value
-          self?.setRating(rate, with: object, inDifficulty: difficulty, inButton: currentButton)
-          switch rate {
+          let rating = value >= 100 ? 100 : value
+          self?.setRating(rating, with: object, inDifficulty: difficulty, inButton: button)
+          switch rating {
           case 98...100:
-            self?.setRank(.s, with: object, inDifficulty: difficulty, inButton: currentButton)
+            self?.setRank(.s, with: object, inDifficulty: difficulty, inButton: button)
           case 95..<98:
-            self?.setRank(.a, with: object, inDifficulty: difficulty, inButton: currentButton)
+            self?.setRank(.a, with: object, inDifficulty: difficulty, inButton: button)
           case 90..<95:
-            self?.setRank(.b, with: object, inDifficulty: difficulty, inButton: currentButton)
+            self?.setRank(.b, with: object, inDifficulty: difficulty, inButton: button)
           case ..<90:
-            self?.setRank(.c, with: object, inDifficulty: difficulty, inButton: currentButton)
+            self?.setRank(.c, with: object, inDifficulty: difficulty, inButton: button)
           default:
             break
           }
         }
-        self?.recordView.reloadButtonsAndLabels(with: object, inButton: currentButton)
-        guard let buttonExpansion = button.buttonExpansion else { return }
-        guard let note = object.value(forKeyPath: "\(buttonExpansion).\(difficulty).note") as? String else { return }
-        if note != Note.maxCombo {
-          self?.presentNoteAlert(difficulty: difficulty, button: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
+        guard let buttonExpansion = button.expansion else { return }
+        guard let note
+          = object.value(forKeyPath: "\(buttonExpansion).\(difficulty).note") as? String
+          else { return }
+        let noteEnum = Note(rawValue: note) ?? .none
+        if noteEnum != .maxCombo {
+          self?.presentNoteSettingAlert(inDifficulty: difficulty, inButton: button)
         }
       }
       .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
   
-  func recordView(_ view: RecordView,
-                  didTapNoteRecordButton button: UIButton,
-                  inDifficulty difficulty: Difficulty,
-                  inCurrentButton currentButton: Button) {
+  /// Presents the alert controller to set the note in `difficulty` and `button`.
+  ///
+  /// - Parameters:
+  ///   - difficulty: The specific difficulty.
+  ///   - button:     The specific button.
+  func presentNoteSettingAlert(inDifficulty difficulty: Difficulty, inButton button: Button) {
     guard let selectedIndexPath = self.tableView.indexPathForSelectedRow else { return }
     guard let songResult = self.songResults?[selectedIndexPath.row] else { return }
     let predicate = NSPredicate(format: "%K == %@",
@@ -253,28 +296,30 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     UIAlertController
       .alert(title: L10n.note, message: L10n.selectTheNote)
       .action(title: "-") { [weak self] _ in
-        self?.setNote(object, note: Note.none, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setNote(.none, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: Note.maxCombo.expansion) { [weak self] _ in
-        self?.setNote(object, note: Note.maxCombo, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setNote(.maxCombo, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: Note.perfectPlay.expansion) { [weak self] _ in
-        self?.setRank(object, rank: Rank.s, difficulty: difficulty, button: button)
-        self?.setRate(object, rate: 100, difficulty: difficulty, button: button)
-        self?.setNote(object, note: Note.perfectPlay, difficulty: difficulty, button: button)
-        self?.recordView.reloadButtonsAndLabels(object, button: button)
+        self?.setRank(.s, with: object, inDifficulty: difficulty, inButton: button)
+        self?.setRating(100, with: object, inDifficulty: difficulty, inButton: button)
+        self?.setNote(.perfectPlay, with: object, inDifficulty: difficulty, inButton: button)
+        self?.recordView.reloadButtonsAndLabels(with: object, inButton: button)
       }
       .action(title: L10n.cancel, style: .cancel)
       .present(to: self)
   }
-}
-
-// MARK: - Private Method
-
-private extension RecordBaseTableViewController {
   
+  /// Sets `rank` with `recordInfo` in `difficulty` and `button`.
+  ///
+  /// - Parameters:
+  ///   - rank:       The rank will be saved.
+  ///   - recordInfo: The record information will be updated.
+  ///   - difficulty: The specific difficulty.
+  ///   - button:     The specific button.
   func setRank(_ rank: Rank,
                with recordInfo: RecordInfo,
                inDifficulty difficulty: Difficulty,
@@ -283,6 +328,13 @@ private extension RecordBaseTableViewController {
     RecordInfo.update(recordInfo, with: [keyPath: rank.rawValue.uppercased()])
   }
   
+  /// Sets `rating` with `recordInfo` in `difficulty` and `button`.
+  ///
+  /// - Parameters:
+  ///   - rating:     The rating will be saved.
+  ///   - recordInfo: The record information will be updated.
+  ///   - difficulty: The specific difficulty.
+  ///   - button:     The specific button.
   func setRating(_ rating: Double,
                  with recordInfo: RecordInfo,
                  inDifficulty difficulty: Difficulty,
@@ -293,6 +345,13 @@ private extension RecordBaseTableViewController {
     recordView.updateRankingAndSkillPointLabel(with: recordInfo, inButton: button)
   }
   
+  /// Sets `note` with `recordInfo` in `difficulty` and `button`.
+  ///
+  /// - Parameters:
+  ///   - note:       The note will be saved.
+  ///   - recordInfo: The record information will be updated.
+  ///   - difficulty: The specific difficulty.
+  ///   - button:     The specific button.
   func setNote(_ note: Note,
                with recordInfo: RecordInfo,
                inDifficulty difficulty: Difficulty,
@@ -303,6 +362,11 @@ private extension RecordBaseTableViewController {
     recordView.updateRankingAndSkillPointLabel(with: recordInfo, inButton: button)
   }
   
+  /// Updates skill point with `recordInfo` in `button`.
+  ///
+  /// - Parameters:
+  ///   - recordInfo: The record information will be updated.
+  ///   - button:     The specific button.
   func updateSkillPoint(with recordInfo: RecordInfo, inButton button: Button) {
     guard let recordButtonKeyPath
       = recordInfo.value(forKeyPath: button.expansion ?? "") as? RecordButtonInfo
@@ -354,6 +418,7 @@ private extension RecordBaseTableViewController {
     }
   }
   
+  /// Dismisses record view if it is presenting.
   func dismissRecordViewIfExists() {
     if let lastSubview = recordViewController.view.subviews.last as? RecordView {
       lastSubview.removeFromSuperview()
@@ -361,11 +426,12 @@ private extension RecordBaseTableViewController {
     }
   }
   
+  /// Deselects table view if it is selected.
   func deselectTableViewIfSelected() {
     if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
       guard let cell = tableView.cellForRow(at: selectedIndexPath) as? RecordCell else { return }
       tableView.deselectRow(at: selectedIndexPath, animated: true)
-      cell.unsetColors(labels: cell.labels)
+      cell.decolorizeSubviews()
     }
   }
 }

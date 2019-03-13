@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The record table view controller about the PORTABLE 2 series.
 final class RecordPortable2TableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
@@ -19,6 +20,8 @@ final class RecordPortable2TableViewController: RecordBaseTableViewController {
       .sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension RecordPortable2TableViewController: IndicatorInfoProvider {
   

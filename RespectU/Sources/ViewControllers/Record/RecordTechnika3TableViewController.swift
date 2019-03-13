@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The record table view controller about the TECHNIKA 3 series.
 final class RecordTechnika3TableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
@@ -19,6 +20,8 @@ final class RecordTechnika3TableViewController: RecordBaseTableViewController {
       .sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension RecordTechnika3TableViewController: IndicatorInfoProvider {
   

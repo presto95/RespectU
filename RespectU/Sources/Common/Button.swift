@@ -41,5 +41,6 @@ enum Button: String {
     }
   }
   
+  /// The all buttons in normal mode.
   static let all: [Button] = [.button4, .button5, .button6, .button8]
 }

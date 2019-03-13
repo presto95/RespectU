@@ -152,10 +152,13 @@ final class MissionDetailViewController: UIViewController {
   /// The reward label.
   @IBOutlet private weak var rewardLabel: UILabel!
   
-  // MARK: Life Cycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
+    configure()
+  }
+  
+  /// Configures initial settings.
+  private func configure() {
     setVisibilityOfSubviews()
     titleLabel.text = missionInfo.title
     scoreLabel.text = missionInfo.score == 0 ? "-" : "\(missionInfo.score)"
@@ -197,10 +200,12 @@ final class MissionDetailViewController: UIViewController {
     }
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
   
+  /// Tells the `sender` that the more button is tapped.
   @IBAction private func moreButtonDidTap(_ sender: UIButton) {
     switch sender.tag {
     case 0:

@@ -10,14 +10,16 @@ import UIKit
 
 import RealmSwift
 
+/// The ranking base table view controller.
 class RankingBaseTableViewController: UITableViewController {
   
+  /// The api service.
   let apiService: APIServiceType = APIService()
   
-  let nickname = UserDefaults.standard.string(forKey: "nickname") ?? ""
-  
+  /// The cell identifier.
   let cellIdentifier = "rankingCell"
   
+  /// The requestsed ranking results.
   var results: [RankingResponse.Ranking] = []
   
   override func viewDidLoad() {
@@ -25,14 +27,19 @@ class RankingBaseTableViewController: UITableViewController {
     configure()
   }
   
+  /// Configures initial settings.
   private func configure() {
-    tableView.showsVerticalScrollIndicator = false
-    tableView.separatorStyle = .none
-    tableView.rowHeight = 40
-    tableView.register(UINib(nibName: RankingCell.name, bundle: nil),
-                       forCellReuseIdentifier: cellIdentifier)
+    tableView.do {
+      $0.showsVerticalScrollIndicator = false
+      $0.separatorStyle = .none
+      $0.rowHeight = 40
+      $0.register(UINib(nibName: RankingCell.name, bundle: nil),
+                  forCellReuseIdentifier: cellIdentifier)
+    }
   }
 }
+
+// MARK: - UITableView Confiruation
 
 extension RankingBaseTableViewController {
   

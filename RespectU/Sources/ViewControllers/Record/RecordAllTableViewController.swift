@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The record table view controller about the all series.
 final class RecordAllTableViewController: RecordBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class RecordAllTableViewController: RecordBaseTableViewController {
     songResults = tempSongResults?.sorted { $0.localizedLowercase < $1.localizedLowercase }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension RecordAllTableViewController: IndicatorInfoProvider {
   

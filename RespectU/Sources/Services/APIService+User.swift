@@ -17,7 +17,7 @@ extension APIService {
   func requestSignIn(id: String, password: String, completion: @escaping (Int?, Error?) -> Void) {
     let parameters = ["id": id, "password": password]
     networkManager
-      .post("\(baseURL)/users/signin", parameters: parameters) { data, statusCode, error in
+      .post("\(baseURL)/users/signin", parameters: parameters) { _, statusCode, error in
         completion(statusCode, error)
     }
   }
@@ -28,7 +28,7 @@ extension APIService {
                      completion: @escaping (Int?, Error?) -> Void) {
     let parameters = ["id": id, "password": password, "nickname": nickname]
     networkManager
-      .post("\(baseURL)/users/signup", parameters: parameters) { data, statusCode, error in
+      .post("\(baseURL)/users/signup", parameters: parameters) { _, statusCode, error in
         completion(statusCode, error)
     }
   }
@@ -52,7 +52,7 @@ extension APIService {
   func uploadNickname(id: String, nickname: String, completion: @escaping (Int?, Error?) -> Void) {
     let parameters = ["id": id, "nickname": nickname]
     networkManager
-      .post("\(baseURL)/users/nickname", parameters: parameters) { data, statusCode, error in
+      .post("\(baseURL)/users/nickname", parameters: parameters) { _, statusCode, error in
         completion(statusCode, error)
     }
   }

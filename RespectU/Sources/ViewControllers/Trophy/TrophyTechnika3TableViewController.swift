@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The trophy table view controller about the TECHNIKA 3 series.
 final class TrophyTechnika3TableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class TrophyTechnika3TableViewController: TrophyBaseTableViewController {
     results = TrophyInfo.fetch(bySeries: .technika3)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension TrophyTechnika3TableViewController: IndicatorInfoProvider {
   

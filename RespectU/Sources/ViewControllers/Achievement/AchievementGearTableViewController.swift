@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement table view controller about the gear skin type.
 final class AchievementGearTableViewController: AchievementBaseTableViewController {
   
   override func viewDidLoad() {
@@ -18,6 +19,8 @@ final class AchievementGearTableViewController: AchievementBaseTableViewControll
     makeNumberOfStages()
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension AchievementGearTableViewController: IndicatorInfoProvider {
   

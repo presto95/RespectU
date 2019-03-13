@@ -8,13 +8,18 @@
 
 import Foundation
 
+/// The `struct` using in search record detail.
 struct SearchRecordDetail {
   
+  /// The series string value.
   let series: String
   
+  /// The title.
   let title: String
   
+  /// The difficulty string value.
   let difficulty: String
   
+  /// The rating double value.
   let rate: Double
 }

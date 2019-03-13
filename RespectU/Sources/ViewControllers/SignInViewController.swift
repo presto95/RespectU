@@ -10,42 +10,54 @@ import UIKit
 
 import SwiftKeychainWrapper
 
+/// The sign in view controller.
 final class SignInViewController: UIViewController {
   
-  let apiService: APIServiceType = APIService()
+  /// The api service.
+  private let apiService: APIServiceType = APIService()
   
+  /// The id text field.
   @IBOutlet private weak var idTextField: UITextField!
   
+  /// The password text field.
   @IBOutlet private weak var passwordTextField: UITextField!
   
+  /// The sign in button.
   @IBOutlet private weak var signInButton: UIButton!
   
+  /// The sign up button.
   @IBOutlet private weak var signUpButton: UIButton!
   
+  /// The skip button.
   @IBOutlet private weak var skipButton: UIButton!
   
+  /// The description label.
   @IBOutlet private weak var descriptionLabel: UILabel!
   
+  /// The booealn value indicating whether all the text fields have value.
   private var isAllTextFieldsEntered: Bool {
     guard let isIdTextFieldEmpty = idTextField.text?.isEmpty else { return true }
     guard let isPasswordTextFieldEmpty = passwordTextField.text?.isEmpty else { return true }
     return !(isIdTextFieldEmpty || isPasswordTextFieldEmpty)
   }
   
+  /// The id.
   private var id: String {
     return idTextField.text ?? ""
   }
   
+  /// The password.
   private var password: String {
     return passwordTextField.text ?? ""
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setup()
+    configure()
   }
   
-  private func setup() {
+  /// Configures initial settings.
+  private func configure() {
     idTextField.placeholder = L10n.id
     passwordTextField.placeholder = L10n.password
     signInButton.setTitle(L10n.signIn, for: [])
@@ -54,11 +66,11 @@ final class SignInViewController: UIViewController {
     signInButton.addTarget(self, action: #selector(signInButtonDidTap(_:)), for: .touchUpInside)
     signUpButton.addTarget(self, action: #selector(signUpButtonDidTap(_:)), for: .touchUpInside)
     skipButton.addTarget(self, action: #selector(skipButtonDidTap(_:)), for: .touchUpInside)
-    let tapGestureRecognizer
-      = UITapGestureRecognizer(target: self, action: #selector(superViewDidTap(_:)))
-    view.addGestureRecognizer(tapGestureRecognizer)
+    view.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                     action: #selector(superViewDidTap(_:))))
   }
   
+  /// Tells the `sender` that the sign in button is tapped.
   @objc private func signInButtonDidTap(_ sender: UIButton) {
     if isAllTextFieldsEntered {
       apiService.requestSignIn(id: id, password: password) { [weak self] statusCode, error in
@@ -119,11 +131,13 @@ final class SignInViewController: UIViewController {
     }
   }
   
+  /// Tells the `sender` that the sign up button is tapped.
   @objc private func signUpButtonDidTap(_ sender: UIButton) {
     let controller = StoryboardScene.SignIn.signInViewController.instantiate()
     navigationController?.pushViewController(controller, animated: true)
   }
   
+  /// Tells the `sender` that the skip button is tapped.
   @objc private func skipButtonDidTap(_ sender: UIButton) {
     if presentingViewController is UINavigationController {
       dismiss(animated: true, completion: nil)
@@ -132,10 +146,13 @@ final class SignInViewController: UIViewController {
     }
   }
   
+  /// Tells the `recognizer` that the super view is tapped.
   @objc private func superViewDidTap(_ recognizer: UIGestureRecognizer) {
     view.endEditing(true)
   }
 }
+
+// MARK: - Conforming UITextFieldDelegate
 
 extension SignInViewController: UITextFieldDelegate {
   
@@ -154,6 +171,7 @@ extension SignInViewController: UITextFieldDelegate {
 
 private extension SignInViewController {
   
+  /// Presents next view controller.
   func presentNextViewController() {
     if TipInfo.fetch().count == 0 {
       let controller = StoryboardScene.Init.initViewController.instantiate().then {

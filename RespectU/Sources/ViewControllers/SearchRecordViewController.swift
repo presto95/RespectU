@@ -248,7 +248,9 @@ extension SearchRecordViewController: UIPickerViewDelegate {
 
 extension SearchRecordViewController: SearchByRatingViewDelegate {
   
-  func didTouchUpDoneButton(_ textFields: [UITextField]) {
+  func searchByRatingView(_ view: SearchByRatingView,
+                          didTapDoneButton button: UIButton,
+                          with textFields: [UITextField]) {
     guard let lowerRateTextField = textFields.first else { return }
     guard let upperRateTextField = textFields.last else { return }
     if lowerRateTextField.isFirstResponder {
@@ -257,14 +259,6 @@ extension SearchRecordViewController: SearchByRatingViewDelegate {
     } else if upperRateTextField.isFirstResponder {
       upperRateTextField.resignFirstResponder()
       setTextFieldText(upperRateTextField)
-    }
-  }
-  
-  private func setTextFieldText(_ textField: UITextField) {
-    guard let text = textField.text else { return }
-    guard let value = Double(text) else { return }
-    if value >= 100 {
-      textField.text = "100"
     }
   }
 }
@@ -328,6 +322,14 @@ private extension SearchRecordViewController {
       }
     default:
       break
+    }
+  }
+  
+  private func setTextFieldText(_ textField: UITextField) {
+    guard let text = textField.text else { return }
+    guard let value = Double(text) else { return }
+    if value >= 100 {
+      textField.text = "100"
     }
   }
 }

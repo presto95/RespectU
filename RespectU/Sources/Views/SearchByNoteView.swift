@@ -22,10 +22,10 @@ final class SearchByNoteView: UIView {
   weak var delegate: SearchByNoteViewDelegate?
   
   /// The no max combo button.
-  @IBOutlet private weak var noMaxComboButton: UIButton!
+  @IBOutlet weak var noMaxComboButton: UIButton!
   
   /// The perfect play button.
-  @IBOutlet private weak var perfectPlayButton: UIButton!
+  @IBOutlet weak var perfectPlayButton: UIButton!
   
   override func awakeFromNib() {
     super.awakeFromNib()

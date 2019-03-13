@@ -51,7 +51,7 @@ final class NetworkManager: NetworkManagerType {
   }
   
   func post(_ url: String,
-            parameters: [String : Any],
+            parameters: [String: Any],
             completion: @escaping (Data?, Int?, Error?) -> Void) {
     let session = URLSession(configuration: .default)
     guard case let url? = URL(string: url) else { return }

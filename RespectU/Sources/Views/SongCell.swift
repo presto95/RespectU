@@ -135,8 +135,7 @@ final class SongCell: UITableViewCell {
   func decolorizeSubviews() {
     DispatchQueue.main.async { [weak self] in
       self?.contentView.backgroundColor = .white
-      self?.allLabel.forEach { $0.textColor = .black }
+      self?.allLabel.forEach { $0.textColor = .black50 }
     }
   }
-
 }

@@ -10,10 +10,13 @@ import UIKit
 
 import RealmSwift
 
+/// The mission base table view controller.
 class MissionBaseTableViewController: UITableViewController {
   
+  /// The fetched mission results.
   var results: Results<MissionInfo>?
   
+  /// The cell identifier.
   let cellIdentifier = "missionCell"
   
   override func viewDidLoad() {
@@ -21,15 +24,19 @@ class MissionBaseTableViewController: UITableViewController {
     configure()
   }
   
+  /// Configures initial settings.
   private func configure() {
-    tableView = UITableView(frame: tableView.bounds, style: .grouped)
-    tableView.rowHeight = 60
-    tableView.showsVerticalScrollIndicator = false
-    tableView.separatorStyle = .none
-    tableView.register(UINib(nibName: MissionCell.name, bundle: nil),
-                       forCellReuseIdentifier: cellIdentifier)
+    tableView = UITableView(frame: tableView.bounds, style: .grouped).then {
+      $0.rowHeight = 60
+      $0.showsVerticalScrollIndicator = false
+      $0.separatorStyle = .none
+      $0.register(UINib(nibName: MissionCell.name, bundle: nil),
+                  forCellReuseIdentifier: cellIdentifier)
+    }
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension MissionBaseTableViewController {
   
@@ -79,11 +86,11 @@ extension MissionBaseTableViewController {
   override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? MissionCell else { return }
     guard let object = results?[indexPath.row + indexPath.section * 6] else { return }
-    cell.setColorsInMission(object.section, labels: cell.labels)
+    cell.colorizeSubviews(inSeries: object.seriesEnum ?? .respect, section: object.section)
   }
   
   override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? MissionCell else { return }
-    cell.unsetColors(labels: cell.labels)
+    cell.decolorizeSubviews()
   }
 }

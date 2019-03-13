@@ -12,7 +12,9 @@ import UIKit
 protocol SearchByRatingViewDelegate: class {
   
   /// Tells the delegate that the done button is tapped.
-  func searchByRatingView(_ view: SearchByRatingView, didTapDoneButton button: UIButton)
+  func searchByRatingView(_ view: SearchByRatingView,
+                          didTapDoneButton button: UIButton,
+                          with textFields: [UITextField])
 }
 
 /// The search by rating view.
@@ -22,10 +24,10 @@ final class SearchByRatingView: UIView {
   weak var delegate: SearchByRatingViewDelegate?
   
   /// The text field that takes lower rating.
-  @IBOutlet private weak var lowerRatingTextField: UITextField!
+  @IBOutlet weak var lowerRatingTextField: UITextField!
   
   /// The text field that takes upper rating.
-  @IBOutlet private weak var upperRatingTextField: UITextField!
+  @IBOutlet weak var upperRatingTextField: UITextField!
   
   /// The all text fields.
   private var textFields: [UITextField] {
@@ -53,7 +55,7 @@ final class SearchByRatingView: UIView {
   
   /// Tells the `sender` that the done button is tapped.
   @objc private func doneButtonDidTap(_ sender: UIButton) {
-    delegate?.searchByRatingView(self, didTapDoneButton: sender)
+    delegate?.searchByRatingView(self, didTapDoneButton: sender, with: textFields)
   }
   
   /// Creates the tool bar.
@@ -62,7 +64,9 @@ final class SearchByRatingView: UIView {
   private func makeToolBar() -> UIToolbar {
     let flexibleSpace
       = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidTap(_:)))
+    let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                     target: self,
+                                     action: #selector(doneButtonDidTap(_:)))
     let toolBar = UIToolbar().then {
       $0.barStyle = .default
       $0.isTranslucent = true

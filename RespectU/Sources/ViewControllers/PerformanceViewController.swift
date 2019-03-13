@@ -55,6 +55,7 @@ final class PerformanceViewController: UIViewController {
     presentRateView()
   }
   
+  /// Configures initial settings.
   private func setup() {
     recordButton.layer.cornerRadius = recordButton.bounds.height / 2
     recordButton.layer.borderWidth = 1
@@ -67,12 +68,14 @@ final class PerformanceViewController: UIViewController {
     apiService.requestVersions(completion: versionRequestHandler)
   }
   
+  /// Resets subviews.
   private func resetSubviews() {
     recordButton.setTitle(L10n.performanceRecord, for: .normal)
     nicknameButton.setTitle(Persistence.nickname, for: [])
     tableView.reloadData()
   }
   
+  /// Tells the `sender` that the nickname button is tapped.
   @IBAction private func nicknameButtonDidTap(_ sender: UIButton) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if id.isEmpty {
@@ -103,11 +106,13 @@ final class PerformanceViewController: UIViewController {
       .present(to: self)
   }
   
+  /// Tells the `sender` that the next button is tapped.
   @IBAction private func nextButtonDidTap(_ sender: UIButton) {
     let controller = StoryboardScene.Guide.guideViewController.instantiate()
     navigationController?.pushViewController(controller, animated: true)
   }
   
+  /// Tells the `sender` that the record button is tapped.
   @IBAction private func recordButtonDidTap(_ sender: UIButton) {
     let controller = StoryboardScene.Record.recordViewController.instantiate()
     present(controller, animated: true)
@@ -118,6 +123,11 @@ final class PerformanceViewController: UIViewController {
 
 private extension PerformanceViewController {
   
+  /// Handler for version request.
+  ///
+  /// - Parameters:
+  ///   - response: The version response.
+  ///   - error:    The passed error.
   func versionRequestHandler(response: VersionResponse?, error: Error?) {
     if let error = error {
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
@@ -139,8 +149,9 @@ private extension PerformanceViewController {
       }
     } else if response.serverVersion != versionInfo.serverVersion {
       DispatchQueue.main.async {
+        let message = L10n.ThereIsNewData.goToDownloadingFromTheServerAndUpdateToTheLatestData
         UIAlertController
-          .alert(title: "", message: "There is new data.\nGo to \"Downloading from the server\" and update to the latest data.".localized)
+          .alert(title: "", message: message)
           .action(title: L10n.ok) { [weak self] _ in
             guard let self = self else { return }
             NotificationCenter.default.removeObserver(self)
@@ -153,6 +164,11 @@ private extension PerformanceViewController {
     }
   }
   
+  /// Handler for upload nickname request.
+  ///
+  /// - Parameters:
+  ///   - statusCode: The status code.
+  ///   - error:      The passed error.
   func nicknameUploadRequestHandler(statusCode: Int?, error: Error?) {
     if let error = error {
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
@@ -162,14 +178,14 @@ private extension PerformanceViewController {
     if (200...299).contains(statusCode) {
       DispatchQueue.main.async {
         UIAlertController
-          .alert(title: "", message: "Succeeded to change nickname".localized)
+          .alert(title: "", message: L10n.successfullyChangingYourNickname)
           .action(title: L10n.ok)
           .present(to: self)
       }
     } else {
       DispatchQueue.main.async {
         UIAlertController
-          .alert(title: "", message: "Failed to change nickname".localized)
+          .alert(title: "", message: L10n.failedToChangingYourNickname)
           .action(title: L10n.ok)
           .present(to: self)
       }
@@ -205,9 +221,11 @@ extension PerformanceViewController: UITableViewDataSource {
         summaryCell.collectionView
           .register(UINib(nibName: SummaryCollectionCell.name, bundle: nil),
                     forCellWithReuseIdentifier: CellIdentifier.summaryCollection)
-      }    default:
-        return UITableViewCell()
+      }
+    default:
+      return UITableViewCell()
     }
+    return UITableViewCell()
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -249,7 +267,7 @@ extension PerformanceViewController: UICollectionViewDataSource {
     let cell = collectionView
       .dequeueReusableCell(withReuseIdentifier: CellIdentifier.summaryCollection, for: indexPath)
     if case let summaryCollectionCell as SummaryCollectionCell = cell {
-      summaryCollectionCell.setProperties(RecordInfo.fetch(), at: indexPath.item)
+      summaryCollectionCell.configure(with: RecordInfo.fetch(), at: indexPath.item)
     }
     return cell
   }

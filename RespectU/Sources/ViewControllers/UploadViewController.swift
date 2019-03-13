@@ -11,26 +11,32 @@ import UIKit
 import SVProgressHUD
 import SwiftKeychainWrapper
 
+/// The upload view controller.
 final class UploadViewController: UIViewController {
   
+  /// The api service.
   private let apiService: APIServiceType = APIService()
   
+  /// The upload label.
   @IBOutlet private weak var uploadLabel: UILabel!
   
+  /// The upload button.
   @IBOutlet private weak var uploadButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setup()
+    configure()
   }
   
-  private func setup() {
+  /// Configures initial settings.
+  private func configure() {
     uploadLabel.text = L10n.storeRecordedPerformanceInformationOnTheServer
     uploadButton.setTitle(L10n.upload, for: [])
     uploadButton.addTarget(self, action: #selector(uploadButtonDidTap(_:)), for: .touchUpInside)
   }
   
-  @objc func uploadButtonDidTap(_ sender: UIButton) {
+  /// Tells the `sender` that the upload button is tapped.
+  @objc private func uploadButtonDidTap(_ sender: UIButton) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if id.isEmpty {
       UIAlertController
@@ -149,6 +155,7 @@ final class UploadViewController: UIViewController {
     }
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
@@ -158,6 +165,7 @@ final class UploadViewController: UIViewController {
 
 private extension UploadViewController {
   
+  /// Presents alert representing the task is completed successfully.
   func presentSuccessAlert() {
     DispatchQueue.main.async { [weak self] in
       SVProgressHUD.dismiss()
@@ -168,6 +176,7 @@ private extension UploadViewController {
     }
   }
   
+  /// Presents alert representing the task is completed with some error.
   func presentFailureAlert() {
     DispatchQueue.main.async { [weak self] in
       SVProgressHUD.dismiss()

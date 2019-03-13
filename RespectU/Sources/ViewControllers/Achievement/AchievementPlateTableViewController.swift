@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement table view controller about the plate type.
 final class AchievementPlateTableViewController: AchievementBaseTableViewController {
 
   override func viewDidLoad() {
@@ -18,6 +19,8 @@ final class AchievementPlateTableViewController: AchievementBaseTableViewControl
     makeNumberOfStages()
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension AchievementPlateTableViewController: IndicatorInfoProvider {
   

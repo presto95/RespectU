@@ -68,7 +68,9 @@ final class TrophyInfo: Object {
     let imageURL = "\(APIService.baseURL)/images/\(trophyInfo.series)/\(trophyInfo.image).png"
     guard let url = URL(string: imageURL) else { return }
     guard let imageData = try? Data(contentsOf: url) else { return }
-    guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    guard let documentURL
+      = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+      else { return }
     let fileURL = documentURL.appendingPathComponent("\(trophyInfo.image).png")
     do {
       try imageData.write(to: fileURL, options: .atomic)
@@ -108,7 +110,9 @@ final class TrophyInfo: Object {
   ///   - object:           The source trophy information.
   ///   - achievementInfo:  The updated trophy information.
   static func update(_ object: TrophyResponse.Trophy, to trophyInfo: TrophyInfo) {
-    guard let documentURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+    guard let documentURL
+      = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+      else { return }
     let fileURL = documentURL.appendingPathComponent("\(trophyInfo.image).png")
     do {
       try FileManager.default.removeItem(at: fileURL)

@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The trophy table view controller about the RESPECT series.
 final class TrophyRespectTableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class TrophyRespectTableViewController: TrophyBaseTableViewController {
     results = TrophyInfo.fetch(bySeries: .respect)
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension TrophyRespectTableViewController {
   
@@ -43,6 +46,8 @@ extension TrophyRespectTableViewController {
     }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension TrophyRespectTableViewController: IndicatorInfoProvider {
   

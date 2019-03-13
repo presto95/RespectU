@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The song table view controller about the PORTABLE 1 series.
 final class SongPortable1TableViewController: SongBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class SongPortable1TableViewController: SongBaseTableViewController {
     songResults = songResults?.filter { $0.seriesEnum == .portable1 }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension SongPortable1TableViewController: IndicatorInfoProvider {
   

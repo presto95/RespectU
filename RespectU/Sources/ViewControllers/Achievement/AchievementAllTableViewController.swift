@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The achievement table view controller about the all types.
 final class AchievementAllTableViewController: AchievementBaseTableViewController {
   
   override func viewDidLoad() {
@@ -19,6 +20,8 @@ final class AchievementAllTableViewController: AchievementBaseTableViewControlle
   }
 }
 
+// MARK: - UITableView
+
 extension AchievementAllTableViewController {
   
   override func tableView(_ tableView: UITableView,
@@ -26,6 +29,8 @@ extension AchievementAllTableViewController {
     return makeAchievementCell(at: indexPath, isAll: true)
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension AchievementAllTableViewController: IndicatorInfoProvider {
   

@@ -86,7 +86,8 @@ final class AchievementInfo: Object {
   /// - Parameters:
   ///   - object:           The source achievement information.
   ///   - achievementInfo:  The updated achievement information.
-  static func update(_ object: AchievementResponse.Achievement, to achievementInfo: AchievementInfo) {
+  static func update(_ object: AchievementResponse.Achievement,
+                     to achievementInfo: AchievementInfo) {
     let realm = try! Realm()
     try! realm.write {
       achievementInfo.type = object.type

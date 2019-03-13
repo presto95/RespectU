@@ -127,11 +127,13 @@ final class DownloadViewController: UIViewController {
       .addTarget(self, action: #selector(downloadRecordButtonDidTap(_:)), for: .touchUpInside)
   }
   
-  @objc func downloadDataButtonDidTap(_ sender: UIButton) {
+  /// Tells the `sender` that the download data button is tapped.
+  @objc private func downloadDataButtonDidTap(_ sender: UIButton) {
     apiService.requestVersions(completion: versionCheckHandler)
   }
   
-  @objc func downloadRecordButtonDidTap(_ sender: UIButton) {
+  /// Tells the `sender` that the download record button is tapped.
+  @objc private func downloadRecordButtonDidTap(_ sender: UIButton) {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if id.isEmpty {
       UIAlertController
@@ -155,6 +157,7 @@ final class DownloadViewController: UIViewController {
     }
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
   }
@@ -164,9 +167,14 @@ final class DownloadViewController: UIViewController {
 
 private extension DownloadViewController {
   
+  /// Handler for song request.
+  ///
+  /// - Parameters:
+  ///   - response: The song response.
+  ///   - error:    The passed error.
   func songRequestHandler(response: SongResponse?, error: Error?) {
     if let error = error {
-      plusDataCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -224,12 +232,17 @@ private extension DownloadViewController {
     }
     Utils.refreshSkillPoints()
     isSongRequestFinished = true
-    plusDataCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for mission request.
+  ///
+  /// - Parameters:
+  ///   - response: The mission response.
+  ///   - error:    The passed error.
   func missionRequestHandler(response: MissionResponse?, error: Error?) {
     if let error = error {
-      plusDataCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -247,12 +260,17 @@ private extension DownloadViewController {
       }
     }
     isMissionRequestFinished = true
-    plusDataCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for trophy request.
+  ///
+  /// - Parameters:
+  ///   - response: The trophy response.
+  ///   - error:    The passed error.
   func trophyRequestHandler(response: TrophyResponse?, error: Error?) {
     if let error = error {
-      plusDataCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -270,12 +288,17 @@ private extension DownloadViewController {
       }
     }
     isTrophyRequestFinished = true
-    plusDataCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for achievement request.
+  ///
+  /// - Parameters:
+  ///   - response: The achievement response.
+  ///   - error:    The passed error.
   func achievementRequestHandler(response: AchievementResponse?, error: Error?) {
     if let error = error {
-      plusDataCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -295,12 +318,17 @@ private extension DownloadViewController {
       }
     }
     isAchievementRequestFinished = true
-    plusDataCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for tip request.
+  ///
+  /// - Parameters:
+  ///   - response: The tip response.
+  ///   - error:    The passed error.
   func tipRequestHandler(response: TipResponse?, error: Error?) {
     if let error = error {
-      plusDataCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -318,12 +346,17 @@ private extension DownloadViewController {
       }
     }
     isTipRequestFinished = true
-    plusDataCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for version request.
+  ///
+  /// - Parameters:
+  ///   - response: The version response.
+  ///   - error:    The passed error.
   func versionRequestHandler(response: VersionResponse?, error: Error?) {
     if let error = error {
-      plusDataCount()
+      incrementNumberOfRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -334,12 +367,17 @@ private extension DownloadViewController {
       VersionInfo.add(response)
     }
     isVersionRequestFinished = true
-    plusDataCount()
+    incrementNumberOfRequests()
   }
   
+  /// Handler for record request.
+  ///
+  /// - Parameters:
+  ///   - response: The record response.
+  ///   - error:    The passed error.
   func recordRequestHandler(response: RecordResponse?, error: Error?) {
     if let error = error {
-      plusRecordCount()
+      incrementNumberOfRecordRequests()
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
       return
     }
@@ -354,9 +392,14 @@ private extension DownloadViewController {
       RecordInfo.update(record, to: result)
     }
     isRecordRequestFinished = true
-    plusRecordCount()
+    incrementNumberOfRecordRequests()
   }
   
+  /// Handler for version check request.
+  ///
+  /// - Parameters:
+  ///   - response: The version response.
+  ///   - error:    The passed error.
   func versionCheckHandler(response: VersionResponse?, error: Error?) {
     if let error = error {
       present(UIAlertController.makeErrorAlert(error), animated: true, completion: nil)
@@ -390,6 +433,7 @@ private extension DownloadViewController {
 
 private extension DownloadViewController {
   
+  /// Presents the alert representing the task is completed successfully.
   func presentSuccessAlert() {
     UIAlertController
       .alert(title: "", message: L10n.yourDataHasBeenSuccessfullyUploaded)
@@ -399,6 +443,7 @@ private extension DownloadViewController {
       .present(to: self)
   }
   
+  /// Presents the alert representing the task is completed with error.
   func presentFailureAlert() {
     UIAlertController
       .alert(title: "", message: L10n.networkError)
@@ -408,13 +453,15 @@ private extension DownloadViewController {
       .present(to: self)
   }
   
-  func plusDataCount() {
+  /// Increments the number of requests.
+  func incrementNumberOfRequests() {
     DispatchQueue.main.sync { [weak self] in
       self?.numberOfRequests += 1
     }
   }
   
-  func plusRecordCount() {
+  /// Increments the number of record request.
+  func incrementNumberOfRecordRequests() {
     DispatchQueue.main.sync { [weak self] in
       self?.numberOfRecordRequests += 1
     }

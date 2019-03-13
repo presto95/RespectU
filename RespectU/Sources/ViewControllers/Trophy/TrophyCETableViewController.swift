@@ -10,6 +10,7 @@ import UIKit
 
 import XLPagerTabStrip
 
+/// The trophy table view controller about the CLAZZIQUAI EDITION series.
 final class TrophyCETableViewController: TrophyBaseTableViewController {
   
   override func viewDidLoad() {
@@ -17,6 +18,8 @@ final class TrophyCETableViewController: TrophyBaseTableViewController {
     results = TrophyInfo.fetch(bySeries: .ce)
   }
 }
+
+// MARK: - UITableView Configuration
 
 extension TrophyCETableViewController {
   
@@ -30,6 +33,8 @@ extension TrophyCETableViewController {
     }
   }
 }
+
+// MARK: - Conforming IndicatorInfoProvider
 
 extension TrophyCETableViewController: IndicatorInfoProvider {
   

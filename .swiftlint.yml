@@ -1,15 +1,17 @@
 disabled_rules:
-- line_length
-- trailing_whitespace
-- leading_whitespace
-- force_try
-- function_body_length
-included:
+  - trailing_whitespace
+  - leading_whitespace
+  - force_try
+  - function_body_length
+  - large_tuple
+  - type_body_length
+
 excluded:
-- Pods
-- RespectU/Supporting Files/ERProgressHud.swift
+  - Pods
+  - RespectU/Resources/SwiftGen
 
 cyclomatic_complexity: 20
+
 identifier_name:
     excluded:
     - id
@@ -24,9 +26,12 @@ identifier_name:
     - a
     - b
     - c
+
 type_name:
     excluded:
     - CE
     - BS
-trailing_space:
-    
+
+line_length:
+  warning: 99
+  error: 120

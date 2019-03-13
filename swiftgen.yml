@@ -1,0 +1,18 @@
+xcassets:
+  inputs: RespectU/Resources/Assets.xcassets
+  outputs:
+    templateName: swift4
+    output: RespectU/Resources/SwiftGen/Assets.swift
+
+ib:
+  inputs: RespectU
+  outputs:
+    templateName: scenes-swift4
+    output: RespectU/Resources/SwiftGen/Storyboard.swift
+
+strings:
+  inputs:
+    - RespectU/Resources/ko.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift4
+    output: RespectU/Resources/SwiftGen/Strings.swift

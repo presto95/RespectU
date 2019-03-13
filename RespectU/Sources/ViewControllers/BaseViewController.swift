@@ -13,11 +13,6 @@ import XLPagerTabStrip
 /// The base view controller to use button bar pager tap strip.
 class BaseViewController: ButtonBarPagerTabStripViewController {
   
-  private enum Font {
-    
-    static let buttonBarItem = UIFont.systemFont(ofSize: 14, weight: .medium)
-  }
-  
   override func viewDidLoad() {
     setUpButtonBarPagerTabStrip()
     super.viewDidLoad()
@@ -30,6 +25,6 @@ class BaseViewController: ButtonBarPagerTabStripViewController {
     settings.style.buttonBarItemBackgroundColor = .white
     settings.style.buttonBarItemTitleColor = .black
     settings.style.buttonBarItemsShouldFillAvailiableWidth = true
-    settings.style.buttonBarItemFont = Font.buttonBarItem
+    settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
   }
 }

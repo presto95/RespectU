@@ -7,49 +7,59 @@
 //
 
 import UIKit
+
 import RealmSwift
 
 protocol SummaryCellDelegate: class {
-  func didTouchUpDetailButton(_ sender: UIButton)
-  func didTouchUpSearchButton(_ sender: UIButton)
+  
+  func summaryCell(_ cell: SummaryCell, didTapSearchButton button: UIButton)
+  
+  func summaryCell(_ cell: SummaryCell, didTapDetailButton button: UIButton)
 }
 
+/// The summary table view cell.
 final class SummaryCell: UITableViewCell {
   
   weak var delegate: SummaryCellDelegate?
   
-  @IBOutlet weak var titleLabel: UILabel!
+  /// The title label.
+  @IBOutlet private weak var titleLabel: UILabel!
   
-  @IBOutlet weak var view: UIView!
+  /// The background view.
+  @IBOutlet private weak var view: UIView!
   
-  @IBOutlet weak var collectionView: UICollectionView!
+  /// The collection view.
+  @IBOutlet private weak var collectionView: UICollectionView!
   
-  @IBOutlet weak var detailButton: UIButton!
+  /// The detail button.
+  @IBOutlet private weak var detailButton: UIButton!
   
-  @IBOutlet weak var searchButton: UIButton!
+  /// The search button.
+  @IBOutlet private weak var searchButton: UIButton!
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    titleLabel.text = "Summary".localized
+    setup()
+  }
+  
+  /// Configures initial settings.
+  private func setup() {
+    titleLabel.text = L10n.summary
     view.layer.cornerRadius = 15
     view.layer.borderWidth = 1
     view.layer.borderColor = UIColor.lightGray.cgColor
     view.layer.masksToBounds = true
-    self.detailButton.setTitle("Detail".localized, for: .normal)
-    self.searchButton.setTitle("Search by Condition".localized, for: .normal)
-    self.detailButton.addTarget(self, action: #selector(didTouchUpDetailButton(_:)), for: .touchUpInside)
-    self.searchButton.addTarget(self, action: #selector(searchButtonDidTap(_:)), for: .touchUpInside)
+    detailButton.setTitle(L10n.detail, for: .normal)
+    searchButton.setTitle(L10n.searchByCondition, for: .normal)
+    detailButton.addTarget(self, action: #selector(detailButtonDidTap(_:)), for: .touchUpInside)
+    searchButton.addTarget(self, action: #selector(searchButtonDidTap(_:)), for: .touchUpInside)
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+  @objc private func searchButtonDidTap(_ sender: UIButton) {
+    delegate?.summaryCell(self, didTapSearchButton: sender)
   }
   
-  @objc func didTouchUpSearchButton(_ sender: UIButton) {
-    delegate?.didTouchUpSearchButton(sender)
-  }
-  
-  @objc func didTouchUpDetailButton(_ sender: UIButton) {
-    delegate?.didTouchUpDetailButton(sender)
+  @objc private func detailButtonDidTap(_ sender: UIButton) {
+    delegate?.summaryCell(self, didTapDetailButton: sender)
   }
 }

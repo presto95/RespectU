@@ -39,7 +39,7 @@ class SongBaseTableViewController: UITableViewController {
                                 #keyPath(MissionInfo.reward.english),
                                 "Music*")
     missionResults = MissionInfo.fetch().filter(predicate)
-    achievementResults = AchievementInfo.fetch(byType: .all).filter("type = music")
+    achievementResults = AchievementInfo.fetch(byType: .music)
     tableView.rowHeight = 60
     tableView.showsVerticalScrollIndicator = false
     tableView.separatorStyle = .none
@@ -100,7 +100,7 @@ extension SongBaseTableViewController {
     }
     var message: String = L10n.speedRecommendation + "\n\(speed)" + unlockInfo
     if changesSpeed {
-      message += "\n" + L10n.speedVariation
+      message += "\n\(L10n.speedVariation)"
     }
     UIAlertController
       .alert(title: object.localizedTitle, message: message)
@@ -117,6 +117,6 @@ extension SongBaseTableViewController {
   
   override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? SongCell else { return }
-    cell.unsetColors(labels: cell.labels)
+    cell.decolorizeSubviews()
   }
 }

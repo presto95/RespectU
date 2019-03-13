@@ -23,7 +23,8 @@ class Top50BaseTableViewController: UITableViewController {
     tableView.showsVerticalScrollIndicator = false
     tableView.separatorStyle = .none
     tableView.rowHeight = 60
-    tableView.register(UINib(nibName: "Top50Cell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+    tableView.register(UINib(nibName: Top50Cell.name, bundle: nil),
+                       forCellReuseIdentifier: cellIdentifier)
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

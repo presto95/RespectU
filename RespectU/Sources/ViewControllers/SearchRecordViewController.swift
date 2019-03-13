@@ -50,7 +50,7 @@ final class SearchRecordViewController: UIViewController {
   
   private func configure() {
     searchByLevelButton.setTitle(L10n.level, for: [])
-    searchByRateButton.setTitle(L10n.rate, for: [])
+    searchByRateButton.setTitle(L10n.rating, for: [])
     searchByNoteButton.setTitle(L10n.note, for: [])
     searchButton.setTitle(L10n.enterAllConditions, for: .disabled)
     searchButton.setTitle(L10n.search, for: .normal)
@@ -273,8 +273,8 @@ extension SearchRecordViewController: SearchByRatingViewDelegate {
 
 extension SearchRecordViewController: SearchByNoteViewDelegate {
   
-  func didTouchUpNoteButtons(_ sender: UIButton) {
-    switch sender.tag {
+  func searchByNoteView(_ view: SearchByNoteView, didTapNoteButton button: UIButton) {
+    switch button.tag {
     case 0:
       selectedNoteDetailIndex = 0
     case 1:

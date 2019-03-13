@@ -35,4 +35,12 @@ final class RecordCell: UITableViewCell {
     colorLabel.layer.addSublayer(gradient)
     titleLabel.text = songInfo.localizedTitle
   }
+  
+  func colorizeSubviews(in series: Series) {
+    
+  }
+  
+  func decolorizeSubviews() {
+    
+  }
 }

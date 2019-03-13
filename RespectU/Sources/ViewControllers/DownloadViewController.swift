@@ -17,21 +17,22 @@ final class DownloadViewController: UIViewController {
   // MARK: Property.
   
   /// The api service.
-  let apiService: APIServiceType = APIService()
+  private let apiService: APIServiceType = APIService()
   
   /// The 'download data' label.
-  @IBOutlet weak var downloadDataLabel: UILabel!
+  @IBOutlet private weak var downloadDataLabel: UILabel!
   
   /// The 'download data' button.
-  @IBOutlet weak var downloadDataButton: UIButton!
+  @IBOutlet private weak var downloadDataButton: UIButton!
   
   /// The 'download record' label.
-  @IBOutlet weak var downloadRecordLabel: UILabel!
+  @IBOutlet private weak var downloadRecordLabel: UILabel!
   
   /// The 'download record' button.
-  @IBOutlet weak var downloadRecordButton: UIButton!
+  @IBOutlet private weak var downloadRecordButton: UIButton!
   
-  var isVersionValid: Bool = false {
+  /// The boolean value indicating whether the requested version is valid to request data.
+  private var isVersionValid: Bool = false {
     didSet {
       if isVersionValid {
         SVProgressHUD.show()
@@ -45,25 +46,33 @@ final class DownloadViewController: UIViewController {
     }
   }
   
-  var isSongRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about song is finished.
+  private var isSongRequestFinished: Bool = false
   
-  var isMissionRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about mission is finished.
+  private var isMissionRequestFinished: Bool = false
   
-  var isTrophyRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about trophy is finished.
+  private var isTrophyRequestFinished: Bool = false
   
-  var isAchievementRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about achievement is finished.
+  private var isAchievementRequestFinished: Bool = false
   
-  var isTipRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about tip is finished.
+  private var isTipRequestFinished: Bool = false
   
-  var isVersionRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about version is finished.
+  private var isVersionRequestFinished: Bool = false
   
-  var isRecordRequestFinished: Bool = false
+  /// The boolean value indicating wheter the request about record is finished.
+  private var isRecordRequestFinished: Bool = false
   
-  var numberOfRequests = 0 {
+  /// The number of requests.
+  private var numberOfRequests = 0 {
     didSet {
       if numberOfRequests == 6 {
         SVProgressHUD.dismiss()
-        if finishesDataAll {
+        if isAllRequestFinished {
           presentSuccessAlert()
         } else {
           presentFailureAlert()
@@ -73,7 +82,8 @@ final class DownloadViewController: UIViewController {
     }
   }
   
-  var numberOfRecordRequests = 0 {
+  /// The number of requests about record.
+  private var numberOfRecordRequests = 0 {
     didSet {
       if numberOfRecordRequests == 1 {
         SVProgressHUD.dismiss()
@@ -87,7 +97,8 @@ final class DownloadViewController: UIViewController {
     }
   }
   
-  var finishesDataAll: Bool {
+  /// The boolean value indicating wheter all the requests are finished.
+  private var isAllRequestFinished: Bool {
     if isSongRequestFinished,
       isMissionRequestFinished,
       isTrophyRequestFinished,
@@ -104,6 +115,7 @@ final class DownloadViewController: UIViewController {
     configure()
   }
   
+  /// Configures initial settings.
   private func configure() {
     downloadDataLabel.text = L10n.updateWithLatestData
     downloadRecordLabel.text = L10n.getExportedPerformanceRecordData
@@ -116,7 +128,7 @@ final class DownloadViewController: UIViewController {
   }
   
   @objc func downloadDataButtonDidTap(_ sender: UIButton) {
-    apiService.requestVersions(completion: versionCheckHandler(response:error:))
+    apiService.requestVersions(completion: versionCheckHandler)
   }
   
   @objc func downloadRecordButtonDidTap(_ sender: UIButton) {
@@ -147,6 +159,8 @@ final class DownloadViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
 }
+
+// MARK: - Request Handler
 
 private extension DownloadViewController {
   
@@ -208,7 +222,7 @@ private extension DownloadViewController {
         RecordInfo.add(recordInfo)
       }
     }
-    Skill.refresh()
+    Utils.refreshSkillPoints()
     isSongRequestFinished = true
     plusDataCount()
   }
@@ -371,6 +385,8 @@ private extension DownloadViewController {
     }
   }
 }
+
+// MARK: - Private Method
 
 private extension DownloadViewController {
   

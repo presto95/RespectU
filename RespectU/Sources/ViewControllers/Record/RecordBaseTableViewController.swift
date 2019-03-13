@@ -10,33 +10,27 @@ import UIKit
 
 import RealmSwift
 
+/// The record base table view controller.
 class RecordBaseTableViewController: UITableViewController {
   
-  var recordViewController: RecordViewController {
-    guard let parent = self.parent as? RecordViewController else { return RecordViewController() }
+  private var recordViewController: RecordViewController {
+    guard let parent = parent as? RecordViewController else { return RecordViewController() }
     return parent
   }
-  
-  let favoriteButton = UserDefaults.standard.string(forKey: "favoriteButton") ?? "4b"
   
   var tempSongResults: Results<SongInfo>?
   
   var songResults: [SongInfo]?
   
-  var recordResults: Results<RecordInfo>?
+  private var recordResults: Results<RecordInfo>?
   
-  var recordView: RecordView!
+  private var recordView: RecordView!
   
-  let cellIdentifier = "recordCell"
+  private let cellIdentifier = "recordCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tempSongResults = SongInfo.fetch()
-    recordResults = RecordInfo.fetch()
-    tableView.showsVerticalScrollIndicator = false
-    tableView.separatorStyle = .none
-    tableView.register(UINib(nibName: "RecordCell", bundle: nil),
-                       forCellReuseIdentifier: cellIdentifier)
+    configure()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -48,6 +42,15 @@ class RecordBaseTableViewController: UITableViewController {
     super.viewDidAppear(animated)
     dismissRecordViewIfExists()
   }
+  
+  private func configure() {
+    tempSongResults = SongInfo.fetch()
+    recordResults = RecordInfo.fetch()
+    tableView.showsVerticalScrollIndicator = false
+    tableView.separatorStyle = .none
+    tableView.register(UINib(nibName: RecordCell.name, bundle: nil),
+                       forCellReuseIdentifier: cellIdentifier)
+  }
 }
 
 extension RecordBaseTableViewController {
@@ -57,7 +60,7 @@ extension RecordBaseTableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
     guard case let recordCell as RecordCell = cell else { return UITableViewCell() }
     guard let object = songResults?[indexPath.row] else { return UITableViewCell() }
-    recordCell.configure(object)
+    recordCell.configure(with: object)
     if let selectedIndexPath = tableView.indexPathForSelectedRow {
       if selectedIndexPath == indexPath {
         recordCell.setColorsInSong(object.series, labels: recordCell.labels)
@@ -80,11 +83,11 @@ extension RecordBaseTableViewController {
     let predicate = NSPredicate(format: "%K == %@",
                                 #keyPath(RecordInfo.title.english),
                                 songResult.title?.english ?? "")
-    guard let object = self.recordResults?.filter(predicate).first else { return }
+    guard let object = recordResults?.filter(predicate).first else { return }
     cell.setColorsInSong(object.series, labels: cell.labels)
-    self.recordView = UIView.instantiateFromXib(xibName: "RecordView") as? RecordView
-    self.recordView.delegate = self
-    self.recordView.translatesAutoresizingMaskIntoConstraints = false
+    recordView = UIView.instantiateFromXib(xibName: RecordView.name) as? RecordView
+    recordView.delegate = self
+    recordView.translatesAutoresizingMaskIntoConstraints = false
     recordViewController.view.addSubview(recordView)
     let leadingConstraint = recordView.leadingAnchor
       .constraint(equalTo: recordViewController.view.leadingAnchor, constant: 8)
@@ -94,15 +97,9 @@ extension RecordBaseTableViewController {
       .constraint(equalToConstant: 200)
     let centerXConstraint = recordView.centerXAnchor
       .constraint(equalTo: recordViewController.view.centerXAnchor)
-    let bottomConstraint: NSLayoutConstraint
-    if #available(iOS 11.0, *) {
-      bottomConstraint = recordView.safeAreaLayoutGuide.bottomAnchor
-        .constraint(equalTo: recordViewController.view.safeAreaLayoutGuide.bottomAnchor,
-                    constant: -20)
-    } else {
-      bottomConstraint = recordView.bottomAnchor
-        .constraint(equalTo: recordViewController.view.bottomAnchor, constant: -20)
-    }
+    let bottomConstraint = recordView.safeAreaLayoutGuide.bottomAnchor
+      .constraint(equalTo: recordViewController.view.safeAreaLayoutGuide.bottomAnchor,
+                  constant: -20)
     NSLayoutConstraint.activate([
       leadingConstraint,
       trailingConstraint,
@@ -110,8 +107,8 @@ extension RecordBaseTableViewController {
       centerXConstraint,
       bottomConstraint
       ])
-    self.recordView.updateRankingAndSkillPointLabel(object, button: favoriteButton)
-    self.recordView.reloadButtonsAndLabels(object, button: favoriteButton)
+    recordView.updateRankingAndSkillPointLabel(with: object, inButton: Persistence.favoriteButton)
+    recordView.reloadButtonsAndLabels(with: object, inButton: Persistence.favoriteButton)
     recordViewController.scrollViewBottomConstraint.constant += 210
     recordViewController.view.layoutIfNeeded()
     tableView.scrollToNearestSelectedRow(at: .middle, animated: true)
@@ -124,7 +121,7 @@ extension RecordBaseTableViewController {
   
   override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? RecordCell else { return }
-    guard let object = self.songResults?[indexPath.row] else { return }
+    guard let object = songResults?[indexPath.row] else { return }
     cell.setColorsInSong(object.series, labels: cell.labels)
     
   }
@@ -206,10 +203,10 @@ extension RecordBaseTableViewController: RecordViewDelegate {
     Enter the rate.\nTo reset the value, do not enter any values.
     """
     let alert = UIAlertController
-      .alert(title: L10n.rate, message: message.localized)
-    alert.textField { (textField) in
-      textField.keyboardType = .decimalPad
-      textField.placeholder = L10n.rate
+      .alert(title: L10n.rating, message: message.localized)
+    alert.textField {
+      $0.keyboardType = .decimalPad
+      $0.placeholder = L10n.rating
       }
       .action(title: L10n.ok) { [weak self] _ in
         let input = alert.textFields?.first?.text ?? ""
@@ -317,6 +314,7 @@ private extension RecordBaseTableViewController {
     guard let songButtonKeyPath
       = songResult.value(forKeyPath: button.expansion ?? "") as? SongButtonInfo
       else { return }
+    let buttonExpansion = button.expansion ?? ""
     let normalSkillPoint = Utils
       .skillPoint(difficulty: songButtonKeyPath.normal,
                   rate: recordButtonKeyPath.normal?.rate,
@@ -331,25 +329,25 @@ private extension RecordBaseTableViewController {
                   note: Note(rawValue: recordButtonKeyPath.maximum?.note ?? "") ?? .none)
     guard let skillPoint = [normalSkillPoint, hardSkillPoint, maximumSkillPoint].sorted().last
       else { return }
-    RecordInfo.update(recordInfo, with: ["\(button.expansion ?? "").skillPoint": skillPoint])
+    RecordInfo.update(recordInfo, with: ["\(buttonExpansion).skillPoint": skillPoint])
     switch skillPoint {
     case normalSkillPoint:
       RecordInfo.update(recordInfo, with: [
-        "\(button.expansion ?? "").skillPointDifficulty": Difficulty.normal.rawValue,
-        "\(button.expansion ?? "").skillPointRate": recordButtonKeyPath.normal?.rate ?? 0,
-        "\(button.expansion ?? "").skillPointNote": recordButtonKeyPath.normal?.note ?? ""
+        "\(buttonExpansion).skillPointDifficulty": Difficulty.normal.rawValue,
+        "\(buttonExpansion).skillPointRate": recordButtonKeyPath.normal?.rate ?? 0,
+        "\(buttonExpansion).skillPointNote": recordButtonKeyPath.normal?.note ?? ""
         ])
     case hardSkillPoint:
       RecordInfo.update(recordInfo, with: [
-        "\(button.expansion ?? "").skillPointDifficulty": Difficulty.hard.rawValue,
-        "\(button.expansion ?? "").skillPointRate": recordButtonKeyPath.hard?.rate ?? 0,
-        "\(button.expansion ?? "").skillPointNote": recordButtonKeyPath.hard?.note ?? ""
+        "\(buttonExpansion).skillPointDifficulty": Difficulty.hard.rawValue,
+        "\(buttonExpansion).skillPointRate": recordButtonKeyPath.hard?.rate ?? 0,
+        "\(buttonExpansion).skillPointNote": recordButtonKeyPath.hard?.note ?? ""
         ])
     case maximumSkillPoint:
       RecordInfo.update(recordInfo, with: [
-        "\(button.expansion ?? "").skillPointDifficulty": Difficulty.maximum.rawValue,
-        "\(button.expansion ?? "").skillPointRate": recordButtonKeyPath.maximum?.rate ?? 0,
-        "\(button.expansion ?? "").skillPointNote": recordButtonKeyPath.maximum?.note ?? ""
+        "\(buttonExpansion).skillPointDifficulty": Difficulty.maximum.rawValue,
+        "\(buttonExpansion).skillPointRate": recordButtonKeyPath.maximum?.rate ?? 0,
+        "\(buttonExpansion).skillPointNote": recordButtonKeyPath.maximum?.note ?? ""
         ])
     default:
       break
@@ -357,9 +355,8 @@ private extension RecordBaseTableViewController {
   }
   
   func dismissRecordViewIfExists() {
-    let lastSubview = recordViewController.view.subviews.last
-    if lastSubview is RecordView {
-      lastSubview?.removeFromSuperview()
+    if let lastSubview = recordViewController.view.subviews.last as? RecordView {
+      lastSubview.removeFromSuperview()
       recordViewController.scrollViewBottomConstraint.constant -= 210
     }
   }

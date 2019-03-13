@@ -25,7 +25,6 @@ final class Top506BTableViewController: Top50BaseTableViewController {
       top50Cell.configure(with: object, button: .button8)
     }
     return cell
-
   }
 }
 

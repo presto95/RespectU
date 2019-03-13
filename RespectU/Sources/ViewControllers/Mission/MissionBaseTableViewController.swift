@@ -62,7 +62,8 @@ extension MissionBaseTableViewController {
     return (results?.count ?? 0) / 6
   }
   
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  override func tableView(_ tableView: UITableView,
+                          titleForHeaderInSection section: Int) -> String? {
     return results?[section * 6].section
   }
   

@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   RespectU
 
@@ -26,18 +26,14 @@
 "Performance" = "성과";
 "Performance Record" = "성과 기록";
 "RANK" = "랭크";
-"Rank" = "랭크";
-"Rate" = "정확도";
-"Input your rate.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.";
-"ACCURACY" = "정확도";
-"Accuracy" = "정확도";
+"RATING" = "정확도";
 "NOTE" = "비고";
-"Note" = "비고";
+"Input your rate.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.";
 "No Pattern" = "패턴 없음";
 "My Record" = "내 기록";
 "PATTERNS" = "패턴";
 "AVERAGE" = "평균 정확도";
-"Input your accuracy.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.";
+"Input your rating.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.";
 "Select your rank." = "랭크를 선택하세요.";
 "Select your note." = "비고를 선택하세요.";
 
@@ -52,7 +48,6 @@
 
 "Unlock (ACHIEVEMENT)" = "해금 (도전과제)";
 "Unlock (MISSION)" = "해금 (미션)";
-"ACHIEVEMENT" = "도전과제";
 
 "My Favorite Button" = "주 버튼 설정";
 "The information displayed on the first run screen depends on the setting value." = "설정값에 따라 첫 실행 화면에 표시되는 정보가 달라집니다.";
@@ -98,7 +93,6 @@
 "Nickname Setting" = "닉네임 설정";
 "Enter your nickname." = "닉네임을 입력해 주세요.";
 "Point" = "점";
-"Coming soon" = "준비중";
 "Summary" = "요약";
 "Graph" = "그래프";
 "MAX COMBO Failure" = "MAX COMBO 실패";
@@ -146,10 +140,7 @@
 "Store recorded performance information on the server." = "기록한 성과 정보를 서버에 저장합니다.";
 "If there is no data on the server, the recorded performance information can be initialized." = "서버에 데이터가 없는 경우 기록한 성과 정보가 초기화될 수 있습니다.";
 "Warning" = "경고";
-"There is new data.\nGo to \"Downloading from the server\" and update to the latest data." = "새로운 데이터가 있습니다.\n\"서버에서 다운로드하기\"로 이동하여 최신 데이터로 업데이트하세요.";
-"Rank" = "랭크";
-"Rate" = "정확도";
-"Note" = "비고";
+"There is new data.\nGo to [Downloading from the server] and update to the latest data." = "새로운 데이터가 있습니다.\n\"서버에서 다운로드하기\"로 이동하여 최신 데이터로 업데이트하세요.";
 "Select the note." = "비고를 선택하세요.";
 "Select the rank." = "랭크를 선택하세요.";
 "Enter the rate.\nTo reset the value, do not enter any values." = "정확도를 입력하세요.\n초기화하려면 아무 값도 입력하지 마세요.";

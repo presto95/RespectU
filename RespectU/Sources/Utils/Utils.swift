@@ -66,7 +66,7 @@ final class Utils {
       case .button8:
         songButtonInfo = songInfo.button8
       default:
-        break
+        songButtonInfo = nil
       }
       guard let bindedSongButtonInfo = songButtonInfo else { return 0 }
       guard let highestSkillPoint = [
@@ -247,7 +247,8 @@ final class Utils {
         recordButtonInfo = recordInfo.button8
         songButtonInfo = songInfo.button8
       default:
-        break
+        recordButtonInfo = nil
+        songButtonInfo = nil
       }
       if songButtonInfo?.normal != 0 {
         entire += 1

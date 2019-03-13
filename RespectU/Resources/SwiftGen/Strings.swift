@@ -21,12 +21,6 @@ internal enum L10n {
   internal static let _5BNORMALSeeker47CombosBREAKFullComboTrophyEarned = L10n.tr("Localizable", "5B NORMAL [Seeker]\n47 Combos -> BREAK -> Full Combo -> Trophy Earned")
   /// 777콤보 달성하기
   internal static let _777Combos = L10n.tr("Localizable", "777 Combos")
-  /// 정확도
-  internal static let accuracy = L10n.tr("Localizable", "ACCURACY")
-  /// 정확도
-  internal static let accuracy = L10n.tr("Localizable", "Accuracy")
-  /// 도전과제
-  internal static let achievement = L10n.tr("Localizable", "ACHIEVEMENT")
   /// 도전과제
   internal static let achievement = L10n.tr("Localizable", "Achievement")
   /// 오름차순
@@ -45,8 +39,6 @@ internal enum L10n {
   internal static let changeBPMDefault = L10n.tr("Localizable", "Change BPM Default")
   /// 네트워크 상태를 확인하세요.
   internal static let checkYourNetworkStatus = L10n.tr("Localizable", "Check your network status.")
-  /// 준비중
-  internal static let comingSoon = L10n.tr("Localizable", "Coming soon")
   /// 준비중입니다.
   internal static let comingSoon = L10n.tr("Localizable", "Coming soon.")
   /// 크레딧
@@ -169,8 +161,6 @@ internal enum L10n {
   internal static let normalDesc = L10n.tr("Localizable", "NORMAL / DESC")
   /// 비고
   internal static let note = L10n.tr("Localizable", "NOTE")
-  /// 비고
-  internal static let note = L10n.tr("Localizable", "Note")
   /// 알림
   internal static let notification = L10n.tr("Localizable", "Notification")
   /// 확인
@@ -196,17 +186,15 @@ internal enum L10n {
   /// 점
   internal static let point = L10n.tr("Localizable", "Point")
   /// 랭크
-  internal static let rank = L10n.tr("Localizable", "Rank")
-  /// 랭크
   internal static let rank = L10n.tr("Localizable", "RANK")
   /// 랭킹
   internal static let ranking = L10n.tr("Localizable", "Ranking")
-  /// 정확도
-  internal static let rate = L10n.tr("Localizable", "Rate")
   /// 정확도 범위 (%)
   internal static let rateRange = L10n.tr("Localizable", "Rate Range (%)")
   /// 앱 평가하기
   internal static let rateThisApp = L10n.tr("Localizable", "Rate This App")
+  /// 정확도
+  internal static let rating = L10n.tr("Localizable", "RATING")
   /// 제거
   internal static let remove = L10n.tr("Localizable", "Remove")
   /// 검색
@@ -293,19 +281,19 @@ internal enum L10n {
     internal static let toResetTheValueDoNotEnterAnyValues = L10n.tr("Localizable", "Enter the rate.\nTo reset the value, do not enter any values.")
   }
 
-  internal enum InputYourAccuracy {
-    /// 정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.
-    internal static let toResetTheValueDoNotEnterAnyValues = L10n.tr("Localizable", "Input your accuracy.\nTo reset the value, do not enter any values.")
-  }
-
   internal enum InputYourRate {
     /// 정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.
     internal static let toResetTheValueDoNotEnterAnyValues = L10n.tr("Localizable", "Input your rate.\nTo reset the value, do not enter any values.")
   }
 
+  internal enum InputYourRating {
+    /// 정확도를 입력하세요.\n값을 초기화하려면 어떠한 값도 입력하지 마세요.
+    internal static let toResetTheValueDoNotEnterAnyValues = L10n.tr("Localizable", "Input your rating.\nTo reset the value, do not enter any values.")
+  }
+
   internal enum ThereIsNewData {
     /// 새로운 데이터가 있습니다.\n"서버에서 다운로드하기"로 이동하여 최신 데이터로 업데이트하세요.
-    internal static let goToDownloadingFromTheServerAndUpdateToTheLatestData = L10n.tr("Localizable", "There is new data.\nGo to "Downloading from the server" and update to the latest data.")
+    internal static let goToDownloadingFromTheServerAndUpdateToTheLatestData = L10n.tr("Localizable", "There is new data.\nGo to [Downloading from the server] and update to the latest data.")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

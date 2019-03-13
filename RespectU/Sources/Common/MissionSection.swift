@@ -6,6 +6,8 @@
 //  Copyright © 2018년 Presto. All rights reserved.
 //
 
+import UIKit
+
 /// The `enum` that defines each mission sections.
 enum MissionSection {
   

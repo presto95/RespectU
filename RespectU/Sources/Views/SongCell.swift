@@ -82,15 +82,12 @@ final class SongCell: UITableViewCell {
     case .button8:
       buttonInfo = songInfo.button8
     default:
-      break
+      buttonInfo = nil
     }
     normalLabel.text = buttonInfo?.normal == 0 ? "-" : "\(buttonInfo?.normal ?? 0)"
     hardLabel.text = buttonInfo?.hard == 0 ? "-" : "\(buttonInfo?.hard ?? 0)"
     maximumLabel.text = buttonInfo?.maximum == 0 ? "-" : "\(buttonInfo?.maximum ?? 0)"
   }
-}
-
-extension SongCell {
   
   /// Colorizes subviews.
   ///
@@ -130,4 +127,15 @@ extension SongCell {
       }
     }
   }
+  
+  /// Decolorizes subviews.
+  ///
+  /// Reset all the colors of subviews.
+  func decolorizeSubviews() {
+    DispatchQueue.main.async { [weak self] in
+      self?.contentView.backgroundColor = .white
+      self?.allLabel.forEach { $0.textColor = .black }
+    }
+  }
+
 }

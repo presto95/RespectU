@@ -66,10 +66,12 @@ final class GuideSecondCell: UITableViewCell {
   
   /// Configures initial settings.
   private func configure() {
-    view.layer.cornerRadius = 15
-    view.layer.borderWidth = 1
-    view.layer.borderColor = UIColor.lightGray.cgColor
-    view.layer.masksToBounds = true
+    view.layer.do {
+      $0.cornerRadius = 15
+      $0.borderWidth = 1
+      $0.borderColor = UIColor.lightGray.cgColor
+      $0.masksToBounds = true
+    }
     let stackViews = [logInOutStackView, bpmSettingStackView, favoriteButtonStackView]
     stackViews.indices.forEach { index in
       let stackView = stackViews[index]

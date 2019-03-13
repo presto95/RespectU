@@ -32,16 +32,16 @@ final class SkillLevelDetailViewController: UIViewController {
   
   private func configure() {
     guard let button4View
-      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      = UIView.instantiateFromXIB(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
       else { return }
     guard let button5View
-      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      = UIView.instantiateFromXIB(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
       else { return }
     guard let button6View
-      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      = UIView.instantiateFromXIB(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
       else { return }
     guard let button8View
-      = UIView.instantiateFromXib(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
+      = UIView.instantiateFromXIB(xibName: SkillLevelDetailView.name) as? SkillLevelDetailView
       else { return }
     let recordViews = [button4View, button5View, button6View, button8View]
     let backgroundViews = [

@@ -26,11 +26,6 @@ enum Button: String {
   
   /// Only in mission - TECHNIKA mode.
   case tb
-}
-
-// MARK: - Extension
-
-extension Button {
   
   /// Expands the raw value of each case.
   ///
@@ -45,4 +40,6 @@ extension Button {
     default: return nil
     }
   }
+  
+  static let all: [Button] = [.button4, .button5, .button6, .button8]
 }

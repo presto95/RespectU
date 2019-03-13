@@ -13,8 +13,6 @@ import GaugeKit
 /// The skill level detail view.
 final class SkillLevelDetailView: UIView {
   
-  // MARK: Property
-  
   /// The button label.
   @IBOutlet private weak var buttonLabel: UILabel!
   
@@ -40,12 +38,16 @@ final class SkillLevelDetailView: UIView {
     setup()
   }
   
+  /// Configures initial settings.
   private func setup() {
     layer.borderColor = UIColor.lightGray.cgColor
     layer.borderWidth = 1
     layer.cornerRadius = 15
   }
   
+  /// Configures the view with `button`.
+  ///
+  /// - Parameter button: The specific button.
   func configure(with button: Button) {
     let recordRate = Utils.recordRate(in: button)
     let maxSkillPoint = Utils.maxSkillPoint(in: button)

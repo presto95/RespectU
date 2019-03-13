@@ -10,16 +10,20 @@ import UIKit
 
 import RealmSwift
 
+/// The `protocol` that defines delegate methods of the `SummaryCell`.
 protocol SummaryCellDelegate: class {
   
+  /// Tells the delegate that the search button is tapped.
   func summaryCell(_ cell: SummaryCell, didTapSearchButton button: UIButton)
   
+  /// Tells the delegate that the detail button is tapped.
   func summaryCell(_ cell: SummaryCell, didTapDetailButton button: UIButton)
 }
 
 /// The summary table view cell.
 final class SummaryCell: UITableViewCell {
   
+  /// The object that acts as the delegate of the `SummaryCell`.
   weak var delegate: SummaryCellDelegate?
   
   /// The title label.
@@ -55,10 +59,12 @@ final class SummaryCell: UITableViewCell {
     searchButton.addTarget(self, action: #selector(searchButtonDidTap(_:)), for: .touchUpInside)
   }
   
+  /// Tells the `sender` that the search button is tapped.
   @objc private func searchButtonDidTap(_ sender: UIButton) {
     delegate?.summaryCell(self, didTapSearchButton: sender)
   }
   
+  /// Tells the `sender` that the detail button is tapped.
   @objc private func detailButtonDidTap(_ sender: UIButton) {
     delegate?.summaryCell(self, didTapDetailButton: sender)
   }

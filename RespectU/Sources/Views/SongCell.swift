@@ -34,6 +34,7 @@ final class SongCell: UITableViewCell {
   /// The maximum difficulty label.
   @IBOutlet private weak var maximumLabel: UILabel!
   
+  /// The all labels.
   private var allLabel: [UILabel] {
     return [
       titleLabel,

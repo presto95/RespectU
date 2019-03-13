@@ -85,7 +85,7 @@ extension RecordBaseTableViewController {
                                 songResult.title?.english ?? "")
     guard let object = recordResults?.filter(predicate).first else { return }
     cell.setColorsInSong(object.series, labels: cell.labels)
-    recordView = UIView.instantiateFromXib(xibName: RecordView.name) as? RecordView
+    recordView = UIView.instantiateFromXIB(xibName: RecordView.name) as? RecordView
     recordView.delegate = self
     recordView.translatesAutoresizingMaskIntoConstraints = false
     recordViewController.view.addSubview(recordView)

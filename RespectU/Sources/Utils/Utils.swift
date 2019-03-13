@@ -317,7 +317,7 @@ final class Utils {
     return 0
   }
   
-  /// Fetches the skill level of 4B of `skillPoint`.
+  /// Accesses the skill level of 4B of `skillPoint`.
   ///
   /// - Parameter skillPoint: The given skill point.
   ///
@@ -356,7 +356,7 @@ final class Utils {
     }
   }
   
-  /// Fetches the skill level of 5B of `skillPoint`.
+  /// Accesses the skill level of 5B of `skillPoint`.
   ///
   /// - Parameter skillPoint: The given skill point.
   ///
@@ -396,7 +396,7 @@ final class Utils {
     }
   }
   
-  /// Fetches the skill level of 6B and 8B of `skillPoint`.
+  /// Accesses the skill level of 6B and 8B of `skillPoint`.
   ///
   /// - Parameter skillPoint: The given skill point.
   ///
@@ -436,7 +436,7 @@ final class Utils {
     }
   }
   
-  /// Fetches the weight of specific `difficulty`.
+  /// Accesses the weight of specific `difficulty`.
   ///
   /// - Parameter difficulty: The given difficulty.
   ///

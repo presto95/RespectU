@@ -12,13 +12,13 @@ import UIKit
 final class AchievementCell: UITableViewCell {
   
   /// The stage label.
-  @IBOutlet weak var stageLabel: UILabel!
+  @IBOutlet private weak var stageLabel: UILabel!
   
   /// The item label.
-  @IBOutlet weak var itemLabel: UILabel!
+  @IBOutlet private weak var itemLabel: UILabel!
   
   /// The type label.
-  @IBOutlet weak var typeLabel: UILabel!
+  @IBOutlet private weak var typeLabel: UILabel!
   
   /// Configures the cell with `achievementInfo`.
   ///

@@ -55,8 +55,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="lowerRateTextField" destination="W1T-kV-LlF" id="AWw-Z9-ZZR"/>
-                <outlet property="upperRateTextField" destination="rBv-XK-wnN" id="EmV-OY-90A"/>
+                <outlet property="lowerRatingTextField" destination="W1T-kV-LlF" id="AWw-Z9-ZZR"/>
+                <outlet property="upperRatingTextField" destination="rBv-XK-wnN" id="EmV-OY-90A"/>
             </connections>
             <point key="canvasLocation" x="23.199999999999999" y="-13.493253373313344"/>
         </view>

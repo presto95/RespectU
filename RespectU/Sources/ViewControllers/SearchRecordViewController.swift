@@ -87,8 +87,8 @@ final class SearchRecordViewController: UIViewController {
       controller.levelIndex = selectedLevelIndex
     } else if searchByRateButton.isSelected {
       guard let rateView = subView.subviews.first as? SearchByRatingView else { return }
-      let lowerRate = Double(rateView.lowerRateTextField.text ?? "") ?? 0
-      let upperRate = Double(rateView.upperRateTextField.text ?? "") ?? 0
+      let lowerRate = Double(rateView.lowerRatingTextField.text ?? "") ?? 0
+      let upperRate = Double(rateView.upperRatingTextField.text ?? "") ?? 0
       controller.lowerRange = lowerRate
       controller.upperRange = upperRate
     } else if searchByNoteButton.isSelected {
@@ -148,7 +148,7 @@ final class SearchRecordViewController: UIViewController {
     case 0:
       selectedMethodIndex = 0
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByLevelView.name) as? SearchByLevelView
+        .instantiateFromXIB(xibName: SearchByLevelView.name) as? SearchByLevelView
         else { return }
       newView.pickerView.delegate = self
       newView.pickerView.dataSource = self
@@ -163,12 +163,12 @@ final class SearchRecordViewController: UIViewController {
     case 1:
       selectedMethodIndex = 1
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByRatingView.name) as? SearchByRatingView
+        .instantiateFromXIB(xibName: SearchByRatingView.name) as? SearchByRatingView
         else { return }
       newView.delegate = self
-      newView.lowerRateTextField
+      newView.lowerRatingTextField
         .addTarget(self, action: #selector(ratingTextFieldEditingDidEnd), for: .editingDidEnd)
-      newView.upperRateTextField
+      newView.upperRatingTextField
         .addTarget(self, action: #selector(ratingTextFieldEditingDidEnd), for: .editingDidEnd)
       subView.addSubview(newView)
       newView.translatesAutoresizingMaskIntoConstraints = false
@@ -181,7 +181,7 @@ final class SearchRecordViewController: UIViewController {
     case 2:
       selectedMethodIndex = 2
       guard let newView = UIView
-        .instantiateFromXib(xibName: SearchByNoteView.name) as? SearchByNoteView
+        .instantiateFromXIB(xibName: SearchByNoteView.name) as? SearchByNoteView
         else { return }
       newView.delegate = self
       newView.noMaxComboButton
@@ -315,8 +315,8 @@ private extension SearchRecordViewController {
       }
     case is SearchByRatingView:
       guard let newView = view as? SearchByRatingView else { return }
-      guard let lowerText = newView.lowerRateTextField.text else { return }
-      guard let upperText = newView.upperRateTextField.text else { return }
+      guard let lowerText = newView.lowerRatingTextField.text else { return }
+      guard let upperText = newView.upperRatingTextField.text else { return }
       guard let lower = Double(lowerText) else { return }
       guard let upper = Double(upperText) else { return }
       if upper > lower {

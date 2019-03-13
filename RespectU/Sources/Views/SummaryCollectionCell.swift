@@ -10,35 +10,60 @@ import UIKit
 
 import RealmSwift
 
+/// The summary collection cell.
 final class SummaryCollectionCell: UICollectionViewCell {
   
-  @IBOutlet weak var contentLabel: UILabel!
+  /// The content label.
+  @IBOutlet private weak var contentLabel: UILabel!
   
-  @IBOutlet weak var valueLabel: UILabel!
+  /// The value label.
+  @IBOutlet private weak var valueLabel: UILabel!
   
-  let contents = [Rank.s, Rank.a, Rank.b, Rank.c, Note.maxCombo, Note.perfectPlay, "\(Note.maxCombo)+\(Note.perfectPlay)"]
+  /// The content titles.
+  private let contentTitles = [
+    Rank.s.rawValue,
+    Rank.a.rawValue,
+    Rank.b.rawValue,
+    Rank.c.rawValue,
+    Note.maxCombo.rawValue,
+    Note.perfectPlay.rawValue,
+    "\(Note.maxCombo.rawValue)+\(Note.perfectPlay.rawValue)"
+  ]
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setup()
+  }
+  
+  /// Configures initial settings.
+  private func setup() {
     layer.borderColor = UIColor.main.cgColor
     layer.borderWidth = 1
     layer.cornerRadius = 15
   }
   
-  func setProperties(_ results: Results<RecordInfo>, at item: Int) {
-    let buttons = ["button4", "button5", "button6", "button8"]
-    let difficulties = ["normal", "hard", "maximum"]
+  /// Configures the `item`th cell with `records`.
+  ///
+  /// - Parameters:
+  ///   - records:  The results of record.
+  ///   - item:     The index of the cell.
+  func configure(with records: Results<RecordInfo>, at item: Int) {
+    let buttons = Button.all.map { $0.expansion }.compactMap { $0 }
+    let difficulties = Difficulty.all.map { $0.rawValue }.compactMap { $0 }
     var count: Int = 0
-    self.contentLabel.text = self.contents[item]
+    contentLabel.text = contentTitles[item]
     switch item {
     case 0, 1, 2, 3:
-      self.valueLabel.text = {
-        for result in results {
+      valueLabel.text = {
+        for result in records {
           for button in buttons {
-            guard let buttonResult = result.value(forKey: button) as? RecordButtonInfo else { return nil }
+            guard let buttonResult = result.value(forKey: button) as? RecordButtonInfo
+              else { return nil }
             for difficulty in difficulties {
-              guard let difficultyResult = buttonResult.value(forKey: difficulty) as? RecordDifficultyInfo else { return nil }
-              if difficultyResult.rank == self.contents[item] {
+              guard let difficultyResult
+                = buttonResult.value(forKey: difficulty) as? RecordDifficultyInfo
+                else { return nil }
+              if difficultyResult.rank == contentTitles[item] {
                 count += 1
               }
             }
@@ -47,13 +72,16 @@ final class SummaryCollectionCell: UICollectionViewCell {
         return "\(count)"
       }()
     case 4, 5:
-      self.valueLabel.text = {
-        for result in results {
+      valueLabel.text = {
+        for result in records {
           for button in buttons {
-            guard let buttonResult = result.value(forKey: button) as? RecordButtonInfo else { return nil }
+            guard let buttonResult = result.value(forKey: button) as? RecordButtonInfo
+              else { return nil }
             for difficulty in difficulties {
-              guard let difficultyResult = buttonResult.value(forKey: difficulty) as? RecordDifficultyInfo else { return nil }
-              if difficultyResult.note == self.contents[item] {
+              guard let difficultyResult
+                = buttonResult.value(forKey: difficulty) as? RecordDifficultyInfo
+                else { return nil }
+              if difficultyResult.note == contentTitles[item] {
                 count += 1
               }
             }
@@ -62,13 +90,17 @@ final class SummaryCollectionCell: UICollectionViewCell {
         return "\(count)"
       }()
     case 6:
-      self.valueLabel.text = {
-        for result in results {
+      valueLabel.text = {
+        for result in records {
           for button in buttons {
-            guard let buttonResult = result.value(forKey: button) as? RecordButtonInfo else { return nil }
+            guard let buttonResult = result.value(forKey: button) as? RecordButtonInfo
+              else { return nil }
             for difficulty in difficulties {
-              guard let difficultyResult = buttonResult.value(forKey: difficulty) as? RecordDifficultyInfo else { return nil }
-              if difficultyResult.note == self.contents[4] || difficultyResult.note == self.contents[5] {
+              guard let difficultyResult
+                = buttonResult.value(forKey: difficulty) as? RecordDifficultyInfo
+                else { return nil }
+              if difficultyResult.note == contentTitles[4]
+                || difficultyResult.note == contentTitles[5] {
                 count += 1
               }
             }

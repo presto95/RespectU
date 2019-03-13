@@ -11,40 +11,55 @@ import UIKit
 import GaugeKit
 import RealmSwift
 
+/// The `protocol` that defines delegate methods of the `SkillLevelCell`.
 protocol SkillLevelCellDelegate: class {
   
+  /// Tells the delegate that the top50 button is tapped.
   func skillLevelCell(_ cell: SkillLevelCell, didTapTop50Button button: UIButton)
   
+  /// Tells the delegate that the more button is tapped.
   func skillLevelCell(_ cell: SkillLevelCell, didTapMoreButton button: UIButton)
 }
 
+/// The skill level table view cell.
 final class SkillLevelCell: UITableViewCell {
   
+  /// The object that acts as the delegate of the `SkillLevelCell`.
   weak var delegate: SkillLevelCellDelegate?
   
+  /// The background view.
   @IBOutlet private weak var view: UIView!
   
+  /// The gauge view.
   @IBOutlet private var gauge: Gauge!
   
+  /// The title label.
   @IBOutlet private weak var titleLabel: UILabel!
   
+  /// The skill level label.
   @IBOutlet private weak var skillLevelLabel: UILabel!
   
+  /// The skill point label.
   @IBOutlet private weak var skillPointLabel: UILabel!
   
-  @IBOutlet private weak var top50Button: UIButton!
-  
-  @IBOutlet private weak var moreButton: UIButton!
-  
+  /// The percent label.
   @IBOutlet private weak var percentLabel: UILabel!
   
+  /// The next level label.
   @IBOutlet private weak var nextLevelLabel: UILabel!
+  
+  /// The top50 button.
+  @IBOutlet private weak var top50Button: UIButton!
+  
+  /// The more button.
+  @IBOutlet private weak var moreButton: UIButton!
   
   override func awakeFromNib() {
     super.awakeFromNib()
     setup()
   }
 
+  /// Configures initial settings.
   private func setup() {
     titleLabel.text = L10n.myRecord
     view.layer.cornerRadius = 15
@@ -56,6 +71,13 @@ final class SkillLevelCell: UITableViewCell {
     moreButton.addTarget(self, action: #selector(moreButtonDidTap(_:)), for: .touchUpInside)
   }
   
+  /// Configures the cell in `button` with `max` and `record`.
+  ///
+  /// - Parameters:
+  ///   - button:   The specific button.
+  ///   - max:      The maximum skill point.
+  ///   - record:   The tuple with the total skill point
+  ///               and the highest series of the total skill point.
   func configure(inButton button: Button, max: Double, record: (Double, Series?)) {
     let totalSkillPoint = record.0
     let highestSeries = record.1
@@ -81,11 +103,13 @@ final class SkillLevelCell: UITableViewCell {
     nextLevelLabel.text = Utils.nextSkillLevel(of: skillLevelEnum, in: button)?.rawValue
     percentLabel.text = String(format: "%05.2f%%", totalSkillPoint * 100 / max)
   }
-
+  
+  /// Tells the `sender` that the top50 button is tapped.
   @objc private func top50ButtonDidTap(_ sender: UIButton) {
     delegate?.skillLevelCell(self, didTapTop50Button: sender)
   }
   
+  /// Tells the `sender` that the more button is tapped.
   @objc private func moreButtonDidTap(_ sender: UIButton) {
     delegate?.skillLevelCell(self, didTapMoreButton: sender)
   }

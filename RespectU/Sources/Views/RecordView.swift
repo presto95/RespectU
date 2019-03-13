@@ -46,6 +46,7 @@ final class RecordView: UIView {
     static let rating = "%05.2f%%"
   }
   
+  /// The object that acts as the delegate of the `RecordView`.
   weak var delegate: RecordViewDelegate?
   
   /// The title label.
@@ -99,19 +100,30 @@ final class RecordView: UIView {
   /// The ranking label.
   @IBOutlet private weak var rankingLabel: UILabel!
   
+  /// The current button
   private var currentButton: Button {
     return Button(rawValue: (buttonButton.title(for: .normal) ?? "4b").lowercased()) ?? .button4
   }
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    layer.borderWidth = 1
-    layer.cornerRadius = 15
-    layer.borderColor = UIColor.lightGray.cgColor
-    cancelButton.setTitle(L10n.cancel, for: .normal)
-    cancelButton.addTarget(self, action: #selector(cancelButtonDidTap(_:)), for: .touchUpInside)
+    configure()
   }
   
+  /// Configures initial settings.
+  private func configure() {
+    layer.do {
+      $0.borderWidth = 1
+      $0.cornerRadius = 15
+      $0.borderColor = UIColor.lightGray.cgColor
+    }
+    cancelButton.do {
+      $0.setTitle(L10n.cancel, for: .normal)
+      $0.addTarget(self, action: #selector(cancelButtonDidTap(_:)), for: .touchUpInside)
+    }
+  }
+  
+  /// Tells the `sender` that the record button is tapped.
   @IBAction private func recordButtonDidTap(_ sender: UIButton) {
     switch sender.tag {
     case 0:
@@ -164,10 +176,12 @@ final class RecordView: UIView {
     }
   }
   
+  /// Tells the `sender` that the type button is tapped.
   @IBAction private func typeButtonDidTap(_ sender: UIButton) {
     delegate?.recordView(self, didTapTypeButton: sender)
   }
   
+  /// Tells the `sender` that the cancel button is tapped.
   @IBAction private func cancelButtonDidTap(_ sender: UIButton) {
     delegate?.recordView(self, didTapCancelButton: sender)
   }

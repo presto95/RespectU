@@ -41,15 +41,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let id = KeychainWrapper.standard.string(forKey: "id") ?? ""
     if !id.isEmpty {
       if TipInfo.fetch().count != 0 {
-        let controller = UIViewController.instantiate(storyboard: "Performance", identifier: "PerformanceNavigationController")
+        let controller = StoryboardScene.Performance.performanceNavigationController.instantiate()
         window?.rootViewController = controller
       } else {
-        UserDefaults.standard.set(450, forKey: "bpm")
-        let controller = UIViewController.instantiate(storyboard: "Init", identifier: InitViewController.name)
+        Persistence.bpm = 450
+        let controller = StoryboardScene.Init.initViewController.instantiate()
         window?.rootViewController = controller
       }
     } else {
-      let controller = UIViewController.instantiate(storyboard: "SignIn", identifier: "SignNavigationController")
+      let controller = StoryboardScene.SignIn.signNavigationController.instantiate()
       window?.rootViewController = controller
     }
     window?.makeKeyAndVisible()
@@ -60,19 +60,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       UserDefaults.standard.set(favoriteButton.lowercased(), forKey: "favoriteButton")
     }
     // 전역 프로퍼티 설정
-    let navigationBar = UINavigationBar.appearance()
-    navigationBar.setBackgroundImage(.init(), for: .default)
-    navigationBar.shadowImage = .init()
-    navigationBar.backgroundColor = .clear
-    navigationBar.isTranslucent = true
-    let tableView = UITableView.appearance()
-    tableView.backgroundColor = .white
-    tableView.separatorColor = .lightGray
-    tableView.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
-    tableView.layer.borderColor = UIColor.main.cgColor
-    tableView.layer.borderWidth = 3
-    tableView.layer.cornerRadius = 10
-    tableView.tableFooterView = .init()
+    UINavigationBar.appearance().do {
+      $0.setBackgroundImage(.init(), for: .default)
+      $0.shadowImage = .init()
+      $0.backgroundColor = .clear
+      $0.isTranslucent = true
+    }
+    UITableView.appearance().do {
+      $0.backgroundColor = .white
+      $0.separatorColor = .lightGray
+      $0.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+      $0.layer.borderColor = UIColor.main.cgColor
+      $0.layer.borderWidth = 3
+      $0.layer.cornerRadius = 10
+      $0.tableFooterView = .init()
+    }
     return true
   }
 }

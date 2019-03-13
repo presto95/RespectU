@@ -46,4 +46,16 @@ struct Persistence {
       }
     }
   }
+  
+  static var bpm: Double {
+    get {
+      return UserDefaults.standard.double(forKey: "bpm")
+    }
+    set {
+      UserDefaults.standard.do {
+        $0.set(newValue, forKey: "bpm")
+        $0.synchronize()
+      }
+    }
+  }
 }

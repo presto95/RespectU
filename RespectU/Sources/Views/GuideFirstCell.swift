@@ -45,7 +45,7 @@ final class GuideFirstCell: UITableViewCell {
     static let imageNames = ["song", "mission", "trophy", "achievement", "tip", "manual"]
   }
   
-  /// The object that acts as the delegate of the guide first cell.
+  /// The object that acts as the delegate of the `GuideFirstCell`.
   weak var delegate: GuideFirstCellDelegate?
   
   /// The background view.
@@ -83,10 +83,12 @@ final class GuideFirstCell: UITableViewCell {
   
   /// Configures initial settings.
   private func configure() {
-    view.layer.cornerRadius = 15
-    view.layer.borderWidth = 1
-    view.layer.borderColor = UIColor.lightGray.cgColor
-    view.layer.masksToBounds = true
+    view.layer.do {
+      $0.cornerRadius = 15
+      $0.borderWidth = 1
+      $0.borderColor = UIColor.lightGray.cgColor
+      $0.masksToBounds = true
+    }
     let stackViews = [
       songStackView,
       missionStackView,

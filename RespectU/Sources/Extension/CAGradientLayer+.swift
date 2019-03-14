@@ -22,9 +22,11 @@ extension CAGradientLayer {
                    colors: [CGColor],
                    locations: [NSNumber]) {
     self.init()
-    self.startPoint = startPoint
-    self.endPoint = endPoint
-    self.colors = colors
-    self.locations = locations
+    self.do {
+      $0.startPoint = startPoint
+      $0.endPoint = endPoint
+      $0.colors = colors
+      $0.locations = locations
+    }
   }
 }

@@ -10,11 +10,13 @@ import UIKit
 
 extension MissionSection.Trilogy {
   
-  /// Creates `CAGradientLayer` matching each mission section.
-  ///
-  /// - Parameter direction: The direction of gradient layer.
-  ///
-  /// - Returns: The created `CAGradientLayer`.
+  var color: UIColor? {
+    switch self {
+    case .tSide: return .tSide
+    case .rSide: return .rSide
+    }
+  }
+
   func makeGradient(by direction: GradientDirection) -> CAGradientLayer? {
     let startPoint = direction.startPoint
     let endPoint = direction.endPoint

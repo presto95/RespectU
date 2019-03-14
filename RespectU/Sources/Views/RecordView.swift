@@ -128,7 +128,7 @@ final class RecordView: UIView {
   /// The ranking label.
   @IBOutlet private weak var rankingLabel: UILabel!
   
-  /// The current button
+  /// The current button.
   private var currentButton: Button {
     return Button(rawValue: (buttonButton.title(for: .normal) ?? "4b").lowercased()) ?? .button4
   }

@@ -57,6 +57,7 @@
 		9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */; };
 		E0045A82AD56B280294AD01E55A8F38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF8FE8E83D48C24E4B183637AC73A8 /* LaunchScreen.storyboard */; };
 		EC915038C96954FF4B4502B9245CF3D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B30E23955E630DE10DDEE4E073034629 /* Localizable.strings */; };
+		A46B6AB28AF98D7D8895286B4094B1F3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5822F9291DBFD0FB7D48CB7D7D297C /* Log.swift */; };
 		3B9C2AF499E89D2A4B1386181D2E464C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */; };
 		6873CA61A5E3DCF9DCE5B8DD11436346 /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */; };
 		07E412854081E98BAA9EC7826338343C /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */; };
@@ -285,6 +286,7 @@
 		117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
 		9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageResponse.swift; sourceTree = "<group>"; };
+		EF5822F9291DBFD0FB7D48CB7D7D297C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
 		2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
@@ -877,6 +879,7 @@
 				7994394D253D83388739913632BF52F4 /* Button.swift */,
 				3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */,
 				9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */,
+				EF5822F9291DBFD0FB7D48CB7D7D297C /* Log.swift */,
 				27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */,
 				9AF510989C994AF286BAC6EFC98F3D86 /* Note.swift */,
 				D9B229B6B9B7142C2A461D7DEB2A7113 /* RUButton.swift */,
@@ -1130,6 +1133,7 @@
 				7E0990E3AE966B278DF432343CED2319 /* InitViewController.swift in Sources */,
 				C663E15915C31A522FC58453C8860335 /* LanguageInfo.swift in Sources */,
 				9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */,
+				A46B6AB28AF98D7D8895286B4094B1F3 /* Log.swift in Sources */,
 				07E412854081E98BAA9EC7826338343C /* MissionBSTableViewController.swift in Sources */,
 				9DCD5A88AE046BE67E43FDE46C8F33C3 /* MissionBaseTableViewController.swift in Sources */,
 				8007E7D37842446EFC1FDF6AFC2639EC /* MissionCETableViewController.swift in Sources */,

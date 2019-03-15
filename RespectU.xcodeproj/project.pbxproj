@@ -57,6 +57,7 @@
 		9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */; };
 		E0045A82AD56B280294AD01E55A8F38A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF8FE8E83D48C24E4B183637AC73A8 /* LaunchScreen.storyboard */; };
 		EC915038C96954FF4B4502B9245CF3D0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B30E23955E630DE10DDEE4E073034629 /* Localizable.strings */; };
+		A46B6AB28AF98D7D8895286B4094B1F3 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5822F9291DBFD0FB7D48CB7D7D297C /* Log.swift */; };
 		3B9C2AF499E89D2A4B1386181D2E464C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */; };
 		6873CA61A5E3DCF9DCE5B8DD11436346 /* Mission.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */; };
 		07E412854081E98BAA9EC7826338343C /* MissionBSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */; };
@@ -69,14 +70,14 @@
 		99897C2ED7674E739230DED65BDC06D2 /* MissionLinkDiskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB4F2D81091EAC8D197F1D737EA41B9 /* MissionLinkDiskTableViewController.swift */; };
 		80F2294D348F4A43E2CB8F35028D0423 /* MissionRespectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1936880A3D30B8BC49B8587F6778EEA /* MissionRespectTableViewController.swift */; };
 		90AF44D559BE00DEB63346B84D141E10 /* MissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356291260ADA8E8A175631818583AAC6 /* MissionResponse.swift */; };
-		AC365183A54C207B12519696FFF64C67 /* MissionSection.BS+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */; };
-		0380D257C2F539A6344259BF2EFED65A /* MissionSection.CE+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */; };
-		BEC2CC592CAB4198746262C55D73DBA0 /* MissionSection.LinkDisk+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */; };
-		8DD62325C32CFDD11403EF407197E9A9 /* MissionSection.Respect+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D0FEC3D95CCD8ECE16CBDA7084FFA /* MissionSection.Respect+Gradient.swift */; };
-		87EE66478A51CBA1A1A9F26347694685 /* MissionSection.Technika1+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D7A5F0799CF86A96D301D82B8B1090 /* MissionSection.Technika1+Gradient.swift */; };
-		72713E32C8FA38F681A9C4F075A7D08B /* MissionSection.Technika2+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */; };
-		5A54507509E4E4DC3181C3FCB74FBBC0 /* MissionSection.Technika3+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF7FCA66B507564BF411BB82D824394 /* MissionSection.Technika3+Gradient.swift */; };
-		9F579ACF8BFC762F49A03A837BCCF7ED /* MissionSection.Trilogy+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B59269E3AB75988A25F6D4EF5088A20 /* MissionSection.Trilogy+Gradient.swift */; };
+		66FD3654735C071C001E78ECE1B2ABB3 /* MissionSection.BS+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3D34B43DF30D610EC43BBADC96563E /* MissionSection.BS+UI.swift */; };
+		ADB67C24258FDE09E281323CC0D81A11 /* MissionSection.CE+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954CFB083C00CDB9E307C63BBEA58207 /* MissionSection.CE+UI.swift */; };
+		2393EF38D443D7A396C9D074B0726CE6 /* MissionSection.LinkDisk+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50368872E0899227AA374CA6E296B27B /* MissionSection.LinkDisk+UI.swift */; };
+		433B40CCC809DF69C0F51058349CF1E6 /* MissionSection.Respect+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F2446A863CB86AF7532AC85D74D3F /* MissionSection.Respect+UI.swift */; };
+		3286DFFC9EAD3C3E654FECB757878B89 /* MissionSection.Technika1+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B6CACA6D115E48E0B8F85E9D461EDA /* MissionSection.Technika1+UI.swift */; };
+		CF49DAE3FEBA267700E391BEC367587F /* MissionSection.Technika2+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883F40CC3D38EF613B6164D31E74574E /* MissionSection.Technika2+UI.swift */; };
+		A97D770C729CFE8D99CF49AEC477C7A2 /* MissionSection.Technika3+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE945969F149232A7EDC417D48B504 /* MissionSection.Technika3+UI.swift */; };
+		1287F2D82C3E24170575A2732992D5BF /* MissionSection.Trilogy+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FC8754224174261B82C1BA1E0BEE09 /* MissionSection.Trilogy+UI.swift */; };
 		F551680129D8E83F451174BE5B4DBF5D /* MissionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */; };
 		BEC7D1F3799FA6E0EEDB0980E345F689 /* MissionStageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */; };
 		D4F4FB7D6DFADE1F54AEEDDEEE9BF681 /* MissionTechnika1TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3127AC853734E65CD8EDD6BD1D9AEB68 /* MissionTechnika1TableViewController.swift */; };
@@ -285,6 +286,7 @@
 		117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewController.swift; sourceTree = "<group>"; };
 		C9846CC66092E2BF0D2992D65E7468CD /* LanguageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageInfo.swift; sourceTree = "<group>"; };
 		9FEE52510CEADD20DE68A05F791D08EE /* LanguageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageResponse.swift; sourceTree = "<group>"; };
+		EF5822F9291DBFD0FB7D48CB7D7D297C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		78D031E416EDBC4C34BC6B3FA0451966 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		58EF41D2CE42F9C421375B5B3CE8D60E /* Mission.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mission.storyboard; sourceTree = "<group>"; };
 		2D5735B28DC786C25122A478189A9D7A /* MissionBSTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionBSTableViewController.swift; sourceTree = "<group>"; };
@@ -297,14 +299,14 @@
 		5EB4F2D81091EAC8D197F1D737EA41B9 /* MissionLinkDiskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionLinkDiskTableViewController.swift; sourceTree = "<group>"; };
 		D1936880A3D30B8BC49B8587F6778EEA /* MissionRespectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionRespectTableViewController.swift; sourceTree = "<group>"; };
 		356291260ADA8E8A175631818583AAC6 /* MissionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionResponse.swift; sourceTree = "<group>"; };
-		A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.BS+Gradient.swift"; sourceTree = "<group>"; };
-		91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.CE+Gradient.swift"; sourceTree = "<group>"; };
-		60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.LinkDisk+Gradient.swift"; sourceTree = "<group>"; };
-		A09D0FEC3D95CCD8ECE16CBDA7084FFA /* MissionSection.Respect+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Respect+Gradient.swift"; sourceTree = "<group>"; };
-		79D7A5F0799CF86A96D301D82B8B1090 /* MissionSection.Technika1+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika1+Gradient.swift"; sourceTree = "<group>"; };
-		241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika2+Gradient.swift"; sourceTree = "<group>"; };
-		FBF7FCA66B507564BF411BB82D824394 /* MissionSection.Technika3+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika3+Gradient.swift"; sourceTree = "<group>"; };
-		6B59269E3AB75988A25F6D4EF5088A20 /* MissionSection.Trilogy+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Trilogy+Gradient.swift"; sourceTree = "<group>"; };
+		0F3D34B43DF30D610EC43BBADC96563E /* MissionSection.BS+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.BS+UI.swift"; sourceTree = "<group>"; };
+		954CFB083C00CDB9E307C63BBEA58207 /* MissionSection.CE+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.CE+UI.swift"; sourceTree = "<group>"; };
+		50368872E0899227AA374CA6E296B27B /* MissionSection.LinkDisk+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.LinkDisk+UI.swift"; sourceTree = "<group>"; };
+		507F2446A863CB86AF7532AC85D74D3F /* MissionSection.Respect+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Respect+UI.swift"; sourceTree = "<group>"; };
+		D1B6CACA6D115E48E0B8F85E9D461EDA /* MissionSection.Technika1+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika1+UI.swift"; sourceTree = "<group>"; };
+		883F40CC3D38EF613B6164D31E74574E /* MissionSection.Technika2+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika2+UI.swift"; sourceTree = "<group>"; };
+		CEFE945969F149232A7EDC417D48B504 /* MissionSection.Technika3+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Technika3+UI.swift"; sourceTree = "<group>"; };
+		33FC8754224174261B82C1BA1E0BEE09 /* MissionSection.Trilogy+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MissionSection.Trilogy+UI.swift"; sourceTree = "<group>"; };
 		27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionSection.swift; sourceTree = "<group>"; };
 		D78571F88000DB2A377C1A859F5F2B0B /* MissionStageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionStageInfo.swift; sourceTree = "<group>"; };
 		3127AC853734E65CD8EDD6BD1D9AEB68 /* MissionTechnika1TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionTechnika1TableViewController.swift; sourceTree = "<group>"; };
@@ -631,14 +633,14 @@
 			children = (
 				6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */,
 				00C0A70ADF02A515C554A2A7F65D04D0 /* Double+.swift */,
-				A9BE0A154D3D7E018D76684B281CECD0 /* MissionSection.BS+Gradient.swift */,
-				91CBAA567778CAD53CB93CE152F92D55 /* MissionSection.CE+Gradient.swift */,
-				60EAD4483197E0A753FDD10845C98D09 /* MissionSection.LinkDisk+Gradient.swift */,
-				A09D0FEC3D95CCD8ECE16CBDA7084FFA /* MissionSection.Respect+Gradient.swift */,
-				79D7A5F0799CF86A96D301D82B8B1090 /* MissionSection.Technika1+Gradient.swift */,
-				241BD9807E33EA3CBBF302A35813F5C2 /* MissionSection.Technika2+Gradient.swift */,
-				FBF7FCA66B507564BF411BB82D824394 /* MissionSection.Technika3+Gradient.swift */,
-				6B59269E3AB75988A25F6D4EF5088A20 /* MissionSection.Trilogy+Gradient.swift */,
+				0F3D34B43DF30D610EC43BBADC96563E /* MissionSection.BS+UI.swift */,
+				954CFB083C00CDB9E307C63BBEA58207 /* MissionSection.CE+UI.swift */,
+				50368872E0899227AA374CA6E296B27B /* MissionSection.LinkDisk+UI.swift */,
+				507F2446A863CB86AF7532AC85D74D3F /* MissionSection.Respect+UI.swift */,
+				D1B6CACA6D115E48E0B8F85E9D461EDA /* MissionSection.Technika1+UI.swift */,
+				883F40CC3D38EF613B6164D31E74574E /* MissionSection.Technika2+UI.swift */,
+				CEFE945969F149232A7EDC417D48B504 /* MissionSection.Technika3+UI.swift */,
+				33FC8754224174261B82C1BA1E0BEE09 /* MissionSection.Trilogy+UI.swift */,
 				90B143CCDE9CB1920C76E56DFB8E619A /* NSObject+.swift */,
 				9A9970140918A7A61332718A9C9D8322 /* Series+UI.swift */,
 				08640281899B112DEB6A0A0A56A169B7 /* String+.swift */,
@@ -877,6 +879,7 @@
 				7994394D253D83388739913632BF52F4 /* Button.swift */,
 				3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */,
 				9CB2C96445D032E82864C978003715B1 /* GradientDirection.swift */,
+				EF5822F9291DBFD0FB7D48CB7D7D297C /* Log.swift */,
 				27FD193AE2FCE3A3F96143D41ADBCC7F /* MissionSection.swift */,
 				9AF510989C994AF286BAC6EFC98F3D86 /* Note.swift */,
 				D9B229B6B9B7142C2A461D7DEB2A7113 /* RUButton.swift */,
@@ -1130,6 +1133,7 @@
 				7E0990E3AE966B278DF432343CED2319 /* InitViewController.swift in Sources */,
 				C663E15915C31A522FC58453C8860335 /* LanguageInfo.swift in Sources */,
 				9C9BB24EC5E6266278706EC8E1687942 /* LanguageResponse.swift in Sources */,
+				A46B6AB28AF98D7D8895286B4094B1F3 /* Log.swift in Sources */,
 				07E412854081E98BAA9EC7826338343C /* MissionBSTableViewController.swift in Sources */,
 				9DCD5A88AE046BE67E43FDE46C8F33C3 /* MissionBaseTableViewController.swift in Sources */,
 				8007E7D37842446EFC1FDF6AFC2639EC /* MissionCETableViewController.swift in Sources */,
@@ -1139,14 +1143,14 @@
 				99897C2ED7674E739230DED65BDC06D2 /* MissionLinkDiskTableViewController.swift in Sources */,
 				80F2294D348F4A43E2CB8F35028D0423 /* MissionRespectTableViewController.swift in Sources */,
 				90AF44D559BE00DEB63346B84D141E10 /* MissionResponse.swift in Sources */,
-				AC365183A54C207B12519696FFF64C67 /* MissionSection.BS+Gradient.swift in Sources */,
-				0380D257C2F539A6344259BF2EFED65A /* MissionSection.CE+Gradient.swift in Sources */,
-				BEC2CC592CAB4198746262C55D73DBA0 /* MissionSection.LinkDisk+Gradient.swift in Sources */,
-				8DD62325C32CFDD11403EF407197E9A9 /* MissionSection.Respect+Gradient.swift in Sources */,
-				87EE66478A51CBA1A1A9F26347694685 /* MissionSection.Technika1+Gradient.swift in Sources */,
-				72713E32C8FA38F681A9C4F075A7D08B /* MissionSection.Technika2+Gradient.swift in Sources */,
-				5A54507509E4E4DC3181C3FCB74FBBC0 /* MissionSection.Technika3+Gradient.swift in Sources */,
-				9F579ACF8BFC762F49A03A837BCCF7ED /* MissionSection.Trilogy+Gradient.swift in Sources */,
+				66FD3654735C071C001E78ECE1B2ABB3 /* MissionSection.BS+UI.swift in Sources */,
+				ADB67C24258FDE09E281323CC0D81A11 /* MissionSection.CE+UI.swift in Sources */,
+				2393EF38D443D7A396C9D074B0726CE6 /* MissionSection.LinkDisk+UI.swift in Sources */,
+				433B40CCC809DF69C0F51058349CF1E6 /* MissionSection.Respect+UI.swift in Sources */,
+				3286DFFC9EAD3C3E654FECB757878B89 /* MissionSection.Technika1+UI.swift in Sources */,
+				CF49DAE3FEBA267700E391BEC367587F /* MissionSection.Technika2+UI.swift in Sources */,
+				A97D770C729CFE8D99CF49AEC477C7A2 /* MissionSection.Technika3+UI.swift in Sources */,
+				1287F2D82C3E24170575A2732992D5BF /* MissionSection.Trilogy+UI.swift in Sources */,
 				F551680129D8E83F451174BE5B4DBF5D /* MissionSection.swift in Sources */,
 				BEC7D1F3799FA6E0EEDB0980E345F689 /* MissionStageInfo.swift in Sources */,
 				D4F4FB7D6DFADE1F54AEEDDEEE9BF681 /* MissionTechnika1TableViewController.swift in Sources */,

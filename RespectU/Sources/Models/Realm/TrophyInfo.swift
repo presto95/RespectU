@@ -75,7 +75,7 @@ final class TrophyInfo: Object {
     do {
       try imageData.write(to: fileURL, options: .atomic)
     } catch {
-      print(error.localizedDescription)
+      errorLog(error.localizedDescription)
     }
     titleInfo.english = trophyInfo.title.english
     titleInfo.korean = trophyInfo.title.korean
@@ -117,7 +117,7 @@ final class TrophyInfo: Object {
     do {
       try FileManager.default.removeItem(at: fileURL)
     } catch {
-      print(error.localizedDescription)
+      errorLog(error.localizedDescription)
     }
     let imageURL = "\(APIService.baseURL)/images/\(trophyInfo.series)/\(trophyInfo.image).png"
     guard let url = URL(string: imageURL) else { return }
@@ -125,7 +125,7 @@ final class TrophyInfo: Object {
     do {
       try imageData.write(to: fileURL, options: .atomic)
     } catch {
-      print(error.localizedDescription)
+      errorLog(error.localizedDescription)
     }
     guard let realm = try? Realm() else { return }
     try? realm.write {

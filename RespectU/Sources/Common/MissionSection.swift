@@ -14,7 +14,7 @@ protocol MissionSectionType {
   /// The color representing each section.
   var color: UIColor? { get }
   
-  /// Makes gradient layer by `direction`.
+  /// Creates gradient layer by `direction`.
   ///
   /// - Parameter direction: The direction of the gradient layer.
   ///
@@ -57,21 +57,6 @@ enum MissionSection {
     
     /// RESPECT - Destination.
     case destination = "Destination"
-    
-    var color: UIColor? {
-      switch self {
-      case .departure: return .departure
-      case .clubRoad645: return .clubRoad645
-      case .maxTheater: return .maxTheater
-      case .anotherWorld: return .anotherWorld
-      case .backStage: return .backStage
-      case .chaosTheory: return .chaosTheory
-      case .soundLab: return .soundLab
-      case .visualizer: return .visualizer
-      case .developers: return .developers
-      case .destination: return .destination
-      }
-    }
   }
   
   /// The `enum` that defines TRILOGY mission sections.
@@ -82,13 +67,6 @@ enum MissionSection {
     
     /// TRILOGY - R-SIDE.
     case rSide = "R-SIDE"
-    
-    var color: UIColor? {
-      switch self {
-      case .tSide: return .tSide
-      case .rSide: return .rSide
-      }
-    }
   }
   
   /// The `enum` that defines CLAZZIQUAI EDITION mission sections.
@@ -99,13 +77,6 @@ enum MissionSection {
     
     /// CE - Metropolis.
     case metropolis = "Metropolis"
-    
-    var color: UIColor? {
-      switch self {
-      case .electronicCity: return .electronicCity
-      case .metropolis: return .metropolis
-      }
-    }
   }
   
   /// The `enum` that defines TECHNIKA 1 mission sections.
@@ -116,13 +87,6 @@ enum MissionSection {
     
     /// TECHNIKA 1 - Technical Mixing.
     case technicalMixing = "Technical Mixing"
-    
-    var color: UIColor? {
-      switch self {
-      case .platinumMixing: return .platinumMixing
-      case .technicalMixing: return .technicalMixing
-      }
-    }
   }
   
   /// The `enum` that defines BLACK SQUARE mission sections.
@@ -133,13 +97,6 @@ enum MissionSection {
     
     /// BS - Absolute Sound.
     case absoluteSound = "Absolute Sound"
-    
-    var color: UIColor? {
-      switch self {
-      case .stylishPerformance: return .stylishPerformance
-      case .absoluteSound: return .absoluteSound
-      }
-    }
   }
   
   /// The `enum` that defines TECHNIKA 2 mission sections.
@@ -150,13 +107,6 @@ enum MissionSection {
     
     /// TECHNIKA 2 - CLUB MIXING.
     case clubMixing = "CLUB MIXING"
-    
-    var color: UIColor? {
-      switch self {
-      case .starMixing: return .starMixing
-      case .clubMixing: return .clubMixing
-      }
-    }
   }
   
   /// The `enum` that defines LINK DISK mission sections.
@@ -167,13 +117,6 @@ enum MissionSection {
     
     /// LINK DISK - BLACK DISK.
     case blackDisk = "BLACK DISK"
-    
-    var color: UIColor? {
-      switch self {
-      case .whiteDisk: return .whiteDisk
-      case .blackDisk: return .blackDisk
-      }
-    }
   }
   
   /// The `enum` that defines TECHNIKA 3 mission sections.
@@ -184,15 +127,15 @@ enum MissionSection {
     
     /// TECHNIKA 3 - Crew Challenge.
     case crewChallenge = "Crew Challenge"
-    
-    var color: UIColor? {
-      switch self {
-      case .popMixing: return .popMixing
-      case .crewChallenge: return .crewChallenge
-      }
-    }
   }
   
+  /// Creates section by `series` and `section`.
+  ///
+  /// - Parameters:
+  ///   - series:   The series of the mission.
+  ///   - section:  The section string value of the mission.
+  ///
+  ///  - Returns: The object conforming `MissionSectionType`. It can be `nil`.
   static func makeSection(bySeries series: Series, section: String) -> MissionSectionType? {
     switch series {
     case .respect:

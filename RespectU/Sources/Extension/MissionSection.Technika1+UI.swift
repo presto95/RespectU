@@ -10,11 +10,13 @@ import UIKit
 
 extension MissionSection.Technika1 {
   
-  /// Creates `CAGradientLayer` matching each mission section.
-  ///
-  /// - Parameter direction: The direction of gradient layer.
-  ///
-  /// - Returns: The created `CAGradientLayer`.
+  var color: UIColor? {
+    switch self {
+    case .platinumMixing: return .platinumMixing
+    case .technicalMixing: return .technicalMixing
+    }
+  }
+  
   func makeGradient(by direction: GradientDirection) -> CAGradientLayer? {
     let startPoint = direction.startPoint
     let endPoint = direction.endPoint

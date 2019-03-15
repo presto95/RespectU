@@ -28,7 +28,7 @@ extension Top506BTableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
     if case let top50Cell as Top50Cell = cell {
       let object = results[indexPath.row]
-      top50Cell.configure(with: object, button: .button8)
+      top50Cell.configure(with: object, button: .button6)
     }
     return cell
   }

@@ -19,7 +19,7 @@ final class MissionCell: UITableViewCell {
   
   /// The reward label.
   @IBOutlet private weak var rewardLabel: UILabel!
-  
+
   /// The all labels except the color label.
   lazy var allLabel: [UILabel] = {
     return [titleLabel, rewardLabel]

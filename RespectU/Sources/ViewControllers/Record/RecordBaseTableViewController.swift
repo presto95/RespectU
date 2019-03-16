@@ -118,7 +118,7 @@ extension RecordBaseTableViewController {
       ])
     recordView.updateRankingAndSkillPointLabel(with: object, inButton: Persistence.favoriteButton)
     recordView.reloadButtonsAndLabels(with: object, inButton: Persistence.favoriteButton)
-    recordViewController.scrollViewBottomConstraint.constant += 210
+    recordViewController.scrollViewBottomConstraint.constant += 230
     recordViewController.view.layoutIfNeeded()
     tableView.scrollToNearestSelectedRow(at: .middle, animated: true)
   }
@@ -422,7 +422,7 @@ private extension RecordBaseTableViewController {
   func dismissRecordViewIfExists() {
     if let lastSubview = recordViewController.view.subviews.last as? RecordView {
       lastSubview.removeFromSuperview()
-      recordViewController.scrollViewBottomConstraint.constant -= 210
+      recordViewController.scrollViewBottomConstraint.constant -= 230
     }
   }
   

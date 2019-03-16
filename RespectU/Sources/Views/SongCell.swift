@@ -122,7 +122,8 @@ final class SongCell: UITableViewCell {
         self.contentView.backgroundColor = .technika2
         self.allLabel.forEach { $0.textColor = .white }
       case .technika3:
-        break
+        self.contentView.backgroundColor = .technika3
+        self.allLabel.forEach { $0.textColor = .white }
       default:
         break
       }

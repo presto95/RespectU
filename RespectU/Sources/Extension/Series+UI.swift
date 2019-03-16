@@ -86,7 +86,10 @@ extension Series {
                              colors: [#colorLiteral(red: 0.9647058824, green: 0.1411764706, blue: 0.8784313725, alpha: 1), #colorLiteral(red: 0.9882352941, green: 0.4235294118, blue: 0.1333333333, alpha: 1), #colorLiteral(red: 0.9960784314, green: 0.768627451, blue: 0.1764705882, alpha: 1), #colorLiteral(red: 0.337254902, green: 0.8156862745, blue: 0.5058823529, alpha: 1), #colorLiteral(red: 0.1411764706, green: 0.8274509804, blue: 0.9921568627, alpha: 1)],
                              locations: [0, 0.2, 0.4, 0.6, 0.8, 1])
     case .technika3:
-      return nil
+      return CAGradientLayer(startPoint: startPoint,
+                             endPoint: endPoint,
+                             colors: [#colorLiteral(red: 0.1490196078, green: 0.2666666667, blue: 0.4196078431, alpha: 1), #colorLiteral(red: 0.003921568627, green: 0.003921568627, blue: 0.003921568627, alpha: 1)],
+                             locations: [0, 0.5, 1])
     case .linkdisk:
       return nil
     }

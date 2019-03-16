@@ -35,8 +35,8 @@
 		9C5BD16964B01CE4E826C0714E7BFB7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437358F63E7EFA7C3FA6E22357580622 /* AppDelegate.swift */; };
 		BE9081C6FD851727989460A4D055C02E /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BBB665B16E2FF2F0BE095960FFA33E /* Assets.swift */; };
 		90AE9C19BBE72AFD47EC3E391B1EAA1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E683F525A54716C4D6BE56A96EEDCB29 /* Assets.xcassets */; };
-		C49BDBE7974F6333739B639CFBC5DB8A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */; };
 		16E72F47E46466C1D0F72348BC1734D2 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7994394D253D83388739913632BF52F4 /* Button.swift */; };
+		0C8E3ADADA90A660053A1008A441FC97 /* ButtonBarPagerTabStripBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0691A9D83F752CFD960084362FA86BC /* ButtonBarPagerTabStripBaseViewController.swift */; };
 		94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */; };
 		36105E909ADA369CB7D0D1B675FED1F4 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */; };
 		1B7BDC0518E8261BB7E114B238485E0D /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C0A70ADF02A515C554A2A7F65D04D0 /* Double+.swift */; };
@@ -265,8 +265,8 @@
 		74BBB665B16E2FF2F0BE095960FFA33E /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		E683F525A54716C4D6BE56A96EEDCB29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92BBB8BD0C86813D3C7E2DF1A3C1A920 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7994394D253D83388739913632BF52F4 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		C0691A9D83F752CFD960084362FA86BC /* ButtonBarPagerTabStripBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBarPagerTabStripBaseViewController.swift; sourceTree = "<group>"; };
 		6F8D863B4192345379FAA072605B014B /* CAGradientLayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+.swift"; sourceTree = "<group>"; };
 		3556AE9C2F4DBEEEF2277634864736F6 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		00C0A70ADF02A515C554A2A7F65D04D0 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
@@ -725,7 +725,7 @@
 				FA350755E73EE6F25B8E1BC09F37C9AE /* Song */,
 				20CD4E18015C56EA046398F6514DA8D4 /* Top50 */,
 				B970CDD544097EA756329B724C3F86E1 /* Trophy */,
-				091109F5110F4F89963C64B091604CEE /* BaseViewController.swift */,
+				C0691A9D83F752CFD960084362FA86BC /* ButtonBarPagerTabStripBaseViewController.swift */,
 				7684A5E7EAE2568B15BCA4F2AEF65CA2 /* DownloadViewController.swift */,
 				93A63669D5CF070426162547AE2374EB /* GuideViewController.swift */,
 				117BC6C5BE267F11B4EEF031AEA2892E /* InitViewController.swift */,
@@ -1119,8 +1119,8 @@
 				A85CA7512FCCF5A4CD116BCDCD8795A1 /* AchievementViewController.swift in Sources */,
 				9C5BD16964B01CE4E826C0714E7BFB7C /* AppDelegate.swift in Sources */,
 				BE9081C6FD851727989460A4D055C02E /* Assets.swift in Sources */,
-				C49BDBE7974F6333739B639CFBC5DB8A /* BaseViewController.swift in Sources */,
 				16E72F47E46466C1D0F72348BC1734D2 /* Button.swift in Sources */,
+				0C8E3ADADA90A660053A1008A441FC97 /* ButtonBarPagerTabStripBaseViewController.swift in Sources */,
 				94382F584F379628F8CCCEEF51AA8C23 /* CAGradientLayer+.swift in Sources */,
 				36105E909ADA369CB7D0D1B675FED1F4 /* Difficulty.swift in Sources */,
 				1B7BDC0518E8261BB7E114B238485E0D /* Double+.swift in Sources */,

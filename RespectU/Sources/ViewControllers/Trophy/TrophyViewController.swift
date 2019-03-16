@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 /// The trophy view controller.
-final class TrophyViewController: BaseViewController {
+final class TrophyViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The table view controller representing the RESPECT series.
   private lazy var respectTableViewController = TrophyRespectTableViewController()

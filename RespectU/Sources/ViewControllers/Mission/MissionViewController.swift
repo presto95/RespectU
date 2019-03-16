@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 /// The mission view controller.
-class MissionViewController: BaseViewController {
+class MissionViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The table view representing the RESPECT series.
   private lazy var respectTableViewController = MissionRespectTableViewController()

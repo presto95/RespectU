@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 /// The achievement view controller.
-final class AchievementViewController: BaseViewController {
+final class AchievementViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The table view controller about the all types.
   private lazy var allTableViewController =  AchievementAllTableViewController()

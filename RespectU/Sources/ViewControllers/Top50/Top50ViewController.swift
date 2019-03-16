@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 /// The top50 view controller.
-final class Top50ViewController: BaseViewController {
+final class Top50ViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The table view about the 4B.
   private lazy var button4TableViewController = Top504BTableViewController()

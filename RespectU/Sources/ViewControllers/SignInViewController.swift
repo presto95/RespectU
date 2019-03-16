@@ -133,7 +133,7 @@ final class SignInViewController: UIViewController {
   
   /// Tells the `sender` that the sign up button is tapped.
   @objc private func signUpButtonDidTap(_ sender: UIButton) {
-    let controller = StoryboardScene.SignIn.signInViewController.instantiate()
+    let controller = StoryboardScene.SignIn.signUpViewController.instantiate()
     navigationController?.pushViewController(controller, animated: true)
   }
   

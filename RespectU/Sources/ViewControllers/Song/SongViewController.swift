@@ -12,7 +12,7 @@ import RealmSwift
 import XLPagerTabStrip
 
 /// The song view controller.
-final class SongViewController: BaseViewController {
+final class SongViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The label representing the selected button.
   @IBOutlet weak var selectedButtonLabel: UILabel!

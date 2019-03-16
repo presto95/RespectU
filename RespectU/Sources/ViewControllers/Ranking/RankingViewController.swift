@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 /// The ranking view controller.
-final class RankingViewController: BaseViewController {
+final class RankingViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The table view controller representing the 4B.
   private lazy var ranking4bTableViewController = Ranking4BTableViewController()

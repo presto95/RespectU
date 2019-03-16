@@ -12,7 +12,7 @@ import Then
 import XLPagerTabStrip
 
 /// The base view controller to use button bar pager tap strip.
-class BaseViewController: ButtonBarPagerTabStripViewController {
+class ButtonBarPagerTabStripBaseViewController: ButtonBarPagerTabStripViewController {
   
   override func viewDidLoad() {
     setUpButtonBarPagerTabStrip()
@@ -22,10 +22,10 @@ class BaseViewController: ButtonBarPagerTabStripViewController {
   /// Sets up button bar pager tab strip.
   private func setUpButtonBarPagerTabStrip() {
     settings.style.selectedBarHeight = 1
-    settings.style.selectedBarBackgroundColor = .black
+    settings.style.selectedBarBackgroundColor = .black50
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white
-    settings.style.buttonBarItemTitleColor = .black
+    settings.style.buttonBarItemTitleColor = .black50
     settings.style.buttonBarItemsShouldFillAvailiableWidth = true
     settings.style.buttonBarItemFont = UIFont.systemFont(ofSize: 14, weight: .medium)
   }

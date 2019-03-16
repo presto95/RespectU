@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 
 /// The song table view cell.
-final class SongCell: UITableViewCell {
+final class SongCell: UITableViewCell, CellColorizable {
   
   /// The color label representing the series.
   @IBOutlet private weak var colorLabel: UILabel!
@@ -34,8 +34,7 @@ final class SongCell: UITableViewCell {
   /// The maximum difficulty label.
   @IBOutlet private weak var maximumLabel: UILabel!
   
-  /// The all labels.
-  private var allLabel: [UILabel] {
+  var labels: [UILabel] {
     return [
       titleLabel,
       composerLabel,
@@ -88,54 +87,5 @@ final class SongCell: UITableViewCell {
     normalLabel.text = buttonInfo?.normal == 0 ? "-" : "\(buttonInfo?.normal ?? 0)"
     hardLabel.text = buttonInfo?.hard == 0 ? "-" : "\(buttonInfo?.hard ?? 0)"
     maximumLabel.text = buttonInfo?.maximum == 0 ? "-" : "\(buttonInfo?.maximum ?? 0)"
-  }
-  
-  /// Colorizes subviews.
-  ///
-  /// - Parameter series: The specific series.
-  func colorizeSubviews(in series: Series) {
-    DispatchQueue.main.async { [weak self] in
-      guard let self = self else { return }
-      switch series {
-      case .portable1:
-        self.contentView.backgroundColor = .portable1
-        self.allLabel.forEach { $0.textColor = .white }
-      case .portable2:
-        self.contentView.backgroundColor = .portable2
-        self.allLabel.forEach { $0.textColor = .white }
-      case .respect:
-        self.contentView.backgroundColor = .respect
-        self.allLabel.forEach { $0.textColor = .white }
-      case .trilogy:
-        self.contentView.backgroundColor = .trilogy
-        self.allLabel.forEach { $0.textColor = .white }
-      case .ce:
-        self.contentView.backgroundColor = .ce
-        self.allLabel.forEach { $0.textColor = .black50 }
-      case .technika1:
-        self.contentView.backgroundColor = .technika1
-        self.allLabel.forEach { $0.textColor = .white }
-      case .bs:
-        self.contentView.backgroundColor = .bs
-        self.allLabel.forEach { $0.textColor = .white }
-      case .technika2:
-        self.contentView.backgroundColor = .technika2
-        self.allLabel.forEach { $0.textColor = .white }
-      case .technika3:
-        break
-      default:
-        break
-      }
-    }
-  }
-  
-  /// Decolorizes subviews.
-  ///
-  /// Reset all the colors of subviews.
-  func decolorizeSubviews() {
-    DispatchQueue.main.async { [weak self] in
-      self?.contentView.backgroundColor = .white
-      self?.allLabel.forEach { $0.textColor = .black50 }
-    }
   }
 }

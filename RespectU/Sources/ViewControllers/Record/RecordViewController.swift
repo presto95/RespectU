@@ -11,7 +11,7 @@ import UIKit
 import XLPagerTabStrip
 
 /// The record view controller.
-final class RecordViewController: BaseViewController {
+final class RecordViewController: ButtonBarPagerTabStripBaseViewController {
   
   /// The bottom constraint of the scroll view.
   @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!

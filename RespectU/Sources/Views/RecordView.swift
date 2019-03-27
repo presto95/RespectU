@@ -297,9 +297,9 @@ final class RecordView: UIView {
       guard let recordButtonKeyPath
         = recordInfo.value(forKeyPath: buttonExpansion) as? RecordButtonInfo
         else { return }
-      let rank = recordButtonKeyPath.normal?.rank ?? ""
-      let rating = recordButtonKeyPath.normal?.rate ?? 0
-      let note = recordButtonKeyPath.normal?.note ?? ""
+      let rank = recordButtonKeyPath.maximum?.rank ?? ""
+      let rating = recordButtonKeyPath.maximum?.rate ?? 0
+      let note = recordButtonKeyPath.maximum?.note ?? ""
       maximumRankButton.setTitle(rank == "" ? "-" : rank, for: [])
       maximumRatingButton
         .setTitle(rating == 0 ? "-" : String(format: Format.rating, rating), for: [])
